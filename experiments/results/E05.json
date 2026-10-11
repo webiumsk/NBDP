@@ -1,0 +1,263 @@
+{
+  "experiment": "E05",
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "cross-crypto/0",
+      "ok": true,
+      "duration_ms": 39.77574000000004,
+      "data": {
+        "plaintext_bytes": 16,
+        "blob_bytes": 32,
+        "plaintext_sha256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb",
+        "ciphertext_sha256": "1dd5e5ecf009043c6e1f25df18c768979ae8f1662a13bcca2559a296372e7ee0"
+      }
+    },
+    {
+      "name": "cross-crypto/1",
+      "ok": true,
+      "duration_ms": 3.100989000000027,
+      "data": {
+        "plaintext_bytes": 0,
+        "blob_bytes": 16,
+        "plaintext_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ciphertext_sha256": "29e64ffd627911ebd9f1c9e135e45f1b374623c3d26f140ef679bde675eb673b"
+      }
+    },
+    {
+      "name": "cross-crypto/2",
+      "ok": true,
+      "duration_ms": 2.310028999999986,
+      "data": {
+        "plaintext_bytes": 4,
+        "blob_bytes": 20,
+        "plaintext_sha256": "6509423fd9da5c225d2f8619ffae394b40f9f7686fee55a38c54b1424ac65f46",
+        "ciphertext_sha256": "aba67e462b0ef41729c3bb31f1f50b98c4ae2245f20e9f1adb312174d18952c5"
+      }
+    },
+    {
+      "name": "cross-crypto/3",
+      "ok": true,
+      "duration_ms": 1.8548359999999775,
+      "data": {
+        "plaintext_bytes": 31,
+        "blob_bytes": 47,
+        "plaintext_sha256": "d5b5058ef3677c2ffc624980c00098487babaad15d7d99670be767367a78ebe9",
+        "ciphertext_sha256": "f67c9c7bc9c66763f8130447b06c910b5e92020598b6256a42370751e5f2d83c"
+      }
+    },
+    {
+      "name": "cross-crypto/4",
+      "ok": true,
+      "duration_ms": 83.61125900000002,
+      "data": {
+        "plaintext_bytes": 65535,
+        "blob_bytes": 65551,
+        "plaintext_sha256": "6e1bebca6a8229364a162a72ef064826c4cd7457bf54f190ef782bd9deff3e42",
+        "ciphertext_sha256": "b49defb9e6ef426ae9e2dd3f7776820099200e4b7d749726deb22d8d5dab3914"
+      }
+    },
+    {
+      "name": "cross-crypto/5",
+      "ok": true,
+      "duration_ms": 65.07175700000016,
+      "data": {
+        "plaintext_bytes": 65536,
+        "blob_bytes": 65552,
+        "plaintext_sha256": "a0a24a08a87ed054cd2e20aa994bcd25e5266f8c5435011ac4982987f4e3a370",
+        "ciphertext_sha256": "68600f52a87094a047654908ab644af0c5841ce546df1f4e4254cc449d043c67"
+      }
+    },
+    {
+      "name": "reject/ciphertext",
+      "ok": true,
+      "duration_ms": 2.960410000000138
+    },
+    {
+      "name": "reject/tag",
+      "ok": true,
+      "duration_ms": 1.8115060000000085
+    },
+    {
+      "name": "reject/key",
+      "ok": true,
+      "duration_ms": 3.249324999999999
+    },
+    {
+      "name": "reject/nonce",
+      "ok": true,
+      "duration_ms": 3.2970829999999296
+    },
+    {
+      "name": "reject/aad",
+      "ok": true,
+      "duration_ms": 3.142129000000068
+    },
+    {
+      "name": "reject/truncated",
+      "ok": true,
+      "duration_ms": 4.352934000000005
+    },
+    {
+      "name": "reject/appended",
+      "ok": true,
+      "duration_ms": 8.105686999999989
+    },
+    {
+      "name": "reject/short",
+      "ok": true,
+      "duration_ms": 7.267756999999847
+    },
+    {
+      "name": "encoding/upper-key",
+      "ok": true,
+      "duration_ms": 0.4315799999999399
+    },
+    {
+      "name": "encoding/base64-key",
+      "ok": true,
+      "duration_ms": 0.04970800000000963
+    },
+    {
+      "name": "encoding/short-key",
+      "ok": true,
+      "duration_ms": 0.0645049999998264
+    },
+    {
+      "name": "encoding/short-nonce",
+      "ok": true,
+      "duration_ms": 0.046760999999833075
+    },
+    {
+      "name": "commitment-order-and-mirroring",
+      "ok": true,
+      "duration_ms": 0.983210999999983
+    },
+    {
+      "name": "nonce-planner-rejects-distinct-plaintext-reuse",
+      "ok": true,
+      "duration_ms": 0.6972500000001673
+    },
+    {
+      "name": "consumer-reject/wrong-ciphertext-hash",
+      "ok": true,
+      "duration_ms": 7.870110999999952
+    },
+    {
+      "name": "consumer-reject/wrong-plaintext-hash",
+      "ok": true,
+      "duration_ms": 2.18391100000008
+    },
+    {
+      "name": "consumer-reject/wrong-plaintext-size",
+      "ok": true,
+      "duration_ms": 1.8466050000001815
+    },
+    {
+      "name": "existing-producer-16-byte-nonce-not-silently-accepted",
+      "ok": true,
+      "duration_ms": 0.08542800000009265
+    },
+    {
+      "name": "retry-mirror-revision-planning",
+      "ok": true,
+      "duration_ms": 0.1844619999999395,
+      "data": {
+        "retry": "stored ciphertext",
+        "mirror": "identical stored bytes",
+        "revision": "different key/nonce; no unsafe encryption executed"
+      }
+    }
+  ],
+  "observations": [
+    {
+      "producer_inspection": "results/producer-profile-evidence.md",
+      "sha256": "72f61c570854611e29f75e4bbdf20a09092507dcb1c333f19d2270c967253fa3",
+      "evidence_type": "pinned source inspection, no Amethyst runtime"
+    },
+    {
+      "known_answer_source": "https://boringssl.googlesource.com/boringssl/+/e8c862cf1421/crypto/cipher/test/aes_256_gcm_tests.txt",
+      "browser_version": "151.0.7922.137",
+      "requests": [
+        "http://127.0.0.1:41345/"
+      ],
+      "profile": {
+        "key_bytes": 32,
+        "nonce_bytes": 12,
+        "tag_bytes": 16,
+        "aad": "empty",
+        "layout": "ciphertext || tag",
+        "encoding": "lowercase hex"
+      },
+      "producers": [
+        "browser Web Crypto candidate",
+        "Node OpenSSL EVP candidate"
+      ],
+      "thumbnails": "not implemented",
+      "ecosystem_compatibility": "not established by crypto-only test"
+    }
+  ],
+  "skipped": [],
+  "started_at": "2026-10-11T07:47:27.452Z",
+  "duration_ms": 1513,
+  "command": "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node /home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/run.mjs E05",
+  "exit_status": 0,
+  "environment": {
+    "node": "v22.18.0",
+    "openssl": "3.0.16",
+    "chrome": "Google Chrome 151.0.7922.137",
+    "os": "linux",
+    "release": "7.1.5-76070105-generic",
+    "arch": "x64",
+    "cpu": "Intel(R) Core(TM) Ultra 7 155H",
+    "resource_usage": {
+      "userCPUTime": 1125790,
+      "systemCPUTime": 108690,
+      "maxRSS": 156916,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 36082,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 1032,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 667,
+      "involuntaryContextSwitches": 97
+    },
+    "memory": {
+      "rss": 157261824,
+      "heapTotal": 86761472,
+      "heapUsed": 51646152,
+      "external": 4075083,
+      "arrayBuffers": 369198
+    },
+    "rust_binary_sha256": "ecd1c1ab446782e263ae9e606117486b25d79b16732de5c4fac97e78b31699d9",
+    "rust_binary": "/tmp/nbdp-005-rust-target/debug/nbdp-experiment-rust"
+  },
+  "source_sha256": {
+    "fixtures/nip44.vectors.json": "eae34c1d4eff1b58b448627d3310e495f7f0722ca6668296e7c31e88edf18171",
+    "package.json": "229e43f88fa8cbfbb3680dd405726997d7e2a611df106373f7751fdae49e55b4",
+    "shared/rust/Cargo.toml": "0efa262a02cb1632861bdf043c0c6753e398e40a6fe93c900ab10af1b6846fff",
+    "shared/rust/rust-toolchain.toml": "9cbde07377abdce69bc9580adb0315d52e2a09d6494a2005550a7e6733d9688b",
+    "docker/strfry.conf": "002d1bb656522dd3e6739ea20e82829fd96bfdefb389f0517eab9367c0bdf2e2",
+    "docker/rs-relay.toml": "6775940c6258e2714a2a60793584ae549a50111154c743045a87d679af9a0b02",
+    "results/producer-profile-evidence.md": "72f61c570854611e29f75e4bbdf20a09092507dcb1c333f19d2270c967253fa3",
+    "shared/run.mjs": "71f749240adb43b2dc92863f19a60d101a09365b0ca7976c1d55b238dc13e107",
+    "shared/evidence.mjs": "82750f33ddb00a246188705f5b16267eead2d08c4eb8b0ae7e3d7bf8416d6328",
+    "shared/rust-client.mjs": "9e98ca21825313a54ab20c44ab00049f7d19ecafe268dde55dcd556f33b757d8",
+    "shared/attachment-crypto.mjs": "e52aaa588b4ff6315bbc7ebc08b2d8786965687e18c6c9f56a75d4b08cc05f16",
+    "shared/correlation.mjs": "47e6b4d203304404e318fda4d84226ed1a1b055abb566a39181090f2673f51e8",
+    "shared/discovery.mjs": "a9a27dc188aed6284169751521b65c89da4a7052bfb2f9127f2c893ff17dfa23",
+    "shared/relay.mjs": "03d301607b797599fafbd788a1073a554cb698019cf52533a7ce6e65dbccc92b",
+    "shared/transport.mjs": "0c6f43c1f17b6b898b05cebb72f43dfacf19cfbb2203bbd2d4c7676abf39fb18",
+    "shared/rust/src/main.rs": "95e05dde513e57d5e32830e8639632f34627bb34239c7e5916096fd3686edcba",
+    "shared/candidate-profile.md": "d0c49184fc3c11e3f37c914dba222216222335f7ea799efe38a03f768aaa0772",
+    "e05-attachment-crypto/test.mjs": "e5b0e7f728c2a775497f33ab97eb686ffaabc3c54877baec877acf1281536254",
+    "package-lock.json": "9c8d77e625a0d061b8c5d10de043980f523699d2f1c630e748351af5d98005b5",
+    "shared/rust/Cargo.lock": "f0fde33925f824f1d17699375b7842b2f8979da7e3ace918fd9364329e80f02f"
+  }
+}

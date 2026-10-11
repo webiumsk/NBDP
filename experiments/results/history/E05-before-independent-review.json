@@ -1,0 +1,213 @@
+{
+  "experiment": "E05",
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "cross-crypto/0",
+      "ok": true,
+      "duration_ms": 92.91806199999974,
+      "data": {
+        "plaintext_bytes": 16,
+        "blob_bytes": 32,
+        "plaintext_sha256": "374708fff7719dd5979ec875d56cd2286f6d3cf7ec317a3b25632aab28ec37bb",
+        "ciphertext_sha256": "1dd5e5ecf009043c6e1f25df18c768979ae8f1662a13bcca2559a296372e7ee0"
+      }
+    },
+    {
+      "name": "cross-crypto/1",
+      "ok": true,
+      "duration_ms": 15.915937000000213,
+      "data": {
+        "plaintext_bytes": 0,
+        "blob_bytes": 16,
+        "plaintext_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "ciphertext_sha256": "29e64ffd627911ebd9f1c9e135e45f1b374623c3d26f140ef679bde675eb673b"
+      }
+    },
+    {
+      "name": "cross-crypto/2",
+      "ok": true,
+      "duration_ms": 6.435609999999997,
+      "data": {
+        "plaintext_bytes": 4,
+        "blob_bytes": 20,
+        "plaintext_sha256": "6509423fd9da5c225d2f8619ffae394b40f9f7686fee55a38c54b1424ac65f46",
+        "ciphertext_sha256": "aba67e462b0ef41729c3bb31f1f50b98c4ae2245f20e9f1adb312174d18952c5"
+      }
+    },
+    {
+      "name": "cross-crypto/3",
+      "ok": true,
+      "duration_ms": 7.992252000000008,
+      "data": {
+        "plaintext_bytes": 31,
+        "blob_bytes": 47,
+        "plaintext_sha256": "d5b5058ef3677c2ffc624980c00098487babaad15d7d99670be767367a78ebe9",
+        "ciphertext_sha256": "f67c9c7bc9c66763f8130447b06c910b5e92020598b6256a42370751e5f2d83c"
+      }
+    },
+    {
+      "name": "cross-crypto/4",
+      "ok": true,
+      "duration_ms": 247.1932800000004,
+      "data": {
+        "plaintext_bytes": 65535,
+        "blob_bytes": 65551,
+        "plaintext_sha256": "6e1bebca6a8229364a162a72ef064826c4cd7457bf54f190ef782bd9deff3e42",
+        "ciphertext_sha256": "b49defb9e6ef426ae9e2dd3f7776820099200e4b7d749726deb22d8d5dab3914"
+      }
+    },
+    {
+      "name": "cross-crypto/5",
+      "ok": true,
+      "duration_ms": 184.66606699999966,
+      "data": {
+        "plaintext_bytes": 65536,
+        "blob_bytes": 65552,
+        "plaintext_sha256": "a0a24a08a87ed054cd2e20aa994bcd25e5266f8c5435011ac4982987f4e3a370",
+        "ciphertext_sha256": "68600f52a87094a047654908ab644af0c5841ce546df1f4e4254cc449d043c67"
+      }
+    },
+    {
+      "name": "reject/ciphertext",
+      "ok": true,
+      "duration_ms": 4.4037130000001525
+    },
+    {
+      "name": "reject/tag",
+      "ok": true,
+      "duration_ms": 1.8451399999999012
+    },
+    {
+      "name": "reject/key",
+      "ok": true,
+      "duration_ms": 3.058781000000181
+    },
+    {
+      "name": "reject/nonce",
+      "ok": true,
+      "duration_ms": 3.902824999999666
+    },
+    {
+      "name": "reject/aad",
+      "ok": true,
+      "duration_ms": 3.488166000000092
+    },
+    {
+      "name": "reject/truncated",
+      "ok": true,
+      "duration_ms": 8.412867000000006
+    },
+    {
+      "name": "reject/appended",
+      "ok": true,
+      "duration_ms": 13.57858699999997
+    },
+    {
+      "name": "reject/short",
+      "ok": true,
+      "duration_ms": 21.40323400000034
+    },
+    {
+      "name": "encoding/upper-key",
+      "ok": true,
+      "duration_ms": 0.23450899999988906
+    },
+    {
+      "name": "encoding/base64-key",
+      "ok": true,
+      "duration_ms": 0.018695000000207074
+    },
+    {
+      "name": "encoding/short-key",
+      "ok": true,
+      "duration_ms": 0.030833000000257016
+    },
+    {
+      "name": "encoding/short-nonce",
+      "ok": true,
+      "duration_ms": 0.0221969999997782
+    },
+    {
+      "name": "commitment-order-and-mirroring",
+      "ok": true,
+      "duration_ms": 0.5063350000000355
+    },
+    {
+      "name": "nonce-planner-rejects-distinct-plaintext-reuse",
+      "ok": true,
+      "duration_ms": 0.27204100000017206
+    }
+  ],
+  "observations": [
+    {
+      "known_answer_source": "https://boringssl.googlesource.com/boringssl/+/e8c862cf1421/crypto/cipher/test/aes_256_gcm_tests.txt",
+      "browser_version": "151.0.7922.137",
+      "requests": [
+        "http://127.0.0.1:35767/"
+      ],
+      "profile": {
+        "key_bytes": 32,
+        "nonce_bytes": 12,
+        "tag_bytes": 16,
+        "aad": "empty",
+        "layout": "ciphertext || tag",
+        "encoding": "lowercase hex"
+      },
+      "producers": [
+        "browser Web Crypto candidate",
+        "Node OpenSSL EVP candidate"
+      ],
+      "thumbnails": "not implemented",
+      "ecosystem_compatibility": "not established by crypto-only test"
+    }
+  ],
+  "skipped": [],
+  "started_at": "2026-10-11T00:24:13.515Z",
+  "duration_ms": 3464,
+  "command": "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node /home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/run.mjs E05",
+  "exit_status": 0,
+  "environment": {
+    "node": "v22.18.0",
+    "openssl": "3.0.16",
+    "chrome": "Google Chrome 151.0.7922.137",
+    "os": "linux",
+    "release": "7.1.5-76070105-generic",
+    "arch": "x64",
+    "cpu": "Intel(R) Core(TM) Ultra 7 155H",
+    "resource_usage": {
+      "userCPUTime": 2674258,
+      "systemCPUTime": 372478,
+      "maxRSS": 476408,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 38492,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 1032,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 711,
+      "involuntaryContextSwitches": 135
+    },
+    "memory": {
+      "rss": 159215616,
+      "heapTotal": 87023616,
+      "heapUsed": 52929864,
+      "external": 4010026,
+      "arrayBuffers": 304141
+    },
+    "rust_binary": "/tmp/nbdp-005-rust-target/debug/nbdp-experiment-rust"
+  },
+  "source_sha256": {
+    "shared/transport.mjs": "83e9c4288a6a277223334fbf67c0be241cdb6e5ae01b87dc989b7fafe2873457",
+    "shared/rust/src/main.rs": "7ee0a61ff03e25f777f68b2da36874fb3923d5fa6d82f1de863deaae5e2d453d",
+    "shared/candidate-profile.md": "0bae3d2d7700c414a2c915abb208be321e2cca322d9274eacba44fe19fd4770d",
+    "e05-attachment-crypto/test.mjs": "4e8b3b342201c7e6153dba7c2269c46fc50808579ae465beaa4b02d703970692",
+    "package-lock.json": "9c8d77e625a0d061b8c5d10de043980f523699d2f1c630e748351af5d98005b5",
+    "shared/rust/Cargo.lock": "f0fde33925f824f1d17699375b7842b2f8979da7e3ace918fd9364329e80f02f"
+  }
+}
