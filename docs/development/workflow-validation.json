@@ -1,0 +1,163 @@
+{
+  "installed_cli": "0.162.1",
+  "strict_probe": {
+    "exit_status": 0,
+    "rpc_config_read": true,
+    "negative_exit_status": 1,
+    "unknown_field_rejected": true,
+    "reproducible_helper": "scripts/probe-codex-config.py",
+    "api_key_environment_excluded": true,
+    "latest_helper_temp_home_removed": true,
+    "failure_cleanup": "TemporaryDirectory and finally with bounded terminate/kill/wait"
+  },
+  "effective_project_settings": {
+    "agents": {
+      "enabled": true,
+      "max_concurrent_threads_per_session": 5
+    },
+    "features": {
+      "multi_agent": true
+    }
+  },
+  "user_configuration_unchanged": true,
+  "tools": {
+    "git": {
+      "available": true,
+      "version": "git version 2.43.0",
+      "exit_status": 0
+    },
+    "gh": {
+      "available": true,
+      "version": "gh version 2.93.0 (2026-05-27)",
+      "exit_status": 0
+    },
+    "python3": {
+      "available": true,
+      "version": "Python 3.13.12",
+      "exit_status": 0
+    },
+    "node": {
+      "available": true,
+      "version": "v22.18.0",
+      "exit_status": 0
+    },
+    "npm": {
+      "available": true,
+      "version": "11.17.0",
+      "exit_status": 0
+    },
+    "docker": {
+      "available": true,
+      "version": "Docker version 29.9.0, build f415da8",
+      "exit_status": 0
+    },
+    "openssl": {
+      "available": true,
+      "version": "OpenSSL 3.6.1 27 Jan 2026 (Library: OpenSSL 3.6.1 27 Jan 2026)",
+      "exit_status": 0
+    },
+    "cargo": {
+      "available": false
+    },
+    "rustc": {
+      "available": false
+    },
+    "codex": {
+      "available": true,
+      "version": "codex-cli 0.162.1",
+      "exit_status": 0
+    }
+  },
+  "skills_validation": {
+    "interpreter": "/usr/bin/python3",
+    "PyYAML": "6.0.1",
+    "five_skill_checks": "PASS"
+  },
+  "configured_mcp": [
+    {
+      "name": "openaiDeveloperDocs",
+      "url": "https://developers.openai.com/mcp",
+      "configured": true,
+      "auth_status": "unknown",
+      "dedicated_tool_exposed_in_current_session": false,
+      "reachability": "Not established: restricted DNS/connectivity"
+    }
+  ],
+  "live_tool_groups": [
+    "local execution and GitHub CLI",
+    "GitHub/app connector tools",
+    "collaboration subagent tools",
+    "web retrieval",
+    "other app tools unused"
+  ],
+  "limitations": [
+    "No current-session custom-role hotreload claim",
+    "No NBDP experiment execution",
+    "Normal Git discovery unavailable due to readonly empty .git mount",
+    "Temporary diagnostic config home has no user credentials; only scratch trust granted"
+  ],
+  "live_smoke": {
+    "task": "/root/workflow_qa_smoke",
+    "status": "PASS",
+    "real_spawn": true,
+    "instructions_explicitly_read": ".codex/agents/qa.toml",
+    "validation_process_exit": 0,
+    "files_hashed": 34,
+    "changed_files": [],
+    "no_native_role_hot_reload_claim": true
+  },
+  "project_validation": {
+    "status": "PASS",
+    "roles": {
+      "architect": "architect.toml",
+      "implementer": "implementer.toml",
+      "qa": "qa.toml",
+      "researcher": "researcher.toml",
+      "security": "security.toml"
+    },
+    "skills": [
+      "experiment-gates",
+      "project-resume",
+      "protocol-review",
+      "research-evidence",
+      "review-handoff"
+    ],
+    "preserved_evidence_files": 85,
+    "preserved_original_prefixes": 5,
+    "markdown_files": 10,
+    "errors": []
+  },
+  "source_sha256": {
+    ".codex/config.toml": "2e49e73d883412a6e1bc67a55ac73beecd404f962b7cbcd95983e95fe44c831f",
+    ".codex/agents/implementer.toml": "0f71e63e39757993c77a0e72e7e4c0642354a19dfd3a56ab5eb4b3007ff08b81",
+    ".codex/agents/security.toml": "f622716031e48db930fca0de1562cf3bb9fee73bb2686145a50ff5f7d126770e",
+    ".codex/agents/architect.toml": "5732e446b064902daee491a92e0d033c12eb5f10e898c1586f1621ed68eccf2b",
+    ".codex/agents/qa.toml": "52a97d08f2f1915ba5f8f74cb8dc54be697d5d5452287db4a32e4a882fc4dae2",
+    ".codex/agents/researcher.toml": "e0439b81bfd2c8d3df14a9f20ee422d8b53230332983eca82533cea96c8c3430",
+    ".agents/skills/project-resume/SKILL.md": "7fa8bca3be67529fefee4ccd9e1782a939ca8cdee1d1ff1d1797633c8b96b0be",
+    ".agents/skills/research-evidence/SKILL.md": "05a2b47143de241bbe606d2ba47fd198f53fb57e37a187c69d8ca1137f04a53c",
+    ".agents/skills/review-handoff/SKILL.md": "72583a514f8440ab990c1e5f63e95fa2e0fa476457392859a42266f09cc5318e",
+    ".agents/skills/experiment-gates/SKILL.md": "84a7e3a5815782451e13f871a91c55ea70b2ef697c2f14239df7af433b8a6d5c",
+    ".agents/skills/protocol-review/SKILL.md": "439def2272b0ace77fb7220887ebf300afc686e43e3c3cb5e87fef4e4073fb8d",
+    ".agents/skills/experiment-gates/agents/openai.yaml": "3a63882c88cfeffa1ffd4369c6189047b7835d2175fe6cb85be9a9ea9b49e167",
+    ".agents/skills/review-handoff/agents/openai.yaml": "57eecfb3d5a98f11a387da5324a12870523112b2cd07349d7afde5518e5e04e8",
+    ".agents/skills/research-evidence/agents/openai.yaml": "7be77105b318ec2b5d55004105fbdeefd369ed4d2441e036a02dafb7bf0a6bc6",
+    ".agents/skills/project-resume/agents/openai.yaml": "05013744bf1f7bfa1146bfc8ac00b2c7eacf62adfd6af9e099108f3a591c04ac",
+    "scripts/probe-codex-config.py": "976ada327d5fa1181414cabc78667041b256292247d22686d13a7028e6f61159",
+    "scripts/validate-workflow.py": "9c2a131150959b20d4b8deb6231a1373ac1f2ddedc9cbb7b73f69e92c347743a",
+    "AGENTS.md": "965f718850fb53708b5c941f6b0665ffb83cdb7f6c9f0fcbe06d571b10355e1e"
+  },
+  "publication": {
+    "status": "pending",
+    "branch": "feature/persistent-multi-agent-workflow",
+    "base": "research/po-decisions-e01-e06",
+    "research_dependency": "https://github.com/webiumsk/NBDP/pull/1"
+  },
+  "independent_review": {
+    "task": "/root/workflow_qa_smoke",
+    "validator_exit_status": 0,
+    "initial_result": "PASS with low-severity helper cleanup finding",
+    "remediation": "Helper now cleans temporary home and stops diagnostic child in failure paths; coordinator rerun exit 0",
+    "remediation_review": "Confirmed remediated by independent source review; no independent strict probe or fault injection"
+  }
+}

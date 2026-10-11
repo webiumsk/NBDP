@@ -12,3 +12,11 @@ Updated 2026-10-11. This document was absent at NBDP-005 start. It preserves [ca
 | 6 | Assess SDK gate | Relevant G0/G1/G2 evidence complete, blockers resolved with evidence and explicit G3 authorization | No SDK implementation currently authorized |
 
 Portable document proof/E14 signature extension is deferred under PO-005; baseline key continuity/capability E14 work remains necessary. A separately versioned stronger security profile may be researched later with E16; static NIP-44 has no FS/PCS. No mandatory Peppol, government, Satflux, Evolu, registry, host or central coordinator is introduced by this roadmap. Deployment, integration and compliance implementations are outside the current task.
+
+## Development workflow support
+
+The [persistent Codex workflow](development/codex-workflow.md) supplies project-local roles,
+skills, resume and independent review for these existing milestones. Its feature branch
+and stacked PR change development coordination only. Workflow validation uses configuration,
+documentation and read-only delegation checks; it must not trigger NBDP experiment runs.
+Current approval, Q/E identifiers and every milestone's evidence gate remain unchanged.

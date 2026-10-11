@@ -9,3 +9,22 @@ Option B is **Conditionally Accepted — Architecture Direction Only** under [PO
 Q01/Q08/Q13/Q15/Q27 remain BLOCKER. [Risk register](research/architecture-risk-register.md) preserves all Q01–Q27: 3 DECIDED, 12 RFC_REQUIRED, 7 EXPERIMENT_REQUIRED, 5 BLOCKER. [Canonical plan](research/required-experiments.md) retains E01–E16. Parallel device authority is required; the prior single-active proposal is superseded. [Current candidate](research/multi-device-authority-design.md) needs signed authority/causal records and independent later concurrency tests.
 
 Immediate milestone: finish E02 ordinary-client evidence, then E04 and E06 with reviewed profile assumptions. [Roadmap](ROADMAP.md) lists subsequent gates. RFC drafting may begin in qualified areas; production SDK work cannot. The dedicated research branch/PR is for review only and must not merge automatically.
+
+## Persistent workflow setup — 2026-10-11
+
+The current assignment is project-local multi-agent orchestration only, on
+`feature/persistent-multi-agent-workflow`, based on NBDP-005 commit
+`caa856c9881d2d7e58e63515820b7521a89cbe2b`. [PR #1](https://github.com/webiumsk/NBDP/pull/1)
+is the unmerged research dependency. The workflow PR is stacked onto that research
+branch; it does not accept or merge the architecture.
+
+Root AGENTS guidance, five specialist definitions, reusable project-local skills and
+[session workflow documentation](development/codex-workflow.md) establish future resume
+and handoff behavior. [Validation report](development/workflow-validation.md) records
+schema/discovery checks, real read-only delegation, preservation and tool limitations.
+User-level configuration and the active conversation are preserved. No NBDP experiment
+is run or modified for this setup; the previously recorded results above remain historical.
+
+After workflow review, the protocol milestone remains the existing E02 control → E04 → E06
+sequence. A new session must confirm the user's task scope and approval gates before
+executing it. Q01/Q08/Q13/Q15/Q27 remain blockers; production SDK is unauthorized.
