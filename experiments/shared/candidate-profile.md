@@ -1,4 +1,4 @@
-# Frozen experimental candidate — NBDP-005, revision 1
+# Frozen experimental candidate — NBDP-005, revision 2
 
 This is a test contract, not an approved wire specification. It covers Q04/Q06/Q07/Q08/Q09/Q10/Q27. Kinds and cryptography retain existing NIP meanings. Canonical specifications pin NIPs [a79e21d90fce5465b50ef385dd368bba99ec4a0b](https://github.com/nostr-protocol/nips/tree/a79e21d90fce5465b50ef385dd368bba99ec4a0b).
 
@@ -8,7 +8,7 @@ Persistent kind 1059, one exact `p` routing tag, NIP-44 v2, signed kind 13 with 
 
 Default candidate complete EVENT frame cap: 16,384 UTF-8 bytes; testing can separately sweep beyond it with a declared lab cap. JSON nesting <=32, inner tags <=64, string-only tag cells, integer timestamps/kinds, exact known event fields, no duplicate object keys. Check these before using parsed fields. Envelope is UTF-8 JSON text; no JSON canonicalization of original document bytes. Separate ordinary chat from recognized `protocol: "NBDP/experiment"`, `version: 1`, `type: "document"` envelopes. Unsupported discriminators do not dispatch; unsupported mandatory versions/features fail explicitly. No NIP-04/plaintext fallback.
 
-Envelope fields: `protocol`, `version`, `type`, 64-lowercase-hex random/test `id`, `from`, `to`, `context: "synthetic"`, `required: []`, `document: {id, revision, sha256, bytes, media}`, optional `files: []` and bounded `note`. Sender/from and recipient/to bind to authenticated rumor/seal and inner tags. Document ID/revision/hash/length are required; hash covers exact original bytes, not an invoice's semantic interpretation. A hash is not a signature or company authority.
+Envelope fields: `protocol`, `version`, `type`, 64-lowercase-hex random/test `id`, `from`, `to`, `context: "synthetic"`, `required: []`, `document: {id, revision, sha256, bytes, media}`, optional `files: []` and bounded `note`. Sender/from and recipient/to bind to authenticated rumor/seal and inner tags. Document ID/revision/hash/length are required; revisions and counts are nonnegative safe integers (revision >=1), numeric JSON tokens use integer spelling, no exponent/fraction/negative-zero syntax; optional files has <=16 entries of exact {x, ox, size}, 64-lowercase-hex hashes and canonical decimal blob size 16..1048592; an empty files array signifies no attached blob in this experiment; hash covers exact original bytes, not an invoice's semantic interpretation. A hash is not a signature or company authority.
 
 ## Attachment candidate
 
