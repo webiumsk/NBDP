@@ -1,12 +1,20 @@
 # ADR 0001: Transport selection for NBDP v0.1
 
-- **Status:** Proposed
-- **Work item:** NBDP-004
+- **Status:** Conditionally Accepted — Architecture Direction Only
+- **Work item:** NBDP-004; approval and experiments NBDP-005
 - **Date:** 2026-10-11
 - **Decision owner:** Product Owner, with Protocol Architect and Security Reviewer
 - **Recommendation:** Option B, conditionally; implementation is not approved
 - **Confidence:** Moderate in architectural direction; low in demonstrated runtime interoperability
 - **Canonical questions:** Q01–Q27 in [open-questions.md](../docs/research/open-questions.md)
+
+## Current approval — NBDP-005
+
+[PO-001–PO-006](../docs/decisions/PRODUCT_OWNER_DECISIONS_2026-10-11.md) approve Option B's direction conditionally. Exact wire format is **not approved**; kind 14/15 interoperability is **not proven**. Q01/Q08/Q13/Q15/Q27 remain BLOCKER. SDK implementation, release and production use are **not approved**. E01–E06 isolated synthetic experiments are authorized; their results must satisfy the original [canonical plan](../docs/research/required-experiments.md). No new NIP or event kind is authorized.
+
+PO-002 accepts no mandatory FS/PCS for the v0.1 baseline; it does not approve the complete threat model. PO-003 sets H=7 days offline and relay/blob test retention R=10 days, as experimental objectives only. PO-004 requires decentralized parallel authorized-device business decisions and rejects the earlier single-active-authority proposal. PO-005 defers portable document proof, preserving baseline transport authentication and commitments. PO-006 retains security and SDK gates.
+
+The NBDP-004 source inspections below remain historical evidence, not runtime results. Original text is available at [baseline commit](https://github.com/webiumsk/NBDP/blob/00a5bfbb5656f2a82c0fb9a746c5137c9ea7f3ce/adr/0001-transport-selection.md). Later evidence is reported separately; conditional acceptance never implies final carrier/profile approval.
 
 ## Context and scope
 
@@ -74,7 +82,7 @@ All comparisons are architectural reasoning from [NIP-01][N01], [NIP-17][N17], [
 | Deployment | Existing DM infrastructure | New application clients, same relay-visible kinds | C1 no wire rollout; C2 client rollout; C3 infrastructure rollout |
 | Long-term maintainability | Business conventions drift | Versioned application layer decoupled from integrations | C1 could improve discoverability; C2/C3 expand compatibility obligations |
 
-**Selected proposed direction: B.** A fails the project's independent machine business-interoperability objective. There is presently no demonstrated reason to add inner kinds and no relay-level requirement for new outer kinds. NIP-78's storage kinds explicitly discourage generic cross-application interchange, so they are not a substitute carrier [NIP-78][N78]. NIP-89 handler announcements do not resolve encrypted capability negotiation [NIP-89][N89].
+**Conditionally approved direction: B (PO-001).** A fails the project's independent machine business-interoperability objective. There is presently no demonstrated reason to add inner kinds and no relay-level requirement for new outer kinds. NIP-78's storage kinds explicitly discourage generic cross-application interchange, so they are not a substitute carrier [NIP-78][N78]. NIP-89 handler announcements do not resolve encrypted capability negotiation [NIP-89][N89].
 
 ## Selected architecture and profile scope
 
@@ -98,21 +106,21 @@ Assume standard cryptographic primitives implemented correctly through reviewed 
 
 ### Forward secrecy and alternative security profiles
 
-Propose **not making cryptographic forward secrecy mandatory in the initial v0.1 baseline**, subject to explicit Product Owner/security approval of Q01. Retained ciphertext and sender self-copies expose historical documents after relevant key compromise. Deleting relayed copies or rotating static keys does not retroactively provide forward secrecy [NIP-44][N44].
+PO-002 approves **not making cryptographic forward secrecy mandatory in the initial v0.1 baseline**. The complete Q01 threat model and security review remain blocking. The earlier request for Product Owner approval of this specific tradeoff is superseded. Retained ciphertext and sender self-copies expose historical documents after relevant key compromise. Deleting relayed copies or rotating static keys does not retroactively provide forward secrecy [NIP-44][N44].
 
 MLS supplies standardized asynchronous group FS/PCS, conditioned on secret deletion and processed key updates; its epoch/membership state and delayed-message retention add recovery/implementation complexity [RFC 9420, §§9.2, 15.3, 16.6][MLS]. Marmot's pinned specification uses MLS with Nostr identity [Marmot][MSPEC], but this review has not established independent NBDP-compatible runtime implementations. A future optional security profile requires separate evidence for device admission, offline recovery, key deletion, archive policy and downgrade prevention. If Q01 makes FS mandatory, revisit the baseline now rather than labeling static ECDH forward-secret. This is a product/security tradeoff, not evidence that added complexity makes MLS insecure.
 
 ### Portable proof
 
-Baseline authentication is seal authentication to the peer plus exact document commitments. Neither a naked unsigned rumor nor a document digest is a portable signature or company authorization proof [NIP-59][N59], [NIP-01][N01]. Recommend a separately versioned optional signed-document profile using an existing standard signature algorithm, with precise signed bytes/domain separation, identity context, verification and canonicalization policy. Preserve original bytes; never silently normalize them before checking a digest. Legal recognition is explicitly not asserted. Signing deliberately changes deniability for that object; Q05 remains RFC_REQUIRED.
+Baseline authentication is seal authentication to the peer plus exact document commitments. Neither a naked unsigned rumor nor a document digest is a portable signature or company authorization proof [NIP-59][N59], [NIP-01][N01]. **Superseded scope recommendation:** NBDP-004 recommended a separately versioned optional signed-document profile with precise signed bytes/domain separation, identity context, verification and canonicalization. **PO-005 defers that mechanism**; extensibility and accurate baseline-authentication disclosures remain required. Preserve original bytes; never silently normalize them before checking a digest. Legal recognition is explicitly not asserted. Signing deliberately changes deniability for that object; Q05 remains RFC_REQUIRED.
 
 ### Multi-device, replay and availability boundaries
 
-Recommend technical receipts accumulate authenticated assertions of facts; validating their issuer and bindings does not prove remote honesty. Contradictory business decisions produce a deterministic conflict/quarantine outcome, not a timestamp winner. For v0.1, propose one active business-decision authority per action scope, with observers permitted, and idempotent effects within each explicitly coordinated consumer domain. Two disconnected clients sharing a key cannot guarantee one global effect. Device revocation cannot distinguish possession of the same account secret; independent device keys/delegation require Q17/Q26 rules. Q15 remains BLOCKER until scope/authority and runtime evidence are approved.
+Recommend technical receipts accumulate authenticated assertions of facts; validating their issuer and bindings does not prove remote honesty. Contradictory business decisions produce a deterministic conflict/quarantine outcome, not a timestamp winner. **Superseded by PO-004:** NBDP-004 proposed one active business-decision authority per action scope, with observers permitted. The approved end-state instead requires multiple authorized devices to decide concurrently, without a mandatory central coordinator. Per-device authority, signed grants/revocations, causal conflicts and recoverable deterministic merges need [design and later independent tests](../docs/research/multi-device-authority-design.md). Idempotent effects must be scoped to the actual consumer domain; this is not a permission to revert to a single-writer protocol. Two disconnected clients sharing a key cannot guarantee one global effect. Device revocation cannot distinguish possession of the same account secret; independent device keys/delegation require Q17/Q26 rules. Q15 remains BLOCKER until scope/authority and runtime evidence are approved.
 
 Use stable application IDs, exact operation commitments, durable replay records and at-least-once attempts. New wrappers do not create new business operations. Restore of stale replay records suspends effects until reconciliation. Receipt loss leaves sender outcome unknown; retry limits may terminate attempts without claiming rejection. These are proposals grounded in [NIP-01 IDs/OK][N01], [NIP-17][N17] and [NIP-59 wrapping][N59].
 
-Q13 must set an offline horizon and retention assumptions; a lab candidate is 7 days offline, 10 days retention and a 2-day timestamp-jitter window plus agreed skew. These are proposed experiment parameters, not Nostr guarantees, legal archive durations or approved service levels. No surviving copies means no recovery, regardless of kind selection.
+PO-003 sets the experimental objective to 7 days offline and 10 days relay/blob retention; a 2-day timestamp-jitter window and declared skew remain lab assumptions. These are not Nostr guarantees, legal archive durations or approved service levels; Q13 remains BLOCKER until appropriate runtime and operational evidence exists. No surviving copies means no recovery, regardless of kind selection.
 
 ## Question classification and gates
 
@@ -166,11 +174,11 @@ Optional portable document signatures can be a later independently reviewed prof
 
 A is rejected for the complete automated protocol, while remaining a useful human exchange comparison. C1 is deferred as a publication decision; it could codify the same architecture later. C2 is deferred pending Q06/Q24 carrier evidence. C3 has no demonstrated relay-level requirement and is excluded from this stage (Q25). Mandatory NIP-96, NIP-78 interchange, custom cryptography, automatic compliance reporting and centrally issued identities are excluded.
 
-Revisit the architecture if FS becomes mandatory; independent kind 14/15 exchange cannot preserve the required semantics; exact safe kind 15 bytes conflict with deployed conventions; required manifests cannot fit interoperable bounds; offline objectives require unsupported infrastructure; single-authority multi-device scope is unacceptable; or independent implementations cannot agree on validation/recovery. A runtime failure may call for RFC changes before kind changes; failure of retention does not by itself justify a new event kind.
+Revisit the architecture if FS becomes mandatory; independent kind 14/15 exchange cannot preserve the required semantics; exact safe kind 15 bytes conflict with deployed conventions; required manifests cannot fit interoperable bounds; offline objectives require unsupported infrastructure; parallel authority/revocation/conflict requirements cannot be met safely; or independent implementations cannot agree on validation/recovery. A runtime failure may call for RFC changes before kind changes; failure of retention does not by itself justify a new event kind.
 
-## Product Owner approval and stopping point
+## Historical approval checklist — superseded by PO-001–PO-006
 
-The Product Owner must explicitly approve:
+The following NBDP-004 checklist is retained as historical context. Current approval boundaries are the [decision record](../docs/decisions/PRODUCT_OWNER_DECISIONS_2026-10-11.md); item 4 was rejected, item 5 deferred, and items 1–3/7 conditionally authorized in the scope stated there:
 
 1. The conditional B direction and bilateral kind 14 plus existing kind 15 scope, pending experiments.
 2. Q01: baseline without FS/PCS, the disclosed recipient/traffic risks and permitted sensitivity/use cases.
@@ -180,7 +188,7 @@ The Product Owner must explicitly approve:
 6. Attachment risk treatment: omit thumbnails, resolve Q08/Q27 before file implementation; do not choose byte encodings merely by preference.
 7. The independent conformance/security experiment budget and RFC review gates before SDK work.
 
-Approval of drafting does not accept the ADR, waive blockers, authorize production code, or establish legal signature/delivery recognition. Status remains **Proposed**. Stop at documentation; no experiments, deployments, integrations, upstream NIP proposals or SDK implementation are authorized by this ADR.
+The historical documentation-only stopping point applied to NBDP-004. NBDP-005 now authorizes E01–E06 isolated experiments and a PR, while keeping security blockers, normative/release/SDK gates, and the prohibitions on deployments, integrations, upstream NIP proposals and new event kinds. The current ADR status is **Conditionally Accepted — Architecture Direction Only**.
 
 [NREADME]: https://github.com/nostr-protocol/nips/blob/a79e21d90fce5465b50ef385dd368bba99ec4a0b/README.md
 [N01]: https://github.com/nostr-protocol/nips/blob/a79e21d90fce5465b50ef385dd368bba99ec4a0b/01.md
