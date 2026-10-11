@@ -124,7 +124,7 @@ A Product Owner cannot waive an unsafe nonce construction or falsely declare run
 - **Proposed decision or approach:** Baseline authenticates transport assertions and original-byte commitments. **PO-005 defers** the earlier optional signed-object proposal; if later authorized it must use a reviewed existing algorithm. Specify signed-byte framing/domain separation, identity/context/version and verification; do not declare legal recognition.
 - **Risk, impact and security implications:** Exported unsigned rumors/digests are not document signatures. Portable signed objects weaken deniability and can bind the wrong context if underspecified.
 - **Required next action and evidence:** PO-005 defers portable proof. Draft baseline R04 authenticity/integrity disclosures and extension boundaries; optional proof design/vectors resume only after separate scope approval. E08 still validates authenticated receipt assertions.
-- **Suggested acceptance criteria:** Export retains original bytes and proof; changes to bytes/domain/context/version fail verification; verification reports key identity separately from organizational/legal authority; absent proof is not reported as signed.
+- **Suggested acceptance criteria — current baseline:** Preserve exact document bytes and verify commitments; report transport-authenticated key separately from organizational/legal authority; unsigned rumors and hashes are never labeled portable signatures; E08 checks authenticated receipt assertions. **Historical/future signed extension, superseded for v0.1 by PO-005:** export retains original bytes and proof; modified bytes/domain/context/version fail verification. These signed-profile criteria apply only after separate authorization.
 - **Responsible future role:** Document RFC Editor + Cryptography Reviewer
 - **Target decision gate:** G0 optional scope; G1 signed profile before use
 
@@ -452,7 +452,7 @@ All five remain **BLOCKER**. E01–E06 cannot close Q13/Q15. The original approv
 
 The [threat model](transport-boundaries.md#preliminary-threat-model) maps ten adversaries to guarantee categories and experiments. Current blockers are Q01 (security model), Q08 (file crypto bytes), Q13 (offline retention objective), Q15 (concurrent-device authority/effects), and Q27 (kind 15 ambiguity). Their detailed criteria above remain unresolved.
 
-NBDP-005 authorizes E01–E06 isolated experiments; RFC candidate drafting remains provisional and SDK production code remains unauthorized. Complete source evidence from NBDP-004 is retained; new runtime evidence belongs in experiment reports, not retroactively in the old research. Product Owner approvals are listed in [ADR 0001](../../adr/0001-transport-selection.md#product-owner-approval-and-stopping-point). Narrow DECIDED exclusions Q22/Q23/Q25 retain optional/future research paths; they are not claimed as general solutions to storage, standardization or delivery.
+NBDP-005 authorizes E01–E06 isolated experiments; RFC candidate drafting remains provisional and SDK production code remains unauthorized. Complete source evidence from NBDP-004 is retained; new runtime evidence belongs in experiment reports, not retroactively in the old research. Product Owner approvals are listed in [ADR 0001](../../adr/0001-transport-selection.md#current-approval-nbdp-005). Narrow DECIDED exclusions Q22/Q23/Q25 retain optional/future research paths; they are not claimed as general solutions to storage, standardization or delivery.
 
 [NREADME]: https://github.com/nostr-protocol/nips/blob/a79e21d90fce5465b50ef385dd368bba99ec4a0b/README.md
 [N01]: https://github.com/nostr-protocol/nips/blob/a79e21d90fce5465b50ef385dd368bba99ec4a0b/01.md
@@ -498,3 +498,18 @@ NBDP-005 authorizes E01–E06 isolated experiments; RFC candidate drafting remai
 [B12]: https://github.com/hzrd149/blossom/blob/b5bd2801d1763aa635fc8fea7a76597e0eb18990/buds/12.md
 [MLS]: https://www.rfc-editor.org/rfc/rfc9420.html
 [GCM]: https://www.rfc-editor.org/rfc/rfc5116.html
+
+## NBDP-005 runtime evidence overlay
+
+No canonical classification changes follow automatically from these results. [Full summary](experimental-validation-summary.md) distinguishes approved direction, source evidence, executed tests and missing controls.
+
+| Question mapping | New evidence | Remaining gate |
+| --- | --- | --- |
+| Q01/Q04/Q07/Q10 | E01 PASS140, independent strict-validation/numeric/file-schema regression agreement; helper omissions identified | Complete threat review, normative contract, E04 limits and later attack/privacy evidence |
+| Q02/Q03/Q17/Q26 | E03 PASS19, signed 10050/no-fallback/cache-conflict candidate and local alias tests | Normative discovery/freshness and signer support; global latestness not proven |
+| Q06/Q07/Q09/Q24 | E02 PARTIAL22, both-direction independent adapter exchange over two relays | Mandatory ordinary-client control; E04/E06 blocked and carrier semantics not final |
+| Q08/Q09/Q27 | E05 PASS25, browser/OpenSSL vectors and actual commitments/nonce-policy rejection; producer-source default nonce16 differs from candidate12 | Normative safe profile, full kind15/client/host interoperability; thumbnails omitted; source-level batch reuse concern not copied |
+| Q13/Q14/Q18/Q19/Q20/Q21 | No offline-retention/host/AUTH/privacy runtime gate closed | E07/E10/E11/E15 plus real-duration operational evidence |
+| Q11/Q12/Q15/Q17/Q26 | Parallel authority design only; no business receipt, replay persistence, grants/revocation or concurrent effects implemented | E08/E09/E12/E13/E14 and reviewed exact causal/authority/effect policy |
+
+Historical failed/subset records are retained in experiments/results/history. Q01/Q08/Q13/Q15/Q27 remain BLOCKER. Prepared E04/E06 harnesses were not executed after E02's incomplete prerequisite. Portable signed-document proof remains deferred under PO-005; baseline authenticity/integrity and receipt gates remain required.

@@ -8,7 +8,7 @@
 - **Confidence:** Moderate in architectural direction; low in demonstrated runtime interoperability
 - **Canonical questions:** Q01–Q27 in [open-questions.md](../docs/research/open-questions.md)
 
-## Current approval — NBDP-005
+## Current approval (NBDP-005)
 
 [PO-001–PO-006](../docs/decisions/PRODUCT_OWNER_DECISIONS_2026-10-11.md) approve Option B's direction conditionally. Exact wire format is **not approved**; kind 14/15 interoperability is **not proven**. Q01/Q08/Q13/Q15/Q27 remain BLOCKER. SDK implementation, release and production use are **not approved**. E01–E06 isolated synthetic experiments are authorized; their results must satisfy the original [canonical plan](../docs/research/required-experiments.md). No new NIP or event kind is authorized.
 
@@ -37,7 +37,7 @@ Supporting deliverables are [transport boundaries and preliminary threat model](
 
 The research NIP snapshot is **a79e21d90fce5465b50ef385dd368bba99ec4a0b**. This review re-read pinned NIP-17/44/59, nostr-tools message/wrap helpers, Rust gift-wrap validation, Blossom authorization and Marmot's README through GitHub. Other claims rely on the reports' pinned source inspections and locally retained specifications. Git remote HEAD refresh was unavailable in this workspace; this ADR makes claims about the pinned corpus, not a newly established latest upstream revision.
 
-Specification facts, source-inspection observations, maintainer claims and architectural reasoning are kept separate. All reference URLs below pin commits; immutable IETF documents are RFC 5116 (January 2008) and RFC 9420 (July 2023). No runtime experiment, production relay change, cryptographic-key generation, deployment or compliance transmission occurred.
+Specification facts, source-inspection observations, maintainer claims and architectural reasoning are kept separate. All reference URLs below pin commits; immutable IETF documents are RFC 5116 (January 2008) and RFC 9420 (July 2023). During NBDP-004, no runtime experiment, production relay change, cryptographic-key generation, deployment or compliance transmission occurred. NBDP-005 separately authorizes isolated synthetic experiments; see the [validation summary](../docs/research/experimental-validation-summary.md) for actual evidence and limits.
 
 ### Verification findings and qualifications
 

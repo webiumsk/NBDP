@@ -344,3 +344,9 @@ Dependencies that must never become mandatory are a government reporting endpoin
 [B12]: https://github.com/hzrd149/blossom/blob/b5bd2801d1763aa635fc8fea7a76597e0eb18990/buds/12.md
 [MLS]: https://www.rfc-editor.org/rfc/rfc9420.html
 [GCM]: https://www.rfc-editor.org/rfc/rfc5116.html
+
+## NBDP-005 experimental evidence boundary
+
+[Execution summary](experimental-validation-summary.md) records E01 PASS140, E02 PARTIAL22, E03 PASS19, E05 PASS25; E04/E06 are NOT EXECUTED due to E02. Only the independently tested crypto/validation/discovery and candidate-envelope subchecks gain runtime support. Complete kind15 handling, host interchange, durable outbox/replay, receipts, offline recovery, AUTH/privacy and parallel authority remain unproven. The local open-read relay configuration is a synthetic test fixture, not a protected business inbox deployment policy.
+
+AES bytes use a scoped 12-byte nonce candidate; pinned Amethyst default16 source evidence is an explicit alternative, not established ecosystem interoperability. No thumbnail encryption or distinct-original pair reuse is permitted. An independently received file's metadata must drive verification; correlation readiness alone never attests document integrity or permits a business effect.
