@@ -28,3 +28,8 @@ is run or modified for this setup; the previously recorded results above remain 
 After workflow review, the protocol milestone remains the existing E02 control → E04 → E06
 sequence. A new session must confirm the user's task scope and approval gates before
 executing it. Q01/Q08/Q13/Q15/Q27 remain blockers; production SDK is unauthorized.
+
+Workflow setup is complete and published for review in [PR #2](https://github.com/webiumsk/NBDP/pull/2),
+targeting `research/po-decisions-e01-e06`. Setup commit:
+`264a88a4f64a216398711072622fad866b16dd23`. The PR is open and unmerged.
+The user has not authorized any protocol experiment through this workflow task.

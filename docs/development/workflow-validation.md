@@ -50,7 +50,7 @@ Official sources used: [configuration reference](https://learn.chatgpt.com/docs/
 
 ## Boundaries and review handoff
 
-Branch: `feature/persistent-multi-agent-workflow`; base: `research/po-decisions-e01-e06`. The PR is stacked on the unmerged [PR #1](https://github.com/webiumsk/NBDP/pull/1), so its diff contains workflow setup rather than all earlier research. Publication URL will be recorded after actual creation. Nothing merges automatically.
+Branch: `feature/persistent-multi-agent-workflow`; base: `research/po-decisions-e01-e06`. The PR is stacked on the unmerged [PR #1](https://github.com/webiumsk/NBDP/pull/1), so its diff contains workflow setup rather than all earlier research. [PR #2](https://github.com/webiumsk/NBDP/pull/2) was created and verified OPEN with no merge, targeting the research branch. Setup commit: `264a88a4f64a216398711072622fad866b16dd23`; publication metadata is recorded in a follow-up commit on the same branch. GitHub verified all 24 changed paths are workflow configuration, skills, state/roadmap, documentation or workflow-only helpers. Nothing merges automatically.
 
 Future sessions recover project context via AGENTS + state/roadmap, or saved conversation via the documented resume command. They do not automatically launch protocol milestones, gain new execution permission or recover an entire conversation from files. Current-session native role refresh remains unverified and no restart was performed to force it.
 
