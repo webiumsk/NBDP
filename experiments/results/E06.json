@@ -1,0 +1,75 @@
+{
+  "experiment": "E06",
+  "status": "NOT EXECUTED",
+  "tests": [],
+  "observations": [],
+  "skipped": [
+    {
+      "scope": "entire experiment",
+      "reason": "Prerequisite E02 missing, not PASS, or source hashes stale",
+      "mandatory": true
+    }
+  ],
+  "started_at": "2026-10-11T07:47:29.095Z",
+  "duration_ms": 34,
+  "command": "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node /home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/run.mjs E06",
+  "exit_status": 2,
+  "environment": {
+    "node": "v22.18.0",
+    "openssl": "3.0.16",
+    "chrome": "Google Chrome 151.0.7922.137",
+    "os": "linux",
+    "release": "7.1.5-76070105-generic",
+    "arch": "x64",
+    "cpu": "Intel(R) Core(TM) Ultra 7 155H",
+    "resource_usage": {
+      "userCPUTime": 60586,
+      "systemCPUTime": 22214,
+      "maxRSS": 523264,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 5420,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 0,
+      "fsWrite": 0,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 27,
+      "involuntaryContextSwitches": 12
+    },
+    "memory": {
+      "rss": 50597888,
+      "heapTotal": 7176192,
+      "heapUsed": 5331680,
+      "external": 2965224,
+      "arrayBuffers": 886320
+    },
+    "rust_binary_sha256": "ecd1c1ab446782e263ae9e606117486b25d79b16732de5c4fac97e78b31699d9",
+    "rust_binary": "/tmp/nbdp-005-rust-target/debug/nbdp-experiment-rust"
+  },
+  "source_sha256": {
+    "fixtures/nip44.vectors.json": "eae34c1d4eff1b58b448627d3310e495f7f0722ca6668296e7c31e88edf18171",
+    "package.json": "229e43f88fa8cbfbb3680dd405726997d7e2a611df106373f7751fdae49e55b4",
+    "shared/rust/Cargo.toml": "0efa262a02cb1632861bdf043c0c6753e398e40a6fe93c900ab10af1b6846fff",
+    "shared/rust/rust-toolchain.toml": "9cbde07377abdce69bc9580adb0315d52e2a09d6494a2005550a7e6733d9688b",
+    "docker/strfry.conf": "002d1bb656522dd3e6739ea20e82829fd96bfdefb389f0517eab9367c0bdf2e2",
+    "docker/rs-relay.toml": "6775940c6258e2714a2a60793584ae549a50111154c743045a87d679af9a0b02",
+    "fixtures/generated/E05-aes-gcm-vectors.json": "df70855ef34c57dee655876555db14427f931da1f9819bf63586e4b1958949fa",
+    "shared/run.mjs": "71f749240adb43b2dc92863f19a60d101a09365b0ca7976c1d55b238dc13e107",
+    "shared/evidence.mjs": "82750f33ddb00a246188705f5b16267eead2d08c4eb8b0ae7e3d7bf8416d6328",
+    "shared/rust-client.mjs": "9e98ca21825313a54ab20c44ab00049f7d19ecafe268dde55dcd556f33b757d8",
+    "shared/attachment-crypto.mjs": "e52aaa588b4ff6315bbc7ebc08b2d8786965687e18c6c9f56a75d4b08cc05f16",
+    "shared/correlation.mjs": "47e6b4d203304404e318fda4d84226ed1a1b055abb566a39181090f2673f51e8",
+    "shared/discovery.mjs": "a9a27dc188aed6284169751521b65c89da4a7052bfb2f9127f2c893ff17dfa23",
+    "shared/relay.mjs": "03d301607b797599fafbd788a1073a554cb698019cf52533a7ce6e65dbccc92b",
+    "shared/transport.mjs": "0c6f43c1f17b6b898b05cebb72f43dfacf19cfbb2203bbd2d4c7676abf39fb18",
+    "shared/rust/src/main.rs": "95e05dde513e57d5e32830e8639632f34627bb34239c7e5916096fd3686edcba",
+    "shared/candidate-profile.md": "d0c49184fc3c11e3f37c914dba222216222335f7ea799efe38a03f768aaa0772",
+    "e06-kind15/test.mjs": "de4b27ce69b4651f350ba55322cb6ee2a6fa2f9ab7d4962397b502f1890ba67f",
+    "package-lock.json": "9c8d77e625a0d061b8c5d10de043980f523699d2f1c630e748351af5d98005b5",
+    "shared/rust/Cargo.lock": "f0fde33925f824f1d17699375b7842b2f8979da7e3ace918fd9364329e80f02f"
+  }
+}
