@@ -1,0 +1,60 @@
+{
+  "experiment": "E05",
+  "status": "NOT EXECUTED",
+  "tests": [],
+  "observations": [],
+  "skipped": [
+    {
+      "scope": "environment/execution",
+      "reason": "page.goto: net::ERR_NAME_NOT_RESOLVED at http://127.0.0.1:38767/\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:38767/\", waiting until \"load\"\u001b[22m\n\n    at BrowserCrypto.start (/home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/attachment-crypto.mjs:22:58)\n    at async Module.execute (/home/peterhorvath/apps/bitcoin/NBDP/experiments/e05-attachment-crypto/test.mjs:4:40)\n    at async file:///home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/run.mjs:11:72",
+      "mandatory": true
+    }
+  ],
+  "started_at": "2026-10-11T00:22:38.966Z",
+  "duration_ms": 3526,
+  "command": "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node /home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/run.mjs E05",
+  "exit_status": 2,
+  "environment": {
+    "node": "v22.18.0",
+    "openssl": "3.0.16",
+    "chrome": "Google Chrome 151.0.7922.137",
+    "os": "linux",
+    "release": "7.1.5-76070105-generic",
+    "arch": "x64",
+    "cpu": "Intel(R) Core(TM) Ultra 7 155H",
+    "resource_usage": {
+      "userCPUTime": 1885969,
+      "systemCPUTime": 223179,
+      "maxRSS": 476408,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 32890,
+      "majorPageFault": 0,
+      "swappedOut": 0,
+      "fsRead": 8,
+      "fsWrite": 0,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 671,
+      "involuntaryContextSwitches": 85
+    },
+    "memory": {
+      "rss": 145072128,
+      "heapTotal": 78340096,
+      "heapUsed": 53923696,
+      "external": 3849833,
+      "arrayBuffers": 172976
+    },
+    "rust_binary": "/tmp/nbdp-005-rust-target/debug/nbdp-experiment-rust"
+  },
+  "source_sha256": {
+    "shared/transport.mjs": "fb9d66283cbe2fbd64f9e801a9217d9ac4a6675d55b8df7b2914068cab8aad2f",
+    "shared/rust/src/main.rs": "720c19974e67654d5614c68196d9c8c106b053cb2edb537c74d57e310b7d5e5c",
+    "shared/candidate-profile.md": "0bae3d2d7700c414a2c915abb208be321e2cca322d9274eacba44fe19fd4770d",
+    "e05-attachment-crypto/test.mjs": "4e8b3b342201c7e6153dba7c2269c46fc50808579ae465beaa4b02d703970692",
+    "package-lock.json": "9c8d77e625a0d061b8c5d10de043980f523699d2f1c630e748351af5d98005b5",
+    "shared/rust/Cargo.lock": "f0fde33925f824f1d17699375b7842b2f8979da7e3ace918fd9364329e80f02f"
+  }
+}

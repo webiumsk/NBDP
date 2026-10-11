@@ -1,0 +1,257 @@
+{
+  "experiment": "E02",
+  "status": "FAIL",
+  "tests": [
+    {
+      "name": "inbox-publication/79be667e/ws://127.0.0.1:17777",
+      "ok": true,
+      "duration_ms": 66.28582
+    },
+    {
+      "name": "inbox-publication/79be667e/ws://127.0.0.1:18081",
+      "ok": true,
+      "duration_ms": 68.40196700000001
+    },
+    {
+      "name": "inbox-publication/c6047f94/ws://127.0.0.1:17777",
+      "ok": true,
+      "duration_ms": 59.72453299999998
+    },
+    {
+      "name": "inbox-publication/c6047f94/ws://127.0.0.1:18081",
+      "ok": true,
+      "duration_ms": 52.84619700000002
+    },
+    {
+      "name": "js-to-rust/incoming/ws://127.0.0.1:17777",
+      "ok": false,
+      "duration_ms": 16.599143000000026,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(x)\n\n    at Evidence.truth (file:///home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/evidence.mjs:9:19)\n    at file:///home/peterhorvath/apps/bitcoin/NBDP/experiments/e02-validation/test.mjs:13:176\n    at async Evidence.check (file:///home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/evidence.mjs:7:68)\n    at async Module.execute (file:///home/peterhorvath/apps/bitcoin/NBDP/experiments/e02-validation/test.mjs:13:28)\n    at async file:///home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/run.mjs:11:72"
+    },
+    {
+      "name": "js-to-rust/incoming/ws://127.0.0.1:18081",
+      "ok": true,
+      "duration_ms": 68.78932600000002,
+      "data": {
+        "envelope_id": "000000000000000000000000000000000000000000000000000000000000000a",
+        "rumor_id": "7e887d0b8becfab07e0d943b88a7d65abe0faf60f1b7b6a3c4498b622a568020",
+        "frame_bytes": 2907,
+        "outer_p": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5"
+      }
+    },
+    {
+      "name": "js-to-rust/archive/ws://127.0.0.1:17777",
+      "ok": false,
+      "duration_ms": 8.556959000000006,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(x)\n\n    at Evidence.truth (file:///home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/evidence.mjs:9:19)\n    at file:///home/peterhorvath/apps/bitcoin/NBDP/experiments/e02-validation/test.mjs:13:176\n    at async Evidence.check (file:///home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/evidence.mjs:7:68)\n    at async Module.execute (file:///home/peterhorvath/apps/bitcoin/NBDP/experiments/e02-validation/test.mjs:13:28)\n    at async file:///home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/run.mjs:11:72"
+    },
+    {
+      "name": "js-to-rust/archive/ws://127.0.0.1:18081",
+      "ok": true,
+      "duration_ms": 66.92697399999997,
+      "data": {
+        "envelope_id": "000000000000000000000000000000000000000000000000000000000000000a",
+        "rumor_id": "7e887d0b8becfab07e0d943b88a7d65abe0faf60f1b7b6a3c4498b622a568020",
+        "frame_bytes": 2907,
+        "outer_p": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"
+      }
+    },
+    {
+      "name": "rust-to-js/incoming/ws://127.0.0.1:17777",
+      "ok": false,
+      "duration_ms": 7.75106500000004,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(x)\n\n    at Evidence.truth (file:///home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/evidence.mjs:9:19)\n    at file:///home/peterhorvath/apps/bitcoin/NBDP/experiments/e02-validation/test.mjs:13:176\n    at async Evidence.check (file:///home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/evidence.mjs:7:68)\n    at async Module.execute (file:///home/peterhorvath/apps/bitcoin/NBDP/experiments/e02-validation/test.mjs:13:28)\n    at async file:///home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/run.mjs:11:72"
+    },
+    {
+      "name": "rust-to-js/incoming/ws://127.0.0.1:18081",
+      "ok": true,
+      "duration_ms": 61.949203999999895,
+      "data": {
+        "envelope_id": "000000000000000000000000000000000000000000000000000000000000000b",
+        "rumor_id": "f86e684c2b8a9889407ee70323f0e3ae11c0c34bfeb115799fe4c87e9c6775f4",
+        "frame_bytes": 2907,
+        "outer_p": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798"
+      }
+    },
+    {
+      "name": "rust-to-js/archive/ws://127.0.0.1:17777",
+      "ok": false,
+      "duration_ms": 7.41911099999993,
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(x)\n\n    at Evidence.truth (file:///home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/evidence.mjs:9:19)\n    at file:///home/peterhorvath/apps/bitcoin/NBDP/experiments/e02-validation/test.mjs:13:176\n    at async Evidence.check (file:///home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/evidence.mjs:7:68)\n    at async Module.execute (file:///home/peterhorvath/apps/bitcoin/NBDP/experiments/e02-validation/test.mjs:13:28)\n    at async file:///home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/run.mjs:11:72"
+    },
+    {
+      "name": "rust-to-js/archive/ws://127.0.0.1:18081",
+      "ok": true,
+      "duration_ms": 20.420079999999984,
+      "data": {
+        "envelope_id": "000000000000000000000000000000000000000000000000000000000000000b",
+        "rumor_id": "f86e684c2b8a9889407ee70323f0e3ae11c0c34bfeb115799fe4c87e9c6775f4",
+        "frame_bytes": 2907,
+        "outer_p": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5"
+      }
+    },
+    {
+      "name": "dispatch/ordinary-chat",
+      "ok": true,
+      "duration_ms": 25.16099100000008
+    },
+    {
+      "name": "dispatch/foreign-protocol",
+      "ok": true,
+      "duration_ms": 46.016214000000105
+    },
+    {
+      "name": "dispatch/unsupported-version",
+      "ok": true,
+      "duration_ms": 24.036374999999907
+    },
+    {
+      "name": "dispatch/mandatory-extension",
+      "ok": true,
+      "duration_ms": 23.872038999999972
+    },
+    {
+      "name": "dispatch/malformed-discriminator",
+      "ok": true,
+      "duration_ms": 44.49924500000009
+    },
+    {
+      "name": "stub-reordering/file-stub-first",
+      "ok": true,
+      "duration_ms": 0.6291340000000218,
+      "data": {
+        "metadata_only": {
+          "state": "PENDING",
+          "operations": 0,
+          "effects": 0
+        },
+        "qualification": "Synthetic stubs; no encryption, download or integrity verification attested"
+      }
+    },
+    {
+      "name": "stub-reordering/envelope-stub-first",
+      "ok": true,
+      "duration_ms": 0.523708000000056,
+      "data": {
+        "metadata_only": {
+          "state": "INCOMPLETE",
+          "operations": 0,
+          "effects": 0
+        },
+        "qualification": "Synthetic stubs; no encryption, download or integrity verification attested"
+      }
+    },
+    {
+      "name": "stub-reordering/both-file-first",
+      "ok": true,
+      "duration_ms": 0.8493570000000545,
+      "data": {
+        "metadata_only": {
+          "state": "READY",
+          "operations": 1,
+          "effects": 0
+        },
+        "qualification": "Synthetic stubs; no encryption, download or integrity verification attested"
+      }
+    },
+    {
+      "name": "stub-reordering/both-envelope-first",
+      "ok": true,
+      "duration_ms": 0.5852720000000318,
+      "data": {
+        "metadata_only": {
+          "state": "READY",
+          "operations": 1,
+          "effects": 0
+        },
+        "qualification": "Synthetic stubs; no encryption, download or integrity verification attested"
+      }
+    },
+    {
+      "name": "stub-reordering/repeated-stubs",
+      "ok": true,
+      "duration_ms": 0.5044429999999238,
+      "data": {
+        "metadata_only": {
+          "state": "READY",
+          "operations": 1,
+          "effects": 0
+        },
+        "qualification": "Synthetic stubs; no encryption, download or integrity verification attested"
+      }
+    }
+  ],
+  "observations": [
+    {
+      "kind14": "UTF-8 JSON survives transport without changing NIP17 plain-text content",
+      "ordinary_clients": "NBDP interpretation/renderer compatibility not established",
+      "authority": "synthetic pinned peer enrollment only; organizational authority not resolved",
+      "relays": [
+        "ws://127.0.0.1:17777",
+        "ws://127.0.0.1:18081"
+      ]
+    }
+  ],
+  "skipped": [
+    {
+      "scope": "Amethyst ordinary-client rendering",
+      "reason": "No isolated Android runtime/client installation; adapter ordinary-chat dispatch was exercised. Canonical ordinary-client rendering control was NOT EXECUTED; no ecosystem UI result claimed.",
+      "mandatory": true
+    }
+  ],
+  "started_at": "2026-10-11T07:39:34.981Z",
+  "duration_ms": 833,
+  "command": "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node /home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/run.mjs E02",
+  "exit_status": 1,
+  "environment": {
+    "node": "v22.18.0",
+    "openssl": "3.0.16",
+    "chrome": "Google Chrome 151.0.7922.137",
+    "os": "linux",
+    "release": "7.1.5-76070105-generic",
+    "arch": "x64",
+    "cpu": "Intel(R) Core(TM) Ultra 7 155H",
+    "resource_usage": {
+      "userCPUTime": 557406,
+      "systemCPUTime": 47948,
+      "maxRSS": 523264,
+      "sharedMemorySize": 0,
+      "unsharedDataSize": 0,
+      "unsharedStackSize": 0,
+      "minorPageFault": 13158,
+      "majorPageFault": 4,
+      "swappedOut": 0,
+      "fsRead": 1064,
+      "fsWrite": 32,
+      "ipcSent": 0,
+      "ipcReceived": 0,
+      "signalsCount": 0,
+      "voluntaryContextSwitches": 609,
+      "involuntaryContextSwitches": 69
+    },
+    "memory": {
+      "rss": 77504512,
+      "heapTotal": 21069824,
+      "heapUsed": 12647312,
+      "external": 3199275,
+      "arrayBuffers": 174264
+    },
+    "rust_binary_sha256": "ecd1c1ab446782e263ae9e606117486b25d79b16732de5c4fac97e78b31699d9",
+    "rust_binary": "/tmp/nbdp-005-rust-target/debug/nbdp-experiment-rust"
+  },
+  "source_sha256": {
+    "shared/run.mjs": "ce5e394b826c91cdc0abedf8d26381c1839e0263eb6ebb5b60d39e86b4c3255e",
+    "shared/evidence.mjs": "82750f33ddb00a246188705f5b16267eead2d08c4eb8b0ae7e3d7bf8416d6328",
+    "shared/rust-client.mjs": "9e98ca21825313a54ab20c44ab00049f7d19ecafe268dde55dcd556f33b757d8",
+    "shared/attachment-crypto.mjs": "e52aaa588b4ff6315bbc7ebc08b2d8786965687e18c6c9f56a75d4b08cc05f16",
+    "shared/correlation.mjs": "47e6b4d203304404e318fda4d84226ed1a1b055abb566a39181090f2673f51e8",
+    "shared/discovery.mjs": "a9a27dc188aed6284169751521b65c89da4a7052bfb2f9127f2c893ff17dfa23",
+    "shared/relay.mjs": "03d301607b797599fafbd788a1073a554cb698019cf52533a7ce6e65dbccc92b",
+    "shared/transport.mjs": "0c6f43c1f17b6b898b05cebb72f43dfacf19cfbb2203bbd2d4c7676abf39fb18",
+    "shared/rust/src/main.rs": "95e05dde513e57d5e32830e8639632f34627bb34239c7e5916096fd3686edcba",
+    "shared/candidate-profile.md": "d0c49184fc3c11e3f37c914dba222216222335f7ea799efe38a03f768aaa0772",
+    "e02-validation/test.mjs": "a14d17faa40ebe7d27a5761ca837d0d9f8064fcc1d0a5e35c6782ea75638ae6b",
+    "package-lock.json": "9c8d77e625a0d061b8c5d10de043980f523699d2f1c630e748351af5d98005b5",
+    "shared/rust/Cargo.lock": "f0fde33925f824f1d17699375b7842b2f8979da7e3ace918fd9364329e80f02f"
+  }
+}

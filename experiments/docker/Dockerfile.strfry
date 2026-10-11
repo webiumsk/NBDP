@@ -1,0 +1,8 @@
+FROM debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+RUN apt-get update && apt-get install -y --no-install-recommends git g++ make perl pkg-config libtool ca-certificates libssl-dev zlib1g-dev liblmdb-dev libflatbuffers-dev libsecp256k1-dev libzstd-dev
+WORKDIR /src
+COPY . .
+RUN test "$(git rev-parse HEAD)" = 4cd3cf64850caf47dda46c2a2abbbf3525a64d10
+RUN git submodule update --init --recursive && make setup-golpe && make -j2 OPT=-O2
+RUN dpkg-query -W > /src/nbdp-build-packages.txt && git submodule status --recursive > /src/nbdp-submodules.txt
+ENTRYPOINT ["/src/strfry"]

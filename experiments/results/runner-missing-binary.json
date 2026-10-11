@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "assertions": 3,
+  "actual_child_exit_status": 2,
+  "result": {
+    "experiment": "E06",
+    "status": "NOT EXECUTED",
+    "tests": [],
+    "observations": [],
+    "skipped": [
+      {
+        "scope": "entire experiment",
+        "reason": "Prerequisite E01 missing, not PASS, or source hashes stale",
+        "mandatory": true
+      },
+      {
+        "scope": "entire experiment",
+        "reason": "Prerequisite E02 missing, not PASS, or source hashes stale",
+        "mandatory": true
+      },
+      {
+        "scope": "entire experiment",
+        "reason": "Prerequisite E05 missing, not PASS, or source hashes stale",
+        "mandatory": true
+      }
+    ],
+    "started_at": "2026-10-11T07:50:13.405Z",
+    "duration_ms": 31,
+    "command": "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node /tmp/nbdp-005-missing-binary/shared/run.mjs E06",
+    "exit_status": 2,
+    "environment": {
+      "node": "v22.18.0",
+      "openssl": "3.0.16",
+      "chrome": "unavailable",
+      "os": "linux",
+      "release": "7.1.5-76070105-generic",
+      "arch": "x64",
+      "cpu": "Intel(R) Core(TM) Ultra 7 155H",
+      "resource_usage": {
+        "userCPUTime": 41949,
+        "systemCPUTime": 6829,
+        "maxRSS": 48716,
+        "sharedMemorySize": 0,
+        "unsharedDataSize": 0,
+        "unsharedStackSize": 0,
+        "minorPageFault": 3440,
+        "majorPageFault": 0,
+        "swappedOut": 0,
+        "fsRead": 0,
+        "fsWrite": 0,
+        "ipcSent": 0,
+        "ipcReceived": 0,
+        "signalsCount": 0,
+        "voluntaryContextSwitches": 27,
+        "involuntaryContextSwitches": 3
+      },
+      "memory": {
+        "rss": 49885184,
+        "heapTotal": 7176192,
+        "heapUsed": 5091888,
+        "external": 2114220,
+        "arrayBuffers": 24851
+      },
+      "rust_binary_sha256": "unavailable",
+      "rust_binary": "/tmp/nbdp-005-deliberately-absent-rust"
+    },
+    "source_sha256": {
+      "shared/run.mjs": "71f749240adb43b2dc92863f19a60d101a09365b0ca7976c1d55b238dc13e107",
+      "shared/evidence.mjs": "82750f33ddb00a246188705f5b16267eead2d08c4eb8b0ae7e3d7bf8416d6328"
+    }
+  }
+}

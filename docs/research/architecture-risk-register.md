@@ -1,6 +1,6 @@
 # NBDP architecture risk and decision register
 
-**Status:** Proposed review register, 2026-10-11, work item NBDP-004. Canonical IDs/descriptions originate in [open-questions.md](open-questions.md). All Q01–Q27 are retained; no question is silently merged, dropped or renumbered. [ADR 0001](../../adr/0001-transport-selection.md) is Proposed.
+**Status:** Technical review register after NBDP-005 Product Owner decisions, 2026-10-11. Canonical IDs/descriptions originate in [open-questions.md](open-questions.md). All Q01–Q27 are retained; no question is silently merged, dropped or renumbered. [ADR 0001](../../adr/0001-transport-selection.md) is Conditionally Accepted — Architecture Direction Only. [PO-001–PO-006](../decisions/PRODUCT_OWNER_DECISIONS_2026-10-11.md) approve scope without closing any question.
 
 This register classifies each question exactly once by its next decisive requirement:
 
@@ -18,7 +18,7 @@ Priority P0/P1/P2 follows the original meaning. Q13/Q15 are promoted from P1 to 
 | G0 | Architecture/security/product scope | Product Owner and Security Reviewer approve threat model, offline objectives, multi-device authority scope and risk acceptance |
 | G1 | Normative candidate contract | RFC authors and independent reviewers specify exact bytes, checks, failure/state/authority semantics and vectors |
 | G2 | Isolated runtime/conformance evidence | Independent clients/libraries and relay/host policies pass [required experiments](required-experiments.md); privacy/failure results disclosed |
-| G3 | SDK implementation authorization | Separate Product Owner authorization after relevant G0/G1/G2 criteria; no experiment or implementation performed here |
+| G3 | SDK implementation authorization | Separate Product Owner authorization after relevant G0/G1/G2 criteria; SDK authorization not granted; experimental evidence recorded separately |
 
 **DECIDED: 3; RFC_REQUIRED: 12; EXPERIMENT_REQUIRED: 7; BLOCKER: 5; total: 27.**
 
@@ -65,7 +65,7 @@ A Product Owner cannot waive an unsafe nonce construction or falsely declare run
 - **Priority:** P0
 - **Classification:** BLOCKER
 - **Relevant specifications and evidence:** [NIP-44 Limitations][N44], [NIP-59 outer structure][N59]; ADR FS analysis. Static ECDH lacks FS/PCS and exposes recipient routing metadata.
-- **Proposed decision or approach:** Propose content-confidentiality baseline without mandatory FS for v0.1; publish exact exclusions and permitted sensitivity. Product Owner/security reviewer must explicitly accept or require another profile.
+- **Proposed decision or approach:** PO-002 accepts no mandatory FS/PCS baseline; publish exact exclusions and permitted sensitivity. This resolves the product tradeoff, not complete threat-model/security review; Q01 remains BLOCKER.
 - **Risk, impact and security implications:** Historical documents/file keys and future messages may be exposed after compromise; traffic correlation persists. Stronger security marketing would be misleading.
 - **Required next action and evidence:** Record sensitivity, adversaries, endpoint trust and residual-risk acceptance; if FS required, investigate E16 before selecting baseline.
 - **Suggested acceptance criteria:** Written G0 approval names absence of FS/PCS and recipient/traffic anonymity; no disappearance/rotation-based FS claim; reject the baseline if approved use requires stronger properties.
@@ -121,10 +121,10 @@ A Product Owner cannot waive an unsafe nonce construction or falsely declare run
 - **Priority:** P0
 - **Classification:** RFC_REQUIRED
 - **Relevant specifications and evidence:** [NIP-59 unsigned rumors][N59], [NIP-01 established signatures][N01]; message authentication and exported object proof are distinct.
-- **Proposed decision or approach:** Baseline authenticates transport assertions and original-byte commitments; optional signed-object profile uses a reviewed existing algorithm. Specify signed-byte framing/domain separation, identity/context/version and verification; do not declare legal recognition.
+- **Proposed decision or approach:** Baseline authenticates transport assertions and original-byte commitments. **PO-005 defers** the earlier optional signed-object proposal; if later authorized it must use a reviewed existing algorithm. Specify signed-byte framing/domain separation, identity/context/version and verification; do not declare legal recognition.
 - **Risk, impact and security implications:** Exported unsigned rumors/digests are not document signatures. Portable signed objects weaken deniability and can bind the wrong context if underspecified.
-- **Required next action and evidence:** Draft R04 optional-proof design and explicit product choice; add vectors to E08/E14 when enabled.
-- **Suggested acceptance criteria:** Export retains original bytes and proof; changes to bytes/domain/context/version fail verification; verification reports key identity separately from organizational/legal authority; absent proof is not reported as signed.
+- **Required next action and evidence:** PO-005 defers portable proof. Draft baseline R04 authenticity/integrity disclosures and extension boundaries; optional proof design/vectors resume only after separate scope approval. E08 still validates authenticated receipt assertions.
+- **Suggested acceptance criteria — current baseline:** Preserve exact document bytes and verify commitments; report transport-authenticated key separately from organizational/legal authority; unsigned rumors and hashes are never labeled portable signatures; E08 checks authenticated receipt assertions. **Historical/future signed extension, superseded for v0.1 by PO-005:** export retains original bytes and proof; modified bytes/domain/context/version fail verification. These signed-profile criteria apply only after separate authorization.
 - **Responsible future role:** Document RFC Editor + Cryptography Reviewer
 - **Target decision gate:** G0 optional scope; G1 signed profile before use
 
@@ -233,9 +233,9 @@ A Product Owner cannot waive an unsafe nonce construction or falsely declare run
 - **Priority:** P0
 - **Classification:** BLOCKER
 - **Relevant specifications and evidence:** [NIP-59 permits storage refusal][N59], [NIP-11 limits][N11], [BUD-01 retrieval/Sunset][B01]; no minimum retention promise.
-- **Proposed decision or approach:** Require approved measurable horizon H, retention and retry assumptions, surviving independent relay/blob replicas, local outbox and archives. Proposed lab H=7 days/R=10 days/J=2 days/S=1 day is not an approved service level.
+- **Proposed decision or approach:** Require approved measurable horizon H, retention and retry assumptions, surviving independent relay/blob replicas, local outbox and archives. PO-003 approves experimental H=7 days/R=10 days for test relays and blobs; J=2 days/candidate S=1 day remain explicit lab assumptions. This is not an approved public-network service level; Q13 remains BLOCKER.
 - **Risk, impact and security implications:** All storage may disappear after OK; receiver can miss documents/files or be unable to reconstruct history.
-- **Required next action and evidence:** Product Owner selects H/deadlines/unknown failure policy; operations reviewer defines time-based retention model; E10/E11/E07 prove conditional recovery.
+- **Required next action and evidence:** H/R objective is selected by PO-003. Operations/security reviewers must fix skew, eviction/deadline/grace and incomplete recovery rules; E07/E10/E11 must demonstrate conditional recovery, separating accelerated and real-duration results.
 - **Suggested acceptance criteria:** Within approved horizon all retained fixture operations recover with one surviving advertised relay/blob copy; all-copy loss reports unrecoverable/unknown, not recipient rejection; no guaranteed-global-delivery claim.
 - **Responsible future role:** Product Owner + Operations/Storage Architect
 - **Target decision gate:** G0 target; G2 evidence before operational SDK claims
@@ -261,10 +261,10 @@ A Product Owner cannot waive an unsafe nonce construction or falsely declare run
 - **Priority:** P0
 - **Classification:** BLOCKER
 - **Relevant specifications and evidence:** [NIP-17 recoverable copies][N17], [NIP-46 distinct session/account keys][N46]; no global processing lock or company role primitive.
-- **Proposed decision or approach:** Propose one active business-decision authority per action scope in v0.1; technical facts merge, contradictory business decisions quarantine. Effects are idempotent within explicitly coordinated consumer domains, never globally promised across disconnected clients.
+- **Proposed decision or approach:** **Historical proposal superseded by PO-004:** one active business-decision authority per action scope. **Current requirement:** parallel authorized-device decisions, per-device identity/grants/revocations, causal merge and explicit conflict recovery without mandatory central coordination. Technical facts remain distinct from business decisions; consumer-domain effect/idempotency limits remain explicit. See [design analysis](multi-device-authority-design.md).
 - **Risk, impact and security implications:** Two devices can both import, sign conflicts or reconnect with stale state; shared account keys do not permit per-device cryptographic revocation.
-- **Required next action and evidence:** Product Owner approves scope; R06/R07 define deterministic conflict/supersession/authority semantics; E12 tests crash, partition, removal and rejoin.
-- **Suggested acceptance criteria:** Fact union independent of arrival order; accept/reject contradictions always conflict; crash-after-effect does not blind-reimport; observer device cannot decide business action; shared-secret removal limitation explicitly documented.
+- **Required next action and evidence:** PO-004 approves parallel scope, not an authority design. R06/R07 must define signed grants/revocations, offline freshness, causal conflict/supersession and effect domains; independent E08/E09/E12/E13 tests crash, partition, removal and rejoin.
+- **Suggested acceptance criteria:** Fact union independent of arrival order; accept/reject contradictions always conflict; crash-after-effect does not blind-reimport; unauthorized/revoked devices obtain no authority from old messages; partition-delayed revocation limitations explicitly documented; authorized concurrent devices can decide and converge without a timestamp winner.
 - **Responsible future role:** Product Owner + Workflow/Distributed Systems Architect
 - **Target decision gate:** G0/G1/G2; blocks safe multi-device effect implementation
 
@@ -436,11 +436,23 @@ A Product Owner cannot waive an unsafe nonce construction or falsely declare run
 - **Responsible future role:** Attachments RFC Editor + Cryptography Reviewer
 - **Target decision gate:** G1/G2; blocks safe initial attachment profile
 
+## Approval delta for retained blockers
+
+| Issue | Resolved by approval | Still unverified |
+| --- | --- | --- |
+| Q01 | PO-002 accepts absence of FS/PCS | Complete threat-model/security review and permitted sensitivity |
+| Q08 | PO-006 permits safe experimental bytes | Exact independent crypto/producer compatibility and reviewed normative profile |
+| Q13 | PO-003 sets seven-day offline/ten-day retention test objective | Eviction/skew/grace, surviving-copy recovery and separate real-duration evidence |
+| Q15 | PO-004 requires parallel devices and rejects single-active-authority | Concrete authority/causal-conflict/revocation/effect model and independent concurrency evidence |
+| Q27 | PO-001/PO-006 permit existing kind 15 candidate testing | Exact producer/consumer compatibility and safe ambiguity resolution, no thumbnails |
+
+All five remain **BLOCKER**. E01–E06 cannot close Q13/Q15. The original approval assumptions remain historical at [NBDP-004 baseline](https://github.com/webiumsk/NBDP/blob/00a5bfbb5656f2a82c0fb9a746c5137c9ea7f3ce/docs/research/architecture-risk-register.md).
+
 ## Cross-cutting risks and approval
 
 The [threat model](transport-boundaries.md#preliminary-threat-model) maps ten adversaries to guarantee categories and experiments. Current blockers are Q01 (security model), Q08 (file crypto bytes), Q13 (offline retention objective), Q15 (concurrent-device authority/effects), and Q27 (kind 15 ambiguity). Their detailed criteria above remain unresolved.
 
-Immediate work is RFC drafting with explicit alternatives plus experiment design freezing; nothing here authorizes experiment execution or SDK production code. Product Owner approvals are listed in [ADR 0001](../../adr/0001-transport-selection.md#product-owner-approval-and-stopping-point). Narrow DECIDED exclusions Q22/Q23/Q25 retain optional/future research paths; they are not claimed as general solutions to storage, standardization or delivery.
+NBDP-005 authorizes E01–E06 isolated experiments; RFC candidate drafting remains provisional and SDK production code remains unauthorized. Complete source evidence from NBDP-004 is retained; new runtime evidence belongs in experiment reports, not retroactively in the old research. Product Owner approvals are listed in [ADR 0001](../../adr/0001-transport-selection.md#current-approval-nbdp-005). Narrow DECIDED exclusions Q22/Q23/Q25 retain optional/future research paths; they are not claimed as general solutions to storage, standardization or delivery.
 
 [NREADME]: https://github.com/nostr-protocol/nips/blob/a79e21d90fce5465b50ef385dd368bba99ec4a0b/README.md
 [N01]: https://github.com/nostr-protocol/nips/blob/a79e21d90fce5465b50ef385dd368bba99ec4a0b/01.md
@@ -486,3 +498,18 @@ Immediate work is RFC drafting with explicit alternatives plus experiment design
 [B12]: https://github.com/hzrd149/blossom/blob/b5bd2801d1763aa635fc8fea7a76597e0eb18990/buds/12.md
 [MLS]: https://www.rfc-editor.org/rfc/rfc9420.html
 [GCM]: https://www.rfc-editor.org/rfc/rfc5116.html
+
+## NBDP-005 runtime evidence overlay
+
+No canonical classification changes follow automatically from these results. [Full summary](experimental-validation-summary.md) distinguishes approved direction, source evidence, executed tests and missing controls.
+
+| Question mapping | New evidence | Remaining gate |
+| --- | --- | --- |
+| Q01/Q04/Q07/Q10 | E01 PASS140, independent strict-validation/numeric/file-schema regression agreement; helper omissions identified | Complete threat review, normative contract, E04 limits and later attack/privacy evidence |
+| Q02/Q03/Q17/Q26 | E03 PASS19, signed 10050/no-fallback/cache-conflict candidate and local alias tests | Normative discovery/freshness and signer support; global latestness not proven |
+| Q06/Q07/Q09/Q24 | E02 PARTIAL22, both-direction independent adapter exchange over two relays | Mandatory ordinary-client control; E04/E06 blocked and carrier semantics not final |
+| Q08/Q09/Q27 | E05 PASS25, browser/OpenSSL vectors and actual commitments/nonce-policy rejection; producer-source default nonce16 differs from candidate12 | Normative safe profile, full kind15/client/host interoperability; thumbnails omitted; source-level batch reuse concern not copied |
+| Q13/Q14/Q18/Q19/Q20/Q21 | No offline-retention/host/AUTH/privacy runtime gate closed | E07/E10/E11/E15 plus real-duration operational evidence |
+| Q11/Q12/Q15/Q17/Q26 | Parallel authority design only; no business receipt, replay persistence, grants/revocation or concurrent effects implemented | E08/E09/E12/E13/E14 and reviewed exact causal/authority/effect policy |
+
+Historical failed/subset records are retained in experiments/results/history. Q01/Q08/Q13/Q15/Q27 remain BLOCKER. Prepared E04/E06 harnesses were not executed after E02's incomplete prerequisite. Portable signed-document proof remains deferred under PO-005; baseline authenticity/integrity and receipt gates remain required.

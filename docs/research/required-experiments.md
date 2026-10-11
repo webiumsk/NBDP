@@ -1,6 +1,12 @@
 # Required architecture experiments for NBDP
 
-**Status:** Proposed experiment plan, NBDP-004, 2026-10-11. **No experiments have been implemented or executed in this task.** [ADR 0001](../../adr/0001-transport-selection.md) remains Proposed. Canonical Q01–Q27 are preserved from [open-questions.md](open-questions.md); next-decisive classifications and gates are in [the risk register](architecture-risk-register.md).
+**Status:** Canonical NBDP-004 experiment plan with NBDP-005 approval overlay, 2026-10-11. **Historical NBDP-004:** no experiments were implemented or executed and ADR 0001 was Proposed. **Current NBDP-005:** architecture direction is conditionally accepted; actual isolated execution is recorded in the [validation summary](experimental-validation-summary.md). Original scope and IDs remain authoritative. Canonical Q01–Q27 are preserved from [open-questions.md](open-questions.md); next-decisive classifications and gates are in [the risk register](architecture-risk-register.md).
+
+> **NBDP-005 execution overlay (2026-10-11):** [PO-001–PO-006](../decisions/PRODUCT_OWNER_DECISIONS_2026-10-11.md) authorize isolated E01–E06 execution and conditionally accept architecture direction only. The following NBDP-004 plan and its source evidence remain historical; documentation-only statements apply to that earlier task. Canonical E01 is crypto/full validation and E02 is envelope exchange, despite the reverse labels in NBDP-005 §6. Both requested scopes are covered under the original IDs. Current evidence is recorded separately in [experimental validation summary](experimental-validation-summary.md).
+>
+> PO-004 supersedes E12's former single-active-authority assumption: E12 must instead validate parallel authorized-device decisions, signed grants/revocations, partition-delayed authority, causal conflict recovery and scoped idempotency. Its ID, objective and no-exactly-once safeguards remain. Original single-authority steps below are retained as historical control scenarios, not the required v0.1 end-state. See [multi-device design](multi-device-authority-design.md).
+>
+> PO-003 sets experimental H=7/R=10 days for relays and blobs, with explicitly recorded J/skew/grace assumptions and simulation versus real-duration separation. PO-005 defers only portable-proof portions of E14; baseline authentication and E08 assertions remain required. SDK, release, new kinds/NIP and production use remain unauthorized. Q01/Q08/Q13/Q15/Q27 remain BLOCKER.
 
 ## Purpose and decision discipline
 

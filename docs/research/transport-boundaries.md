@@ -1,6 +1,6 @@
 # NBDP transport boundaries and preliminary threat model
 
-**Status:** Architecture proposal for NBDP-004, 2026-10-11. [ADR 0001](../../adr/0001-transport-selection.md) is Proposed. This document assigns responsibilities and candidate security controls; it is not a normative wire specification. Canonical issue IDs are Q01–Q27 in [open-questions.md](open-questions.md); classifications and gates are in [the risk register](architecture-risk-register.md).
+**Status:** Architecture direction conditionally accepted under [PO-001–PO-006](../decisions/PRODUCT_OWNER_DECISIONS_2026-10-11.md), 2026-10-11; exact protocol contracts remain provisional. [ADR 0001](../../adr/0001-transport-selection.md) is Conditionally Accepted — Architecture Direction Only. This document assigns responsibilities and candidate security controls; it is not a normative wire specification. Canonical issue IDs are Q01–Q27 in [open-questions.md](open-questions.md); classifications and gates are in [the risk register](architecture-risk-register.md).
 
 ## Architectural layers
 
@@ -207,11 +207,13 @@ The following distinctions are proposed semantics, not final wire enum names. St
 | Business rejected | Authorized rejection for that same scope with bounded reason | Global revocation/deletion or technical inability to receive |
 | Failed / retryable | Explicit attempt/operation outcome and retry scope | Recipient rejection; missing acknowledgment may remain unknown |
 
-A cryptographically authenticated receipt attests that the recognized issuer key asserted this outcome for the original sender/recipient endpoint pair, logical message ID, exact document commitment/revision, processing action, receipt identity and authority context. Cryptography authenticates the assertion; it does not prove a malicious authorized issuer actually performed the asserted checks. Portable receipt verification after export requires the optional Q05 signed-object profile.
+A cryptographically authenticated receipt attests that the recognized issuer key asserted this outcome for the original sender/recipient endpoint pair, logical message ID, exact document commitment/revision, processing action, receipt identity and authority context. Cryptography authenticates the assertion; it does not prove a malicious authorized issuer actually performed the asserted checks. The optional Q05 portable document/receipt-proof profile is deferred by PO-005; the baseline does not promise independently verifiable exported proof. Authority-log signatures, if later approved, would authenticate authorization operations rather than document bytes.
 
 Authenticated assertions of technical facts can merge by validated set union and be received out of order; their provenance is verified, not the honesty of a remote issuer. Business accepted/rejected are competing decisions for one action, not “maximum state.” Proposed conflict rules: identical assertion → deduplicate; compatible facts → retain both; unauthorized assertion → reject; conflicting business outcomes → retain evidence, mark CONFLICT and suspend automatic effects. A deliberate superseding decision must reference prior action/version under a reviewed authority rule. No last-write-wins based on created_at or lexical hash.
 
-For v0.1 propose a single active business-decision authority per scoped action, chosen by the client/business, with other devices allowed to observe and emit limited technical facts if policy permits. This does not impose a mandatory central network service. Independent clients sharing an account secret are indistinguishable cryptographic issuers and need external coordination for one effect across their shared business domain. Removed devices retaining that secret can still sign; session revocation helps only if no account secret was copied.
+**Historical proposal, superseded by PO-004:** NBDP-004 proposed a single active business-decision authority per scoped action with observer devices. The Product Owner rejected that required end-state.
+
+**Current requirement:** Multiple independently authorized devices must be able to create concurrent business decisions and reconcile without a mandatory central coordinator or continuous connectivity. The [design-only authority analysis](multi-device-authority-design.md) compares shared secrets, per-device grants and an append-only signed authorization/decision log. Technical facts merge as scoped assertions; business decisions retain causal predecessors and incompatible concurrent heads as explainable conflicts. No automatic timestamp winner. Revocation knowledge under partitions is limited; old cached messages do not themselves confer authority. Q15 remains BLOCKER pending reviewed design and E08/E09/E12/E13. A log or CRDT does not solve once-only non-idempotent effects across disconnected accounting sinks. Independent clients sharing an account secret are indistinguishable cryptographic issuers and need external coordination for one effect across their shared business domain. Removed devices retaining that secret can still sign; session revocation helps only if no account secret was copied.
 
 Stable operation IDs and durable effect/receipt records must survive restart. Prefer one transaction or recoverable record linking local effect and receipt outbox; across separate accounting systems, use an idempotency key or quarantine an ambiguous result rather than blind reimport. A stale restored backup cannot safely resume effects without reconciling its deduplication frontier. No exactly-once network promise is made. Q11/Q12/Q15 require RFCs and E08/E09/E12.
 
@@ -221,7 +223,7 @@ Define H = maximum supported receiver-offline interval, J = maximum wrap timesta
 
 A proposed operational model needs R ≥ H + J + S when eviction is based on created_at; retention based on arrival has different accounting. Blob retention must cover H, download/retry grace and successful verified local archival. D must cover the accepted message-validity/retry/restore horizon; a number cannot be safely chosen before Q12/Q13 policies. No record horizon permits replay-safe indefinite acceptance after history is discarded.
 
-For later experiments only, propose H = 7 days, R = 10 days, J = 2 days, S = 1 day; retain blobs at least H plus the declared download grace. Product Owner and operations/security review must select actual objectives. Require recovery from at least one surviving advertised inbox relay and one surviving blob replica within the tested horizon, with the sender outbox as retry source. These are conditional lab assumptions, not global guarantees.
+PO-003 approves experimental H = 7 days and test relay/blob R = 10 days. J = 2 days and candidate S = 1 day are explicit lab assumptions, subject to clock/eviction review; download/retry grace remains to be specified. Accelerated-clock simulation and real-duration evidence must be reported separately. Require recovery from at least one surviving advertised inbox relay and one surviving blob replica within the tested horizon, with the sender outbox as retry source. These are conditional lab assumptions, not global guarantees.
 
 Use overlapping subscriptions, boundary-tie handling, persistent seen-ID tracking, optional 67/77, and full catch-up for a newly configured relay within the accepted horizon. A single timestamp watermark can miss late/backdated arrivals. If caps prevent retrieving all equal-timestamp events and no safe reconciliation is available, report incomplete recovery rather than “all delivered.” Honest hints describe that relay's stored matching set; hostile operators can lie. Deleting every wrap/blob makes recovery impossible [NIP-17][N17], [NIP-67][N67], [NIP-77][N77], [NIP-59][N59].
 
@@ -239,7 +241,7 @@ Assets are plaintext documents and file keys; authoritative operation/receipt st
 | Availability | Retry/recover when an accessible retained copy and keys exist | Any/all operators can refuse, delete, withhold or censor |
 | Metadata privacy | Hide inner document fields and public sender from the wrap alone | Recipient tags, AUTH/queries, timing/length and stable blob hashes remain |
 | Key continuity | Pinned keys plus reviewed transitions/out-of-band recovery can detect some changes | No automatic safe successor after compromise; shared-key device revocation is limited |
-| Auditability | Local durable provenance and optional signed objects support defined audits | Naked rumors are not portable signatures; deletion/tampering of local archives or signer compromise undermines evidence |
+| Auditability | Local durable provenance supports defined audits; portable signed-document objects deferred by PO-005 | Naked rumors are not portable signatures; deletion/tampering of local archives or signer compromise undermines evidence |
 
 The guarantees are architectural conditions, not runtime conformance findings. Existing primitive scope follows [NIP-01][N01], [44][N44], [59][N59]; Q01/Q04/Q05/Q08/Q12/Q17 determine profile conditions.
 
@@ -342,3 +344,9 @@ Dependencies that must never become mandatory are a government reporting endpoin
 [B12]: https://github.com/hzrd149/blossom/blob/b5bd2801d1763aa635fc8fea7a76597e0eb18990/buds/12.md
 [MLS]: https://www.rfc-editor.org/rfc/rfc9420.html
 [GCM]: https://www.rfc-editor.org/rfc/rfc5116.html
+
+## NBDP-005 experimental evidence boundary
+
+[Execution summary](experimental-validation-summary.md) records E01 PASS140, E02 PARTIAL22, E03 PASS19, E05 PASS25; E04/E06 are NOT EXECUTED due to E02. Only the independently tested crypto/validation/discovery and candidate-envelope subchecks gain runtime support. Complete kind15 handling, host interchange, durable outbox/replay, receipts, offline recovery, AUTH/privacy and parallel authority remain unproven. The local open-read relay configuration is a synthetic test fixture, not a protected business inbox deployment policy.
+
+AES bytes use a scoped 12-byte nonce candidate; pinned Amethyst default16 source evidence is an explicit alternative, not established ecosystem interoperability. No thumbnail encryption or distinct-original pair reuse is permitted. An independently received file's metadata must drive verification; correlation readiness alone never attests document integrity or permits a business effect.

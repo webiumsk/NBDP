@@ -1,0 +1,61 @@
+{
+  "recorded": "2026-10-11",
+  "isolation": "synthetic loopback-only lab; internal Docker network; no production relay/key/data",
+  "host": {
+    "os": "Linux-7.1.5-76070105-generic-x86_64-with-glibc2.39",
+    "node": "22.18.0",
+    "npm": "11.17.0",
+    "rust": "1.90.0",
+    "cargo": "1.90.0",
+    "chrome": "151.0.7922.137",
+    "node_openssl": "3.0.16",
+    "cli_openssl": "3.6.1"
+  },
+  "pins": {
+    "nips": "a79e21d90fce5465b50ef385dd368bba99ec4a0b",
+    "nostr_tools": "2.25.2 at cb8d22d4c906d99d8996693b37e4d85aa3d5f26e",
+    "rust_nostr": "0.45.5 at 463f0c2d48e1d3c9e295cc231715d8a3855c65d3",
+    "strfry": "4cd3cf64850caf47dda46c2a2abbbf3525a64d10",
+    "nostr_rs_relay": "b5c1f642e4f4c3b9c54f5d18d66f4c53642076b4",
+    "amethyst_source_only": "e6f464a1179def75274512b3c5bab921de3bf3d8"
+  },
+  "relays": [
+    {
+      "name": "nbdp-005-strfry",
+      "image": "nbdp-005-strfry:4cd3cf6",
+      "image_id": "sha256:d72c7eb4e19562e22c24924ea51bc345ea5d22d03ada1429a46e0bb90ea97d40",
+      "network": "nbdp-005-lab",
+      "memory_bytes": 1073741824,
+      "nano_cpus": 2000000000,
+      "pids_limit": 128,
+      "read_only_root": true,
+      "synthetic_databases_ignored": true
+    },
+    {
+      "name": "nbdp-005-rs-relay",
+      "image": "nbdp-005-rs-relay:b5c1f64",
+      "image_id": "sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82",
+      "network": "nbdp-005-lab",
+      "memory_bytes": 1073741824,
+      "nano_cpus": 2000000000,
+      "pids_limit": 128,
+      "read_only_root": true,
+      "synthetic_databases_ignored": true
+    }
+  ],
+  "limits": {
+    "candidate_complete_frame_bytes": 16384,
+    "candidate_plaintext_blob_bytes": 1048576,
+    "these_limits_are_normative": false
+  },
+  "controls_unavailable": {
+    "android_runtime": "adb/emulator not installed, no isolated Amethyst app/device",
+    "go_legacy": "not executed; compatibility-control limit remains source evidence"
+  },
+  "reproducibility_limits": [
+    "APT indices not snapshot pinned; installed package inventories committed",
+    "Chrome binary version recorded, not redistributed or content-addressed",
+    "Rust binary hash recorded per result; source/lock/toolchain pinned",
+    "No real-duration seven-day offline or ten-day retention tests executed"
+  ]
+}
