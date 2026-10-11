@@ -1,0 +1,12 @@
+[package]
+name = "nbdp-experiment-rust"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+nostr = { git = "https://github.com/nostrdevkit/nostr.git", rev = "463f0c2d48e1d3c9e295cc231715d8a3855c65d3", features = ["std", "os-rng", "nip44", "nip59"] }
+serde = "=1.0.228"
+serde_json = "=1.0.145"
+base64 = "=0.22.1"
+hex = "=0.4.3"

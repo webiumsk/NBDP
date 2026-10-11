@@ -1,0 +1,8 @@
+FROM rust:1.90.0-bookworm@sha256:3914072ca0c3b8aad871db9169a651ccfce30cf58303e5d6f2db16d1d8a7e58f
+RUN apt-get update && apt-get install -y --no-install-recommends cmake protobuf-compiler pkg-config libssl-dev
+WORKDIR /src
+COPY . .
+RUN test "$(git rev-parse HEAD)" = b5c1f642e4f4c3b9c54f5d18d66f4c53642076b4
+RUN cargo build --release --locked -j2
+RUN dpkg-query -W > /src/nbdp-build-packages.txt
+ENTRYPOINT ["/src/target/release/nostr-rs-relay"]
