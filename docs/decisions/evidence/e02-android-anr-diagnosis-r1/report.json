@@ -1,0 +1,75 @@
+{
+  "schema": "nbdp-independent-read-only-anr-diagnosis-v1",
+  "researcherSession": "/root/android_anr_diagnosis",
+  "attribution": "Coordinator transcription of actual independent researcher report.",
+  "runId": "267acc88b6604d1d9218e5ffe89f6ff1",
+  "decision": "DIAGNOSE_BEFORE_NEXT_ORDINARY_CONTROL_RETRY",
+  "verified": [
+    "46 boot_completed observations; command0106 finally1. BothAPKinstallSuccess.",
+    "ActualamstartStatusok/COLD/TotalTime15686ms/WaitTime15803ms; firstactualPNG/XMLQuickstepframeworkANR.",
+    "ActualCPU4/container8GiB/noaddswap/PID512; OOMKilledfalseisnotabsenceofmemorypressure.",
+    "Cold-wipe/no-snapshot/software swiftshader_indirect1080x1920/4cores4GiBguest.",
+    "No retained logcat/lastanr/cpu/memory/pressuretrace. DockerAndroidlogs onlyADBstartup; bufferedemulatoroutput maynotflushbeforecleanup."
+  ],
+  "missing": [
+    "ANR process/PID/reason/timestamp/stack or corresponding system/events record.",
+    "GuestCPU/memory/pressure and scopedcontainerthrottle/OOM deltas.",
+    "Launcher/postbootresponsiveness evidence; boot_completedaloneinsufficient."
+  ],
+  "nextTask": {
+    "owner": "implementer with independent QA/security",
+    "scope": "One same-pin cold-boot diagnosis only; noidentity/login/fixturepublish/Wait/Close.",
+    "proposedCommands": [
+      "shell logcat -b events -d -v threadtime -t 2000",
+      "shell logcat -b system -d -v threadtime -t 2000",
+      "shell dumpsys -t 5 activity lastanr",
+      "shell dumpsys -t 5 cpuinfo",
+      "shell cat /proc/meminfo"
+    ],
+    "bounds": "Each10\u201315s, aggregate<=180s within original1800s lease; exact guardedallowlistreview, retain unsupported/erroroutcomes.",
+    "acceptance": "Capture useful ANR/systemresource evidence and scope, or explicitCAUSE_UNRESOLVED; no E02PASS."
+  },
+  "sources": [
+    {
+      "title": "Android ANR diagnosis",
+      "url": "https://developer.android.com/topic/performance/anrs/diagnose-and-fix-anrs",
+      "evidenceType": "PRIMARY_DOCUMENTATION_NOT_EXECUTED_API36_BEHAVIOR"
+    },
+    {
+      "title": "AOSP bug report analysis",
+      "url": "https://source.android.com/docs/core/tests/debug/read-bug-reports",
+      "evidenceType": "PRIMARY_DOCUMENTATION_NOT_EXECUTED_API36_BEHAVIOR"
+    },
+    {
+      "title": "dumpsys",
+      "url": "https://developer.android.com/tools/dumpsys",
+      "evidenceType": "PRIMARY_DOCUMENTATION_NOT_EXECUTED_API36_BEHAVIOR"
+    },
+    {
+      "title": "logcat",
+      "url": "https://developer.android.com/tools/logcat",
+      "evidenceType": "PRIMARY_DOCUMENTATION_NOT_EXECUTED_API36_BEHAVIOR"
+    },
+    {
+      "title": "Kernel cgroupv2",
+      "url": "https://docs.kernel.org/admin-guide/cgroup-v2.html",
+      "evidenceType": "PRIMARY_DOCUMENTATION_NOT_EXECUTED_API36_BEHAVIOR"
+    },
+    {
+      "title": "Graphics acceleration",
+      "url": "https://developer.android.com/studio/run/emulator-acceleration",
+      "evidenceType": "PRIMARY_DOCUMENTATION_NOT_EXECUTED_API36_BEHAVIOR"
+    },
+    {
+      "title": "Snapshots",
+      "url": "https://developer.android.com/studio/run/emulator-snapshots",
+      "evidenceType": "PRIMARY_DOCUMENTATION_NOT_EXECUTED_API36_BEHAVIOR"
+    }
+  ],
+  "limits": [
+    "swiftshader_indirectdeprecationsince36.4.9doesnotestablishcause.",
+    "Snapshots preserveentireOS/app/userstate; software-renderingsnapshotsunreliable; no automaticprewarmingchange.",
+    "Containercountersarenotemulator-onlymeasurements.",
+    "Noprojectimports/tests/experiments/services/Git/filesbyresearcher; no architecturalchange."
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "schema": "e02-android-health-supervisor-result-v1",
+  "runId": "8e4865aa7ad547968e7d3b4a53d7fcf6",
+  "runConfig": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r2/proposed-run-config.json",
+    "bytes": 3131,
+    "sha256": "522d24dade1e06dffbbbadbbb7e7c71493c0ed24fda56e1a104fe83d519f3f2d"
+  },
+  "runRelease": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r2/exact-root-diagnostic-release.json",
+    "bytes": 1768,
+    "sha256": "1dce6fd31fe2b8a76e3ec62a8f0a87dc27aac83223b34ce8b1a7c32d125f6e79"
+  },
+  "lease": {
+    "path": "/tmp/nbdp-e02-android-health-v1/runs/8e4865aa7ad547968e7d3b4a53d7fcf6/session/lease.json",
+    "bytes": 368,
+    "sha256": "dfb1b88e9ab10036fcfefa01f580800ff9aae5dbbe099d41e7f2ef8b42b1238b"
+  },
+  "canonicalE02Changed": false,
+  "diagnosticOnly": true,
+  "ordinaryControlQualified": false,
+  "limits": [
+    "Health diagnostic only; no ordinary-client matrix row or transport evidence.",
+    "No hard realtime/suspended-host cleanup guarantee.",
+    "Independent QA/security must inspect actual results before acceptance."
+  ],
+  "executionState": "FAILED_UNQUALIFIED",
+  "error": "RuntimeError(\"Observed Android ANR: System UI isn't responding\")",
+  "secondaryErrors": [],
+  "cleanup": {
+    "ok": true,
+    "rows": [
+      {
+        "role": "android",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "807c55f1ce38c7282f6159a2004b38f3bb667de6d61d392f95d7f9f60fc1c964",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "fixture",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "5a97593ce1dc4198e197273e7b9ec5cf7973d629c29c8bafcf2af2648a4ff408",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "rs-relay",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "f4112337f2fe98e3c85ea11dc16ac135f58ba3dbcd8892d481195533d85e5004",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "anchor",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "0454155628f414f591a81802dbba40d6b29c21d0240387d5ed57a1f52bc1395c",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      }
+    ],
+    "errors": [],
+    "evidence": {
+      "path": "/tmp/nbdp-e02-android-health-v1/runs/8e4865aa7ad547968e7d3b4a53d7fcf6/cleanup/result.json",
+      "bytes": 1393,
+      "sha256": "9cfafcddec21c0ff444ba414b3121b5d7f7d47b9b209d539fa55d3dafb0a427a"
+    }
+  }
+}

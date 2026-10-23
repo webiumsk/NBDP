@@ -1,0 +1,69 @@
+{
+  "schema": "e02-single-cell-runtime-plan-v1",
+  "scope": "JS_TO_RUST_PEER_INCOMING_SCALAR2_RS_RELAY_ONE_CELL_PARTIAL_ONLY",
+  "runtimeImage": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+  "relayImage": "sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82",
+  "sdkRoot": "/tmp/nbdp-e02-ingress-runtime/sdk",
+  "amethystApk": {
+    "path": "/tmp/nbdp-e02-android-artifact/source/amethyst/build/outputs/apk/fdroid/debug/amethyst-fdroid-debug.apk",
+    "bytes": 165860063,
+    "sha256": "5165a9f79326524c494108b8ab728fb173ac14fa16bf67ebbd86364c895e98b5"
+  },
+  "helperApk": {
+    "path": "/tmp/nbdp-e02-ordinary-client-v1/helper-build-20261023a/clipboard-capture.apk",
+    "bytes": 16787,
+    "sha256": "a680e513a9b36cab634620507b77bba36532ce13acb465a860c7bef60d23ec20"
+  },
+  "runId": "267acc88b6604d1d9218e5ffe89f6ff1",
+  "originalLeaseSeconds": 1800,
+  "sourceAndDependencyPins": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_v1/supervisor.py",
+      "bytes": 40258,
+      "sha256": "824dfee572212dadf92e592f0db5bf0adacfe44c88bcdf8a05c325f523dc5426"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_v1/lease_guard.py",
+      "bytes": 14846,
+      "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_v1/android_driver.py",
+      "bytes": 30260,
+      "sha256": "10b8144db0e73c4e64face9c9d1fc4cb65cc58a55e28986fef97c6711980f3e9"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_v1/ui-plan.json",
+      "bytes": 3039,
+      "sha256": "cd1476c5adeff45db232b7a47920b8370ac7ab83c593f18cfe136cdcf1990515"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_v1/fixture.mjs",
+      "bytes": 19931,
+      "sha256": "0bb04326a8e8ec10ce57e4d760300f482ec88a12a28650b481ab949254a0ce4b"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_v1/fixture-plan.json",
+      "bytes": 249207,
+      "sha256": "0483d48a9adebd81e38a84ccb15bff201fec659470a90a45977af26d487ad9c3"
+    }
+  ],
+  "sdkInventory": {
+    "path": "/tmp/nbdp-e02-minimal-rs-v7/records/runtime-sdk-tree.json",
+    "bytes": 88515,
+    "sha256": "c7cfe67ccff2be67cfee85b352fd99626b0c9e357c7645d20e266bab7d480407"
+  },
+  "guardBundleInventory": {
+    "path": "/tmp/nbdp-e02-minimal-rs-v7/records/guard-bundle-manifest.json",
+    "bytes": 332736,
+    "sha256": "9de311222ef78e20fbe05bfef32898976d80737d5d932166d23431a04a73a454"
+  },
+  "guardBundleRoot": "/tmp/nbdp-e02-minimal-rs-v7/guard-python",
+  "relayConfig": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/docker/rs-relay.toml",
+    "bytes": 192,
+    "sha256": "6775940c6258e2714a2a60793584ae549a50111154c743045a87d679af9a0b02"
+  },
+  "state": "PINNED_CANDIDATE_REQUIRES_SEPARATE_REVIEW_AND_RELEASE",
+  "canonicalE02": "PARTIAL22_UNCHANGED"
+}

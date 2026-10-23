@@ -1,0 +1,44 @@
+{
+  "schema": "n02316-control-approval-v1",
+  "decision": "ACCEPT_CONTROLS_ONLY",
+  "sourceApproval": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-approval.json",
+    "bytes": 107717,
+    "sha256": "e3e41bb6bae55d80702f9002cc99c72ad3a6345405a5043d3123dcafcbea685e"
+  },
+  "actualControlEvidence": {
+    "path": "/tmp/e6n-controls-f5b3f410dfec/actual-control-evidence.json",
+    "bytes": 93982,
+    "sha256": "548482449d9bd1145f0e51faa58b3ac181dbff898ae80b41831fd30689195fca"
+  },
+  "authors": [
+    "/root",
+    "/root/negative_lane_architect",
+    "/root/recovery_fixture_parent",
+    "/root/negative_io_implementer",
+    "/root/negative_outer_implementer",
+    "/root/e06_policy_marker_implementer"
+  ],
+  "reviews": [
+    {
+      "role": "qa",
+      "session": "/root/transport_evidence_qa",
+      "decision": "ACCEPT_CONTROLS_ONLY",
+      "subject": {
+        "path": "/tmp/e6n-controls-f5b3f410dfec/actual-control-evidence.json",
+        "bytes": 93982,
+        "sha256": "548482449d9bd1145f0e51faa58b3ac181dbff898ae80b41831fd30689195fca"
+      }
+    },
+    {
+      "role": "security",
+      "session": "/root/attachment_profile_security",
+      "decision": "ACCEPT_CONTROLS_ONLY",
+      "subject": {
+        "path": "/tmp/e6n-controls-f5b3f410dfec/actual-control-evidence.json",
+        "bytes": 93982,
+        "sha256": "548482449d9bd1145f0e51faa58b3ac181dbff898ae80b41831fd30689195fca"
+      }
+    }
+  ]
+}

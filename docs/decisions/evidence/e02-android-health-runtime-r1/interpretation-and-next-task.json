@@ -1,0 +1,26 @@
+{
+  "schema": "e02-android-health-interpretation-v1",
+  "actor": "/root",
+  "acceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-runtime-r1/acceptance.json",
+    "bytes": 1524,
+    "sha256": "2461898e43c8cc7ebe7b7bd9c7f76b2b60a674c6cbc23bb31ecf208a021d2d98"
+  },
+  "baselineAnrBeforeIntent": true,
+  "baselineXml": {
+    "path": "/tmp/nbdp-e02-android-health-v1/runs/8e4865aa7ad547968e7d3b4a53d7fcf6/diagnostics/baseline-ui-xml.bin",
+    "bytes": 4448,
+    "sha256": "9f9456e297c717b05a3a00901f5200d7f147cf1783746b153b0725e6b67e601d"
+  },
+  "baselineAfterApkInstall": true,
+  "cause": "UNRESOLVED",
+  "nextTaskOwner": "implementer + independent QA/security",
+  "nextExperimentalVariable": "AndroidcontainerCPUquota4\u21928; guest4vCPU/4096MiB andcontainer8192MiB/PID512 retained",
+  "acceptanceCriteria": [
+    "Freshcurrent-source/config/control/QA-securityjoins; sameprocedureandnoidentity/login/publish.",
+    "Measureactual8CPUcap/privatecgroup/resourcecounters/UIchronology/firsterror/cleanup.",
+    "AnyANRretainedasENVIRONMENT_FAILURE; unavailablemetricsorcommand/lease/cleanupfailure remainsunqualified.",
+    "NoANRonlyboundedtialimprovement/healthUNKNOWN; oneBcannotestablishCPUcausality orreusablebaseline; independentrepetitionormatchedwindowcomparisonneeded."
+  ],
+  "neededHumanInput": null
+}

@@ -1,0 +1,6263 @@
+{
+  "schema": "e06-n02316-local-qualification-schemas-v1",
+  "state": "SOURCE_ONLY_ADDITIONAL_INTERFACE_FREEZE",
+  "runtimeReadiness": "NOT_RUNTIME_READY",
+  "executionReleased": false,
+  "normativeAdoption": false,
+  "grammarDialect": "CLOSED-TYPED-RECORD-v1",
+  "grammarSemantics": {
+    "@name": "Worker references resolve workerDefinitions only; independent checker additionally resolves checkerDefinitions. No executable/dynamic namespace lookup.",
+    "record": "All named fields mandatory, no extra keys, exact native JSON types, keys order-insensitive. Empty record closed too.",
+    "enum": "Typed exact one listed scalar. literal: deep typed equality to listed JSON value.",
+    "union": "At least one alternative; null only where explicit null branch.",
+    "integer": "Inclusive safe native integer range; JSON tokens no fraction/exponent/-0/coercion.",
+    "stringMax": "Maximum UTF8 bytes; string must contain valid Unicode scalar values. Optional anchored pattern uses existing ECMAScript regexp semantics; no normalization. Pattern-only string also <=131072 UTF8 bytes.",
+    "boolean/null": "Exact native JSON type, never string.",
+    "array": "Homogeneous element grammar, length inclusive [min,max].",
+    "tuple": "Exactly listed length and per-position element grammars; no rest items.",
+    "beforeParse": "Duplicate decoded keys rejected at every nesting before object construction; bound raw input bytes before parse.",
+    "all": "Closed schemas describe data shape only. Actual owned raw/native authentication, private same-module identities, current integrity, exact selected cell and no-call joins are mandatory; schema match never creates authority.",
+    "literal": "Deep typed exact equality to the listed data, no subset/prefix matching or coercion. Checker native literals include the entire native13-key object."
+  },
+  "workerDefinitions": {
+    "hash": {
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "path": {
+      "stringMax": 4096,
+      "pattern": "^/[^\\u0000]*$"
+    },
+    "cell": {
+      "enum": [
+        "N02-SF-JS",
+        "N02-SF-RUST",
+        "N02-RS-JS",
+        "N02-RS-RUST",
+        "N03-SF",
+        "N03-RS",
+        "N16-SF-JS",
+        "N16-SF-RUST",
+        "N16-RS-JS",
+        "N16-RS-RUST"
+      ]
+    },
+    "window": {
+      "enum": [
+        "W-N02-SF-JS",
+        "W-N02-SF-RUST",
+        "W-N02-RS-JS",
+        "W-N02-RS-RUST",
+        "W-N03-SF",
+        "W-N03-RS",
+        "W-N16-SF-JS",
+        "W-N16-SF-RUST",
+        "W-N16-RS-JS",
+        "W-N16-RS-RUST"
+      ]
+    },
+    "stepId": {
+      "enum": [
+        "N02-S01",
+        "N02-S02",
+        "N03-S01",
+        "N03-S02",
+        "N16-S01",
+        "N16-S02",
+        "N16-S03",
+        "N16-S04"
+      ]
+    },
+    "descriptor": {
+      "record": {
+        "path": "@path",
+        "bytes": {
+          "integer": [
+            0,
+            33554432
+          ]
+        },
+        "sha256": "@hash"
+      }
+    },
+    "closureEntry": {
+      "record": {
+        "path": "@path",
+        "bytes": {
+          "integer": [
+            0,
+            9007199254740991
+          ]
+        },
+        "sha256": "@hash"
+      }
+    },
+    "closure": {
+      "array": "@closureEntry",
+      "length": [
+        1,
+        1024
+      ]
+    },
+    "error": {
+      "record": {
+        "name": {
+          "stringMax": 1024
+        },
+        "message": {
+          "stringMax": 16384
+        },
+        "code": {
+          "union": [
+            {
+              "stringMax": 1024
+            },
+            "null"
+          ]
+        },
+        "stack": {
+          "union": [
+            {
+              "stringMax": 65536
+            },
+            "null"
+          ]
+        }
+      }
+    },
+    "environment": {
+      "literal": {
+        "PATH": "/usr/bin:/bin",
+        "LANG": "C.UTF-8",
+        "LC_ALL": "C.UTF-8",
+        "TZ": "UTC",
+        "WS_NO_BUFFER_UTIL": "1",
+        "WS_NO_UTF_8_VALIDATE": "1"
+      }
+    },
+    "scope": {
+      "literal": {
+        "enabled": true,
+        "role": "incoming",
+        "expectedLocal": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
+        "expectedPeer": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+        "expectedContext": "3333333333333333333333333333333333333333333333333333333333333333",
+        "allowedOrigin": "https://files.invalid:18443"
+      }
+    },
+    "wireHex": {
+      "stringMax": 32748,
+      "pattern": "^(?:[0-9a-f]{2})+$"
+    },
+    "pid": {
+      "integer": [
+        1,
+        2147483647
+      ]
+    },
+    "lifecycle": {
+      "record": {
+        "launchAttempt": "boolean",
+        "acquisition": {
+          "enum": [
+            "NOT_ATTEMPTED",
+            "UNKNOWN",
+            "ACQUIRED"
+          ]
+        },
+        "pid": {
+          "union": [
+            "@pid",
+            "null"
+          ]
+        },
+        "exitCode": {
+          "union": [
+            {
+              "integer": [
+                0,
+                255
+              ]
+            },
+            "null"
+          ]
+        },
+        "signal": {
+          "union": [
+            {
+              "stringMax": 64
+            },
+            "null"
+          ]
+        },
+        "reaped": "boolean",
+        "stdoutEOF": "boolean",
+        "stderrEOF": "boolean",
+        "timedOut": "boolean",
+        "forced": "boolean",
+        "error": {
+          "union": [
+            "@error",
+            "null"
+          ]
+        }
+      }
+    },
+    "streams": {
+      "record": {
+        "stdin": "@descriptor",
+        "stdout": "@descriptor",
+        "stderr": "@descriptor"
+      }
+    },
+    "spawnReceipt": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-owned-spawn-v1"
+          ]
+        },
+        "cellId": "@cell",
+        "kind": {
+          "enum": [
+            "WIRE_D",
+            "WIRE_F",
+            "METADATA"
+          ]
+        },
+        "tool": "@closureEntry",
+        "argv": {
+          "array": {
+            "stringMax": 65536
+          },
+          "length": [
+            1,
+            16
+          ]
+        },
+        "cwd": "@path",
+        "environment": "@environment",
+        "streams": "@streams",
+        "lifecycle": "@lifecycle"
+      }
+    },
+    "approvalReview": {
+      "record": {
+        "role": {
+          "enum": [
+            "qa",
+            "security"
+          ]
+        },
+        "session": {
+          "stringMax": 256
+        },
+        "decision": {
+          "enum": [
+            "ACCEPT_SOURCE_ONLY",
+            "ACCEPT_CONTROLS_ONLY",
+            "ACCEPT_CONFIGURATION_ONLY",
+            "ACCEPT_NATIVE_ORACLES_ONLY"
+          ]
+        },
+        "subject": "@descriptor"
+      }
+    },
+    "sourceApproval": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-source-approval-v1"
+          ]
+        },
+        "decision": {
+          "enum": [
+            "ACCEPT_SOURCE_ONLY"
+          ]
+        },
+        "sourceClosure": "@closure",
+        "authors": {
+          "array": {
+            "stringMax": 256
+          },
+          "length": [
+            1,
+            8
+          ]
+        },
+        "reviews": {
+          "array": "@approvalReview",
+          "length": [
+            2,
+            2
+          ]
+        }
+      }
+    },
+    "controlApproval": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-control-approval-v1"
+          ]
+        },
+        "decision": {
+          "enum": [
+            "ACCEPT_CONTROLS_ONLY"
+          ]
+        },
+        "sourceApproval": "@descriptor",
+        "actualControlEvidence": "@descriptor",
+        "authors": {
+          "array": {
+            "stringMax": 256
+          },
+          "length": [
+            1,
+            8
+          ]
+        },
+        "reviews": {
+          "array": "@approvalReview",
+          "length": [
+            2,
+            2
+          ]
+        }
+      }
+    },
+    "nativeOracleQualification": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-native-oracle-qualification-v1"
+          ]
+        },
+        "decision": {
+          "enum": [
+            "ACCEPT_EXACT_F_ONLY_ORACLES_ONLY"
+          ]
+        },
+        "candidate": "@descriptor",
+        "sourceApproval": "@descriptor",
+        "actualEvidence": {
+          "record": {
+            "JS": "@descriptor",
+            "RUST": "@descriptor"
+          }
+        },
+        "evidenceSet": "@descriptor",
+        "authors": {
+          "array": {
+            "stringMax": 256
+          },
+          "length": [
+            1,
+            8
+          ]
+        },
+        "reviews": {
+          "array": "@nativeOracleQualificationReview",
+          "length": [
+            2,
+            2
+          ]
+        },
+        "runtimeAuthority": {
+          "enum": [
+            false
+          ]
+        }
+      }
+    },
+    "manifest": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-exact-manifest-v1"
+          ]
+        },
+        "runId": {
+          "pattern": "^[a-z0-9]{6,12}$"
+        },
+        "lane": {
+          "enum": [
+            "LAB-N-02-03-16"
+          ]
+        },
+        "orderedCells": {
+          "literal": [
+            "N02-SF-JS",
+            "N02-SF-RUST",
+            "N02-RS-JS",
+            "N02-RS-RUST",
+            "N03-SF",
+            "N03-RS",
+            "N16-SF-JS",
+            "N16-SF-RUST",
+            "N16-RS-JS",
+            "N16-RS-RUST"
+          ]
+        },
+        "sourceClosure": "@closure",
+        "workerInputs": {
+          "record": {
+            "N02-SF-JS": "@descriptor",
+            "N02-SF-RUST": "@descriptor",
+            "N02-RS-JS": "@descriptor",
+            "N02-RS-RUST": "@descriptor",
+            "N03-SF": "@descriptor",
+            "N03-RS": "@descriptor",
+            "N16-SF-JS": "@descriptor",
+            "N16-SF-RUST": "@descriptor",
+            "N16-RS-JS": "@descriptor",
+            "N16-RS-RUST": "@descriptor"
+          }
+        },
+        "workerSchema": "@descriptor",
+        "profile": "@descriptor",
+        "selection": "@descriptor",
+        "protectedDeltas": "@descriptor",
+        "sourceReviews": "@descriptor",
+        "controlAcceptance": "@descriptor",
+        "configurationAcceptance": "@descriptor",
+        "prerequisites": {
+          "record": {
+            "positivePair": "@descriptor",
+            "acceptedPlan": "@descriptor",
+            "r5Materialization": "@descriptor",
+            "r5Input": "@descriptor",
+            "relayComponent": "@descriptor",
+            "recoveryComponent": "@descriptor",
+            "candidateE02Policy": "@descriptor",
+            "sourceRelevantE01": "@descriptor",
+            "sourceRelevantE05": "@descriptor",
+            "nativeOracleQualification": "@descriptor"
+          }
+        },
+        "outputRoot": "@path"
+      }
+    },
+    "configurationCore": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-exact-manifest-v1"
+          ]
+        },
+        "runId": {
+          "pattern": "^[a-z0-9]{6,12}$"
+        },
+        "lane": {
+          "enum": [
+            "LAB-N-02-03-16"
+          ]
+        },
+        "orderedCells": {
+          "literal": [
+            "N02-SF-JS",
+            "N02-SF-RUST",
+            "N02-RS-JS",
+            "N02-RS-RUST",
+            "N03-SF",
+            "N03-RS",
+            "N16-SF-JS",
+            "N16-SF-RUST",
+            "N16-RS-JS",
+            "N16-RS-RUST"
+          ]
+        },
+        "sourceClosure": "@closure",
+        "workerInputs": {
+          "record": {
+            "N02-SF-JS": "@descriptor",
+            "N02-SF-RUST": "@descriptor",
+            "N02-RS-JS": "@descriptor",
+            "N02-RS-RUST": "@descriptor",
+            "N03-SF": "@descriptor",
+            "N03-RS": "@descriptor",
+            "N16-SF-JS": "@descriptor",
+            "N16-SF-RUST": "@descriptor",
+            "N16-RS-JS": "@descriptor",
+            "N16-RS-RUST": "@descriptor"
+          }
+        },
+        "workerSchema": "@descriptor",
+        "profile": "@descriptor",
+        "selection": "@descriptor",
+        "protectedDeltas": "@descriptor",
+        "sourceReviews": "@descriptor",
+        "controlAcceptance": "@descriptor",
+        "prerequisites": {
+          "record": {
+            "positivePair": "@descriptor",
+            "acceptedPlan": "@descriptor",
+            "r5Materialization": "@descriptor",
+            "r5Input": "@descriptor",
+            "relayComponent": "@descriptor",
+            "recoveryComponent": "@descriptor",
+            "candidateE02Policy": "@descriptor",
+            "sourceRelevantE01": "@descriptor",
+            "sourceRelevantE05": "@descriptor",
+            "nativeOracleQualification": "@descriptor"
+          }
+        },
+        "outputRoot": "@path"
+      }
+    },
+    "configurationApproval": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-configuration-approval-v1"
+          ]
+        },
+        "decision": {
+          "enum": [
+            "ACCEPT_CONFIGURATION_ONLY"
+          ]
+        },
+        "configuration": "@configurationCore",
+        "authors": {
+          "array": {
+            "stringMax": 256
+          },
+          "length": [
+            1,
+            8
+          ]
+        },
+        "reviews": {
+          "array": "@approvalReview",
+          "length": [
+            2,
+            2
+          ]
+        }
+      }
+    },
+    "release": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-root-exact-release-v1"
+          ]
+        },
+        "decision": {
+          "enum": [
+            "RELEASE_EXACT_N02316_RUN_ONLY"
+          ]
+        },
+        "rootSession": {
+          "enum": [
+            "/root"
+          ]
+        },
+        "executionSession": {
+          "stringMax": 256
+        },
+        "runRole": {
+          "enum": [
+            "primary",
+            "qa"
+          ]
+        },
+        "manifest": "@descriptor",
+        "sourceReviews": "@descriptor",
+        "controlAcceptance": "@descriptor",
+        "configurationAcceptance": "@descriptor"
+      }
+    },
+    "frame": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-case-private-frame-v1"
+          ]
+        },
+        "lane": {
+          "enum": [
+            "LAB-N-02-03-16"
+          ]
+        },
+        "cellId": "@cell",
+        "windowId": "@window",
+        "manifest": "@descriptor",
+        "release": "@descriptor",
+        "workerData": "@descriptor",
+        "output": "@path"
+      }
+    },
+    "workerData": {
+      "union": [
+        "@worker_N02_SF_JS",
+        "@worker_N02_SF_RUST",
+        "@worker_N02_RS_JS",
+        "@worker_N02_RS_RUST",
+        "@worker_N03_SF",
+        "@worker_N03_RS",
+        "@worker_N16_SF_JS",
+        "@worker_N16_SF_RUST",
+        "@worker_N16_RS_JS",
+        "@worker_N16_RS_RUST"
+      ]
+    },
+    "wireBinding": {
+      "union": [
+        "@wireBinding_N02_SF_JS_F",
+        "@wireBinding_N02_SF_RUST_F",
+        "@wireBinding_N02_RS_JS_F",
+        "@wireBinding_N02_RS_RUST_F",
+        "@wireBinding_N03_SF_D",
+        "@wireBinding_N03_RS_D",
+        "@wireBinding_N16_SF_JS_D",
+        "@wireBinding_N16_SF_JS_F",
+        "@wireBinding_N16_SF_RUST_D",
+        "@wireBinding_N16_SF_RUST_F",
+        "@wireBinding_N16_RS_JS_D",
+        "@wireBinding_N16_RS_JS_F",
+        "@wireBinding_N16_RS_RUST_D",
+        "@wireBinding_N16_RS_RUST_F"
+      ]
+    },
+    "receiveRecord": {
+      "union": [
+        "@receive_N02_SF_JS_F",
+        "@receive_N02_SF_RUST_F",
+        "@receive_N02_RS_JS_F",
+        "@receive_N02_RS_RUST_F",
+        "@receive_N03_SF_D",
+        "@receive_N03_RS_D",
+        "@receive_N16_SF_JS_D",
+        "@receive_N16_SF_JS_F",
+        "@receive_N16_SF_RUST_D",
+        "@receive_N16_SF_RUST_F",
+        "@receive_N16_RS_JS_D",
+        "@receive_N16_RS_JS_F",
+        "@receive_N16_RS_RUST_D",
+        "@receive_N16_RS_RUST_F"
+      ]
+    },
+    "nativeBinding": {
+      "union": [
+        "@nativeBinding_N02_SF_JS",
+        "@nativeBinding_N02_SF_RUST",
+        "@nativeBinding_N02_RS_JS",
+        "@nativeBinding_N02_RS_RUST",
+        "@nativeBinding_N16_SF_JS",
+        "@nativeBinding_N16_SF_RUST",
+        "@nativeBinding_N16_RS_JS",
+        "@nativeBinding_N16_RS_RUST"
+      ]
+    },
+    "nativeCallRecord": {
+      "union": [
+        "@nativeCall_N02_SF_JS",
+        "@nativeCall_N02_SF_RUST",
+        "@nativeCall_N02_RS_JS",
+        "@nativeCall_N02_RS_RUST",
+        "@nativeCall_N16_SF_JS",
+        "@nativeCall_N16_SF_RUST",
+        "@nativeCall_N16_RS_JS",
+        "@nativeCall_N16_RS_RUST"
+      ]
+    },
+    "terminal": {
+      "union": [
+        "@terminal_N02_SF_JS",
+        "@terminal_N02_SF_RUST",
+        "@terminal_N02_RS_JS",
+        "@terminal_N02_RS_RUST",
+        "@terminal_N03_SF",
+        "@terminal_N03_RS",
+        "@terminal_N16_SF_JS",
+        "@terminal_N16_SF_RUST",
+        "@terminal_N16_RS_JS",
+        "@terminal_N16_RS_RUST"
+      ]
+    },
+    "worker_N02_SF_JS": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-worker-data-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-SF-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-SF-JS"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "strfry"
+          ]
+        },
+        "backend": {
+          "enum": [
+            "JS"
+          ]
+        },
+        "scope": "@scope",
+        "secretHex": "@hash",
+        "dWire": "null",
+        "fWire": "@descriptor"
+      }
+    },
+    "wireBinding_N02_SF_JS_F": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-wire-binding-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-SF-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-SF-JS"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "F"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "strfry"
+          ]
+        },
+        "outerId": "@hash",
+        "wire": "@descriptor",
+        "closure": "@closure",
+        "output": "@path"
+      }
+    },
+    "receive_N02_SF_JS_F": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-owned-receive-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-SF-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-SF-JS"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "F"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "strfry"
+          ]
+        },
+        "subscription": {
+          "enum": [
+            "nbdp-N02-SF-JS-F"
+          ]
+        },
+        "outerId": "@hash",
+        "spawn": "@descriptor",
+        "report": "@descriptor",
+        "eventFrameIndex": {
+          "enum": [
+            3
+          ]
+        },
+        "spanStart": {
+          "integer": [
+            0,
+            262143
+          ]
+        },
+        "spanEnd": {
+          "integer": [
+            1,
+            262144
+          ]
+        },
+        "eventSpan": "@descriptor",
+        "publicationCount": {
+          "enum": [
+            1
+          ]
+        },
+        "queryCount": {
+          "enum": [
+            1
+          ]
+        },
+        "eventCount": {
+          "enum": [
+            1
+          ]
+        },
+        "closeCode": {
+          "enum": [
+            1000
+          ]
+        },
+        "closeReasonHex": {
+          "enum": [
+            ""
+          ]
+        }
+      }
+    },
+    "nativeBinding_N02_SF_JS": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-native-loader-binding-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-SF-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-SF-JS"
+          ]
+        },
+        "scope": "@scope",
+        "backend": {
+          "enum": [
+            "JS"
+          ]
+        },
+        "metadataEntry": "@closureEntry",
+        "closure": "@closure",
+        "dFixture": "null",
+        "fFixture": "@descriptor",
+        "maxRequests": {
+          "enum": [
+            1
+          ]
+        }
+      }
+    },
+    "nativeCall_N02_SF_JS": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-native-call-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-SF-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-SF-JS"
+          ]
+        },
+        "backend": {
+          "enum": [
+            "JS"
+          ]
+        },
+        "ordinal": {
+          "enum": [
+            0
+          ]
+        },
+        "channelReceipt": "@descriptor",
+        "request": "@descriptor",
+        "reply": "@descriptor",
+        "dReceive": "null",
+        "fReceive": "@descriptor",
+        "replyObserved": {
+          "enum": [
+            true
+          ]
+        },
+        "channelAlive": {
+          "enum": [
+            true
+          ]
+        },
+        "pendingOutputBytes": {
+          "enum": [
+            0
+          ]
+        },
+        "terminalLifecycle": "null"
+      }
+    },
+    "terminal_N02_SF_JS": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-terminal-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-SF-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-SF-JS"
+          ]
+        },
+        "stepId": {
+          "enum": [
+            "N02-S02"
+          ]
+        },
+        "wireTerminals": {
+          "record": {
+            "D": "null",
+            "F": "@descriptor"
+          }
+        },
+        "metadataTerminal": "@descriptor",
+        "localPolicy": "null",
+        "sealRefusal": "null",
+        "noCall": "@noCall",
+        "cleanupQualified": {
+          "enum": [
+            true
+          ]
+        },
+        "sourceCurrent": {
+          "enum": [
+            true
+          ]
+        },
+        "inputsCurrent": {
+          "enum": [
+            true
+          ]
+        },
+        "evidenceComplete": {
+          "enum": [
+            true
+          ]
+        }
+      }
+    },
+    "worker_N02_SF_RUST": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-worker-data-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-SF-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-SF-RUST"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "strfry"
+          ]
+        },
+        "backend": {
+          "enum": [
+            "RUST"
+          ]
+        },
+        "scope": "@scope",
+        "secretHex": "@hash",
+        "dWire": "null",
+        "fWire": "@descriptor"
+      }
+    },
+    "wireBinding_N02_SF_RUST_F": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-wire-binding-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-SF-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-SF-RUST"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "F"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "strfry"
+          ]
+        },
+        "outerId": "@hash",
+        "wire": "@descriptor",
+        "closure": "@closure",
+        "output": "@path"
+      }
+    },
+    "receive_N02_SF_RUST_F": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-owned-receive-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-SF-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-SF-RUST"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "F"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "strfry"
+          ]
+        },
+        "subscription": {
+          "enum": [
+            "nbdp-N02-SF-RUST-F"
+          ]
+        },
+        "outerId": "@hash",
+        "spawn": "@descriptor",
+        "report": "@descriptor",
+        "eventFrameIndex": {
+          "enum": [
+            3
+          ]
+        },
+        "spanStart": {
+          "integer": [
+            0,
+            262143
+          ]
+        },
+        "spanEnd": {
+          "integer": [
+            1,
+            262144
+          ]
+        },
+        "eventSpan": "@descriptor",
+        "publicationCount": {
+          "enum": [
+            1
+          ]
+        },
+        "queryCount": {
+          "enum": [
+            1
+          ]
+        },
+        "eventCount": {
+          "enum": [
+            1
+          ]
+        },
+        "closeCode": {
+          "enum": [
+            1000
+          ]
+        },
+        "closeReasonHex": {
+          "enum": [
+            ""
+          ]
+        }
+      }
+    },
+    "nativeBinding_N02_SF_RUST": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-native-loader-binding-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-SF-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-SF-RUST"
+          ]
+        },
+        "scope": "@scope",
+        "backend": {
+          "enum": [
+            "RUST"
+          ]
+        },
+        "metadataEntry": "@closureEntry",
+        "closure": "@closure",
+        "dFixture": "null",
+        "fFixture": "@descriptor",
+        "maxRequests": {
+          "enum": [
+            1
+          ]
+        }
+      }
+    },
+    "nativeCall_N02_SF_RUST": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-native-call-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-SF-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-SF-RUST"
+          ]
+        },
+        "backend": {
+          "enum": [
+            "RUST"
+          ]
+        },
+        "ordinal": {
+          "enum": [
+            0
+          ]
+        },
+        "channelReceipt": "@descriptor",
+        "request": "@descriptor",
+        "reply": "@descriptor",
+        "dReceive": "null",
+        "fReceive": "@descriptor",
+        "replyObserved": {
+          "enum": [
+            true
+          ]
+        },
+        "channelAlive": {
+          "enum": [
+            true
+          ]
+        },
+        "pendingOutputBytes": {
+          "enum": [
+            0
+          ]
+        },
+        "terminalLifecycle": "null"
+      }
+    },
+    "terminal_N02_SF_RUST": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-terminal-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-SF-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-SF-RUST"
+          ]
+        },
+        "stepId": {
+          "enum": [
+            "N02-S02"
+          ]
+        },
+        "wireTerminals": {
+          "record": {
+            "D": "null",
+            "F": "@descriptor"
+          }
+        },
+        "metadataTerminal": "@descriptor",
+        "localPolicy": "null",
+        "sealRefusal": "null",
+        "noCall": "@noCall",
+        "cleanupQualified": {
+          "enum": [
+            true
+          ]
+        },
+        "sourceCurrent": {
+          "enum": [
+            true
+          ]
+        },
+        "inputsCurrent": {
+          "enum": [
+            true
+          ]
+        },
+        "evidenceComplete": {
+          "enum": [
+            true
+          ]
+        }
+      }
+    },
+    "worker_N02_RS_JS": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-worker-data-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-RS-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-RS-JS"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "rs-relay"
+          ]
+        },
+        "backend": {
+          "enum": [
+            "JS"
+          ]
+        },
+        "scope": "@scope",
+        "secretHex": "@hash",
+        "dWire": "null",
+        "fWire": "@descriptor"
+      }
+    },
+    "wireBinding_N02_RS_JS_F": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-wire-binding-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-RS-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-RS-JS"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "F"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "rs-relay"
+          ]
+        },
+        "outerId": "@hash",
+        "wire": "@descriptor",
+        "closure": "@closure",
+        "output": "@path"
+      }
+    },
+    "receive_N02_RS_JS_F": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-owned-receive-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-RS-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-RS-JS"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "F"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "rs-relay"
+          ]
+        },
+        "subscription": {
+          "enum": [
+            "nbdp-N02-RS-JS-F"
+          ]
+        },
+        "outerId": "@hash",
+        "spawn": "@descriptor",
+        "report": "@descriptor",
+        "eventFrameIndex": {
+          "enum": [
+            3
+          ]
+        },
+        "spanStart": {
+          "integer": [
+            0,
+            262143
+          ]
+        },
+        "spanEnd": {
+          "integer": [
+            1,
+            262144
+          ]
+        },
+        "eventSpan": "@descriptor",
+        "publicationCount": {
+          "enum": [
+            1
+          ]
+        },
+        "queryCount": {
+          "enum": [
+            1
+          ]
+        },
+        "eventCount": {
+          "enum": [
+            1
+          ]
+        },
+        "closeCode": {
+          "enum": [
+            1000
+          ]
+        },
+        "closeReasonHex": {
+          "enum": [
+            ""
+          ]
+        }
+      }
+    },
+    "nativeBinding_N02_RS_JS": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-native-loader-binding-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-RS-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-RS-JS"
+          ]
+        },
+        "scope": "@scope",
+        "backend": {
+          "enum": [
+            "JS"
+          ]
+        },
+        "metadataEntry": "@closureEntry",
+        "closure": "@closure",
+        "dFixture": "null",
+        "fFixture": "@descriptor",
+        "maxRequests": {
+          "enum": [
+            1
+          ]
+        }
+      }
+    },
+    "nativeCall_N02_RS_JS": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-native-call-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-RS-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-RS-JS"
+          ]
+        },
+        "backend": {
+          "enum": [
+            "JS"
+          ]
+        },
+        "ordinal": {
+          "enum": [
+            0
+          ]
+        },
+        "channelReceipt": "@descriptor",
+        "request": "@descriptor",
+        "reply": "@descriptor",
+        "dReceive": "null",
+        "fReceive": "@descriptor",
+        "replyObserved": {
+          "enum": [
+            true
+          ]
+        },
+        "channelAlive": {
+          "enum": [
+            true
+          ]
+        },
+        "pendingOutputBytes": {
+          "enum": [
+            0
+          ]
+        },
+        "terminalLifecycle": "null"
+      }
+    },
+    "terminal_N02_RS_JS": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-terminal-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-RS-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-RS-JS"
+          ]
+        },
+        "stepId": {
+          "enum": [
+            "N02-S02"
+          ]
+        },
+        "wireTerminals": {
+          "record": {
+            "D": "null",
+            "F": "@descriptor"
+          }
+        },
+        "metadataTerminal": "@descriptor",
+        "localPolicy": "null",
+        "sealRefusal": "null",
+        "noCall": "@noCall",
+        "cleanupQualified": {
+          "enum": [
+            true
+          ]
+        },
+        "sourceCurrent": {
+          "enum": [
+            true
+          ]
+        },
+        "inputsCurrent": {
+          "enum": [
+            true
+          ]
+        },
+        "evidenceComplete": {
+          "enum": [
+            true
+          ]
+        }
+      }
+    },
+    "worker_N02_RS_RUST": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-worker-data-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-RS-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-RS-RUST"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "rs-relay"
+          ]
+        },
+        "backend": {
+          "enum": [
+            "RUST"
+          ]
+        },
+        "scope": "@scope",
+        "secretHex": "@hash",
+        "dWire": "null",
+        "fWire": "@descriptor"
+      }
+    },
+    "wireBinding_N02_RS_RUST_F": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-wire-binding-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-RS-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-RS-RUST"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "F"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "rs-relay"
+          ]
+        },
+        "outerId": "@hash",
+        "wire": "@descriptor",
+        "closure": "@closure",
+        "output": "@path"
+      }
+    },
+    "receive_N02_RS_RUST_F": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-owned-receive-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-RS-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-RS-RUST"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "F"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "rs-relay"
+          ]
+        },
+        "subscription": {
+          "enum": [
+            "nbdp-N02-RS-RUST-F"
+          ]
+        },
+        "outerId": "@hash",
+        "spawn": "@descriptor",
+        "report": "@descriptor",
+        "eventFrameIndex": {
+          "enum": [
+            3
+          ]
+        },
+        "spanStart": {
+          "integer": [
+            0,
+            262143
+          ]
+        },
+        "spanEnd": {
+          "integer": [
+            1,
+            262144
+          ]
+        },
+        "eventSpan": "@descriptor",
+        "publicationCount": {
+          "enum": [
+            1
+          ]
+        },
+        "queryCount": {
+          "enum": [
+            1
+          ]
+        },
+        "eventCount": {
+          "enum": [
+            1
+          ]
+        },
+        "closeCode": {
+          "enum": [
+            1000
+          ]
+        },
+        "closeReasonHex": {
+          "enum": [
+            ""
+          ]
+        }
+      }
+    },
+    "nativeBinding_N02_RS_RUST": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-native-loader-binding-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-RS-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-RS-RUST"
+          ]
+        },
+        "scope": "@scope",
+        "backend": {
+          "enum": [
+            "RUST"
+          ]
+        },
+        "metadataEntry": "@closureEntry",
+        "closure": "@closure",
+        "dFixture": "null",
+        "fFixture": "@descriptor",
+        "maxRequests": {
+          "enum": [
+            1
+          ]
+        }
+      }
+    },
+    "nativeCall_N02_RS_RUST": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-native-call-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-RS-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-RS-RUST"
+          ]
+        },
+        "backend": {
+          "enum": [
+            "RUST"
+          ]
+        },
+        "ordinal": {
+          "enum": [
+            0
+          ]
+        },
+        "channelReceipt": "@descriptor",
+        "request": "@descriptor",
+        "reply": "@descriptor",
+        "dReceive": "null",
+        "fReceive": "@descriptor",
+        "replyObserved": {
+          "enum": [
+            true
+          ]
+        },
+        "channelAlive": {
+          "enum": [
+            true
+          ]
+        },
+        "pendingOutputBytes": {
+          "enum": [
+            0
+          ]
+        },
+        "terminalLifecycle": "null"
+      }
+    },
+    "terminal_N02_RS_RUST": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-terminal-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N02-RS-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N02-RS-RUST"
+          ]
+        },
+        "stepId": {
+          "enum": [
+            "N02-S02"
+          ]
+        },
+        "wireTerminals": {
+          "record": {
+            "D": "null",
+            "F": "@descriptor"
+          }
+        },
+        "metadataTerminal": "@descriptor",
+        "localPolicy": "null",
+        "sealRefusal": "null",
+        "noCall": "@noCall",
+        "cleanupQualified": {
+          "enum": [
+            true
+          ]
+        },
+        "sourceCurrent": {
+          "enum": [
+            true
+          ]
+        },
+        "inputsCurrent": {
+          "enum": [
+            true
+          ]
+        },
+        "evidenceComplete": {
+          "enum": [
+            true
+          ]
+        }
+      }
+    },
+    "worker_N03_SF": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-worker-data-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N03-SF"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N03-SF"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "strfry"
+          ]
+        },
+        "backend": {
+          "enum": [
+            null
+          ]
+        },
+        "scope": "null",
+        "secretHex": "null",
+        "dWire": "@descriptor",
+        "fWire": "null"
+      }
+    },
+    "wireBinding_N03_SF_D": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-wire-binding-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N03-SF"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N03-SF"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "D"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "strfry"
+          ]
+        },
+        "outerId": "@hash",
+        "wire": "@descriptor",
+        "closure": "@closure",
+        "output": "@path"
+      }
+    },
+    "receive_N03_SF_D": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-owned-receive-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N03-SF"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N03-SF"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "D"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "strfry"
+          ]
+        },
+        "subscription": {
+          "enum": [
+            "nbdp-N03-SF-D"
+          ]
+        },
+        "outerId": "@hash",
+        "spawn": "@descriptor",
+        "report": "@descriptor",
+        "eventFrameIndex": {
+          "enum": [
+            3
+          ]
+        },
+        "spanStart": {
+          "integer": [
+            0,
+            262143
+          ]
+        },
+        "spanEnd": {
+          "integer": [
+            1,
+            262144
+          ]
+        },
+        "eventSpan": "@descriptor",
+        "publicationCount": {
+          "enum": [
+            1
+          ]
+        },
+        "queryCount": {
+          "enum": [
+            1
+          ]
+        },
+        "eventCount": {
+          "enum": [
+            1
+          ]
+        },
+        "closeCode": {
+          "enum": [
+            1000
+          ]
+        },
+        "closeReasonHex": {
+          "enum": [
+            ""
+          ]
+        }
+      }
+    },
+    "terminal_N03_SF": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-terminal-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N03-SF"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N03-SF"
+          ]
+        },
+        "stepId": {
+          "enum": [
+            "N03-S02"
+          ]
+        },
+        "wireTerminals": {
+          "record": {
+            "D": "@descriptor",
+            "F": "null"
+          }
+        },
+        "metadataTerminal": "null",
+        "localPolicy": "null",
+        "sealRefusal": "null",
+        "noCall": "@noCall",
+        "cleanupQualified": {
+          "enum": [
+            true
+          ]
+        },
+        "sourceCurrent": {
+          "enum": [
+            true
+          ]
+        },
+        "inputsCurrent": {
+          "enum": [
+            true
+          ]
+        },
+        "evidenceComplete": {
+          "enum": [
+            true
+          ]
+        }
+      }
+    },
+    "worker_N03_RS": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-worker-data-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N03-RS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N03-RS"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "rs-relay"
+          ]
+        },
+        "backend": {
+          "enum": [
+            null
+          ]
+        },
+        "scope": "null",
+        "secretHex": "null",
+        "dWire": "@descriptor",
+        "fWire": "null"
+      }
+    },
+    "wireBinding_N03_RS_D": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-wire-binding-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N03-RS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N03-RS"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "D"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "rs-relay"
+          ]
+        },
+        "outerId": "@hash",
+        "wire": "@descriptor",
+        "closure": "@closure",
+        "output": "@path"
+      }
+    },
+    "receive_N03_RS_D": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-owned-receive-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N03-RS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N03-RS"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "D"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "rs-relay"
+          ]
+        },
+        "subscription": {
+          "enum": [
+            "nbdp-N03-RS-D"
+          ]
+        },
+        "outerId": "@hash",
+        "spawn": "@descriptor",
+        "report": "@descriptor",
+        "eventFrameIndex": {
+          "enum": [
+            3
+          ]
+        },
+        "spanStart": {
+          "integer": [
+            0,
+            262143
+          ]
+        },
+        "spanEnd": {
+          "integer": [
+            1,
+            262144
+          ]
+        },
+        "eventSpan": "@descriptor",
+        "publicationCount": {
+          "enum": [
+            1
+          ]
+        },
+        "queryCount": {
+          "enum": [
+            1
+          ]
+        },
+        "eventCount": {
+          "enum": [
+            1
+          ]
+        },
+        "closeCode": {
+          "enum": [
+            1000
+          ]
+        },
+        "closeReasonHex": {
+          "enum": [
+            ""
+          ]
+        }
+      }
+    },
+    "terminal_N03_RS": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-terminal-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N03-RS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N03-RS"
+          ]
+        },
+        "stepId": {
+          "enum": [
+            "N03-S02"
+          ]
+        },
+        "wireTerminals": {
+          "record": {
+            "D": "@descriptor",
+            "F": "null"
+          }
+        },
+        "metadataTerminal": "null",
+        "localPolicy": "null",
+        "sealRefusal": "null",
+        "noCall": "@noCall",
+        "cleanupQualified": {
+          "enum": [
+            true
+          ]
+        },
+        "sourceCurrent": {
+          "enum": [
+            true
+          ]
+        },
+        "inputsCurrent": {
+          "enum": [
+            true
+          ]
+        },
+        "evidenceComplete": {
+          "enum": [
+            true
+          ]
+        }
+      }
+    },
+    "worker_N16_SF_JS": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-worker-data-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-SF-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-SF-JS"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "strfry"
+          ]
+        },
+        "backend": {
+          "enum": [
+            "JS"
+          ]
+        },
+        "scope": "@scope",
+        "secretHex": "@hash",
+        "dWire": "@descriptor",
+        "fWire": "@descriptor"
+      }
+    },
+    "wireBinding_N16_SF_JS_D": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-wire-binding-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-SF-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-SF-JS"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "D"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "strfry"
+          ]
+        },
+        "outerId": "@hash",
+        "wire": "@descriptor",
+        "closure": "@closure",
+        "output": "@path"
+      }
+    },
+    "receive_N16_SF_JS_D": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-owned-receive-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-SF-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-SF-JS"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "D"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "strfry"
+          ]
+        },
+        "subscription": {
+          "enum": [
+            "nbdp-N16-SF-JS-D"
+          ]
+        },
+        "outerId": "@hash",
+        "spawn": "@descriptor",
+        "report": "@descriptor",
+        "eventFrameIndex": {
+          "enum": [
+            3
+          ]
+        },
+        "spanStart": {
+          "integer": [
+            0,
+            262143
+          ]
+        },
+        "spanEnd": {
+          "integer": [
+            1,
+            262144
+          ]
+        },
+        "eventSpan": "@descriptor",
+        "publicationCount": {
+          "enum": [
+            1
+          ]
+        },
+        "queryCount": {
+          "enum": [
+            1
+          ]
+        },
+        "eventCount": {
+          "enum": [
+            1
+          ]
+        },
+        "closeCode": {
+          "enum": [
+            1000
+          ]
+        },
+        "closeReasonHex": {
+          "enum": [
+            ""
+          ]
+        }
+      }
+    },
+    "wireBinding_N16_SF_JS_F": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-wire-binding-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-SF-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-SF-JS"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "F"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "strfry"
+          ]
+        },
+        "outerId": "@hash",
+        "wire": "@descriptor",
+        "closure": "@closure",
+        "output": "@path"
+      }
+    },
+    "receive_N16_SF_JS_F": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-owned-receive-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-SF-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-SF-JS"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "F"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "strfry"
+          ]
+        },
+        "subscription": {
+          "enum": [
+            "nbdp-N16-SF-JS-F"
+          ]
+        },
+        "outerId": "@hash",
+        "spawn": "@descriptor",
+        "report": "@descriptor",
+        "eventFrameIndex": {
+          "enum": [
+            3
+          ]
+        },
+        "spanStart": {
+          "integer": [
+            0,
+            262143
+          ]
+        },
+        "spanEnd": {
+          "integer": [
+            1,
+            262144
+          ]
+        },
+        "eventSpan": "@descriptor",
+        "publicationCount": {
+          "enum": [
+            1
+          ]
+        },
+        "queryCount": {
+          "enum": [
+            1
+          ]
+        },
+        "eventCount": {
+          "enum": [
+            1
+          ]
+        },
+        "closeCode": {
+          "enum": [
+            1000
+          ]
+        },
+        "closeReasonHex": {
+          "enum": [
+            ""
+          ]
+        }
+      }
+    },
+    "nativeBinding_N16_SF_JS": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-native-loader-binding-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-SF-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-SF-JS"
+          ]
+        },
+        "scope": "@scope",
+        "backend": {
+          "enum": [
+            "JS"
+          ]
+        },
+        "metadataEntry": "@closureEntry",
+        "closure": "@closure",
+        "dFixture": "@descriptor",
+        "fFixture": "@descriptor",
+        "maxRequests": {
+          "enum": [
+            1
+          ]
+        }
+      }
+    },
+    "nativeCall_N16_SF_JS": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-native-call-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-SF-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-SF-JS"
+          ]
+        },
+        "backend": {
+          "enum": [
+            "JS"
+          ]
+        },
+        "ordinal": {
+          "enum": [
+            0
+          ]
+        },
+        "channelReceipt": "@descriptor",
+        "request": "@descriptor",
+        "reply": "@descriptor",
+        "dReceive": "@descriptor",
+        "fReceive": "@descriptor",
+        "replyObserved": {
+          "enum": [
+            true
+          ]
+        },
+        "channelAlive": {
+          "enum": [
+            true
+          ]
+        },
+        "pendingOutputBytes": {
+          "enum": [
+            0
+          ]
+        },
+        "terminalLifecycle": "null"
+      }
+    },
+    "terminal_N16_SF_JS": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-terminal-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-SF-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-SF-JS"
+          ]
+        },
+        "stepId": {
+          "enum": [
+            "N16-S04"
+          ]
+        },
+        "wireTerminals": {
+          "record": {
+            "D": "@descriptor",
+            "F": "@descriptor"
+          }
+        },
+        "metadataTerminal": "@descriptor",
+        "localPolicy": "@descriptor",
+        "sealRefusal": "@descriptor",
+        "noCall": "@noCall",
+        "cleanupQualified": {
+          "enum": [
+            true
+          ]
+        },
+        "sourceCurrent": {
+          "enum": [
+            true
+          ]
+        },
+        "inputsCurrent": {
+          "enum": [
+            true
+          ]
+        },
+        "evidenceComplete": {
+          "enum": [
+            true
+          ]
+        }
+      }
+    },
+    "worker_N16_SF_RUST": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-worker-data-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-SF-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-SF-RUST"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "strfry"
+          ]
+        },
+        "backend": {
+          "enum": [
+            "RUST"
+          ]
+        },
+        "scope": "@scope",
+        "secretHex": "@hash",
+        "dWire": "@descriptor",
+        "fWire": "@descriptor"
+      }
+    },
+    "wireBinding_N16_SF_RUST_D": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-wire-binding-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-SF-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-SF-RUST"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "D"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "strfry"
+          ]
+        },
+        "outerId": "@hash",
+        "wire": "@descriptor",
+        "closure": "@closure",
+        "output": "@path"
+      }
+    },
+    "receive_N16_SF_RUST_D": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-owned-receive-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-SF-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-SF-RUST"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "D"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "strfry"
+          ]
+        },
+        "subscription": {
+          "enum": [
+            "nbdp-N16-SF-RUST-D"
+          ]
+        },
+        "outerId": "@hash",
+        "spawn": "@descriptor",
+        "report": "@descriptor",
+        "eventFrameIndex": {
+          "enum": [
+            3
+          ]
+        },
+        "spanStart": {
+          "integer": [
+            0,
+            262143
+          ]
+        },
+        "spanEnd": {
+          "integer": [
+            1,
+            262144
+          ]
+        },
+        "eventSpan": "@descriptor",
+        "publicationCount": {
+          "enum": [
+            1
+          ]
+        },
+        "queryCount": {
+          "enum": [
+            1
+          ]
+        },
+        "eventCount": {
+          "enum": [
+            1
+          ]
+        },
+        "closeCode": {
+          "enum": [
+            1000
+          ]
+        },
+        "closeReasonHex": {
+          "enum": [
+            ""
+          ]
+        }
+      }
+    },
+    "wireBinding_N16_SF_RUST_F": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-wire-binding-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-SF-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-SF-RUST"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "F"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "strfry"
+          ]
+        },
+        "outerId": "@hash",
+        "wire": "@descriptor",
+        "closure": "@closure",
+        "output": "@path"
+      }
+    },
+    "receive_N16_SF_RUST_F": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-owned-receive-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-SF-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-SF-RUST"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "F"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "strfry"
+          ]
+        },
+        "subscription": {
+          "enum": [
+            "nbdp-N16-SF-RUST-F"
+          ]
+        },
+        "outerId": "@hash",
+        "spawn": "@descriptor",
+        "report": "@descriptor",
+        "eventFrameIndex": {
+          "enum": [
+            3
+          ]
+        },
+        "spanStart": {
+          "integer": [
+            0,
+            262143
+          ]
+        },
+        "spanEnd": {
+          "integer": [
+            1,
+            262144
+          ]
+        },
+        "eventSpan": "@descriptor",
+        "publicationCount": {
+          "enum": [
+            1
+          ]
+        },
+        "queryCount": {
+          "enum": [
+            1
+          ]
+        },
+        "eventCount": {
+          "enum": [
+            1
+          ]
+        },
+        "closeCode": {
+          "enum": [
+            1000
+          ]
+        },
+        "closeReasonHex": {
+          "enum": [
+            ""
+          ]
+        }
+      }
+    },
+    "nativeBinding_N16_SF_RUST": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-native-loader-binding-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-SF-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-SF-RUST"
+          ]
+        },
+        "scope": "@scope",
+        "backend": {
+          "enum": [
+            "RUST"
+          ]
+        },
+        "metadataEntry": "@closureEntry",
+        "closure": "@closure",
+        "dFixture": "@descriptor",
+        "fFixture": "@descriptor",
+        "maxRequests": {
+          "enum": [
+            1
+          ]
+        }
+      }
+    },
+    "nativeCall_N16_SF_RUST": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-native-call-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-SF-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-SF-RUST"
+          ]
+        },
+        "backend": {
+          "enum": [
+            "RUST"
+          ]
+        },
+        "ordinal": {
+          "enum": [
+            0
+          ]
+        },
+        "channelReceipt": "@descriptor",
+        "request": "@descriptor",
+        "reply": "@descriptor",
+        "dReceive": "@descriptor",
+        "fReceive": "@descriptor",
+        "replyObserved": {
+          "enum": [
+            true
+          ]
+        },
+        "channelAlive": {
+          "enum": [
+            true
+          ]
+        },
+        "pendingOutputBytes": {
+          "enum": [
+            0
+          ]
+        },
+        "terminalLifecycle": "null"
+      }
+    },
+    "terminal_N16_SF_RUST": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-terminal-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-SF-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-SF-RUST"
+          ]
+        },
+        "stepId": {
+          "enum": [
+            "N16-S04"
+          ]
+        },
+        "wireTerminals": {
+          "record": {
+            "D": "@descriptor",
+            "F": "@descriptor"
+          }
+        },
+        "metadataTerminal": "@descriptor",
+        "localPolicy": "@descriptor",
+        "sealRefusal": "@descriptor",
+        "noCall": "@noCall",
+        "cleanupQualified": {
+          "enum": [
+            true
+          ]
+        },
+        "sourceCurrent": {
+          "enum": [
+            true
+          ]
+        },
+        "inputsCurrent": {
+          "enum": [
+            true
+          ]
+        },
+        "evidenceComplete": {
+          "enum": [
+            true
+          ]
+        }
+      }
+    },
+    "worker_N16_RS_JS": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-worker-data-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-RS-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-RS-JS"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "rs-relay"
+          ]
+        },
+        "backend": {
+          "enum": [
+            "JS"
+          ]
+        },
+        "scope": "@scope",
+        "secretHex": "@hash",
+        "dWire": "@descriptor",
+        "fWire": "@descriptor"
+      }
+    },
+    "wireBinding_N16_RS_JS_D": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-wire-binding-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-RS-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-RS-JS"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "D"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "rs-relay"
+          ]
+        },
+        "outerId": "@hash",
+        "wire": "@descriptor",
+        "closure": "@closure",
+        "output": "@path"
+      }
+    },
+    "receive_N16_RS_JS_D": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-owned-receive-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-RS-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-RS-JS"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "D"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "rs-relay"
+          ]
+        },
+        "subscription": {
+          "enum": [
+            "nbdp-N16-RS-JS-D"
+          ]
+        },
+        "outerId": "@hash",
+        "spawn": "@descriptor",
+        "report": "@descriptor",
+        "eventFrameIndex": {
+          "enum": [
+            3
+          ]
+        },
+        "spanStart": {
+          "integer": [
+            0,
+            262143
+          ]
+        },
+        "spanEnd": {
+          "integer": [
+            1,
+            262144
+          ]
+        },
+        "eventSpan": "@descriptor",
+        "publicationCount": {
+          "enum": [
+            1
+          ]
+        },
+        "queryCount": {
+          "enum": [
+            1
+          ]
+        },
+        "eventCount": {
+          "enum": [
+            1
+          ]
+        },
+        "closeCode": {
+          "enum": [
+            1000
+          ]
+        },
+        "closeReasonHex": {
+          "enum": [
+            ""
+          ]
+        }
+      }
+    },
+    "wireBinding_N16_RS_JS_F": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-wire-binding-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-RS-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-RS-JS"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "F"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "rs-relay"
+          ]
+        },
+        "outerId": "@hash",
+        "wire": "@descriptor",
+        "closure": "@closure",
+        "output": "@path"
+      }
+    },
+    "receive_N16_RS_JS_F": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-owned-receive-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-RS-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-RS-JS"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "F"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "rs-relay"
+          ]
+        },
+        "subscription": {
+          "enum": [
+            "nbdp-N16-RS-JS-F"
+          ]
+        },
+        "outerId": "@hash",
+        "spawn": "@descriptor",
+        "report": "@descriptor",
+        "eventFrameIndex": {
+          "enum": [
+            3
+          ]
+        },
+        "spanStart": {
+          "integer": [
+            0,
+            262143
+          ]
+        },
+        "spanEnd": {
+          "integer": [
+            1,
+            262144
+          ]
+        },
+        "eventSpan": "@descriptor",
+        "publicationCount": {
+          "enum": [
+            1
+          ]
+        },
+        "queryCount": {
+          "enum": [
+            1
+          ]
+        },
+        "eventCount": {
+          "enum": [
+            1
+          ]
+        },
+        "closeCode": {
+          "enum": [
+            1000
+          ]
+        },
+        "closeReasonHex": {
+          "enum": [
+            ""
+          ]
+        }
+      }
+    },
+    "nativeBinding_N16_RS_JS": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-native-loader-binding-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-RS-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-RS-JS"
+          ]
+        },
+        "scope": "@scope",
+        "backend": {
+          "enum": [
+            "JS"
+          ]
+        },
+        "metadataEntry": "@closureEntry",
+        "closure": "@closure",
+        "dFixture": "@descriptor",
+        "fFixture": "@descriptor",
+        "maxRequests": {
+          "enum": [
+            1
+          ]
+        }
+      }
+    },
+    "nativeCall_N16_RS_JS": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-native-call-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-RS-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-RS-JS"
+          ]
+        },
+        "backend": {
+          "enum": [
+            "JS"
+          ]
+        },
+        "ordinal": {
+          "enum": [
+            0
+          ]
+        },
+        "channelReceipt": "@descriptor",
+        "request": "@descriptor",
+        "reply": "@descriptor",
+        "dReceive": "@descriptor",
+        "fReceive": "@descriptor",
+        "replyObserved": {
+          "enum": [
+            true
+          ]
+        },
+        "channelAlive": {
+          "enum": [
+            true
+          ]
+        },
+        "pendingOutputBytes": {
+          "enum": [
+            0
+          ]
+        },
+        "terminalLifecycle": "null"
+      }
+    },
+    "terminal_N16_RS_JS": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-terminal-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-RS-JS"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-RS-JS"
+          ]
+        },
+        "stepId": {
+          "enum": [
+            "N16-S04"
+          ]
+        },
+        "wireTerminals": {
+          "record": {
+            "D": "@descriptor",
+            "F": "@descriptor"
+          }
+        },
+        "metadataTerminal": "@descriptor",
+        "localPolicy": "@descriptor",
+        "sealRefusal": "@descriptor",
+        "noCall": "@noCall",
+        "cleanupQualified": {
+          "enum": [
+            true
+          ]
+        },
+        "sourceCurrent": {
+          "enum": [
+            true
+          ]
+        },
+        "inputsCurrent": {
+          "enum": [
+            true
+          ]
+        },
+        "evidenceComplete": {
+          "enum": [
+            true
+          ]
+        }
+      }
+    },
+    "worker_N16_RS_RUST": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-worker-data-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-RS-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-RS-RUST"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "rs-relay"
+          ]
+        },
+        "backend": {
+          "enum": [
+            "RUST"
+          ]
+        },
+        "scope": "@scope",
+        "secretHex": "@hash",
+        "dWire": "@descriptor",
+        "fWire": "@descriptor"
+      }
+    },
+    "wireBinding_N16_RS_RUST_D": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-wire-binding-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-RS-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-RS-RUST"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "D"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "rs-relay"
+          ]
+        },
+        "outerId": "@hash",
+        "wire": "@descriptor",
+        "closure": "@closure",
+        "output": "@path"
+      }
+    },
+    "receive_N16_RS_RUST_D": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-owned-receive-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-RS-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-RS-RUST"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "D"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "rs-relay"
+          ]
+        },
+        "subscription": {
+          "enum": [
+            "nbdp-N16-RS-RUST-D"
+          ]
+        },
+        "outerId": "@hash",
+        "spawn": "@descriptor",
+        "report": "@descriptor",
+        "eventFrameIndex": {
+          "enum": [
+            3
+          ]
+        },
+        "spanStart": {
+          "integer": [
+            0,
+            262143
+          ]
+        },
+        "spanEnd": {
+          "integer": [
+            1,
+            262144
+          ]
+        },
+        "eventSpan": "@descriptor",
+        "publicationCount": {
+          "enum": [
+            1
+          ]
+        },
+        "queryCount": {
+          "enum": [
+            1
+          ]
+        },
+        "eventCount": {
+          "enum": [
+            1
+          ]
+        },
+        "closeCode": {
+          "enum": [
+            1000
+          ]
+        },
+        "closeReasonHex": {
+          "enum": [
+            ""
+          ]
+        }
+      }
+    },
+    "wireBinding_N16_RS_RUST_F": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-wire-binding-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-RS-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-RS-RUST"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "F"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "rs-relay"
+          ]
+        },
+        "outerId": "@hash",
+        "wire": "@descriptor",
+        "closure": "@closure",
+        "output": "@path"
+      }
+    },
+    "receive_N16_RS_RUST_F": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-owned-receive-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-RS-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-RS-RUST"
+          ]
+        },
+        "slot": {
+          "enum": [
+            "F"
+          ]
+        },
+        "relay": {
+          "enum": [
+            "rs-relay"
+          ]
+        },
+        "subscription": {
+          "enum": [
+            "nbdp-N16-RS-RUST-F"
+          ]
+        },
+        "outerId": "@hash",
+        "spawn": "@descriptor",
+        "report": "@descriptor",
+        "eventFrameIndex": {
+          "enum": [
+            3
+          ]
+        },
+        "spanStart": {
+          "integer": [
+            0,
+            262143
+          ]
+        },
+        "spanEnd": {
+          "integer": [
+            1,
+            262144
+          ]
+        },
+        "eventSpan": "@descriptor",
+        "publicationCount": {
+          "enum": [
+            1
+          ]
+        },
+        "queryCount": {
+          "enum": [
+            1
+          ]
+        },
+        "eventCount": {
+          "enum": [
+            1
+          ]
+        },
+        "closeCode": {
+          "enum": [
+            1000
+          ]
+        },
+        "closeReasonHex": {
+          "enum": [
+            ""
+          ]
+        }
+      }
+    },
+    "nativeBinding_N16_RS_RUST": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-native-loader-binding-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-RS-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-RS-RUST"
+          ]
+        },
+        "scope": "@scope",
+        "backend": {
+          "enum": [
+            "RUST"
+          ]
+        },
+        "metadataEntry": "@closureEntry",
+        "closure": "@closure",
+        "dFixture": "@descriptor",
+        "fFixture": "@descriptor",
+        "maxRequests": {
+          "enum": [
+            1
+          ]
+        }
+      }
+    },
+    "nativeCall_N16_RS_RUST": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-native-call-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-RS-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-RS-RUST"
+          ]
+        },
+        "backend": {
+          "enum": [
+            "RUST"
+          ]
+        },
+        "ordinal": {
+          "enum": [
+            0
+          ]
+        },
+        "channelReceipt": "@descriptor",
+        "request": "@descriptor",
+        "reply": "@descriptor",
+        "dReceive": "@descriptor",
+        "fReceive": "@descriptor",
+        "replyObserved": {
+          "enum": [
+            true
+          ]
+        },
+        "channelAlive": {
+          "enum": [
+            true
+          ]
+        },
+        "pendingOutputBytes": {
+          "enum": [
+            0
+          ]
+        },
+        "terminalLifecycle": "null"
+      }
+    },
+    "terminal_N16_RS_RUST": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-terminal-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-RS-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-RS-RUST"
+          ]
+        },
+        "stepId": {
+          "enum": [
+            "N16-S04"
+          ]
+        },
+        "wireTerminals": {
+          "record": {
+            "D": "@descriptor",
+            "F": "@descriptor"
+          }
+        },
+        "metadataTerminal": "@descriptor",
+        "localPolicy": "@descriptor",
+        "sealRefusal": "@descriptor",
+        "noCall": "@noCall",
+        "cleanupQualified": {
+          "enum": [
+            true
+          ]
+        },
+        "sourceCurrent": {
+          "enum": [
+            true
+          ]
+        },
+        "inputsCurrent": {
+          "enum": [
+            true
+          ]
+        },
+        "evidenceComplete": {
+          "enum": [
+            true
+          ]
+        }
+      }
+    },
+    "wireFrame": {
+      "record": {
+        "direction": {
+          "enum": [
+            "SEND",
+            "RECEIVE"
+          ]
+        },
+        "kind": {
+          "enum": [
+            "EVENT",
+            "REQ",
+            "CLOSE",
+            "ACK",
+            "EOSE",
+            "UNVALIDATED",
+            "BINARY",
+            "BOUND_EXCEEDED_PREFIX"
+          ]
+        },
+        "rawHex": {
+          "stringMax": 524288,
+          "pattern": "^(?:[0-9a-f]{2})*$"
+        }
+      }
+    },
+    "wireReport": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-wire-report-v1"
+          ]
+        },
+        "cellId": "@cell",
+        "slot": {
+          "enum": [
+            "D",
+            "F"
+          ]
+        },
+        "qualified": "boolean",
+        "publicationCount": {
+          "union": [
+            {
+              "integer": [
+                0,
+                1
+              ]
+            },
+            "null"
+          ]
+        },
+        "queryCount": {
+          "union": [
+            {
+              "integer": [
+                0,
+                1
+              ]
+            },
+            "null"
+          ]
+        },
+        "eventCount": {
+          "union": [
+            {
+              "integer": [
+                0,
+                1
+              ]
+            },
+            "null"
+          ]
+        },
+        "wireHex": {
+          "union": [
+            "@wireHex",
+            "null"
+          ]
+        },
+        "close": {
+          "union": [
+            {
+              "record": {
+                "code": {
+                  "integer": [
+                    0,
+                    65535
+                  ]
+                },
+                "reasonHex": {
+                  "stringMax": 246,
+                  "pattern": "^(?:[0-9a-f]{2})*$"
+                }
+              }
+            },
+            "null"
+          ]
+        },
+        "frames": {
+          "array": "@wireFrame",
+          "length": [
+            0,
+            16
+          ]
+        },
+        "error": {
+          "union": [
+            {
+              "stringMax": 65536
+            },
+            "null"
+          ]
+        }
+      }
+    },
+    "wireCLIReply": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-wire-cli-reply-v1"
+          ]
+        },
+        "cellId": "@cell",
+        "slot": {
+          "enum": [
+            "D",
+            "F"
+          ]
+        },
+        "qualified": "boolean",
+        "report": "@descriptor"
+      }
+    },
+    "nativeRequestN02": {
+      "record": {
+        "op": {
+          "enum": [
+            "correlate-file-metadata"
+          ]
+        },
+        "secretHex": "@hash",
+        "config": "@scope",
+        "dWireHex": "null",
+        "fWireHex": "@wireHex"
+      }
+    },
+    "nativeRequestN16": {
+      "record": {
+        "op": {
+          "enum": [
+            "correlate-file-metadata"
+          ]
+        },
+        "secretHex": "@hash",
+        "config": "@scope",
+        "dWireHex": "@wireHex",
+        "fWireHex": "@wireHex"
+      }
+    },
+    "nativeRequest": {
+      "union": [
+        "@nativeRequestN02",
+        "@nativeRequestN16"
+      ]
+    },
+    "Native000": {
+      "stringMax": 131072
+    },
+    "Native001": "null",
+    "Native002": "boolean",
+    "Native003": {
+      "integer": [
+        -9007199254740991,
+        9007199254740991
+      ]
+    },
+    "Native004": {
+      "tuple": [
+        "@Native000",
+        "@Native000"
+      ]
+    },
+    "Native005": {
+      "tuple": [
+        "@Native000",
+        "@Native000",
+        "@Native000",
+        "@Native000"
+      ]
+    },
+    "Native006": {
+      "tuple": [
+        "@Native004",
+        "@Native005",
+        "@Native004",
+        "@Native004",
+        "@Native004",
+        "@Native004",
+        "@Native004",
+        "@Native004",
+        "@Native004"
+      ]
+    },
+    "Native007": {
+      "record": {
+        "id": "@Native000",
+        "pubkey": "@Native000",
+        "created_at": "@Native003",
+        "kind": "@Native003",
+        "tags": "@Native006",
+        "content": "@Native000"
+      }
+    },
+    "Native008": {
+      "record": {
+        "rumor": "@Native007",
+        "dispatch": "@Native002",
+        "role": "@Native000"
+      }
+    },
+    "Native009": {
+      "tuple": [
+        "@Native003",
+        "@Native003"
+      ]
+    },
+    "Native010": {
+      "record": {
+        "ok": "@Native002",
+        "value": "@Native008",
+        "decrypts": "@Native009"
+      }
+    },
+    "Native011": {
+      "record": {
+        "backend": "@Native000",
+        "entry": "@Native000",
+        "rawReply": "@Native010"
+      }
+    },
+    "Native012": {
+      "record": {
+        "D": "@Native001",
+        "F": "@Native011"
+      }
+    },
+    "Native013": {
+      "record": {
+        "D": "@Native003",
+        "F": "@Native003"
+      }
+    },
+    "Native014": {
+      "record": {
+        "dEntries": "@Native003",
+        "fEntries": "@Native003",
+        "capacityHeld": "@Native002"
+      }
+    },
+    "Native015": {
+      "record": {
+        "schema": "@Native000",
+        "component": "@Native000",
+        "status": "@Native000",
+        "stage": "@Native000",
+        "reason": "@Native000",
+        "dSource": "@Native000",
+        "dRumorId": "@Native001",
+        "fRumorId": "@Native000",
+        "association": "@Native000",
+        "validation": "@Native012",
+        "validationCallCounts": "@Native013",
+        "window": "@Native014",
+        "limitations": "@Native000"
+      }
+    },
+    "Native016": {
+      "record": {
+        "ok": "@Native002",
+        "value": "@Native010"
+      }
+    },
+    "Native017": {
+      "record": {
+        "backend": "@Native000",
+        "entry": "@Native000",
+        "rawReply": "@Native016"
+      }
+    },
+    "Native018": {
+      "record": {
+        "D": "@Native001",
+        "F": "@Native017"
+      }
+    },
+    "Native019": {
+      "record": {
+        "schema": "@Native000",
+        "component": "@Native000",
+        "status": "@Native000",
+        "stage": "@Native000",
+        "reason": "@Native000",
+        "dSource": "@Native000",
+        "dRumorId": "@Native001",
+        "fRumorId": "@Native000",
+        "association": "@Native000",
+        "validation": "@Native018",
+        "validationCallCounts": "@Native013",
+        "window": "@Native014",
+        "limitations": "@Native000"
+      }
+    },
+    "Native020": {
+      "tuple": [
+        "@Native004"
+      ]
+    },
+    "Native021": {
+      "record": {
+        "id": "@Native000",
+        "pubkey": "@Native000",
+        "created_at": "@Native003",
+        "kind": "@Native003",
+        "tags": "@Native020",
+        "content": "@Native000"
+      }
+    },
+    "Native022": {
+      "tuple": []
+    },
+    "Native023": {
+      "record": {
+        "id": "@Native000",
+        "kind": "@Native000",
+        "revision": "@Native003",
+        "sha256": "@Native000",
+        "bytes": "@Native003",
+        "media": "@Native000"
+      }
+    },
+    "Native024": {
+      "record": {
+        "profile": "@Native000",
+        "x": "@Native000",
+        "ox": "@Native000",
+        "bytes": "@Native003",
+        "key": "@Native000",
+        "nonce": "@Native000"
+      }
+    },
+    "Native025": {
+      "record": {
+        "protocol": "@Native000",
+        "version": "@Native003",
+        "type": "@Native000",
+        "id": "@Native000",
+        "from": "@Native000",
+        "to": "@Native000",
+        "context": "@Native000",
+        "required": "@Native022",
+        "document": "@Native023",
+        "file": "@Native024"
+      }
+    },
+    "Native026": {
+      "record": {
+        "status": "@Native000",
+        "authentication": "@Native000",
+        "rawBodyHex": "@Native000",
+        "message": "@Native025"
+      }
+    },
+    "Native027": {
+      "record": {
+        "status": "@Native000",
+        "stage": "@Native000",
+        "transportVerification": "@Native000",
+        "decrypts": "@Native009",
+        "codecInvocations": "@Native003",
+        "rumor": "@Native021",
+        "rawBodyHex": "@Native000",
+        "codec": "@Native026"
+      }
+    },
+    "Native028": {
+      "record": {
+        "backend": "@Native000",
+        "entry": "@Native000",
+        "rawReply": "@Native027"
+      }
+    },
+    "Native029": {
+      "record": {
+        "D": "@Native028",
+        "F": "@Native011"
+      }
+    },
+    "Native030": {
+      "record": {
+        "schema": "@Native000",
+        "component": "@Native000",
+        "status": "@Native000",
+        "stage": "@Native000",
+        "reason": "@Native000",
+        "dSource": "@Native000",
+        "dRumorId": "@Native000",
+        "fRumorId": "@Native000",
+        "association": "@Native000",
+        "validation": "@Native029",
+        "validationCallCounts": "@Native013",
+        "window": "@Native014",
+        "limitations": "@Native000"
+      }
+    },
+    "Native031": {
+      "record": {
+        "D": "@Native028",
+        "F": "@Native017"
+      }
+    },
+    "Native032": {
+      "record": {
+        "schema": "@Native000",
+        "component": "@Native000",
+        "status": "@Native000",
+        "stage": "@Native000",
+        "reason": "@Native000",
+        "dSource": "@Native000",
+        "dRumorId": "@Native000",
+        "fRumorId": "@Native000",
+        "association": "@Native000",
+        "validation": "@Native031",
+        "validationCallCounts": "@Native013",
+        "window": "@Native014",
+        "limitations": "@Native000"
+      }
+    },
+    "nativeReply": {
+      "union": [
+        "@Native015",
+        "@Native019",
+        "@Native030",
+        "@Native032"
+      ]
+    },
+    "localPolicy": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-local-policy-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-SF-JS",
+            "N16-SF-RUST",
+            "N16-RS-JS",
+            "N16-RS-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-SF-JS",
+            "W-N16-SF-RUST",
+            "W-N16-RS-JS",
+            "W-N16-RS-RUST"
+          ]
+        },
+        "stepId": {
+          "enum": [
+            "N16-S02"
+          ]
+        },
+        "nativeCall": "@descriptor",
+        "dRumorId": "@hash",
+        "fRumorId": "@hash",
+        "scope": {
+          "enum": [
+            "ATTACHMENT_ACQUISITION_ONLY"
+          ]
+        },
+        "decision": {
+          "enum": [
+            "DENY"
+          ]
+        },
+        "permitted": {
+          "enum": [
+            false
+          ]
+        },
+        "reason": {
+          "enum": [
+            "LOCAL_ACQUISITION_PERMISSION_DENIED"
+          ]
+        },
+        "boundary": {
+          "enum": [
+            "AFTER_PAIRED_NATIVE_AUTH"
+          ]
+        }
+      }
+    },
+    "sealRefusal": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-seal-refusal-v1"
+          ]
+        },
+        "cellId": {
+          "enum": [
+            "N16-SF-JS",
+            "N16-SF-RUST",
+            "N16-RS-JS",
+            "N16-RS-RUST"
+          ]
+        },
+        "windowId": {
+          "enum": [
+            "W-N16-SF-JS",
+            "W-N16-SF-RUST",
+            "W-N16-RS-JS",
+            "W-N16-RS-RUST"
+          ]
+        },
+        "stepId": {
+          "enum": [
+            "N16-S03"
+          ]
+        },
+        "nativeCall": "@descriptor",
+        "localPolicy": "@descriptor",
+        "outcome": {
+          "enum": [
+            "REFUSED"
+          ]
+        },
+        "stage": {
+          "enum": [
+            "policy"
+          ]
+        },
+        "reason": {
+          "enum": [
+            "LOCAL_ACQUISITION_PERMISSION_DENIED"
+          ]
+        },
+        "generation": "null",
+        "attemptReservation": "null"
+      }
+    },
+    "eligibility": {
+      "record": {
+        "state": {
+          "enum": [
+            "INCOMPLETE_NOT_AUTHENTICATED",
+            "INCOMPLETE_ORPHAN",
+            "AUTHENTICATED_POLICY_UNDECIDED",
+            "DENIED",
+            "UNKNOWN"
+          ]
+        },
+        "localPolicy": {
+          "union": [
+            "@descriptor",
+            "null"
+          ]
+        },
+        "sealRefusal": {
+          "union": [
+            "@descriptor",
+            "null"
+          ]
+        }
+      }
+    },
+    "noCall": {
+      "record": {
+        "generations": {
+          "enum": [
+            0
+          ]
+        },
+        "reservations": {
+          "enum": [
+            0
+          ]
+        },
+        "httpsListeners": {
+          "enum": [
+            0
+          ]
+        },
+        "httpsServers": {
+          "enum": [
+            0
+          ]
+        },
+        "acquisitionClients": {
+          "enum": [
+            0
+          ]
+        },
+        "acquisitionConnections": {
+          "enum": [
+            0
+          ]
+        },
+        "httpGets": {
+          "enum": [
+            0
+          ]
+        },
+        "receivedEntityBytes": {
+          "enum": [
+            0
+          ]
+        },
+        "consumerCalls": {
+          "enum": [
+            0
+          ]
+        },
+        "browserLaunches": {
+          "enum": [
+            0
+          ]
+        },
+        "originalReleases": {
+          "enum": [
+            0
+          ]
+        }
+      }
+    },
+    "counters": {
+      "record": {
+        "publications": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "queries": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "events": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "metadataRequests": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "metadataReplies": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "dValidations": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "fValidations": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "attemptReservations": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "acquisitionConnections": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "httpGets": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "receivedEntityBytes": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "consumerAttempts": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "attachmentEncryptions": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "publicReleases": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        }
+      }
+    },
+    "stepLifecycle": {
+      "record": {
+        "wireD": {
+          "union": [
+            "@descriptor",
+            "null"
+          ]
+        },
+        "wireF": {
+          "union": [
+            "@descriptor",
+            "null"
+          ]
+        },
+        "metadataChannel": {
+          "enum": [
+            "NOT_STARTED",
+            "ALIVE_QUIESCENT",
+            "TERMINAL_QUALIFIED",
+            "UNKNOWN"
+          ]
+        },
+        "metadataTerminal": {
+          "union": [
+            "@descriptor",
+            "null"
+          ]
+        },
+        "caseHostPID": {
+          "union": [
+            "@pid",
+            "null"
+          ]
+        },
+        "caseOuterReap": "null"
+      }
+    },
+    "cleanup": {
+      "record": {
+        "relayWireChildren": {
+          "enum": [
+            "NOT_STARTED",
+            "QUALIFIED",
+            "UNKNOWN"
+          ]
+        },
+        "https": {
+          "enum": [
+            "NOT_STARTED",
+            "QUALIFIED",
+            "UNKNOWN"
+          ]
+        },
+        "consumer": {
+          "enum": [
+            "NOT_STARTED",
+            "QUALIFIED",
+            "UNKNOWN"
+          ]
+        },
+        "metadata": {
+          "enum": [
+            "NOT_STARTED",
+            "ALIVE_QUIESCENT",
+            "QUALIFIED",
+            "UNKNOWN"
+          ]
+        },
+        "problems": {
+          "array": {
+            "stringMax": 1024
+          },
+          "length": [
+            0,
+            32
+          ]
+        }
+      }
+    },
+    "integrity": {
+      "record": {
+        "sourceCurrent": {
+          "union": [
+            "boolean",
+            "null"
+          ]
+        },
+        "inputsCurrent": {
+          "union": [
+            "boolean",
+            "null"
+          ]
+        },
+        "evidenceComplete": {
+          "union": [
+            "boolean",
+            "null"
+          ]
+        }
+      }
+    },
+    "step": {
+      "record": {
+        "stepId": "@stepId",
+        "phase": {
+          "enum": [
+            "COLLECT",
+            "TERMINAL",
+            "HELD",
+            "UNQUALIFIED"
+          ]
+        },
+        "eventProvenance": {
+          "record": {
+            "D": {
+              "union": [
+                "@descriptor",
+                "null"
+              ]
+            },
+            "F": {
+              "union": [
+                "@descriptor",
+                "null"
+              ]
+            }
+          }
+        },
+        "metadataRecord": {
+          "union": [
+            "@descriptor",
+            "null"
+          ]
+        },
+        "associationState": {
+          "enum": [
+            "NONE",
+            "ORPHAN_F",
+            "D_RECEIVED_ONLY",
+            "ONE_CANONICAL_F"
+          ]
+        },
+        "generation": "null",
+        "eligibility": "@eligibility",
+        "invalidation": "null",
+        "decision": {
+          "enum": [
+            "F_ONLY_AUTH",
+            "CLOSEOUT_NO_SEAL",
+            "RECEIVE_D",
+            "CLOSEOUT_NO_METADATA_NO_SEAL",
+            "D_F_AUTH",
+            "DENY_PERMISSION",
+            "SEAL_REFUSED",
+            "CLOSEOUT"
+          ]
+        },
+        "status": {
+          "enum": [
+            "ORPHAN_PENDING",
+            "NO_ACQUISITION",
+            "RECEIVED",
+            "AUTHENTICATED",
+            "LOCAL_REFUSAL",
+            "SEAL_REFUSED",
+            "UNQUALIFIED"
+          ]
+        },
+        "stage": {
+          "enum": [
+            "metadata",
+            "association",
+            "relay",
+            "policy",
+            "admission",
+            "lifecycle",
+            "cleanup",
+            "integrity",
+            "budget"
+          ]
+        },
+        "reason": {
+          "enum": [
+            "F_AUTHENTICATED_D_MISSING",
+            "MISSING_D",
+            "D_RECEIVED_UNAUTHENTICATED",
+            "MISSING_F",
+            "D_F_AUTHENTICATED",
+            "LOCAL_ACQUISITION_PERMISSION_DENIED",
+            "ADMISSION_REFUSED",
+            "RELAY_CAPTURE_UNQUALIFIED",
+            "NATIVE_CAPTURE_OR_AUTH_UNQUALIFIED",
+            "POLICY_OR_SEAL_RECORD_UNQUALIFIED",
+            "OWNED_LIFECYCLE_UNQUALIFIED",
+            "OWNED_CLEANUP_UNQUALIFIED",
+            "SOURCE_OR_INPUT_DRIFT",
+            "DEADLINE_OR_BUDGET"
+          ]
+        },
+        "counts": "@counters",
+        "snapshot": "null",
+        "nativeConsumerRecord": "null",
+        "originalHex": "null",
+        "originalReleased": {
+          "enum": [
+            false
+          ]
+        },
+        "receiptsEmitted": {
+          "enum": [
+            false
+          ]
+        },
+        "businessEffects": {
+          "enum": [
+            0
+          ]
+        },
+        "lifecycle": "@stepLifecycle",
+        "cleanup": "@cleanup",
+        "integrity": "@integrity",
+        "limitations": {
+          "enum": [
+            "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+          ]
+        }
+      }
+    },
+    "notExecuted": {
+      "record": {
+        "stepId": "@stepId",
+        "state": {
+          "enum": [
+            "NOT_EXECUTED"
+          ]
+        },
+        "reason": {
+          "enum": [
+            "EARLIER_FAILURE"
+          ]
+        }
+      }
+    },
+    "caseCLIReply": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-case-cli-reply-v1"
+          ]
+        },
+        "cellId": "@cell",
+        "windowId": "@window",
+        "qualified": "boolean",
+        "stepRecords": {
+          "array": "@descriptor",
+          "length": [
+            0,
+            4
+          ]
+        },
+        "notExecuted": {
+          "array": "@notExecuted",
+          "length": [
+            0,
+            4
+          ]
+        },
+        "finalObservation": {
+          "union": [
+            "@descriptor",
+            "null"
+          ]
+        },
+        "metadataTerminal": {
+          "union": [
+            "@descriptor",
+            "null"
+          ]
+        },
+        "terminal": {
+          "union": [
+            "@descriptor",
+            "null"
+          ]
+        },
+        "caseCleanupQualified": "boolean",
+        "finalIntegrity": "boolean",
+        "error": {
+          "union": [
+            "@error",
+            "null"
+          ]
+        }
+      }
+    },
+    "nativeOracleEvidenceSet": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-native-oracle-evidence-set-v1"
+          ]
+        },
+        "candidate": "@descriptor",
+        "sourceApproval": "@descriptor",
+        "actualEvidence": {
+          "record": {
+            "JS": "@descriptor",
+            "RUST": "@descriptor"
+          }
+        }
+      }
+    },
+    "nativeOracleQualificationReview": {
+      "record": {
+        "role": {
+          "enum": [
+            "qa",
+            "security"
+          ]
+        },
+        "session": {
+          "stringMax": 256
+        },
+        "decision": {
+          "enum": [
+            "ACCEPT_NATIVE_ORACLES_ONLY"
+          ]
+        },
+        "subject": "@descriptor"
+      }
+    },
+    "qRunId": {
+      "pattern": "^[a-z0-9]{6,12}$"
+    },
+    "qRole": {
+      "enum": [
+        "primary",
+        "qa"
+      ]
+    },
+    "qSession": {
+      "stringMax": 256
+    },
+    "qJobId": {
+      "enum": [
+        "Q-JS",
+        "Q-RUST"
+      ]
+    },
+    "qBackend": {
+      "enum": [
+        "JS",
+        "RUST"
+      ]
+    },
+    "qState": {
+      "enum": [
+        "MATCHED",
+        "FAIL",
+        "UNQUALIFIED",
+        "NOT_EXECUTED"
+      ]
+    },
+    "qTiming": {
+      "record": {
+        "startedMonotonicMs": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "responseMonotonicMs": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "terminalMonotonicMs": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "elapsedMilliseconds": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        }
+      }
+    },
+    "qCounts": {
+      "record": {
+        "metadataRequests": {
+          "union": [
+            {
+              "integer": [
+                0,
+                2
+              ]
+            },
+            "null"
+          ]
+        },
+        "metadataReplies": {
+          "union": [
+            {
+              "integer": [
+                0,
+                2
+              ]
+            },
+            "null"
+          ]
+        },
+        "dValidations": {
+          "union": [
+            {
+              "integer": [
+                0,
+                2
+              ]
+            },
+            "null"
+          ]
+        },
+        "fValidations": {
+          "union": [
+            {
+              "integer": [
+                0,
+                2
+              ]
+            },
+            "null"
+          ]
+        }
+      }
+    },
+    "qNoEffects": {
+      "record": {
+        "relayJobs": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "httpsListeners": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "acquisitionConnections": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "httpGets": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "consumerCalls": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "browserLaunches": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "attachmentEncryptions": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "receipts": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        },
+        "businessEffects": {
+          "union": [
+            {
+              "integer": [
+                0,
+                9007199254740991
+              ]
+            },
+            "null"
+          ]
+        }
+      }
+    },
+    "qCleanup": {
+      "record": {
+        "qualified": {
+          "union": [
+            "boolean",
+            "null"
+          ]
+        },
+        "problems": {
+          "array": "@error",
+          "length": [
+            0,
+            32
+          ]
+        }
+      }
+    },
+    "qNotExecuted": {
+      "record": {
+        "jobId": "@qJobId",
+        "status": {
+          "enum": [
+            "NOT_EXECUTED"
+          ]
+        },
+        "reason": {
+          "enum": [
+            "EARLIER_FAILURE"
+          ]
+        }
+      }
+    },
+    "qualificationSourcePrerequisites": {
+      "record": {
+        "positivePair": "@descriptor",
+        "acceptedPlan": "@descriptor",
+        "r5Materialization": "@descriptor",
+        "r5Input": "@descriptor",
+        "relayComponent": "@descriptor",
+        "recoveryComponent": "@descriptor",
+        "candidateE02Policy": "@descriptor",
+        "sourceRelevantE01": "@descriptor",
+        "sourceRelevantE05": "@descriptor",
+        "currentCarrierGate": "@descriptor",
+        "currentCarrierRelease": "@descriptor"
+      }
+    },
+    "qualificationTools": {
+      "record": {
+        "node": "@closureEntry",
+        "python": "@closureEntry",
+        "nativeRust": "@closureEntry",
+        "jsMetadata": "@closureEntry"
+      }
+    },
+    "qualificationJobPlanJS": {
+      "record": {
+        "jobId": {
+          "enum": [
+            "Q-JS"
+          ]
+        },
+        "backend": {
+          "enum": [
+            "JS"
+          ]
+        },
+        "output": "@path"
+      }
+    },
+    "qualificationJobPlanRUST": {
+      "record": {
+        "jobId": {
+          "enum": [
+            "Q-RUST"
+          ]
+        },
+        "backend": {
+          "enum": [
+            "RUST"
+          ]
+        },
+        "output": "@path"
+      }
+    },
+    "qualificationWorkerConfig": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-local-qualification-worker-config-v1"
+          ]
+        },
+        "runId": "@qRunId",
+        "runRole": "@qRole",
+        "executionSession": "@qSession",
+        "sourceClosure": "@closure",
+        "sourceApproval": "@descriptor",
+        "controlAcceptance": "@descriptor",
+        "acceptedPlan": "@descriptor",
+        "acceptedInertFreeze": "@descriptor",
+        "workerSchema": "@descriptor",
+        "qualificationSchema": "@descriptor",
+        "inputInventory": "@descriptor",
+        "sourcePrerequisites": "@qualificationSourcePrerequisites",
+        "request": "@descriptor",
+        "scope": "@scope",
+        "fFixture": "@descriptor",
+        "tools": "@qualificationTools",
+        "environment": "@environment",
+        "outputRoot": "@path",
+        "jobs": {
+          "tuple": [
+            "@qualificationJobPlanJS",
+            "@qualificationJobPlanRUST"
+          ]
+        }
+      }
+    },
+    "localRelease": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-local-qualification-release-v1"
+          ]
+        },
+        "decision": {
+          "enum": [
+            "RELEASE_EXACT_LOCAL_F_ONLY_RUN_ONLY"
+          ]
+        },
+        "rootSession": {
+          "enum": [
+            "/root"
+          ]
+        },
+        "executionSession": "@qSession",
+        "runRole": "@qRole",
+        "config": "@descriptor",
+        "workerConfig": "@descriptor",
+        "sourceApproval": "@descriptor",
+        "controlAcceptance": "@descriptor",
+        "configurationAcceptance": "@descriptor"
+      }
+    },
+    "localJSBinding": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-local-js-binding-v1"
+          ]
+        },
+        "jobId": {
+          "enum": [
+            "Q-JS"
+          ]
+        },
+        "backend": {
+          "enum": [
+            "JS"
+          ]
+        },
+        "workerConfig": "@descriptor",
+        "config": "@descriptor",
+        "release": "@descriptor",
+        "sourceApproval": "@descriptor",
+        "configurationAcceptance": "@descriptor",
+        "request": "@descriptor",
+        "scope": "@scope",
+        "fFixture": "@descriptor",
+        "metadataEntry": "@closureEntry",
+        "closure": "@closure",
+        "output": "@path",
+        "maxRequests": {
+          "enum": [
+            1
+          ]
+        }
+      }
+    },
+    "localSpawnReceipt": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-local-native-spawn-v1"
+          ]
+        },
+        "runId": "@qRunId",
+        "runRole": "@qRole",
+        "executionSession": "@qSession",
+        "jobId": "@qJobId",
+        "backend": "@qBackend",
+        "phase": {
+          "enum": [
+            "launch",
+            "response",
+            "terminal",
+            "failure"
+          ]
+        },
+        "tool": "@closureEntry",
+        "argv": {
+          "array": {
+            "stringMax": 65536
+          },
+          "length": [
+            1,
+            16
+          ]
+        },
+        "cwd": "@path",
+        "environment": "@environment",
+        "streams": "@streams",
+        "lifecycle": "@lifecycle",
+        "timing": "@qTiming"
+      }
+    },
+    "localComparison": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-local-whole-comparison-v1"
+          ]
+        },
+        "runId": "@qRunId",
+        "jobId": "@qJobId",
+        "backend": "@qBackend",
+        "candidate": "@descriptor",
+        "sourceApproval": "@descriptor",
+        "request": "@descriptor",
+        "expectedRequest": "@descriptor",
+        "reply": {
+          "union": [
+            "@descriptor",
+            "null"
+          ]
+        },
+        "expectedReply": "@descriptor",
+        "requestByteEqual": {
+          "union": [
+            "boolean",
+            "null"
+          ]
+        },
+        "replyWholeEqual": {
+          "union": [
+            "boolean",
+            "null"
+          ]
+        },
+        "firstDifference": {
+          "union": [
+            {
+              "stringMax": 4096
+            },
+            "null"
+          ]
+        },
+        "status": "@qState",
+        "error": {
+          "union": [
+            "@error",
+            "null"
+          ]
+        }
+      }
+    },
+    "localJobCapture": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-local-job-capture-v1"
+          ]
+        },
+        "runId": "@qRunId",
+        "runRole": "@qRole",
+        "executionSession": "@qSession",
+        "jobId": "@qJobId",
+        "backend": "@qBackend",
+        "candidate": "@descriptor",
+        "sourceApproval": "@descriptor",
+        "config": "@descriptor",
+        "workerConfig": "@descriptor",
+        "release": "@descriptor",
+        "binding": {
+          "union": [
+            "@descriptor",
+            "null"
+          ]
+        },
+        "request": "@descriptor",
+        "reply": {
+          "union": [
+            "@descriptor",
+            "null"
+          ]
+        },
+        "sidecar": {
+          "union": [
+            "@descriptor",
+            "null"
+          ]
+        },
+        "launchReceipt": {
+          "union": [
+            "@descriptor",
+            "null"
+          ]
+        },
+        "responseReceipt": {
+          "union": [
+            "@descriptor",
+            "null"
+          ]
+        },
+        "terminalReceipt": {
+          "union": [
+            "@descriptor",
+            "null"
+          ]
+        },
+        "comparison": {
+          "union": [
+            "@descriptor",
+            "null"
+          ]
+        },
+        "counts": "@qCounts",
+        "noEffects": "@qNoEffects",
+        "cleanup": "@qCleanup",
+        "integrity": "@integrity",
+        "status": "@qState",
+        "error": {
+          "union": [
+            "@error",
+            "null"
+          ]
+        },
+        "secondaryErrors": {
+          "array": "@error",
+          "length": [
+            0,
+            32
+          ]
+        }
+      }
+    },
+    "localCapture": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-local-run-capture-v1"
+          ]
+        },
+        "runId": "@qRunId",
+        "runRole": "@qRole",
+        "executionSession": "@qSession",
+        "config": "@descriptor",
+        "workerConfig": "@descriptor",
+        "release": "@descriptor",
+        "candidate": "@descriptor",
+        "sourceApproval": "@descriptor",
+        "orderedJobs": {
+          "literal": [
+            "Q-JS",
+            "Q-RUST"
+          ]
+        },
+        "jobs": {
+          "array": "@descriptor",
+          "length": [
+            0,
+            2
+          ]
+        },
+        "notExecuted": {
+          "array": "@qNotExecuted",
+          "length": [
+            0,
+            2
+          ]
+        },
+        "counts": "@qCounts",
+        "noEffects": "@qNoEffects",
+        "environment": "@environment",
+        "outputRoot": "@path",
+        "artifacts": {
+          "array": "@descriptor",
+          "length": [
+            0,
+            2048
+          ]
+        },
+        "integrity": "@integrity",
+        "cleanup": "@qCleanup",
+        "outerLifecycle": {
+          "union": [
+            "@lifecycle",
+            "null"
+          ]
+        },
+        "timing": "@qTiming",
+        "status": "@qState",
+        "error": {
+          "union": [
+            "@error",
+            "null"
+          ]
+        },
+        "secondaryErrors": {
+          "array": "@error",
+          "length": [
+            0,
+            32
+          ]
+        }
+      }
+    },
+    "qualificationPrimaryAcceptance": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-local-primary-acceptance-v1"
+          ]
+        },
+        "decision": {
+          "enum": [
+            "ACCEPT_PRIMARY_LOCAL_F_ONLY_OBSERVATION_ONLY"
+          ]
+        },
+        "candidate": "@descriptor",
+        "sourceApproval": "@descriptor",
+        "capture": "@descriptor",
+        "reviewReports": {
+          "array": "@descriptor",
+          "length": [
+            1,
+            8
+          ]
+        }
+      }
+    },
+    "backendEvidenceRun": {
+      "record": {
+        "capture": "@descriptor",
+        "job": "@descriptor",
+        "config": "@descriptor",
+        "workerConfig": "@descriptor",
+        "release": "@descriptor",
+        "comparison": "@descriptor"
+      }
+    },
+    "backendEvidence": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-local-backend-evidence-v1"
+          ]
+        },
+        "backend": "@qBackend",
+        "candidate": "@descriptor",
+        "sourceApproval": "@descriptor",
+        "sourceClosure": "@closure",
+        "runs": {
+          "record": {
+            "primary": "@backendEvidenceRun",
+            "qa": "@backendEvidenceRun"
+          }
+        },
+        "primaryAcceptance": "@descriptor",
+        "wholeRepliesEqual": "boolean",
+        "wholeRequestsEqual": "boolean",
+        "binarySourceAttestation": {
+          "enum": [
+            "UNKNOWN"
+          ]
+        },
+        "status": {
+          "enum": [
+            "COMPLETE_LOCAL_F_ONLY_EVIDENCE"
+          ]
+        },
+        "limitations": {
+          "enum": [
+            "SHARED_HOST_HARNESS_INPUTS_LOCAL_FIXTURE_ONLY_NO_RELAY_PROVENANCE_NO_HOST_ATTESTATION_NO_TARGET_QUALIFICATION"
+          ]
+        }
+      }
+    },
+    "controlRows": {
+      "tuple": [
+        {
+          "record": {
+            "id": {
+              "enum": [
+                "CLOSED_TYPED_JSON"
+              ]
+            },
+            "matched": {
+              "enum": [
+                true
+              ]
+            },
+            "scope": {
+              "enum": [
+                "PURE_REFUSAL_ONLY"
+              ]
+            }
+          }
+        },
+        {
+          "record": {
+            "id": {
+              "enum": [
+                "MISSING_EXTRA_KEYS"
+              ]
+            },
+            "matched": {
+              "enum": [
+                true
+              ]
+            },
+            "scope": {
+              "enum": [
+                "PURE_REFUSAL_ONLY"
+              ]
+            }
+          }
+        },
+        {
+          "record": {
+            "id": {
+              "enum": [
+                "ORIGINAL_PIN_DRIFT"
+              ]
+            },
+            "matched": {
+              "enum": [
+                true
+              ]
+            },
+            "scope": {
+              "enum": [
+                "PURE_REFUSAL_ONLY"
+              ]
+            }
+          }
+        },
+        {
+          "record": {
+            "id": {
+              "enum": [
+                "UNKNOWN_COUNTS_REFUSE"
+              ]
+            },
+            "matched": {
+              "enum": [
+                true
+              ]
+            },
+            "scope": {
+              "enum": [
+                "PURE_REFUSAL_ONLY"
+              ]
+            }
+          }
+        },
+        {
+          "record": {
+            "id": {
+              "enum": [
+                "WHOLE_NATIVE_DEEP_COMPARE"
+              ]
+            },
+            "matched": {
+              "enum": [
+                true
+              ]
+            },
+            "scope": {
+              "enum": [
+                "PURE_REFUSAL_ONLY"
+              ]
+            }
+          }
+        },
+        {
+          "record": {
+            "id": {
+              "enum": [
+                "N03_NO_NATIVE"
+              ]
+            },
+            "matched": {
+              "enum": [
+                true
+              ]
+            },
+            "scope": {
+              "enum": [
+                "PURE_REFUSAL_ONLY"
+              ]
+            }
+          }
+        },
+        {
+          "record": {
+            "id": {
+              "enum": [
+                "N16_DENY_NO_GENERATION"
+              ]
+            },
+            "matched": {
+              "enum": [
+                true
+              ]
+            },
+            "scope": {
+              "enum": [
+                "PURE_REFUSAL_ONLY"
+              ]
+            }
+          }
+        },
+        {
+          "record": {
+            "id": {
+              "enum": [
+                "BINDING_CONTEXT_REFUSE"
+              ]
+            },
+            "matched": {
+              "enum": [
+                true
+              ]
+            },
+            "scope": {
+              "enum": [
+                "PURE_REFUSAL_ONLY"
+              ]
+            }
+          }
+        },
+        {
+          "record": {
+            "id": {
+              "enum": [
+                "COMMON_WHOLE_AGGREGATE"
+              ]
+            },
+            "matched": {
+              "enum": [
+                true
+              ]
+            },
+            "scope": {
+              "enum": [
+                "PURE_REFUSAL_ONLY"
+              ]
+            }
+          }
+        },
+        {
+          "record": {
+            "id": {
+              "enum": [
+                "INDEPENDENT_NONAUTHOR_REVIEWS"
+              ]
+            },
+            "matched": {
+              "enum": [
+                true
+              ]
+            },
+            "scope": {
+              "enum": [
+                "PURE_REFUSAL_ONLY"
+              ]
+            }
+          }
+        },
+        {
+          "record": {
+            "id": {
+              "enum": [
+                "ORIGINAL_ERROR_PRESERVED"
+              ]
+            },
+            "matched": {
+              "enum": [
+                true
+              ]
+            },
+            "scope": {
+              "enum": [
+                "PURE_REFUSAL_ONLY"
+              ]
+            }
+          }
+        },
+        {
+          "record": {
+            "id": {
+              "enum": [
+                "RETAINED_OWNERSHIP_NO_POST_REAP_SIGNAL"
+              ]
+            },
+            "matched": {
+              "enum": [
+                true
+              ]
+            },
+            "scope": {
+              "enum": [
+                "PURE_REFUSAL_ONLY"
+              ]
+            }
+          }
+        },
+        {
+          "record": {
+            "id": {
+              "enum": [
+                "FIXED_DEADLINES"
+              ]
+            },
+            "matched": {
+              "enum": [
+                true
+              ]
+            },
+            "scope": {
+              "enum": [
+                "PURE_REFUSAL_ONLY"
+              ]
+            }
+          }
+        },
+        {
+          "record": {
+            "id": {
+              "enum": [
+                "SOURCE_FIRST_NO_CYCLE"
+              ]
+            },
+            "matched": {
+              "enum": [
+                true
+              ]
+            },
+            "scope": {
+              "enum": [
+                "PURE_REFUSAL_ONLY"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "controlInvocation": {
+      "record": {
+        "tool": "@closureEntry",
+        "argv": {
+          "array": {
+            "stringMax": 65536
+          },
+          "length": [
+            1,
+            16
+          ]
+        },
+        "cwd": "@path",
+        "environment": "@environment",
+        "stdin": "@descriptor",
+        "stdout": "@descriptor",
+        "stderr": "@descriptor",
+        "lifecycle": "@lifecycle"
+      }
+    },
+    "pureControlsCapture": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-pure-controls-capture-v1"
+          ]
+        },
+        "sourceClosure": "@closure",
+        "rows": "@controlRows",
+        "finalIntegrity": {
+          "enum": [
+            true
+          ]
+        }
+      }
+    },
+    "controlEvidence": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-controls-evidence-v1"
+          ]
+        },
+        "sourceApproval": "@descriptor",
+        "sourceClosure": "@closure",
+        "rows": "@controlRows",
+        "invocations": {
+          "array": "@controlInvocation",
+          "length": [
+            1,
+            32
+          ]
+        },
+        "finalIntegrity": {
+          "enum": [
+            true
+          ]
+        }
+      }
+    },
+    "controlBootstrapConfig": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-control-bootstrap-config-v1"
+          ]
+        },
+        "runId": "@qRunId",
+        "executionSession": "@qSession",
+        "sourceApproval": "@descriptor",
+        "sourceClosure": "@closure",
+        "qualificationSchema": "@descriptor",
+        "outputRoot": "@path",
+        "environment": "@environment"
+      }
+    },
+    "controlBootstrapRelease": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-control-bootstrap-release-v1"
+          ]
+        },
+        "decision": {
+          "enum": [
+            "RELEASE_EXACT_PURE_CONTROLS_ONLY"
+          ]
+        },
+        "rootSession": {
+          "enum": [
+            "/root"
+          ]
+        },
+        "executionSession": "@qSession",
+        "config": "@descriptor",
+        "sourceApproval": "@descriptor"
+      }
+    }
+  },
+  "workerEntrySchemas": {
+    "qualificationWorkerConfig": "@qualificationWorkerConfig",
+    "localRelease": "@localRelease",
+    "localJSBinding": "@localJSBinding",
+    "localSpawnReceipt": "@localSpawnReceipt",
+    "localComparison": "@localComparison",
+    "localJobCapture": "@localJobCapture",
+    "localCapture": "@localCapture",
+    "qualificationPrimaryAcceptance": "@qualificationPrimaryAcceptance",
+    "backendEvidence": "@backendEvidence",
+    "controlEvidence": "@controlEvidence",
+    "pureControlsCapture": "@pureControlsCapture",
+    "controlBootstrapConfig": "@controlBootstrapConfig",
+    "controlBootstrapRelease": "@controlBootstrapRelease"
+  },
+  "checkerDefinitions": {
+    "qualificationConfig": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-local-qualification-config-v1"
+          ]
+        },
+        "runId": "@qRunId",
+        "runRole": "@qRole",
+        "executionSession": "@qSession",
+        "workerConfig": "@descriptor",
+        "candidate": "@descriptor",
+        "sourceApproval": "@descriptor",
+        "controlAcceptance": "@descriptor",
+        "configurationAcceptance": "@descriptor",
+        "expectedReplies": {
+          "record": {
+            "JS": "@descriptor",
+            "RUST": "@descriptor"
+          }
+        },
+        "primaryAcceptance": {
+          "union": [
+            "@descriptor",
+            "null"
+          ]
+        }
+      }
+    },
+    "qualificationConfigurationCore": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-local-qualification-config-v1"
+          ]
+        },
+        "runId": "@qRunId",
+        "runRole": "@qRole",
+        "executionSession": "@qSession",
+        "workerConfig": "@descriptor",
+        "candidate": "@descriptor",
+        "sourceApproval": "@descriptor",
+        "controlAcceptance": "@descriptor",
+        "expectedReplies": {
+          "record": {
+            "JS": "@descriptor",
+            "RUST": "@descriptor"
+          }
+        },
+        "primaryAcceptance": {
+          "union": [
+            "@descriptor",
+            "null"
+          ]
+        }
+      }
+    },
+    "qualificationConfigurationApproval": {
+      "record": {
+        "schema": {
+          "enum": [
+            "n02316-local-configuration-approval-v1"
+          ]
+        },
+        "decision": {
+          "enum": [
+            "ACCEPT_CONFIGURATION_ONLY"
+          ]
+        },
+        "configuration": "@qualificationConfigurationCore",
+        "authors": {
+          "array": {
+            "stringMax": 256
+          },
+          "length": [
+            1,
+            8
+          ]
+        },
+        "reviews": {
+          "array": "@approvalReview",
+          "length": [
+            2,
+            2
+          ]
+        }
+      }
+    }
+  },
+  "checkerEntrySchemas": {
+    "qualificationConfig": "@qualificationConfig",
+    "qualificationConfigurationCore": "@qualificationConfigurationCore",
+    "qualificationConfigurationApproval": "@qualificationConfigurationApproval"
+  },
+  "frozenWorkerSchema": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/worker-schemas.json",
+    "bytes": 101686,
+    "sha256": "f6578bba812f4859e853c34c95ce1f4dad6f2363af6bf6b899b4d5684fbe74f5"
+  },
+  "acceptedInertFreeze": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-freeze-r2/acceptance.json",
+    "bytes": 3561,
+    "sha256": "e5cd4e5d51055ee4c2feede53c6cd3e7c83ac51e74d3eafb6cb5514c5d156ffb"
+  },
+  "acceptedQualificationPlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-qualification-plan-r2/acceptance.json",
+    "bytes": 3596,
+    "sha256": "fb29a25955ae9178f7dd9e781c448a1486fbd7267beb02443c78421e1deb0f93"
+  },
+  "qualificationInputInventory": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-qualification-plan-r2/inputs.json",
+    "bytes": 14050,
+    "sha256": "3db5af42a29c70e6f0bb8e62268c56e782e16da62043dd260add82d38753e5c0"
+  },
+  "fixedSourcePrerequisites": {
+    "positivePair": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-pair-r1/acceptance.json",
+      "bytes": 9782,
+      "sha256": "fc0841714c8f53246cc19daa24625a5353bdf59da13fa5fbd1161e82636834c0"
+    },
+    "acceptedPlan": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-plan-r1/acceptance.json",
+      "bytes": 2174,
+      "sha256": "35eabe86ff16e4b33bf2a73d0cf859f5dee7b22099981f7ec16ba8ce6e5fb23d"
+    },
+    "r5Materialization": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/fixture-materialization-acceptance-r5.json",
+      "bytes": 1595,
+      "sha256": "11ae5a7d69e7b3c99a6262e50e7aa4824b9ca54fdf0e465adce79bc435e52afc"
+    },
+    "r5Input": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/fixture-input-acceptance-r5.json",
+      "bytes": 2524,
+      "sha256": "a80d6272492f395f36d8afea0d3283a07e406eecfc6243fd4eaeea3fef85ceae"
+    },
+    "relayComponent": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-relay-metadata-preparation-r1/retry-r2/runtime-acceptance.json",
+      "bytes": 4892,
+      "sha256": "c6d7d695167d915ce9a7413ebff5b8100b726d4ab75fc90d672a5a4c39c8cf68"
+    },
+    "recoveryComponent": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-recovery-barecall-source-r1/runtime-acceptance.json",
+      "bytes": 9982,
+      "sha256": "d2f8872f5688e57d1dfe1333933b3a7202aaaf24f71e846e8c4470e36752a7ef"
+    },
+    "candidateE02Policy": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/transport-sub-evidence-prerequisite-v1.md",
+      "bytes": 3073,
+      "sha256": "0ed885e41d3cbb2d38af33cdd060e5ad5bea3327d0ce2a4306c123c170a15a25"
+    },
+    "sourceRelevantE01": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e01-completion-and-next-action.json",
+      "bytes": 14812,
+      "sha256": "52619ef1137a78937f0ab079655e05ac11c7b07d45f5bade6439eed72c7899c5"
+    },
+    "sourceRelevantE05": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/results/E05.json",
+      "bytes": 8854,
+      "sha256": "a82dc68bf538cbb026d99b78374b8349dc06fa1547d8b3b44e8591262ae872a3"
+    },
+    "currentCarrierGate": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e04_prerequisite_gate_v1/prerequisite_gate.py",
+      "bytes": 30015,
+      "sha256": "fe23d255352863ca2872028116dbac506e85b766d3455972ff775da3773c6f9f"
+    },
+    "currentCarrierRelease": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e04-gate-qualification-r2/runtime-release.json",
+      "bytes": 3560,
+      "sha256": "4dc61f0dc054a5f70a9d42578cd19ad711cf30a21dd14d83884f7be560ced04c"
+    }
+  },
+  "fixedTools": {
+    "node": {
+      "path": "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+      "bytes": 121613584,
+      "sha256": "ccacb2d6d87ba6d118b2bffc1ae33747a05cc5fc6b1f1ec4fc1d420b687e952d"
+    },
+    "python": {
+      "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "bytes": 32959480,
+      "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+    },
+    "nativeRust": {
+      "path": "/tmp/nbdp-e06-build-tv5zqp4j/target/debug/nbdp-experiment-rust",
+      "bytes": 26400472,
+      "sha256": "55205961550c66467be356b13adeafaf43599ca6f59f2db5ebf1de9293c3045d"
+    },
+    "jsMetadata": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_invoice_file_v1/js/metadata.mjs",
+      "bytes": 16205,
+      "sha256": "c9f0cd7055a98e2edcfcc32efc9be99e499077dc6d131472cb4c179b8c4c348c"
+    }
+  },
+  "controlIds": [
+    "CLOSED_TYPED_JSON",
+    "MISSING_EXTRA_KEYS",
+    "ORIGINAL_PIN_DRIFT",
+    "UNKNOWN_COUNTS_REFUSE",
+    "WHOLE_NATIVE_DEEP_COMPARE",
+    "N03_NO_NATIVE",
+    "N16_DENY_NO_GENERATION",
+    "BINDING_CONTEXT_REFUSE",
+    "COMMON_WHOLE_AGGREGATE",
+    "INDEPENDENT_NONAUTHOR_REVIEWS",
+    "ORIGINAL_ERROR_PRESERVED",
+    "RETAINED_OWNERSHIP_NO_POST_REAP_SIGNAL",
+    "FIXED_DEADLINES",
+    "SOURCE_FIRST_NO_CYCLE"
+  ],
+  "timersMilliseconds": {
+    "phase": 1500000,
+    "associationWindow": 240000,
+    "nativeStart": 15000,
+    "nativeWriteAndReplyCombined": 15000,
+    "nativeTerminalClose": 5000,
+    "parentPipeDrainAfterOwnedChildExit": 2000,
+    "windowCleanupTotal": 15000,
+    "finalLabCleanup": 60000
+  },
+  "externalMonitorMilliseconds": 1560000,
+  "externalMonitorMeaning": "Finite proposed source-bound external monitor phase1500s+bounded60s cleanup; independent review required before any release; no actual process/time attestation.",
+  "namespaceRules": "Worker pool resolves ONLY workerDefinitions; checker pool extends it with checkerDefinitions. Entire file has no exact native reply/candidate/plaintext payload or fullchecker native literal, only structural types and descriptor metadata. Workers never parse candidate/expected descriptor targets.",
+  "sourceFirst": "SAME actual derivative executable sourceApproval and complete sourceClosure must precede CONTROL-only bootstrap, LOCAL primary, independent QA and eventual target manifests. LOCAL is a separate fixed invocation, never a missing-native-qualification waiver for target admission.",
+  "qualificationGate": "Unchanged acceptedN nativeOracleEvidenceSet/nativeOracleQualification shapes and exact common JS+RUST subject joins remain in copiedworkerDefinitions. New backendEvidence descriptors become aggregate.actualEvidence.JS/RUST only after both runs complete; both final aggregate reviewers distinct/nonoperator/nonauthor.",
+  "noFutureArtifacts": "Schemas/reference shapes only. No source approval, executable/tool closure, materialized request/expected object, control outcome, runtime config/release, run capture, evidence graph or qualification pack is supplied or claimed ready.",
+  "interpretation": "IMPLEMENTATION.md defines fixed module APIs, CLI/config context, expected-data boundary, per-record semantic joins and failure custody. Static source preparation only; no project imports/evaluation/native/crypto/control/network/experiment execution authorized by this file.",
+  "qualificationMaterialization": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/derivation.json",
+    "bytes": 2672,
+    "sha256": "1a52ba219b7dd9eb4d757a8612230ab7ddaded357cb9a4bd9d8899f216a49ec8"
+  }
+}

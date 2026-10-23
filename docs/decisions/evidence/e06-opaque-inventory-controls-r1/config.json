@@ -1,0 +1,78 @@
+{
+  "schema": "e06-opaque-grammar-controls-config-v1",
+  "state": "PROPOSED_SOURCE_GRAMMAR_ONLY_NOT_LOCAL_OR_GATE_PROBE",
+  "ready": true,
+  "runId": "6de715bf226e",
+  "executionSession": "/root",
+  "runRole": "primary",
+  "sourceAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/acceptance.json",
+    "bytes": 2485,
+    "sha256": "cd32f47b3e7aa5e178ad82d84175115d87dab6e19c2bd5e99b0f341d668e964e"
+  },
+  "sourceApproval": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-approval.json",
+    "bytes": 107717,
+    "sha256": "e3e41bb6bae55d80702f9002cc99c72ad3a6345405a5043d3123dcafcbea685e"
+  },
+  "sourceClosure": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-closure.json",
+    "bytes": 102080,
+    "sha256": "76cfc1d55602c4c18f7adabde2b67679f3d828517a4cf4abefdf13d57029b100"
+  },
+  "admission": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/admission.py",
+    "bytes": 53263,
+    "sha256": "24d928e46fa538b139c0e8418eeae777d682a99173a8f1a03334374b1626ec9f"
+  },
+  "suite": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/grammar_controls.py",
+    "bytes": 8326,
+    "sha256": "77fb47deff4657ebcd4717f0f8992d350468923aa22c4ee7551588e5acc317ce"
+  },
+  "bridgeSchema": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/bridge-schemas.json",
+    "bytes": 158719,
+    "sha256": "89173066418eddd16f1d2a14ecee4b04470072385c1883aab48a01dd6e41281a"
+  },
+  "python": {
+    "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "bytes": 32959480,
+    "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+  },
+  "environment": {
+    "PATH": "/usr/bin:/bin",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "TZ": "UTC",
+    "WS_NO_BUFFER_UTIL": "1",
+    "WS_NO_UTF_8_VALIDATE": "1"
+  },
+  "outputRoot": "/tmp/e6n-opaque-grammar-6de715bf226e",
+  "maximumSyntheticFileBytes": 33554433,
+  "maximumPhaseMilliseconds": 120000,
+  "expectedControlIds": [
+    "OPAQUE_ACCEPT_zero",
+    "OPAQUE_ACCEPT_raw32_boundary",
+    "OPAQUE_ACCEPT_above_raw32",
+    "OPAQUE_ACCEPT_actual_node_metadata",
+    "OPAQUE_ACCEPT_opaque512_boundary",
+    "OPAQUE_REFUSE_negative",
+    "OPAQUE_REFUSE_bool",
+    "OPAQUE_REFUSE_float",
+    "OPAQUE_REFUSE_string_size",
+    "OPAQUE_REFUSE_above512",
+    "OPAQUE_REFUSE_above_safe_integer",
+    "OPAQUE_REFUSE_relative_path",
+    "OPAQUE_REFUSE_bad_hash",
+    "OPAQUE_REFUSE_hash_type",
+    "OPAQUE_REFUSE_extra_key",
+    "OPAQUE_REFUSE_missing_key",
+    "OPAQUE_CAP_WITH_ACTUAL_INVENTORY_CONTEXT",
+    "REAL_LOOP_ORDER",
+    "OUTPUT_DESCRIPTOR_STILL_RAW32",
+    "LOADS_STILL_RAW32",
+    "CHECKED_STILL_RAW32"
+  ],
+  "executionReleased": false
+}

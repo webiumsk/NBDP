@@ -1,0 +1,55 @@
+{
+  "schema": "e06-n02316-negative-source-acceptance-v1",
+  "coordinator": "/root",
+  "decision": "ACCEPT_SOURCE_ONLY",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-closure.json",
+    "bytes": 102080,
+    "sha256": "76cfc1d55602c4c18f7adabde2b67679f3d828517a4cf4abefdf13d57029b100"
+  },
+  "runtimeCompatibleSourceApproval": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-approval.json",
+    "bytes": 107717,
+    "sha256": "e3e41bb6bae55d80702f9002cc99c72ad3a6345405a5043d3123dcafcbea685e"
+  },
+  "independentReviews": {
+    "qa": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/independent-qa-review.json",
+      "bytes": 2929,
+      "sha256": "4dc7bf5fb85b71515284d20ae913b2ca052f9090f0a92eb02aec82b24b35b756"
+    },
+    "security": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/independent-security-review.json",
+      "bytes": 2947,
+      "sha256": "ad6277aea774b45bc9d5fd0c2b599f4e39c40ff73647fbc4d78aff74562e7af1"
+    }
+  },
+  "rootManifest": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/root-manifest.json",
+    "bytes": 97963,
+    "sha256": "78a9280275d931f1c90761eb09139b7c5a8e9839f4f69811855f6469e464a072"
+  },
+  "authorHandoff": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/static-checks.json",
+    "bytes": 3281,
+    "sha256": "d9b777ef4ae8a2a1a85235ee36026da2c105ad88b6f15dfda6550b15ae95ba85"
+  },
+  "acceptedScope": {
+    "sourceClosureMembers": 449,
+    "meaning": "Current experimental SOURCE and DATA dependency review only; no runtime/normative adoption."
+  },
+  "actualExecution": {
+    "currentSourceMarkerControls": 0,
+    "currentSourceFullPureControls": 0,
+    "grammarControls": 0,
+    "localNativeJobs": 0,
+    "negativeTargetWindows": 0
+  },
+  "executionReleased": false,
+  "nextTask": "Review fresh CONTROL-only bootstrap/configs; qualify actual14/10/21 controls, real inventory baseline/matrix and later native/custody gates.",
+  "limits": [
+    "R2 failure preserved; source correction is not runtime success.",
+    "Protected sources retained; no old runtime acceptance transfer.",
+    "No E06 PASS/blocker/SDK authority."
+  ]
+}

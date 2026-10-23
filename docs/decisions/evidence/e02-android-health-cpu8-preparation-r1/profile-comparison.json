@@ -1,0 +1,56 @@
+{
+  "schema": "e02-android-health-cpu8-single-variable-profile-v1",
+  "state": "SOURCE_ONLY_NOT_EXECUTED",
+  "baselineConfiguration": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r2/proposed-run-config.json",
+    "bytes": 3131,
+    "sha256": "522d24dade1e06dffbbbadbbb7e7c71493c0ed24fda56e1a104fe83d519f3f2d"
+  },
+  "candidateConfiguration": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-cpu8-preparation-r1/proposed-run-config.json",
+    "bytes": 3163,
+    "sha256": "9d35484322fd9a41914a07245f2bb9fceec89cbe6fef8212174d55b800063756"
+  },
+  "runtimeVariable": {
+    "androidContainerCpuQuota": {
+      "before": 4,
+      "after": 8
+    },
+    "guestVcpu": {
+      "before": 4,
+      "after": 4
+    },
+    "guestMemoryMiB": {
+      "before": 4096,
+      "after": 4096
+    },
+    "containerMemoryMiB": {
+      "before": 8192,
+      "after": 8192
+    },
+    "memorySwapMiB": {
+      "before": 8192,
+      "after": 8192
+    },
+    "pidsLimit": {
+      "before": 512,
+      "after": 512
+    }
+  },
+  "necessaryAdmissionAndIdentityChanges": [
+    "Host affinity minimum4\u21928 before lease",
+    "Fresh HERE/LAB/source/config pins, runId and distinct CPU8 config/release/result schema; generic diagnostic scope unchanged"
+  ],
+  "unchangedBindings": [
+    "Pinned SDK/emulator/API/image/APK/dependencies",
+    "Software GPU/wiped coldboot/no snapshot",
+    "Guard/driver commands/lifecycle/no-login/no-publication/read-only diagnostics",
+    "Original1800s lease and diagnostic180s/nested15s/ADB10s budgets",
+    "Memory/disk admission/caps, egress/ownership/cgroup/private/cleanup constraints"
+  ],
+  "limits": [
+    "One sequential fresh-coldboot B does not establish ANR cause, healthy OS or repeatability.",
+    "Host load/boot scheduling nondeterminism not controlled by the single configuration delta.",
+    "Cgroup telemetry measures the whole Android container, not emulator-only."
+  ]
+}

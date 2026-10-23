@@ -1,0 +1,69 @@
+{
+  "schema": "e02-android-health-runtime-plan-v1",
+  "scope": "ANDROID_HEALTH_DIAGNOSTIC_ONLY_NO_LOGIN_OR_TRANSPORT",
+  "runtimeImage": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+  "relayImage": "sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82",
+  "sdkRoot": "/tmp/nbdp-e02-ingress-runtime/sdk",
+  "amethystApk": {
+    "path": "/tmp/nbdp-e02-android-artifact/source/amethyst/build/outputs/apk/fdroid/debug/amethyst-fdroid-debug.apk",
+    "bytes": 165860063,
+    "sha256": "5165a9f79326524c494108b8ab728fb173ac14fa16bf67ebbd86364c895e98b5"
+  },
+  "helperApk": {
+    "path": "/tmp/nbdp-e02-ordinary-client-v1/helper-build-20261023a/clipboard-capture.apk",
+    "bytes": 16787,
+    "sha256": "a680e513a9b36cab634620507b77bba36532ce13acb465a860c7bef60d23ec20"
+  },
+  "runId": "8e4865aa7ad547968e7d3b4a53d7fcf6",
+  "originalLeaseSeconds": 1800,
+  "sourceAndDependencyPins": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android_health_v1/supervisor.py",
+      "bytes": 40748,
+      "sha256": "ad7f6c25715e0710becc364a94bb11bb324477095cf5b43d6c5d89bc5cd4ead7"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android_health_v1/lease_guard.py",
+      "bytes": 18346,
+      "sha256": "3abdc3609728e503b7d746412d553a190612092dde2fda8098a02e0a8fcb74a2"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android_health_v1/android_driver.py",
+      "bytes": 6555,
+      "sha256": "75346fd1bc4b5708f3cbd4b3935ba9c8b8ba37eb0fe0100476907d10005b09e2"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android_health_v1/ui-plan.json",
+      "bytes": 3039,
+      "sha256": "cd1476c5adeff45db232b7a47920b8370ac7ab83c593f18cfe136cdcf1990515"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android_health_v1/fixture.mjs",
+      "bytes": 19931,
+      "sha256": "0bb04326a8e8ec10ce57e4d760300f482ec88a12a28650b481ab949254a0ce4b"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android_health_v1/fixture-plan.json",
+      "bytes": 249207,
+      "sha256": "0483d48a9adebd81e38a84ccb15bff201fec659470a90a45977af26d487ad9c3"
+    }
+  ],
+  "sdkInventory": {
+    "path": "/tmp/nbdp-e02-minimal-rs-v7/records/runtime-sdk-tree.json",
+    "bytes": 88515,
+    "sha256": "c7cfe67ccff2be67cfee85b352fd99626b0c9e357c7645d20e266bab7d480407"
+  },
+  "guardBundleInventory": {
+    "path": "/tmp/nbdp-e02-minimal-rs-v7/records/guard-bundle-manifest.json",
+    "bytes": 332736,
+    "sha256": "9de311222ef78e20fbe05bfef32898976d80737d5d932166d23431a04a73a454"
+  },
+  "guardBundleRoot": "/tmp/nbdp-e02-minimal-rs-v7/guard-python",
+  "relayConfig": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/docker/rs-relay.toml",
+    "bytes": 192,
+    "sha256": "6775940c6258e2714a2a60793584ae549a50111154c743045a87d679af9a0b02"
+  },
+  "state": "SOURCE_R2_TIMEOUT_CORRECTED_REQUIRES_INDEPENDENT_REVIEW_AND_RELEASE",
+  "canonicalE02": "PARTIAL22_UNCHANGED"
+}

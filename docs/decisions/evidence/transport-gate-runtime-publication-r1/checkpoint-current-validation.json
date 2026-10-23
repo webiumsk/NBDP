@@ -1,0 +1,63 @@
+{
+  "schema": "nbdp-publication-checkpoint-validation-v1",
+  "actor": "/root",
+  "selectedFiles": 259,
+  "jsonSyntaxDuplicateKeyChecked": 172,
+  "activeRelativeLinksChecked": 99,
+  "unresolvedActiveLinks": [],
+  "historicalSourceLinkContext": [
+    {
+      "source": "docs/decisions/evidence/e02-ordinary-client-resume-r1/source-docs-r10-before-current-profile/SUPERVISOR.md",
+      "target": "docs/decisions/evidence/e02-ordinary-client-resume-r1/guard-r1-inert/execution.json",
+      "existsInIndex": false,
+      "originalOrigin": "experiments/prototypes/e02_ordinary_client_v1/SUPERVISOR.md",
+      "preservedInRawArchive": true
+    }
+  ],
+  "archives": [
+    {
+      "index": "e02-cpu8-diagnostic-runtime-index.json",
+      "members": 620,
+      "archiveSha256": "dcee0153a63a53c5517966a7a9cd3ab42c7f6c48c70d3db2a008835c93f4b9e5",
+      "allMatch": true
+    },
+    {
+      "index": "e02-health-and-aggregate-index.json",
+      "members": 683,
+      "archiveSha256": "c46c7c77ea4f4556668e65e7e3d727c13ed97e861e18cd4f9f0fd6449dc5b734",
+      "allMatch": true
+    },
+    {
+      "index": "e02-raw-archive-index.json",
+      "members": 3698,
+      "archiveSha256": "4157f024a74d30d624faa7216e1da558ec089a11d05f1ca3d26359d7fe5d1927",
+      "allMatch": true
+    },
+    {
+      "index": "e06-control-and-input-runtime-index.json",
+      "members": 346,
+      "archiveSha256": "3ac42a91c129b27369168ebb55eb58f5e71634a8c15613194220998905e886ed",
+      "allMatch": true
+    },
+    {
+      "index": "e06-qa-input-matrix-runtime-index.json",
+      "members": 112,
+      "archiveSha256": "c5778ab152d30cf1f9bea2dab12cc254ae4d298d95bf50b345e0204f9f498c2a",
+      "allMatch": true
+    },
+    {
+      "index": "e06-source-archive-index.json",
+      "members": 380,
+      "archiveSha256": "108f38e3eb68a4f7751e7da514527e157ce6ae21f9b9164bb9e758740fcc0aa1",
+      "allMatch": true
+    }
+  ],
+  "whitespace": {
+    "allStagedFilesExit": 0,
+    "rawUnifiedPatchPreservation": "Two raw patches retain their original blank context markers in exact archives; duplicate normal-tree copies omitted without modifying originals."
+  },
+  "earlierValidationAttempt": "Initial active-link scan treated one byte-identical historical source copy as current navigation; failed before archive scan or report publication. Its original-origin referent is now independently checked against raw archive membership, without altering source evidence.",
+  "scope": "Serialization/archive/index/publication validation only; not experiment execution or PASS.",
+  "baselineHead": "a8221c5c84fd0f15b40c417456755507689d8ac4",
+  "branch": "implementation/transport-gate-readiness-20261023"
+}

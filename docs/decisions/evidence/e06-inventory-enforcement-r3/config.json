@@ -1,0 +1,232 @@
+{
+  "schema": "e06-inventory-real-gate-probe-config-v1",
+  "state": "PROPOSED_GATE_ARGUMENTS_ONLY_NOT_A_LOCAL_CONFIG",
+  "runId": "e5086e05b104",
+  "runRole": "primary",
+  "executionSession": "/root",
+  "sourceAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/acceptance.json",
+    "bytes": 2485,
+    "sha256": "cd32f47b3e7aa5e178ad82d84175115d87dab6e19c2bd5e99b0f341d668e964e"
+  },
+  "sourceApproval": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-approval.json",
+    "bytes": 107717,
+    "sha256": "e3e41bb6bae55d80702f9002cc99c72ad3a6345405a5043d3123dcafcbea685e"
+  },
+  "sourceClosure": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-closure.json",
+    "bytes": 102080,
+    "sha256": "76cfc1d55602c4c18f7adabde2b67679f3d828517a4cf4abefdf13d57029b100"
+  },
+  "controlApproval": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/control-approval.json",
+    "bytes": 1488,
+    "sha256": "c2c6d2b97ba4f25dbbb9074c079cd3ad29cbf9fa23aac709b31a97a273c0f5ee"
+  },
+  "controlAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/control-acceptance.json",
+    "bytes": 1683,
+    "sha256": "96fb74a47dc5693bd45271142fc81a0d8e14c35814b9a77e26c73b15448f4ca9"
+  },
+  "qualificationSchema": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/qualification-schemas.json",
+    "bytes": 133680,
+    "sha256": "dcbbbd2c9b84d5cd477718896f287f8abc6f6574e148a04421bc3a9043157a2b"
+  },
+  "admission": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/admission.py",
+    "bytes": 53263,
+    "sha256": "24d928e46fa538b139c0e8418eeae777d682a99173a8f1a03334374b1626ec9f"
+  },
+  "python": {
+    "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "bytes": 32959480,
+    "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+  },
+  "environment": {
+    "PATH": "/usr/bin:/bin",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "TZ": "UTC",
+    "WS_NO_BUFFER_UTIL": "1",
+    "WS_NO_UTF_8_VALIDATE": "1"
+  },
+  "outputRoot": "/tmp/e6n-inventory-primary-e5086e05b104",
+  "arguments": {
+    "config": {
+      "candidate": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/native-oracles.json",
+        "bytes": 27629,
+        "sha256": "12a508cc4060ad920ebcba0aeb0c23f5b7de7c311aaeec575cb4bf5f0ad28a2a"
+      },
+      "expectedReplies": {
+        "JS": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/JS.expected.json",
+          "bytes": 1477,
+          "sha256": "70d6b37cefa44a237a4ba94cdff6745db57222dc79bdbced0979e64c360f363d"
+        },
+        "RUST": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/RUST.expected.json",
+          "bytes": 1499,
+          "sha256": "2c3812c2097bdbb7db69dfc1575a0400f64ef67c47ecc2de46177cc8acfdac3a"
+        }
+      },
+      "runId": "e5086e05b104",
+      "runRole": "primary",
+      "executionSession": "/root"
+    },
+    "worker": {
+      "sourcePrerequisites": {
+        "positivePair": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-pair-r1/acceptance.json",
+          "bytes": 9782,
+          "sha256": "fc0841714c8f53246cc19daa24625a5353bdf59da13fa5fbd1161e82636834c0"
+        },
+        "acceptedPlan": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-plan-r1/acceptance.json",
+          "bytes": 2174,
+          "sha256": "35eabe86ff16e4b33bf2a73d0cf859f5dee7b22099981f7ec16ba8ce6e5fb23d"
+        },
+        "r5Materialization": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/fixture-materialization-acceptance-r5.json",
+          "bytes": 1595,
+          "sha256": "11ae5a7d69e7b3c99a6262e50e7aa4824b9ca54fdf0e465adce79bc435e52afc"
+        },
+        "r5Input": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/fixture-input-acceptance-r5.json",
+          "bytes": 2524,
+          "sha256": "a80d6272492f395f36d8afea0d3283a07e406eecfc6243fd4eaeea3fef85ceae"
+        },
+        "relayComponent": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-relay-metadata-preparation-r1/retry-r2/runtime-acceptance.json",
+          "bytes": 4892,
+          "sha256": "c6d7d695167d915ce9a7413ebff5b8100b726d4ab75fc90d672a5a4c39c8cf68"
+        },
+        "recoveryComponent": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-recovery-barecall-source-r1/runtime-acceptance.json",
+          "bytes": 9982,
+          "sha256": "d2f8872f5688e57d1dfe1333933b3a7202aaaf24f71e846e8c4470e36752a7ef"
+        },
+        "candidateE02Policy": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/transport-sub-evidence-prerequisite-v1.md",
+          "bytes": 3073,
+          "sha256": "0ed885e41d3cbb2d38af33cdd060e5ad5bea3327d0ce2a4306c123c170a15a25"
+        },
+        "sourceRelevantE01": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e01-completion-and-next-action.json",
+          "bytes": 14812,
+          "sha256": "52619ef1137a78937f0ab079655e05ac11c7b07d45f5bade6439eed72c7899c5"
+        },
+        "sourceRelevantE05": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/results/E05.json",
+          "bytes": 8854,
+          "sha256": "a82dc68bf538cbb026d99b78374b8349dc06fa1547d8b3b44e8591262ae872a3"
+        },
+        "currentCarrierGate": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e04_prerequisite_gate_v1/prerequisite_gate.py",
+          "bytes": 30015,
+          "sha256": "fe23d255352863ca2872028116dbac506e85b766d3455972ff775da3773c6f9f"
+        },
+        "currentCarrierRelease": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e04-gate-qualification-r2/runtime-release.json",
+          "bytes": 3560,
+          "sha256": "4dc61f0dc054a5f70a9d42578cd19ad711cf30a21dd14d83884f7be560ced04c"
+        }
+      },
+      "acceptedPlan": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-qualification-plan-r2/acceptance.json",
+        "bytes": 3596,
+        "sha256": "fb29a25955ae9178f7dd9e781c448a1486fbd7267beb02443c78421e1deb0f93"
+      },
+      "acceptedInertFreeze": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-freeze-r2/acceptance.json",
+        "bytes": 3561,
+        "sha256": "e5cd4e5d51055ee4c2feede53c6cd3e7c83ac51e74d3eafb6cb5514c5d156ffb"
+      },
+      "workerSchema": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/worker-schemas.json",
+        "bytes": 101686,
+        "sha256": "f6578bba812f4859e853c34c95ce1f4dad6f2363af6bf6b899b4d5684fbe74f5"
+      },
+      "qualificationSchema": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/qualification-schemas.json",
+        "bytes": 133680,
+        "sha256": "dcbbbd2c9b84d5cd477718896f287f8abc6f6574e148a04421bc3a9043157a2b"
+      },
+      "environment": {
+        "PATH": "/usr/bin:/bin",
+        "LANG": "C.UTF-8",
+        "LC_ALL": "C.UTF-8",
+        "TZ": "UTC",
+        "WS_NO_BUFFER_UTIL": "1",
+        "WS_NO_UTF_8_VALIDATE": "1"
+      },
+      "scope": {
+        "enabled": true,
+        "role": "incoming",
+        "expectedLocal": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
+        "expectedPeer": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+        "expectedContext": "3333333333333333333333333333333333333333333333333333333333333333",
+        "allowedOrigin": "https://files.invalid:18443"
+      },
+      "fFixture": {
+        "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.incoming.wire",
+        "bytes": 2897,
+        "sha256": "06a372bca1fadd8f028203289cda89bca49b9d43a89e2b31c1ba3d69228b0bb3"
+      },
+      "tools": {
+        "node": {
+          "path": "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+          "bytes": 121613584,
+          "sha256": "ccacb2d6d87ba6d118b2bffc1ae33747a05cc5fc6b1f1ec4fc1d420b687e952d"
+        },
+        "python": {
+          "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+          "bytes": 32959480,
+          "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+        },
+        "nativeRust": {
+          "path": "/tmp/nbdp-e06-build-tv5zqp4j/target/debug/nbdp-experiment-rust",
+          "bytes": 26400472,
+          "sha256": "55205961550c66467be356b13adeafaf43599ca6f59f2db5ebf1de9293c3045d"
+        },
+        "jsMetadata": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_invoice_file_v1/js/metadata.mjs",
+          "bytes": 16205,
+          "sha256": "c9f0cd7055a98e2edcfcc32efc9be99e499077dc6d131472cb4c179b8c4c348c"
+        }
+      },
+      "inputInventory": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-qualification-plan-r2/inputs.json",
+        "bytes": 14050,
+        "sha256": "3db5af42a29c70e6f0bb8e62268c56e782e16da62043dd260add82d38753e5c0"
+      },
+      "request": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/request.jsonl",
+        "bytes": 6276,
+        "sha256": "dc586e609758fb6656c76ab5698985b9620d91e1852c8abfb85b2aaf9da636b0"
+      },
+      "runId": "e5086e05b104",
+      "runRole": "primary",
+      "executionSession": "/root",
+      "outputRoot": "/tmp/e6n-fonly-primary-e5086e05b104",
+      "jobs": [
+        {
+          "jobId": "Q-JS",
+          "output": "/tmp/e6n-fonly-primary-e5086e05b104/Q-JS",
+          "backend": "JS"
+        },
+        {
+          "jobId": "Q-RUST",
+          "output": "/tmp/e6n-fonly-primary-e5086e05b104/Q-RUST",
+          "backend": "RUST"
+        }
+      ]
+    }
+  },
+  "expectedGateOutcome": "ACCEPT",
+  "maximumPhaseMilliseconds": 120000,
+  "futureQaOutputRootNotActivated": "/tmp/e6n-inventory-qa-654faff747b8",
+  "executionReleased": false
+}

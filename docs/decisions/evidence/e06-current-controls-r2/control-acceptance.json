@@ -1,0 +1,38 @@
+{
+  "schema": "e06-current-control-acceptance-v1",
+  "coordinator": "/root",
+  "decision": "ACCEPT_CONTROLS_ONLY",
+  "subject": {
+    "path": "/tmp/e6n-controls-f5b3f410dfec/actual-control-evidence.json",
+    "bytes": 93982,
+    "sha256": "548482449d9bd1145f0e51faa58b3ac181dbff898ae80b41831fd30689195fca"
+  },
+  "sourceApproval": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-approval.json",
+    "bytes": 107717,
+    "sha256": "e3e41bb6bae55d80702f9002cc99c72ad3a6345405a5043d3123dcafcbea685e"
+  },
+  "runtimeCompatibleControlApproval": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/control-approval.json",
+    "bytes": 1488,
+    "sha256": "c2c6d2b97ba4f25dbbb9074c079cd3ad29cbf9fa23aac709b31a97a273c0f5ee"
+  },
+  "independentReviews": {
+    "qa": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/actual-qa-review.json",
+      "bytes": 1862,
+      "sha256": "30008b389459962c728041377c7bc3388e26a813f3ab7175780093d99373a0d4"
+    },
+    "security": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/actual-security-review.json",
+      "bytes": 1874,
+      "sha256": "4203ed88c9495abeb80a91a3db8928bdf664c4f3cf3bc2eb80166920243f0fec"
+    }
+  },
+  "executionReleased": false,
+  "nextBoundedTask": "Exact grammar controls then real inventory/separate-derivation baseline/refusal matrix before LOCAL.",
+  "limits": [
+    "Fourteenpureonly; N03/N16DATAconsistency; noNative/LOCAL/TARGET.",
+    "Historicalcapturesdistinct; no canonicalE06promotion."
+  ]
+}

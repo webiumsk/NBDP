@@ -1,0 +1,52 @@
+{
+  "actor": "/root/android_health_qa",
+  "argv": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-qa-r1/matrix.py",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-qa-r1/config.json",
+    "9e83a3de19394d236d2575a1bbfdfb21ba47511f6d5f4d35f09e3242a87ad0ee",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-qa-r1/release.json",
+    "5a639b2e7fd81b61830fbd6cbaee00cc5184c79952d9f23d423ef45b3592d67f",
+    "/root/android_health_qa"
+  ],
+  "environment": {
+    "PATH": "/usr/bin:/bin",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "TZ": "UTC",
+    "WS_NO_BUFFER_UTIL": "1",
+    "WS_NO_UTF_8_VALIDATE": "1"
+  },
+  "config": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-qa-r1/config.json",
+    "bytes": 13544,
+    "sha256": "9e83a3de19394d236d2575a1bbfdfb21ba47511f6d5f4d35f09e3242a87ad0ee"
+  },
+  "release": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-qa-r1/release.json",
+    "bytes": 2286,
+    "sha256": "5a639b2e7fd81b61830fbd6cbaee00cc5184c79952d9f23d423ef45b3592d67f"
+  },
+  "pid": 3,
+  "pidMeaning": "PID in the tool execution namespace; not asserted host PID",
+  "exit": 0,
+  "reaped": true,
+  "stdoutEOF": true,
+  "stderrEOF": true,
+  "forced": false,
+  "error": null,
+  "durationMs": 179750,
+  "stdout": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-qa-r1/outer-actual/stdout.bin",
+    "bytes": 209,
+    "sha256": "4e8230a202e0c927eddddba9a01920067b3f1c1851b98b039ee98b5d76120966"
+  },
+  "stderr": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-qa-r1/outer-actual/stderr.bin",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "scope": "Actual QA76 caller-memory inventory/mat gate cases only; no filesystem-drift/full LOCAL/native/network/TARGET qualification."
+}

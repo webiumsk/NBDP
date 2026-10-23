@@ -1,0 +1,53 @@
+{
+  "schema": "e02-first-cell-actual-control-readiness-v1",
+  "operator": "/root",
+  "decision": "ACCEPT_SCOPED_PREPARATION_CONTROLS_ONLY",
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-client-resume-r1/complete-source-config-subject-r11.json",
+    "bytes": 11718,
+    "sha256": "d6f95a25f9bdcda4d828b885a206757107e1154e4b0628e202607bea143ef08b"
+  },
+  "actualControls": [
+    {
+      "scope": "guard29_current_source",
+      "actualRecord": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-client-resume-r1/guard-r8-controls/execution.json",
+        "bytes": 1392,
+        "sha256": "2e8af189636db042a16688bedaaf5af4ba87e7785a34d059f76b355d278ab9ec"
+      }
+    },
+    {
+      "scope": "consumer14",
+      "actualRecord": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-client-resume-r1/consumer-r2-data-controls/execution.json",
+        "bytes": 1110,
+        "sha256": "614f05383e818f30dce92b230c23d05d559b37458cc4c60faef1354f0fb41022"
+      }
+    },
+    {
+      "scope": "fixture27",
+      "actualRecord": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-client-resume-r1/fixture-r3-pure-controls/execution.json",
+        "bytes": 1129,
+        "sha256": "3274140a4f9c6b08c2c763a909a3c5d1297ff693b4b6765059b06fafd6124bc9"
+      }
+    },
+    {
+      "scope": "cleanup_namespace_resources24_current_source",
+      "actualRecord": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-client-resume-r1/cleanup-r10-controls/execution.json",
+        "bytes": 1638,
+        "sha256": "275f61d266a83d82e695b2ab2df3301b00e2e5e1e94948cea5e788217966a8d8"
+      }
+    },
+    {
+      "scope": "ui38_pure_mock_controls",
+      "actualRecord": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-client-resume-r1/ui-r4-controls/execution.json",
+        "bytes": 1374,
+        "sha256": "295df60cf01d1faf260822dadd3a35fce22147402064a5ed2f02ec48be2d85df"
+      }
+    }
+  ],
+  "limits": "Separate overlapping preparation scopes, not E02 assertions. Prior24 cleanup/resources and29guard remain byte-identical and are not rerun. Eight failed attempts retained. Visible whole identity and savedOff require actual UI evidence; no compatibility proof from mocks."
+}

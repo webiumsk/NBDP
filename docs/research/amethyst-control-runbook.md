@@ -1,6 +1,6 @@
 # Pinned Amethyst ordinary-client control
 
-Prepared 2026-10-23 under the existing isolated E01–E06 authorization. This is an execution specification, not an executed control or a change to the canonical plan. See the [current environment report](../decisions/evidence/transport-gate-readiness-2026-10-23/android-environment.md) and [readiness index](transport-gate-readiness-2026-10-23.md).
+Revised 2026-10-24 under the existing isolated E01–E06 authorization. This is an execution specification, not an executed control or a change to the canonical plan. See the [current environment report](../decisions/evidence/transport-gate-readiness-2026-10-23/android-environment.md) and [readiness index](transport-gate-readiness-2026-10-23.md).
 
 ## Frozen client and available assets
 
@@ -9,9 +9,9 @@ Prepared 2026-10-23 under the existing isolated E01–E06 authorization. This is
 - APK bytes/SHA256: `165860063` / `5165a9f79326524c494108b8ab728fb173ac14fa16bf67ebbd86364c895e98b5`.
 - Recorded package/version: `com.vitorpamplona.amethyst.debug`, `1.17.0-DEBUG`, code `462`; source-linked build, not a new build/signature verification today.
 - Cached SDK: `/tmp/nbdp-e02-ingress-runtime/sdk`; platform-tools37.0.1, emulator37.2.12/build16428233, Android36 default/x86_64 revision2/extension17. Obtain actual guest/tool versions again in the admitted isolated session.
-- Existing reviewed resource guards: 6GiB persistent free and 12GiB MemAvailable; `/state` tmpfs ceiling10GiB. These are preparation thresholds, not measured peak consumption.
+- Current admission:6GiB persistent free,12GiB MemAvailable and at least4 affinity CPUs. Android trial:4vCPU/4096MiB guest,8192MiB container memory=memory-swap/PID512; aggregate configured9856MiB. `/state` is a fresh per-run persistent bind; only `/tmp` has a256MiB tmpfs ceiling. Old10GiB-state-tmpfs references describe a former harness. These are configured caps/admission thresholds, not measured minimum/peak consumption.
 
-The coordinator's supported host probe verified KVM openability and Docker29.9.0. The current disk has 175497216bytes (about167MiB) free. No APK download/rebuild or personal Android configuration change is needed. Direct managed-session ADB probes failed attempting to create read-only `~/.android`; use the isolated container's namespace-local ADB.
+The coordinator's supported host probe verified KVM openability and Docker29.9.0. The earlier167MiB-free obstacle is historical: after the owner freed space, host preflight40c219 passed with15278325760bytes free and14563786752bytes MemAvailable. Admission is checked again per run. No APK download/rebuild or personal Android configuration change is needed. Direct managed-session ADB probes failed attempting to create read-only `~/.android`; use the isolated container's namespace-local ADB.
 
 ## Purpose and proposed observation matrix
 
@@ -55,4 +55,12 @@ Retain the canonical ordinary-chat/foreign-protocol/unsupported-version/required
 
 **PARTIAL** remains correct for missing mandatory observations/export, resource/lease interruption or incomplete client capability evidence. A reproduced destructive mutation, wrong conversation or failed mandatory assertion is retained as **FAIL**. Lack of NBDP business UI alone is a capability limitation, not NBDP conformance failure.
 
-Next owned tasks: implementer prepares the bounded Android-local export driver and versioned E02 evidence integration; QA/security review exact source/configuration before activation. Current external input: at least6GiB total free space on the relevant filesystem, or a qualified alternate filesystem. No repeated approval of existing PO decisions is required.
+Current ordinary-client execution remains unqualified. Nine finite attempts preserve Docker/clock/boot/listener/Tor/ANR/masked-input failures; none reached accepted raw-inner-note export. Attempts2–9 removed all four exact-owned containers. The latest R11 first-frame PNG/XML shows a Quickstep OS ANR; the strict handler correctly refused, before the source-reviewed visibility correction was exercised. Do not widen the ANR handler or infer business incompatibility from this result.
+
+Completed diagnostic history: A (container CPU4) and B (container CPU8) both captured System UI ANR before the client intent; guest4vCPU/4096MiB remained unchanged. The ordinary-control profile remains container CPU4. Neither diagnostic produced a healthy baseline, matching ANR reason/stack or an ordinary-client row. Next bounded task: separately reviewed early-boot/before-install trace capture with no APK installation, client intent, identity/login, fixture publication or Wait/Close actions. Collect bounded system/events logs, lastanr, lastanr-traces, system_app_anr DropBox entries, uptime/process identity and scoped container counters under the original1800s lease. Permission failures, no entries, lost contents and unsupported commands remain UNKNOWN. Only matching PID/time/reason/stack can establish trace correlation; no cause is inferred from dialog titles or zero exit status. The [independent diagnosis](../decisions/evidence/e02-android-anr-diagnosis-r1/report.json) gives the existing observations, primary sources and acceptance. Source/configuration review and a fresh root diagnostic-only release precede activation.
+
+The no-INTERNET foreground clipboard helper was built offline; actual selected-note capture is still unqualified. First-cell fixtures wait for actual1059 subscription/EOSE and invalidate replaced generations. Current fixture/driver covers only JS→Rust incoming on rs-relay; the other seven matrix cells need reviewed real producers/relay/account/chat-list routing. Incoming peers route to New Requests; sender archives preserve the inner original recipient and route to Known under the pinned client. Fresh per-cell app state prevents role/cache contamination.
+
+The unchanged v1 consumer also rejects actual epoch-nanosecond release metadata through its safe-integer parser. A separately versioned supplemental adapter/aggregate has SOURCE review and28 independently accepted synthetic DATA controls; it must retain wire integer limits, validate actual metadata without silent reinterpretation, bind actual outer/whole-run reviews and reject FAILED_UNQUALIFIED contributors. No current supplemental header may be rewritten as canonicalPASS. Actual member/witness/complete-history qualification, the remaining seven real producer cells, full canonical integration and a current full E02 reconciliation remain necessary. See [aggregate DATA acceptance](../decisions/evidence/e02-ordinary-aggregate-controls-r1/acceptance.json).
+
+Current external input: none. No repeated approval of existing PO decisions is required.

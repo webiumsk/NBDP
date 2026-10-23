@@ -1,0 +1,113 @@
+{
+  "schema": "e02-android-health-r2-static-preparation-v1",
+  "actor": "/root/android_health_implementer",
+  "state": "WRITES_STOPPED_SOURCE_ONLY",
+  "method": "Stdlib AST/hash/JSON/unified-diff only; no project import/evaluation/compilation/tests/runtime.",
+  "beforeMutationArchive": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r2/archive-before-mutation.json",
+    "bytes": 4871,
+    "sha256": "29b7136402a3a80d599f6f921d9460d4a7a686e1234d5b4ed4d7df4f19f24d57"
+  },
+  "finalSecurityBeforeMutationArchive": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r2/archive-final-security-before-mutation.json",
+    "bytes": 936,
+    "sha256": "95b14e9a5401a5d98e70c44741fed24cc3160ba9495ce25155d5dc5e54177845"
+  },
+  "changedSourceFiles": [
+    "README.md",
+    "supervisor.py",
+    "test_diagnostic.py"
+  ],
+  "supervisorChangedMethods": [
+    "Runtime.adb"
+  ],
+  "verified": [
+    "Only Runtime.adb default argument30\u219210 changes executable supervisor AST; body identical.",
+    "Guard/driver/core lifecycle/clock/cleanup/config/GPU/limits and source/dependency checks byte-identical to r1.",
+    "All old13 diagnostic controls AST-identical;29guard/24cleanup source byte-identical.",
+    "Original S archived9files remain byte-identical to live S."
+  ],
+  "sourcePatch": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r2/source.patch",
+    "bytes": 10011,
+    "sha256": "ce7e898721f18ddd42a6c353dc131e9369aafa13a550dade5447e3b24486391f"
+  },
+  "currentSources": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android_health_v1/README.md",
+      "bytes": 6428,
+      "sha256": "b1588a747d2a138f5f10b2199a6c0db9a6f50d84eeebd07a300673088618ed6f"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android_health_v1/android_driver.py",
+      "bytes": 6555,
+      "sha256": "75346fd1bc4b5708f3cbd4b3935ba9c8b8ba37eb0fe0100476907d10005b09e2"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android_health_v1/fixture-plan.json",
+      "bytes": 249207,
+      "sha256": "0483d48a9adebd81e38a84ccb15bff201fec659470a90a45977af26d487ad9c3"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android_health_v1/fixture.mjs",
+      "bytes": 19931,
+      "sha256": "0bb04326a8e8ec10ce57e4d760300f482ec88a12a28650b481ab949254a0ce4b"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android_health_v1/lease_guard.py",
+      "bytes": 18346,
+      "sha256": "3abdc3609728e503b7d746412d553a190612092dde2fda8098a02e0a8fcb74a2"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android_health_v1/runtime-plan.json",
+      "bytes": 1656,
+      "sha256": "c7fb1da28f184501b7386ac30077436734b5d25f561ce157fa541abec38dc22a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android_health_v1/supervisor.py",
+      "bytes": 40748,
+      "sha256": "ad7f6c25715e0710becc364a94bb11bb324477095cf5b43d6c5d89bc5cd4ead7"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android_health_v1/test_cleanup.py",
+      "bytes": 22332,
+      "sha256": "528073348a46dc843f91b5474d115a7ba11501d41f188295549eff409b74a350"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android_health_v1/test_diagnostic.py",
+      "bytes": 17805,
+      "sha256": "a749b4c72e8b45697e3a54f1400b84edadc7030a48cad18611810934755a8638"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android_health_v1/test_lease_guard.py",
+      "bytes": 23358,
+      "sha256": "dc6cf89f24dae405c92b2b3164729ad4f0cf008054dbad053ddf57e4caa3f294"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android_health_v1/ui-plan.json",
+      "bytes": 3039,
+      "sha256": "cd1476c5adeff45db232b7a47920b8370ac7ab83c593f18cfe136cdcf1990515"
+    }
+  ],
+  "proposedConfiguration": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r2/proposed-run-config.json",
+    "bytes": 3131,
+    "sha256": "522d24dade1e06dffbbbadbbb7e7c71493c0ed24fda56e1a104fe83d519f3f2d"
+  },
+  "proposedTestDefinitions": {
+    "test_lease_guard.py": 29,
+    "test_cleanup.py": 24,
+    "test_diagnostic.py": 19
+  },
+  "executedTests": 0,
+  "findingDisposition": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r2/finding-disposition.json",
+    "bytes": 2661,
+    "sha256": "da2efaf935080932de8a103823762bc126f4478521b47f7a5e458eb0dba015a1"
+  },
+  "preparationFailure": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r2/preparation-error.json",
+    "bytes": 400,
+    "sha256": "97723b71651f6fd8b7a03dbce9e16096760108e046dd77fa40c6d47658f2dcff"
+  }
+}
