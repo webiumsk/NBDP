@@ -1,0 +1,20 @@
+{
+  "schema": "nbdp-readonly-host-capability-v1",
+  "date": "2026-10-23",
+  "operator": "/root",
+  "toolChunk": "ea914b",
+  "actualExit": 0,
+  "scope": "Supported read-only escalation, no service/process lab startup",
+  "kvmExists": true,
+  "kvmOpenReadWrite": true,
+  "kvmIoctlsPerformed": 0,
+  "dockerServerVersion": "29.9.0",
+  "diskFreeBytes": 180051968,
+  "diskFilesystemTotal": 481576673280,
+  "workspaceAndTmpSameFilesystem": true,
+  "meaning": "Supersedes sandbox-only lack of visibility; user need not change KVM/Docker permissions.",
+  "requiredPersistentFreeBytes": 6442450944,
+  "requiredMemoryAvailableBytes": 12884901888,
+  "thresholdMeaning": "Existing reviewed preparation guards, not empirically measured minimum/peak.",
+  "userInput": "Free space to at least6GiB total or provide a qualified alternate filesystem; cached APK/SDK available."
+}

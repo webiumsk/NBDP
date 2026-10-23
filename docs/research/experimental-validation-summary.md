@@ -1,4 +1,20 @@
-# Experimental validation summary — NBDP-005
+# Experimental validation summary
+
+## Current reconciliation — 2026-10-23
+
+The [current evidence/action index](transport-gate-readiness-2026-10-23.md) supersedes the initial handoff's present-tense availability and next-task statements. All116 canonical source/configuration/lock pins match today; this is provenance inspection, not a new runtime/build qualification. Canonical E01PASS140/E02PARTIAL22/E03PASS19/E04NOT_EXECUTED/E05PASS25/E06NOT_EXECUTED records remain byte-for-byte unchanged.
+
+Separately accepted local overlays exist: E04 frozen-consumer limitedPARTIAL (each primary/QA132 consumer processes and156 whole matches), E06 metadata/recovery/HTTPS plus four positive composed windows per run and14 pure controls. Their wider mandatory matrices remain incomplete. Full runtime/source graphs remain local; curated acceptance snapshots and scope limits are linked in the dated index. Neither overlay is a full canonical PASS.
+
+The exact Amethyst APK/SDK/emulator/image are cached and reverified; hostKVM/Docker access is available through supported execution. Current persistent free space is 175497216bytes (about167MiB), below the existing6GiB preparation guard;12GiBMemAvailable is also required at admission. No new Android control ran. Actual selected-note inner content/tag export and reviewed E02 evidence integration remain necessary: its unchanged harness always skips Amethyst. See [runbook](amethyst-control-runbook.md).
+
+`transport-sub-evidence-v1` is already adopted for a named isolated E04/E06 candidate's E02 edge under exact current-evidence gates. E02 remainsPARTIAL and ordinary-client scope is unchanged. E06 requiresE01/E02/E05, notE04PASS. Existing policy adoption-time 'no candidate yet' text is preserved as history, not asserted as current availability. The [attachment decision brief](attachment-profile-decision-brief.md) separates12/16-byte source/crypto/producer evidence and retains the conditional batch-reuse finding.
+
+Current branch is `implementation/transport-gate-readiness-20261023` from main989e703. PR#1/#2 merged on2026-10-11; older unmerged-stack statements are obsolete. No canonical gates, architectural decisions, blocker classifications or production/SDK boundaries changed. The five blockers have executable next steps and acceptance criteria in the dated action index.
+
+## Historical initial handoff — 2026-10-11
+
+The text below preserves the original canonical experiment snapshot and its limitations. Android availability, absence of later scoped measurements and the then-selected next milestone describe that date, not today's workspace.
 
 **Date:** 2026-10-11. **Direction:** Option B remains conditionally recommended, with moderate confidence in the tested cryptographic/application transport path and low confidence in untested ecosystem file compatibility, offline availability and parallel business authority. [PO-001–PO-006](../decisions/PRODUCT_OWNER_DECISIONS_2026-10-11.md) approve direction only; the [ADR](../../adr/0001-transport-selection.md) is **Conditionally Accepted — Architecture Direction Only**. Exact wire format, SDK, release and production use are not approved.
 

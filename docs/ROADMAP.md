@@ -1,22 +1,33 @@
-# NBDP gated roadmap
+# NBDP roadmap
 
-Updated 2026-10-11. This document was absent at NBDP-005 start. It preserves [canonical experiments](research/required-experiments.md), [Q01–Q27](research/architecture-risk-register.md) and [approved decisions](decisions/PRODUCT_OWNER_DECISIONS_2026-10-11.md).
+Updated 2026-10-23. The [complete former working roadmap](decisions/evidence/transport-gate-readiness-2026-10-23/baseline-ROADMAP.txt) preserves all historical observations and failed attempts. Use [project state](PROJECT_STATE.md) and the [dated evidence/action board](research/transport-gate-readiness-2026-10-23.md) for current status.
 
-| Order | Milestone | Prerequisites and exit evidence | Approval boundary |
+## Active transport milestone
+
+| Order / parallelism | Next executable task and owner | Prerequisites | Completion evidence |
 | --- | --- | --- | --- |
-| 1 | Complete transport evidence gate | Isolated ordinary-client control completes E02; then E04 actual frames/resources and E06 exact file/correlation/download interoperability; review 12/16-byte producer nonce alternatives | Product/security review exact carrier, byte profile and limits; no kind allocation |
-| 2 | Draft and independently review R01–R08 candidates | Inputs/readiness in [validation summary](research/experimental-validation-summary.md#rfc-readiness); identify unresolved normative clauses and public test vectors | G1 reviewed text; drafting is not SDK permission |
-| 3 | Validate storage, authenticated receipts and durable replay | E07/E08/E09 with verified metadata, independent hosts, sender/recipient/action binding, crash/restore/same-ID conflicts | Q08/Q11/Q12/Q19/Q20/Q27 evidence; no legal delivery inference |
-| 4 | Validate relay/privacy/offline objective | E10/E11/E15; H7/R10, surviving copies, skew, backdating/pagination/reconciliation; separate accelerated and real-duration trials | Q01/Q13/Q14/Q18/Q21; no arbitrary public relay delivery guarantee |
-| 5 | Validate parallel authority and key lifecycle | Reviewed per-device scoped grants/revocations, freshness/causal conflicts/effect domains; E12/E13/E14 and relevant E08/E09 | Q15 remains blocker until independent partition/concurrency tests and Product/security approval |
-| 6 | Assess SDK gate | Relevant G0/G1/G2 evidence complete, blockers resolved with evidence and explicit G3 authorization | No SDK implementation currently authorized |
+| Now, parallel | Implementer: read-only environment preflight, Android-local selected-note export and versioned E02 evidence consumer | Exact cached Amethyst/source/tool pins; existing guards; QA/security source/config review | Reproducible qualified control driver; missing control still visible until actual observations |
+| After space is available | Implementer + independent QA/security: actual Amethyst ordinary-client control | At least6GiB persistent free/12GiB MemAvailable, fresh disposable guest, enforced local egress, exact source/client/fixture joins | Actual rendering and relevant inner content/tag retention, roles/replays/dispatch controls, errors/cleanup retained, independent acceptance and full E02 reconciliation |
+| Independent source work | Attachment implementer: target policy-marker and legacy E06 received-metadata authority corrections | Preserve historical failures and fixed policy; narrow source assignment | Independent review, renewed complete source/control joins; no old PASS/capture relabeling |
+| Before E06 LOCAL/TARGET | Implementer + QA/security: inventory/materialization regression, primary/QA JS/Rust observations, aggregate review and request-custody regression | Exact reviewed corrected source, controls/configuration/release, current E01/E02/E05 or eligible named policy route | Genuine current graphs and strict positive/negative results; no fixture substitution or private-guard claims from DATA-only rows |
+| Parallel E04/E06 eligible paths | Performance/interoperability implementers: complete each remaining matrix | Complete canonical prerequisites or exact already adopted named-candidate sub-evidence policy/gate/release | E04 complete EVENT-frame/actual relay/Unicode/multifile and named-process resource measurements; E06 exact originals from received validated metadata and mandatory negatives/order/replay/conflicts/revisions/no-effects |
+| After profile evidence | Architect + security + Product Owner: eventual carrier/limit/attachment candidate decision | Reviewed12/16-byte alternatives, actual interoperability and remaining G1 criteria | Explicit normative decision with limits; no automatic SDK authorization |
 
-Portable document proof/E14 signature extension is deferred under PO-005; baseline key continuity/capability E14 work remains necessary. A separately versioned stronger security profile may be researched later with E16; static NIP-44 has no FS/PCS. No mandatory Peppol, government, Satflux, Evolu, registry, host or central coordinator is introduced by this roadmap. Deployment, integration and compliance implementations are outside the current task.
+E06 depends on E01/E02/E05, not E04 PASS. E02 remains PARTIAL22 while its mandatory control is missing. Existing accepted E04 limited PARTIAL and E06 component/composition PARTIAL are useful scoped evidence, not complete canonical PASS. Independent ordinary-client business-JSON noninterpretation is not itself NBDP conformance failure. The adopted `transport-sub-evidence-v1` is not a general dependency bypass.
 
-## Development workflow support
+## Subsequent milestones and retained gates
 
-The [persistent Codex workflow](development/codex-workflow.md) supplies project-local roles,
-skills, resume and independent review for these existing milestones. Its feature branch
-and stacked PR change development coordination only. Workflow validation uses configuration,
-documentation and read-only delegation checks; it must not trigger NBDP experiment runs.
-Current approval, Q/E identifiers and every milestone's evidence gate remain unchanged.
+| Milestone | Missing decisive evidence / responsible roles | Exit gate |
+| --- | --- | --- |
+| G0 sensitivity/threat completion, Q01 | Architect/security: endpoint/signer/recipient trust, metadata/compromise consequences and invoice/credit-note exclusions | Reviewed threat model and actual residual-risk/product decision only where still unresolved |
+| Attachments, Q08/Q27 | Attachment architect/implementer + QA/security: exact tuple, safe received-metadata consumption and actual producer/consumer profile comparison | Independent vectors/runtime and explicit ambiguity disposition; no nonce truncation or silent profile widening |
+| Storage/availability, Q13 | Storage/operations + QA: prepare E07/E10/E11 surviving-copy/skew/grace and H7/R10 schedules | Later authorized runtime plus distinct accelerated/real-duration evidence; no unconditional retention promise |
+| Authority/replay, Q15 | Authority architect + QA/security: R06/R07 grants/revocation/freshness/causal conflicts/effect-domain vectors for E08/E09/E12/E13/E14 | Parallel authorized decisions converge or expose conflict; no timestamp winner or single-writer fallback |
+| Normative RFC review | R01–R08 owners: use qualified provisional drafts, close explicit normative gaps | G1 adopted contract distinct from drafting and runtime qualification |
+| SDK consideration | Coordinator + Product Owner/security | Required G0/G1/G2 evidence and separate G3 authorization; currently unauthorized |
+
+Every open blocker has a concrete missing-evidence/owner/prerequisite/acceptance row in the [action board](research/transport-gate-readiness-2026-10-23.md#next-executable-work-and-strict-completion-conditions). Later E07–E15 experiments are not activated by this roadmap. Optional portable-proof extension remains deferred; static NIP44 supplies no FS/PCS. No Satflux/registry/central-coordinator dependency, new kind/NIP, production integration/deployment or automatic merge.
+
+## Publication and handoff
+
+PR[#1](https://github.com/webiumsk/NBDP/pull/1) and PR[#2](https://github.com/webiumsk/NBDP/pull/2) are merged. Current work is based on main989e703 on `implementation/transport-gate-readiness-20261023`; current PR awaits final review/publication. This is no longer a stack on an unmerged research PR. Preserve unrelated dirty/untracked material and publish only the reviewed bounded readiness package. Full local runtime graphs are not all included in its curated snapshots.

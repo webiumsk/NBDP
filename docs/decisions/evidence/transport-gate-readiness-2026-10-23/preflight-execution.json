@@ -1,0 +1,23 @@
+{
+  "schema": "nbdp-preflight-actual-execution-v1",
+  "date": "2026-10-23",
+  "operator": "/root",
+  "command": "python3 -I -B experiments/tools/check-android-control-readiness.py (supported host context; source hash checked before evaluation)",
+  "toolChunk": "4cf8c7",
+  "actualExit": 2,
+  "reportedToolWallSeconds": 0.999078581,
+  "result": {
+    "path": "docs/decisions/evidence/transport-gate-readiness-2026-10-23/preflight-result.json",
+    "bytes": 2776,
+    "sha256": "b31cf38e928eb3a288a4bc53e9632daccb00825ef09d04ec1ca3869f7e3a3a9f"
+  },
+  "meaning": "PREPARATION_BLOCKED only for persistentSpace. Artifact/SDK-metadata-presence/memory/KVM/localDocker checks passed.",
+  "persistentFreeBytes": 175497216,
+  "requiredPersistentFreeBytes": 6442450944,
+  "memAvailableBytes": 14953226240,
+  "requiredMemAvailableBytes": 12884901888,
+  "controlExecuted": false,
+  "E02Promotion": false,
+  "experimentTestsExecuted": 0,
+  "scopeLimit": "No fullSDKprovenance, emulator qualification, UI/rawexport capture, hostilehost or hardresourcecontainment claim."
+}

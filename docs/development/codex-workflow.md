@@ -36,7 +36,11 @@ Official references: [Subagent schema/discovery](https://learn.chatgpt.com/docs/
 
 ## Git and PR handoff
 
-The baseline is NBDP-005 commit `caa856c9881d2d7e58e63515820b7521a89cbe2b`, on `research/po-decisions-e01-e06`, with [PR #1](https://github.com/webiumsk/NBDP/pull/1) still unmerged at setup. `feature/persistent-multi-agent-workflow` is based on that branch. Its PR targets the research branch as a **stacked configuration-only change**, preserving the research decisions without duplicating their full diff against main. After the dependency merges, an authorized maintainer can retarget/reconcile the stack. Nothing merges automatically.
+Current verification2026-10-23: GitHub main is `989e703f43b9a33b7297cd0f501a4271d7e0983a`. [PR#1](https://github.com/webiumsk/NBDP/pull/1) merged2026-10-11T16:55:55Z; [PR#2](https://github.com/webiumsk/NBDP/pull/2) merged2026-10-11T16:59:52Z. Onlymain remains remotely. The local old workflow HEAD0967910 has the same tree asmain; it was not proof that those PRs remained unmerged.
+
+Current bounded transport-readiness work uses `implementation/transport-gate-readiness-20261023`, based on fetchedmain989e703. Its target ismain, not a stack on the merged research PR. Final independent review/publication is pending; nothing merges automatically. Preserve unrelated dirty/untracked files. The full former working state/roadmap are archived in the dated readiness evidence package; its curated acceptance snapshots are not the entire local runtime archive.
+
+Historical setup: workflow work originally branched from NBDP-005caa856c and PR#2 initially stacked on research PR#1. That describes the2026-10-11 setup, not the current publication dependency. See the [verified current index](../research/transport-gate-readiness-2026-10-23.md).
 
 This managed workspace currently presents a read-only empty `.git` mount, so ordinary git discovery fails. Existing metadata from the same ongoing work is `/tmp/nbdp-publish-repo/.git`. The coordinator uses explicit `--git-dir`/`--work-tree` arguments while remaining in this cwd. No repository is cloned or working directory changed. This is a session-specific fallback, not a portable project setting or an instruction to create metadata. On an ordinary checkout use normal Git; if metadata is unavailable stop Git mutations and preserve work.
 

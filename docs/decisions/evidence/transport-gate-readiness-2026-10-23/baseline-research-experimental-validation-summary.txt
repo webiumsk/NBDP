@@ -1,0 +1,73 @@
+# Experimental validation summary — NBDP-005
+
+**Date:** 2026-10-11. **Direction:** Option B remains conditionally recommended, with moderate confidence in the tested cryptographic/application transport path and low confidence in untested ecosystem file compatibility, offline availability and parallel business authority. [PO-001–PO-006](../decisions/PRODUCT_OWNER_DECISIONS_2026-10-11.md) approve direction only; the [ADR](../../adr/0001-transport-selection.md) is **Conditionally Accepted — Architecture Direction Only**. Exact wire format, SDK, release and production use are not approved.
+
+The [canonical experiment plan](required-experiments.md) controls IDs. E01 is crypto/full validation; E02 is envelope exchange, despite reversed NBDP-005 descriptive titles. Original Q01–Q27 and E01–E16 are preserved. Historical source research is retained unchanged; new runtime observations are recorded separately.
+
+## Results and evidence
+
+| Experiment | Final status | Executed checks | Evidence | Consequence |
+| --- | --- | --- | --- | --- |
+| E01 | PASS | 140 passed / 0 failed | [Report](../../experiments/results/E01.md), [machine record](../../experiments/results/E01.json) | Two primary crypto/validation implementations agree on the declared profile and negative cases |
+| E02 | PARTIAL | 22 passed / 0 failed | [Report](../../experiments/results/E02.md), [machine record](../../experiments/results/E02.json) | Bidirectional envelopes work through both relays; mandatory ordinary-client rendering control unexecuted |
+| E03 | PASS | 19 passed / 0 failed | [Report](../../experiments/results/E03.md), [machine record](../../experiments/results/E03.json) | Signed inbox/no-fallback candidate policy demonstrated; no global freshness or durable outbox guarantee |
+| E04 | NOT EXECUTED | 0 | [Report](../../experiments/results/E04.md), [gate record](../../experiments/results/E04.json) | E02 partial blocks runtime; 16 KiB frame limit remains unmeasured |
+| E05 | PASS | 25 passed / 0 failed | [Report](../../experiments/results/E05.md), [machine record](../../experiments/results/E05.json) | Independent browser/OpenSSL candidate bytes and real commitment/nonce-policy negatives agree; ecosystem compatibility unproven |
+| E06 | NOT EXECUTED | 0 | [Report](../../experiments/results/E06.md), [gate record](../../experiments/results/E06.json) | Complete prerequisite set does not pass; kind 15 carrier/correlation/download interoperability unproven |
+
+PASS is scoped to each canonical candidate's demonstrated acceptance criteria, with limitations listed in its report. No compilation, source inspection, blocked command or diagnostic exit 0 is counted as runtime interoperability. E02's exit 0 means its executed subchecks passed; the full experiment is PARTIAL. E04/E06 commands return 2 and do not import their test modules. All six entrypoints were invoked under the dependency graph; prohibited dependent tests were not bypassed. The blocked E04/E06 harnesses are prepared but runtime-unvalidated.
+
+Actual pins, source/binary hashes, environment, exact commands, duration and process status are in the machine records and [environment manifest](../../experiments/results/environment.json). [Experiment reproduction](../../experiments/README.md) and [relay setup](../../experiments/docker/README.md) distinguish bootstrap downloads from local runtime endpoints. APT packages are inventoried but not snapshot-frozen; Chrome's version is recorded, not redistributed. These limit bit-identical rebuilding and are not hidden dependency guarantees.
+
+## Findings that changed experimental assumptions
+
+1. **Validation must wrap library helpers.** A nostr-tools unwrap helper accepted an invalid outer signature in an observation; explicit validators rejected before decryption. The two initially written validators disagreed on revision 2^53 and accepted malformed file entries. Independent review identified these gaps; the profile now bounds integers and file entries, and regression/corpus reruns agree. [QA evidence](../../experiments/results/qa-review.md), [security evidence](../../experiments/results/security-review.md).
+2. **A test harness can conceal a file metadata defect.** Initial E06 source decrypted using fixture keys rather than received wire keys. The prepared harness now uses received metadata and rejects valid-length wrong keys/nonces, but its repair is source-reviewed only because E06 remains blocked. Correlation READY is distinct from integrity verified.
+3. **Relay OK is insufficient.** Initial E02 events were accepted by strfry but inaccessible to an unauthenticated reader because restricted-kind reads remained configured while AUTH was disabled. The synthetic open-read configuration was corrected explicitly and unchanged retrieval assertions passed. The failed run remains in history. AUTH/operator privacy requires E10/E15, not copying an open lab into production.
+4. **Existing AES-GCM parameters differ.** [Pinned Amethyst inspection](../../experiments/results/producer-profile-evidence.md) establishes default 32/16/16 key/nonce/tag versus candidate 32/12/16. The candidate explicitly rejects nonce16 rather than truncating or silently redefining it. JVM layout/empty-AAD evidence is static; no Amethyst-produced bytes were tested. A shared-cipher multi-file source path is a conditional nonce-reuse concern requiring separate investigation, not a claimed runtime exploit. NBDP does not copy it and omits thumbnails.
+5. **Evidence needs provenance gates.** Stored PASS must match current source/lock/configuration hashes. Independent QA demonstrated stale evidence refusal. Runtime source/binary matching prevents testing a stale Rust executable. A missing-binary reporting guard was subsequently repaired; it does not substitute for pinned build provenance or an audit.
+
+Historical failed and provisional-subset artifacts are preserved in [history](../../experiments/results/history/). They are superseded evidence, not current full-canonical approval. The pinned boundary KAT checksum domain is the UTF-8 base64 payload string; an initial harness hash-domain error was corrected to match upstream without changing expected values. Long corpus input with empty published checksum is labeled independent agreement rather than an invented known answer.
+
+## Architecture consequences
+
+Kind 14 text-serialized envelopes remain suitable **candidates** in the two independent adapters. This does not make ordinary Nostr chat clients NBDP interpreters or prove renderer compatibility. Kind 15 remains untested; a byte profile must be explicit and independently interoperable. No demonstrated relay-level requirement or inner-kind semantic conflict currently justifies allocating a new kind. Failure should first be triaged as validation/profile/adapter/policy behavior. Any new kind or NIP needs separate authorization and concrete evidence.
+
+The simplest parallel-device candidate is [per-device keys plus scoped signed authority and causal decision records](multi-device-authority-design.md). Technical receipt facts converge independently from business outcomes; opposite outcomes under one review scope remain visible conflicts. Partition-hidden revocation cannot be instantaneous, and a replicated decision log does not make disconnected non-idempotent accounting effects once-only. No central coordinator, Satflux/Evolu dependency or single-writer downgrade is selected. The design is unimplemented and Q15 remains BLOCKER.
+
+## Security gates still open
+
+| Issue | What Product approval resolved | What remains unverified / next evidence |
+| --- | --- | --- |
+| Q01 BLOCKER | Baseline absence of mandatory FS/PCS accepted | Complete threat model, admissible sensitivity, endpoint/device/authority trust, downgrade/recovery/privacy review; E10/E13/E15 and independent security gate |
+| Q08 BLOCKER | Safe attachment candidate experimentation allowed | Exact reviewed normative bytes, producer alternatives, safe metadata/download rules; E06/E07 and R05 approval |
+| Q13 BLOCKER | Seven-day offline / ten-day test retention objective selected | Surviving-copy retention/eviction/skew/reconciliation and real-duration operational evidence; E07/E10/E11. No accelerated or real-duration retention trial occurred here |
+| Q15 BLOCKER | Parallel authorized-device scope selected; single-authority proposal superseded | Reviewed grants/revocations/freshness, causal conflicts, effect domains and independent partition/crash/convergence tests; E08/E09/E12/E13/E14 |
+| Q27 BLOCKER | Existing kind 15 remains a candidate | Exact producer/consumer safe profile and interoperability/ambiguity evidence; E06 plus existing-client controls. Thumbnail construction remains omitted |
+
+No classification is silently closed: **DECIDED 3, RFC_REQUIRED 12, EXPERIMENT_REQUIRED 7, BLOCKER 5** in the [risk register](architecture-risk-register.md). These are next-decisive classifications, not declarations that all secondary experiments are unnecessary.
+
+Residual baseline privacy: recipient p-tag, outer timing/size, discovery metadata, authenticated operator/network and blob access correlation remain visible at their trust boundaries. Content confidentiality is not sender/recipient anonymity or traffic-analysis resistance. Relevant long-term-key compromise may reveal captured historical documents; there is no FS/PCS, deletion guarantee or retroactive protection from rotation. Key control does not establish company or legal authority; hashes/unsigned rumors are not portable document signatures. Portable proof is deferred under PO-005.
+
+## RFC readiness
+
+Drafting means reviewable proposed text, never accepted interoperability or implementation permission.
+
+| RFC area | Inputs now available | Remaining dependency/security/vector gate | Readiness |
+| --- | --- | --- | --- |
+| R01 Principles and terminology | PO decisions, boundaries, threat inventory | Q01 sensitivity/metadata/recovery/security acceptance; negative guarantee disclosures | Ready to draft principles immediately; threat model review still open |
+| R02 Identity and discovery | E03 signed inbox/no-fallback cases; raw-key enrollment | Q02/Q03/Q15/Q17/Q26, per-device destinations/freshness; key-substitution/grant/revocation vectors and E13/E14 | Ready to draft basic identity/discovery; organization/device authorization requires research |
+| R03 Encrypted envelope | E01 validation/KATs, E02 bidirectional subset, frozen test schema | E02 full control/E04 size limits; Q04/Q06/Q07/Q10; exact reject/numeric/duplicate-key/version vectors and downgrade controls | Ready to draft candidate validation/schema; carrier/limits not finalizable |
+| R04 Document transport and commitments | Exact-byte hashes/correlation candidate, proof deferral | Q05/Q09/Q12/Q15; E06/E09; revision/same-ID/different-bytes/replay vectors, no portable-signature claim | Ready for core drafting with unresolved correlation/replay gates |
+| R05 Attachments | E05 crypto vectors and producer alternatives | Q08/Q19/Q20/Q27; E06/E07, nonce/profile/host/SSRF/retention/security review | Requires carrier/host runtime evidence before normative profile finalization; draft alternatives only |
+| R06 Receipts and delivery state | Boundaries, technical fact versus business decision model | Q11/Q12/Q15; E08/E09/E12, wrong issuer/hash/revision, causal conflict/crash/restore vectors | Draft technical terminology now; parallel authority/business transitions blocked |
+| R07 Key management | Static-key limitations and multi-device design candidate | Q15/Q16/Q17/Q26; E12/E13/E14, grant/revocation/rotation/fork/compromise/recovery vectors | Requires further authority research and runtime evidence; blocks safe SDK |
+| R08 Extensions and capabilities | E01/E02 unsupported version/required-feature negatives | Q07/Q21/Q22/Q23/Q24/Q25/Q26; E14/E15, negotiated-profile/downgrade/privacy vectors | Ready for draft extension principles; stronger profiles remain independent future work |
+
+Required RFC inputs also include exact signed-byte framing/domain separation for authority/decision records, receiver authorization, bounded parsing and effect/retention policies. This signature need is separate from deferred portable document proof. No new cryptographic algorithm is proposed.
+
+## Next milestone and Product Owner gates
+
+**Single next milestone: complete the transport evidence gate (E02 ordinary-client control → E04 → E06), with a reviewed attachment-profile comparison.** Prerequisites: qualified isolated Android/client control environment or a separately reviewed equivalent control plan, current pinned builds, declared candidate fixtures and no weakened assertions. Any revised canonical experiment scope must be explicitly reviewed rather than silently turning PARTIAL into PASS.
+
+Product Owner must approve the eventual exact carrier/limits and attachment profile after evidence, device authorization freshness and allowed provisional/irreversible actions, conflict/recovery policy and residual threat-model sensitivity. PO-001–PO-006 are already approved and do not require reapproval. SDK implementation requires separate G1/G2/G3 evidence/security/Product approval, including later availability and concurrency gates. This PR does not ask approval to ship or close blockers.
