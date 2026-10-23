@@ -10,7 +10,7 @@ The selected assessment target is invoice/credit-note delivery, including IBAN a
 
 ## Git and publication
 
-Verified GitHub main: `989e703f43b9a33b7297cd0f501a4271d7e0983a`. PR [#1](https://github.com/webiumsk/NBDP/pull/1) and [#2](https://github.com/webiumsk/NBDP/pull/2) merged on2026-10-11; old remote branches are gone. The local old workflow HEAD `0967910` has the same tree. Current branch: `implementation/transport-gate-readiness-20261023`, based on fetched main. PR is pending final independent review/publication; nothing merges automatically.
+Verified GitHub main: `989e703f43b9a33b7297cd0f501a4271d7e0983a`. PR [#1](https://github.com/webiumsk/NBDP/pull/1) and [#2](https://github.com/webiumsk/NBDP/pull/2) merged on2026-10-11; old remote branches are gone. The local old workflow HEAD `0967910` has the same tree. Current branch: `implementation/transport-gate-readiness-20261023`, based on fetched main. Draft [PR#3](https://github.com/webiumsk/NBDP/pull/3) is open. Independent QA/security accepted the readiness/preflight scope; it remains unmerged and does not release an experiment.
 
 Two initially modified tracked state documents and55,385 existing untracked files were preserved. This branch publishes a bounded readiness/preflight package, not all1.28GB of accumulated local laboratory material. The [evidence index](research/transport-gate-readiness-2026-10-23.md) distinguishes published acceptance snapshots from full local runtime/source graphs. An external reviewer cannot replay unpublished absolute-path graphs from these snapshots alone.
 

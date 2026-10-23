@@ -30,4 +30,4 @@ Every open blocker has a concrete missing-evidence/owner/prerequisite/acceptance
 
 ## Publication and handoff
 
-PR[#1](https://github.com/webiumsk/NBDP/pull/1) and PR[#2](https://github.com/webiumsk/NBDP/pull/2) are merged. Current work is based on main989e703 on `implementation/transport-gate-readiness-20261023`; current PR awaits final review/publication. This is no longer a stack on an unmerged research PR. Preserve unrelated dirty/untracked material and publish only the reviewed bounded readiness package. Full local runtime graphs are not all included in its curated snapshots.
+PR[#1](https://github.com/webiumsk/NBDP/pull/1) and PR[#2](https://github.com/webiumsk/NBDP/pull/2) are merged. Current work is based on main989e703 on `implementation/transport-gate-readiness-20261023`; draft [PR#3](https://github.com/webiumsk/NBDP/pull/3) is open after independent QA/security readiness/preflight acceptance and remains unmerged. This is no longer a stack on an unmerged research PR. Preserve unrelated dirty/untracked material and publish only the reviewed bounded readiness package. Full local runtime graphs are not all included in its curated snapshots.

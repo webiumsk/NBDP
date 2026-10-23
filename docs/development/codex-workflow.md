@@ -36,9 +36,9 @@ Official references: [Subagent schema/discovery](https://learn.chatgpt.com/docs/
 
 ## Git and PR handoff
 
-Current verification2026-10-23: GitHub main is `989e703f43b9a33b7297cd0f501a4271d7e0983a`. [PR#1](https://github.com/webiumsk/NBDP/pull/1) merged2026-10-11T16:55:55Z; [PR#2](https://github.com/webiumsk/NBDP/pull/2) merged2026-10-11T16:59:52Z. Onlymain remains remotely. The local old workflow HEAD0967910 has the same tree asmain; it was not proof that those PRs remained unmerged.
+Current verification2026-10-23: GitHub main is `989e703f43b9a33b7297cd0f501a4271d7e0983a`. [PR#1](https://github.com/webiumsk/NBDP/pull/1) merged2026-10-11T16:55:55Z; [PR#2](https://github.com/webiumsk/NBDP/pull/2) merged2026-10-11T16:59:52Z. At initial verification onlymain existed remotely; this task subsequently published its named readiness branch. The local old workflow HEAD0967910 has the same tree asmain; it was not proof that those PRs remained unmerged.
 
-Current bounded transport-readiness work uses `implementation/transport-gate-readiness-20261023`, based on fetchedmain989e703. Its target ismain, not a stack on the merged research PR. Final independent review/publication is pending; nothing merges automatically. Preserve unrelated dirty/untracked files. The full former working state/roadmap are archived in the dated readiness evidence package; its curated acceptance snapshots are not the entire local runtime archive.
+Current bounded transport-readiness work uses `implementation/transport-gate-readiness-20261023`, based on fetchedmain989e703. Its target ismain, not a stack on the merged research PR. Independent QA/security accepted the readiness/preflight package and draft [PR#3](https://github.com/webiumsk/NBDP/pull/3) is open. It remains unmerged; no automatic merge or experiment release follows. Preserve unrelated dirty/untracked files. The full former working state/roadmap are archived in the dated readiness evidence package; its curated acceptance snapshots are not the entire local runtime archive.
 
 Historical setup: workflow work originally branched from NBDP-005caa856c and PR#2 initially stacked on research PR#1. That describes the2026-10-11 setup, not the current publication dependency. See the [verified current index](../research/transport-gate-readiness-2026-10-23.md).
 
