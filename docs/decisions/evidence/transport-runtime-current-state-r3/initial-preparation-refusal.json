@@ -1,0 +1,28 @@
+{
+  "schema": "nbdp-publication-preparation-correction-v1",
+  "actor": "/root",
+  "actualPreparationTool": "40a2fc",
+  "actualExitCode": 1,
+  "experimentEntrypointsInvoked": 0,
+  "cause": "Publication JSON filename audit attempted to parse three intentionally plain-text operands of the accepted path-snapshot regression fixtures. They are raw test data, not structured records.",
+  "preservedInitialScript": "initial-rejected-publication-preparation.py",
+  "requiredCorrection": "Keep every raw operand unchanged, verify its exact pin and classify these three exceptions explicitly; keep strict duplicate-key/finite JSON checks for all actual records.",
+  "rawFixtureExceptions": [
+    {
+      "path": "docs/decisions/evidence/e06-request-phase-diagnostic-source-r2/snapshot-controls-actual-r1/external-prefix/external/subject.json",
+      "bytes": 13,
+      "sha256": "f73bfa6dfac0be0393ea9feae25f6d5e69de30d6b04618a6e887ed0cd5b6fb33"
+    },
+    {
+      "path": "docs/decisions/evidence/e06-request-phase-diagnostic-source-r2/snapshot-controls-actual-r1/external-prefix/here/subject.json",
+      "bytes": 8,
+      "sha256": "0682c5f2076f099c34cfdd15a9e063849ed437a49677e6fcc5b4198c76575be5"
+    },
+    {
+      "path": "docs/decisions/evidence/e06-request-phase-diagnostic-source-r2/snapshot-controls-actual-r1/missing/preserved-original.json",
+      "bytes": 6,
+      "sha256": "ad5aabc97d88f6e56deaffc34c7a6e292e9e12db04a56799d773cfb64ca9898d"
+    }
+  ],
+  "gitStagingReached": false
+}

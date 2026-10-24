@@ -1,0 +1,26 @@
+{
+  "schema": "e06-request-phase-source-review-disposition-v1",
+  "decision": "HOLD_NO_CONTROLS_OR_NATIVE_EXECUTION",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r1/subject.json",
+    "bytes": 9946,
+    "sha256": "eb2706f8e79a4956fd8e1bc88162bff86ae545b8b60099e06212e1268724824f"
+  },
+  "actualIndependentReviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r1/actual-source-qa-review.json",
+      "bytes": 2281,
+      "sha256": "89fa38a81598929bfeef741866837bb5289cfd71891bf2ec411bce234c402415"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r1/actual-source-security-review.json",
+      "bytes": 2293,
+      "sha256": "ee58a29690805e704daad3af4eb387992e9f240440b182ef1454fb72c8845992"
+    }
+  ],
+  "actualControlsExecuted": 0,
+  "actualStraceExecuted": false,
+  "actualNodeExecuted": false,
+  "coreDataApprovalStillValid": true,
+  "remediation": "Separate source-r2 andstrace-containment-controls-r1 authorizedSOURCEonly; alloriginalr1bytespreserved."
+}

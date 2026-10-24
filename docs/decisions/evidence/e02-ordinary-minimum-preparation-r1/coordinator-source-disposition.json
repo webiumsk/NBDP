@@ -1,0 +1,28 @@
+{
+  "schema": "nbdp-minimum-source-disposition-v1",
+  "actor": "/root",
+  "decision": "ACCEPT_SOURCE_FOR_SCOPED_CONTROLS_ONLY",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/subject.json",
+    "bytes": 35766,
+    "sha256": "296acf346bb034bcb8becc22562494e5f37e78c3f78537d061e83455135315b4"
+  },
+  "actualIndependentReviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/actual-source-qa-review.json",
+      "bytes": 2332,
+      "sha256": "2f1fae2c1727cdf3132aef3f093df24923dab56cd4284279e8ac2e5deaa5bd2b"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/actual-source-security-review.json",
+      "bytes": 2344,
+      "sha256": "db0cf50a1a4dae3ae3204b7b5c34025bdf34eb9b555c09697394822e04c5b34f"
+    }
+  ],
+  "actualControlsExecuted": false,
+  "androidAuthorized": false,
+  "next": "Freeze finite capture helper and exact plan; root checks before explicit once-only pure-control release.",
+  "canonicalStatus": "PARTIAL",
+  "canonicalTests": 22,
+  "architecturalBlockersUnchanged": true
+}

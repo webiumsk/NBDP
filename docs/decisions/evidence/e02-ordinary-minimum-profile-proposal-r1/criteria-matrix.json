@@ -1,0 +1,166 @@
+{
+  "schema": "e02-ordinary-minimum-proposal-criteria-v1",
+  "author": "/root/ordinary_minimum_architecture",
+  "status": "PROPOSED_NOT_IMPLEMENTED_NOT_EXECUTED_NOT_ADOPTED",
+  "canonicalExperiment": "E02",
+  "questions": [
+    "Q06",
+    "Q07",
+    "Q09",
+    "Q24"
+  ],
+  "ordinaryProfile": {
+    "relay": "rs-relay",
+    "roles": [
+      "incoming",
+      "archive"
+    ],
+    "accounts": {
+      "A": "public disposable scalar1 sender",
+      "B": "public disposable scalar2 recipient"
+    },
+    "ordinaryProducer": "genuine JS wrapping for proposed minimum; no claim of all Rust-to-Amethyst combinations",
+    "expectedActualNotes": [
+      "incoming_business",
+      "incoming_ordinary_chat",
+      "sender_archive_business"
+    ],
+    "replays": [
+      "identical_archive_wrap",
+      "fresh_wrap_same_original_rumor"
+    ],
+    "primaryScopeUnchanged": "Both independent JS/Rust directions, both relays and peer/self roles plus every canonical inbox/dispatch/schema/stub/replay criterion",
+    "runtimeState": "NOT_EXECUTED"
+  },
+  "criteria": [
+    {
+      "id": "C01",
+      "requirement": "E01/current candidate prerequisite and source provenance",
+      "authority": "canonical-plan:91; canonical-e02-harness:7\u20138",
+      "evidenceScope": "CURRENT_PRIMARY_AND_CONTROL_PROVENANCE",
+      "requiredEvidence": [
+        "Exact source/binary/configuration/dependency/candidate descriptors",
+        "Fresh required primary runtime; distinguish scoped historical records and changed sources"
+      ],
+      "acceptance": "No stale PASS transfer; changed relevant source requires requalification.",
+      "limits": "Not proof of complete E01 rerun or new profile merely because hashes match.",
+      "status": "MISSING_CURRENT_PROFILE_EVIDENCE"
+    },
+    {
+      "id": "C02",
+      "requirement": "Signed inbox fixtures and both primary directions/relays/peer-self wraps",
+      "authority": "canonical-plan:99; canonical-e02-harness:8\u201313",
+      "evidenceScope": "FULL_CURRENT_PRIMARY_WORKLOAD",
+      "requiredEvidence": [
+        "Signed lists/publication/query and both independent discovery results",
+        "Actual JS and Rust producer inputs/results and both relays",
+        "Both peer and self wraps with exact decoded operation/commitment/context equality"
+      ],
+      "acceptance": "All declared primary direction/role/relay outcomes pass under current pins.",
+      "limits": "Two ordinary roles do not replace any primary matrix cell.",
+      "status": "MISSING_CURRENT_PROFILE_EVIDENCE"
+    },
+    {
+      "id": "C03",
+      "requirement": "Unknown protocol/version/required extension, ordinary chat and malformed discriminator",
+      "authority": "canonical-plan:101,104; canonical-e02-harness:16",
+      "evidenceScope": "FULL_CURRENT_PRIMARY_WORKLOAD",
+      "requiredEvidence": [
+        "Exact per-implementation successful/negative schema and dispatch-eligibility results",
+        "Positive incoming eligibility and explicit no-dispatch/error expectations"
+      ],
+      "acceptance": "Independent results agree with each declared candidate outcome.",
+      "limits": "Dispatch boolean or initializedzero is not measurement of business effects; Amethyst need not interpret NBDP.",
+      "status": "MISSING_CURRENT_PROFILE_EVIDENCE"
+    },
+    {
+      "id": "C04",
+      "requirement": "Self-copy replay and correlation-stub ordering",
+      "authority": "canonical-plan:102,104; canonical-e02-harness:17\u201318",
+      "evidenceScope": "PRIMARY_PLUS_ORDINARY_ARCHIVE_OBSERVATIONS",
+      "requiredEvidence": [
+        "Repeated identical archive wrap and fresh wrap of same rumor",
+        "Original and replayed inner recipient/content/tags/identity",
+        "Declared file/envelope stub arrival orders and exact metadata states"
+      ],
+      "acceptance": "Self copies never gain incoming-dispatch eligibility; original bindings retained; declared ordering cases pass.",
+      "limits": "Stub/callback results do not establish attachment recovery/integrity/global exactly-once effects.",
+      "status": "MISSING_CURRENT_PROFILE_EVIDENCE"
+    },
+    {
+      "id": "C05",
+      "requirement": "Ordinary incoming business rendering and private retention",
+      "authority": "canonical-plan:102,106,108; runbook-proposal:18\u201320,54",
+      "evidenceScope": "ACTUAL_ORDINARY_INCOMING_BUSINESS",
+      "requiredEvidence": [
+        "Pinned client/account/source/configuration",
+        "Actual same-generation app REQ/EOSE and wire delivery lineage",
+        "Selected-note settled PNG/XML and client-origin inner export",
+        "All six fields, exact content/orderedprivate tags and NIP01 ID comparison"
+      ],
+      "acceptance": "Actual displayed selected business rumor and exported inner fields equal frozen original; whole run qualified.",
+      "limits": "Screenshots, decrypted producer fixtures or failed-run partial rows cannot substitute for client retention.",
+      "status": "MISSING_CURRENT_PROFILE_EVIDENCE"
+    },
+    {
+      "id": "C06",
+      "requirement": "Ordinary harmless chat control",
+      "authority": "canonical-plan:101\u2013104; runbook-proposal:35",
+      "evidenceScope": "ACTUAL_ORDINARY_INCOMING_CHAT_PLUS_PRIMARY_DISPATCH",
+      "requiredEvidence": [
+        "Actual harmlesschat render and selected-note raw export",
+        "Exact retained content/tags",
+        "Separate primary no-NBDP-dispatch eligibility results"
+      ],
+      "acceptance": "Client harmlesschat observation and complete retained rumor match; primary noncandidate dispatch outcome correct.",
+      "limits": "No Amethyst invoice interpretation, business handler or business effect measurement asserted.",
+      "status": "MISSING_CURRENT_PROFILE_EVIDENCE"
+    },
+    {
+      "id": "C07",
+      "requirement": "Ordinary sender archive and replay attribution",
+      "authority": "canonical-plan:99,102,104; r03-scoped-adoption:15\u201320",
+      "evidenceScope": "ACTUAL_ORDINARY_SENDER_ARCHIVE",
+      "requiredEvidence": [
+        "Fresh sender-account state",
+        "Actual archive conversation/selectednote export",
+        "Outer recipient senderA, original inner recipientB preserved",
+        "Identical/freshwrap replay delivery and post-replay exports/PNGXML"
+      ],
+      "acceptance": "Archive role and original inner bindings retained; primary archive eligibility remains nonincoming on replay.",
+      "limits": "UI duplication alone is not repeated NBDP effect; no stable internal account/object identity inferred without actual evidence.",
+      "status": "MISSING_CURRENT_PROFILE_EVIDENCE"
+    },
+    {
+      "id": "C08",
+      "requirement": "Whole evidence authenticity, negative history and integration",
+      "authority": "canonical-plan:108; old-consumer-contract:132\u2013147; old-eight-aggregate-contract:222\u2013238",
+      "evidenceScope": "NEW_VERSIONED_STRICT_CONSUMER_AND_CANONICAL_RECONCILIATION",
+      "requiredEvidence": [
+        "Whole run source/grant/control/resource/interpreter/argv/toolwitness/GUI/EOSE/wire/export/cleanup joins",
+        "Complete attemptinventory and distinct actual nonauthor/nonoperator QA/security reviews",
+        "Exact current full-primary and control integration results",
+        "Original records/old8profile preserved"
+      ],
+      "acceptance": "Every applicable mandatorycriterion and declared current profile outcome passes; evidence consumer and canonical integration independently accepted.",
+      "limits": "Not implemented; proposal does not remove mandatory skip, promote E02 or unlock canonical dependents.",
+      "status": "MISSING_CURRENT_PROFILE_EVIDENCE"
+    }
+  ],
+  "wholeRunContributionRule": "A future v3 incoming cell is eligible only after whole-run qualification/current typed lineage and independent actual reviews; one incoming cell alone is insufficient. No failed run donates early rows.",
+  "oldEightProfile": {
+    "preserved": true,
+    "relaxed": false,
+    "declaredContract": "eight cells and eight distinct qualifying runs",
+    "acceptedEvidence": "synthetic DATA28 only; no new actual execution or completeness claim",
+    "canonicalStatusChanged": false
+  },
+  "adoption": {
+    "state": "NOT_ADOPTED",
+    "coordinatorDecisionRequired": true,
+    "condition": "Actual same-subject independent QA/security confirm all canonical and actually adopted criteria/gates unchanged; explicit criterion-preserving adoption record.",
+    "otherwise": "Specific separate Product Owner decision before changing any actually adopted mandatory scope/gate; no silent waiver from delegated routine authority."
+  },
+  "canonicalE02Changed": false,
+  "architecturalBlockersChanged": false
+}

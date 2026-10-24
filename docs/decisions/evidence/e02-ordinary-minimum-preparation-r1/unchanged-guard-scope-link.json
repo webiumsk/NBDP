@@ -1,0 +1,48 @@
+{
+  "schema": "e02-minimum-unchanged-guard-control-link-v1",
+  "scope": "29_PRIOR_GUARD_CONTROLS_ONLY_NO_NEW_EXECUTION",
+  "code": {
+    "baseline": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v3/lease_guard.py",
+      "bytes": 14846,
+      "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+    },
+    "current": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/lease_guard.py",
+      "bytes": 14846,
+      "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+    }
+  },
+  "tests": {
+    "baseline": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v3/test_lease_guard.py",
+      "bytes": 23265,
+      "sha256": "95862de4d1f55e7e981cf78e9cf3d225c571a58c42fa2efa4ee2c1620029aa68"
+    },
+    "current": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/test_lease_guard.py",
+      "bytes": 23265,
+      "sha256": "95862de4d1f55e7e981cf78e9cf3d225c571a58c42fa2efa4ee2c1620029aa68"
+    }
+  },
+  "priorAcceptedScope": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/current-controls-r1/control-acceptance.json",
+    "bytes": 1438,
+    "sha256": "a13fea0dff9101554fabdad6d4eebace6a64dd029b29893212e75684b47bc551"
+  },
+  "priorActualQa": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/current-controls-r1/actual-qa-review.json",
+    "bytes": 1526,
+    "sha256": "bfe42b3562906e3cd363c7b5f65957fffa4db9b89acbc4af81e0208ddb087da7"
+  },
+  "priorActualSecurity": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/current-controls-r1/actual-security-review.json",
+    "bytes": 1456,
+    "sha256": "b19b6f55d2dc35d1766394c6e192008b039b466be8502019b5cb8ac708f34256"
+  },
+  "exclusions": [
+    "Changed fixture27, UI49, newUI21 and cleanup29 require new meaningful current executions after SOURCE review.",
+    "Old consumer14 is not this new aggregate and provides no minimum acceptance.",
+    "No runtime qualification is carried."
+  ]
+}

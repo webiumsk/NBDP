@@ -1,0 +1,528 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v3/test_cleanup.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/test_cleanup.py
+@@ -435,6 +435,20 @@
+                     ctx=Load())])),
+             Assign(
+               targets=[
++                Attribute(
++                  value=Name(id='runtime', ctx=Load()),
++                  attr='plan_pin',
++                  ctx=Store())],
++              value=Dict(
++                keys=[
++                  Constant(value='sha256')],
++                values=[
++                  BinOp(
++                    left=Constant(value='e'),
++                    op=Mult(),
++                    right=Constant(value=64))])),
++            Assign(
++              targets=[
+                 Tuple(
+                   elts=[
+                     Attribute(
+@@ -617,7 +631,17 @@
+                                     attr='HERE',
+                                     ctx=Load()),
+                                   op=Div(),
+-                                  right=Constant(value='fixture-plan.json'))]))],
++                                  right=Constant(value='fixture-plan.json'))])),
++                          BinOp(
++                            left=Constant(value='NBDP_MINIMUM_RUN_CONFIG_SHA256='),
++                            op=Add(),
++                            right=Subscript(
++                              value=Attribute(
++                                value=Name(id='runtime', ctx=Load()),
++                                attr='plan_pin',
++                                ctx=Load()),
++                              slice=Constant(value='sha256'),
++                              ctx=Load()))],
+                         ctx=Load()),
+                       List(
+                         elts=[
+@@ -4273,7 +4297,113 @@
+                   attr='assert_called_once_with',
+                   ctx=Load()),
+                 args=[
+-                  Constant(value=0)]))])]),
++                  Constant(value=0)]))]),
++        FunctionDef(
++          name='test_minimum_role_config_environment_cannot_drift_in_owned_service',
++          args=arguments(
++            args=[
++              arg(arg='self')]),
++          body=[
++            With(
++              items=[
++                withitem(
++                  context_expr=Call(
++                    func=Attribute(
++                      value=Name(id='tempfile', ctx=Load()),
++                      attr='TemporaryDirectory',
++                      ctx=Load())),
++                  optional_vars=Name(id='directory', ctx=Store()))],
++              body=[
++                Assign(
++                  targets=[
++                    Tuple(
++                      elts=[
++                        Name(id='runtime', ctx=Store()),
++                        Name(id='data', ctx=Store())],
++                      ctx=Store())],
++                  value=Call(
++                    func=Attribute(
++                      value=Name(id='self', ctx=Load()),
++                      attr='runtime',
++                      ctx=Load()),
++                    args=[
++                      Call(
++                        func=Name(id='Path', ctx=Load()),
++                        args=[
++                          Name(id='directory', ctx=Load())])])),
++                Assign(
++                  targets=[
++                    Subscript(
++                      value=Subscript(
++                        value=Name(id='data', ctx=Load()),
++                        slice=Constant(value='Config'),
++                        ctx=Load()),
++                      slice=Constant(value='Env'),
++                      ctx=Store())],
++                  value=ListComp(
++                    elt=Name(id='value', ctx=Load()),
++                    generators=[
++                      comprehension(
++                        target=Name(id='value', ctx=Store()),
++                        iter=Subscript(
++                          value=Subscript(
++                            value=Name(id='data', ctx=Load()),
++                            slice=Constant(value='Config'),
++                            ctx=Load()),
++                          slice=Constant(value='Env'),
++                          ctx=Load()),
++                        ifs=[
++                          UnaryOp(
++                            op=Not(),
++                            operand=Call(
++                              func=Attribute(
++                                value=Name(id='value', ctx=Load()),
++                                attr='startswith',
++                                ctx=Load()),
++                              args=[
++                                Constant(value='NBDP_MINIMUM_RUN_CONFIG_SHA256=')]))],
++                        is_async=0)])),
++                Expr(
++                  value=Call(
++                    func=Attribute(
++                      value=Subscript(
++                        value=Subscript(
++                          value=Name(id='data', ctx=Load()),
++                          slice=Constant(value='Config'),
++                          ctx=Load()),
++                        slice=Constant(value='Env'),
++                        ctx=Load()),
++                      attr='append',
++                      ctx=Load()),
++                    args=[
++                      BinOp(
++                        left=Constant(value='NBDP_MINIMUM_RUN_CONFIG_SHA256='),
++                        op=Add(),
++                        right=BinOp(
++                          left=Constant(value='f'),
++                          op=Mult(),
++                          right=Constant(value=64)))])),
++                With(
++                  items=[
++                    withitem(
++                      context_expr=Call(
++                        func=Attribute(
++                          value=Name(id='self', ctx=Load()),
++                          attr='assertRaisesRegex',
++                          ctx=Load()),
++                        args=[
++                          Name(id='RuntimeError', ctx=Load()),
++                          Constant(value='Exact original service guard environment')]))],
++                  body=[
++                    Expr(
++                      value=Call(
++                        func=Attribute(
++                          value=Name(id='runtime', ctx=Load()),
++                          attr='validate_owned',
++                          ctx=Load()),
++                        args=[
++                          Constant(value='anchor'),
++                          Name(id='data', ctx=Load())]))])])])]),
+     ClassDef(
+       name='ProfileIsolationControls',
+       bases=[
+@@ -4283,7 +4413,342 @@
+           ctx=Load())],
+       body=[
+         FunctionDef(
+-          name='test_v2_runtime_schema_refuses_before_source_or_sdk_inventory_work',
++          name='test_unknown_role_refuses_before_minimum_plan_or_inventory_work',
++          args=arguments(
++            args=[
++              arg(arg='self')]),
++          body=[
++            For(
++              target=Name(id='role', ctx=Store()),
++              iter=Tuple(
++                elts=[
++                  Constant(value='other'),
++                  Constant(value=None),
++                  Constant(value=True)],
++                ctx=Load()),
++              body=[
++                With(
++                  items=[
++                    withitem(
++                      context_expr=Call(
++                        func=Attribute(
++                          value=Name(id='self', ctx=Load()),
++                          attr='subTest',
++                          ctx=Load()),
++                        keywords=[
++                          keyword(
++                            arg='role',
++                            value=Name(id='role', ctx=Load()))])),
++                    withitem(
++                      context_expr=Call(
++                        func=Attribute(
++                          value=Name(id='patch', ctx=Load()),
++                          attr='object',
++                          ctx=Load()),
++                        args=[
++                          Name(id='subject', ctx=Load()),
++                          Constant(value='source_pins')]),
++                      optional_vars=Name(id='sources', ctx=Store()))],
++                  body=[
++                    With(
++                      items=[
++                        withitem(
++                          context_expr=Call(
++                            func=Attribute(
++                              value=Name(id='self', ctx=Load()),
++                              attr='assertRaisesRegex',
++                              ctx=Load()),
++                            args=[
++                              Name(id='RuntimeError', ctx=Load()),
++                              Constant(value='Fixed adopted minimum profile and role')]))],
++                      body=[
++                        Expr(
++                          value=Call(
++                            func=Attribute(
++                              value=Name(id='subject', ctx=Load()),
++                              attr='verify_config',
++                              ctx=Load()),
++                            args=[
++                              Dict(
++                                keys=[
++                                  Constant(value='schema'),
++                                  Constant(value='scope'),
++                                  Constant(value='profileId'),
++                                  Constant(value='ordinaryRole')],
++                                values=[
++                                  Constant(value='e02-ordinary-minimum-role-runtime-plan-v1'),
++                                  Attribute(
++                                    value=Name(id='subject', ctx=Load()),
++                                    attr='SCOPE',
++                                    ctx=Load()),
++                                  Attribute(
++                                    value=Name(id='subject', ctx=Load()),
++                                    attr='PROFILE',
++                                    ctx=Load()),
++                                  Name(id='role', ctx=Load())])]))]),
++                    Expr(
++                      value=Call(
++                        func=Attribute(
++                          value=Name(id='sources', ctx=Load()),
++                          attr='assert_not_called',
++                          ctx=Load())))])])]),
++        FunctionDef(
++          name='test_other_role_or_window_release_refuses_before_resource_actions',
++          args=arguments(
++            args=[
++              arg(arg='self')]),
++          body=[
++            For(
++              target=Tuple(
++                elts=[
++                  Name(id='role', ctx=Store()),
++                  Name(id='window', ctx=Store())],
++                ctx=Store()),
++              iter=List(
++                elts=[
++                  Tuple(
++                    elts=[
++                      Constant(value='archive'),
++                      Constant(value='archive-a')],
++                    ctx=Load()),
++                  Tuple(
++                    elts=[
++                      Constant(value='incoming'),
++                      Constant(value='archive-a')],
++                    ctx=Load())],
++                ctx=Load()),
++              body=[
++                With(
++                  items=[
++                    withitem(
++                      context_expr=Call(
++                        func=Attribute(
++                          value=Name(id='self', ctx=Load()),
++                          attr='subTest',
++                          ctx=Load()),
++                        keywords=[
++                          keyword(
++                            arg='role',
++                            value=Name(id='role', ctx=Load())),
++                          keyword(
++                            arg='window',
++                            value=Name(id='window', ctx=Load()))])),
++                    withitem(
++                      context_expr=Call(
++                        func=Attribute(
++                          value=Name(id='tempfile', ctx=Load()),
++                          attr='TemporaryDirectory',
++                          ctx=Load())),
++                      optional_vars=Name(id='directory', ctx=Store()))],
++                  body=[
++                    Assign(
++                      targets=[
++                        Name(id='root', ctx=Store())],
++                      value=Call(
++                        func=Name(id='Path', ctx=Load()),
++                        args=[
++                          Name(id='directory', ctx=Load())])),
++                    Assign(
++                      targets=[
++                        Tuple(
++                          elts=[
++                            Name(id='config', ctx=Store()),
++                            Name(id='release', ctx=Store())],
++                          ctx=Store())],
++                      value=Tuple(
++                        elts=[
++                          BinOp(
++                            left=Name(id='root', ctx=Load()),
++                            op=Div(),
++                            right=Constant(value='config.json')),
++                          BinOp(
++                            left=Name(id='root', ctx=Load()),
++                            op=Div(),
++                            right=Constant(value='release.json'))],
++                        ctx=Load())),
++                    Expr(
++                      value=Call(
++                        func=Attribute(
++                          value=Name(id='config', ctx=Load()),
++                          attr='write_text',
++                          ctx=Load()),
++                        args=[
++                          Call(
++                            func=Attribute(
++                              value=Name(id='json', ctx=Load()),
++                              attr='dumps',
++                              ctx=Load()),
++                            args=[
++                              Dict(
++                                keys=[
++                                  Constant(value='runId'),
++                                  Constant(value='ordinaryRole'),
++                                  Constant(value='windowId')],
++                                values=[
++                                  BinOp(
++                                    left=Constant(value='a'),
++                                    op=Mult(),
++                                    right=Constant(value=32)),
++                                  Constant(value='incoming'),
++                                  Constant(value='incoming-b')])])])),
++                    Expr(
++                      value=Call(
++                        func=Attribute(
++                          value=Name(id='release', ctx=Load()),
++                          attr='write_text',
++                          ctx=Load()),
++                        args=[
++                          Call(
++                            func=Attribute(
++                              value=Name(id='json', ctx=Load()),
++                              attr='dumps',
++                              ctx=Load()),
++                            args=[
++                              Dict(
++                                keys=[
++                                  Constant(value='schema'),
++                                  Constant(value='executionAuthorized'),
++                                  Constant(value='runConfig'),
++                                  Constant(value='scope'),
++                                  Constant(value='runId'),
++                                  Constant(value='profileId'),
++                                  Constant(value='ordinaryRole'),
++                                  Constant(value='windowId')],
++                                values=[
++                                  Constant(value='e02-ordinary-minimum-role-release-v1'),
++                                  Constant(value=True),
++                                  Call(
++                                    func=Attribute(
++                                      value=Name(id='subject', ctx=Load()),
++                                      attr='pin',
++                                      ctx=Load()),
++                                    args=[
++                                      Name(id='config', ctx=Load())]),
++                                  Attribute(
++                                    value=Name(id='subject', ctx=Load()),
++                                    attr='SCOPE',
++                                    ctx=Load()),
++                                  BinOp(
++                                    left=Constant(value='a'),
++                                    op=Mult(),
++                                    right=Constant(value=32)),
++                                  Attribute(
++                                    value=Name(id='subject', ctx=Load()),
++                                    attr='PROFILE',
++                                    ctx=Load()),
++                                  Name(id='role', ctx=Load()),
++                                  Name(id='window', ctx=Load())])])])),
++                    With(
++                      items=[
++                        withitem(
++                          context_expr=Call(
++                            func=Attribute(
++                              value=Name(id='patch', ctx=Load()),
++                              attr='object',
++                              ctx=Load()),
++                            args=[
++                              Name(id='subject', ctx=Load()),
++                              Constant(value='verify_config')],
++                            keywords=[
++                              keyword(arg='return_value', value=Dict())])),
++                        withitem(
++                          context_expr=Call(
++                            func=Attribute(
++                              value=Name(id='patch', ctx=Load()),
++                              attr='object',
++                              ctx=Load()),
++                            args=[
++                              Name(id='subject', ctx=Load()),
++                              Constant(value='load_module')]),
++                          optional_vars=Name(id='imports', ctx=Store())),
++                        withitem(
++                          context_expr=Call(
++                            func=Attribute(
++                              value=Name(id='patch', ctx=Load()),
++                              attr='object',
++                              ctx=Load()),
++                            args=[
++                              Attribute(
++                                value=Name(id='subject', ctx=Load()),
++                                attr='shutil',
++                                ctx=Load()),
++                              Constant(value='disk_usage')]),
++                          optional_vars=Name(id='disk', ctx=Store()))],
++                      body=[
++                        With(
++                          items=[
++                            withitem(
++                              context_expr=Call(
++                                func=Attribute(
++                                  value=Name(id='self', ctx=Load()),
++                                  attr='assertRaisesRegex',
++                                  ctx=Load()),
++                                args=[
++                                  Name(id='RuntimeError', ctx=Load()),
++                                  Constant(value='Exact root first-cell release')]))],
++                          body=[
++                            Expr(
++                              value=Call(
++                                func=Attribute(
++                                  value=Name(id='subject', ctx=Load()),
++                                  attr='execute',
++                                  ctx=Load()),
++                                args=[
++                                  Name(id='config', ctx=Load()),
++                                  Subscript(
++                                    value=Call(
++                                      func=Attribute(
++                                        value=Name(id='subject', ctx=Load()),
++                                        attr='pin',
++                                        ctx=Load()),
++                                      args=[
++                                        Name(id='config', ctx=Load())]),
++                                    slice=Constant(value='sha256'),
++                                    ctx=Load()),
++                                  Name(id='release', ctx=Load()),
++                                  Subscript(
++                                    value=Call(
++                                      func=Attribute(
++                                        value=Name(id='subject', ctx=Load()),
++                                        attr='pin',
++                                        ctx=Load()),
++                                      args=[
++                                        Name(id='release', ctx=Load())]),
++                                    slice=Constant(value='sha256'),
++                                    ctx=Load()),
++                                  BinOp(
++                                    left=Name(id='root', ctx=Load()),
++                                    op=Div(),
++                                    right=Constant(value='never-created'))]))])]),
++                    Expr(
++                      value=Call(
++                        func=Attribute(
++                          value=Name(id='imports', ctx=Load()),
++                          attr='assert_not_called',
++                          ctx=Load()))),
++                    Expr(
++                      value=Call(
++                        func=Attribute(
++                          value=Name(id='disk', ctx=Load()),
++                          attr='assert_not_called',
++                          ctx=Load()))),
++                    Expr(
++                      value=Call(
++                        func=Attribute(
++                          value=Name(id='self', ctx=Load()),
++                          attr='assertFalse',
++                          ctx=Load()),
++                        args=[
++                          Call(
++                            func=Attribute(
++                              value=BinOp(
++                                left=Name(id='root', ctx=Load()),
++                                op=Div(),
++                                right=Constant(value='never-created')),
++                              attr='exists',
++                              ctx=Load()))]))])])]),
++        FunctionDef(
++          name='test_legacy_v3_runtime_schema_refuses_before_source_or_sdk_inventory_work',
+           args=arguments(
+             args=[
+               arg(arg='self')]),
+@@ -4296,7 +4761,7 @@
+                   Constant(value='schema'),
+                   Constant(value='scope')],
+                 values=[
+-                  Constant(value='e02-api35-v2-first-cell-runtime-plan-v1'),
++                  Constant(value='e02-api35-v3-first-cell-runtime-plan-v1'),
+                   Attribute(
+                     value=Name(id='subject', ctx=Load()),
+                     attr='SCOPE',
+@@ -4357,7 +4822,7 @@
+                   attr='assert_not_called',
+                   ctx=Load())))]),
+         FunctionDef(
+-          name='test_v2_release_schema_refuses_before_resources_imports_or_lab_creation',
++          name='test_legacy_v3_release_schema_refuses_before_resources_imports_or_lab_creation',
+           args=arguments(
+             args=[
+               arg(arg='self')]),
+@@ -4439,7 +4904,7 @@
+                             keys=[
+                               Constant(value='schema')],
+                             values=[
+-                              Constant(value='e02-api35-v2-first-cell-release-v1')])])])),
++                              Constant(value='e02-api35-v3-first-cell-release-v1')])])])),
+                 With(
+                   items=[
+                     withitem(

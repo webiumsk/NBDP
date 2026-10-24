@@ -1,0 +1,72 @@
+{
+  "schema": "e02-api35-v2-source-control-execution-plan-v1",
+  "state": "SOURCE_ONLY_NOT_TESTED_NOT_RELEASED",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r2/subject.json",
+    "bytes": 9076,
+    "sha256": "92293d79675c0294a652fc8fe3a0e578c950d2e62a64d4c3862039acf7d5bd51"
+  },
+  "configuration": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r2/proposed-run-config.json",
+    "bytes": 3244,
+    "sha256": "5f29d9724ad1f01a38319106fe3b56b08cb9dc5efead7c8c771c571dedced146"
+  },
+  "actualNewUiCleanupTests": "NOT_EXECUTED",
+  "python": {
+    "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "bytes": 32959480,
+    "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+  },
+  "proposedCurrentControlCommands": [
+    [
+      "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "-I",
+      "-B",
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v2/test_cleanup.py"
+    ],
+    [
+      "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "-I",
+      "-B",
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v2/test_android_driver.py"
+    ]
+  ],
+  "expectedSeparateCounts": {
+    "cleanup": 26,
+    "ui": 47
+  },
+  "unchangedActualScopeLink": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r2/unchanged-control-scope-link.json",
+    "bytes": 8741,
+    "sha256": "fd0e949ddd369dfdeb35f4b29df4655d45aacdd8022c79b03f242e15cc675598"
+  },
+  "doNotRepeatUnchangedScopesForPathsOnly": [
+    "guard29",
+    "fixture27",
+    "consumer14"
+  ],
+  "capture": "After actual SOURCE QA/security: execute each changed meaningful scope once, finite raw0600 stdout/stderr, natural exit/signal/reap/EOF/force/error/time, source/config/interpreter before-after; stop first failure/no retry.",
+  "resourcePrerequisite": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r2/coordinator-resource-prerequisite.json",
+    "bytes": 1163,
+    "sha256": "52a20a86dcbfe59b69b22b2d7c4d8e23ed3292d34b60b4f206177ab2d064d0a3"
+  },
+  "futureRuntime": {
+    "supervisor": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v2/supervisor.py",
+      "bytes": 40309,
+      "sha256": "a634d7fcb7c6e5d714020f6bc0d49c553b204ca5706200f0fceb213ae40db866"
+    },
+    "plannedOutput": "/tmp/nbdp-e02-ordinary-client-api35-v2/runs/619a4fedff96433daa90a57ac5d5eb73",
+    "freshReleaseSchema": "e02-api35-v2-first-cell-release-v1",
+    "missing": "Actual SOURCE/control independent acceptance, fresh admissions and exact externally pinned coordinator release; none is manufactured here."
+  },
+  "runtimeAcceptance": [
+    "Exactly one known Hide-to-Show action if needed; retain closed metadata/ancestry/bounds/unique login and budgets.",
+    "Fresh before/postinput actual PNG/XML, recorded password flags, exact full public NSEC and same structural field/eye subject; independent visual review.",
+    "Actual app1059#p/EOSE generation before publication, actual EVENT/wire and independent JS/Rust validation, full actual raw client export, original first-failure/cleanup gates.",
+    "Any failure remains failed/unqualified/PARTIAL; successful first cell remains scoped PARTIAL, never canonical E02 PASS."
+  ],
+  "grantLeaseReleaseCreated": false,
+  "sdkAndroidNodeServicesActions": 0
+}

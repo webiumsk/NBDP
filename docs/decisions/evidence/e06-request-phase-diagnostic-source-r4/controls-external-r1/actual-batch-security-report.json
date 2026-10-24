@@ -1,0 +1,44 @@
+{
+  "schema": "nbdp-actual-independent-review-transcription-v1",
+  "transcribedBy": "/root",
+  "role": "security",
+  "session": "/root/attachment_profile_security",
+  "decision": "ACCEPT_FAILED_CONTROL_BATCH_EVIDENCE_ONLY",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/controls-external-r1/batch-subject.json",
+    "bytes": 30668,
+    "sha256": "886034909027d53431d3aa86c06c6c104924cfd8cfa9f6c2e04a7ef5afd048de"
+  },
+  "overallDisposition": "FAIL_HOLD_NO_ACTIVATION",
+  "subsetDecision": {
+    "role": "security",
+    "session": "/root/attachment_profile_security",
+    "decision": "ACCEPT_OBSERVER_PURE_CONTROLS_ONLY",
+    "subject": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/controls-external-r1/pure16-subject.json",
+      "bytes": 24507,
+      "sha256": "c738176e0c68d79e0c825a60b8d57033ee62168aac9952b30aca807084bc7274"
+    }
+  },
+  "findings": [
+    {
+      "id": "SEC-E06-MODELED-API-COVERAGE-006",
+      "severity": "MEDIUM",
+      "evidence": "Actualguard16 ran7passes+9errors at mock installation:8missingos.pidfd_open/1missingsignal.pidfd_send_signal. Five new custody/census security families not qualified.14admissionNOT_EXECUTED afterfailedsuite.",
+      "requiredNext": "Separate exact-interpreter HOST capability inspection, then explicit reviewed fresh source/context before new batch; preserve this failure. No relaxation or blind retry.",
+      "scope": "Actual managed context only; this review predates the separate HOST probe and makes no HOST/kernel incapability claim."
+    }
+  ],
+  "verified": [
+    "100artifactmanifest/raw hash/stat and87fullpaths beforeafter exact;94 protectedsource/interpreter/authority records preserved.",
+    "13+3distinctpasses natural0/reaped/fullEOF/no force/error; partial write128raw128ack vs128raw0ack singlepoisonedwrite retained.",
+    "Guardchildnatural1/helper2 withfullEOF/reap/no force/captureerror; capturefirstErrornull does not mean models passed.",
+    "Five original tool responses retain actual launch/running/completion shapes, no fabricatedexit.",
+    "99storedartifacts600 andoneintentionallyunsafe640fixture; rawcaptures600; no retry/sourceedits/strace/Node/LOCAL."
+  ],
+  "limits": [
+    "Actual independent read/hash/stat/raw only, no imports/tests/rerun/edits.",
+    "Failedbatch evidence acceptance is not model readiness or actual7/Node authority.",
+    "No runtime vulnerability closure, canonicalPASS or blocker/SDK/merge authorization."
+  ]
+}

@@ -1,0 +1,402 @@
+{
+  "schema": "e02-minimum-full-python-ast-function-diff-v1",
+  "method": "stdlib ast.parse and dump only; JS full text diff, no JS engine parse/import/evaluation",
+  "changes": [
+    {
+      "file": "android_driver.py",
+      "before": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v3/android_driver.py",
+        "bytes": 33452,
+        "sha256": "16f4a3ee95e854e0c8aedbd2d4ccfccaf1ac0500fb8cf78463dd89f24bad1132"
+      },
+      "after": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/android_driver.py",
+        "bytes": 49018,
+        "sha256": "f24c88b7c08fac1ec7ed96a9a30bb8dece5a39294cc8892be5498bf471a2ffbb"
+      },
+      "changedOrAddedFunctions": [
+        "fixture",
+        "UI",
+        "UI.__init__",
+        "UI.input_text",
+        "_login",
+        "expanded_feeds_header",
+        "seek_system",
+        "local_relay_field",
+        "local_relay_add_button",
+        "local_relay",
+        "helper",
+        "known_control",
+        "chat_context",
+        "open_messages",
+        "wait_subscription",
+        "select_note",
+        "export_note",
+        "map_guest_graph",
+        "run"
+      ],
+      "removedFunctions": [],
+      "unchangedFunctions": [
+        "need",
+        "loads",
+        "equal",
+        "read",
+        "mapped",
+        "UI._capture",
+        "UI.tor_popup",
+        "UI.refresh",
+        "UI.environment_anr",
+        "UI.wait_for_known_os_anr",
+        "UI.nodes",
+        "UI.find",
+        "UI.one",
+        "UI.bounds",
+        "UI.adb",
+        "UI.tap",
+        "UI.click",
+        "UI.key_back",
+        "UI.scroll_to",
+        "UI.identity_controls",
+        "UI.identity_visibility",
+        "UI.identity_control_subject",
+        "UI.visible_identity_field",
+        "login",
+        "own_identity"
+      ],
+      "fullAstDiff": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/android_driver-full-typed-ast.diff",
+        "bytes": 206163,
+        "sha256": "ae2bc39dccb9f314b33640704d16acd7ee127c8fc86ecfa7492acac03f29784c"
+      }
+    },
+    {
+      "file": "lease_guard.py",
+      "before": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v3/lease_guard.py",
+        "bytes": 14846,
+        "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+      },
+      "after": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/lease_guard.py",
+        "bytes": 14846,
+        "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+      },
+      "changedOrAddedFunctions": [],
+      "removedFunctions": [],
+      "unchangedFunctions": [
+        "LeaseDenied",
+        "strict",
+        "sample",
+        "issue",
+        "allowed_adb",
+        "adb_timeout",
+        "Lease",
+        "Lease.__init__",
+        "Lease.revoke",
+        "Lease.check",
+        "Lease.sleep",
+        "Lease.dispatch",
+        "Lease.run_checked",
+        "main"
+      ],
+      "fullAstDiff": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/lease_guard-full-typed-ast.diff",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "file": "supervisor.py",
+      "before": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v3/supervisor.py",
+        "bytes": 40309,
+        "sha256": "1c796aa5c52a11b584f3300c3a9d5ef9bf432fa0fae13ca40d1f35d7138d7815"
+      },
+      "after": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/supervisor.py",
+        "bytes": 41932,
+        "sha256": "1a21ebb69bfdf6096d11b24ed6f9e7fe3b13e33b4afd954b69b9644be3ae0b63"
+      },
+      "changedOrAddedFunctions": [
+        "source_pins",
+        "materialize",
+        "verify_config",
+        "Runtime",
+        "Runtime.validate_owned",
+        "Runtime.start",
+        "guest",
+        "execute",
+        "main"
+      ],
+      "removedFunctions": [],
+      "unchangedFunctions": [
+        "need",
+        "require_android_affinity",
+        "strict",
+        "digest",
+        "pin",
+        "checked",
+        "put",
+        "jsonbytes",
+        "exact_cid_absent",
+        "validate_namespace_addresses",
+        "classify_listener_endpoint",
+        "validate_namespace_listeners",
+        "qualify_namespace",
+        "load_module",
+        "Runtime.__init__",
+        "Runtime.check",
+        "Runtime.sleep",
+        "Runtime.put_bytes",
+        "Runtime.put_json",
+        "Runtime.map_session_pin",
+        "Runtime.command",
+        "Runtime.record_command",
+        "Runtime.guest",
+        "Runtime.adb",
+        "Runtime.fixture",
+        "Runtime.snapshot",
+        "Runtime.inspect",
+        "Runtime.validate_identity",
+        "Runtime.cleanup",
+        "finalize",
+        "run_service"
+      ],
+      "fullAstDiff": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/supervisor-full-typed-ast.diff",
+        "bytes": 18302,
+        "sha256": "779de8bcca05d78c9f8212f04fe51ff6bd8999ba0fb4a2b82325302665b938f5"
+      }
+    },
+    {
+      "file": "test_android_driver.py",
+      "before": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v3/test_android_driver.py",
+        "bytes": 41596,
+        "sha256": "d0d67af92ff99a49b833d1a9605b90e6d4d0daa031ed961b3a829c35a5e129e4"
+      },
+      "after": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/test_android_driver.py",
+        "bytes": 41645,
+        "sha256": "07954e09ffe6d8a04d03e0462883492ce17a322ece2961be600854cee48aee77"
+      },
+      "changedOrAddedFunctions": [
+        "MockRuntime",
+        "MockRuntime.__init__"
+      ],
+      "removedFunctions": [],
+      "unchangedFunctions": [
+        "node",
+        "screen",
+        "modal",
+        "settings_anr",
+        "masked_login",
+        "visible_login",
+        "actual_api35_login",
+        "source_shown_login",
+        "actual_structure_login",
+        "MockRuntime.check",
+        "MockRuntime.put_bytes",
+        "MockRuntime.put_json",
+        "MockRuntime.snapshot",
+        "MockRuntime.adb",
+        "MockRuntime.sleep",
+        "TorPopupControls",
+        "TorPopupControls.setUp",
+        "TorPopupControls.ui",
+        "TorPopupControls.test_actual_late_popup_keeps_before_after_and_looks_up_fresh_save",
+        "TorPopupControls.test_full_login_explicitly_saves_reopens_and_records_visual_limit",
+        "TorPopupControls.assert_refused_without_action",
+        "TorPopupControls.test_each_missing_modal_label_refuses",
+        "TorPopupControls.test_unknown_warning_refuses",
+        "TorPopupControls.test_extra_unknown_button_refuses",
+        "TorPopupControls.test_duplicate_label_refuses",
+        "TorPopupControls.test_extra_unlabeled_clickable_control_refuses",
+        "TorPopupControls.test_out_of_display_button_bounds_refuse",
+        "TorPopupControls.test_disabled_or_foreign_modal_refuses",
+        "TorPopupControls.test_unknown_dialog_gets_no_fallback_action",
+        "TorPopupControls.test_known_popup_outside_login_settings_refuses",
+        "TorPopupControls.test_popup_surviving_one_dismissal_is_not_retried",
+        "TorPopupControls.test_dismissal_action_and_after_capture_budgets_refuse_before_tap",
+        "TorPopupControls.test_final_allowed_action_and_capture_do_not_extend_original_limits",
+        "TorPopupControls.test_lease_refusal_permits_no_snapshot_or_action",
+        "TorPopupControls.test_lease_refusal_immediately_before_dismissal_dispatches_nothing",
+        "OSAnrControls",
+        "OSAnrControls.setUp",
+        "OSAnrControls.ui",
+        "OSAnrControls.test_actual_settings_anr_over_tor_waits_then_handles_exact_tor",
+        "OSAnrControls.test_system_ui_title_same_android_structure_uses_only_wait",
+        "OSAnrControls.test_tor_dismissal_may_reveal_one_os_anr",
+        "OSAnrControls.test_persistent_anr_retains_explicit_evidence_and_refuses_second_wait",
+        "OSAnrControls.test_unknown_and_amethyst_anrs_refuse",
+        "OSAnrControls.test_partial_duplicate_foreign_disabled_and_bad_ancestry_refuse",
+        "OSAnrControls.test_anr_outside_login_settings_refuses",
+        "OSAnrControls.test_action_capture_and_two_wait_budgets_refuse_before_dispatch",
+        "OSAnrControls.test_third_separate_os_anr_never_gets_an_action",
+        "OSAnrControls.test_lease_refusal_before_wait_dispatches_no_action",
+        "IdentityVisibilityControls",
+        "IdentityVisibilityControls.setUp",
+        "IdentityVisibilityControls.ui",
+        "IdentityVisibilityControls.test_actual_masked_hide_label_toggles_unique_current_eye_once",
+        "IdentityVisibilityControls.test_actual_shown_state_with_password_semantics_is_not_toggled_again",
+        "IdentityVisibilityControls.test_contradictory_unpassworded_metadata_and_hidden_eye_refuses",
+        "IdentityVisibilityControls.test_full_observed_nsec_required_after_typing",
+        "IdentityVisibilityControls.test_masked_field_refuses_before_typing",
+        "IdentityVisibilityControls.test_partial_bullets_wrong_or_empty_text_never_count_as_whole_input",
+        "IdentityVisibilityControls.test_remasking_after_typing_refuses_even_if_text_claims_exact_nsec",
+        "IdentityVisibilityControls.test_persistently_masked_field_refuses_after_single_toggle",
+        "IdentityVisibilityControls.test_unknown_duplicate_foreign_disabled_or_detached_eye_refuses",
+        "IdentityVisibilityControls.test_duplicate_login_field_refuses",
+        "IdentityVisibilityControls.test_visibility_action_and_capture_budgets_refuse_before_tap",
+        "IdentityVisibilityControls.test_lease_refusal_before_eye_action_dispatches_nothing",
+        "IdentityVisibilityControls.test_actual_api35_hide_to_show_transition_preserves_password_semantics",
+        "IdentityVisibilityControls.test_password_semantics_true_requires_exact_whole_public_input_and_receipt",
+        "IdentityVisibilityControls.test_password_semantics_true_never_accepts_partial_masked_or_wrong_value",
+        "IdentityVisibilityControls.test_changed_semantic_field_or_button_metadata_refuses_after_input",
+        "IdentityVisibilityControls.test_changed_field_identity_after_eye_tap_refuses_without_second_action",
+        "IdentityVisibilityControls.test_unknown_password_metadata_refuses_even_with_known_shown_eye",
+        "IdentityVisibilityControls.test_shown_eye_foreign_duplicate_or_changed_structure_refuses_postinput",
+        "IdentityVisibilityControls.test_multiline_bounds_reflow_still_requires_same_closed_field_and_whole_value",
+        "IdentityVisibilityControls.test_eye_or_whole_value_change_after_keyboard_dismissal_refuses",
+        "IdentityVisibilityControls.test_actual_placeholder_disappearance_and_eye_reindex_keeps_exact_whole_input",
+        "IdentityVisibilityControls.test_positional_index_changes_alone_never_claim_persistent_object_identity"
+      ],
+      "fullAstDiff": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/test_android_driver-full-typed-ast.diff",
+        "bytes": 843,
+        "sha256": "03329e0cdf7e5f50702d4302610b75cba8d592f3774692ee420f1c1e168e0f22"
+      }
+    },
+    {
+      "file": "test_cleanup.py",
+      "before": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v3/test_cleanup.py",
+        "bytes": 24011,
+        "sha256": "6f0ecc32b83c39d25f38acce0b203edfe161397d0e79167a4eedf44ac877e6f5"
+      },
+      "after": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/test_cleanup.py",
+        "bytes": 26802,
+        "sha256": "c4396a3961ecfb5b43193a0990aa8dc4a9714789ed2bbf472baf734ced0d546c"
+      },
+      "changedOrAddedFunctions": [
+        "CleanupTests",
+        "CleanupTests.runtime",
+        "CleanupTests.test_minimum_role_config_environment_cannot_drift_in_owned_service",
+        "ProfileIsolationControls",
+        "ProfileIsolationControls.test_unknown_role_refuses_before_minimum_plan_or_inventory_work",
+        "ProfileIsolationControls.test_other_role_or_window_release_refuses_before_resource_actions",
+        "ProfileIsolationControls.test_legacy_v3_runtime_schema_refuses_before_source_or_sdk_inventory_work",
+        "ProfileIsolationControls.test_legacy_v3_release_schema_refuses_before_resources_imports_or_lab_creation"
+      ],
+      "removedFunctions": [
+        "ProfileIsolationControls.test_v2_runtime_schema_refuses_before_source_or_sdk_inventory_work",
+        "ProfileIsolationControls.test_v2_release_schema_refuses_before_resources_imports_or_lab_creation"
+      ],
+      "unchangedFunctions": [
+        "MockDocker",
+        "MockDocker.__init__",
+        "MockDocker.__call__",
+        "CleanupTests.test_log_write_failure_still_removes_owned_cid_and_checks_absence",
+        "CleanupTests.test_log_bound_failure_still_attempts_removal",
+        "CleanupTests.test_isolation_mismatch_does_not_block_exact_identity_cleanup",
+        "CleanupTests.test_foreign_creation_nonce_never_removes",
+        "CleanupTests.test_cleanup_failure_forces_failed_outer_and_preserves_primary",
+        "CleanupTests.test_unqualified_row_cannot_be_reported_as_partial",
+        "CleanupTests.test_final_result_write_failure_never_returns_zero",
+        "CleanupTests.test_guest_module_initialization_at_input_has_no_actions",
+        "CleanupTests.test_observed_lowercase_exact_cid_absence_is_confirmed",
+        "CleanupTests.test_observed_container_not_found_and_case_variations_confirm_exact_cid",
+        "CleanupTests.test_exact_absence_rejects_daemon_wrong_cid_partial_or_mixed_errors",
+        "CleanupTests.test_daemon_failure_after_removal_remains_failed",
+        "CleanupTests.test_bounded_local_logging_disables_incompatible_compression",
+        "CleanupTests.test_service_failure_forwards_actual_binary_captures_and_preserves_exception",
+        "CleanupTests.test_secondary_capture_write_failure_still_forwards_other_stream_and_keeps_primary",
+        "CleanupTests.test_observed_namespace_listener_forms_are_accepted_with_valid_ports",
+        "CleanupTests.test_archived_actual14_listener_rows_parse",
+        "CleanupTests.test_malformed_nonloopback_and_arbitrary_wildcard_listeners_are_refused",
+        "CleanupTests.test_malformed_ss_rows_are_refused",
+        "CleanupTests.test_only_lo_namespace_with_actual_loopback_addresses_is_accepted",
+        "CleanupTests.test_invalid_namespace_stops_before_listener_probe_install_or_ui",
+        "CleanupTests.test_android_trial_generated_caps_and_guest_configuration_agree",
+        "CleanupTests.test_android_trial_affinity_refuses_seven_before_later_actions",
+        "CleanupTests.test_android_trial_affinity_accepts_eight_without_expanding_admission"
+      ],
+      "fullAstDiff": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/test_cleanup-full-typed-ast.diff",
+        "bytes": 24198,
+        "sha256": "1265ea1fe122350580c112620f14e15a2c26f31c2ab627b29e35d8a1e012c16e"
+      }
+    },
+    {
+      "file": "test_lease_guard.py",
+      "before": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v3/test_lease_guard.py",
+        "bytes": 23265,
+        "sha256": "95862de4d1f55e7e981cf78e9cf3d225c571a58c42fa2efa4ee2c1620029aa68"
+      },
+      "after": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/test_lease_guard.py",
+        "bytes": 23265,
+        "sha256": "95862de4d1f55e7e981cf78e9cf3d225c571a58c42fa2efa4ee2c1620029aa68"
+      },
+      "changedOrAddedFunctions": [],
+      "removedFunctions": [],
+      "unchangedFunctions": [
+        "Clock",
+        "Clock.__init__",
+        "Clock.__call__",
+        "Clock.advance",
+        "LeaseBoundaryTests",
+        "LeaseBoundaryTests.test_only_exact_cold_boot_wait_and_pinned_install_have180s_ceiling",
+        "LeaseBoundaryTests.test_expiry_on_final_coherent_retry_dispatches_zero_payload_and_sticks",
+        "LeaseBoundaryTests.test_exhausted_sample_retries_revoke_before_payload_and_stay_revoked",
+        "LeaseBoundaryTests.assert_final_retry_refused",
+        "LeaseBoundaryTests.test_interrupted_retry_final_resumption_gap_refuses_zero_payload_sticky",
+        "LeaseBoundaryTests.test_interrupted_retry_final_previous_clock_rollback_refuses_zero_payload_sticky",
+        "LeaseBoundaryTests.test_interrupted_retry_final_utc_boot_drift_refuses_zero_payload_sticky",
+        "LeaseBoundaryTests.assert_metadata_delay",
+        "LeaseBoundaryTests.test_metadata_delay_within_original_budget_is_charged_without_clock_retry",
+        "LeaseBoundaryTests.test_metadata_delay_cannot_extend_original_expiry",
+        "LeaseBoundaryTests.test_metadata_delay_over_resumption_gap_refuses_zero_payload",
+        "LeaseBoundaryTests.test_changed_boot_after_metadata_delay_refuses_zero_payload",
+        "LeaseBoundaryTests.make",
+        "LeaseBoundaryTests.test_nominal_original_lease_dispatch",
+        "LeaseBoundaryTests.test_already_expired_dispatches_no_payload",
+        "LeaseBoundaryTests.test_expiry_during_wait_never_accepts_or_dispatches_later",
+        "LeaseBoundaryTests.test_explicit_revoke_is_sticky_after_wait",
+        "LeaseBoundaryTests.test_resumption_gap_inside_total_budget_revokes",
+        "LeaseBoundaryTests.test_clock_rollback_inside_original_window_revokes",
+        "LeaseBoundaryTests.test_owned_child_natural_exit_reaped_full_eof",
+        "LeaseBoundaryTests.failed_child_is_sticky",
+        "LeaseBoundaryTests.test_owned_child_timeout_sticky_before_later_payload",
+        "LeaseBoundaryTests.test_owned_child_capture_failure_sticky_before_later_payload",
+        "LeaseBoundaryTests.test_owned_child_nonzero_exit_sticky",
+        "LeaseBoundaryTests.test_post_reap_expiry_never_signals_reaped_numeric_pid",
+        "ClockSamplingTests",
+        "ClockSamplingTests.test_proc_checks_precede_outermost_monotonic_clock_only_bracket",
+        "ClockSamplingTests.test_overlong_attempt_is_discarded_and_full_fresh_retry_returned",
+        "ClockSamplingTests.test_long_monotonic_bracket_cannot_be_hidden_by_short_wall_bracket",
+        "ClockSamplingTests.test_three_overlong_attempts_fail_closed_without_fourth",
+        "ClockSamplingTests.test_exact50ms_bracket_remains_accepted",
+        "ClockSamplingTests.test_negative_bracket_is_immediate_failure_without_retry",
+        "ClockSamplingTests.test_invalid_namespace_is_not_retried",
+        "ClockSamplingTests.test_metadata_read_failure_is_not_retried"
+      ],
+      "fullAstDiff": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/test_lease_guard-full-typed-ast.diff",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "file": "test_minimum_driver.py",
+      "after": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/test_minimum_driver.py",
+        "bytes": 16320,
+        "sha256": "d8e4e3037abca16b8019069dbf996b76cc3c32ebeafcb1b8de7549d56e1d4aa0"
+      },
+      "newSourceOnly": true
+    }
+  ]
+}

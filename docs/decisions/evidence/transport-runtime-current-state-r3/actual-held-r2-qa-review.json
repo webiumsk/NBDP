@@ -1,0 +1,24 @@
+{
+  "schema": "nbdp-actual-independent-review-transcription-v1",
+  "transcribedBy": "/root",
+  "reviewer": "/root/p4_publication_qa",
+  "role": "qa",
+  "decision": "HOLD",
+  "subject": {
+    "path": "docs/decisions/evidence/transport-runtime-current-state-r3/publication-subject-r2.json",
+    "bytes": 108339,
+    "sha256": "e4afc9b1a33bff1fac5a98627bf8e0950db80a54f2f7378d0345b01ea72220b9"
+  },
+  "findings": [
+    {
+      "id": "QA-PUBLICATION-WHITESPACE-DISPOSITION-001",
+      "severity": "MEDIUM",
+      "evidence": "Raw diagnostic output itself adds36 whitespace warnings; all-path staged check73/4, earlier disposition37/3 incomplete.",
+      "requiredFix": "Keep raw bytes, explicitly include fourth exception and correct counts; check all other paths0."
+    }
+  ],
+  "limits": [
+    "Exact prior-stage publication review; no tests/imports/runtime/edits by reviewer.",
+    "No frozen evidence or source activation approved."
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schema": "nbdp-minimum-documentary-input-disposition-v1",
+  "actor": "/root",
+  "finding": "SEC-PUBLICATION-MINIMUM-NSEC-METADATA-001",
+  "severity": "LOW",
+  "documentaryFiles": [
+    {
+      "path": "experiments/prototypes/e02_ordinary_minimum_v1/minimum-plan.json",
+      "bytes": 1564,
+      "sha256": "b1ecc950e4084f23afb11e595479a526ce1d534afa4521214f013e8042e18862"
+    },
+    {
+      "path": "experiments/prototypes/e02_ordinary_minimum_v1/ui-plan.json",
+      "bytes": 1484,
+      "sha256": "1357627c0aee5df8c643d9c0276167fd52ba484d57ae06281901a299e1df24b9"
+    },
+    {
+      "path": "experiments/prototypes/e02_ordinary_minimum_v1/fixture-plan.json",
+      "bytes": 250735,
+      "sha256": "744d703f96747adffe8444ac083b1de1f0a3c8a59f8536e7721ea2b6c198efee"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/oracle-provenance.json",
+      "bytes": 1643,
+      "sha256": "b7e0edbfe8e1876800b8d617573e099dd1052ed03532383e142f07279c3f7e38"
+    }
+  ],
+  "unusedMalformedLiteral": {
+    "value": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpqptcfk2",
+    "length": 65,
+    "sha256": "3cf12c327fe62e329783b028d94e1410d3e4ac5db3eebdf13cd72ad9c8bd2e2c"
+  },
+  "operativeRuntimeInput": {
+    "value": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpqptcfk2",
+    "length": 63,
+    "sha256": "2bfd2017b31af0a45b4ffd59c1f65fe7a76df2339268f4ef2638a10c3f295742",
+    "driver": {
+      "path": "experiments/prototypes/e02_ordinary_minimum_v1/android_driver.py",
+      "bytes": 49018,
+      "sha256": "f24c88b7c08fac1ec7ed96a9a30bb8dece5a39294cc8892be5498bf471a2ffbb"
+    },
+    "publicDisposableScalar": 2
+  },
+  "disposition": "Preserve frozen source/results. Supervisor consumes role/account/peer/window and driver consumes its exact63-character ROLE_SPECS operand. The65-character documentary literal is not an executed input and must not be copied or silently normalized. Consumer independently binds actual driver operand/account GUI/wire. No actual wrong account or credential leak demonstrated.",
+  "futureTask": {
+    "owner": "implementer, independently reviewed by QA/security",
+    "task": "Versioned correction of documentary NSEC fields with checksum/payload/length and exact driver-input equality DATA regression.",
+    "prerequisites": "Preserve current frozen SOURCE and accepted actual scopes; no receipt retargeting.",
+    "acceptance": "All revised role encodings are valid and exactly match the actual driver operands; no old metadata or runtime result rewritten."
+  },
+  "runtimeAuthorized": false,
+  "canonicalStatusChanged": false
+}

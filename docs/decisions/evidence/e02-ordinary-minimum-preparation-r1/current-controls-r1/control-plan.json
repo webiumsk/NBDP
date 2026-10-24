@@ -1,0 +1,61 @@
+{
+  "schema": "e02-minimum-current-pure-control-capture-plan-v1",
+  "actor": "/root/ordinary_api35_source",
+  "session": "/root/ordinary_api35_source",
+  "state": "PREPARED_NOT_EXECUTED_PENDING_ACTUAL_SOURCE_DECISIONS_AND_ROOT_RELEASE",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/subject.json",
+    "bytes": 35766,
+    "sha256": "296acf346bb034bcb8becc22562494e5f37e78c3f78537d061e83455135315b4"
+  },
+  "frozenPlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/execution-control-plan.json",
+    "bytes": 4571,
+    "sha256": "dce8eab9bd5436a933d9661b74fb30b1b7dceff64339a22168f378a3d0a2bee2"
+  },
+  "runner": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/current-controls-r1/capture-controls.py",
+    "bytes": 13851,
+    "sha256": "8fc0b86374f7ed5e13ac51bdd9374035fe828c18301f5d32ea6907d6c9b90c9b"
+  },
+  "previousTrustedCapture": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r3/current-controls-r1/capture-controls.py",
+    "bytes": 11206,
+    "sha256": "1e7680d818cf89122e7a82725eaedbc7103e292e37fadbeb3926b4c1de099c1d"
+  },
+  "separateCountsExpected": {
+    "cleanup": 29,
+    "ui-regression": 49,
+    "minimum-ui": 21,
+    "fixture-regression": 27,
+    "minimum-fixture": 43
+  },
+  "onceCommand": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/current-controls-r1/capture-controls.py",
+    "--execute-once"
+  ],
+  "closure": "112 unique frozen descriptors plus subject, two configs,14 actually read archived data descriptors, both pinned interpreters, runner, both plans, root acknowledgement and actual review records; before-after per scope and overall.",
+  "lifecycle": "Unchanged established Popen.communicate pattern, timeout60s, inherited1MiB output-per-stream capture/truncation refusal, actual status/signal/EOF/reap/force/error/time; trusted finite scopes only, first failure stops without retry.",
+  "nodeShape": "One duplicate-free exact-key typed JSON output line, correct separate count and closed scope/false capability fields; minimum cases exact43 unique bounded names.",
+  "coordinatorAcknowledgementSchema": {
+    "schema": "e02-minimum-current-controls-root-ack-v1",
+    "actor": "/root",
+    "sourceSubjectSha256": "296acf346bb034bcb8becc22562494e5f37e78c3f78537d061e83455135315b4",
+    "pureControlsAuthorized": "boolean true only after actual root instruction",
+    "actualSourceQaAccepted": "boolean true from actual other-agent decision",
+    "actualSourceSecurityAccepted": "boolean true from actual other-agent decision",
+    "runner": "exact Pin",
+    "controlPlan": "exact Pin of this file",
+    "sourceQaReview": "actual frozen Pin",
+    "sourceSecurityReview": "actual frozen Pin"
+  },
+  "originalExternalToolReceipt": "Root persists original response object immediately; not authored or inferred by process journal.",
+  "independentResultReview": "Root-owned actual other-agent QA/security after execution; author does not approve own findings.",
+  "noTestsOrRuntimeExecuted": true,
+  "unchangedGuardOnly": 29,
+  "noOldConsumer14Reexecution": true,
+  "noAndroidSdkServicesGrants": true
+}

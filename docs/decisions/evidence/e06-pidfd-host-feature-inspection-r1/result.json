@@ -1,0 +1,38 @@
+{
+  "schema": "nbdp-read-only-host-pidfd-feature-inspection-v1",
+  "actor": "/root",
+  "context": "SUPPORTED_HOST_EXECUTION",
+  "python": {
+    "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "bytes": 32959480,
+    "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1",
+    "version": "3.13.12 | packaged by conda-forge | (main, Feb  5 2026, 05:53:46) [GCC 14.3.0]"
+  },
+  "uid": 1000,
+  "kernel": "7.1.5-76070105-generic",
+  "machine": "x86_64",
+  "pythonApi": {
+    "pidfd_open": false,
+    "pidfd_send_signal": false,
+    "waitid": true,
+    "P_PIDFD": false,
+    "WNOWAIT": true
+  },
+  "libcSymbols": {
+    "pidfd_open": true,
+    "pidfd_send_signal": true
+  },
+  "libcVersion": "glibc 2.39",
+  "buildConfig": {
+    "HAVE_PIDFD_OPEN": null,
+    "HAVE_PIDFD_SEND_SIGNAL": null
+  },
+  "actualPidfdCalls": 0,
+  "actualSignals": 0,
+  "actualSpawnedFixtureProcesses": 0,
+  "limits": [
+    "Read-only feature availability only; no pidfd opened, signal sent, child fixture, strace, Node or protocol test.",
+    "Symbol presence is not runtime functionality, permission or containment qualification.",
+    "This does not reinterpret the preserved managed-context model-test failure."
+  ]
+}

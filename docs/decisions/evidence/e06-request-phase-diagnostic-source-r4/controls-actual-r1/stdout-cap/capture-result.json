@@ -1,0 +1,78 @@
+{
+  "argv": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "-c",
+    "import os,time,sys; os.write(4,b'prefix\\n'); os.write(1,b'O'*2048); time.sleep(8)"
+  ],
+  "stdin": "DEVNULL_ZERO_BYTES",
+  "phaseCeilingSeconds": 2,
+  "phaseIncludesObserverAdmissionAndTracerStartup": true,
+  "cleanupCeilingSeconds": 0.5,
+  "launchAttempted": true,
+  "pid": 10,
+  "pidMeaning": "Owned tracer PID in tool execution namespace",
+  "exit": -2,
+  "reaped": true,
+  "forced": true,
+  "timedOut": false,
+  "signals": [
+    2
+  ],
+  "firstError": {
+    "type": "Refusal",
+    "message": "DIAGNOSTIC_STDOUT_CAP"
+  },
+  "secondaryErrors": [],
+  "observedBytes": {
+    "trace": 7,
+    "stdout": 2048,
+    "stderr": 264
+  },
+  "retainedBytes": {
+    "trace": 7,
+    "stdout": 256,
+    "stderr": 264
+  },
+  "acknowledgedWriteBytes": {
+    "trace": 7,
+    "stdout": 256,
+    "stderr": 264
+  },
+  "writeState": {
+    "trace": "WRITABLE",
+    "stdout": "WRITABLE",
+    "stderr": "WRITABLE"
+  },
+  "eof": {
+    "trace": true,
+    "stdout": true,
+    "stderr": true
+  },
+  "elapsedMilliseconds": 95,
+  "receivedSignals": [],
+  "raw": {
+    "trace": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/controls-actual-r1/stdout-cap/trace.bin",
+      "bytes": 7,
+      "sha256": "5a958fd0cb0435992ec0b7afb3255dbe976078447b0fe2830119c083b9eae082"
+    },
+    "stdout": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/controls-actual-r1/stdout-cap/stdout.bin",
+      "bytes": 256,
+      "sha256": "f6f8ce8b91fb5fcaf4f3bcfcf589550348c1d1c7698fa924098e074bd12efc26"
+    },
+    "stderr": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/controls-actual-r1/stdout-cap/stderr.bin",
+      "bytes": 264,
+      "sha256": "f5b6cfba381ded0957c44f9d5d4327dabe011d4fcbc62c399292a1d5cb170044"
+    }
+  },
+  "retainedAccounting": "FINAL_RAW_FILE_DESCRIPTOR_BYTES",
+  "captureComplete": false,
+  "nativeCleanupQualified": false,
+  "nativeCleanupMeaning": "Never established by observer capture; forced/uncertain tracer cleanup remains unqualified.",
+  "traceeContainment": "UNKNOWN_REQUIRES_ACTUAL_NATIVE_AND_TRACE_GRAPH_REVIEW",
+  "killOnExit": "REQUESTED_NOT_HOST_ATTESTED"
+}
