@@ -1,0 +1,68 @@
+# Pinned Amethyst ordinary-client control
+
+Revised 2026-10-24 under the existing isolated E01–E06 authorization. This is an execution specification, not an executed control or a change to the canonical plan. See the [current environment report](../decisions/evidence/transport-gate-readiness-2026-10-23/android-environment.md) and [readiness index](transport-gate-readiness-2026-10-23.md).
+
+## Frozen client and available assets
+
+- Required source: Amethyst `e6f464a1179def75274512b3c5bab921de3bf3d8`.
+- APK: `/tmp/nbdp-e02-android-artifact/source/amethyst/build/outputs/apk/fdroid/debug/amethyst-fdroid-debug.apk`.
+- APK bytes/SHA256: `165860063` / `5165a9f79326524c494108b8ab728fb173ac14fa16bf67ebbd86364c895e98b5`.
+- Recorded package/version: `com.vitorpamplona.amethyst.debug`, `1.17.0-DEBUG`, code `462`; source-linked build, not a new build/signature verification today.
+- Historical SDK: `/tmp/nbdp-e02-ingress-runtime/sdk`, Android36 revision2/ext17. Current separately acquired SDK: `/tmp/nbdp-e02-api35-fixture-r2/sdk`, Android35 default/x86_64 revision2/ext13,434pinned regular files. Platform-tools37.0.1 and emulator37.2.12/build16428233 unchanged. [DATA acceptance](../decisions/evidence/e02-api35-fixture-preparation-r2/acceptance.json) is not guest compatibility; retain actual guest/tool observations in the admitted run.
+- Current ordinaryAPI35 coordinator admission: freshly measured8GiB persistent free on the actual output filesystem,12GiB MemAvailable and at least8 affinity CPUs. Original supervisor6GiB floor/requested2048M remain unchanged; seven old actual hardware files normalized6g. The extra8GiB is a conservative margin, not measured minimum or boot guarantee. Android trial:4vCPU/4096MiB guest,containerCPU8/8192MiB memory=memory-swap/PID512; aggregate configured9856MiB. `/state` is a fresh per-run persistent bind; only `/tmp` has a256MiB tmpfs ceiling. Old10GiB-state-tmpfs references describe a former harness. These are configured caps/admission thresholds, not measured minimum/peak consumption.
+
+The coordinator's supported host probe verified KVM openability and Docker29.9.0. The earlier167MiB-free obstacle is historical: after the owner freed space, host preflight40c219 passed with15278325760bytes free and14563786752bytes MemAvailable. Admission is checked again per run. No APK download/rebuild or personal Android configuration change is needed. Direct managed-session ADB probes failed attempting to create read-only `~/.android`; use the isolated container's namespace-local ADB.
+
+## Purpose and proposed observation matrix
+
+Canonical E02 requires ordinary-client rendering and relevant content/private-tag retention. An ordinary chat client need not interpret invoices, approve documents or implement NBDP dispatch. Safe display of retained textual business JSON is a valid capability outcome.
+
+Use the canonical fixture builder in `experiments/e02-validation/test.mjs`: public disposable scalars1/2, matching public identities, its exact envelope/rumor construction, and its two relay configurations. Freeze the actual generated inner rumors, UTF-8 content and ordered private tags before the control; create fresh disposable gift wraps and signed inbox announcements for the admitted session. Retain original bytes/IDs and both adapter validations. Fixture originals are the comparison oracle, not a substitute for client-retained data.
+
+The following concrete coverage comes from the prior next-stage proposal and is submitted for exact QA/security plan review. It operationalizes existing criteria; it does not silently add a new normative support promise.
+
+| Producer direction | Client role | Relay |
+| --- | --- | --- |
+| JS→Rust | peer incoming | strfry |
+| JS→Rust | sender archive | strfry |
+| Rust→JS | peer incoming | strfry |
+| Rust→JS | sender archive | strfry |
+| JS→Rust | peer incoming | nostr-rs-relay |
+| JS→Rust | sender archive | nostr-rs-relay |
+| Rust→JS | peer incoming | nostr-rs-relay |
+| Rust→JS | sender archive | nostr-rs-relay |
+
+Retain the canonical ordinary-chat/foreign-protocol/unsupported-version/required-feature/malformed-discriminator and sender-archive replay expectations. Attribute NBDP dispatch assertions to the independent adapters; absence of an Amethyst business feature is not a failed assertion.
+
+## Admission and reproducible procedure
+
+1. Run the read-only [readiness probe](../../experiments/tools/check-android-control-readiness.py) in the supported host execution context. Preserve its JSON/exit. A PREPARATION_BLOCKED result launches nothing. The probe does not grant a run release.
+2. Independently review a fresh finite run configuration: exact source/APK/SDK/image/build/fixture hashes, disposable accounts, one selected loopback relay, fresh AVD/app/relay state, bounded process ownership and cleanup. Pin current E01 and E02 adapter evidence; consumed historical grants are not reusable.
+3. Establish enforceable egress isolation before app activation. Disable Tor for this lab, configure only the selected local relay and retain saved configuration. No public relay, DNS fallback, production signer or real device/account is permitted. A configuration screen alone does not prove network isolation.
+4. Boot the fresh guest, verify actual boot/package/version, install the already pinned APK, and log in with the selected public test-only scalar. No keys or data from a personal profile enter the guest.
+5. Observe the app's actual kind1059 recipient subscription and EOSE. Publish fresh signed/wrapped fixtures only afterwards. Save actual accepted and retrieved EVENT frame bytes; relay OK alone is insufficient.
+6. Observe the matching authenticated conversation and incoming/archive placement. Save sequential settled PNG/XML captures with timestamps and selected event/rumor identity. Sequential captures are not an atomic UI snapshot.
+7. Export the actual selected client note's inner rumor. At the pinned source, [Copy Raw JSON](https://github.com/vitorpamplona/amethyst/blob/e6f464a1179def75274512b3c5bab921de3bf3d8/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/note/elements/NoteActionSections.kt#L224) calls `event.toPrettyJson()`; the chat action sheet passes the selected note to shared actions. This is source evidence only. Prepare/review a narrowly scoped Android-local clipboard/export capture, disable host clipboard synchronization and never use a public composer. The old v7 helper does not implement this export.
+8. Compare exported kind, author, recipient, ordered tags, timestamp, ID and exact UTF-8 content with the frozen inner rumor. Recompute its NIP01 ID. Pretty JSON formatting may differ from compact serialization; typed fields/content/tag order must agree. Separately decrypted relay fixtures do not demonstrate client retention. If export exposes only an outer/seal object, the inner-retention assertion remains unverified until an actual client-supported capture supplies it.
+9. Replay identical archive wraps and fresh wraps of the same rumor; retain the canonical role/no-incoming-dispatch behavior and positive incoming comparison. Ordinary text and unknown NBDP semantics must not cause unintended business effects.
+10. Record all resource-process identities, commands, exits, errors, actual lease/deadline behavior and owned cleanup. Preserve OOM, partial acquisition, missing export, failed startup and timeouts. Prior Hello/OOM/lease/shared-clock histories remain history, not new successful evidence.
+11. Obtain independent QA/security review of the actual observations. Then implement/review a versioned E02 evidence consumer that binds the control's exact source/client/configuration/inputs/results/reviews. The present canonical E02 harness always skips Amethyst; rerunning it unchanged cannot PASS. Never remove that skip or hand-edit PASS merely because a supplemental report exists.
+12. Rerun/reconcile the full current E02 workflow without overwriting the original records. Only after all mandatory criteria and provenance pass may the canonical dependent E04/E06 path proceed. Named candidate sub-evidence has its separately adopted policy and gates; it does not change E02's result.
+
+## Result rules and remaining work
+
+**PASS** requires the complete reviewed ordinary-client control, actual retained inner content/private tags, correct roles/rendering/replay/dispatch results, current dependency provenance and independent acceptance integrated with E02. Build, boot, package metadata, one Hello, screenshots alone or source inspection are insufficient.
+
+**PARTIAL** remains correct for missing mandatory observations/export, resource/lease interruption or incomplete client capability evidence. A reproduced destructive mutation, wrong conversation or failed mandatory assertion is retained as **FAIL**. Lack of NBDP business UI alone is a capability limitation, not NBDP conformance failure.
+
+Current ordinary-client execution remains unqualified. Nine API36 finite attempts preserve Docker/clock/boot/listener/Tor/ANR/masked-input failures; none reached accepted raw-inner-note export. Attempts2–9 removed all four exact-owned containers. The latest R11 first-frame PNG/XML shows a Quickstep OS ANR; the strict handler correctly refused, before the source-reviewed visibility correction was exercised. Do not widen the ANR handler or infer business incompatibility from this result.
+
+Completed diagnostic history: API36 A/B both captured System UI ANR before client intent. The later boot trace matched the startup ANR identity/stack and failed mandatory UI dump. The subsequent Lavapipe trace completed captures with actual initialized Lavapipe/Mesa/llvmpipe evidence and persistent System UI ANR. Historical renderer remains UNKNOWN; instrumentation differs, so no causal renderer comparison is established. API35 no-install diagnostic failed earlier on userdata allocation before guest startup, with all four containers removed; no API35 OS incompatibility follows. Its raw config interpretation was corrected additively. The next ordinary candidate is [the independently acknowledged API35 profile](../decisions/evidence/e02-ordinary-api35-preparation-r1/source-acknowledgment.json), retaining strict identity, TorOff, subscription/EOSE, export and known-Wait-only<=2 handling. Unknown/Quickstep still refuse. This does not add a never-ANR prerequisite; fresh current controls/result review/resources and root release precede runtime.
+
+The no-INTERNET foreground clipboard helper was built offline; actual selected-note capture is still unqualified. First-cell fixtures wait for actual1059 subscription/EOSE and invalidate replaced generations. Current fixture/driver covers only JS→Rust incoming on rs-relay; the other seven matrix cells need reviewed real producers/relay/account/chat-list routing. Incoming peers route to New Requests; sender archives preserve the inner original recipient and route to Known under the pinned client. Fresh per-cell app state prevents role/cache contamination.
+
+The unchanged v1 consumer also rejects actual epoch-nanosecond release metadata through its safe-integer parser. A separately versioned supplemental adapter/aggregate has SOURCE review and28 independently accepted synthetic DATA controls; it must retain wire integer limits, validate actual metadata without silent reinterpretation, bind actual outer/whole-run reviews and reject FAILED_UNQUALIFIED contributors. No current supplemental header may be rewritten as canonicalPASS. Actual member/witness/complete-history qualification, the remaining seven real producer cells, full canonical integration and a current full E02 reconciliation remain necessary. See [aggregate DATA acceptance](../decisions/evidence/e02-ordinary-aggregate-controls-r1/acceptance.json).
+
+Current external input: none. No repeated approval of existing PO decisions is required.
+
+The first actual ordinaryAPI35 attempt reached the expected API35 fingerprint, both installed APKs and saved/reopened TorOff, then refused before typing because accessibility password metadata stayedtrue after one registered eye toggle. Eight frames and all four cleanup results are retained in [its failure package](../decisions/evidence/e02-ordinary-api35-runtime-r1/README.md). Source-backed visual-state interpretation and an actual complete post-input value remain required; empty-field source/icon state alone cannot prove the NSEC was displayed. Current29/24/38/27/14 pure scopes passed and were independently accepted; changed driver/namespace controls must be reviewed before any versioned retry.

@@ -1,0 +1,73 @@
+{
+  "schema": "nbdp-progress-publication-archive-execution-v1",
+  "actor": "/root/progress_archive_implementer",
+  "evidenceType": "ACTUAL_DATA_ONLY_SERIALIZATION",
+  "authorization": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/transport-runtime-progress-publication-r3/freeze-authorization.json",
+    "bytes": 1272,
+    "sha256": "4620616bf9abe6039289e7455be92eb4c22afaeb4db01eddedcf03ffee3a4c9e"
+  },
+  "source": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/transport-runtime-progress-publication-r3/build_archive.py",
+    "bytes": 15081,
+    "sha256": "9b0a42fb10facf34fd6869eb63738cc1eac3111d4738c1e1ac489e6b8d2905f4"
+  },
+  "selectionPlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/transport-runtime-progress-publication-r3/selection-plan.json",
+    "bytes": 1913,
+    "sha256": "e10a5e3286a7d35779185655069e9cde0b670eb21b226e4786a269c2b8f921b0"
+  },
+  "command": "python3 -I -B docs/decisions/evidence/transport-runtime-progress-publication-r3/build_archive.py --build-after-explicit-freeze",
+  "actualForeground": {
+    "launchTool": "9e3865",
+    "sessionId": 32433,
+    "completionTool": "ec6d47",
+    "exitCode": 0,
+    "completed": true
+  },
+  "archiveBuildCount": 1,
+  "sourceOnlyPriorCheckpoint": {
+    "sourceAstAndDataValidationTool": "69d3b0",
+    "exitCode": 0,
+    "scriptNotExecutedAtThatCheckpoint": true
+  },
+  "preBuildFreezeAndSourcePinCheck": {
+    "tool": "6d0f68",
+    "exitCode": 0
+  },
+  "actualResult": {
+    "memberCount": 922,
+    "logicalBytes": 8835900,
+    "archive": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/transport-runtime-progress-publication-r3/completed-runtime-evidence.tar.gz",
+      "bytes": 2539148,
+      "sha256": "da68909a009c265beed45713705e35eef17ad9e3cda7a8eddca6f47e4438fbfe"
+    },
+    "index": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/transport-runtime-progress-publication-r3/archive-index.json",
+      "bytes": 636493,
+      "sha256": "089ab181faf0f31b8562d73bb8a0bdea3bcf54ec9dc8f802c3c1f2063a447a2a"
+    },
+    "verification": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/transport-runtime-progress-publication-r3/archive-verification.json",
+      "bytes": 1177,
+      "sha256": "b322c7a8e02f16f2781264bdcc4a0db8f7d69057f29aea3b0e549d7b2b6732ae"
+    }
+  },
+  "actions": {
+    "projectImports": 0,
+    "experiments": 0,
+    "services": 0,
+    "gitMutations": 0,
+    "publication": false,
+    "sourceOrSdkChanges": false,
+    "originalFilesChanged": false
+  },
+  "limits": [
+    "This foreground built and checked a DATA copy; it did not operate any archived experiment.",
+    "Archive/index preserve original bytes and actual modes, not new conformance claims.",
+    "The coordinator reports all eight source owners WRITES_STOPPED; independent package QA/security remains required.",
+    "No second deterministic-build comparison or replay was performed."
+  ],
+  "readOnlyLookupNote": "A later read-only cat lookup returned exit1 because ordinary API35 preparation has no top-level control-acceptance.json. No missing result was synthesized; archived controls remain at their exact selected paths."
+}

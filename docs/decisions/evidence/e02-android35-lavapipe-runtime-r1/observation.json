@@ -1,0 +1,248 @@
+{
+  "schema": "api35-initialization-failure-data-v1",
+  "state": "FAILED_UNQUALIFIED_BEFORE_GUEST_ADB",
+  "actor": "/root/android_health_implementer, DATA archiver only",
+  "emulatorFatal": "FATAL        | Not enough space to create userdata partition. Available: 7326.61 MB at /state/avd/../avd/ordinary.avd, need 7372.80 MB.",
+  "availableAsReported": {
+    "value": "7326.61",
+    "unit": "MB",
+    "path": "/state/avd/../avd/ordinary.avd"
+  },
+  "requiredAsReported": {
+    "value": "7372.80",
+    "unit": "MB"
+  },
+  "chronology": [
+    "Emulator live stdout retains userdata-partition allocation FATAL.",
+    "Original shared revocation records owned command exited unsuccessfully.",
+    "Outer wait-for-device receipt14 records exit137/forced/sticky, empty streams, reaped/full EOF.",
+    "Supervisor retains sticky error; all four exact-owned containers removed."
+  ],
+  "chronologyLimit": "No nested emulator receipt/per-command elapsed samples were retained; FATAL is the original observed service failure, not a measured guest OS outcome. No OOM or137-cause inference.",
+  "rawStickyReason": "owned command exited unsuccessfully\n",
+  "secondaryAdbReceipt": {
+    "argv": [
+      "/usr/bin/docker",
+      "exec",
+      "68f8bd10ddad71cb500e94901e01f35842c6a98aa30b38d9d5474a316eaff829",
+      "/guard-python/lib/ld-linux-x86-64.so.2",
+      "--inhibit-cache",
+      "--library-path",
+      "/guard-python/lib",
+      "/guard-python/bin/python3.11",
+      "-B",
+      "-P",
+      "-S",
+      "-s",
+      "/input/lease_guard.py",
+      "exec",
+      "536f886b0098013a14356df7229f912ab0546ade6dfb27c5224d146abbc47c34",
+      "adb",
+      "wait-for-device"
+    ],
+    "launchAttempt": true,
+    "pid": 3505345,
+    "exit": 137,
+    "reaped": true,
+    "forced": true,
+    "timedOut": false,
+    "error": "LeaseDenied: sticky revocation",
+    "stdout": {
+      "path": "/tmp/nbdp-e02-android35-lavapipe-trace-v1/runs/50f907e3e77b4cff9137030fcaef1086/commands/0014.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stderr": {
+      "path": "/tmp/nbdp-e02-android35-lavapipe-trace-v1/runs/50f907e3e77b4cff9137030fcaef1086/commands/0014.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "observedBytes": {
+      "stdout": 0,
+      "stderr": 0
+    },
+    "stdoutEOF": true,
+    "stderrEOF": true
+  },
+  "normalPriorCommandReceipts": 13,
+  "emulatorStdout": {
+    "path": "/tmp/nbdp-e02-android35-lavapipe-trace-v1/runs/50f907e3e77b4cff9137030fcaef1086/session/fixtures/emulator.stdout",
+    "bytes": 1265,
+    "sha256": "e865f1547c656d9e4349b9970593361ec09becce5608d54d9126c89b91ddcfd5"
+  },
+  "emulatorStderr": {
+    "path": "/tmp/nbdp-e02-android35-lavapipe-trace-v1/runs/50f907e3e77b4cff9137030fcaef1086/session/fixtures/emulator.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "actualAndroidContainerCaps": {
+    "Memory": 8589934592,
+    "MemorySwap": 8589934592,
+    "PidsLimit": 512,
+    "NanoCpus": 8000000000,
+    "CgroupnsMode": "private",
+    "CgroupParent": "",
+    "NetworkMode": "container:c9f074cff2a2d3588965d32a653a22c92d32f804be8b51bc1a74ab44788f65b7",
+    "ReadonlyRootfs": true,
+    "Privileged": false,
+    "PortBindings": {}
+  },
+  "androidInitialDockerState": {
+    "Status": "running",
+    "Running": true,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 3505258,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-24T00:33:21.67696972Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "androidFinalDockerState": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 2,
+    "Error": "",
+    "StartedAt": "2026-10-24T00:33:21.67696972Z",
+    "FinishedAt": "2026-10-24T00:33:23.554839276Z"
+  },
+  "namespaceEvidence": "Docker NetworkMode/container sharing and isolation inspect retained; guest address/listener inventory NOT_REACHED.",
+  "hostDiskAdmission": {
+    "configuredMinimumBytes": 6442450944,
+    "meaning": "Source admission threshold was passed; it does not guarantee later emulator userdata preallocation. Emulator reports its own available/needed MB; not silently reinterpreted as GiB."
+  },
+  "actualRunConfigSchema": "e02-android35-lavapipe-trace-runtime-plan-v1",
+  "schemaEvidence": "Staged actual config and source verify_config AST; coordinator grant-preparation-history prose labels were not copied or adopted.",
+  "actualIssuedRelease": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-preparation-r1/exact-root-android35-release.json",
+    "bytes": 2035,
+    "sha256": "89ecc155f32383dba1807a7dd7cf6bde4ef113b6d798722a7dfda51cb560a8b7"
+  },
+  "sourceBindings": [
+    {
+      "actualMountedSource": {
+        "path": "/tmp/nbdp-e02-android35-lavapipe-trace-v1/runs/50f907e3e77b4cff9137030fcaef1086/input/supervisor.py",
+        "bytes": 44070,
+        "sha256": "61b76bf37a6097ec84b0a733e5f5c692501fa27e5abf19246ddaaf6c1babd825"
+      },
+      "reviewedSource": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android35_lavapipe_trace_v1/supervisor.py",
+        "bytes": 44070,
+        "sha256": "61b76bf37a6097ec84b0a733e5f5c692501fa27e5abf19246ddaaf6c1babd825"
+      }
+    },
+    {
+      "actualMountedSource": {
+        "path": "/tmp/nbdp-e02-android35-lavapipe-trace-v1/runs/50f907e3e77b4cff9137030fcaef1086/input/lease_guard.py",
+        "bytes": 23172,
+        "sha256": "add22df9f4e0c9e7059adfdc07cc3e315edc938b80251d330e64c7afdf75903b"
+      },
+      "reviewedSource": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android35_lavapipe_trace_v1/lease_guard.py",
+        "bytes": 23172,
+        "sha256": "add22df9f4e0c9e7059adfdc07cc3e315edc938b80251d330e64c7afdf75903b"
+      }
+    },
+    {
+      "actualMountedSource": {
+        "path": "/tmp/nbdp-e02-android35-lavapipe-trace-v1/runs/50f907e3e77b4cff9137030fcaef1086/input/android_driver.py",
+        "bytes": 11231,
+        "sha256": "2cca99cb38982c3c251e8d44670f58e7104a3ea448e7702c3bc07ccc4301efae"
+      },
+      "reviewedSource": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android35_lavapipe_trace_v1/android_driver.py",
+        "bytes": 11231,
+        "sha256": "2cca99cb38982c3c251e8d44670f58e7104a3ea448e7702c3bc07ccc4301efae"
+      }
+    }
+  ],
+  "missingEvidence": [
+    "early-boot-result.json",
+    "early-boot-partial.json",
+    "diagnostic-result.json",
+    "diagnostic-partial.json",
+    "evidence",
+    "diagnostics"
+  ],
+  "missingProfiles": [
+    "android-state/avd/ordinary.avd/hardware-qemu.ini"
+  ],
+  "earlyPhase": "NOT_STARTED",
+  "postbootPhase": "NOT_STARTED",
+  "guestProperties": "NOT_ACQUIRED",
+  "osHealth": "UNKNOWN_NOT_BOOTED_OR_QUALIFIED",
+  "effectiveBackend": "UNKNOWN_NO_RUNTIME_VENDOR_PROOF",
+  "ordinaryControlQualified": false,
+  "canonicalE02Changed": false,
+  "cleanup": {
+    "ok": true,
+    "rows": [
+      {
+        "role": "android",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "68f8bd10ddad71cb500e94901e01f35842c6a98aa30b38d9d5474a316eaff829",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "fixture",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "9f15fbff642699a170efafda94ff5ecd760ffcb65fc8db7b6d83d507b79c4f64",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "rs-relay",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "6524a4ab2807a462fa14b17311e60b344bf3e646df86c5e440f6e4695d3a2d03",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "anchor",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "c9f074cff2a2d3588965d32a653a22c92d32f804be8b51bc1a74ab44788f65b7",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      }
+    ],
+    "errors": [],
+    "evidence": {
+      "path": "/tmp/nbdp-e02-android35-lavapipe-trace-v1/runs/50f907e3e77b4cff9137030fcaef1086/cleanup/result.json",
+      "bytes": 1393,
+      "sha256": "cf93f373aa81702d3ee23a5af8cc1f7a29694aaefff6d60562bb6c27d4a49198"
+    }
+  },
+  "limits": [
+    "No API35 boot/ANR/client-compatibility, healthy baseline, causal fix or ordinary-client row.",
+    "Host6GiB admission is distinct from emulator allocation demand; no partition/reserve/timeout change or rerun.",
+    "No SDK/ZIP/images/keys/APKs copied; only selected raw runtime/config profile text."
+  ]
+}

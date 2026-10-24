@@ -1,0 +1,37 @@
+{
+  "schema": "e02-boot-trace-pure-control-acceptance-v1",
+  "decision": "ACCEPT_CURRENT_PURE_CONTROLS_ONLY",
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-boot-trace-preparation-r1/subject.json",
+    "bytes": 5715,
+    "sha256": "a1e75108cd0c1acd00eed8d2dbb102b0d0bc9abca6628fdefa801ae3fc65156c"
+  },
+  "configuration": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-boot-trace-preparation-r1/proposed-run-config.json",
+    "bytes": 3157,
+    "sha256": "71f5c225c454fdf7102917f976869685823019d6e5574d9d7b4c7ae7aae33069"
+  },
+  "execution": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-boot-trace-preparation-r1/actual-controls/execution.json",
+    "bytes": 8399,
+    "sha256": "c0a03f444a499078557344fa88b655087f54ec50865938d460f19a25ffde485c"
+  },
+  "actualIndependentReviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-boot-trace-preparation-r1/actual-controls-qa-review.json",
+      "bytes": 1859,
+      "sha256": "c7a8f1d8da3cf1aea1b5d7efd9d2c4f67db1b4b407863c50d393be9a2df420b4"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-boot-trace-preparation-r1/actual-controls-security-review.json",
+      "bytes": 1875,
+      "sha256": "dc246080071e9f75dd1ff7560e9f53b7d9d6ec16b0f15702117d212e61377541"
+    }
+  ],
+  "counts": {
+    "guard": 29,
+    "cleanup": 24,
+    "diagnostic": 28
+  },
+  "limits": "No Android/E02 cell/PASS claim; diagnostic release separate."
+}

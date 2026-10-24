@@ -1,0 +1,108 @@
+{
+  "schema": "nbdp-independent-anr-prefix-correlation-v1",
+  "researcher": "/root/android_anr_diagnosis",
+  "transcribedBy": "/root",
+  "decision": "MATCHED_SYSTEM_UI_STARTUP_ANR_PREFIX_ONLY",
+  "evidence": {
+    "logcat-events": {
+      "path": "/tmp/nbdp-e02-android-boot-trace-v1/runs/a378eba11798416a8c992f371b61f93b/diagnostics/before-install-logcat-events.bin",
+      "bytes": 132053,
+      "sha256": "eaf3bf831df41a9947f7b03903e946623703d50f93338278534654468d1f460f"
+    },
+    "logcat-system": {
+      "path": "/tmp/nbdp-e02-android-boot-trace-v1/runs/a378eba11798416a8c992f371b61f93b/diagnostics/before-install-logcat-system.bin",
+      "bytes": 1014908,
+      "sha256": "2168f92548a1d4e1ca86c2e1a3a0e94f377fdccf5de48153bbfc3c6c3ba93dbc"
+    },
+    "dropbox-system-app-anr": {
+      "path": "/tmp/nbdp-e02-android-boot-trace-v1/runs/a378eba11798416a8c992f371b61f93b/diagnostics/before-install-dropbox-system-app-anr.bin",
+      "bytes": 71108,
+      "sha256": "cffa6a376a26988767c7ceb7edb11b01db39f201c690315b5b7813f6d8bff077"
+    },
+    "lastanr-traces": {
+      "path": "/tmp/nbdp-e02-android-boot-trace-v1/runs/a378eba11798416a8c992f371b61f93b/diagnostics/before-install-lastanr-traces.bin",
+      "bytes": 83282,
+      "sha256": "456edd3d1e1bf489bc12b6be400ce19edbea3279279ab655ff7c08d6357aac2d"
+    },
+    "lastanr": {
+      "path": "/tmp/nbdp-e02-android-boot-trace-v1/runs/a378eba11798416a8c992f371b61f93b/diagnostics/before-install-lastanr.bin",
+      "bytes": 88,
+      "sha256": "42cf4931006fd0ff42d3522af31f9346431b409aa22a793ecc16b5aedeed28a1"
+    },
+    "processes": {
+      "path": "/tmp/nbdp-e02-android-boot-trace-v1/runs/a378eba11798416a8c992f371b61f93b/diagnostics/before-install-processes.bin",
+      "bytes": 8608,
+      "sha256": "ebd11de4c9b35723fd1b2042597ca4315386a15f36337488f72acceea29593fc"
+    },
+    "uptime": {
+      "path": "/tmp/nbdp-e02-android-boot-trace-v1/runs/a378eba11798416a8c992f371b61f93b/diagnostics/before-install-uptime.bin",
+      "bytes": 14,
+      "sha256": "fce2ff8eecda602a41ca79cf9d73092628df12143a03ace9a1f156e238b704c0"
+    }
+  },
+  "matched": {
+    "process": "com.android.systemui",
+    "pid": 1086,
+    "reason": "failed to complete startup",
+    "eventUtc": "2026-10-23T23:02:35.182Z",
+    "dropboxUtc": "2026-10-23T23:02:35.035Z",
+    "embeddedStackUtc": "2026-10-23T23:02:35.219Z",
+    "errorId": "37dc044b-6f00-462e-9c35-74847e778f70",
+    "eventLogLine": 654,
+    "systemLogLine": 6030,
+    "filteredDropBoxEntries": 1,
+    "mainStack": [
+      "IPCThreadState::transact",
+      "BpSurfaceComposer::getGpuContextPriority",
+      "SurfaceComposerClient::getGpuContextPriority",
+      "SurfaceControl.nativeGetGPUContextPriority",
+      "SystemUIApplication.onCreate",
+      "ActivityThread.handleBindApplication"
+    ],
+    "binder": {
+      "fromPid": 1086,
+      "fromTid": 1086,
+      "toPid": 533,
+      "toTid": 558,
+      "elapsedMs": 12094,
+      "destinationProcessFromPs": "surfaceflinger"
+    }
+  },
+  "laterTemporaryTrace": {
+    "utc": "2026-10-23T23:03:54.840Z",
+    "pid": 1086,
+    "disposition": "Different later stack; no matching second ANR event/reason; must not replace matched DropBox stack."
+  },
+  "cause": "UNRESOLVED",
+  "confidence": {
+    "eventStackIdentity": "HIGH",
+    "underlyingGpuOrSchedulingCause": "UNPROVEN"
+  },
+  "actualResult": {
+    "path": "/tmp/nbdp-e02-android-boot-trace-v1/runs/a378eba11798416a8c992f371b61f93b/supervisor-result.json",
+    "bytes": 3091,
+    "sha256": "03648444ca0e6c9072d103f2f9369a81e70328abc9db05ae4631d45f5242eafc"
+  },
+  "partial": {
+    "path": "/tmp/nbdp-e02-android-boot-trace-v1/runs/a378eba11798416a8c992f371b61f93b/diagnostic-partial.json",
+    "bytes": 8256,
+    "sha256": "a77b4681aaf6f22662c2f5d189eb33d6537e2d9d59211cc4e6c7b80d10c13a92"
+  },
+  "verifiedPrefixReceipts": [
+    108,
+    110,
+    112,
+    114,
+    116,
+    118,
+    120
+  ],
+  "limits": [
+    "Whole run FAILED_UNQUALIFIED after uiautomator deadline/sticky revocation; no final UI or late checkpoint.",
+    "Zero APK installations/intents; no Amethyst code failure demonstrated.",
+    "Used receipts natural0/errornull/reaped/EOF/no force/no timeout; exact rawstdout hash joins.",
+    "Pending Binder involving SurfaceFlinger is measured; GPU defect/deadlock/scheduling root cause is unproven; destination-thread stack absent.",
+    "No healthyOS/ordinary-client row/E02 PASS/canonical or blocker change.",
+    "Independent read-only interpretation, no rerun/edit/import/service."
+  ]
+}

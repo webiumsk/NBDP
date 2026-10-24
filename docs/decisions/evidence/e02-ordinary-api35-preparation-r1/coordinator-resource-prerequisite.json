@@ -1,0 +1,145 @@
+{
+  "schema": "e02-ordinary-api35-coordinator-disk-prerequisite-v1",
+  "origin": "Explicit coordinator task /root to /root/ordinary_api35_source after actual independent SOURCE findings",
+  "actualFindingIds": [
+    "QA-ORDINARY35-RESOURCE-DOC-001",
+    "ORDINARY_API35_DISK_ADMISSION_DOCUMENTATION"
+  ],
+  "requiredBeforeAnyOrdinaryGrant": {
+    "freshFreeBytesAtLeast": 8589934592,
+    "unit": "bytes",
+    "filesystem": "Actual filesystem containing the exact fresh ordinary run output",
+    "evidence": "Fresh coordinator-owned measured resource receipt, hash-bound into the future exact grant/release"
+  },
+  "meaning": "Coordinator-selected conservative8GiB free-disk margin, not an experimentally measured minimum or readiness/boot guarantee.",
+  "unchangedSource": {
+    "requestedDataPartition": "2048M",
+    "sourceFreeDiskFloorGiB": 6,
+    "supervisor": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v1/supervisor.py",
+      "bytes": 40300,
+      "sha256": "4f54e236fdb0d44af2c7c3a84ee5069db640393291808eb3985fbbfaf2c454f5"
+    },
+    "configuration": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/proposed-run-config.json",
+      "bytes": 3236,
+      "sha256": "4756736d5214b23f1b56ca063e124b0924e13d9fdd41656cf69c0eb7de6344b4"
+    }
+  },
+  "ordinaryRuntimeHardwareEvidence": [
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-ordinary-client-v1/runs/267acc88b6604d1d9218e5ffe89f6ff1/android-state/avd/ordinary.avd/hardware-qemu.ini",
+        "bytes": 3975,
+        "sha256": "a9ca4eb75427709f5c73a74905d3305b098d41c6577e69fe1d4a778998000479"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/disk-source-observations/267acc88b6604d1d9218e5ffe89f6ff1/hardware-qemu.ini",
+        "bytes": 3975,
+        "sha256": "a9ca4eb75427709f5c73a74905d3305b098d41c6577e69fe1d4a778998000479"
+      },
+      "normalizedSizeLine": "disk.dataPartition.size = 6g"
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-ordinary-client-v1/runs/7274075b477747ebbca533eca66937f5/android-state/avd/ordinary.avd/hardware-qemu.ini",
+        "bytes": 3975,
+        "sha256": "5981e25c6cf395378f4697e7824a07adde4b02a3d27c989941900a1dd0f7747f"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/disk-source-observations/7274075b477747ebbca533eca66937f5/hardware-qemu.ini",
+        "bytes": 3975,
+        "sha256": "5981e25c6cf395378f4697e7824a07adde4b02a3d27c989941900a1dd0f7747f"
+      },
+      "normalizedSizeLine": "disk.dataPartition.size = 6g"
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-ordinary-client-v1/runs/af9a4d7a477b4b9e9e122d312c60a34b/android-state/avd/ordinary.avd/hardware-qemu.ini",
+        "bytes": 3975,
+        "sha256": "a9ca4eb75427709f5c73a74905d3305b098d41c6577e69fe1d4a778998000479"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/disk-source-observations/af9a4d7a477b4b9e9e122d312c60a34b/hardware-qemu.ini",
+        "bytes": 3975,
+        "sha256": "a9ca4eb75427709f5c73a74905d3305b098d41c6577e69fe1d4a778998000479"
+      },
+      "normalizedSizeLine": "disk.dataPartition.size = 6g"
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-ordinary-client-v1/runs/b157caba287c402fb37195b2a433f6b6/android-state/avd/ordinary.avd/hardware-qemu.ini",
+        "bytes": 3975,
+        "sha256": "5981e25c6cf395378f4697e7824a07adde4b02a3d27c989941900a1dd0f7747f"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/disk-source-observations/b157caba287c402fb37195b2a433f6b6/hardware-qemu.ini",
+        "bytes": 3975,
+        "sha256": "5981e25c6cf395378f4697e7824a07adde4b02a3d27c989941900a1dd0f7747f"
+      },
+      "normalizedSizeLine": "disk.dataPartition.size = 6g"
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-ordinary-client-v1/runs/d5b38d56838c46c7a7c679786e5c9123/android-state/avd/ordinary.avd/hardware-qemu.ini",
+        "bytes": 3975,
+        "sha256": "5981e25c6cf395378f4697e7824a07adde4b02a3d27c989941900a1dd0f7747f"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/disk-source-observations/d5b38d56838c46c7a7c679786e5c9123/hardware-qemu.ini",
+        "bytes": 3975,
+        "sha256": "5981e25c6cf395378f4697e7824a07adde4b02a3d27c989941900a1dd0f7747f"
+      },
+      "normalizedSizeLine": "disk.dataPartition.size = 6g"
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-ordinary-client-v1/runs/dd6061c90d8448439799f765529d3c9e/android-state/avd/ordinary.avd/hardware-qemu.ini",
+        "bytes": 3975,
+        "sha256": "5981e25c6cf395378f4697e7824a07adde4b02a3d27c989941900a1dd0f7747f"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/disk-source-observations/dd6061c90d8448439799f765529d3c9e/hardware-qemu.ini",
+        "bytes": 3975,
+        "sha256": "5981e25c6cf395378f4697e7824a07adde4b02a3d27c989941900a1dd0f7747f"
+      },
+      "normalizedSizeLine": "disk.dataPartition.size = 6g"
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-ordinary-client-v1/runs/e8db184344724508a1d2aa722d4e9c6d/android-state/avd/ordinary.avd/hardware-qemu.ini",
+        "bytes": 3975,
+        "sha256": "5981e25c6cf395378f4697e7824a07adde4b02a3d27c989941900a1dd0f7747f"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/disk-source-observations/e8db184344724508a1d2aa722d4e9c6d/hardware-qemu.ini",
+        "bytes": 3975,
+        "sha256": "5981e25c6cf395378f4697e7824a07adde4b02a3d27c989941900a1dd0f7747f"
+      },
+      "normalizedSizeLine": "disk.dataPartition.size = 6g"
+    }
+  ],
+  "inferenceLimit": "Requested2048M is not proof of a2GB allocation or footprint: all seven retained ordinary hardware-qemu.ini files normalized to6g.",
+  "api35NoInstallFailure": {
+    "rawSource": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/actual-run/session/fixtures/emulator.stdout",
+      "bytes": 1265,
+      "sha256": "e865f1547c656d9e4349b9970593361ec09becce5608d54d9126c89b91ddcfd5"
+    },
+    "preservedRawLog": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/disk-source-observations/api35-no-install-emulator.stdout",
+      "bytes": 1265,
+      "sha256": "e865f1547c656d9e4349b9970593361ec09becce5608d54d9126c89b91ddcfd5"
+    },
+    "observation": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/observation.json",
+      "bytes": 9235,
+      "sha256": "cb5b3e03a7de2d5424fa694af0efba715fcbb91ca62c7108b36b96c0a3d3c93e"
+    },
+    "fatalExact": "FATAL        | Not enough space to create userdata partition. Available: 7326.61 MB at /state/avd/../avd/ordinary.avd, need 7372.80 MB.",
+    "stage": "Before guest/ADB; no guest OS, compatibility, OOM or exit137-cause inference."
+  },
+  "coordinatorCleanupContext": "Coordinator reports reclaiming only two verified disposable old overlays, targeting about9.49GB free; this author neither performed cleanup nor treats the estimate as a fresh measurement.",
+  "authority": "Hash-bound prerequisite DATA only; not a grant, lease, release, independent approval or executed resource admission.",
+  "noNewRuntimeGate": "No code/cap/partition/health/dialog change; existing6GiB source floor remains unchanged. Fresh>=8GiB is additional coordinator admission before any grant."
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "nbdp-owned-disposable-overlay-reclamation-result-v1",
+  "actor": "/root",
+  "before": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-owned-avd-overlay-reclamation-r3/before.json",
+    "bytes": 4859,
+    "sha256": "0a6e02c894158ad2826a47a25ad82195b59cb7a2818d22f58945d0fca9229d9a"
+  },
+  "removed": [
+    {
+      "path": "/tmp/nbdp-e02-ordinary-client-v1/runs/e8db184344724508a1d2aa722d4e9c6d/android-state/avd/ordinary.avd/userdata-qemu.img.qcow2",
+      "bytes": 912130048,
+      "sha256": "9c148cad01b0dd66a736fcdb51e09410e667393a5a18c8f9400b2e071d5caa71"
+    },
+    {
+      "path": "/tmp/nbdp-e02-ordinary-client-v1/runs/b157caba287c402fb37195b2a433f6b6/android-state/avd/ordinary.avd/userdata-qemu.img.qcow2",
+      "bytes": 913833984,
+      "sha256": "391b212accbf47a9f86a06c77074a28f692a9c4d831d552e99b0a3e0b664ca48"
+    }
+  ],
+  "allFourProfilesPreserved": true,
+  "freeAfter": 9480851456,
+  "requiredFutureOrdinaryExternalAdmissionBytes": 8589934592,
+  "sourceAdmissionFloorBytesUnchanged": 6442450944,
+  "limits": "Configuredextraadmissionmargin, notmeasuredminimum/peakguarantee. Onlythese2filesremoved; no source/code/gate/blocker/credentialschange."
+}

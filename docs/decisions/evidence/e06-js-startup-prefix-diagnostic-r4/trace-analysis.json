@@ -1,0 +1,268 @@
+{
+  "schema": "e06-js-startup-prefix-trace-analysis-v1",
+  "authorSession": "/root/local_authority_mode_diagnosis",
+  "role": "read-only source and runtime-evidence analysis",
+  "scope": "DATA-only persistence of previously completed R4 trace analysis; not an experiment, approval or canonical result.",
+  "inputs": {
+    "actualResult": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-js-startup-prefix-diagnostic-r4/actual-startup-r1/result.json",
+      "bytes": 519608,
+      "sha256": "6e877543fc7e85712785d67f053e33cd3fd102211188d55f587843ab50c24d3c"
+    },
+    "actualTrace": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-js-startup-prefix-diagnostic-r4/actual-startup-r1/trace.bin",
+      "bytes": 814556,
+      "sha256": "cface968b505d6173afe2287d115dd055ce269f4f75323d9463c5dba9acb1f27"
+    },
+    "actualStderr": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-js-startup-prefix-diagnostic-r4/actual-startup-r1/stderr.bin",
+      "bytes": 25,
+      "sha256": "272d9b25365fe0bddad7c878a1068c6fa392c0500e08e4ca9812b27afa1df81d"
+    },
+    "actualStdout": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-js-startup-prefix-diagnostic-r4/actual-startup-r1/stdout.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "historicalBinding": {
+      "path": "/tmp/e6n-fonly-primary-9df61b3f71ac/Q-JS/binding.json",
+      "bytes": 93660,
+      "sha256": "e57f5a8538af891f242f8c28ad9e04e36ac5c8389151c4be20f1e24a97b74f4b"
+    },
+    "configuration": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-js-startup-prefix-diagnostic-r4/configuration.json",
+      "bytes": 2857,
+      "sha256": "29e05c156996948d95ba9b751d6b3bc55c66306193b1929e9ed9a60a3cb6bbc6"
+    },
+    "freshDiagnosticRelease": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-js-startup-prefix-diagnostic-r4/exact-root-diagnostic-release.json",
+      "bytes": 1601,
+      "sha256": "2362f9695c13a4403e80e38d70e2f19ede6e21575c1a4c19b6cb79f8a7195f69"
+    },
+    "loaderSource": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/metadata_loader.mjs",
+      "bytes": 13125,
+      "sha256": "ff0e3b92b4b73f4edfdad68625c71088588dcb9f9573c097a95e7f11beaa9355"
+    },
+    "wireSource": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/wire.mjs",
+      "bytes": 23745,
+      "sha256": "15c68aeae44bf2e7bf6665342eb2e8fcac0d5ec5fa9a3332a533b1f3d8f9969a"
+    },
+    "parentCaptureSource": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/qualification.py",
+      "bytes": 31089,
+      "sha256": "13e9ebf74caa8c473296b009ce66be1c5f02a469f7b2e90ca4cace20a0d175aa"
+    }
+  },
+  "actualOperatorAssociation": {
+    "executionSession": "/root",
+    "foregroundSession": 29186,
+    "launchTool": "4d46f6",
+    "completionTool": "bb2d71",
+    "outerDiagnosticExit": 0,
+    "associationMeaning": "Coordinator-provided actual tool association; this analyst did not execute the diagnostic."
+  },
+  "captureFacts": {
+    "ownedTracerPid": 3496764,
+    "nodeExecTaskId": 3496768,
+    "nodeExecEpochTimestamp": "1792801479.011611",
+    "expectedNodeOrTracerExit": 1,
+    "reaped": true,
+    "forced": false,
+    "timedOut": false,
+    "signals": [],
+    "firstError": null,
+    "secondaryErrors": [],
+    "captureComplete": true,
+    "rawEof": {
+      "trace": true,
+      "stdout": true,
+      "stderr": true
+    },
+    "phaseElapsedMilliseconds": 14177,
+    "phaseIncludesTracerStartup": true,
+    "totalElapsedMilliseconds": 17853,
+    "phaseCeilingSeconds": 15,
+    "unchangedOriginals": 471,
+    "resultDisposition": "EXPECTED_EOF_ERROR_OBSERVED_DIAGNOSTIC_ONLY"
+  },
+  "selectedSyscalls": {
+    "records": 9916,
+    "counts": {
+      "execve": 1,
+      "openat": 1768,
+      "read": 6367,
+      "pread64": 2,
+      "readv": 0,
+      "close": 1778
+    },
+    "successfulOpenat": 1767,
+    "failedOpenat": [
+      {
+        "taskId": 3496768,
+        "timestamp": "1792801479.019673",
+        "path": "/proc/version_signature",
+        "error": "ENOENT"
+      }
+    ],
+    "unfinishedRecords": 0,
+    "resumedRecords": 0,
+    "signalRecords": 0,
+    "execveObservation": "One recorded Node execve with the expected loader/binding/SHA arguments and six environment variables; environment values are not dumped. Selected syscalls do not constitute a complete process audit."
+  },
+  "completeClosureReadSequences": [
+    {
+      "traceStartLine": 749,
+      "traceEndLine": 3146,
+      "firstOpenEpochTimestamp": "1792801480.381032",
+      "lastOpenEpochTimestamp": "1792801483.421046",
+      "taskId": 3496768,
+      "members": 449,
+      "returnedBytes": 661371935,
+      "allFileReadReturnLengthsMatchDescriptors": true
+    },
+    {
+      "traceStartLine": 3800,
+      "traceEndLine": 6197,
+      "firstOpenEpochTimestamp": "1792801484.504776",
+      "lastOpenEpochTimestamp": "1792801488.051005",
+      "taskId": 3496768,
+      "members": 449,
+      "returnedBytes": 661371935,
+      "allFileReadReturnLengthsMatchDescriptors": true
+    },
+    {
+      "traceStartLine": 6854,
+      "traceEndLine": 9251,
+      "firstOpenEpochTimestamp": "1792801488.928411",
+      "lastOpenEpochTimestamp": "1792801492.143027",
+      "taskId": 3496768,
+      "members": 449,
+      "returnedBytes": 661371935,
+      "allFileReadReturnLengthsMatchDescriptors": true
+    }
+  ],
+  "readAccounting": {
+    "method": "Associate successful observed openat descriptors with subsequent selected read-family return counts until observed close; match the three contiguous main-task path sequences against the saved binding closure. This is DATA parsing of retained text, not a rerun.",
+    "mappedFileDescriptorReturnedBytes": 3085140131,
+    "unmappedReturnedBytes": 16,
+    "selectedFiles": [
+      {
+        "path": "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+        "successfulOpens": 11,
+        "returnedBytes": 1216135840,
+        "completeFileReadInstances": 10,
+        "note": "One additional successful open has no selected read-return bytes."
+      },
+      {
+        "path": "/opt/google/chrome/chrome",
+        "successfulOpens": 3,
+        "returnedBytes": 873465816,
+        "completeFileReadInstances": 3
+      },
+      {
+        "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "successfulOpens": 7,
+        "returnedBytes": 230716360,
+        "completeFileReadInstances": 7
+      }
+    ],
+    "limits": [
+      "Returned read bytes are not physical disk bytes, digest results, CPU time, RSS or latency attribution.",
+      "No inference that all read work caused R2 timeout; tracing changes execution timing."
+    ]
+  },
+  "stdinBoundary": {
+    "traceLine": 9901,
+    "taskId": 3496952,
+    "epochTimestamp": "1792801493.099169",
+    "fd": 0,
+    "returnedBytes": 0,
+    "elapsedSinceRecordedNodeExecSeconds": "14.087558",
+    "stderrExact": "Error: EOF_REQUEST_COUNT\n",
+    "sourceLocation": "metadata_loader.mjs:155",
+    "sourceSupportedInference": "With retained exact source and the expected unique EOF_REQUEST_COUNT error, startup guards and metadata import returned and the empty-input loop reached its final count check. This is source-path inference, not direct JavaScript phase markers. The verify() following that assertion did not execute because count was zero.",
+    "requestBytesSupplied": 0,
+    "businessRequestExecuted": false,
+    "handlerOrReplyQualification": "No supplied request, handler execution, reply or sidecar is established. The empty-input source path does not invoke _handleLine."
+  },
+  "eofHandshakeSourceFinding": {
+    "loaderLines": "metadata_loader.mjs:133-155",
+    "parentLines": "qualification.py:171-182",
+    "finding": "Each complete LF-terminated line is validated, handled, saved and written to stdout inside the chunk/line loop before EOF. The parent closes stdin only after receiving the sole complete reply. This control flow does not require EOF to produce that reply.",
+    "limits": "Source finding only; R4 supplied no request and does not establish where R2 reached."
+  },
+  "establishedAndUnknown": {
+    "established": [
+      "Actual bounded R4 startup-prefix capture completed naturally with expected Node/tracer exit1 and diagnostic exit0.",
+      "Three complete closure-order file-read sequences and a zero-byte stdin read are observed.",
+      "Saved471 original byte/stat snapshots agree before and after according to retained result.",
+      "Exact empty-input error supports reaching the input EOF boundary in this diagnostic."
+    ],
+    "unknown": [
+      "Direct internal JavaScript phase markers or per-function timings.",
+      "CPU, RSS, physical I/O, digest-computation cost or hardware bottleneck.",
+      "Untraced startup performance or R2 failure phase/cause.",
+      "Successful request consumption/validation, _handleLine result, whole reply, native Rust observation or full LOCAL/E06 qualification."
+    ]
+  },
+  "proposedNextDiagnostic": {
+    "state": "PLAN_ONLY_NOT_IMPLEMENTED_NOT_EXECUTED_NOT_RELEASED",
+    "scope": "One fresh request-phase diagnostic observing the existing full LOCAL Python parent and descendants; preserve all original authority checks and native command contracts.",
+    "prerequisites": [
+      "Preserve R1/R2 namespaces, byte pins, original failures and R4 diagnostic evidence.",
+      "Create a fresh worker runId/outputRoot and Q-JS/Q-RUST output paths; keep fixed candidate, original6276-byte materialized request, expected13-key replies, current449 source and prerequisite authority unchanged.",
+      "Obtain independent actual whole-core configuration QA/security acceptance, final configuration approval and fresh exact root LOCAL release.",
+      "Independently review exact outer observation/capture configuration, source pins, privacy, output caps, ownership and cleanup before activation."
+    ],
+    "request": {
+      "bytes": 6276,
+      "sha256": "dc586e609758fb6656c76ab5698985b9620d91e1852c8abfb85b2aaf9da636b0",
+      "inputMeaning": "The original one-line materialized request; no request sent to an old binding/output namespace."
+    },
+    "observationPlan": [
+      "Externally trace the reviewed outer LOCAL Python invocation and descendants, leaving fixed Python-to-Node/native argv and six-variable native environment unchanged.",
+      "Retain execve/openat/read/pread64/readv/close and, if independently accepted, write/writev observations with every read/write buffer rendered as raw pointer/count arguments; never dump input buffers, secrets or environment values.",
+      "Use fresh exclusive0600 bounded trace/stdout/stderr outputs and retain overflow, incomplete capture, timeout, force, original error and cleanup facts. Raw trace overflow remains unqualified; do not silently increase a cap.",
+      "Correlate actual pipe write/read lengths, later closure-order sequences, dependency-file opens, native-reply sidecar creation, stdout writes and retained native lifecycle receipts. Syscall-order attribution remains source-supported unless direct independently reviewed phase evidence exists."
+    ],
+    "unchangedBudgetsSeconds": {
+      "combinedRequestWriteReply": 15,
+      "nativeJob": 240,
+      "localPhase": 1500,
+      "outer": 1800,
+      "outerCleanupReserve": 30
+    },
+    "acceptance": [
+      "Exact request bytes and fresh authority/config/release lineage retained; native argv/environment and mandatory gate checks unchanged.",
+      "Actual observed request write/read and complete or interrupted source-operation sequence localized without inferring internal progress solely from empty stderr.",
+      "Any earliest deadline/refusal, forced cleanup and skipped Rust job remain visible.",
+      "Independent QA/security review of the actual raw trace, custody, lifecycle and source-supported interpretation before any new qualification claim."
+    ],
+    "prohibitions": [
+      "No source optimization, validator caching, prewarming, changed timer anchors or deadline increases for a pass.",
+      "No request replay into old R2 binding/output that could create an old native sidecar.",
+      "No canonical PASS, blocker closure, SDK, deployment, profile adoption or merge follows from diagnostic completion."
+    ],
+    "limits": [
+      "Tracing overhead can alter timing and does not reproduce untraced R2 performance.",
+      "Even a MATCHED declaration or zero outer exit needs complete independent result review; diagnostic records do not automatically complete the blocked experiment."
+    ]
+  },
+  "analystActions": {
+    "readHashJsonSourceAndRetainedTraceInspection": true,
+    "ownedDataReportsWritten": [
+      "trace-analysis.json"
+    ],
+    "projectModuleImports": 0,
+    "tests": 0,
+    "newTraces": 0,
+    "experiments": 0,
+    "services": 0,
+    "sourceEdits": 0,
+    "otherFileEdits": 0,
+    "gitMutations": 0
+  },
+  "reviewStatus": "Analyst findings and proposed plan only; not independent approval of any future diagnostic implementation."
+}

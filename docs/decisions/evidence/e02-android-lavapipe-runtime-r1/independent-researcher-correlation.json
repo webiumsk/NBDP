@@ -1,0 +1,118 @@
+{
+  "schema": "nbdp-independent-lavapipe-runtime-correlation-v1",
+  "researcher": "/root/android_gpu_primary_research",
+  "transcribedBy": "/root",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-lavapipe-runtime-r1/subject.json",
+    "bytes": 2161,
+    "sha256": "e781b2d69976f1a9d4d8c4785de7015197b2416c08c6d0e17b4d270683cbca78"
+  },
+  "decision": "INITIALIZED_RENDERER_AND_MATCHED_SYSTEM_UI_FAILURE_ONLY",
+  "backend": {
+    "confidence": "HIGH",
+    "selectedVulkanMode": "lavapipe",
+    "selectedGlesLabel": "swangle",
+    "initializedIcd": "lvp_icd.json",
+    "device": "llvmpipe (LLVM21.0.0,256bits)",
+    "vulkanVersion": "1.4.318",
+    "adapter": "ANGLE/Mesa/llvmpipe-25.2.4",
+    "guestSurfaceFlingerPid": 535,
+    "guestRenderEngineTid": 579,
+    "guestRenderer": "SkiaGL/Ganesh",
+    "vulkanRenderEngine": false,
+    "corroboration": "Emulator actual init/ICD/device/adapter chain, guest main RenderEngine vendor/renderer, both actual SurfaceFlinger dumps agree.",
+    "fallback": "No different-vendor fallback evidence found in captured initialization; not universal internal-library attestation."
+  },
+  "matchedAnr": {
+    "process": "com.android.systemui",
+    "pid": 1105,
+    "uid": 10124,
+    "reason": "failed to complete startup",
+    "timestampUtc": "2026-10-23T23:36:35.501Z",
+    "embeddedStackUtc": "2026-10-23T23:36:35.611052967Z",
+    "errorId": "dc1c1e34-26ba-486a-81d1-f00e8a5bcfe8",
+    "main": "Binder getGpuContextPriority\u2192SurfaceControl.getGPUContextPriority\u2192SystemUIApplication.onCreate",
+    "binder": {
+      "fromPid": 1105,
+      "fromTid": 1105,
+      "toPid": 535,
+      "toTid": 571,
+      "elapsedMs": 11279
+    }
+  },
+  "laterTrace": {
+    "utc": "2026-10-23T23:37:11.474453336Z",
+    "pid": 1105,
+    "state": "Runnable",
+    "stack": "SharedNotificationContainerBinder/Dagger/startServicesIfNeeded",
+    "interpretation": "Later sample, not continuous evidence of original GPU wait or healthy recovery; system log records duplicate-ANR suppression."
+  },
+  "raw": {
+    "before-install-emulator-stdout.bin": {
+      "path": "/tmp/nbdp-e02-android-lavapipe-trace-v1/runs/5d7d122920e340dcafb457281a4efbb4/diagnostics/before-install-emulator-stdout.bin",
+      "bytes": 8427,
+      "sha256": "c724316662a7d5436b6db710c5762c2e15e9a1f45b8fbd95e96ada00b0cf7b9c"
+    },
+    "before-install-renderer-logcat-main.bin": {
+      "path": "/tmp/nbdp-e02-android-lavapipe-trace-v1/runs/5d7d122920e340dcafb457281a4efbb4/diagnostics/before-install-renderer-logcat-main.bin",
+      "bytes": 1648967,
+      "sha256": "2b653ec871e934599c18dcac2e8f65cb00ce1d42615d9043fd4a6393e5f898d5"
+    },
+    "before-install-renderer-surfaceflinger.bin": {
+      "path": "/tmp/nbdp-e02-android-lavapipe-trace-v1/runs/5d7d122920e340dcafb457281a4efbb4/diagnostics/before-install-renderer-surfaceflinger.bin",
+      "bytes": 42843,
+      "sha256": "c805148c3e026d7d3f0700121c357b8a4242f7a8bd8df7876f9aeb8d45d2cf83"
+    },
+    "late-renderer-surfaceflinger.bin": {
+      "path": "/tmp/nbdp-e02-android-lavapipe-trace-v1/runs/5d7d122920e340dcafb457281a4efbb4/diagnostics/late-renderer-surfaceflinger.bin",
+      "bytes": 43074,
+      "sha256": "f4a3485f7f5d2e60be0b5407cdca85b3ff74b46af4e744f449947551e5a072e4"
+    },
+    "before-install-dropbox-system-app-anr.bin": {
+      "path": "/tmp/nbdp-e02-android-lavapipe-trace-v1/runs/5d7d122920e340dcafb457281a4efbb4/diagnostics/before-install-dropbox-system-app-anr.bin",
+      "bytes": 71273,
+      "sha256": "3e15d985c6cd67bda42aea854cf8c2a1c239b3b86f2e4fd0a376a006c87e302f"
+    },
+    "late-dropbox-system-app-anr.bin": {
+      "path": "/tmp/nbdp-e02-android-lavapipe-trace-v1/runs/5d7d122920e340dcafb457281a4efbb4/diagnostics/late-dropbox-system-app-anr.bin",
+      "bytes": 71273,
+      "sha256": "b90276aeede490860d792ee9b3d5a321c98458e780f95fdce3173dbcbb6be6fb"
+    },
+    "before-install-lastanr-traces.bin": {
+      "path": "/tmp/nbdp-e02-android-lavapipe-trace-v1/runs/5d7d122920e340dcafb457281a4efbb4/diagnostics/before-install-lastanr-traces.bin",
+      "bytes": 90624,
+      "sha256": "88879c3adacd0bc18148c770ce694e6033a1ba09df9e60cbb0f1ccad3f7045db"
+    },
+    "before-install-ui-xml.bin": {
+      "path": "/tmp/nbdp-e02-android-lavapipe-trace-v1/runs/5d7d122920e340dcafb457281a4efbb4/diagnostics/before-install-ui-xml.bin",
+      "bytes": 4448,
+      "sha256": "9f9456e297c717b05a3a00901f5200d7f147cf1783746b153b0725e6b67e601d"
+    },
+    "late-ui-xml.bin": {
+      "path": "/tmp/nbdp-e02-android-lavapipe-trace-v1/runs/5d7d122920e340dcafb457281a4efbb4/diagnostics/late-ui-xml.bin",
+      "bytes": 4448,
+      "sha256": "9f9456e297c717b05a3a00901f5200d7f147cf1783746b153b0725e6b67e601d"
+    },
+    "before-install-ui-png.bin": {
+      "path": "/tmp/nbdp-e02-android-lavapipe-trace-v1/runs/5d7d122920e340dcafb457281a4efbb4/diagnostics/before-install-ui-png.bin",
+      "bytes": 418070,
+      "sha256": "d908443a0a11eb09855b6a9cf34d76898ef7412a66bb39eaea20881011f68427"
+    },
+    "late-ui-png.bin": {
+      "path": "/tmp/nbdp-e02-android-lavapipe-trace-v1/runs/5d7d122920e340dcafb457281a4efbb4/diagnostics/late-ui-png.bin",
+      "bytes": 418731,
+      "sha256": "5b3b641aab020e1523747435c29e141f126b954d6da38b3d209b1c009a69a131"
+    }
+  },
+  "wholeRun": "FAILED_UNQUALIFIED",
+  "cause": "UNRESOLVED",
+  "ordinaryControlQualified": false,
+  "next": "Prepare exact pinned API35 OS fixture, retaining emulator/Lavapipe/resources/diagnostic constraints; no further blind renderer/CPU change.",
+  "limits": [
+    "Both actual PNG show SystemUIANR; identical XML; completedcapture is nothealthyOS.",
+    "BaselineeffectivebackendUNKNOWN and instrumentationchanged; no renderer-onlycausalcomparison/provenfix.",
+    "API35 would compare wholeOSfixtures, not isolateAPIlevelcause.",
+    "NoAPK/intent/login/ordinaryrow/E02PASS/blockerchange.",
+    "Read-only preserved-file interpretation only, no guest/runtime commands or edits."
+  ]
+}

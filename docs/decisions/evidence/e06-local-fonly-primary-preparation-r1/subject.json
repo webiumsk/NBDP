@@ -1,0 +1,79 @@
+{
+  "schema": "e06-local-fonly-configuration-review-subject-v1",
+  "state": "WRITES_STOPPED_PENDING_REVIEW",
+  "authors": [
+    "/root",
+    "/root/e06_local_configuration"
+  ],
+  "intendedOperator": "/root",
+  "refs": [
+    "E06",
+    "Q06",
+    "Q08",
+    "Q09",
+    "Q24",
+    "Q27"
+  ],
+  "configurationCore": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-preparation-r1/configuration-core.json",
+    "bytes": 1864,
+    "sha256": "a53d5cd74d911b0c054b155661bde0092b26fbacd4272a9193a9eaaad3e2bf04"
+  },
+  "workerConfig": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-preparation-r1/worker-config.json",
+    "bytes": 114239,
+    "sha256": "5481327da143fe892465fe7e9ff5c91fabf6c47ab28163c71180872f130fdf63"
+  },
+  "executionPlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-preparation-r1/execution-plan.json",
+    "bytes": 5568,
+    "sha256": "8859cfe3425e6544ec8aad9a4577fea8ece1148241ab6278ee8dbee091d8f503"
+  },
+  "staticChecks": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-preparation-r1/static-checks.json",
+    "bytes": 4169,
+    "sha256": "cf781e3b4b602651aa12ff234279c25982298ce2cf7cafc7ccbeddce4404401b"
+  },
+  "sources": {
+    "sourceClosure": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-closure.json",
+      "bytes": 102080,
+      "sha256": "76cfc1d55602c4c18f7adabde2b67679f3d828517a4cf4abefdf13d57029b100"
+    },
+    "sourceApproval": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-approval.json",
+      "bytes": 107717,
+      "sha256": "e3e41bb6bae55d80702f9002cc99c72ad3a6345405a5043d3123dcafcbea685e"
+    },
+    "controlApproval": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/control-approval.json",
+      "bytes": 1488,
+      "sha256": "c2c6d2b97ba4f25dbbb9074c079cd3ad29cbf9fa23aac709b31a97a273c0f5ee"
+    }
+  },
+  "preparationScript": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-preparation-r1/prepare.py",
+    "bytes": 16219,
+    "sha256": "c3ef0591d4ee29d0507ac8fcd2cb480e4e4cbb6e508e04c67099fbd10664e34b"
+  },
+  "requiredActualConfigurationReview": {
+    "decision": "ACCEPT_CONFIGURATION_ONLY",
+    "subject": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-preparation-r1/configuration-core.json",
+      "bytes": 1864,
+      "sha256": "a53d5cd74d911b0c054b155661bde0092b26fbacd4272a9193a9eaaad3e2bf04"
+    },
+    "meaning": "Both independent nonauthor reviewers must accept the exact core including the pinned worker."
+  },
+  "pendingBeforeActivation": [
+    "Actual independent QA matrix and paired matrix qualification.",
+    "Two actual independent exact-core configuration reviews; genuine configuration approval and final config.",
+    "Fresh strict root LOCAL release, trusted outer source/tool pin checks and finite external monitoring."
+  ],
+  "protectedSourceFilesChanged": false,
+  "executionReleased": false,
+  "limits": [
+    "The core and worker are real current-schema DATA operands, not actual LOCAL acceptance.",
+    "No future hash, review, approval, release, native observation or authority is fabricated."
+  ]
+}

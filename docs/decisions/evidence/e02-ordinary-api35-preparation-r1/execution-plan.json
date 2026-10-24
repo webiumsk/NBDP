@@ -1,0 +1,122 @@
+{
+  "schema": "e02-ordinary-api35-control-and-runtime-plan-v1",
+  "state": "PROPOSED_NOT_EXECUTED_NOT_RELEASED",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/subject.json",
+    "bytes": 9680,
+    "sha256": "ff877c4c7cbb59551e9a8bf0d13c837c285b3429812516b39091ece9c406d3c7"
+  },
+  "configuration": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/proposed-run-config.json",
+    "bytes": 3236,
+    "sha256": "4756736d5214b23f1b56ca063e124b0924e13d9fdd41656cf69c0eb7de6344b4"
+  },
+  "pythonInterpreter": {
+    "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "bytes": 32959480,
+    "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+  },
+  "proposedPythonControlCommands": [
+    [
+      "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "-I",
+      "-B",
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v1/test_lease_guard.py"
+    ],
+    [
+      "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "-I",
+      "-B",
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v1/test_cleanup.py"
+    ],
+    [
+      "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "-I",
+      "-B",
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v1/test_android_driver.py"
+    ]
+  ],
+  "countsExpectedOnly": {
+    "test_android_driver.py": 38,
+    "test_cleanup.py": 24,
+    "test_lease_guard.py": 29
+  },
+  "separateFixtureControl": {
+    "command": [
+      "PIN_CURRENT_NODE_INTERPRETER_BEFORE_RUN",
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v1/test_fixture.mjs"
+    ],
+    "expectedHistoricCount": 27,
+    "meaning": "Pure metadata/generation/source-shape controls only; no crypto/relay/Android."
+  },
+  "separateConsumerControl": {
+    "command": [
+      "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "-I",
+      "-B",
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_control_evidence_v1/test_consumer.py"
+    ],
+    "expectedHistoricCount": 14,
+    "meaning": "DATA-only evidence-consumer negative controls, not actual ordinary-client acceptance."
+  },
+  "captureRequirement": "Fresh finite foreground children; raw stdout/stderr, natural exit/signal, EOF/reap/force/error/timing; before/after exact source/interpreter pins. Stop at first failure, preserve history; no silent retry.",
+  "releaseSchema": "e02-api35-first-cell-release-v1",
+  "runtimeResultSchema": "e02-api35-first-cell-supervisor-result-v1",
+  "futureRuntimeFixedArgvWithoutMissingRelease": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v1/supervisor.py",
+    "--config",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/proposed-run-config.json",
+    "--config-sha",
+    "4756736d5214b23f1b56ca063e124b0924e13d9fdd41656cf69c0eb7de6344b4",
+    "--out",
+    "/tmp/nbdp-e02-ordinary-client-api35-v1/runs/c0fb2643c4c8453091db09bdd36aad5c"
+  ],
+  "missingRuntimeArguments": [
+    "--release exact actual reviewed root release path",
+    "--release-sha exact existing release hash"
+  ],
+  "prerequisites": [
+    "Actual bounded independent QA/security DOC/DATA acknowledgements of corrected subject; original code review carries only for verified unchanged source descriptors, not as new approval.",
+    "Execute/review meaningful current control scopes; historical counts are not current-profile passes.",
+    "Recheck current source-specific E01/E02 provenance before original fixture gates; do not transfer PASS onto changed adapters/dependencies.",
+    "Before ordinary grant require fresh measured free disk>=8GiB on actual output filesystem, hash-bound into coordinator grant/release. Conservative margin, not measured minimum/guarantee. Original requested2048M and source6GiB admission unchanged; all seven retained old ordinary hardware files normalize6g.",
+    "Fresh >=8 host affinity CPUs, >=12GiB MemAvailable, KVM access and exact cached image/APK/helper/SDK/dependency pins. Configured caps are not measured resources.",
+    "Issue new externally hash-bound finite original1800s first-cell-only root release; no SOURCE approval alone authorizes runtime."
+  ],
+  "runtimeAcceptance": [
+    "Retain actual SDK/API build/renderer/guest/resource observations without assuming requested backend or healthy boot.",
+    "Original closed ADB, immutable lease/clocks, owned isolation/caps and cleanup checks hold.",
+    "Actual full unmasked public scalar2 NSEC and reopened TorOff PNG; known Settings/SystemUI Wait-only<=2 permitted; Quickstep/unknown refuse.",
+    "Actual Amethyst1059 #p subscription and same-generation EOSE before publication; no fixture fallback.",
+    "Actual received EVENT/wire joins, independent current JS/Rust validation, render PNG/XML and complete raw client clipboard export; strict six-field inner-rumor match.",
+    "Exact-owned complete container cleanup and independent QA/security review of observations; any failure remains failed/unqualified or PARTIAL."
+  ],
+  "completionLimits": "Even successful first cell is scoped PARTIAL. Seven other matrix producer cells, canonical evidence integration and architectural blocker decisions remain open.",
+  "rootReleaseCreated": false,
+  "leaseIssued": false,
+  "controlsExecuted": false,
+  "androidExecuted": false,
+  "humanInputNeededForSourcePreparation": null,
+  "coordinatorResourcePrerequisite": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/coordinator-resource-prerequisite.json",
+    "bytes": 8047,
+    "sha256": "e836f9de2a50de2dc36c024cf1638de1aac681f0ab8f14052d13a4594c00abc8"
+  },
+  "documentationCorrection": {
+    "findings": [
+      "QA-ORDINARY35-RESOURCE-DOC-001",
+      "ORDINARY_API35_DISK_ADMISSION_DOCUMENTATION"
+    ],
+    "initialPlan": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/historicalinitial-source-review-r1/evidence/execution-plan.json",
+      "bytes": 5490,
+      "sha256": "eeee31749e9732ea8ec9c81543f17aca3d2aaa5ddec39ce16e854f609a6e1f1f"
+    },
+    "codeConfigControlsChanged": false,
+    "actualControlsExecuted": false,
+    "deltaIndependentAcknowledgements": "PENDING_ACTUAL_OTHER_AGENTS"
+  }
+}
