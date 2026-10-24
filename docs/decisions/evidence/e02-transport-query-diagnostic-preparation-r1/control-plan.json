@@ -1,0 +1,53 @@
+{
+  "schema": "e02-transport-query-diagnostic-source-control-plan-v1",
+  "state": "PREPARED_NOT_EXECUTED_REQUIRES_INDEPENDENT_SOURCE_QA_SECURITY_AND_ROOT_INSTRUCTION",
+  "author": "/root/ordinary_api35_source",
+  "separateScopes": [
+    {
+      "name": "source-custody-mock",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/test_source_controls.py"
+      ],
+      "plannedChecks": 10,
+      "timeoutSeconds": 60
+    },
+    {
+      "name": "fake-socket-phase-model",
+      "argv": [
+        "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+        "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/test_exchange_model.mjs"
+      ],
+      "plannedChecks": 20,
+      "timeoutSeconds": 60
+    }
+  ],
+  "capturePolicy": "Trusted finite child, raw0600, actual lifecycle/source/input/interpreter before-after, first failure stop/no retry; original API objects separately retained; stdout1MiB/stderr256KiB post-capture retention not streaming cap.",
+  "modelScope": "Actual exchange function with fake WS/guard/clock/timers only; source/custody model imports only definitions. No real guard issue, protocol crypto/native, network, Docker, Android or SDK.",
+  "prerequisitesForLaterRuntime": [
+    "Actual independent SOURCE acceptance + executed current10/20 meaningful controls + independent result acceptance.",
+    "Exact current runtime/rs image, Node/ws/dependencies/guard-bundle/relay config and exact public frame pins.",
+    "Fresh isolated root300s candidate release/admission/operator/custody; original network10s/handshake3s/control45s/command55s/maxlease1800s unchanged.",
+    "NoAndroid baseline only; raw phase/partial errors/commands/owned3CID cleanup and actual original tool responses."
+  ],
+  "laterRuntimeCommand": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/supervisor.py",
+    "--config",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r1/proposed-run-config.json",
+    "--config-sha",
+    "EXACT_CONFIG_SHA",
+    "--release",
+    "ACTUAL_FUTURE_ROOT_RELEASE",
+    "--release-sha",
+    "ACTUAL_FUTURE_RELEASE_SHA",
+    "--out",
+    "/tmp/nbdp-e02-transport-query-diagnostic-v1/runs/40f0a56f22004cfc8bb767ab6c28cad4"
+  ],
+  "noGrantLeaseOrRuntimeMaterialized": true,
+  "optionalModeledBurst": "DEFERRED_SEPARATE_CASE_NOT_IMPLEMENTED_OR_AUTHORIZED_HERE"
+}

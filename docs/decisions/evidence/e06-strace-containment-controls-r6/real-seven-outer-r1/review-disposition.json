@@ -1,0 +1,57 @@
+{
+  "schema": "nbdp-stopped-source7-seven-independent-review-v1",
+  "actor": "/root",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/real-seven-outer-r1/subject.json",
+    "bytes": 17449,
+    "sha256": "3958e07ec7d9ca55f760b2932f135bc132da8cb3e84efb2b6a3bb7921f0ac7a1"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/real-seven-outer-r1/actual-qa-decisions.json",
+      "bytes": 845,
+      "sha256": "add10705304c8dde6db09f87e9b170e326d516e0405d3f0b2457367983c1f9f7"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/real-seven-outer-r1/actual-security-decisions.json",
+      "bytes": 863,
+      "sha256": "bb11b870436c2083b2a7343a3328844a29590dc66075efa83b8036abb7a3eb94"
+    }
+  ],
+  "overall": "FAIL_HOLD_NO_ACTIVATION",
+  "actualCases": 2,
+  "narrowQualified": 1,
+  "failed": 1,
+  "notExecuted": 5,
+  "nodeLocalReleased": false,
+  "diagnostic": {
+    "stage": "POST_OPEN_IDENTITY_READ",
+    "error": "FileNotFoundError",
+    "beforePid": 3856284,
+    "provisionalFdReturned": 7,
+    "provisionalFdClosed": true,
+    "after": "NOT_COLLECTED",
+    "uidOperand": "NOT_EVALUATED",
+    "fdinfo": "NOT_COLLECTED",
+    "differingFields": null,
+    "secondaryCleanupError": "PIDFD_OPEN_ESRCH_FOR_OTHER_PID"
+  },
+  "scope": [
+    "Observed missing proc path after provisional open, not authenticated retrospective identity/exit/reap proof.",
+    "Original source6 full-identity mismatch remains unresolved; source7 exercised unavailable-AFTER diagnostics.",
+    "Narrow natural-zero covers sampled cooperative fixture only, not atomic hostile descendant closure.",
+    "No rejected identity was signaled; two validated-pidfd signals plus direct-unreaped fallback precede recorded reap. Fallback remains disqualifying.",
+    "Own empty/reaped reports are not independent post-exit PID probes."
+  ],
+  "verified": {
+    "uniqueDescriptorPins": 1126,
+    "protectedInputs": 1077,
+    "sourceMembers": 172,
+    "currentNativeSourceMembers": 449,
+    "historyMembers": 245,
+    "manifestArtifacts": 47,
+    "actualTreeFiles": 38
+  },
+  "origin": "Structured coordinator transcription of actual separate independent reviewer decisions and rationale; not verbatim authenticated provider logs.",
+  "next": "Read-only architect/research/security assessment of trustworthy terminal identity and descendant closure before any semantic amendment or retry; no new runtime grant."
+}

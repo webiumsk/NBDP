@@ -1,0 +1,59 @@
+{
+  "schema": "nbdp-readonly-primary-source-research-v1",
+  "role": "researcher",
+  "session": "/root/terminal_pidfd_research",
+  "evidenceType": "PRIMARY_SPECIFICATION_AND_PINNED_KERNEL_SOURCE_INSPECTION_NOT_HOST_RUNTIME",
+  "kernelRevision": "e8f897f4afef0031fe618a8e94127a0934896aba",
+  "kernelVersionInspected": "Linux v6.8",
+  "manualRevision": "Linux man-pages 6.19 colophons",
+  "sources": [
+    {
+      "path": "kernel/pid.c",
+      "blob": "b52b108654541545797c19aa0bf68c735442bbac",
+      "url": "https://github.com/torvalds/linux/blob/e8f897f4afef0031fe618a8e94127a0934896aba/kernel/pid.c"
+    },
+    {
+      "path": "kernel/fork.c",
+      "blob": "0d944e92a43ffa13bdbcce6c6a28c44bab29ca19",
+      "url": "https://github.com/torvalds/linux/blob/e8f897f4afef0031fe618a8e94127a0934896aba/kernel/fork.c"
+    },
+    {
+      "path": "kernel/exit.c",
+      "blob": "dfb963d2f862ada6a2f06259c6df4923272cb218",
+      "url": "https://github.com/torvalds/linux/blob/e8f897f4afef0031fe618a8e94127a0934896aba/kernel/exit.c"
+    },
+    {
+      "path": "Documentation/filesystems/proc.rst section3.7",
+      "url": "https://github.com/torvalds/linux/blob/e8f897f4afef0031fe618a8e94127a0934896aba/Documentation/filesystems/proc.rst"
+    }
+  ],
+  "additionalPrimaryUrls": [
+    "https://man7.org/linux/man-pages/man2/pidfd_open.2.html",
+    "https://man7.org/linux/man-pages/man2/waitpid.2.html",
+    "https://man7.org/linux/man-pages/man2/PR_SET_CHILD_SUBREAPER.2const.html",
+    "https://man7.org/linux/man-pages/man5/proc_tid_children.5.html",
+    "https://docs.kernel.org/admin-guide/cgroup-v2.html"
+  ],
+  "facts": [
+    "pidfd_open resolves the current numeric PID; it does not bind retrospectively to an earlier proc starttime/UID sample.",
+    "Poll readiness proves termination of the referenced process/thread group, not ownership, original starttime, parentage, reap-by-guard or descendant absence.",
+    "In inspected v6.8 fdinfo Pid:-1 means no attached PIDTYPE_PID task; Pid:0 may mean namespace visibility. Neither carries earlier starttime.",
+    "ECHILD can describe a live nonchild. WNOWAIT alone does not establish death or descendant closure.",
+    "Subreaper adoption depends on orphaning and the nearest living subreaper/namespace relationship; a live grandchild is not thereby waitable.",
+    "Unfrozen proc children reads can omit nonexiting children when another exits. Two equal running samples are not an atomic completeness guarantee."
+  ],
+  "sourceAssessment": "Current C6 full identity/fdinfo/UID custody validation remains strict; historical terminal proof presupposes validated custody. READY census is sampled cooperative-fixture evidence, not kernel-guaranteed hostile graph closure.",
+  "recommendations": [
+    "Preserve distinct validated-live, validated-terminal and unvalidated-acquisition-disappeared states; never promote the last into signalable custody, ACK or claimed reap.",
+    "No ENOENT/ESRCH or repeated-running-census waiver; require independently reviewed identity binding and descendant closure.",
+    "Model pre-open PID reuse, different live/dead referenced process, live nonchild/ECHILD, missing proc, namespace visibility, pre-custody orphaning and omitted surviving sibling.",
+    "Assess a quiescent or exclusively owned cgroup boundary with controlled migration/delegation/thaw/cleanup and actual aggregate observations."
+  ],
+  "limits": [
+    "No files/imports/tests/probes/Git mutations by researcher.",
+    "Inspected Linux v6.8 is not attestation of actual HOST kernel source/build.",
+    "SOURCE7 actual ENOENT/ESRCH does not prove exit/reap causation, PID reuse or strace child purpose.",
+    "Read-only research approves no algorithm, relaxation, experiment, canonical gate change or blocker closure."
+  ],
+  "origin": "Structured coordinator transcription of actual researcher mailbox report and cited primary sources, not verbatim authenticated provider logs."
+}

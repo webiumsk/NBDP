@@ -1,0 +1,37 @@
+{
+  "schema": "nbdp-terminal-custody-architect-assessment-v1",
+  "role": "architect",
+  "session": "/root/terminal_custody_architect",
+  "recommendation": "STOP_TERMINAL_RACE_EXCEPTIONS_PREPARE_EXCLUSIVELY_OWNED_CGROUP_BOUNDARY",
+  "actions": "READ_ONLY_NO_FILES_IMPORTS_TESTS_PROCESSES_OR_GIT",
+  "reason": "ESRCH/ENOENT cannot retrospectively bind the earlier identity. Two unfrozen proc-children samples do not prove complete descendant closure.",
+  "preferredOrder": [
+    "Inspect already delegated private host cgroup without ancestor/controller/global policy changes. Same UID delegation alone does not establish exclusive migration restriction.",
+    "Otherwise assess pinned Docker private PID namespace/cgroup, no network/socket, readonly explicit tools/sources and only private output writable. Runtime must expose actual freeze/membership/cleanup evidence."
+  ],
+  "requiredAlgorithm": [
+    "Monitor outside workload boundary; newly created exact-owned exclusive membership; launcher placed before any fork with actual admission handshake.",
+    "Preserve role ACKs/live identities, three sessions, seven cases, original timers/caps and raw privacy assertions.",
+    "Freeze whole subtree; require actual frozen=1 completion, inspect membership/expected roles while frozen, publish READY while frozen then thaw. Unknown live members refuse. Historical transients never become fake ACK/custody/reap.",
+    "Retain capture EOF/lifecycle and actual owned-child waits/reaps. Cgroup populated=0 proves no live tasks, not zombie reaping.",
+    "If supervisor shares container cgroup keep PID1 alive for workload-absence checks; PID1 exit killing leaks is safety cleanup, never qualifying proof.",
+    "Uncertain membership/freeze, timeout/residual tasks/emergency kill remains unqualified; exact-owned destruction only."
+  ],
+  "requiredModels": [
+    "Before-fork admission and failed admission.",
+    "Transient children/surviving siblings/orphan adoption/separate sessions.",
+    "Unknown live members/PID reuse/incomplete freeze/read errors.",
+    "Migration/writable cgroup exposure.",
+    "Residual tasks after observer; PID1 death cannot qualify cleanup.",
+    "Partial registration/capture failure/monitor interruption.",
+    "Separate live absence and zombie reap, no fabricated custody."
+  ],
+  "provenance": [
+    "Docker evidence qualifies only its actual container context, never current HOST LOCAL by transfer.",
+    "Renew exact image/tools/glibc2.39/loader/UID600/source449 paths/mounts/namespaces/cgroup/configuration and source reviews before matching Node/LOCAL.",
+    "Same seven actual cases once with original limits and independent whole-result QA/security."
+  ],
+  "approvalBoundary": "Root may adopt independently reviewed diagnostic-method refinement because canonical E06 does not prescribe this pidfd seven-case harness. Version schema and map preserved criteria. PO decision only for canonical reduction/architecture or gate change/prohibited global changes/scope expansion.",
+  "next": "Read-only HOST/Docker inventory, then one concrete SOURCE-only boundary proposal; no new experiment or blind retry.",
+  "origin": "Structured coordinator transcription of actual architect mailbox report, not verbatim provider logs."
+}

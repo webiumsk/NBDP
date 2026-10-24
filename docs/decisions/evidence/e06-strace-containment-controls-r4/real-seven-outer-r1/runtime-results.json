@@ -1,0 +1,323 @@
+{
+  "schema": "e06-real-seven-actual-stopped-runtime-results-v1",
+  "operator": "/root/local_monitor_controls",
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r4/subject.json",
+    "bytes": 6301,
+    "sha256": "6554406306f0b98c6a9557277b7583998194fb3167fffdc5ff6a9ce3021a4fcd"
+  },
+  "observerWholeSourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r5/subject.json",
+    "bytes": 33367,
+    "sha256": "58c0f998c0549ba3c138f94d157b72e932cd531b634a90d8ecc7cf9a865c8b45"
+  },
+  "rootRelease": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r4/root-real-seven-release.json",
+    "bytes": 2138,
+    "sha256": "45570612a1829c13928e021696c61e616061300fb4af0e2e4aa3a79d206972d9"
+  },
+  "rawSuite": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r4/actual-containment-r1/raw-suite.json",
+    "bytes": 39132,
+    "sha256": "5f37987bd25e59ab1381ac8d97c8202cb04bb4564d43e35fb16f355d9c24cd89"
+  },
+  "toolAssociation": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r4/real-seven-outer-r1/tool-association.json",
+    "bytes": 2947,
+    "sha256": "23b23ac77d38c3bbe1818a371716106a5dde958910205b57a17d238e27fd1d07"
+  },
+  "preflight": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r4/real-seven-outer-r1/preflight.json",
+    "bytes": 143581,
+    "sha256": "8b74bfb7727a31d12ca2499e8d9955c5ee80ec1a16b8c6ad3c59acb3ae5db084"
+  },
+  "postflight": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r4/real-seven-outer-r1/postflight.json",
+    "bytes": 143745,
+    "sha256": "32b792b0368fa3389fe43c75cf17286ba4ee210352833d3a36c9cfa7bb91ee63"
+  },
+  "manifest": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r4/real-seven-outer-r1/manifest.json",
+    "bytes": 31216,
+    "sha256": "130f151b75cd421cb19e40e20d0d26246e824b5caa6f66cd6f02c8778095049c"
+  },
+  "plannedCases": 7,
+  "actualCases": 2,
+  "sourceQualifiedCases": 1,
+  "failedCases": 1,
+  "notExecutedCases": [
+    "deadline",
+    "interrupt",
+    "capture-fault",
+    "tracer-death",
+    "inner-parent-death"
+  ],
+  "firstFailedCase": "natural-refusal",
+  "sourceCodedStopFirstFailure": true,
+  "retries": 0,
+  "observations": [
+    {
+      "case": "natural-zero",
+      "guardRecord": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r4/actual-containment-r1/natural-zero/guard-result.json",
+        "bytes": 14154,
+        "sha256": "9dd4c01604796d58ccb19e7d9a11f2c8f8251f9861e943e5fb452dd21c92957f"
+      },
+      "dispositionAsRecordedBySource": "QUALIFIED_FIXTURE_CONTAINMENT_ONLY",
+      "firstError": null,
+      "secondaryErrors": [],
+      "elapsedNs": 1065201224,
+      "captureReceiptAtElapsedNs": 1015890207,
+      "absenceAtElapsedNs": 1065169502,
+      "readyBarrierComplete": true,
+      "fallbackUsed": false,
+      "completeOwnedDescendantCensusEmpty": true,
+      "allOwnedChildrenReaped": true,
+      "censusUncertain": false,
+      "validatedOwnedIdentityCount": 5,
+      "registeredIdentityCount": 5,
+      "unregisteredLoggedIdentities": [],
+      "pidfdFunctionCallDeltas": {
+        "open": 5,
+        "send": 0
+      },
+      "signalEvents": [],
+      "signalEventCount": 0,
+      "pidfdSignalEventCount": 0,
+      "numericOwnedDirectUnreapedHandleSignalCount": 0,
+      "noPostReapSignalDerivedFromRecordedEvents": true,
+      "observerCapture": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r4/actual-containment-r1/natural-zero/observer-capture.json",
+        "bytes": 2856,
+        "sha256": "68550f391ca75c3032474aa1271bbbffc861876e15c27014ac9b052956d1f5f9"
+      },
+      "rawAsRetained": {
+        "trace": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r4/actual-containment-r1/natural-zero/trace.bin",
+          "bytes": 79448,
+          "sha256": "871d1f8cad377b8a1cecf006cd86cc4b4ca03eb477f468c132656ef642d0e805"
+        },
+        "stdout": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r4/actual-containment-r1/natural-zero/stdout.bin",
+          "bytes": 180,
+          "sha256": "0f79f4743dc0899d82921e9de705300f01a1f4e9a8b7a0b09427336addce018b"
+        },
+        "stderr": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r4/actual-containment-r1/natural-zero/stderr.bin",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "rawFileSizesWithinConfiguredCaps": true,
+      "captureLimit": "Source capture journal retained; exact scope requires independent raw review."
+    },
+    {
+      "case": "natural-refusal",
+      "guardRecord": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r4/actual-containment-r1/natural-refusal/guard-result.json",
+        "bytes": 16033,
+        "sha256": "6d9195e513ad81e09d072c6e2e9a68bbe77b0fed39cdba5f4716ca56214e1c07"
+      },
+      "dispositionAsRecordedBySource": "UNQUALIFIED_FIXTURE_CONTAINMENT",
+      "firstError": {
+        "type": "ValueError",
+        "message": "UNREGISTERED_OWNED_DESCENDANT_AFTER_READY"
+      },
+      "secondaryErrors": [
+        {
+          "type": "ValueError",
+          "message": "RETAINED_HANDLE_ALREADY_EXITED_SKIP_SIGNAL"
+        },
+        {
+          "type": "FileNotFoundError",
+          "message": "[Errno 2] No such file or directory: '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r4/actual-containment-r1/natural-refusal/observer-capture.json'"
+        }
+      ],
+      "elapsedNs": 845747482,
+      "captureReceiptAtElapsedNs": null,
+      "absenceAtElapsedNs": null,
+      "readyBarrierComplete": true,
+      "fallbackUsed": true,
+      "completeOwnedDescendantCensusEmpty": true,
+      "allOwnedChildrenReaped": true,
+      "censusUncertain": false,
+      "validatedOwnedIdentityCount": 6,
+      "registeredIdentityCount": 5,
+      "unregisteredLoggedIdentities": [
+        {
+          "pid": 3761653,
+          "ppid": 3761650,
+          "uid": 1000,
+          "starttime": 124460277,
+          "session": 3761650,
+          "cmdline": "2f7573722f62696e2f737472616365002d2d6b696c6c2d6f6e2d65786974002d2d696e7465727275707469626c653d31002d66002d7171002d747474002d7300323536002d650074726163653d6578656376652c636c6f6e652c636c6f6e65332c666f726b2c76666f726b2c706970652c70697065322c6475702c647570322c647570332c66636e746c2c6f70656e61742c726561642c707265616436342c72656164762c77726974652c70777269746536342c7772697465762c636c6f7365002d65007261773d726561642c707265616436342c72656164762c77726974652c70777269746536342c777269746576002d6f002f70726f632f73656c662f66642f34002d2d002f686f6d652f7065746572686f72766174682f2e6d696e69666f726765332f62696e2f707974686f6e332e3133002d49002d42002f686f6d652f7065746572686f72766174682f617070732f626974636f696e2f4e4244502f646f63732f6465636973696f6e732f65766964656e63652f6530362d7374726163652d636f6e7461696e6d656e742d636f6e74726f6c732d72342f666978747572652e7079002f686f6d652f7065746572686f72766174682f617070732f626974636f696e2f4e4244502f646f63732f6465636973696f6e732f65766964656e63652f6530362d7374726163652d636f6e7461696e6d656e742d636f6e74726f6c732d72342f61637475616c2d636f6e7461696e6d656e742d72312f6e61747572616c2d7265667573616c00706172656e74006e61747572616c2d7265667573616c00"
+        }
+      ],
+      "pidfdFunctionCallDeltas": {
+        "open": 6,
+        "send": 5
+      },
+      "signalEvents": [
+        {
+          "operation": "signal-owned-identity",
+          "pid": 3761672,
+          "starttime": 124460311,
+          "signal": 9,
+          "reason": "SAFETY_FALLBACK_ALWAYS_FAIL",
+          "pidfd": 10
+        },
+        {
+          "operation": "signal-owned-identity",
+          "pid": 3761655,
+          "starttime": 124460289,
+          "signal": 9,
+          "reason": "SAFETY_FALLBACK_ALWAYS_FAIL",
+          "pidfd": 9
+        },
+        {
+          "operation": "signal-owned-identity",
+          "pid": 3761654,
+          "starttime": 124460277,
+          "signal": 9,
+          "reason": "SAFETY_FALLBACK_ALWAYS_FAIL",
+          "pidfd": 8
+        },
+        {
+          "operation": "signal-owned-identity",
+          "pid": 3761650,
+          "starttime": 124460277,
+          "signal": 9,
+          "reason": "SAFETY_FALLBACK_ALWAYS_FAIL",
+          "pidfd": 6
+        },
+        {
+          "operation": "signal-owned-identity",
+          "pid": 3761647,
+          "starttime": 124460255,
+          "signal": 9,
+          "reason": "SAFETY_FALLBACK_ALWAYS_FAIL",
+          "pidfd": 5
+        },
+        {
+          "operation": "signal-owned-identity",
+          "pid": 3761647,
+          "starttime": 124460255,
+          "signal": 9,
+          "reason": "RETAINED_DIRECT_UNREAPED_HANDLE_SAFETY_ALWAYS_FAIL",
+          "pidfd": null
+        }
+      ],
+      "signalEventCount": 6,
+      "pidfdSignalEventCount": 5,
+      "numericOwnedDirectUnreapedHandleSignalCount": 1,
+      "noPostReapSignalDerivedFromRecordedEvents": true,
+      "observerCapture": null,
+      "rawAsRetained": {
+        "trace": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r4/actual-containment-r1/natural-refusal/trace.bin",
+          "bytes": 74598,
+          "sha256": "c5ddcc08fa70cdf11ff0157ccb2763c874996e0f17cb2e759d8095f8f598725d"
+        },
+        "stdout": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r4/actual-containment-r1/natural-refusal/stdout.bin",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r4/actual-containment-r1/natural-refusal/stderr.bin",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "rawFileSizesWithinConfiguredCaps": true,
+      "captureLimit": "Missing observer-capture means no complete EOF/reap/capture journal; retained raw prefix is not a fabricated successful journal."
+    }
+  ],
+  "actualPidfdFunctionCalls": {
+    "open": 11,
+    "send": 5
+  },
+  "totalSignalEvents": 6,
+  "numericOwnedUnreapedSignals": 1,
+  "providerBinding": {
+    "provider": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r4/pidfd-provider.json",
+      "bytes": 2489,
+      "sha256": "69426068143bf3d74488fc6e16eb0f1f5dd1696b025d1fd53b89db47dee9b0d8"
+    },
+    "library": {
+      "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      "bytes": 2129424,
+      "sha256": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf"
+    },
+    "glibcVersion": "2.39",
+    "hostContext": {
+      "uid": 1000,
+      "gid": 1000,
+      "uidMap": "         0          0 4294967295\n",
+      "gidMap": "         0          0 4294967295\n",
+      "userNamespace": "user:[4026531837]",
+      "mountNamespace": "mnt:[4026531832]"
+    },
+    "architecture": "x86_64",
+    "pointerBits": 64,
+    "loadedMapping": [
+      "/usr/lib/x86_64-linux-gnu/libc.so.6"
+    ],
+    "useErrno": true,
+    "openSignature": [
+      "c_int",
+      "c_uint",
+      "returns_c_int"
+    ],
+    "sendSignature": [
+      "c_int",
+      "c_int",
+      "NULL_c_void_p",
+      "c_uint",
+      "returns_c_int"
+    ],
+    "actualPidfdCallsAtBinding": {
+      "open": 0,
+      "send": 0
+    }
+  },
+  "providerAfter": {
+    "provider": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r4/pidfd-provider.json",
+      "bytes": 2489,
+      "sha256": "69426068143bf3d74488fc6e16eb0f1f5dd1696b025d1fd53b89db47dee9b0d8"
+    },
+    "library": {
+      "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      "bytes": 2129424,
+      "sha256": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf"
+    },
+    "hostContext": {
+      "uid": 1000,
+      "gid": 1000,
+      "uidMap": "         0          0 4294967295\n",
+      "gidMap": "         0          0 4294967295\n",
+      "userNamespace": "user:[4026531837]",
+      "mountNamespace": "mnt:[4026531832]"
+    },
+    "calls": {
+      "open": 11,
+      "send": 5
+    }
+  },
+  "all272SourceInputReleaseReviewBytesStatUnchanged": true,
+  "source449DescriptorsCurrent": true,
+  "originalTimersAndCapsUnchanged": true,
+  "actualNodeLocal": 0,
+  "overallDisposition": "FAILED_UNQUALIFIED_CONTAINMENT_GATE_REMAINS_CLOSED",
+  "independentReview": "PENDING",
+  "limitations": [
+    "One source-qualified fixture result is not completion of mandatory7 or independent acceptance.",
+    "Actual libc pidfd acquisition/functionality and owned safety signals observed only in this exact HOST synthetic scope; fallback case cannot qualify EXITKILL/containment.",
+    "Additional unregistered logged identity had strace commandline and later identity-absent event; purpose or causal explanation has not been proven.",
+    "Guard receipts report complete owned census-empty/allreaped, not arbitrary host-PID absence. No independent post-exit PID probe performed.",
+    "Exit2 is original tool status; no separate tool attestation of outer natural/forced/reap is available.",
+    "No source fixes, rerun, global policy/service change, Node/LOCAL or canonical E06 PASS."
+  ]
+}

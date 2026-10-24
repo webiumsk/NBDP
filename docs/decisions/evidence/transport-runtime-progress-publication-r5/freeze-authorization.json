@@ -1,0 +1,45 @@
+{
+  "schema": "nbdp-progress-publication-freeze-transcription-v1",
+  "actor": "/root",
+  "transcribedBy": "/root/local_monitor_controls",
+  "state": "CLOSED_INPUTS_WRITES_STOPPED",
+  "roots": [
+    "docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r1",
+    "docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r2",
+    "docs/decisions/evidence/e02-completion-preparation-r1",
+    "docs/decisions/evidence/e02-minimum-runtime-preparation-r1",
+    "docs/decisions/evidence/e02-ordinary-minimum-runtime-r1",
+    "docs/decisions/evidence/e02-ordinary-minimum-relay-diagnosis-r1",
+    "docs/decisions/evidence/e02-owned-avd-overlay-reclamation-r7",
+    "docs/decisions/evidence/e06-request-phase-diagnostic-source-r5",
+    "docs/decisions/evidence/e06-request-phase-diagnostic-source-r6",
+    "docs/decisions/evidence/e06-request-phase-diagnostic-source-r7",
+    "docs/decisions/evidence/e06-strace-containment-controls-r4",
+    "docs/decisions/evidence/e06-strace-containment-controls-r5",
+    "docs/decisions/evidence/e06-strace-containment-controls-r6",
+    "docs/decisions/evidence/e06-strace-transient-source-research-r1",
+    "experiments/prototypes/e02_ordinary_minimum_consumer_v1",
+    "experiments/prototypes/e02_ordinary_minimum_consumer_v2",
+    "experiments/prototypes/e02_completion_v1"
+  ],
+  "script": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/transport-runtime-progress-publication-r5/build_archive.py",
+    "bytes": 20858,
+    "sha256": "1572a33ce352a8b4709921b93e64ed220d480750b78a2ac3306a1e1728e5aabb"
+  },
+  "selectionPlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/transport-runtime-progress-publication-r5/selection-plan.json",
+    "bytes": 3062,
+    "sha256": "5cfb98f4d56b6bf3758da2d62642db3c883134e53b298e4e540a53c627c896b1"
+  },
+  "allRootOwnersWritesStopped": true,
+  "priorPackagesReadOnly": true,
+  "scope": "DATA_ARCHIVE_ONLY",
+  "provenance": {
+    "kind": "ACTUAL_COORDINATOR_MAILBOX_TASK_TRANSCRIPTION",
+    "selfAcceptance": false,
+    "statement": "Root authorized DATA-only packaging of these exact fixed CLOSED roots and stated root will not modify these selected roots now. The packager records that actual task instruction, not a provider-verbatim log or new experimental approval.",
+    "authorizingTask": "/root/local_monitor_controls packaging task; transport-runtime-progress-publication-r5 only.",
+    "experimentsOrPublicationAuthorized": false
+  }
+}

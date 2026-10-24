@@ -1,0 +1,121 @@
+def source_pins():
+    return [pin(HERE/name) for name in ('supervisor.py','lease_guard.py','fixture.mjs',
+        'exchange.mjs','strict-json.mjs','fixture-plan.json','publish-frame.json','query-frame.json')]
+
+
+def verify_config(config):
+    need(set(config)=={'schema','scope','runId','originalLeaseSeconds','runtimeImage','relayImage',
+        'sourceAndDependencyPins','guardBundleRoot','guardBundleInventory','relayConfig'},'Closed diagnostic config')
+    need(config['schema']=='e02-transport-query-diagnostic-config-v1' and config['scope']==SCOPE,'Diagnostic scope only')
+    need(config['runtimeImage']==RUNTIME and config['relayImage']==RELAY,'Original exact images')
+    need(re.fullmatch('[0-9a-f]{32}',config['runId']) and type(config['originalLeaseSeconds']) is int
+        and 60<=config['originalLeaseSeconds']<=1800,'Original finite lease without renewal')
+    need(config['sourceAndDependencyPins']==source_pins(),'Exact current diagnostic sources/inputs')
+    need(config['guardBundleRoot']=='/tmp/nbdp-e02-minimal-rs-v7/guard-python','Exact existing guard root')
+    bundle=strict(checked(config['guardBundleInventory']).read_bytes())
+    for name,d in bundle['files'].items():
+        p=Path(config['guardBundleRoot'])/name
+        need(p.resolve(strict=True).is_relative_to(Path(config['guardBundleRoot']))
+            and not p.is_symlink() and p.stat().st_size==d['bytes'] and digest(p)==d['sha256'],'Guard bundle drift')
+    checked(config['relayConfig'])
+    fixture=strict((HERE/'fixture-plan.json').read_bytes())
+    need(fixture['schema']=='e02-transport-query-diagnostic-fixture-v1' and fixture['scenario']=='BASELINE_ONE_PUB_THEN_EXACT_QUERY'
+        and fixture['limits']=={'messageBytes':262144,'captureBytes':16777216,'networkTimeoutMilliseconds':10000,
+                              'handshakeTimeoutMilliseconds':3000,'controlTimeoutMilliseconds':45000},'Original fixed diagnostic limits')
+    for d in fixture['dependencyFiles']:
+        checked({'path':d['source'],'bytes':d['bytes'],'sha256':d['sha256']})
+    need(fixture['pins']=={},'No crypto/native/SDK mounts')
+    return fixture
+
+
+def guest(role):
+    need(role in ROLES,'No Android or arbitrary service role')
+    guard=load_module('diag_guest_guard','/input/lease_guard.py')
+    lease=guard.Lease('/session/lease.json',os.environ['NBDP_LEASE_SHA256'],'/session/control')
+    lease.check()
+    config_raw=Path('/input/run-config.json').read_bytes()
+    need(hashlib.sha256(config_raw).hexdigest()==os.environ['NBDP_MINIMUM_RUN_CONFIG_SHA256'],'Exact original diagnostic config')
+    env=dict(guard.ENV,NBDP_LEASE_SHA256=os.environ['NBDP_LEASE_SHA256'],
+        NBDP_FIXTURE_PLAN_SHA256=os.environ['NBDP_FIXTURE_PLAN_SHA256'],
+        NBDP_MINIMUM_RUN_CONFIG_SHA256=os.environ['NBDP_MINIMUM_RUN_CONFIG_SHA256'])
+    signal.signal(signal.SIGTERM,lambda *_:lease.revoke('Owned service interrupted'))
+    signal.signal(signal.SIGINT,lambda *_:lease.revoke('Owned service interrupted'))
+    if role=='anchor':
+        while True:lease.sleep(1)
+    elif role=='rs-relay':run_service(lease,['/src/target/release/nostr-rs-relay','--db','/data'],1800,env)
+    else:run_service(lease,['/usr/local/bin/node','/input/fixture.mjs','serve'],1800,env)
+
+
+def execute(config_path,config_sha,release_path,release_sha,out):
+    cp,rp=pin(config_path),pin(release_path)
+    need(cp['sha256']==config_sha and rp['sha256']==release_sha,'External config/release hashes')
+    config,release=strict(config_path.read_bytes()),strict(release_path.read_bytes())
+    fixture=verify_config(config)
+    need(set(release)=={'schema','runId','scope','config','sourceSubject','sourceQaReview','sourceSecurityReview',
+        'controlAcceptance','freshAdmission','operator','issuedAtUtcNs','notAfterUtcNs'},'Closed root diagnostic release')
+    need(release['schema']=='e02-transport-query-diagnostic-release-v1' and release['scope']==SCOPE
+        and release['runId']==config['runId'] and release['config']==cp and release['operator']=='/root','Exact separately authorized root role')
+    for key in ('sourceSubject','sourceQaReview','sourceSecurityReview','controlAcceptance','freshAdmission'):checked(release[key])
+    need(type(release['issuedAtUtcNs']) is int and type(release['notAfterUtcNs']) is int
+        and release['issuedAtUtcNs']<=time.time_ns()<release['notAfterUtcNs'],'Actual release interval')
+    need(out==LAB/'runs'/config['runId'] and not out.exists(),'Fresh exclusive diagnostic output')
+    guard=load_module('diag_host_guard',HERE/'lease_guard.py')
+    out.mkdir(parents=True,mode=0o700)
+    for directory in ('input','session/control','session/fixtures','relay-data','docker-config'):
+        (out/directory).mkdir(parents=True,mode=0o700)
+    put(out/'docker-config/config.json',b'{}\n')
+    value=guard.issue(config['runId'],config['originalLeaseSeconds'])
+    need(value['deadlineUtcNs']<=release['notAfterUtcNs'],'Original diagnostic deadline inside root release')
+    lp=put(out/'session/lease.json',jsonbytes(value))
+    lease=guard.Lease(lp['path'],lp['sha256'],out/'session/control')
+    runtime=Runtime(config,cp,rp,out,guard,lease,fixture)
+    signal.signal(signal.SIGTERM,lambda *_:lease.revoke('Coordinator interrupted'))
+    signal.signal(signal.SIGINT,lambda *_:lease.revoke('Coordinator interrupted'))
+    error=None
+    try:
+        for d in config['sourceAndDependencyPins']:
+            runtime.put_bytes('input/'+Path(d['path']).name,checked(d).read_bytes())
+        runtime.put_bytes('input/run-config.json',config_path.read_bytes())
+        (out/'input/node_modules').mkdir(mode=0o700)
+        runtime.inputs_sealed=True
+        for role in ROLES:runtime.start(role)
+        for _ in range(40):
+            runtime.check()
+            if (out/'session/fixtures/serve-ready.json').is_file():break
+            runtime.sleep(.25)
+        else:raise RuntimeError('Diagnostic control socket not ready under fixed bounded source wait')
+        prepared=runtime.fixture('prepare')
+        runtime.put_bytes('evidence/prepare-reply.json',prepared)
+        raw=runtime.fixture('publish')  # Original55s command ceiling; one attempt only.
+        runtime.put_bytes('evidence/diagnostic-reply.json',raw)
+        result=strict(raw)
+        need(result['ok'] is True and result['result']['state']=='BASELINE_PUB_QUERY_OBSERVED','Full exact diagnostic result')
+        runtime.check()
+    except BaseException as exc:
+        error=repr(exc)
+        try:lease.revoke('Diagnostic stopped: '+error)
+        except BaseException:pass
+    finally:
+        try:cleanup=runtime.cleanup()
+        except BaseException as exc:cleanup={'ok':False,'rows':[],'evidence':None,'errors':[repr(exc)]}
+        return finalize(out,{'schema':'e02-transport-query-diagnostic-result-v1','runId':config['runId'],
+            'config':cp,'release':rp,'lease':lp,'scope':SCOPE,'canonicalE02Changed':False,
+            'ordinaryClientQualified':False},error,cleanup)
+
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--guest',choices=ROLES)
+    parser.add_argument('--config',type=Path);parser.add_argument('--config-sha')
+    parser.add_argument('--release',type=Path);parser.add_argument('--release-sha')
+    parser.add_argument('--out',type=Path)
+    args=parser.parse_args()
+    if args.guest:return guest(args.guest) or 0
+    need(all((args.config,args.config_sha,args.release,args.release_sha,args.out)),'Exact external diagnostic grant required')
+    return execute(args.config,args.config_sha,args.release,args.release_sha,args.out)
+
+
+if __name__=='__main__':
+    try:code=main()
+    except BaseException as error:sys.stderr.write(type(error).__name__+': '+str(error)[:4096]+'\n');code=2
+    raise SystemExit(code)

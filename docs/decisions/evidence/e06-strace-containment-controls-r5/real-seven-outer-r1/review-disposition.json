@@ -1,0 +1,29 @@
+{
+  "schema": "nbdp-stopped-source6-strace-disposition-v1",
+  "actor": "/root",
+  "decision": "FAIL_HOLD_NO_CONTAINMENT_ACCEPTANCE",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r5/real-seven-outer-r1/subject.json",
+    "bytes": 10805,
+    "sha256": "e35a10a4e037e8fa610ad8c9579aff77835c8b1e77b1d14e9f98b8a7b874f376"
+  },
+  "actualIndependentReviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r5/real-seven-outer-r1/actual-result-qa-review.json",
+      "bytes": 2655,
+      "sha256": "7d21f29f37385316f765025838b5cf2905d06e24deb774f4a0fe57ce15285fff"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r5/real-seven-outer-r1/actual-result-security-review.json",
+      "bytes": 2659,
+      "sha256": "5c45c770cbd8bc4996d9a004955f2fa51078da9f05586082229c0ffebb4f69ae"
+    }
+  ],
+  "actualCases": 1,
+  "qualified": 0,
+  "failed": 1,
+  "notExecuted": 6,
+  "noRetry": true,
+  "nodeLocalAuthorized": false,
+  "next": "SOURCE-only boundedcomparison-diagnostic amendment withunchangedpredicates; independentreview beforelaterfixturegrant."
+}
