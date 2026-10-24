@@ -1,0 +1,34 @@
+{
+  "schema": "e06-real-input-gate-matrix-acceptance-v1",
+  "coordinator": "/root",
+  "decision": "ACCEPT_REAL_INPUT_GATE_MATRIX_ONLY",
+  "scope": "PRIMARY_CALLER_MEMORY_MATRIX_ONLY",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/observation.json",
+    "bytes": 34613,
+    "sha256": "c444c779bd0de22036c5e43f285eac213863908b847f5f76691b83f262c541b9"
+  },
+  "independentReviews": {
+    "qa": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-qa-review.json",
+      "bytes": 2232,
+      "sha256": "19c959885edefb268589470ed0ecea2ca9ff6c1d0254c171a6d9526c05cf962a"
+    },
+    "security": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-security-review.json",
+      "bytes": 2260,
+      "sha256": "1709fbfe777b12903fec4d795de0c1e585bfcffd638c2556d696c10871ae0ae6"
+    }
+  },
+  "counts": {
+    "accept": 1,
+    "exactRefuse": 75,
+    "total": 76
+  },
+  "executionReleased": false,
+  "nextTask": "FreshindependentoperatorQAconfig/source/release+same76semantics; thenlegitimateLOCALpreparationunderactualschemasandtransportverifier.",
+  "limits": [
+    "NotFSdrift/native/fullLOCAL/E06PASS.",
+    "Actualoperatorindependentrepetitionnotyetexecuted; noautomaticgateorblockerclosure."
+  ]
+}

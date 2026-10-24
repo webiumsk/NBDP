@@ -1,0 +1,594 @@
+{
+  "schema": "e06-source7-stopped-real-strace-results-v1",
+  "operator": "/root/local_monitor_controls",
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/subject.json",
+    "bytes": 6403,
+    "sha256": "f43eac2cbe5e415cd4c45708926b26f25d10c194058a3f7657d8d779d2aabf53"
+  },
+  "observerWholeSourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r7/subject.json",
+    "bytes": 48486,
+    "sha256": "76a3d594f5a94f8c1db85198c16e13f9c7b6f669eb4980e5b2dc2e7d78f85df5"
+  },
+  "release": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/root-real-seven-release.json",
+    "bytes": 2313,
+    "sha256": "2d2796759f34f0068268514ab72a4d1e28a5e09bb6cdea4cf60f77761bd53533"
+  },
+  "rawSuite": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/raw-suite.json",
+    "bytes": 82089,
+    "sha256": "9aae498b3a4b12b3f7c0d4f75b1ba4c438fd40eb08f3338cf6c3d641286f40a5"
+  },
+  "actualCases": 2,
+  "narrowQualifiedCases": 1,
+  "failedCases": 1,
+  "notExecutedCases": [
+    "deadline",
+    "interrupt",
+    "capture-fault",
+    "tracer-death",
+    "inner-parent-death"
+  ],
+  "cases": [
+    {
+      "case": "natural-zero",
+      "disposition": "QUALIFIED_FIXTURE_CONTAINMENT_ONLY",
+      "firstError": null,
+      "secondaryErrors": [],
+      "readyBarrierComplete": true,
+      "readyPublicationCompletedAtMonotonicNs": 1113694322987237,
+      "safetyFallbackUsed": false,
+      "allKnownPidsExitedBeforeFallback": true,
+      "completeOwnedDescendantCensusEmpty": true,
+      "censusUncertain": false,
+      "allOwnedChildrenReaped": true,
+      "elapsedNs": 932458690,
+      "captureReceiptAtElapsedNs": 820853172,
+      "absenceAtElapsedNs": 932408688,
+      "rawCapsRespected": true,
+      "privacyQualified": true,
+      "pidfdCalls": {
+        "open": 5,
+        "send": 0
+      },
+      "pidfdCallsBefore": {
+        "open": 0,
+        "send": 0
+      },
+      "pidfdCallsAfter": {
+        "open": 5,
+        "send": 0
+      },
+      "guardRecord": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/guard-result.json",
+        "bytes": 57023,
+        "sha256": "fa7079ff831545489294f20dfe4e27ee0d2c61835fcbefc22884c184dd9306a2"
+      },
+      "readyTemporalProofPresent": true,
+      "historicalTerminalProofCount": 0,
+      "postReadyCensusCheckCount": 13,
+      "actualCustodyDiagnostics": [],
+      "heldValidatedCount": 5,
+      "registeredCount": 5,
+      "rejectedCustody": [],
+      "closedRejectedProvisional": [],
+      "signalEvents": [],
+      "pidfdSignalEvents": 0,
+      "numericRetainedUnreapedHandleSignalEvents": 0,
+      "reapEvents": [
+        {
+          "operation": "reaped-owned",
+          "pid": 3856243,
+          "starttime": 125007823,
+          "status": 0
+        },
+        {
+          "operation": "original-identity-absent-after-parent-reap",
+          "pid": 3856264,
+          "starttime": 125007849
+        },
+        {
+          "operation": "original-identity-absent-after-parent-reap",
+          "pid": 3856268,
+          "starttime": 125007850
+        },
+        {
+          "operation": "original-identity-absent-after-parent-reap",
+          "pid": 3856269,
+          "starttime": 125007873
+        },
+        {
+          "operation": "original-identity-absent-after-parent-reap",
+          "pid": 3856270,
+          "starttime": 125007888
+        }
+      ],
+      "noPostReapSignalRecorded": true,
+      "rawPrefixes": {
+        "child-synthetic.bin": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/child-synthetic.bin",
+          "bytes": 76,
+          "sha256": "a4983e2765c0e8d374a321668681451d3b661b72d990130b6a83b1c18cdf072a"
+        },
+        "grandchild-synthetic.bin": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/grandchild-synthetic.bin",
+          "bytes": 76,
+          "sha256": "a4983e2765c0e8d374a321668681451d3b661b72d990130b6a83b1c18cdf072a"
+        },
+        "parent-synthetic.bin": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/parent-synthetic.bin",
+          "bytes": 76,
+          "sha256": "a4983e2765c0e8d374a321668681451d3b661b72d990130b6a83b1c18cdf072a"
+        },
+        "runner-stderr.bin": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/runner-stderr.bin",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "runner-stdout.bin": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/runner-stdout.bin",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr.bin": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/stderr.bin",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.bin": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/stdout.bin",
+          "bytes": 180,
+          "sha256": "dd80e1d034f0fea76bfc68d07e3038bdb245f525e84245493dafffbffd74f715"
+        },
+        "trace.bin": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/trace.bin",
+          "bytes": 78560,
+          "sha256": "d876f6c8fcb2ad80ac0641fe38986925d5f6b08852fdaf4772e225119b6f78e3"
+        }
+      },
+      "observerCapturePresent": true,
+      "runnerEventsPresent": true,
+      "allReadyPresent": true,
+      "observerCapture": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/observer-capture.json",
+        "bytes": 2856,
+        "sha256": "83991a6c648bebdca12871dab1f651be0e52fe831e802beb67ec5e95f1f30d22"
+      },
+      "captureLifecycle": {
+        "exit": 0,
+        "reaped": true,
+        "eof": {
+          "trace": true,
+          "stdout": true,
+          "stderr": true
+        },
+        "forced": false,
+        "firstError": null,
+        "elapsedMilliseconds": 544
+      }
+    },
+    {
+      "case": "natural-refusal",
+      "disposition": "UNQUALIFIED_FIXTURE_CONTAINMENT",
+      "firstError": {
+        "type": "FileNotFoundError",
+        "message": "[Errno 2] No such file or directory: '/proc/3856284'"
+      },
+      "secondaryErrors": [
+        {
+          "type": "ValueError",
+          "message": "OWNERSHIP_CENSUS_FAULT"
+        },
+        {
+          "type": "ProcessLookupError",
+          "message": "[Errno 3] No such process"
+        },
+        {
+          "type": "ValueError",
+          "message": "RETAINED_HANDLE_ALREADY_EXITED_SKIP_SIGNAL"
+        },
+        {
+          "type": "FileNotFoundError",
+          "message": "[Errno 2] No such file or directory: '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-refusal/observer-capture.json'"
+        }
+      ],
+      "readyBarrierComplete": false,
+      "readyPublicationCompletedAtMonotonicNs": null,
+      "safetyFallbackUsed": true,
+      "allKnownPidsExitedBeforeFallback": false,
+      "completeOwnedDescendantCensusEmpty": true,
+      "censusUncertain": false,
+      "allOwnedChildrenReaped": true,
+      "elapsedNs": 383756553,
+      "captureReceiptAtElapsedNs": null,
+      "absenceAtElapsedNs": null,
+      "rawCapsRespected": false,
+      "privacyQualified": false,
+      "pidfdCalls": {
+        "open": 4,
+        "send": 2
+      },
+      "pidfdCallsBefore": {
+        "open": 5,
+        "send": 0
+      },
+      "pidfdCallsAfter": {
+        "open": 9,
+        "send": 2
+      },
+      "guardRecord": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-refusal/guard-result.json",
+        "bytes": 13514,
+        "sha256": "9f1c4be6b9e45f31b24ae4ad5d34be6e5ec82c6f4bcf7dc8a88a90835308a777"
+      },
+      "readyTemporalProofPresent": false,
+      "historicalTerminalProofCount": null,
+      "postReadyCensusCheckCount": 0,
+      "actualCustodyDiagnostics": [
+        {
+          "operation": "rejected-custody-diagnostic",
+          "evidence": {
+            "schema": "e06-rejected-custody-diagnostic-v1",
+            "validationStage": "POST_OPEN_IDENTITY_READ",
+            "censusBefore": {
+              "status": "COLLECTED",
+              "value": {
+                "pid": 3856284,
+                "ppid": 3856282,
+                "uid": 1000,
+                "starttime": 125007951,
+                "session": 3856282
+              },
+              "cmdline": {
+                "hexPrefix": "",
+                "originalHexLength": 0,
+                "complete": true,
+                "encoding": "EXISTING_CMDLINE_HEX_ONLY"
+              }
+            },
+            "postOpen": {
+              "status": "NOT_COLLECTED",
+              "value": null
+            },
+            "postFdinfo": {
+              "status": "NOT_COLLECTED",
+              "value": null
+            },
+            "guardUIDAtAdmission": {
+              "value": 1000,
+              "source": "ALREADY_VALIDATED_MAIN_HOST_CONTEXT"
+            },
+            "guardUIDAtOriginalPredicate": {
+              "value": null,
+              "status": "NOT_EVALUATED_SHORT_CIRCUIT_OR_EARLIER_STAGE"
+            },
+            "censusVsPostOpen": {
+              "status": "NOT_COMPARABLE_NOT_COLLECTED",
+              "differingFieldNames": null
+            },
+            "postOpenVsPostFdinfo": {
+              "status": "NOT_COMPARABLE_NOT_COLLECTED",
+              "differingFieldNames": null
+            },
+            "originalProvisionalFdIfReturned": 7,
+            "fdinfo": {
+              "status": "NOT_COLLECTED",
+              "prefix": null,
+              "originalLength": null,
+              "complete": null
+            },
+            "originalException": {
+              "type": "FileNotFoundError",
+              "messagePrefix": "[Errno 2] No such file or directory: '/proc/3856284'",
+              "originalMessageLength": 52,
+              "complete": true
+            },
+            "additionalIdentityOrPIDProbes": 0,
+            "additionalUIDOrPidfdProviderCalls": 0,
+            "cause": "UNKNOWN_NOT_INFERRED_FROM_DIFFERING_FIELDS"
+          }
+        },
+        {
+          "operation": "rejected-custody-diagnostic",
+          "evidence": {
+            "schema": "e06-rejected-custody-diagnostic-v1",
+            "validationStage": "PIDFD_OPEN",
+            "censusBefore": {
+              "status": "COLLECTED",
+              "value": {
+                "pid": 3856285,
+                "ppid": 3856282,
+                "uid": 1000,
+                "starttime": 125007951,
+                "session": 3856282
+              },
+              "cmdline": {
+                "hexPrefix": "",
+                "originalHexLength": 0,
+                "complete": true,
+                "encoding": "EXISTING_CMDLINE_HEX_ONLY"
+              }
+            },
+            "postOpen": {
+              "status": "NOT_COLLECTED",
+              "value": null
+            },
+            "postFdinfo": {
+              "status": "NOT_COLLECTED",
+              "value": null
+            },
+            "guardUIDAtAdmission": {
+              "value": 1000,
+              "source": "ALREADY_VALIDATED_MAIN_HOST_CONTEXT"
+            },
+            "guardUIDAtOriginalPredicate": {
+              "value": null,
+              "status": "NOT_EVALUATED_SHORT_CIRCUIT_OR_EARLIER_STAGE"
+            },
+            "censusVsPostOpen": {
+              "status": "NOT_COMPARABLE_NOT_COLLECTED",
+              "differingFieldNames": null
+            },
+            "postOpenVsPostFdinfo": {
+              "status": "NOT_COMPARABLE_NOT_COLLECTED",
+              "differingFieldNames": null
+            },
+            "originalProvisionalFdIfReturned": null,
+            "fdinfo": {
+              "status": "NOT_COLLECTED",
+              "prefix": null,
+              "originalLength": null,
+              "complete": null
+            },
+            "originalException": {
+              "type": "ProcessLookupError",
+              "messagePrefix": "[Errno 3] No such process",
+              "originalMessageLength": 25,
+              "complete": true
+            },
+            "additionalIdentityOrPIDProbes": 0,
+            "additionalUIDOrPidfdProviderCalls": 0,
+            "cause": "UNKNOWN_NOT_INFERRED_FROM_DIFFERING_FIELDS"
+          }
+        }
+      ],
+      "heldValidatedCount": 2,
+      "registeredCount": 2,
+      "rejectedCustody": [
+        {
+          "operation": "rejected-provisional-custody",
+          "identity": {
+            "pid": 3856284,
+            "ppid": 3856282,
+            "uid": 1000,
+            "starttime": 125007951,
+            "session": 3856282,
+            "cmdline": ""
+          },
+          "errorType": "FileNotFoundError"
+        },
+        {
+          "operation": "rejected-provisional-custody",
+          "identity": {
+            "pid": 3856285,
+            "ppid": 3856282,
+            "uid": 1000,
+            "starttime": 125007951,
+            "session": 3856282,
+            "cmdline": ""
+          },
+          "errorType": "ProcessLookupError"
+        }
+      ],
+      "closedRejectedProvisional": [
+        {
+          "operation": "closed-rejected-provisional-pidfd",
+          "identity": {
+            "pid": 3856284,
+            "ppid": 3856282,
+            "uid": 1000,
+            "starttime": 125007951,
+            "session": 3856282,
+            "cmdline": ""
+          },
+          "pidfd": 7
+        }
+      ],
+      "signalEvents": [
+        {
+          "operation": "signal-owned-identity",
+          "pid": 3856282,
+          "starttime": 125007949,
+          "signal": 9,
+          "reason": "SAFETY_FALLBACK_ALWAYS_FAIL",
+          "pidfd": 6
+        },
+        {
+          "operation": "signal-owned-identity",
+          "pid": 3856276,
+          "starttime": 125007917,
+          "signal": 9,
+          "reason": "SAFETY_FALLBACK_ALWAYS_FAIL",
+          "pidfd": 5
+        },
+        {
+          "operation": "signal-owned-identity",
+          "pid": 3856276,
+          "starttime": 125007917,
+          "signal": 9,
+          "reason": "RETAINED_DIRECT_UNREAPED_HANDLE_SAFETY_ALWAYS_FAIL",
+          "pidfd": null
+        }
+      ],
+      "pidfdSignalEvents": 2,
+      "numericRetainedUnreapedHandleSignalEvents": 1,
+      "reapEvents": [
+        {
+          "operation": "reaped-owned",
+          "pid": 3856276,
+          "starttime": 125007917,
+          "status": -9
+        },
+        {
+          "operation": "reaped-owned",
+          "pid": 3856282,
+          "starttime": 125007949,
+          "status": 9
+        },
+        {
+          "operation": "original-identity-absent-after-parent-reap",
+          "pid": 3856284,
+          "starttime": 125007951
+        },
+        {
+          "operation": "original-identity-absent-after-parent-reap",
+          "pid": 3856285,
+          "starttime": 125007951
+        }
+      ],
+      "noPostReapSignalRecorded": true,
+      "rawPrefixes": {
+        "runner-stderr.bin": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-refusal/runner-stderr.bin",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "runner-stdout.bin": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-refusal/runner-stdout.bin",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr.bin": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-refusal/stderr.bin",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout.bin": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-refusal/stdout.bin",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "trace.bin": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-refusal/trace.bin",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "observerCapturePresent": false,
+      "runnerEventsPresent": false,
+      "allReadyPresent": false
+    }
+  ],
+  "pidfdProvider": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/pidfd-provider.json",
+    "bytes": 2489,
+    "sha256": "69426068143bf3d74488fc6e16eb0f1f5dd1696b025d1fd53b89db47dee9b0d8"
+  },
+  "pidfdBinding": {
+    "provider": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/pidfd-provider.json",
+      "bytes": 2489,
+      "sha256": "69426068143bf3d74488fc6e16eb0f1f5dd1696b025d1fd53b89db47dee9b0d8"
+    },
+    "library": {
+      "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      "bytes": 2129424,
+      "sha256": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf"
+    },
+    "glibcVersion": "2.39",
+    "hostContext": {
+      "uid": 1000,
+      "gid": 1000,
+      "uidMap": "         0          0 4294967295\n",
+      "gidMap": "         0          0 4294967295\n",
+      "userNamespace": "user:[4026531837]",
+      "mountNamespace": "mnt:[4026531832]"
+    },
+    "architecture": "x86_64",
+    "pointerBits": 64,
+    "loadedMapping": [
+      "/usr/lib/x86_64-linux-gnu/libc.so.6"
+    ],
+    "useErrno": true,
+    "openSignature": [
+      "c_int",
+      "c_uint",
+      "returns_c_int"
+    ],
+    "sendSignature": [
+      "c_int",
+      "c_int",
+      "NULL_c_void_p",
+      "c_uint",
+      "returns_c_int"
+    ],
+    "actualPidfdCallsAtBinding": {
+      "open": 0,
+      "send": 0
+    }
+  },
+  "pidfdProviderAfter": {
+    "provider": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/pidfd-provider.json",
+      "bytes": 2489,
+      "sha256": "69426068143bf3d74488fc6e16eb0f1f5dd1696b025d1fd53b89db47dee9b0d8"
+    },
+    "library": {
+      "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      "bytes": 2129424,
+      "sha256": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf"
+    },
+    "hostContext": {
+      "uid": 1000,
+      "gid": 1000,
+      "uidMap": "         0          0 4294967295\n",
+      "gidMap": "         0          0 4294967295\n",
+      "userNamespace": "user:[4026531837]",
+      "mountNamespace": "mnt:[4026531832]"
+    },
+    "calls": {
+      "open": 9,
+      "send": 2
+    }
+  },
+  "pidfdLibraryAfter": {
+    "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+    "bytes": 2129424,
+    "sha256": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf"
+  },
+  "pidfdCallAttempts": {
+    "open": 9,
+    "send": 2
+  },
+  "firstFailedStage": "POST_OPEN_IDENTITY_READ",
+  "actualDifferingFieldNames": null,
+  "actualDifferingFieldsStatus": "NOT_COMPARABLE_AFTER_NOT_COLLECTED",
+  "actualFirstAfterStatus": "NOT_COLLECTED_ORIGINAL_PROC_READ_FILENOTFOUND",
+  "knownObservation": "Census BEFORE identity3856284/start125007951/UID1000/PPID3856282/SID3856282/emptycmdline; pidfd7 returned then closed, subsequent /proc identity read failed. No AFTER/fdinfo/UID-predicate value was collected.",
+  "cause": "UNKNOWN; no inferred UID change/PIDreuse/exec/strace purpose or bug.",
+  "beforeAfter": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/real-seven-outer-r1/postflight.json",
+    "bytes": 601708,
+    "sha256": "d6d2a431b5c189dda9322e8fa1089281f681905c61658b9d0be8070800d6b7a5"
+  },
+  "input1077ByteStatModeUnchanged": true,
+  "source172Unchanged": true,
+  "source449Unchanged": true,
+  "history245Unchanged": true,
+  "outerStdoutBytes": 0,
+  "outerStderrBytes": 0,
+  "noIndependentPIDProbe": true,
+  "processAbsenceScope": "Existing guard own census/reap receipts; no independent post-exit HOST PID probe.",
+  "limits": [
+    "Only natural-zero received source-qualified fixture disposition, pending independent raw result review; no historical-terminal branch was exercised if its proof count is0.",
+    "Natural-refusal failed before READY and used safety fallback; missing capture journal means no complete capture/EOF/privacy qualification. All prefixes remain.",
+    "Later cleanup PIDFD_OPEN ProcessLookupError is secondary; preserve first FileNotFoundError and missing AFTER. No new probe filled it.",
+    "Five mandatory cases NOT EXECUTED. Fallback does not qualify EXITKILL/whole containment. No retry, source/tolerance change, Node/LOCAL/Android or canonical PASS."
+  ],
+  "disposition": "FAIL_HOLD_NO_CONTAINMENT_ACCEPTANCE",
+  "canonicalPass": false,
+  "independentReview": "PENDING",
+  "ownAcceptance": false
+}

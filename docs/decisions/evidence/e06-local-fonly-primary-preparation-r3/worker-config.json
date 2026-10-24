@@ -1,0 +1,2406 @@
+{
+  "sourcePrerequisites": {
+    "positivePair": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-pair-r1/acceptance.json",
+      "bytes": 9782,
+      "sha256": "fc0841714c8f53246cc19daa24625a5353bdf59da13fa5fbd1161e82636834c0"
+    },
+    "acceptedPlan": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-plan-r1/acceptance.json",
+      "bytes": 2174,
+      "sha256": "35eabe86ff16e4b33bf2a73d0cf859f5dee7b22099981f7ec16ba8ce6e5fb23d"
+    },
+    "r5Materialization": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/fixture-materialization-acceptance-r5.json",
+      "bytes": 1595,
+      "sha256": "11ae5a7d69e7b3c99a6262e50e7aa4824b9ca54fdf0e465adce79bc435e52afc"
+    },
+    "r5Input": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/fixture-input-acceptance-r5.json",
+      "bytes": 2524,
+      "sha256": "a80d6272492f395f36d8afea0d3283a07e406eecfc6243fd4eaeea3fef85ceae"
+    },
+    "relayComponent": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-relay-metadata-preparation-r1/retry-r2/runtime-acceptance.json",
+      "bytes": 4892,
+      "sha256": "c6d7d695167d915ce9a7413ebff5b8100b726d4ab75fc90d672a5a4c39c8cf68"
+    },
+    "recoveryComponent": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-recovery-barecall-source-r1/runtime-acceptance.json",
+      "bytes": 9982,
+      "sha256": "d2f8872f5688e57d1dfe1333933b3a7202aaaf24f71e846e8c4470e36752a7ef"
+    },
+    "candidateE02Policy": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/transport-sub-evidence-prerequisite-v1.md",
+      "bytes": 3073,
+      "sha256": "0ed885e41d3cbb2d38af33cdd060e5ad5bea3327d0ce2a4306c123c170a15a25"
+    },
+    "sourceRelevantE01": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e01-completion-and-next-action.json",
+      "bytes": 14812,
+      "sha256": "52619ef1137a78937f0ab079655e05ac11c7b07d45f5bade6439eed72c7899c5"
+    },
+    "sourceRelevantE05": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/results/E05.json",
+      "bytes": 8854,
+      "sha256": "a82dc68bf538cbb026d99b78374b8349dc06fa1547d8b3b44e8591262ae872a3"
+    },
+    "currentCarrierGate": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e04_prerequisite_gate_v1/prerequisite_gate.py",
+      "bytes": 30015,
+      "sha256": "fe23d255352863ca2872028116dbac506e85b766d3455972ff775da3773c6f9f"
+    },
+    "currentCarrierRelease": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e04-gate-qualification-r2/runtime-release.json",
+      "bytes": 3560,
+      "sha256": "4dc61f0dc054a5f70a9d42578cd19ad711cf30a21dd14d83884f7be560ced04c"
+    }
+  },
+  "acceptedPlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-qualification-plan-r2/acceptance.json",
+    "bytes": 3596,
+    "sha256": "fb29a25955ae9178f7dd9e781c448a1486fbd7267beb02443c78421e1deb0f93"
+  },
+  "acceptedInertFreeze": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-freeze-r2/acceptance.json",
+    "bytes": 3561,
+    "sha256": "e5cd4e5d51055ee4c2feede53c6cd3e7c83ac51e74d3eafb6cb5514c5d156ffb"
+  },
+  "workerSchema": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/worker-schemas.json",
+    "bytes": 101686,
+    "sha256": "f6578bba812f4859e853c34c95ce1f4dad6f2363af6bf6b899b4d5684fbe74f5"
+  },
+  "qualificationSchema": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/qualification-schemas.json",
+    "bytes": 133680,
+    "sha256": "dcbbbd2c9b84d5cd477718896f287f8abc6f6574e148a04421bc3a9043157a2b"
+  },
+  "environment": {
+    "PATH": "/usr/bin:/bin",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "TZ": "UTC",
+    "WS_NO_BUFFER_UTIL": "1",
+    "WS_NO_UTF_8_VALIDATE": "1"
+  },
+  "scope": {
+    "enabled": true,
+    "role": "incoming",
+    "expectedLocal": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
+    "expectedPeer": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+    "expectedContext": "3333333333333333333333333333333333333333333333333333333333333333",
+    "allowedOrigin": "https://files.invalid:18443"
+  },
+  "fFixture": {
+    "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.incoming.wire",
+    "bytes": 2897,
+    "sha256": "06a372bca1fadd8f028203289cda89bca49b9d43a89e2b31c1ba3d69228b0bb3"
+  },
+  "tools": {
+    "node": {
+      "path": "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+      "bytes": 121613584,
+      "sha256": "ccacb2d6d87ba6d118b2bffc1ae33747a05cc5fc6b1f1ec4fc1d420b687e952d"
+    },
+    "python": {
+      "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "bytes": 32959480,
+      "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+    },
+    "nativeRust": {
+      "path": "/tmp/nbdp-e06-build-tv5zqp4j/target/debug/nbdp-experiment-rust",
+      "bytes": 26400472,
+      "sha256": "55205961550c66467be356b13adeafaf43599ca6f59f2db5ebf1de9293c3045d"
+    },
+    "jsMetadata": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_invoice_file_v1/js/metadata.mjs",
+      "bytes": 16205,
+      "sha256": "c9f0cd7055a98e2edcfcc32efc9be99e499077dc6d131472cb4c179b8c4c348c"
+    }
+  },
+  "inputInventory": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-qualification-plan-r2/inputs.json",
+    "bytes": 14050,
+    "sha256": "3db5af42a29c70e6f0bb8e62268c56e782e16da62043dd260add82d38753e5c0"
+  },
+  "request": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/request.jsonl",
+    "bytes": 6276,
+    "sha256": "dc586e609758fb6656c76ab5698985b9620d91e1852c8abfb85b2aaf9da636b0"
+  },
+  "runId": "0f7c2a38d95b",
+  "runRole": "primary",
+  "executionSession": "/root",
+  "outputRoot": "/tmp/e6n-fonly-primary-0f7c2a38d95b",
+  "jobs": [
+    {
+      "jobId": "Q-JS",
+      "backend": "JS",
+      "output": "/tmp/e6n-fonly-primary-0f7c2a38d95b/Q-JS"
+    },
+    {
+      "jobId": "Q-RUST",
+      "backend": "RUST",
+      "output": "/tmp/e6n-fonly-primary-0f7c2a38d95b/Q-RUST"
+    }
+  ],
+  "schema": "n02316-local-qualification-worker-config-v1",
+  "sourceClosure": [
+    {
+      "path": "/etc/ld.so.cache",
+      "bytes": 102411,
+      "sha256": "5f7def01ce6182be0ab52ef5964a3f2e79bd81edd2989da7e72729c74bfef312"
+    },
+    {
+      "path": "/home/peterhorvath/.miniforge3/bin/openssl",
+      "bytes": 1256728,
+      "sha256": "e9176741010ed580643aca08ef1eb6a9541a24e139a154f4e4e16ef2340e1fac"
+    },
+    {
+      "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "bytes": 32959480,
+      "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+    },
+    {
+      "path": "/home/peterhorvath/.miniforge3/lib/libcrypto.so.3",
+      "bytes": 7194288,
+      "sha256": "6a8abfd3a311c28732535e0dfc7baa48fa4620b56f365c1eca87c953b128a5bd"
+    },
+    {
+      "path": "/home/peterhorvath/.miniforge3/lib/libssl.so.3",
+      "bytes": 1202288,
+      "sha256": "0e7fa1b795965bb7811e9da081444dc6762a969b7d4cc6aa545fd921749d40dc"
+    },
+    {
+      "path": "/home/peterhorvath/.miniforge3/lib/python3.13/contextvars.py",
+      "bytes": 129,
+      "sha256": "5ed260be8d1f4fe92261b7810b4bb1e8539c42093d7493f677d076e1a87f459a"
+    },
+    {
+      "path": "/home/peterhorvath/.miniforge3/lib/python3.13/lib-dynload/_contextvars.cpython-313-x86_64-linux-gnu.so",
+      "bytes": 27232,
+      "sha256": "e0593127a7b6e56926aad0cd753422a2556e18cac146a754cc1dc9f264fbbe6f"
+    },
+    {
+      "path": "/home/peterhorvath/.miniforge3/lib/python3.13/selectors.py",
+      "bytes": 19457,
+      "sha256": "4b8a60cfbb619d080f87dffe1578372e56e8c0ac826f043224a154cf7b77606d"
+    },
+    {
+      "path": "/home/peterhorvath/.miniforge3/lib/python3.13/signal.py",
+      "bytes": 2495,
+      "sha256": "0363c964c90ac0b3e515de5749205e6e6454051a1211058375d84d91eab6071a"
+    },
+    {
+      "path": "/home/peterhorvath/.miniforge3/lib/python3.13/stat.py",
+      "bytes": 6308,
+      "sha256": "07217986d9b2172b509dab3578d18ac05ba768b418e1f1e8c90e38a8f7c2b3c6"
+    },
+    {
+      "path": "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+      "bytes": 121613584,
+      "sha256": "ccacb2d6d87ba6d118b2bffc1ae33747a05cc5fc6b1f1ec4fc1d420b687e952d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e01-completion-and-next-action.json",
+      "bytes": 14812,
+      "sha256": "52619ef1137a78937f0ab079655e05ac11c7b07d45f5bade6439eed72c7899c5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e04-gate-qualification-r2/runtime-release.json",
+      "bytes": 3560,
+      "sha256": "4dc61f0dc054a5f70a9d42578cd19ad711cf30a21dd14d83884f7be560ced04c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/HEADER-API-ERRATUM.md",
+      "bytes": 2858,
+      "sha256": "55870c892ee7779a73564320a998275636ae6ae9f14b7a58c3afda331d153420"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/SOURCE-PLAN.md",
+      "bytes": 14795,
+      "sha256": "188ea399eeafa5b2714be81556c26723e55437469f07c62991ff68a8d527c4d4"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/certificate-materialization-acceptance-r2.json",
+      "bytes": 2025,
+      "sha256": "0ad36e1bbc15212d529a7957312695d26306d09647201f37a5afd7e4f40c74de"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-code-seams-explorer-r1.md",
+      "bytes": 3031,
+      "sha256": "da35bc6dbad50d6ac611e923848fe4f59bf0ddf1bb2ce3a6b8a86cdea9cc7c8d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-control-bootstrap-r4/acceptance.json",
+      "bytes": 2042,
+      "sha256": "3b1f4e776f579d312f24482d8e663693ee5fb08c65f524fa09377c0e0026067b"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-execution-r3/primary-manifest.json",
+      "bytes": 79719,
+      "sha256": "71d58aa857ffaf09568100d3750e5dd6b6aed21767b055ce44b1373773640748"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-execution-r3/qa-manifest.json",
+      "bytes": 79709,
+      "sha256": "0d6081d7ec3eb0fbcf505e8ec8c72668f68792549150ac28a3000578755b7381"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-freeze-r2/acceptance.json",
+      "bytes": 3561,
+      "sha256": "e5cd4e5d51055ee4c2feede53c6cd3e7c83ac51e74d3eafb6cb5514c5d156ffb"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-freeze-r2/source-data-closure.json",
+      "bytes": 2753,
+      "sha256": "a081c1cdd4cd4182620635c8cc8e82879708a0b2d3ca02b2433f637612a8ce22"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/JS.expected.json",
+      "bytes": 1477,
+      "sha256": "70d6b37cefa44a237a4ba94cdff6745db57222dc79bdbced0979e64c360f363d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/RUST.expected.json",
+      "bytes": 1499,
+      "sha256": "2c3812c2097bdbb7db69dfc1575a0400f64ef67c47ecc2de46177cc8acfdac3a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/acceptance.json",
+      "bytes": 1835,
+      "sha256": "1b5eb2342cee4fe8b0f9be7d63ba349dbea332fac46ab7b67e4962603bbf047f"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/derivation.json",
+      "bytes": 2672,
+      "sha256": "1a52ba219b7dd9eb4d757a8612230ab7ddaded357cb9a4bd9d8899f216a49ec8"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/independent-qa-review.json",
+      "bytes": 1803,
+      "sha256": "455904a631d22acc7b376ce08ee5c7fbe95dd94a9fc55374457ed864cf019772"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/independent-security-review.json",
+      "bytes": 1824,
+      "sha256": "c96ff6d7e0c14efda9997a39e5ba3647b5bfea20eaa9dc2df6734ad5ac347771"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/request.jsonl",
+      "bytes": 6276,
+      "sha256": "dc586e609758fb6656c76ab5698985b9620d91e1852c8abfb85b2aaf9da636b0"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/static-checks.json",
+      "bytes": 10047,
+      "sha256": "3700671fca4597f8310fe1d31cba03ea1f5faf013ad14bb138eaa6fd89749de7"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-qualification-plan-r2/PLAN.md",
+      "bytes": 8020,
+      "sha256": "0b02495751f770ea1a9f9eeccb685dc0553e2b6e7219f4ff6b4eca2ef7354183"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-qualification-plan-r2/acceptance.json",
+      "bytes": 3596,
+      "sha256": "fb29a25955ae9178f7dd9e781c448a1486fbd7267beb02443c78421e1deb0f93"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-qualification-plan-r2/independent-qa-review.json",
+      "bytes": 1857,
+      "sha256": "e8927fc00c0ddce0c6efdb7ccf21ce36dc905f9c5e38cb8b717ff9fa3570f093"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-qualification-plan-r2/independent-security-review.json",
+      "bytes": 1889,
+      "sha256": "ee66abd772088a655d7757858daac478e7151d0694764486ca198233748e2e52"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-qualification-plan-r2/inputs.json",
+      "bytes": 14050,
+      "sha256": "3db5af42a29c70e6f0bb8e62268c56e782e16da62043dd260add82d38753e5c0"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-qualification-plan-r2/plan-data-closure.json",
+      "bytes": 628,
+      "sha256": "f8ea3997d48d3a0d21d693e74fda75e246f42214b4cf9919d75635119029a3f0"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-qualification-plan-r2/static-checks.json",
+      "bytes": 25664,
+      "sha256": "8443bc77573771b823b52004d865e9f9c04617ba9a8b7f0127b24bd05c59dbd9"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-plan-r1/acceptance.json",
+      "bytes": 2174,
+      "sha256": "35eabe86ff16e4b33bf2a73d0cf859f5dee7b22099981f7ec16ba8ce6e5fb23d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-plan-r1/proposal.md",
+      "bytes": 20087,
+      "sha256": "af2e928556c4f4a73c86a9e0074fed5c5ab8cf29d1d4bf8ff05057813210babd"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-pair-r1/acceptance.json",
+      "bytes": 9782,
+      "sha256": "fc0841714c8f53246cc19daa24625a5353bdf59da13fa5fbd1161e82636834c0"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-pair-r1/comparison.json",
+      "bytes": 26512,
+      "sha256": "5ee60498f55eda55443e02a6a5d3d41d569ccbdd6543672205d3a69d3848fd2f"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-readiness-architect-r3.md",
+      "bytes": 8210,
+      "sha256": "58ddafb6df402ccb2f6058268478ee0383e5bed7288b1ab0145cf2fbac150bd3"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-streamed-evidence-source-r1/source-approval.json",
+      "bytes": 76467,
+      "sha256": "a6fd8e9f3681db37ca0cde0df08accd9d8b784cfa95087579363ef2ec0fff216"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-streamed-evidence-source-r1/source-closure.json",
+      "bytes": 84475,
+      "sha256": "8401512404a7571961044f6e5b14fe652f3f764fcac49270b54a75dd328824b7"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/fixture-input-acceptance-r5.json",
+      "bytes": 2524,
+      "sha256": "a80d6272492f395f36d8afea0d3283a07e406eecfc6243fd4eaeea3fef85ceae"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/fixture-materialization-acceptance-r5.json",
+      "bytes": 1595,
+      "sha256": "11ae5a7d69e7b3c99a6262e50e7aa4824b9ca54fdf0e465adce79bc435e52afc"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/node22-api-research.json",
+      "bytes": 7537,
+      "sha256": "d2dab989f51be6be8da4572815e4acae81324be345df2c9b61ea03744d3f0da9"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/qa-composition-readiness-review-r3.json",
+      "bytes": 2045,
+      "sha256": "af97f8d297c93d2054afb359be7baff8dfb46e58649b2b34043900f0074c6d55"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/qa-negative-interface-freeze-review-r2.json",
+      "bytes": 12593,
+      "sha256": "a0be83bb88749e81547fd40f233e68b801287aacc314bf5408a4fe65bbff39e1"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/runtime-acceptance.json",
+      "bytes": 6437,
+      "sha256": "298f9cf45c6880484f49a3372bb6cc0bcca66d869782842e307c6314f95be9c3"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/security-composition-readiness-review-r1.json",
+      "bytes": 3176,
+      "sha256": "39e80b38567345a12faf707badabd20053a4f63a2738c5c725f1d95fc72081fd"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/security-composition-readiness-review-r3.json",
+      "bytes": 999,
+      "sha256": "bacbc6486a1ac971afa7b715b9029556769560bfeb4a8b1589643697c284bbf9"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/security-negative-interface-freeze-review-r2.json",
+      "bytes": 9943,
+      "sha256": "92ac5e8122f9a84d897cc08ce2133a2989868e923e0dd69f6ab1382ebfc30839"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/source-acceptance-v7.json",
+      "bytes": 2530,
+      "sha256": "1b0b8f9d613ce85b466e235df36d31f7f92ed95a67f60bd3a9dd48611c8d7681"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/source-implementation-release.json",
+      "bytes": 3114,
+      "sha256": "f2b87e9cf1349413971a205a0ef13f061048f9467045001f44aa2c576fb7f3d6"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/tls-certificate-recipe-research.json",
+      "bytes": 14307,
+      "sha256": "c998e4f23935b342d97d2276c791421a64e7d3c69fe063c06ba4b233c79b52de"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/tls-current-source-reviews-v3.json",
+      "bytes": 9942,
+      "sha256": "1e3f1d55e0f88930ace26b2e8ff0a9b079518813b88dc6926a437e6f8b63f37d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-metadata-evaluation-r1/metadata-acceptance.json",
+      "bytes": 10436,
+      "sha256": "0683644f3cd6fd4e7f844019649c204449b8d8267acf65dbb31c3437e4adb0b5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-metadata-materialization-r3/primary/artifacts/000.archive.wire",
+      "bytes": 3921,
+      "sha256": "b5ffe1ca732d851d024667718e60cc4dce15d34dfc4f1ff8a7d503d0326200f6"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-metadata-materialization-r3/primary/artifacts/000.incoming.wire",
+      "bytes": 3921,
+      "sha256": "9a7c53306aca263d8fcf9da83f2a09725d2198c223c54b201efa967319045283"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-metadata-materialization-r3/primary/artifacts/000.json",
+      "bytes": 10082,
+      "sha256": "ca54582cc8a315615bea807d934389812a902d2df2bda135614e703037fe7f4d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-metadata-materialization-r3/primary/artifacts/006.archive.wire",
+      "bytes": 3921,
+      "sha256": "b7fc5f6dcbebf55283b5eb4b7b58e58ae91ea33d9f0677b30c2d1c097925d075"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-metadata-materialization-r3/primary/artifacts/006.incoming.wire",
+      "bytes": 3921,
+      "sha256": "badde9e5f7595a60898fe9522cd327fe1b98b91c4f819720d767634e06c88fd9"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-metadata-materialization-r3/primary/artifacts/006.json",
+      "bytes": 10119,
+      "sha256": "417e5510bda4de4574adf29d3d0a31bc408ab8f85ca8146666e5d1c5592dd01c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-metadata-materialization-r3/primary/proofs.json",
+      "bytes": 740469,
+      "sha256": "cf7e9455e15a2dddd46785ca702e72dd779ced3941de0e14a596dc8da576af49"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-original-recovery-source-v1/browser-profile.json",
+      "bytes": 44495,
+      "sha256": "4867f163982c63878f78fdae9f3022ed3529bdd8f9637a5c417003bb6592d81d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-recovery-barecall-source-r1/runtime-acceptance.json",
+      "bytes": 9982,
+      "sha256": "d2f8872f5688e57d1dfe1333933b3a7202aaaf24f71e846e8c4470e36752a7ef"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-recovery-fixtures-r1/fixture-acceptance.json",
+      "bytes": 2721,
+      "sha256": "f3202c795d8964bdd23f746a37d4a5946ef80fd09a9bb47de415ded928ce24e3"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-recovery-fixtures-r1/primary/snapshots/02.bin",
+      "bytes": 20,
+      "sha256": "aba67e462b0ef41729c3bb31f1f50b98c4ae2245f20e9f1adb312174d18952c5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-relay-metadata-preparation-r1/retry-r2/runtime-acceptance.json",
+      "bytes": 4892,
+      "sha256": "c6d7d695167d915ce9a7413ebff5b8100b726d4ab75fc90d672a5a4c39c8cf68"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-source-description-v1/source-lineage-completion-and-next-action.json",
+      "bytes": 9097,
+      "sha256": "b66dee528ff05a9d7993e77bf87afdf99a116dbcffba93fde82ee7be09a992c6"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/relay-close-v1-completion-and-next-action.json",
+      "bytes": 13241,
+      "sha256": "33bf874c9c5080bcec762a83fec5002930bce1eab7b7d7a1a37e260a36fbf58e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/relay_lab_close_v1.py",
+      "bytes": 24262,
+      "sha256": "5a8b5abcf837085bd119ccf370c9a9b0f0496586acd264a69dc72c4504ed1db3"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/relay_wire_worker.mjs",
+      "bytes": 9879,
+      "sha256": "a52e1aa713010f2cc260d0888eb94e83e8144052d738fe5c61d38ed764e7c05e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/transport-sub-evidence-prerequisite-v1.md",
+      "bytes": 3073,
+      "sha256": "0ed885e41d3cbb2d38af33cdd060e5ad5bea3327d0ce2a4306c123c170a15a25"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/research/required-experiments.md",
+      "bytes": 57615,
+      "sha256": "96731d33162ff4c4f2569f5a8688bb0a3416be42e74b758ca4a9136f71d24925"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/README.md",
+      "bytes": 4996,
+      "sha256": "0d00ac17929309077f4c74ce9ed836e13150319e01a810d159b5c8e6f566dc28"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/docker/rs-relay.toml",
+      "bytes": 192,
+      "sha256": "6775940c6258e2714a2a60793584ae549a50111154c743045a87d679af9a0b02"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/docker/strfry.conf",
+      "bytes": 7022,
+      "sha256": "002d1bb656522dd3e6739ea20e82829fd96bfdefb389f0517eab9367c0bdf2e2"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/@noble/ciphers/_arx.js",
+      "bytes": 9728,
+      "sha256": "2fc64a1d8379549ab64a9dabdd18032175df71fb638da643dc060bbf339c12f4"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/@noble/ciphers/_poly1305.js",
+      "bytes": 12035,
+      "sha256": "1a01e558e8cbd5bcff144416c05fe1b870d12535185aa35dda7d287f1da036f1"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/@noble/ciphers/chacha.js",
+      "bytes": 14213,
+      "sha256": "66d7c7d6dd9187a96f52aa2054534bac02a076b2e6e397e8e8fa8f2c17b74870"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/@noble/ciphers/package.json",
+      "bytes": 2170,
+      "sha256": "f30139134b7f4465b1ea0e82c5ba97c56e4db0125e176f3e73455478b43bbb09"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/@noble/ciphers/utils.js",
+      "bytes": 13458,
+      "sha256": "e6b93ca8d3f07568c3f1eceb1c6cb6b0ba7bbce0641958116c7b0d115ff0fa34"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/@noble/curves/abstract/curve.js",
+      "bytes": 18375,
+      "sha256": "0af8761099681b25c9c91353195c94f24e043a4f793d1653c9e12394126f9eec"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/@noble/curves/abstract/hash-to-curve.js",
+      "bytes": 8460,
+      "sha256": "9066601336e86c06f6efce142105a72da775ff9337334e731154078ec92659c0"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/@noble/curves/abstract/modular.js",
+      "bytes": 21210,
+      "sha256": "5c9526d20d2fb88eea54ca77bf869ec7b7bdde154682289dc345e41ec3c2950c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/@noble/curves/abstract/weierstrass.js",
+      "bytes": 52556,
+      "sha256": "4c6daff9db5674cf9fba182c5581404afbe7792b17d4525b9351c445433eaece"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/@noble/curves/package.json",
+      "bytes": 2938,
+      "sha256": "588b510f1b8804bdf820acbd14065126286d92575c45811acef08fe480899469"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/@noble/curves/secp256k1.js",
+      "bytes": 11885,
+      "sha256": "1e68950f5c26c9b6b380d1389b6acd2c1d6166c1c375c29beef84f143e6b0f6a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/@noble/curves/utils.js",
+      "bytes": 8404,
+      "sha256": "cb31bbe5c4f6ce19593b64aa32fb9f559f3c02cfbb49885beda18deffa7bd4e8"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/@noble/hashes/_md.js",
+      "bytes": 5615,
+      "sha256": "a112f0fe1b15db00f2638618c436a17be1c5e13baf19d02fcc29016ae1db2233"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/@noble/hashes/_u64.js",
+      "bytes": 3081,
+      "sha256": "e48c0cfc10810439a4807b46db136ce603a3fa09b62584f513ef2f3ca496af54"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/@noble/hashes/hkdf.js",
+      "bytes": 3538,
+      "sha256": "adee07d4415fddbc58179acb43bb3b759204dc1253ff7090c957e9fa74607269"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/@noble/hashes/hmac.js",
+      "bytes": 2992,
+      "sha256": "b834a4e7ffecb7847fd87ebd792f7fdd13003d448acee5e8d97a6b77b8620797"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/@noble/hashes/package.json",
+      "bytes": 2799,
+      "sha256": "ceb30ba96a14786c419db53f2b8d3d59ece7ac5221c198ac03def462cf96ef23"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/@noble/hashes/sha2.js",
+      "bytes": 16773,
+      "sha256": "3ddc587c588283cbceed4dd9929cefcce06a0c231b54d4c6f0f99c478c686c00"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/@noble/hashes/utils.js",
+      "bytes": 9356,
+      "sha256": "11319ec0a8132a0c2ced8c98af33ae9274c001d6baf4f4709c4a6115e031a3c5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/@scure/base/index.js",
+      "bytes": 24445,
+      "sha256": "7ade170fdb1b949d44cf9ed58ebb62539a2f0be4f16a3eb0da68f39fcc3179c7"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/@scure/base/package.json",
+      "bytes": 1487,
+      "sha256": "93cb3a28e1f34a5399aed7c4ba8ba337acd28b01420c34e6daa9bc35a24f34af"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/nostr-tools/lib/esm/nip59.js",
+      "bytes": 11140,
+      "sha256": "7d8b622cdbad82ce52c58a0ed639b5d39c4535478859ce855914a10a4d79f800"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/nostr-tools/lib/esm/pure.js",
+      "bytes": 3326,
+      "sha256": "7e39410bf0b1105eeb90ce9653040e7a6f31db65cef457de24f9aa3c344c013d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/nostr-tools/package.json",
+      "bytes": 9460,
+      "sha256": "59d9610cd5df7d98fe6e203ce0c6bfd28b43abf87c84c095606dc55f4542dfa1"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/LICENSE",
+      "bytes": 11601,
+      "sha256": "45873d00a0dd243596deb4aa23b2493b3d1f0671921bf2538ea431d7380220eb"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/NOTICE",
+      "bytes": 254,
+      "sha256": "6d602191187b35b9b01d2cffa01c8469c2c8d9de8a96f1bf868e0f264f51c81d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/README.md",
+      "bytes": 120,
+      "sha256": "d16ff7f8e38fa1fc954f695ad551cdc118d9c9bdd5f3d83203901f4c317d7d7e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/ThirdPartyNotices.txt",
+      "bytes": 676,
+      "sha256": "a549d329bad8806fe279f0ecae0fc0270dec7e7c2dc8ec10f90e394f7c32b144"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/bin/install_media_pack.ps1",
+      "bytes": 174,
+      "sha256": "bc20f049badf021e3a53bdb4156603caa5ef482c9a9a251f927605e676a44171"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/bin/install_webkit_wsl.ps1",
+      "bytes": 1464,
+      "sha256": "bc61beda37a808eef27d39ce684baa792f6d17737a25a432b1a84d3b591ab815"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/bin/reinstall_chrome_beta_linux.sh",
+      "bytes": 1214,
+      "sha256": "1516fd36def44bfcf87855850322a54e3b26e863a82fbdf2a44a5f5134f7eedf"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/bin/reinstall_chrome_beta_mac.sh",
+      "bytes": 560,
+      "sha256": "42d0572860dcecb094d409b879e469292c58a7645085357156453a6299315770"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/bin/reinstall_chrome_beta_win.ps1",
+      "bytes": 957,
+      "sha256": "b6d9e44742feafb98d5edc56fa20042949973cf30d141a1c5b4fb384096967c5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/bin/reinstall_chrome_stable_linux.sh",
+      "bytes": 1209,
+      "sha256": "8b578baa16f286f17d6a29cc8998a7a16f2635b7fb018f9473d5c498e0be450f"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/bin/reinstall_chrome_stable_mac.sh",
+      "bytes": 516,
+      "sha256": "8532b8ff7600f208aada15584978fa91baffb0d4bb77bd30332ec827de501d72"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/bin/reinstall_chrome_stable_win.ps1",
+      "bytes": 923,
+      "sha256": "3d96c4e2f4ebbb3fad44cf3ba58d9cf90af1c9fb3073e3b27d45a74cf005515b"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/bin/reinstall_msedge_beta_linux.sh",
+      "bytes": 1491,
+      "sha256": "50a5fb48211ce0dc524e17e18547f40e863c1732555ca288cbc69cd6cb55ae2a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/bin/reinstall_msedge_beta_mac.sh",
+      "bytes": 374,
+      "sha256": "a280a4d02c2c908a6a523b781dd953bcf438689ceb4723133255b0d11955b124"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/bin/reinstall_msedge_beta_win.ps1",
+      "bytes": 874,
+      "sha256": "b173c378a59f0cc38033cee702de1f44f09276c9b2270d1a650ebe66ee312433"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/bin/reinstall_msedge_dev_linux.sh",
+      "bytes": 1486,
+      "sha256": "38e74c2ac8a403c512590d11d20742773d338d8b68b02022b209a9d8a6e03d7c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/bin/reinstall_msedge_dev_mac.sh",
+      "bytes": 369,
+      "sha256": "48d96b6d58b4a1a42e116545b523f4efd25edac1f3fa323a97eb596fa3bb654a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/bin/reinstall_msedge_dev_win.ps1",
+      "bytes": 869,
+      "sha256": "46f7f98c81cb0abe687d7f4a5afea9b897a38d2a6dd6f6662fbd847f7a22bd51"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/bin/reinstall_msedge_stable_linux.sh",
+      "bytes": 1504,
+      "sha256": "db2fb3492a689ee5472ec159fef6a5efb7a62f1f513339350813c9d1334ba8d2"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/bin/reinstall_msedge_stable_mac.sh",
+      "bytes": 368,
+      "sha256": "e176bc37da1a3e5b5cde36b941ed6134f7d5ee784587d034140cf40c53456b27"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/bin/reinstall_msedge_stable_win.ps1",
+      "bytes": 856,
+      "sha256": "40bb5fcbfcebbbe2ce43c6e736e7c5deefc5be03b6e9c6914423c06ec1f591be"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/browsers.json",
+      "bytes": 1941,
+      "sha256": "af53e32ffe35a024ddb34563700956b01ada00ac7e9270ba5df0604ec57e38e1"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/cli.js",
+      "bytes": 839,
+      "sha256": "f1c4075aef116c766092250d7f37b3249a7cee6465d953207fc38c8f6145becd"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/index.d.ts",
+      "bytes": 634,
+      "sha256": "7a8ec10b0834eb7183e4bfcd929838ac77583828e343211bb73676d1e47f6f01"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/index.js",
+      "bytes": 1117,
+      "sha256": "dca9d1e7d21c43390b59d79d55df309cf5d195edc668c35862bb4db67e116fc0"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/index.mjs",
+      "bytes": 1063,
+      "sha256": "3d36e2132d3c8b62397d23f0bb4177336aaee503203ae2a2c90fbeb5bf3317dd"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/bootstrap.js",
+      "bytes": 3100,
+      "sha256": "0e3cc200f6e99557e953b6caace213e652750d1da0e800b92ed94f459a33ef59"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/coreBundle.js",
+      "bytes": 3206963,
+      "sha256": "f74353fcb8e406756a70a6af0dfc4a5069acd577e35ec9d923ccf36ac009c2f5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/entry/cliDaemon.js",
+      "bytes": 197,
+      "sha256": "062f256fb29a7bf91793a014b9c3f1f9cf2dc6b12e40a8a2ebba88a630ae16a0"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/entry/dashboardApp.js",
+      "bytes": 108,
+      "sha256": "209962c6eaeef11629f226d6a2ab33ec7a2480754242b6e19590a9e6eb71d126"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/entry/mcp.js",
+      "bytes": 442,
+      "sha256": "cc87dc0020cb41caebbf04f50e42bc7835b033a6d80e9c3f0a3d0b3dbdf341c7"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/entry/oopBrowserDownload.js",
+      "bytes": 120,
+      "sha256": "87567cdbd67dd2f50bb232d47d3784701ece7c81e39c0287bb7d1b466b68cf06"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/package.js",
+      "bytes": 2112,
+      "sha256": "9f938e1d44a0dd231b1660ca62f7dae964859b79cbdc370b8542c5d375ca3c05"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/server/chromium/appIcon.png",
+      "bytes": 16565,
+      "sha256": "6ba994f05c5cf18e22d9b6bef9898fbdec6ad4d4d77f5187d0609cb42d72d01e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/server/deviceDescriptorsSource.json",
+      "bytes": 54181,
+      "sha256": "933d568bfa2d50de5805ce52f55a33509c66c8b8b7aa2c07a82d5475c39fe851"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/server/electron/loader.js",
+      "bytes": 4821,
+      "sha256": "8c99c632a9fcef9d691160954d01acdf374ba15566e153bef7fb61b0d3796e6d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/serverRegistry.js",
+      "bytes": 247054,
+      "sha256": "b7173eb632bdbf34a6aa137b55e50fbdc95acda4851480423afe6caa86cc48b7"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/serverRegistry.js.LICENSE",
+      "bytes": 18617,
+      "sha256": "5cf540fe55a2ba9bcf0eb76e739b454faa8581e2f1a0f777602ef0855534302e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/cli-client/channelSessions.js",
+      "bytes": 7087,
+      "sha256": "6b9c613e87340f48ad7182addd7495a8ff3fbe55feb1bbd0ce04f59f1552e126"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/cli-client/cli.js",
+      "bytes": 153,
+      "sha256": "dfde8e9dfde30c4b3914eb25ba1c5a8524ec64651d866171d75cd7b41a827180"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/cli-client/help.json",
+      "bytes": 35416,
+      "sha256": "baf768247fc0cfaa6d1122c6437d957ddfa9cb05ce30effaeb9f4e8d68383b69"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/cli-client/minimist.js",
+      "bytes": 4106,
+      "sha256": "1d200627373a367e0097f1abeaaa4d67cde2c33f2e5efca5cb55222c7667adc3"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/cli-client/output.js",
+      "bytes": 11685,
+      "sha256": "b10abeea2ea7455577314dd16a71c70c9024af3df9e604094b0ae18675adf73c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/cli-client/program.js",
+      "bytes": 15020,
+      "sha256": "0aa50a2f2c2a2b2b12c6b08baa2ed358aa748ac713966b9982e585dcb9e19d3f"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/cli-client/registry.js",
+      "bytes": 6670,
+      "sha256": "2fc4761b10cb2587bf8bb8b861d083ee212833084045d4e2121955873557386a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/cli-client/session.js",
+      "bytes": 9948,
+      "sha256": "3d132cf57ed1db9b228e6218ecebb36910147c24cf6613a86ea138cf2c682f97"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/cli-client/skill/SKILL.md",
+      "bytes": 11263,
+      "sha256": "75143af12b0201983322b9ddfca7aaee32d4ee8e03189f8d2a23aba1d6295c23"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/cli-client/skill/references/element-attributes.md",
+      "bytes": 665,
+      "sha256": "bf19aa4671e0a50a0fefa9c790f39124e803060eefe395042b723c29fcb7faa2"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/cli-client/skill/references/playwright-tests.md",
+      "bytes": 1690,
+      "sha256": "c5b0719fef2cfdff50bd744051b2f9afc119775db4b48e9b2882c1cf3886797c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/cli-client/skill/references/request-mocking.md",
+      "bytes": 2182,
+      "sha256": "54e801c9663fc2b6d68ceb058cb1c360724c2499f42acc7852a68e83e5b5f37c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/cli-client/skill/references/running-code.md",
+      "bytes": 5642,
+      "sha256": "d95c539a5990b71d02d8bdf1d9414df16191eb6cff95b0063820518b7a13dcb2"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/cli-client/skill/references/session-management.md",
+      "bytes": 5671,
+      "sha256": "cd3e261b8763bf952f1e371b876cb78d054379afec85482f9250633e1b7e6c44"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/cli-client/skill/references/spec-driven-testing.md",
+      "bytes": 11578,
+      "sha256": "48cfac3c178c24c75c19f0c59bab8ee05fd50c110b9916446992ffd4b17a7d1e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/cli-client/skill/references/storage-state.md",
+      "bytes": 5198,
+      "sha256": "1122778c9b13b44bddebb4476a7f99d918afd31757be8b4fade3cb09c3d48c99"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/cli-client/skill/references/test-generation.md",
+      "bytes": 4585,
+      "sha256": "2a9c4d94effa31b05cf367dfa8bbace8874a3bc9799987ad2b03269af224d299"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/cli-client/skill/references/tracing.md",
+      "bytes": 3440,
+      "sha256": "792e0ac7705e56ac48df84c0f5400221ce86107897c671590a64a4ea6a82508e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/cli-client/skill/references/video-recording.md",
+      "bytes": 5385,
+      "sha256": "0cea7708999aa663701917615889a84cbc05200718bb161de9a5366a826c2b4d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/dashboard/appIcon.png",
+      "bytes": 18945,
+      "sha256": "38037bcf18c7f9b950da2e1a2d8800d38fb27637ccda293d38368a3704b67f18"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/trace/SKILL.md",
+      "bytes": 4712,
+      "sha256": "df85506bfa8a445c961efa1ac244cca733667b717711bcc99c1f93994c29d5dc"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/utils/extension.js",
+      "bytes": 3132,
+      "sha256": "c07d365ccff8c7fab3d65848bc01616c74e422f3be7b1c0e7b587b84ef866ada"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/tools/utils/socketConnection.js",
+      "bytes": 3317,
+      "sha256": "973c2bea70a1f1445f4673f99e9fa351e50a2ec9fd93d7381b2c41bb4de764dd"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/utilsBundle.js",
+      "bytes": 3093405,
+      "sha256": "5c42363c10d2f2f5bc91e07feaa9fa5f417a1a55e6559448d0c20d66f73db9e0"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/utilsBundle.js.LICENSE",
+      "bytes": 107836,
+      "sha256": "8807264f1ac7f9950a93bf134d5ba28ebd52371fdfda54c75e87d10fdf13aa6e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/dashboard/assets/codicon-DCmgc-ay.ttf",
+      "bytes": 80340,
+      "sha256": "0f1d5219934e96e83b8db162d60b4d8c09b5de1e7d38031cbafe4a3c0f2889c9"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/dashboard/assets/firefox-1bWoP6pv.svg",
+      "bytes": 7488,
+      "sha256": "3f3742d1e78c0db6c2d3531250f70c30675ee5310de32fa89befaf738c54efd0"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/dashboard/assets/firefox-beta-k3eOH_eK.svg",
+      "bytes": 9280,
+      "sha256": "7eab5ffdc25903ba33a7202f7fffa1999f119c7be45a39e9e703c118904f917a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/dashboard/assets/firefox-nightly-Cp5nfeDT.svg",
+      "bytes": 9143,
+      "sha256": "f311c074b0fa999fcd6b73441301fb54ee87a48ff3bf05f318647928110476da"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/dashboard/assets/index-BY2S1tHT.css",
+      "bytes": 142433,
+      "sha256": "4e741ba6be0fb15305f6dfd907e245e68554f6dbd5282a58dcc1e9d2493eb917"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/dashboard/assets/index-DpEq2p62.js",
+      "bytes": 331408,
+      "sha256": "120037d62d91187eb3a2ac4e4534742c32a04b10f15ac938e06fcf5f261a659f"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/dashboard/assets/safari-na3_-uQk.svg",
+      "bytes": 5254,
+      "sha256": "80fd72ca5eb8545f1981277b31f4f92951d469d4efebd078e4086b676fe517dc"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/dashboard/index.html",
+      "bytes": 1078,
+      "sha256": "0f3061205ab98917439bbc7a4bc06e75a201d04e6c89f4b0ff9da5961010d5ca"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/dashboard/playwright-logo.svg",
+      "bytes": 5645,
+      "sha256": "511524a1c145819303a18fb71870a4307c3e740f9e9722f7686a2b42b0995b6c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/htmlReport/index.html",
+      "bytes": 464,
+      "sha256": "ce7c098020a0eb9ce10edd416245ea6da50dfeaab18dfd0a2176979d22643be6"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/htmlReport/report.css",
+      "bytes": 108330,
+      "sha256": "3298f11062d5112516c8b3fa2368c6138b4700aa9fa215bb5fc0a1f0efe94e3f"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/htmlReport/report.js",
+      "bytes": 415587,
+      "sha256": "d354496707a505d2d5d58f67ad4216cdf681233b47f2e028dbfdd1e197126792"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/recorder/assets/codeMirrorModule-BHYmBp6h.js",
+      "bytes": 313009,
+      "sha256": "954a850a323b8c35d071a149aee3504ef8ed4f3989e42debc3fe93a782f55288"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/recorder/assets/codeMirrorModule-DYBRYzYX.css",
+      "bytes": 6421,
+      "sha256": "70bf421a13e87857ca684bfa2cc55f06d7c5a50f71253a3ff1d74769b14a957e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/recorder/assets/codicon-DCmgc-ay.ttf",
+      "bytes": 80340,
+      "sha256": "0f1d5219934e96e83b8db162d60b4d8c09b5de1e7d38031cbafe4a3c0f2889c9"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/recorder/assets/index-4ZiSSCmn.css",
+      "bytes": 92234,
+      "sha256": "4278e600a533667369328e9eb52a212693d52e46072ec37228e0ef8621a48ead"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/recorder/assets/index-DA10QRaq.js",
+      "bytes": 364880,
+      "sha256": "184fed3d752d1764bd26b9e8ccf735ce109cd69b3ed62c2f403e6865662bab10"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/recorder/index.html",
+      "bytes": 1078,
+      "sha256": "6e87705cd06a9347ab8f623acd675ef38dae96886b2db3f656d87c2e6cef4828"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/recorder/playwright-logo.svg",
+      "bytes": 5033,
+      "sha256": "6b0a4367bdeab10995bc239278f04c68c10e48adbec15e799e01909a0d66dcb9"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/traceViewer/assets/codeMirrorModule-Ds_H_9Yq.js",
+      "bytes": 313054,
+      "sha256": "97273402dd9c1dbe012459a05a57d5f81fcf900828c7db1e8a33d2d1b8f73e17"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/traceViewer/assets/defaultSettingsView-D31xz8zv.js",
+      "bytes": 649133,
+      "sha256": "89918f149a8f31f3f0931be88224ce73991c11b328aaf96f6c8553af243d36f1"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/traceViewer/assets/urlMatch-BYQrIQwR.js",
+      "bytes": 819,
+      "sha256": "168c4dee4815ea8d3c131a504033cd23d4b15aefa0209dd10ad3f643e8f1d8a7"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/traceViewer/assets/xtermModule-CsJ4vdCR.js",
+      "bytes": 292244,
+      "sha256": "4aa82b0448cef1cf951bbe0ac80bf2d2b7c5d279dd74bcc798a9e563e98e5295"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/traceViewer/codeMirrorModule.DYBRYzYX.css",
+      "bytes": 6421,
+      "sha256": "70bf421a13e87857ca684bfa2cc55f06d7c5a50f71253a3ff1d74769b14a957e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/traceViewer/codicon.DCmgc-ay.ttf",
+      "bytes": 80340,
+      "sha256": "0f1d5219934e96e83b8db162d60b4d8c09b5de1e7d38031cbafe4a3c0f2889c9"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/traceViewer/defaultSettingsView.BDKsFU3c.css",
+      "bytes": 110856,
+      "sha256": "0a7ab260fedb13141b5635b80704878e37adba89198a16d43b83972e981ca648"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/traceViewer/index.BCnMPevh.js",
+      "bytes": 6591,
+      "sha256": "b7b21f6a648db1af9b77717e1be7bbf0ecb09e0e23e596c815b7b84661de4b87"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/traceViewer/index.CzXZzn5A.css",
+      "bytes": 2111,
+      "sha256": "4ec2a3d49db259ce9025cb4fa48d73b1afd58215e567eef3b4a4cbf76c1674d9"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/traceViewer/index.html",
+      "bytes": 2363,
+      "sha256": "86a5792cff2ecf975e580491d8593e322104711946efd765edd250039a2e2f3d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/traceViewer/manifest.webmanifest",
+      "bytes": 429,
+      "sha256": "d8540500603a32a39fe7e5a0375dc0f9ebafd11118e06a846db7efc608223ab9"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/traceViewer/playwright-logo.svg",
+      "bytes": 5033,
+      "sha256": "6b0a4367bdeab10995bc239278f04c68c10e48adbec15e799e01909a0d66dcb9"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/traceViewer/snapshot.html",
+      "bytes": 389,
+      "sha256": "11c80efe4f4424fa59004bcc71fed77a420d2da5f199790e355c30a5b965d0cd"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/traceViewer/snapshot.v8KI4P3m.js",
+      "bytes": 660,
+      "sha256": "97a3cd6d67aaac66efc838d7d743ac51bbf7d272e1287981c11758fca21a0657"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/traceViewer/sw.bundle.js",
+      "bytes": 95469,
+      "sha256": "eb666dd23c07d2305f216af443a83ee71e06433e0d5b9da2927a9fee18aa2ab9"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/traceViewer/uiMode.Btcz36p_.css",
+      "bytes": 60239,
+      "sha256": "bfe8330cc78eeb1b1c4d8983aab7068d725526e407903ee19e515996250cb221"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/traceViewer/uiMode.C2Efnu2P.js",
+      "bytes": 38201,
+      "sha256": "fcde5934289592310ce4db673b29df510adcdbc0c028264e0c8d3605ec253ee8"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/traceViewer/uiMode.html",
+      "bytes": 727,
+      "sha256": "5f17cd4e1ddcf1915c15487b7b4e6a4a812ca6fd79ecedea97ef0dd2900dd635"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/vite/traceViewer/xtermModule.DYP7pi_n.css",
+      "bytes": 4150,
+      "sha256": "7c5a01f382f76539fc9b4db6b18e18a7035741845fd14968c5cdc0a7e373d817"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/lib/xdg-open",
+      "bytes": 25778,
+      "sha256": "2e79a4d5171dd384d20a75b023dfe0e9f4330cdb5d441f6c3859a11fce3db51a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/package.json",
+      "bytes": 876,
+      "sha256": "6f7b58cc55449321279f11ca97d4e451c391738b77db32cdbcedf02851e3f097"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/types/protocol.d.ts",
+      "bytes": 812393,
+      "sha256": "681cf9768031b874fafdd81a20e8a20ca6c92a5cbf12e86532a69182e315b065"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/types/structs.d.ts",
+      "bytes": 2103,
+      "sha256": "32727845ab5bd8a9ef3e4844c567c09f6d418fcf0f90d381c00652a6f23e7f6e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright-core/types/types.d.ts",
+      "bytes": 1013672,
+      "sha256": "e5b810845dedef5aa0d682efa61be20dcb2e28c27a64ff5cc4cfc122f3f3980f"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/LICENSE",
+      "bytes": 11601,
+      "sha256": "45873d00a0dd243596deb4aa23b2493b3d1f0671921bf2538ea431d7380220eb"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/NOTICE",
+      "bytes": 254,
+      "sha256": "6d602191187b35b9b01d2cffa01c8469c2c8d9de8a96f1bf868e0f264f51c81d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/README.md",
+      "bytes": 11270,
+      "sha256": "55d307acd3f163579065fc431c27c821e99f2a3571d55c7197c3dc0a7e4f9d22"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/ThirdPartyNotices.txt",
+      "bytes": 705,
+      "sha256": "b17ac0bd6f4b8207e440639cc8e0ba1bf1d9eaf9b12236764ab93b346c7abd8e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/cli.js",
+      "bytes": 698,
+      "sha256": "5e79302a6aad7d835d92d5ae6b4244c91cf61b28e94d7917279090e6c231f7a1"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/index.d.ts",
+      "bytes": 636,
+      "sha256": "b07f64ff6ec710998a62b07377fbda0ab4c313ba1f0055bfe9faa22cffedd47c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/index.js",
+      "bytes": 648,
+      "sha256": "4e98f65f0a9d9bcab8cffc0c5cfdd87fd3f5b0be74fc494ff166a466b204cd44"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/index.mjs",
+      "bytes": 704,
+      "sha256": "a0f5715ea22354f922791a9c53dc012d5d5c067ff9cc4cd35ffb7cd272071a9f"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/jsx-runtime.js",
+      "bytes": 942,
+      "sha256": "2fefb7ec3a42dcf1cea35ca7e3eb107507c4d80821b1d6abf6cfc9bca36498f0"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/jsx-runtime.mjs",
+      "bytes": 764,
+      "sha256": "a6ae8df3a36f154f433b01fe1592170500f5fbe7798f6dacdfea5b492f31d1a6"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/agents/agentParser.js",
+      "bytes": 3475,
+      "sha256": "a2f630c1c2c9eafa0a3ca9cdbeaa26e74801615bc572e3fce226acb662ceb0eb"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/agents/copilot-setup-steps.yml",
+      "bytes": 646,
+      "sha256": "57f0fa74a9cc9e5abdf46846167d6e7d5a5aa274399cb5896616530db7b85da1"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/agents/generateAgents.js",
+      "bytes": 14441,
+      "sha256": "7567b9de3e8ffae0068a8e8a0c94c160124b3b1ea995cc470911151b58c2be99"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/agents/playwright-test-coverage.prompt.md",
+      "bytes": 1294,
+      "sha256": "8e8a32e98c7069c8af29a088a91999c81dafbeb09a144b143ebe888b48b94355"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/agents/playwright-test-generate.prompt.md",
+      "bytes": 175,
+      "sha256": "6031c3eacf1e55d527a0397066b64d134d9f925fd7286bcc78646e714611da10"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/agents/playwright-test-generator.agent.md",
+      "bytes": 3336,
+      "sha256": "0a61b313ff2573198fc89c7ab5b7e7db1c557193a470104ac90b2d6a0332be80"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/agents/playwright-test-heal.prompt.md",
+      "bytes": 105,
+      "sha256": "19f2bea9648ddac89b90b40a3f87b50c276d416677f8bb2fbcdac894cdb6946b"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/agents/playwright-test-healer.agent.md",
+      "bytes": 2891,
+      "sha256": "b3e1d85219df5ead7e3ef0dc69959b0263cc16e885f71d5b64bafdf97e6f9215"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/agents/playwright-test-plan.prompt.md",
+      "bytes": 196,
+      "sha256": "6ce2c51b356b4e89ac1e3c2b8b3ff0a390c7b518c1d4d24f019f9eb179cd6669"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/agents/playwright-test-planner.agent.md",
+      "bytes": 2808,
+      "sha256": "bf4baa68205aa04c4512a80bcc6a5362d3aaa76ae9165f05a9d5a29e1d34c0fd"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/cli/reportActions.js",
+      "bytes": 3562,
+      "sha256": "1ea9e8660db28045b853a54c24493b08029e148d9a0ee6e88027e409b497e3f1"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/cli/testActions.js",
+      "bytes": 9295,
+      "sha256": "b1fc25798995a3a0bce45e5da7f1158c076b807099dc35fdbb559acb75623b95"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/common/index.js",
+      "bytes": 113886,
+      "sha256": "3d90db5e5823c18827bce6bb5e05531511d6e0a31efe8c0188eeb07900539cfe"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/common/index.js.txt",
+      "bytes": 1427,
+      "sha256": "c3afc9fe68a167516650e298aa21673719c168c75aab38dddec121142ee5b748"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/errorContext.js",
+      "bytes": 4619,
+      "sha256": "7fdc8216d80ba10c5edea9617463da2e76ba56d966a14a963176952415d03871"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/globals.js",
+      "bytes": 1935,
+      "sha256": "f5922eb1fb6051900157492eb9c218e62d07378eed135bca4b2f173ed1184d1c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/index.js",
+      "bytes": 34490,
+      "sha256": "36faa53b7c6fa8f76788f2bcfa21d72edc22e5f528c45328b71d07e215d79a32"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/isomorphic.js",
+      "bytes": 8191,
+      "sha256": "3d61508f951aa9518adb4bf6594d61dfd1099c95a1a4f0af809a58ccebc59025"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/isomorphic.js.txt",
+      "bytes": 267,
+      "sha256": "36c16ae5721dfe8ac2555e84d26b5895b7ca113e7304bd3735a16d56b5a71b3c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/loader/loaderProcessEntry.js",
+      "bytes": 1256,
+      "sha256": "aca731ba223e3beee379877d5829f3b5a1f85241462b835cb77555c8a78dee5e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/loader/loaderProcessEntry.js.txt",
+      "bytes": 234,
+      "sha256": "0fc4ad550d17a23e9f1cbc78f646e57461f4feb22253dd5220034ef44091005c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/matchers/expect.js",
+      "bytes": 526071,
+      "sha256": "10b9442388bd9cfaae64e3f76c74081548687ab89e7d1f1ea20c93de6bd02358"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/matchers/expect.js.LICENSE",
+      "bytes": 39215,
+      "sha256": "4de4f5013cf10f5e438eb155af434c36083395e7c2c52d0385b4a7cbab71391e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/matchers/expect.js.txt",
+      "bytes": 3903,
+      "sha256": "307538a15caea16fecb5cea48bf24a625e02718aba077010b3fb1ff389d7b4ef"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/mcp/test/browserBackend.js",
+      "bytes": 4889,
+      "sha256": "7143473e53c8b76720e42efab95f55227807590d2818104223d5df6ac46b681e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/mcp/test/generatorTools.js",
+      "bytes": 5427,
+      "sha256": "3c53feaeb9fc2ff728f334cb31f9b7211e65b20c692c7585459c3c97bdd13a12"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/mcp/test/plannerTools.js",
+      "bytes": 6379,
+      "sha256": "715abc888d9ea30b532b75c6f09aa34101ab15c1eeb959c50cf9dedcf3a459ac"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/mcp/test/seed.js",
+      "bytes": 3239,
+      "sha256": "f36f7fb76d4ed33225e80be208cccc9757d363a9d1527cf560736c0f1e5edd31"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/mcp/test/streams.js",
+      "bytes": 1577,
+      "sha256": "8affc240a6a90ee2dbdedcde9927018efe426ec0d390bcd1ee4f0464e75adc0f"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/mcp/test/testBackend.js",
+      "bytes": 4067,
+      "sha256": "dcd8d09366617f13213ce544efb5fe47df5a87258ae93545d4d0738623f43ad1"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/mcp/test/testContext.js",
+      "bytes": 11540,
+      "sha256": "5aee6d6a147dab40a5606b6d0c39e5e0642e307ea60c32b303c71042e7e44922"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/mcp/test/testTool.js",
+      "bytes": 1104,
+      "sha256": "2a8f17d0a61ccb8a4ca9c52a3255d624deca989c0b06281d579629c664f8cc8e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/mcp/test/testTools.js",
+      "bytes": 3714,
+      "sha256": "14710b5f34246005d974762b83a2a50e5cc17130af841cd3bc447811d69c6af7"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/package.js",
+      "bytes": 2013,
+      "sha256": "544a18417ea51dd4c8a9f3dbc4e2b47e46c80f452e0cd23d55e9b3680bc6241e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/program.js",
+      "bytes": 12979,
+      "sha256": "32ce0bd8236a62a298d37e78a61e5e45245f4285bc41a3d15fa8b1a30c55a73a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/runner/index.js",
+      "bytes": 295497,
+      "sha256": "c7cb914ada6fcd32be125522c7524aad3359e521090b7020259f9862be70b87f"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/runner/index.js.txt",
+      "bytes": 2857,
+      "sha256": "46d3fb2ce23c0eda94df7243d70adf23eaabd1b4698439b99fb0919bed446c31"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/transform/babelBundle.js",
+      "bytes": 2789601,
+      "sha256": "9201df11ae9c9ee1febd587c5013c4f862aa7e9981b92b86ccbbbd37e71f9124"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/transform/babelBundle.js.LICENSE",
+      "bytes": 121614,
+      "sha256": "676fa240edb9d844720e8e42e61be5457a4ced8dae0c6e63efb4b85e95d2d276"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/transform/babelBundle.js.txt",
+      "bytes": 21706,
+      "sha256": "4f8cd1987142f0cac537e30835b45c6fc18953451d74aa3bd9d82729fd0fdf1d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/transform/esmLoader.js",
+      "bytes": 250901,
+      "sha256": "4e08f072635ccd32497256c28fd92663ca89e585ee93335f32d4cbc02d68b0c3"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/transform/esmLoader.js.LICENSE",
+      "bytes": 17875,
+      "sha256": "1e61a7d29900da9ab323e85c2b89066e5d899a95b94f33aedc5f11d02d3da31a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/transform/esmLoader.js.txt",
+      "bytes": 2375,
+      "sha256": "d5cce5c3f956171982e1007068dd4e87785b10605dbf59c44a8f878227dfb7bf"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/util.js",
+      "bytes": 15242,
+      "sha256": "f7734786062157d60ed0388f1f9fcf3507d811327fb3b287576dfdfd9670f083"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/worker/workerProcessEntry.js",
+      "bytes": 126385,
+      "sha256": "0f7b9c0a004787e0bef22a95ea38a4fa9d8879d4be52d8fad07795eddb93cc51"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/lib/worker/workerProcessEntry.js.txt",
+      "bytes": 916,
+      "sha256": "b3b745644e1bb46c14e7d4621fda12edb8ec7bb9746a3bc465e62113cdc97bd4"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/package.json",
+      "bytes": 1559,
+      "sha256": "8be9edc5642a8c761b677e7af8b9937f36c0443a91e14765877716d70034e5bf"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/test.d.ts",
+      "bytes": 673,
+      "sha256": "3f00324f263189b385c3a9383b1f4dae6237697bcf0801f96aa35c340512d79c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/test.js",
+      "bytes": 806,
+      "sha256": "b97fa53a6ab864f51c9c48b5e4647d0acae45ba2948c5d78e38bfeb56755d974"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/test.mjs",
+      "bytes": 1400,
+      "sha256": "1deb265617d0e87b6d05bf8b3d5bf73cd4b788665c249c609a01b94ceff2eea1"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/types/test.d.ts",
+      "bytes": 371716,
+      "sha256": "f02650de64b96593c1eb736f28a6a0a773c51662d8525b06cc735d77fa9c7af8"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/playwright/types/testReporter.d.ts",
+      "bytes": 28107,
+      "sha256": "a724fe8a5f72bc65ca93f5d2c2d9f49d9be93074ca4c011e71c5fdd0094da619"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/ws/lib/buffer-util.js",
+      "bytes": 3056,
+      "sha256": "8b0a45739132f82e25ea13163780abf547ccfe989267f3eb7abb475beec92da3"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/ws/lib/constants.js",
+      "bytes": 479,
+      "sha256": "7efe5c0b888e4fde8bd9076c65b81bfd0df0963810b977d890df126929bb9190"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/ws/lib/event-target.js",
+      "bytes": 7321,
+      "sha256": "c45d3c6e12d170c860c0c3f1a050aa0f864d9806632b609a1e607d675aba128c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/ws/lib/extension.js",
+      "bytes": 6183,
+      "sha256": "852564f0f6b460287043803eae732666fb5610f676874354fc89f06aa4e986ed"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/ws/lib/limiter.js",
+      "bytes": 1034,
+      "sha256": "e0469d4b83f6ba764b15f80e1766b75c136fbff68f048f4c050f0b1c7f065f69"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/ws/lib/permessage-deflate.js",
+      "bytes": 14510,
+      "sha256": "adcedcb3069b7c6db3fd6cec93699ef70bd4061126b987dd9a8f7cb16d2b7530"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/ws/lib/receiver.js",
+      "bytes": 16460,
+      "sha256": "7b9f6afc1fffb5c98d768d7d3d6fc1b709f28b45c6ae2682ff255075394323d9"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/ws/lib/sender.js",
+      "bytes": 16711,
+      "sha256": "a80e8688dde53d46d836a58c9d15121ee12e978b7b0f656ed818c63d20df5f94"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/ws/lib/stream.js",
+      "bytes": 4204,
+      "sha256": "a56fcb6e2b152097ee820b6f5410b1f71e59819b45d08d9f8bda588fe39070ec"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/ws/lib/subprotocol.js",
+      "bytes": 1498,
+      "sha256": "be3f6323d6f549568577dcba9004c1479d95c65a7abb0fe0c582875b9fac0b7c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/ws/lib/validation.js",
+      "bytes": 3903,
+      "sha256": "41ce8e83d0d434132e1704895fedb91f6703a701b42d91c80954ab29b2845593"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/ws/lib/websocket-server.js",
+      "bytes": 16393,
+      "sha256": "fe8a410e89325608dc94d09778a2650bf041b9b7f5dff61d5005ea111e09a508"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/ws/lib/websocket.js",
+      "bytes": 36463,
+      "sha256": "ea50fd045185975e0e572637cd96fa065a7e988a1d1c890d18002c75a8a253b9"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/ws/package.json",
+      "bytes": 1723,
+      "sha256": "aaedef2a72b60db8fb36d9b46c48d44986051785a2b6450c62994603c85dd959"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/ws/wrapper.mjs",
+      "bytes": 341,
+      "sha256": "e37bddaf6d40a3b2ee107906f792cc5117e543cba776fa25f7aeeb3908637f7c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/package-lock.json",
+      "bytes": 6095,
+      "sha256": "9c8d77e625a0d061b8c5d10de043980f523699d2f1c630e748351af5d98005b5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/package.json",
+      "bytes": 249,
+      "sha256": "229e43f88fa8cbfbb3680dd405726997d7e2a611df106373f7751fdae49e55b4"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e04_prerequisite_gate_v1/prerequisite_gate.py",
+      "bytes": 30015,
+      "sha256": "fe23d255352863ca2872028116dbac506e85b766d3455972ff775da3773c6f9f"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_https_acquisition_v1/SOURCE.md",
+      "bytes": 25530,
+      "sha256": "52f30623b3873f2ba9807ccc48931d8c73fe27cdd4d9c9d42f224bdc8cd144f4"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_https_acquisition_v1/acquisition.mjs",
+      "bytes": 32924,
+      "sha256": "b1bea19d784a74bbe3cae87d6ae22aba97db3bdc3b50de3638ea496a335a3fdc"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_https_acquisition_v1/admission.py",
+      "bytes": 19408,
+      "sha256": "c789cf5a5230a8d30b200f0f7de2dd69edc1bea51f4d05466969242da87fb49d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_https_acquisition_v1/consumer.mjs",
+      "bytes": 19426,
+      "sha256": "39e9f24c81faddad0fd99491a370c3c467c6884ab6647d2c0290122cc0068472"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_https_acquisition_v1/contract.json",
+      "bytes": 109589,
+      "sha256": "b7f291a033e4930ed86126cd8b0fe90204614f97e94e66d4716e3be3b7e7b9b8"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_https_acquisition_v1/controls.py",
+      "bytes": 10668,
+      "sha256": "b1aed459c717ed0eda422111e2d3dd65382e26bacb087f6ac8e71541b7f3b761"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_https_acquisition_v1/fixture-recipes.json",
+      "bytes": 10451,
+      "sha256": "1b2dba9a0e6a573e5f0afba3eac63d0fc85d4a2d359062138b86f93968ed1afe"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_https_acquisition_v1/prepare.mjs",
+      "bytes": 12001,
+      "sha256": "bd3f196c47df472ebd97895200bdc35ff15f2d3a5989e829a1e227643add91f0"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_https_acquisition_v1/prepare.py",
+      "bytes": 1029,
+      "sha256": "2074e84b9d13cd3a7bd3c33b7cc7fb06ff83881ddf929f93a19cef591442bc4c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_https_acquisition_v1/profile.json",
+      "bytes": 2721,
+      "sha256": "58f715679ddffbee67fd81847e6fec66868c2fb0648774fb96d4355ea9f7bdd5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_https_acquisition_v1/protocol.mjs",
+      "bytes": 31074,
+      "sha256": "c4523b8a0c549fe0510cb8fa86be14c32f5e7fc412a4aece07d5c4831c3fd1ed"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_https_acquisition_v1/run.py",
+      "bytes": 13726,
+      "sha256": "4f6457eb559a2f0483b55b9746d211d31052690375388fc238f00b25d86f186b"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_https_tls_fixture_v1/SOURCE.md",
+      "bytes": 13237,
+      "sha256": "5132041d5935e8c46136f30e2f61da50fa6f4ab6a8fc36c0f5517b29fc69a43d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_https_tls_fixture_v1/capture.py",
+      "bytes": 9979,
+      "sha256": "c101bfe069efc024c785415d87d6146f99a62502ab63b2cf11b72c290b82df0c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_https_tls_fixture_v1/leaf-extensions.cnf",
+      "bytes": 478,
+      "sha256": "ec9c31fa7fef815eba7192707f0b493c8a8de52a23447273b987a5ccd4168514"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_https_tls_fixture_v1/openssl.cnf",
+      "bytes": 372,
+      "sha256": "9490626fbdd659bf268931ceea9f57792d34cf83c0f50fdbc36e4955cb5c5374"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_https_tls_fixture_v1/prepare.py",
+      "bytes": 31044,
+      "sha256": "2ed0ffcbf74f7a0a563e04b10201a97b724eae6b731ce244c61c524d66507649"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_https_tls_fixture_v1/pure_controls.py",
+      "bytes": 9867,
+      "sha256": "5ae0b2b8883392b7f4a3705bf2753d5485a7369fcf7f9427ff76277919771e29"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_https_tls_fixture_v1/recipe.json",
+      "bytes": 11007,
+      "sha256": "2a9345545560ace65bfa6649a45b5dbcbbdc676cdc873439572e1208cc7044fa"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_invoice_file_v1/js/metadata.mjs",
+      "bytes": 16205,
+      "sha256": "c9f0cd7055a98e2edcfcc32efc9be99e499077dc6d131472cb4c179b8c4c348c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_invoice_file_v1/rust/src/baseline/main.rs",
+      "bytes": 25503,
+      "sha256": "01dd3a6a541a1ea92dc681d6d331a5501286fb375909b07803bdcfbeccc816fd"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_invoice_file_v1/rust/src/baseline/mod.rs",
+      "bytes": 26224,
+      "sha256": "8b05696a2229b8fb1b9439329b78a2cc26118935f5f4452e2f5ec869f02fbee2"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_invoice_file_v1/rust/src/main.rs",
+      "bytes": 17485,
+      "sha256": "9b1dd9cd07bf655793ed9b6b0b30eb751c593ee697258124f1be8aef641fbb96"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/BRIDGE.md",
+      "bytes": 10113,
+      "sha256": "03df5e47ba6a1acf9d47444b61999c6d854005dce92852dc72d2d984e939eac6"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/SOURCE.md",
+      "bytes": 9366,
+      "sha256": "fc2c8a6fecf374094c970088213765873f1f511804d812f86f8fb3266ffcaab5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/acquisition.mjs",
+      "bytes": 34651,
+      "sha256": "f71d747154bbfd4b9141f6a136c42e4dc081229fd23d278aea35ce155ddc6c5e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/admission.py",
+      "bytes": 26884,
+      "sha256": "1242661a310cc4e54f21846dbe19f5fdc556d9ff8c2c057942850fc152c966ab"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/bridge-schemas.json",
+      "bytes": 25275,
+      "sha256": "927c4536b32efaba37908a31f7e428a84fe333994ce84052610806322aaeb8c1"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/consumer.mjs",
+      "bytes": 19547,
+      "sha256": "82ba0a18bfda1de07f3dd559abbbe39a87252bb70e45df1fc25e5a6cae340784"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/contract.json",
+      "bytes": 21113,
+      "sha256": "c15e87802d199e049eb535b130b0db420cc869982deeb51911239ab803924bc3"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/control-scope.json",
+      "bytes": 11456,
+      "sha256": "49e6439be698a29e77c48e4217510cb92a808f3bb622c739495b6c6a4ee4c0b2"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/controls.py",
+      "bytes": 28149,
+      "sha256": "0c02d326c73cbb5dfc10107532ec9e943fe37fa8781e51b0f22fb4e604614cca"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/i4-oracle-rules.json",
+      "bytes": 9017,
+      "sha256": "1b410aae0f1d8457c18dfeaf2a2f05b01d956ee28ad82c548f1d16bacbd4a0d3"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/interfaces.md",
+      "bytes": 13134,
+      "sha256": "a4025f32f0f1c42280edc83a7efbcd0ed82f6592ffc95203ced07d204f2fcff9"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/metadata_loader.mjs",
+      "bytes": 5555,
+      "sha256": "776d1651fa23379f3ae8ef7f53d1a455fa462af5687b47f428a3ce8cb8a1b811"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/oracles.json",
+      "bytes": 94166,
+      "sha256": "c8c2830334342c771e959d94fc3b8e6e2d91d8139679a85c63819ce92df618e0"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/profile.json",
+      "bytes": 5749,
+      "sha256": "0b1f2ef54e2dc89c3555c30b48b815d999b84958877a5603d9cd27a52533346c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/protected-deltas.json",
+      "bytes": 7387,
+      "sha256": "c299b3b4078dd0c75a428d34c82ae92ca69903be67c98f0db563d9cb99adb2e9"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/protocol.mjs",
+      "bytes": 78090,
+      "sha256": "a1c5a88ef79202d3c60297018aa08fda04f324ff94db9bd05b1359dcfef8789e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/runner.py",
+      "bytes": 44700,
+      "sha256": "d779e8cd7bf3edabf86b89903fce06629f53bd95fa874fb208a71936ec770093"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/selection-map.json",
+      "bytes": 35919,
+      "sha256": "f523aee4be1e4b5fa5adc51723c414f859465517bf99f79f0e91d1e13a26c1d2"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/wire.mjs",
+      "bytes": 21148,
+      "sha256": "d731160a94fa5bd5c95a9ed20ff23ba3b4b91bb69e43e9e04022c499e114625d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/wire_controls.mjs",
+      "bytes": 6967,
+      "sha256": "039561235a2d660ada379a28512276e5dec428c910f18983bbdff18f01530b83"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/BRIDGE.md",
+      "bytes": 16984,
+      "sha256": "1f363f50d5e41413b05e4bb862e8eb53b7288ab8a205000287d69862af5049e7"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/IMPLEMENTATION.md",
+      "bytes": 20893,
+      "sha256": "033c5ca6cfbf2028cfcb8bf9e6df3c1ac146b86ca96e4f58d80f0ee4ef8bfa34"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/NATIVE_ORACLES.md",
+      "bytes": 18655,
+      "sha256": "69388bb061a87bd3bc938154556228fffc9157cca7bb32a67ad8d2e75c0d00a6"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/SOURCE.md",
+      "bytes": 5474,
+      "sha256": "ac2a85391e583a995950d248cf2af3c8bfefbda363c35e9a51139473885813cc"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/admission.py",
+      "bytes": 53263,
+      "sha256": "24d928e46fa538b139c0e8418eeae777d682a99173a8f1a03334374b1626ec9f"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/bridge-schemas.json",
+      "bytes": 158719,
+      "sha256": "89173066418eddd16f1d2a14ecee4b04470072385c1883aab48a01dd6e41281a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/case.mjs",
+      "bytes": 8429,
+      "sha256": "d0f524461e7daf94e0c20725e1002f64027a07d7a4855e1255aa57b3142d0fcf"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/checker.py",
+      "bytes": 19165,
+      "sha256": "4067405e0effd9497bf868c50c4fc0a1d53ffc6ef4ac4911a6c4673c744f10fa"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/contract.json",
+      "bytes": 22787,
+      "sha256": "5208c3bbfd1dea75577c90c0bdea49b9410ac4163e09ca5d09af8d7702196d13"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/controls.py",
+      "bytes": 9591,
+      "sha256": "9572676fe54f206201e29229b3b8f256a0d53f1fba8c654b7c21ff91c041e7be"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/interfaces.md",
+      "bytes": 14702,
+      "sha256": "c04ae8e852b096403c865a6daf22c45eed071dc5248035cea0954762da925af7"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/metadata_loader.mjs",
+      "bytes": 13125,
+      "sha256": "ff0e3b92b4b73f4edfdad68625c71088588dcb9f9573c097a95e7f11beaa9355"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/native-oracles.json",
+      "bytes": 27629,
+      "sha256": "12a508cc4060ad920ebcba0aeb0c23f5b7de7c311aaeec575cb4bf5f0ad28a2a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/oracles.json",
+      "bytes": 105615,
+      "sha256": "317047707f19f429791b2a3cec730550c18427bb58c25cfcaa0702edf290c0cd"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/profile.json",
+      "bytes": 4442,
+      "sha256": "c7167a764d562e6878b8ba35535c8938c4c04a836bd25cea1aeb396f9e8d9bae"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/protected-deltas.json",
+      "bytes": 12189,
+      "sha256": "70846060c58d5ff5f11ab930a9a0fcd2013a3f69e7c420a2e2bdd358aee24d99"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/protocol.mjs",
+      "bytes": 73552,
+      "sha256": "8ceb004085d7c86dd2a1cf7f0b8009975ad807c2172d8bd0c7b455b12a3cdceb"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/qualification-schemas.json",
+      "bytes": 133680,
+      "sha256": "dcbbbd2c9b84d5cd477718896f287f8abc6f6574e148a04421bc3a9043157a2b"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/qualification.py",
+      "bytes": 31089,
+      "sha256": "13e9ebf74caa8c473296b009ce66be1c5f02a469f7b2e90ca4cace20a0d175aa"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/runner.py",
+      "bytes": 27072,
+      "sha256": "7ea2ce4721fdc3e5d7f3b53c289d4f017937a5e66c49ae2a6a7ad4b7e5dde655"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/selection-map.json",
+      "bytes": 32883,
+      "sha256": "d66ec8cf79b9d572eb0268a307ed782047a9cb897a65de83b6b00f430fa6cf09"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/test_policy_marker.mjs",
+      "bytes": 4419,
+      "sha256": "c4e799d5dafb5ecc9782c2b45517ac9c065a042380c563bd4e9d216d974cf07b"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/wire.mjs",
+      "bytes": 23745,
+      "sha256": "15c68aeae44bf2e7bf6665342eb2e8fcac0d5ec5fa9a3332a533b1f3d8f9969a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/wire_controls.mjs",
+      "bytes": 6977,
+      "sha256": "e1f6dc49384865727787998839fe6e4813f5037641c7bda1b15ba616b096cf0d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/worker-schemas.json",
+      "bytes": 101686,
+      "sha256": "f6578bba812f4859e853c34c95ce1f4dad6f2363af6bf6b899b4d5684fbe74f5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_metadata_v1/admission.py",
+      "bytes": 12321,
+      "sha256": "a9f878595129f92292345361a7ca4fb8930d5e80c0f982ee4df49c1d3881da15"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_metadata_v1/controls.py",
+      "bytes": 7381,
+      "sha256": "0b0c5f49f5a7095f72a5963e36696462f666a387a9e907a5be928d2d28ddcc66"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_metadata_v1/metadata_loader.mjs",
+      "bytes": 4519,
+      "sha256": "1bc612fd13ac4bab86eecde207424eb9ce3feb96080704bb5d316f86a106da91"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_metadata_v1/runner.py",
+      "bytes": 20667,
+      "sha256": "41b72d5001938e8005d2b5efe8e7a83b8eb63138e1e01b095163afd1b94eb188"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_metadata_v1/selection.json",
+      "bytes": 387416,
+      "sha256": "8e67ab182f155a853a1a9c3f3149a0e31a5e582d018d7976777c786d7fe93c1f"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_metadata_v1/source-contract.json",
+      "bytes": 94332,
+      "sha256": "d7b1694bbe494cd0b14bc1f53cf424113c7de6a06725bda35a3ee8476cfdea17"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_metadata_v1/wire.mjs",
+      "bytes": 16043,
+      "sha256": "46b0a132db0b5dd7ffb062aa178ef940b66eff62571d2efcd2e0b4e7d4c14da7"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_metadata_v1/wire_controls.mjs",
+      "bytes": 5484,
+      "sha256": "4a7b700d2f3a0cef0aec45feb97d0196a01f5565c8fdcba045a3d390d78b5112"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_authenticated_carrier/cases.json",
+      "bytes": 181857,
+      "sha256": "479c9db322eaca8575e940b19e3f86bf7c04e670d571817bf08dac1dc1fb686f"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_authenticated_carrier/contract.json",
+      "bytes": 18925,
+      "sha256": "ed5f57df25c67efccb2e3ac9cc6171883a675a7ab18df3673b131ac5ca4104f8"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_authenticated_carrier/credit-note-controls.json",
+      "bytes": 23934,
+      "sha256": "ca0a909c163f897d8f33dde3c57324de80223294769baae48c6fdaba1280479e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_authenticated_carrier/js/NIP44-LICENSE",
+      "bytes": 1210,
+      "sha256": "f0510d3b9d1223c45e8fdd2b49270ec8734fff491c7f7d1b948ee70162e1ceff"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_authenticated_carrier/js/nip44-strict.mjs",
+      "bytes": 5422,
+      "sha256": "6d18eb4c2abd39610861d323ff82213557577429d4e70f018a0e7f7a31b26fb0"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_authenticated_carrier/js/rpc.mjs",
+      "bytes": 911,
+      "sha256": "198a361905e7a8d1e02e3ef7dcbf5bc1b81f05e3434562ed41357fab049558a3"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_authenticated_carrier/js/transport.mjs",
+      "bytes": 18462,
+      "sha256": "9627f3ea61996ee4f2e1336982c92569d638d1a42ca8e55c259e34cfde24b8cd"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_authenticated_carrier/rust/Cargo.lock",
+      "bytes": 25156,
+      "sha256": "f0fde33925f824f1d17699375b7842b2f8979da7e3ace918fd9364329e80f02f"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_authenticated_carrier/rust/Cargo.toml",
+      "bytes": 383,
+      "sha256": "d25aaac2a3db04bfd41179d646634a9c79d2a7654639779db03ea21d415494a4"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_authenticated_carrier/rust/rust-toolchain.toml",
+      "bytes": 51,
+      "sha256": "9cbde07377abdce69bc9580adb0315d52e2a09d6494a2005550a7e6733d9688b"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_authenticated_carrier/rust/src/codec.rs",
+      "bytes": 18034,
+      "sha256": "416f94fb412683c231c43ad14b9b426df2441329aa97908d22a0cb96aef68890"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_authenticated_carrier/rust/src/main.rs",
+      "bytes": 25503,
+      "sha256": "01dd3a6a541a1ea92dc681d6d331a5501286fb375909b07803bdcfbeccc816fd"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_authenticated_carrier/source-review-controls.json",
+      "bytes": 5478,
+      "sha256": "96a750a089dbc2b37b522bf5cfd3c50883f61e43b29fca3f98a8a52a5b460e30"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_message_codec/README.md",
+      "bytes": 4254,
+      "sha256": "dd905321836b527bb4ceb72a08a0c199b94a7a285c572b6df2dd9f409ccfee82"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_message_codec/cases.json",
+      "bytes": 1188290,
+      "sha256": "cd615c14377250ad971fb90f7430eebfa0a15ef8598c7f73a3807f28e4b5cfd6"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_message_codec/contract.json",
+      "bytes": 17190,
+      "sha256": "690b1be32f4eb9cbc6df4db522be95c59f168131e7f4b874058461fdf891bd8d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_message_codec/js/codec.mjs",
+      "bytes": 15892,
+      "sha256": "25ee12a8584623c359a51ec7e2902a60927ed67cfc6486f791979d14ea12b814"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_message_codec/rust/Cargo.lock",
+      "bytes": 2666,
+      "sha256": "cbbd1345899a91091ec072d0cad4705e6827cbb234ac6ec4f413ac74cf02aa90"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_message_codec/rust/Cargo.toml",
+      "bytes": 196,
+      "sha256": "170ce280f9e38d074e0f237e813c166a20760c9d8250f04f4cc17c5deba4763c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_message_codec/rust/src/main.rs",
+      "bytes": 17851,
+      "sha256": "936754f8ec6aaf86e095a711579ecb05591d741c14c33459c5b93580b59f6573"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_message_codec/source-review-controls.json",
+      "bytes": 7875,
+      "sha256": "84efadc06954034918b21ecdd26a3ddcceefad54edc20900d569ecea5e2f1c51"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/results/E01.json",
+      "bytes": 33546,
+      "sha256": "80a7a999b92e3beb91fd12fe78dd0d39c5e9b2bca3c1ba710545172ff1f83058"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/results/E02.json",
+      "bytes": 10435,
+      "sha256": "aa46222ca2556570a342d8fe3c574bd96b8c630b9ec0b814f9e4bd7525231508"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/results/E05.json",
+      "bytes": 8854,
+      "sha256": "a82dc68bf538cbb026d99b78374b8349dc06fa1547d8b3b44e8591262ae872a3"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/results/E06.json",
+      "bytes": 3507,
+      "sha256": "348c3eb912768a7593129a8236efcbaab95d291c9e3cd2eaf812f9a1628cc258"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/attachment-crypto.mjs",
+      "bytes": 4164,
+      "sha256": "e52aaa588b4ff6315bbc7ebc08b2d8786965687e18c6c9f56a75d4b08cc05f16"
+    },
+    {
+      "path": "/opt/google/chrome/chrome",
+      "bytes": 291155272,
+      "sha256": "e1029a026f724e75741ea433ee5269e9fbef9bce82adcfeff1f2359e85afdcdf"
+    },
+    {
+      "path": "/opt/google/chrome/chrome_100_percent.pak",
+      "bytes": 1165553,
+      "sha256": "54932198be4d7586aa4755b23ed681a8929689f01ae888a49d427f6d03a575ff"
+    },
+    {
+      "path": "/opt/google/chrome/chrome_200_percent.pak",
+      "bytes": 2092638,
+      "sha256": "6bac0550602695234eb3c15fd7c9fdf73f19ffab4632bf47e989c889570bfe1d"
+    },
+    {
+      "path": "/opt/google/chrome/chrome_crashpad_handler",
+      "bytes": 1943256,
+      "sha256": "7cd8e27fee2bcda1aeeffa78ee969650b9fbcd3f15f2c07e1bd5d2e258daded6"
+    },
+    {
+      "path": "/opt/google/chrome/icudtl.dat",
+      "bytes": 10876560,
+      "sha256": "9f48c7f9c7c94d516a14870707e910ab94d75ae640ff6842c4af53276cd26ebe"
+    },
+    {
+      "path": "/opt/google/chrome/libLiteRtWebGpuAccelerator.so",
+      "bytes": 14978480,
+      "sha256": "018feedde79f612e473d668792454719d2263298802e61146b80d5b2a97453a1"
+    },
+    {
+      "path": "/opt/google/chrome/liboptimization_guide_internal.so",
+      "bytes": 20767816,
+      "sha256": "3f03f3dc600794adb73e59912b6420240bce998298bdf3318aa9fc56d5daa033"
+    },
+    {
+      "path": "/opt/google/chrome/libqt5_shim.so",
+      "bytes": 27688,
+      "sha256": "5980be1e6afccd17a50e4dcd9593dc22703bb3d4d366c20aa641c1a80fe242df"
+    },
+    {
+      "path": "/opt/google/chrome/libqt6_shim.so",
+      "bytes": 30048,
+      "sha256": "5dd32720654c2659f38ccf124e06de9d466b9ed0d68ee8c5e71ad5320d630c9f"
+    },
+    {
+      "path": "/opt/google/chrome/libvk_swiftshader.so",
+      "bytes": 4037608,
+      "sha256": "90f2a656f5b6eb4ffa3197643ade94bd5aa323a053507506b888b8488b7b7158"
+    },
+    {
+      "path": "/opt/google/chrome/libvulkan.so.1",
+      "bytes": 660608,
+      "sha256": "77492e10e4e7de1532ae5ba0856b47940840b4ba7c8ee11708ba97b31953dfe1"
+    },
+    {
+      "path": "/opt/google/chrome/locales/en-US.pak",
+      "bytes": 590540,
+      "sha256": "25f8409b5c860f518c48838df757b8538bb5d37aef419c167354b93ef01adc77"
+    },
+    {
+      "path": "/opt/google/chrome/resources.pak",
+      "bytes": 22853821,
+      "sha256": "e6132d8ea7bef90921543ce76a31c832435b1204a4e4668eb2832344dd621d68"
+    },
+    {
+      "path": "/opt/google/chrome/v8_context_snapshot.bin",
+      "bytes": 740440,
+      "sha256": "8ac95022ee94785643f46f44aa8a4cac155f77e330f24ce38423ae879b86dd49"
+    },
+    {
+      "path": "/opt/google/chrome/vk_swiftshader_icd.json",
+      "bytes": 107,
+      "sha256": "c9eef28b6b984fec220ef0abfecc40b502d46946706e47bfe97707027cb818bd"
+    },
+    {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/catalogue.json",
+      "bytes": 5653,
+      "sha256": "3741ed00a14095d43a3f312177672ccccf2d240aba8592577e2d4637d4a03d12"
+    },
+    {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/credit-note.F.json",
+      "bytes": 826,
+      "sha256": "23b7f6ea7dea6ebbabb667760fb93e0ff604b436a02273184872a466ad174d23"
+    },
+    {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/credit-note.JS.expected.json",
+      "bytes": 7770,
+      "sha256": "968a57e52598e64caa3b1c3176bdad3af29555e33c0535f105160dc43cb49184"
+    },
+    {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/credit-note.JS.request.json",
+      "bytes": 14116,
+      "sha256": "59c5f8ded984e4ede69f8416ae72ffbcf600d66371787b505ff0bdcf58fb5b17"
+    },
+    {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/credit-note.RUST.expected.json",
+      "bytes": 7794,
+      "sha256": "6dadd19cc0238a7a0549e4eb67551398dac1ddc5e1072fa6f17ffc0a2666552f"
+    },
+    {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/credit-note.RUST.request.json",
+      "bytes": 14116,
+      "sha256": "59c5f8ded984e4ede69f8416ae72ffbcf600d66371787b505ff0bdcf58fb5b17"
+    },
+    {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/credit-note.archive.wire",
+      "bytes": 2897,
+      "sha256": "1b4aaf61350e737dac10f4cc816c4c5c8ccd79587d973fbe04dc53f24eaf2445"
+    },
+    {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/credit-note.incoming.wire",
+      "bytes": 2897,
+      "sha256": "ec168684508c46b219e6a5c2723042ad5e24024441c7ab0abed8d0cbadc9954f"
+    },
+    {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.F.json",
+      "bytes": 826,
+      "sha256": "c3d939e95ff21dbaadc322259a60e34f9d35549b082faa87c980afc8c6e81e29"
+    },
+    {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.JS.expected.json",
+      "bytes": 7746,
+      "sha256": "b2af6ebd64434c3541bad82ffbee9b664377931c0984f87fcb7b92ef8f697cc1"
+    },
+    {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.JS.request.json",
+      "bytes": 14116,
+      "sha256": "ecd5f4cf9f9f1ae5c3d46cc5edd7135404f6a4b8b0728bfc781b0889d4049ff4"
+    },
+    {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.RUST.expected.json",
+      "bytes": 7770,
+      "sha256": "4bb1c8965d80e44233775334a08f22ceb3fb64a883a3f458b20a68e93977413d"
+    },
+    {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.RUST.request.json",
+      "bytes": 14116,
+      "sha256": "ecd5f4cf9f9f1ae5c3d46cc5edd7135404f6a4b8b0728bfc781b0889d4049ff4"
+    },
+    {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.archive.wire",
+      "bytes": 2897,
+      "sha256": "de6f5eb9e2691ab15688754e9733e221351eec0ac21c99a96a3897a77b307c4f"
+    },
+    {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.incoming.wire",
+      "bytes": 2897,
+      "sha256": "06a372bca1fadd8f028203289cda89bca49b9d43a89e2b31c1ba3d69228b0bb3"
+    },
+    {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/jobs/03/reply.json",
+      "bytes": 904,
+      "sha256": "e1674622ae56f98e53f5653992ada9d27cec4ec5c4b5c03ceaa022da89ee6561"
+    },
+    {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/jobs/03/stdin.json",
+      "bytes": 6187,
+      "sha256": "ec8edf35a4c85a4d05bf4a578f962e1a6df8fd48059468d60cbf967ff92505d3"
+    },
+    {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/jobs/04/reply.json",
+      "bytes": 924,
+      "sha256": "30e728e75c2bb9be832974ba3e8b3946a44897c8c405edcdcc224fa058717cc4"
+    },
+    {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/jobs/04/stdin.json",
+      "bytes": 6187,
+      "sha256": "ec8edf35a4c85a4d05bf4a578f962e1a6df8fd48059468d60cbf967ff92505d3"
+    },
+    {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/proofs.json",
+      "bytes": 11002,
+      "sha256": "761f25658113941c8c7cace0a15d40a53c71d84aa3007235296f2f63cb4aed37"
+    },
+    {
+      "path": "/tmp/e6i4-primary-i4p003a/C01/metadata-terminal.json",
+      "bytes": 1423,
+      "sha256": "6c65200e7a2e2d0b3196b33ffe6ab6fe17b5f2ce7a9a8e3b8abd108db6d9d693"
+    },
+    {
+      "path": "/tmp/e6i4-primary-i4p003a/C01/native-call.json",
+      "bytes": 1000,
+      "sha256": "23147b64cdd9afa693aa621fae317908379fb85cbf4e171b5bc00ce3fa0253df"
+    },
+    {
+      "path": "/tmp/e6i4-primary-i4p003a/C02/metadata-terminal.json",
+      "bytes": 1202,
+      "sha256": "a6c217f282c464b956266225dcbdcfa8d5ec5b4c5c1363dda4e8d838f887f417"
+    },
+    {
+      "path": "/tmp/e6i4-primary-i4p003a/C02/native-call.json",
+      "bytes": 1002,
+      "sha256": "7adbef477b47fcbd9824a6c1dabda0974eac255e5d722d6b04eb8f300a9a687b"
+    },
+    {
+      "path": "/tmp/e6i4-primary-i4p003a/capture.json",
+      "bytes": 9475,
+      "sha256": "9dc25b42d15fc0f999e924a98db508bfd5b4732d66bbaa9ccf8016984b1aea30"
+    },
+    {
+      "path": "/tmp/e6i4-qa-i4q003a/C01/metadata-terminal.json",
+      "bytes": 1398,
+      "sha256": "ec7ef2f75f1c4fcc05c13d23e2f9a28c1aa5a7eb8da77177a370fcc59df2fbb8"
+    },
+    {
+      "path": "/tmp/e6i4-qa-i4q003a/C01/native-call.json",
+      "bytes": 975,
+      "sha256": "28dcb1df9b6619bb2de9a719d31313041d3365b56ee904bad6aab29598cabe72"
+    },
+    {
+      "path": "/tmp/e6i4-qa-i4q003a/C02/metadata-terminal.json",
+      "bytes": 1182,
+      "sha256": "a791ebc0fdc784a625c5b8c1e80e56b4bbfa5e76ca0ea0ac5cf6dd6003611bf1"
+    },
+    {
+      "path": "/tmp/e6i4-qa-i4q003a/C02/native-call.json",
+      "bytes": 977,
+      "sha256": "260f4608f6f373d5771332df544208d2e03db378f223cbae287d332e193ba0ed"
+    },
+    {
+      "path": "/tmp/e6i4-qa-i4q003a/capture.json",
+      "bytes": 9215,
+      "sha256": "efa783d6bed01183f5fb4e403d3b54c27acd56bab1de3132ce076fcaa4bacf37"
+    },
+    {
+      "path": "/tmp/nbdp-e06-build-tv5zqp4j/target/debug/nbdp-experiment-rust",
+      "bytes": 26400472,
+      "sha256": "55205961550c66467be356b13adeafaf43599ca6f59f2db5ebf1de9293c3045d"
+    },
+    {
+      "path": "/tmp/nbdp-e06-https-tls-r2/ca.cert.pem",
+      "bytes": 1131,
+      "sha256": "1bd14eeea54a694a13f6c9a42ea8ec4ec2c510b278cb4d40e7be870a28a7604d"
+    },
+    {
+      "path": "/tmp/nbdp-e06-https-tls-r2/materialization.json",
+      "bytes": 18465,
+      "sha256": "7568ab521e4ee42d42c143992f60e20ac2a7ac145dfd893a1b7fd6a56e2ea3e3"
+    },
+    {
+      "path": "/tmp/nbdp-e06-https-tls-r2/server.cert.pem",
+      "bytes": 1208,
+      "sha256": "50eedc40fe5c1c55be8ce7f5af78fcd06a28d425d5ea1b0199a961a381e58ba8"
+    },
+    {
+      "path": "/tmp/nbdp-e06-https-tls-r2/server.key.pem",
+      "bytes": 1700,
+      "sha256": "0bb89762411a8b82c34e0b8f498f4cd29829200d9df93f6993c0588ec42bbbdb"
+    },
+    {
+      "path": "/tmp/nbdp-e06-https-tls-r2/wrong-host.cert.pem",
+      "bytes": 1224,
+      "sha256": "1a41c581da5995ec38b3c337df81c6202d5697cb8216b95355a76a09c0ce7ffc"
+    },
+    {
+      "path": "/tmp/nbdp-e06-https-tls-r2/wrong-host.key.pem",
+      "bytes": 1704,
+      "sha256": "d6234cf1cb2dd85d70adfc6e716fed9f8be31076c1c7cb8447078619d0b70b5c"
+    },
+    {
+      "path": "/tmp/nbdp-invoice-e01-primary-1mnopn89/target/debug/nbdp-experiment-rust",
+      "bytes": 25247384,
+      "sha256": "8d1bd3d14a39c089114c57b9f0816a7c085e4481b5e3992d82dad49ebb56713f"
+    },
+    {
+      "path": "/usr/bin/docker",
+      "bytes": 47353290,
+      "sha256": "adbc67ecdc2cd2d350c01a5964a205bd81470b485aba1fb90c2f559de9e4584f"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+      "bytes": 236616,
+      "sha256": "c20a2dc8917c755f02b94049356320fe1f62ac7d9f8994731f807d9df39302da"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      "bytes": 2129424,
+      "sha256": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libdl.so.2",
+      "bytes": 14408,
+      "sha256": "c2994527172cc23b7fb0f7d611b71e00a37da27af12c2e5e9e0dc1a742886c96"
+    },
+    {
+      "path": "/usr/lib/x86_64-linux-gnu/libpthread.so.0",
+      "bytes": 14408,
+      "sha256": "90491a21ce44efcf3bd4b65ec82501c091d7ebe7f8d9b341dd01d721001d9ecd"
+    }
+  ],
+  "sourceApproval": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-approval.json",
+    "bytes": 107717,
+    "sha256": "e3e41bb6bae55d80702f9002cc99c72ad3a6345405a5043d3123dcafcbea685e"
+  },
+  "controlAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/control-approval.json",
+    "bytes": 1488,
+    "sha256": "c2c6d2b97ba4f25dbbb9074c079cd3ad29cbf9fa23aac709b31a97a273c0f5ee"
+  }
+}

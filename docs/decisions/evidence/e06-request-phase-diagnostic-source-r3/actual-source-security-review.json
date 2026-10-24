@@ -1,0 +1,38 @@
+{
+  "schema": "nbdp-actual-independent-review-transcription-v1",
+  "transcribedBy": "/root",
+  "reviewer": "/root/attachment_profile_security",
+  "role": "security",
+  "decision": "HOLD",
+  "subject": {
+    "path": "docs/decisions/evidence/e06-request-phase-diagnostic-source-r3/subject.json",
+    "bytes": 21307,
+    "sha256": "b440de3e2c7a877e2f8302c1b0f87d5f99461508ef348db8f56c7fe89cd07cbe"
+  },
+  "findings": [
+    {
+      "id": "SEC-E06-CONTAINMENT-PIDFD-005",
+      "severity": "HIGH",
+      "evidence": "SafetyOwner.census stores a provisional pidfd before post-open identity/starttime/UID/fdinfo validation. A caught mismatch leaves it signalable under the old identity.",
+      "impact": "Source-level race could signal an unrelated reused-PID process during cleanup.",
+      "requiredFix": "Validate unattached local handle completely before transfer; close on every failure; failed custody must never be signalable.",
+      "requiredRegressions": [
+        "Post-open live foreign PID reuse closes fd and sends zero signals.",
+        "Post-open identity/UID mismatch, identity exception and fdinfo mismatch/read failure close provisional fd.",
+        "Failed custody cannot use numeric fallback; valid custody keeps normal cleanup."
+      ],
+      "qualification": "Source inspection only; no actual foreign signal, runtime race or exploit observed."
+    }
+  ],
+  "verified": [
+    "Frozen65members and oldhistory/source449 preserved.",
+    "Expiry/registration design improved:3sregistration/7scapture/7.25sabsence/11sguard vs30sfaultfixture.",
+    "CaptureAST/original13+3 sources unchanged; old actual16 acceptance remains at its original subject.",
+    "No new actualcontrols/strace/Node/LOCAL/grants."
+  ],
+  "limits": [
+    "Read/hash/AST only; no project imports/tests/runtime/edits/Git by reviewer.",
+    "Source findings do not prove runtime exploitation; amended source requires matching independent review and actual qualification."
+  ],
+  "separateControlScope": "Pure13+3/modeled11/admission14 can be reviewed separately after QA and root release; no diagnostic-source activation acceptance issued."
+}

@@ -1,0 +1,59 @@
+{
+  "schema": "e02-minimum-source-data-preparation-record-v1",
+  "actor": "/root/ordinary_api35_source",
+  "session": "/root/ordinary_api35_source",
+  "actions": [
+    "Owned raw byte copies and SOURCE string transformations from immutable v3.",
+    "Pinned primary source read/hash/copy/read-only git diff33 upstream files and2 helper files.",
+    "Stdlib JSON/oracle/source inventories and ast.parse/full typed AST/text diffs; no worker imports.",
+    "Two fresh UUID/config DATA candidates; output roots absent; no lease or release."
+  ],
+  "knownActualCommands": {
+    "sourceAudit": {
+      "argv": [
+        "python3",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/prepare-audit-data.py"
+      ],
+      "toolChunk": "35b24b",
+      "exitCode": 0
+    },
+    "negativeHistory": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/source-preparation-failures.json",
+      "bytes": 842,
+      "sha256": "997ec18c152a0943f46e5249a2bd1b7330fc392613e14f6e52e8a3a066abbbe1"
+    },
+    "formatOnlyOnce": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/scalar1-format-data/execution.json",
+      "bytes": 1796,
+      "sha256": "0b716b85b8f6c72c014e26b5afcc92e38cc80bcd05551b2b208a7a949b001a44"
+    }
+  },
+  "preparationGenerators": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/prepare-driver-source.py",
+      "bytes": 25523,
+      "sha256": "b830dd8016a0af96c79af350f4acfba15ccc38f9aee95a4e807e19c459c6b05d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/prepare-fixture-source.py",
+      "bytes": 21367,
+      "sha256": "665fe5f0ab9e9c32f1d7b4dd9032cb32bc87732033fbdbb2be4fb3c822a04b3b"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/prepare-supervisor-source.py",
+      "bytes": 4439,
+      "sha256": "23dabcc20b23edae697d08b82fca05aea5e911ed31adf7e95e4d5d9b4d7b0c65"
+    }
+  ],
+  "freezeGenerator": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/freeze-source-data.py",
+    "bytes": 23336,
+    "sha256": "5e257375d654585f57214a16010f8adfc2f65c44172aa80878617c85a65bde84"
+  },
+  "controlSuitesExecuted": 0,
+  "NbdpExperimentsExecuted": 0,
+  "AndroidSdkDockerServicesExecuted": 0,
+  "compilationExecuted": false,
+  "independentSourceReviews": "PENDING_ACTUAL_ROOT_ASSIGNED_QA_AND_SECURITY",
+  "canonicalPromotion": false
+}

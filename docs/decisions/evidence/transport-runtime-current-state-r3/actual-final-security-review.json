@@ -1,0 +1,38 @@
+{
+  "schema": "nbdp-actual-independent-review-transcription-v1",
+  "transcribedBy": "/root",
+  "reviewer": "/root/p4_publication_security",
+  "role": "security",
+  "decision": "ACCEPT_REVIEWED_CHECKPOINT_FOR_DRAFT_PR",
+  "subject": {
+    "path": "docs/decisions/evidence/transport-runtime-current-state-r3/publication-subject-r3.json",
+    "bytes": 137619,
+    "sha256": "6c3989b8a02f659f649fe43c02d459c84a5c196aca3c00eaf18dd39253815575"
+  },
+  "publicationBlockingFindings": [],
+  "remainingFindings": [
+    {
+      "id": "SEC-PUBLICATION-MINIMUM-NSEC-METADATA-001",
+      "severity": "LOW",
+      "state": "VISIBLE_DEFERRED_VERSIONED_METADATA_REPAIR",
+      "evidence": "Four frozen documentary inputs retain unused65-character literal; actualdriver usescorrect63-characterpublicscalar2.",
+      "disposition": "Pinned additive disposition, prohibition on copying/normalization, versioned checksum/payload/driver-equality task. No actual wrongaccount or secret disclosure shown."
+    }
+  ],
+  "verified": [
+    "578core+subject579 exactlive/index/stagedmembership; five changedDOC beforebodies preserved and otherheldR2source/evidence byte-identical.",
+    "All116 canonical provenance entries/26unique files and six resultrecords unchanged.",
+    "StructuredJSONstrict/6pinnedplaintextnegativeoperands/135locallinks; finalaudit andsubject inspected.",
+    "All73whitespace diagnostics in4explicitpaths; allotherstagepathscheck0. Rawdiffs/rawdiagnostic andsinglefrozensourcestyleline retained.",
+    "P4exact1894copiedfiles/27568525logicalbytes/11roots and priorpackageacceptance unchanged.",
+    "Newminimum mocks29/49/21/27/43 accepted only; no ordinaryclient role qualification.",
+    "SOURCE4actual100artifactmanifest retains13+3accepted, guard16sevenpass/nineerrors, admission14NOTEXECUTED, firstfailure/no retry/real7Nodeheld.",
+    "Separate HOSTinspection confirmsAPI/symbolavailability only, noactualpidfd/signal.",
+    "Activeconsumer/SOURCE5/futureAndroid/runtime intentionallyexcluded."
+  ],
+  "limits": [
+    "Actual independent read/hash/stat/JSON/Git inspection only; no imports/tests/runtime/edits byreviewer.",
+    "Draftpublicationonly; noexperimentactivation/canonicalPASS/gate/blocker/SDK/deployment/mergeapproval.",
+    "KnownmetadataLOW/openruntimegatesremain; tool/sessionreports arenotportableauthentication orprofessionalaudit."
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schema": "e02-single-cell-runtime-plan-v1",
+  "state": "SOURCE_PREPARATION_INCOMPLETE_NOT_EXECUTABLE",
+  "ready": false,
+  "scope": "JS_TO_RUST_PEER_INCOMING_SCALAR2_RS_RELAY_ONE_CELL_PARTIAL_ONLY",
+  "runId": null,
+  "maximumOriginalLeaseSeconds": 1800,
+  "runtimeImage": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+  "relayImage": "sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82",
+  "sdkRoot": "/tmp/nbdp-e02-ingress-runtime/sdk",
+  "amethystApk": {
+    "path": "/tmp/nbdp-e02-android-artifact/source/amethyst/build/outputs/apk/fdroid/debug/amethyst-fdroid-debug.apk",
+    "bytes": 165860063,
+    "sha256": "5165a9f79326524c494108b8ab728fb173ac14fa16bf67ebbd86364c895e98b5"
+  },
+  "helperApk": {
+    "path": "/tmp/nbdp-e02-ordinary-client-v1/helper-build-20261023a/clipboard-capture.apk",
+    "bytes": 16787,
+    "sha256": "a680e513a9b36cab634620507b77bba36532ce13acb465a860c7bef60d23ec20"
+  },
+  "guardSubsetReview": "PENDING",
+  "actualGuardTests": "NOT_EXECUTED",
+  "supervisorSource": "NOT_YET_MATERIALIZED",
+  "driverSource": "PENDING",
+  "fixtureSource": "PENDING",
+  "currentE01AndE02Provenance": "RECHECK_REQUIRED_FOR_RUN",
+  "sourceAndDependencyPins": "NOT_YET_MATERIALIZED",
+  "exactIndependentRuntimeReviews": "PENDING",
+  "executionReleased": false,
+  "canonicalE02": "PARTIAL22_UNCHANGED",
+  "limits": [
+    "No launch command is released by this incomplete plan.",
+    "One successful cell is a scoped PARTIAL observation, never canonical E02 PASS.",
+    "All original failed runs, lease findings and runtime limits remain preserved."
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "nbdp-source-hold-disposition-v1",
+  "decision": "HOLD_NO_R3_EXECUTION",
+  "subject": {
+    "path": "docs/decisions/evidence/e06-request-phase-diagnostic-source-r3/subject.json",
+    "bytes": 21307,
+    "sha256": "b440de3e2c7a877e2f8302c1b0f87d5f99461508ef348db8f56c7fe89cd07cbe"
+  },
+  "actualReviews": [
+    {
+      "path": "docs/decisions/evidence/e06-request-phase-diagnostic-source-r3/actual-source-qa-review.json",
+      "bytes": 2752,
+      "sha256": "a8a24be3525b8c827fe8933c8e96806dffea1d26a7101d7f90794751819b41f1"
+    },
+    {
+      "path": "docs/decisions/evidence/e06-request-phase-diagnostic-source-r3/actual-source-security-review.json",
+      "bytes": 2129,
+      "sha256": "1092f0f208d694d684d0a3830857cb6b0dc5a57a4861eb37c2ebfb97cb97e97b"
+    }
+  ],
+  "newSourceOnlyRemediationAuthorized": true,
+  "requiredFindings": [
+    "SEC-E06-CONTAINMENT-PIDFD-005",
+    "QA-E06-CONTAINMENT-PIDFD-CUSTODY-004",
+    "QA-E06-CONTAINMENT-CENSUS-CLEANUP-005"
+  ],
+  "preserveHistory": true,
+  "realStraceAuthorized": false,
+  "nodeLocalAuthorized": false,
+  "reason": "Fix known unsafe acquisition and independent cleanup fault before one current-closure qualification batch."
+}

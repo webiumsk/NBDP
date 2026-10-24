@@ -1,0 +1,30 @@
+{
+  "schema": "nbdp-actual-independent-review-transcription-v1",
+  "transcribedBy": "/root",
+  "reviewer": "/root/p4_publication_security",
+  "role": "security",
+  "decision": "HOLD",
+  "subject": {
+    "path": "docs/decisions/evidence/transport-runtime-current-state-r3/publication-subject-r2.json",
+    "bytes": 108339,
+    "sha256": "e4afc9b1a33bff1fac5a98627bf8e0950db80a54f2f7378d0345b01ea72220b9"
+  },
+  "findings": [
+    {
+      "id": "SEC-PUBLICATION-MINIMUM-NSEC-METADATA-001",
+      "severity": "LOW",
+      "evidence": "Four documentary inputs carry65-character unused incoming NSEC; actual driver uses correct63-character publicscalar2.",
+      "requiredFix": "Visible additive disposition with actual operand and versioned encoding-consistency task; no frozen source rewrite."
+    },
+    {
+      "id": "SEC-PUBLICATION-STALE-METHOD-STATE-002",
+      "severity": "LOW",
+      "evidence": "Readiness still says minimum method not implemented/executed despite SOURCE/mock acceptance.",
+      "requiredFix": "Distinguish accepted SOURCE/mock scopes from unqualified runtime/consumer/reconciliation."
+    }
+  ],
+  "limits": [
+    "Exact prior-stage publication review; no tests/imports/runtime/edits by reviewer.",
+    "No frozen evidence or source activation approved."
+  ]
+}

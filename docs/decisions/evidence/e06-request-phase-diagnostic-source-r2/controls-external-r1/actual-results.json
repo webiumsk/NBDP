@@ -1,0 +1,367 @@
+{
+  "schema": "e06-actual-sixteen-controls-results-v1",
+  "operator": "/root/local_monitor_controls",
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r2/subject.json",
+    "bytes": 15159,
+    "sha256": "cad7f6db25726a6c258f7c79aae90a7329e51d9746fc3eecb6fbb9ef80712d1e"
+  },
+  "pure13": {
+    "actual": 13,
+    "passed": 13,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "capture": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r2/suite-execution.json",
+      "bytes": 36915,
+      "sha256": "d4ce38076bd864d83184e2118cbe1f31b4c3038896d159a3568a64e1ca64fb37"
+    },
+    "naturalSuiteExit": 0,
+    "reaped": true,
+    "forced": false,
+    "stdoutEOF": true,
+    "stderrEOF": true,
+    "elapsedNs": 4154403660,
+    "ownedChildCases": [
+      {
+        "case": "interrupt",
+        "capture": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r2/controls-actual-r1/interrupt/capture-result.json",
+          "bytes": 2393,
+          "sha256": "0f69aafd1a1faf0b96d7f08cf6691b4890612ad63cba87d0f360c21253a16b16"
+        },
+        "exit": -2,
+        "reaped": true,
+        "forced": true,
+        "firstError": {
+          "type": "Refusal",
+          "message": "OBSERVER_INTERRUPTED"
+        },
+        "eof": {
+          "trace": true,
+          "stdout": true,
+          "stderr": true
+        },
+        "retainedBytes": {
+          "trace": 7,
+          "stdout": 0,
+          "stderr": 338
+        },
+        "acknowledgedWriteBytes": {
+          "trace": 7,
+          "stdout": 0,
+          "stderr": 338
+        }
+      },
+      {
+        "case": "natural-two",
+        "capture": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r2/controls-actual-r1/natural-two/capture-result.json",
+          "bytes": 2301,
+          "sha256": "b243631e4312e6043144c9ef2c5a32474c147012af68744b577865193c672e50"
+        },
+        "exit": 2,
+        "reaped": true,
+        "forced": false,
+        "firstError": null,
+        "eof": {
+          "trace": true,
+          "stdout": true,
+          "stderr": true
+        },
+        "retainedBytes": {
+          "trace": 7,
+          "stdout": 0,
+          "stderr": 22
+        },
+        "acknowledgedWriteBytes": {
+          "trace": 7,
+          "stdout": 0,
+          "stderr": 22
+        }
+      },
+      {
+        "case": "natural-zero",
+        "capture": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r2/controls-actual-r1/natural-zero/capture-result.json",
+          "bytes": 2332,
+          "sha256": "bbb79bfd56b8c4ed6d5cc2ddff70258135862e29cca0da38da472674607c7eec"
+        },
+        "exit": 0,
+        "reaped": true,
+        "forced": false,
+        "firstError": null,
+        "eof": {
+          "trace": true,
+          "stdout": true,
+          "stderr": true
+        },
+        "retainedBytes": {
+          "trace": 8,
+          "stdout": 24,
+          "stderr": 0
+        },
+        "acknowledgedWriteBytes": {
+          "trace": 8,
+          "stdout": 24,
+          "stderr": 0
+        }
+      },
+      {
+        "case": "prefix-exception",
+        "capture": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r2/controls-actual-r1/prefix-exception/capture-result.json",
+          "bytes": 2562,
+          "sha256": "690c8bfc668f18a25f4c3fe2d43efb5f9e17bc2ea1b6d4758dacbfd5bd8b50ce"
+        },
+        "exit": -2,
+        "reaped": true,
+        "forced": true,
+        "firstError": {
+          "type": "OSError",
+          "message": "FIXTURE_PREFIX_THEN_EXCEPTION"
+        },
+        "eof": {
+          "trace": true,
+          "stdout": true,
+          "stderr": true
+        },
+        "retainedBytes": {
+          "trace": 128,
+          "stdout": 0,
+          "stderr": 208
+        },
+        "acknowledgedWriteBytes": {
+          "trace": 0,
+          "stdout": 0,
+          "stderr": 208
+        }
+      },
+      {
+        "case": "short-positive",
+        "capture": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r2/controls-actual-r1/short-positive/capture-result.json",
+          "bytes": 2446,
+          "sha256": "720d907a5a37c18cb126603b3161ef2868a868919a0d3f0072bc7e1b46887618"
+        },
+        "exit": -2,
+        "reaped": true,
+        "forced": true,
+        "firstError": {
+          "type": "Refusal",
+          "message": "COMPLETE_CAPTURE_WRITE"
+        },
+        "eof": {
+          "trace": true,
+          "stdout": true,
+          "stderr": true
+        },
+        "retainedBytes": {
+          "trace": 128,
+          "stdout": 0,
+          "stderr": 208
+        },
+        "acknowledgedWriteBytes": {
+          "trace": 128,
+          "stdout": 0,
+          "stderr": 208
+        }
+      },
+      {
+        "case": "stderr-cap",
+        "capture": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r2/controls-actual-r1/stderr-cap/capture-result.json",
+          "bytes": 2514,
+          "sha256": "cabb896e5cb9a24404d0eca8618c5d5771366f55ccb3e38a71947836ebc5bfd9"
+        },
+        "exit": -2,
+        "reaped": true,
+        "forced": true,
+        "firstError": {
+          "type": "Refusal",
+          "message": "DIAGNOSTIC_STDERR_CAP"
+        },
+        "eof": {
+          "trace": true,
+          "stdout": true,
+          "stderr": true
+        },
+        "retainedBytes": {
+          "trace": 7,
+          "stdout": 0,
+          "stderr": 512
+        },
+        "acknowledgedWriteBytes": {
+          "trace": 7,
+          "stdout": 0,
+          "stderr": 512
+        }
+      },
+      {
+        "case": "stdout-cap",
+        "capture": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r2/controls-actual-r1/stdout-cap/capture-result.json",
+          "bytes": 2362,
+          "sha256": "a7a2cd241fee4b2fe81cbc7bacd85f488e579dd37a5f7b0343642dd868b49022"
+        },
+        "exit": -2,
+        "reaped": true,
+        "forced": true,
+        "firstError": {
+          "type": "Refusal",
+          "message": "DIAGNOSTIC_STDOUT_CAP"
+        },
+        "eof": {
+          "trace": true,
+          "stdout": true,
+          "stderr": true
+        },
+        "retainedBytes": {
+          "trace": 7,
+          "stdout": 256,
+          "stderr": 264
+        },
+        "acknowledgedWriteBytes": {
+          "trace": 7,
+          "stdout": 256,
+          "stderr": 264
+        }
+      },
+      {
+        "case": "timeout",
+        "capture": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r2/controls-actual-r1/timeout/capture-result.json",
+          "bytes": 2327,
+          "sha256": "73734021eae22056658c9788b75bfe75a4958a9b4107bfddefc83035c1b3578f"
+        },
+        "exit": -2,
+        "reaped": true,
+        "forced": true,
+        "firstError": {
+          "type": "TimeoutError",
+          "message": "OBSERVER_ACTIVE_DEADLINE"
+        },
+        "eof": {
+          "trace": true,
+          "stdout": true,
+          "stderr": true
+        },
+        "retainedBytes": {
+          "trace": 7,
+          "stdout": 0,
+          "stderr": 218
+        },
+        "acknowledgedWriteBytes": {
+          "trace": 7,
+          "stdout": 0,
+          "stderr": 218
+        }
+      },
+      {
+        "case": "trace-cap",
+        "capture": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r2/controls-actual-r1/trace-cap/capture-result.json",
+          "bytes": 2330,
+          "sha256": "8d49904132d81367a7ab17ce07d75cf1e7c26cf7a61e63b3e598e8199f1d0e9c"
+        },
+        "exit": -2,
+        "reaped": true,
+        "forced": true,
+        "firstError": {
+          "type": "Refusal",
+          "message": "DIAGNOSTIC_TRACE_CAP"
+        },
+        "eof": {
+          "trace": true,
+          "stdout": true,
+          "stderr": true
+        },
+        "retainedBytes": {
+          "trace": 1024,
+          "stdout": 0,
+          "stderr": 206
+        },
+        "acknowledgedWriteBytes": {
+          "trace": 1024,
+          "stdout": 0,
+          "stderr": 206
+        }
+      },
+      {
+        "case": "write-before",
+        "capture": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r2/controls-actual-r1/write-before/capture-result.json",
+          "bytes": 2356,
+          "sha256": "b5ac11ecf3048693d40f3debe09e14987178270ac6cf0247250f3e460444557a"
+        },
+        "exit": -2,
+        "reaped": true,
+        "forced": true,
+        "firstError": {
+          "type": "OSError",
+          "message": "FIXTURE_WRITE_FAILURE"
+        },
+        "eof": {
+          "trace": true,
+          "stdout": true,
+          "stderr": true
+        },
+        "retainedBytes": {
+          "trace": 0,
+          "stdout": 0,
+          "stderr": 218
+        },
+        "acknowledgedWriteBytes": {
+          "trace": 0,
+          "stdout": 0,
+          "stderr": 218
+        }
+      }
+    ]
+  },
+  "snapshot3": {
+    "actual": 3,
+    "passed": 3,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "capture": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r2/controls-external-r1/snapshot-execution.json",
+      "bytes": 36466,
+      "sha256": "e333c7a0572a60c896b654a08861db77864301f1c842fed3a42ed2b06015d362"
+    },
+    "naturalSuiteExit": 0,
+    "reaped": true,
+    "forced": false,
+    "stdoutEOF": true,
+    "stderrEOF": true,
+    "elapsedNs": 300163951
+  },
+  "frozenBeforeAfter45Unchanged": true,
+  "initialFailures": [],
+  "retries": 0,
+  "rawManifest": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r2/controls-external-r1/manifest.json",
+    "bytes": 43334,
+    "sha256": "11540bdcacab533fce363cffa49c7e6bf4dec0f2f1c9d381fccc71e739e1ad61"
+  },
+  "toolAssociation": {
+    "preflight": "6d2f3c exit0",
+    "pure13Launch": "d2366a session63814",
+    "pure13Completion": "f016f0 exit0",
+    "snapshot3": "312e08 exit0",
+    "helperOuterRaw": [
+      "helper-stdout.bin",
+      "helper-stderr.bin"
+    ],
+    "authority": "Actual root mailbox before launch; actual report files not inspected before launch; later pure-scope-authorization exists."
+  },
+  "limits": [
+    "Actual16 controls only; no strace/Node/LOCAL/crypto/transport experiment.",
+    "Ten fixture child errors/forces are intentional assertions; suite exits are natural0.",
+    "One fresh0640 unsafe-mode fixture is intentional; all raw capture files600.",
+    "Pure16 results cannot unlock observer; containment SOURCE is HOLD and real7 remain unexecuted.",
+    "Actual independent QA/security result review pending; no self approval."
+  ]
+}

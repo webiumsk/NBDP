@@ -1,0 +1,98 @@
+{
+  "schema": "e06-local-outer-monitor-review-subject-v1",
+  "state": "WRITES_STOPPED_SOURCE_ONLY",
+  "authors": [
+    "/root",
+    "/root/e06_local_configuration"
+  ],
+  "intendedOperator": "/root",
+  "monitor": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-execution-r1/monitor.py",
+    "bytes": 30311,
+    "sha256": "c3b938f5a2f8e04124e03c420b1b1c552db227ad27ebe9e99cd24416d72b03a0"
+  },
+  "plan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-execution-r1/monitor-PLAN.md",
+    "bytes": 7762,
+    "sha256": "f20fe6cac7a1e05ecb5deb122cbe1242d19be797be91364f5aacc8e91b6b7f62"
+  },
+  "static": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-execution-r1/monitor-static.json",
+    "bytes": 6523,
+    "sha256": "6d2a2cd122c0eaa90e0d6840a26556dd33db205f1954c355c9f3d34ec495d03f"
+  },
+  "configuration": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-execution-r1/qualification-config.json",
+    "bytes": 2141,
+    "sha256": "abed1163f1d77697f04196eb623f086d1db17d38e8c1ea1a68e06b0988f72654"
+  },
+  "configurationCore": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-preparation-r1/configuration-core.json",
+    "bytes": 1864,
+    "sha256": "a53d5cd74d911b0c054b155661bde0092b26fbacd4272a9193a9eaaad3e2bf04"
+  },
+  "workerConfig": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-preparation-r1/worker-config.json",
+    "bytes": 114239,
+    "sha256": "5481327da143fe892465fe7e9ff5c91fabf6c47ab28163c71180872f130fdf63"
+  },
+  "configurationApproval": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-execution-r1/configuration-approval.json",
+    "bytes": 2972,
+    "sha256": "040c053df9663684466d3606b57fc0107432cc4f0d4d931f3fe8188390eeadf7"
+  },
+  "workflowPrerequisites": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-execution-r1/workflow-prerequisites.json",
+    "bytes": 1835,
+    "sha256": "192b3ea7ccb3f37d5ca32a8b229ac2ada635a07ac73ebca633715b3363c2930f"
+  },
+  "pairedMatrixAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-qa-r1/pair-acceptance.json",
+    "bytes": 1971,
+    "sha256": "535d9cb3d30cedc4e1e35d4f54b35ad270adf8d1df4fc62a760136bd6d531c69"
+  },
+  "fixedInputCount": 16,
+  "sourceClosure": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-closure.json",
+    "bytes": 102080,
+    "sha256": "76cfc1d55602c4c18f7adabde2b67679f3d828517a4cf4abefdf13d57029b100"
+  },
+  "externalPreEvaluationMonitorHashCheckRequired": true,
+  "proposedRootArgv": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-execution-r1/monitor.py",
+    "--monitor-sha",
+    "c3b938f5a2f8e04124e03c420b1b1c552db227ad27ebe9e99cd24416d72b03a0",
+    "--release",
+    "ACTUAL_FUTURE_LOCAL_RELEASE_PATH",
+    "--release-sha",
+    "ACTUAL_FUTURE_LOCAL_RELEASE_SHA256"
+  ],
+  "futureRelease": {
+    "createdByAuthor": false,
+    "shape": "Existing closed localRelease schema; actual canonical path and trusted SHA are root-supplied.",
+    "noInventedSchemaFields": true
+  },
+  "reviewRequiredBeforeAnyPopen": true,
+  "executionReady": false,
+  "executionReleased": false,
+  "actualExecution": {
+    "monitorImports": 0,
+    "projectImports": 0,
+    "projectEvaluations": 0,
+    "tests": 0,
+    "popen": 0,
+    "nativeJobs": 0,
+    "transportVerifier": 0,
+    "crypto": 0,
+    "network": 0
+  },
+  "limits": [
+    "The monitor itself creates no grant and imports no project module.",
+    "Future CLI performs actual full LOCAL transport admission then two native jobs; no dry-run flag exists.",
+    "Monitor exit0 is bounded current-input lifecycle/capture only; actual graph/native result review remains mandatory.",
+    "No canonical E06 PASS, architectural blocker closure, SDK, production or automatic merge."
+  ]
+}

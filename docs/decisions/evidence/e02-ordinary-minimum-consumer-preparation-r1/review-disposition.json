@@ -1,0 +1,26 @@
+{
+  "schema": "nbdp-minimum-consumer-source-hold-v1",
+  "actor": "/root",
+  "decision": "HOLD_NO_V1_DATA_EXECUTION",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r1/subject.json",
+    "bytes": 5247,
+    "sha256": "2c6568a5a837584a6208680fecfb749c72873edf7c5e0b9425d25828dace2c62"
+  },
+  "actualIndependentReviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r1/actual-source-qa-review.json",
+      "bytes": 2428,
+      "sha256": "68fe9dd929ace49baae32a43b733aaf2c7b269c44169c706af66d6b24893b357"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r1/actual-source-security-review.json",
+      "bytes": 1931,
+      "sha256": "646f38065de72bc2f4521ffe6cede63081bbdeceab71d5e5f029e615e135f2be"
+    }
+  ],
+  "actualDataControls": 0,
+  "next": "New narrowly corrected consumer-v2/preparation-r2 source, targeted meaningful regressions, independent same-source review before controls.",
+  "sourceOnlyRemediationAuthorized": true,
+  "androidAuthorized": false
+}

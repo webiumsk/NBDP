@@ -1,0 +1,17 @@
+{
+  "tool": "exec_command",
+  "arguments": {
+    "cmd": "/home/peterhorvath/.miniforge3/bin/python3.13 -I -B /tmp/nbdp-pidfd-host-readiness.py",
+    "sandbox_permissions": "require_escalated",
+    "justification": "Iba čítaním overiť dostupnosť pidfd API v podporovanom hostiteľskom prostredí; bez otvorenia pidfd, signálov alebo spúšťania experimentov.",
+    "yield_time_ms": 1000,
+    "max_output_tokens": 1000
+  },
+  "response": {
+    "chunk_id": "ca8250",
+    "wall_time_seconds": 0.121919259,
+    "exit_code": 0,
+    "original_token_count": 110,
+    "output": "{\"result\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-pidfd-host-feature-inspection-r1/result.json\", \"bytes\": 1222, \"sha256\": \"b9afb11977d88f2e9fe0f9d4f4fba32e10ece19037738be57209897589f4bdbe\", \"pythonApi\": {\"pidfd_open\": false, \"pidfd_send_signal\": false, \"waitid\": true, \"P_PIDFD\": false, \"WNOWAIT\": true}, \"libcSymbols\": {\"pidfd_open\": true, \"pidfd_send_signal\": true}, \"actualPidfdCalls\": 0, \"actualSignals\": 0}\n"
+  }
+}

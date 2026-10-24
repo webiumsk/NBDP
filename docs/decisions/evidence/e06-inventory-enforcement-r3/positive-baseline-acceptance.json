@@ -1,0 +1,27 @@
+{
+  "schema": "e06-real-input-gate-positive-acceptance-v1",
+  "coordinator": "/root",
+  "decision": "ACCEPT_REAL_INPUT_GATE_POSITIVE_ONLY",
+  "subject": {
+    "path": "/tmp/e6n-inventory-primary-e5086e05b104/observation.json",
+    "bytes": 20973,
+    "sha256": "2b797c0f86029e579402ad7bea92db806ca03180cb7825600fcbf77d30115854"
+  },
+  "independentReviews": {
+    "qa": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/actual-qa-review.json",
+      "bytes": 1934,
+      "sha256": "ffe4545f8b6486f3da15c44a7eef2802ea7894c0f1a3149500e941748b25ad3c"
+    },
+    "security": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/actual-security-review.json",
+      "bytes": 1948,
+      "sha256": "cf73ede81dfc29b91ddd2a3bdbab8034129ded4324144e4df6b72daa23bf63cc"
+    }
+  },
+  "executionReleased": false,
+  "nextTask": "Prepare/review real missing/swapped/drift inventory/materialization refusal matrix and actual independent repetition; noLOCALuntilrequiredqualification.",
+  "limits": [
+    "Scopedrealprimitivepositive only; sourcefailurehistoryretained; no native/LOCAL/TARGET/E06PASS."
+  ]
+}

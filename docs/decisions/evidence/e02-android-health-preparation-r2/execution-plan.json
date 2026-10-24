@@ -1,0 +1,122 @@
+{
+  "schema": "e02-android-health-proposed-execution-plan-v1",
+  "state": "SOURCE_R2_ONLY_NOT_EXECUTED_NOT_RELEASED",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r2/subject.json",
+    "bytes": 8770,
+    "sha256": "2182fc532a5710b73f7c9e99cc50747168af8543ec0e2b4e5c75c79a93ebe038"
+  },
+  "scope": "ANDROID_HEALTH_DIAGNOSTIC_ONLY_NO_LOGIN_OR_TRANSPORT",
+  "refs": [
+    "E02",
+    "Q06",
+    "Q24"
+  ],
+  "configuration": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r2/proposed-run-config.json",
+    "bytes": 3131,
+    "sha256": "522d24dade1e06dffbbbadbbb7e7c71493c0ed24fda56e1a104fe83d519f3f2d"
+  },
+  "phaseBudgetSeconds": 180,
+  "originalLeaseSeconds": 1800,
+  "sourceOnlyCommands": [
+    [
+      "python3",
+      "-I",
+      "-B",
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android_health_v1/test_lease_guard.py"
+    ],
+    [
+      "python3",
+      "-I",
+      "-B",
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android_health_v1/test_cleanup.py"
+    ],
+    [
+      "python3",
+      "-I",
+      "-B",
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android_health_v1/test_diagnostic.py"
+    ]
+  ],
+  "testMeaning": "29 guard/24 mocked cleanup/19 diagnostic definitions; no tests executed; counts are not E02 assertions.",
+  "proposedRuntimeArgv": [
+    "python3",
+    "-I",
+    "-B",
+    "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_android_health_v1/supervisor.py",
+    "--config",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r2/proposed-run-config.json",
+    "--config-sha",
+    "522d24dade1e06dffbbbadbbb7e7c71493c0ed24fda56e1a104fe83d519f3f2d",
+    "--release",
+    "REQUIRES_FRESH_EXACT_ROOT_DIAGNOSTIC_RELEASE_PATH",
+    "--release-sha",
+    "REQUIRES_FRESH_EXACT_ROOT_DIAGNOSTIC_RELEASE_SHA256",
+    "--out",
+    "/tmp/nbdp-e02-android-health-v1/runs/8e4865aa7ad547968e7d3b4a53d7fcf6"
+  ],
+  "rootReleaseContract": {
+    "schema": "e02-android-health-release-v1",
+    "scope": "ANDROID_HEALTH_DIAGNOSTIC_ONLY_NO_LOGIN_OR_TRANSPORT",
+    "requiredBindings": [
+      "executionAuthorized selected by coordinator after actual independent reviews",
+      "runId and runConfig exact closed descriptor",
+      "actual qaReview and securityReview full source/configuration reports",
+      "guardRegressionEvidence actual current29/24/19 control evidence and independent acceptance",
+      "notAfterUtcNs covers original immutable issuance+1800s, never renewal"
+    ],
+    "authority": "No release is created by this author or this document."
+  },
+  "ordering": [
+    "Independent QA/security source/config/proposed-control review.",
+    "Actual root execution of meaningful bounded controls; preserve original failures, independent actual result review.",
+    "Root creates private lab parent, checks actual KVM/Docker/cache/disk/memory/current pins; no pull or production change.",
+    "Root issues fresh exact diagnostic-only release and invokes finite foreground supervisor; retain actual tool/session/exit and full selected source/commands/raw/ownership/cleanup evidence.",
+    "Independent review of diagnostic measurements, support/unknown gaps, ANR facts and first-error/cleanup. No ordinary-client/control or canonical promotion."
+  ],
+  "acceptance": {
+    "required": [
+      "Exact reviewed current sources/config/client/SDK/dependency pins and actual isolation/resource/private-cgroup checks.",
+      "Actual natural owned command lifecycles/raw stdout+stderr/pin joins/timestamps and first failure retained.",
+      "No input/login/clipboard/fixture operation, only one exact declared activity intent if baseline admission reaches it.",
+      "Bounded180s original phase, original1800s lease and exact-owned cleanup/absence evidence."
+    ],
+    "partialEvidence": "A failed mandatory diagnostic command or deadline produces retained partial prefix and FAILED_UNQUALIFIED; no retry or post-revocation guest commands.",
+    "anr": "Visible ANR is ENVIRONMENT_FAILURE retained before revocation/cleanup; that run cannot qualify an ordinary-client matrix row.",
+    "noAnr": "No ANR in the limited window remains UNKNOWN/DIAGNOSTIC_ONLY; not healthy OS or interoperability PASS.",
+    "optionalMetrics": "Missing/denied/unsupported PSI/private-cgroup metrics explicit UNKNOWN with raw sentinel/original read exit; no fallback paths."
+  },
+  "neededHumanInput": null,
+  "actualExecution": {
+    "controls": 0,
+    "android": 0,
+    "relayPublications": 0
+  },
+  "limits": [
+    "No canonical dependencies/gates/classifications or production boundaries changed.",
+    "Software-GPU/coldboot/resource baseline retained; no causal conclusion is available before measured traces."
+  ],
+  "originalRejections": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r1/independent-qa-review.json",
+      "bytes": 1900,
+      "sha256": "d60e6f503327235738cfee16faff3ff2f2433ac4d85f51296bfd539a6a5cb06d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r1/independent-security-review.json",
+      "bytes": 2384,
+      "sha256": "131941ffd25ebd20ef3c7104dc2ffc72acf007ee471e3cd791d3af284c9fb11e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r1/final-independent-security-review.json",
+      "bytes": 2443,
+      "sha256": "337ac474b44efeefb1901b5317057f14971c5e38a646779307004b49c12cfc3c"
+    }
+  ],
+  "findingDisposition": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r2/finding-disposition.json",
+    "bytes": 2661,
+    "sha256": "da2efaf935080932de8a103823762bc126f4478521b47f7a5e458eb0dba015a1"
+  }
+}

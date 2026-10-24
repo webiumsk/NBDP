@@ -1,0 +1,251 @@
+{
+  "schema": "e06-opaque-inventory-source-grammar-controls-v1",
+  "rows": [
+    {
+      "id": "OPAQUE_ACCEPT_zero",
+      "scope": "ACTUAL_PRIVATE_HELPER_GRAMMAR_ONLY",
+      "expectedError": null,
+      "observedError": null,
+      "metadataAccepted": true,
+      "matched": true,
+      "actualFileOpenObservations": [],
+      "noFileReadRequired": true
+    },
+    {
+      "id": "OPAQUE_ACCEPT_raw32_boundary",
+      "scope": "ACTUAL_PRIVATE_HELPER_GRAMMAR_ONLY",
+      "expectedError": null,
+      "observedError": null,
+      "metadataAccepted": true,
+      "matched": true,
+      "actualFileOpenObservations": [],
+      "noFileReadRequired": true
+    },
+    {
+      "id": "OPAQUE_ACCEPT_above_raw32",
+      "scope": "ACTUAL_PRIVATE_HELPER_GRAMMAR_ONLY",
+      "expectedError": null,
+      "observedError": null,
+      "metadataAccepted": true,
+      "matched": true,
+      "actualFileOpenObservations": [],
+      "noFileReadRequired": true
+    },
+    {
+      "id": "OPAQUE_ACCEPT_actual_node_metadata",
+      "scope": "ACTUAL_PRIVATE_HELPER_GRAMMAR_ONLY",
+      "expectedError": null,
+      "observedError": null,
+      "metadataAccepted": true,
+      "matched": true,
+      "actualFileOpenObservations": [],
+      "noFileReadRequired": true
+    },
+    {
+      "id": "OPAQUE_ACCEPT_opaque512_boundary",
+      "scope": "ACTUAL_PRIVATE_HELPER_GRAMMAR_ONLY",
+      "expectedError": null,
+      "observedError": null,
+      "metadataAccepted": true,
+      "matched": true,
+      "actualFileOpenObservations": [],
+      "noFileReadRequired": true
+    },
+    {
+      "id": "OPAQUE_REFUSE_negative",
+      "scope": "ACTUAL_PRIVATE_HELPER_GRAMMAR_ONLY",
+      "expectedError": "SCHEMA_INTEGER",
+      "observedError": "SCHEMA_INTEGER",
+      "metadataAccepted": false,
+      "matched": true,
+      "actualFileOpenObservations": [],
+      "noFileReadRequired": true
+    },
+    {
+      "id": "OPAQUE_REFUSE_bool",
+      "scope": "ACTUAL_PRIVATE_HELPER_GRAMMAR_ONLY",
+      "expectedError": "SCHEMA_INTEGER",
+      "observedError": "SCHEMA_INTEGER",
+      "metadataAccepted": false,
+      "matched": true,
+      "actualFileOpenObservations": [],
+      "noFileReadRequired": true
+    },
+    {
+      "id": "OPAQUE_REFUSE_float",
+      "scope": "ACTUAL_PRIVATE_HELPER_GRAMMAR_ONLY",
+      "expectedError": "SCHEMA_INTEGER",
+      "observedError": "SCHEMA_INTEGER",
+      "metadataAccepted": false,
+      "matched": true,
+      "actualFileOpenObservations": [],
+      "noFileReadRequired": true
+    },
+    {
+      "id": "OPAQUE_REFUSE_string_size",
+      "scope": "ACTUAL_PRIVATE_HELPER_GRAMMAR_ONLY",
+      "expectedError": "SCHEMA_INTEGER",
+      "observedError": "SCHEMA_INTEGER",
+      "metadataAccepted": false,
+      "matched": true,
+      "actualFileOpenObservations": [],
+      "noFileReadRequired": true
+    },
+    {
+      "id": "OPAQUE_REFUSE_above512",
+      "scope": "ACTUAL_PRIVATE_HELPER_GRAMMAR_ONLY",
+      "expectedError": "LOCAL_INVENTORY_OPAQUE_FILE_BOUND",
+      "observedError": "LOCAL_INVENTORY_OPAQUE_FILE_BOUND",
+      "metadataAccepted": false,
+      "matched": true,
+      "actualFileOpenObservations": [],
+      "noFileReadRequired": true
+    },
+    {
+      "id": "OPAQUE_REFUSE_above_safe_integer",
+      "scope": "ACTUAL_PRIVATE_HELPER_GRAMMAR_ONLY",
+      "expectedError": "SCHEMA_INTEGER",
+      "observedError": "SCHEMA_INTEGER",
+      "metadataAccepted": false,
+      "matched": true,
+      "actualFileOpenObservations": [],
+      "noFileReadRequired": true
+    },
+    {
+      "id": "OPAQUE_REFUSE_relative_path",
+      "scope": "ACTUAL_PRIVATE_HELPER_GRAMMAR_ONLY",
+      "expectedError": "SCHEMA_PATTERN",
+      "observedError": "SCHEMA_PATTERN",
+      "metadataAccepted": false,
+      "matched": true,
+      "actualFileOpenObservations": [],
+      "noFileReadRequired": true
+    },
+    {
+      "id": "OPAQUE_REFUSE_bad_hash",
+      "scope": "ACTUAL_PRIVATE_HELPER_GRAMMAR_ONLY",
+      "expectedError": "SCHEMA_PATTERN",
+      "observedError": "SCHEMA_PATTERN",
+      "metadataAccepted": false,
+      "matched": true,
+      "actualFileOpenObservations": [],
+      "noFileReadRequired": true
+    },
+    {
+      "id": "OPAQUE_REFUSE_hash_type",
+      "scope": "ACTUAL_PRIVATE_HELPER_GRAMMAR_ONLY",
+      "expectedError": "SCHEMA_STRING",
+      "observedError": "SCHEMA_STRING",
+      "metadataAccepted": false,
+      "matched": true,
+      "actualFileOpenObservations": [],
+      "noFileReadRequired": true
+    },
+    {
+      "id": "OPAQUE_REFUSE_extra_key",
+      "scope": "ACTUAL_PRIVATE_HELPER_GRAMMAR_ONLY",
+      "expectedError": "CLOSED_KEYS",
+      "observedError": "CLOSED_KEYS",
+      "metadataAccepted": false,
+      "matched": true,
+      "actualFileOpenObservations": [],
+      "noFileReadRequired": true
+    },
+    {
+      "id": "OPAQUE_REFUSE_missing_key",
+      "scope": "ACTUAL_PRIVATE_HELPER_GRAMMAR_ONLY",
+      "expectedError": "CLOSED_KEYS",
+      "observedError": "CLOSED_KEYS",
+      "metadataAccepted": false,
+      "matched": true,
+      "actualFileOpenObservations": [],
+      "noFileReadRequired": true
+    },
+    {
+      "id": "OPAQUE_CAP_WITH_ACTUAL_INVENTORY_CONTEXT",
+      "scope": "ACTUAL_PRIVATE_HELPER_GRAMMAR_ONLY",
+      "expectedError": "LOCAL_INVENTORY_OPAQUE_FILE_BOUND",
+      "observedError": "LOCAL_INVENTORY_OPAQUE_FILE_BOUND",
+      "metadataAccepted": false,
+      "matched": true,
+      "actualFileOpenObservations": [],
+      "noFileReadRequired": true
+    },
+    {
+      "id": "REAL_LOOP_ORDER",
+      "scope": "SOURCE_AST_ORDER_ONLY",
+      "matched": true
+    },
+    {
+      "id": "OUTPUT_DESCRIPTOR_STILL_RAW32",
+      "scope": "ACTUAL_UNCHANGED_OUTPUT_DESCRIPTOR_GRAMMAR",
+      "expectedError": "SCHEMA_INTEGER",
+      "observedError": "SCHEMA_INTEGER",
+      "metadataAccepted": false,
+      "matched": true,
+      "actualFileOpenObservations": [],
+      "noFileReadRequired": true
+    },
+    {
+      "id": "LOADS_STILL_RAW32",
+      "scope": "ACTUAL_UNCHANGED_BOUNDED_JSON_READER",
+      "expectedError": "JSON_BOUND",
+      "observedError": "JSON_BOUND",
+      "metadataAccepted": false,
+      "matched": true,
+      "actualFileOpenObservations": [],
+      "noFileReadRequired": true
+    },
+    {
+      "id": "CHECKED_STILL_RAW32",
+      "scope": "ACTUAL_REAL_SPARSE_FILE_STREAM_HASH_THEN_RAW_READ_REFUSAL",
+      "expectedError": "DATA_READ_BOUND",
+      "observedError": "DATA_READ_BOUND",
+      "metadataAccepted": false,
+      "matched": true,
+      "actualFileOpenObservations": [
+        {
+          "path": "/tmp/e6n-opaque-grammar-6de715bf226e/raw-read-boundary.bin",
+          "mode": "r",
+          "flags": 524288
+        }
+      ],
+      "noFileReadRequired": false,
+      "actualSparseFile": {
+        "path": "/tmp/e6n-opaque-grammar-6de715bf226e/raw-read-boundary.bin",
+        "bytes": 33554433,
+        "sha256": "bdf7fbb54387c24608fd757a1b31c32cabcd7b6bee8ff3345c897139fffc072a"
+      }
+    }
+  ],
+  "checks": 21,
+  "matched": true,
+  "sourceApproval": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-approval.json",
+    "bytes": 107717,
+    "sha256": "e3e41bb6bae55d80702f9002cc99c72ad3a6345405a5043d3123dcafcbea685e"
+  },
+  "sourceClosure": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-closure.json",
+    "bytes": 102080,
+    "sha256": "76cfc1d55602c4c18f7adabde2b67679f3d828517a4cf4abefdf13d57029b100"
+  },
+  "admission": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/admission.py",
+    "bytes": 53263,
+    "sha256": "24d928e46fa538b139c0e8418eeae777d682a99173a8f1a03334374b1626ec9f"
+  },
+  "originalBridgeSchema": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/bridge-schemas.json",
+    "bytes": 158719,
+    "sha256": "89173066418eddd16f1d2a14ecee4b04470072385c1883aab48a01dd6e41281a"
+  },
+  "actualFullInventoryGateExecuted": false,
+  "nativeJobs": 0,
+  "rawPayloadsRegenerated": false,
+  "limits": [
+    "Actual private helper/unchanged readers plus labelled source-order inspection only.",
+    "Synthetic metadata cases are not accepted inventory artifacts or native interoperability.",
+    "Fresh controlled outer admission, process/no-call traps and raw lifecycle capture required."
+  ]
+}

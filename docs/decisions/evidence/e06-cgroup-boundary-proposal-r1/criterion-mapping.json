@@ -1,0 +1,97 @@
+{
+  "schema": "nbdp-e06-docker-boundary-proposed-criterion-mapping-v1",
+  "state": "PROPOSED_NOT_ADOPTED_NOT_RUNTIME_EVIDENCE",
+  "criteria": [
+    {
+      "id": "G01",
+      "retainedRequirement": "Canonical E06 scope and prerequisite gates",
+      "proposedEvidence": "No canonical change; container diagnostic evidence alone never promotes E02/E06 or closes blockers.",
+      "limit": "Canonical received-metadata/exact-byte/negative/order/replay/effect evidence remains separately required."
+    },
+    {
+      "id": "G02",
+      "retainedRequirement": "Exact owned workload boundary",
+      "proposedEvidence": "One exact-CID private PID/cgroup boundary; launcher admitted before fork; exclusive membership administration.",
+      "limit": "No name-prefix or same-UID delegation assertion substitutes for actual isolation."
+    },
+    {
+      "id": "G03",
+      "retainedRequirement": "Role ACK and three-session readiness",
+      "proposedEvidence": "Same source-bound runner/tracer/three fixture role ACKs and pre-fork intents; frozen live identity and full UID/fdinfo custody for fault-target roles.",
+      "limit": "No unknown-live exemption, transient name whitelist or provisional signaling."
+    },
+    {
+      "id": "G04",
+      "retainedRequirement": "Complete live boundary at READY",
+      "proposedEvidence": "Actual Docker pause plus anchored cgroup frozen=1 and frozen leaf membership/mapping; READY published while frozen.",
+      "limit": "Two running proc samples are retained observations only; external migration invalidates evidence."
+    },
+    {
+      "id": "G05",
+      "retainedRequirement": "Seven real cases and timers",
+      "proposedEvidence": "One sequential natural-zero/natural-refusal/deadline/interrupt/capture-fault/tracer-death/inner-parent-death suite; original3/4+2/7/7.25/11/30 timing.",
+      "limit": "First unqualified case stops; no clock pause allowance, retry, inherited case PASS or timer increase."
+    },
+    {
+      "id": "G06",
+      "retainedRequirement": "Unchanged capture/privacy and actual streams",
+      "proposedEvidence": "Same observer.capture body, six raw read/write syscall classes, sentinel positive/negative assertions, original raw caps and complete lifecycle/EOF evidence.",
+      "limit": "Capability or models do not supply actual seven-case privacy/lifecycle evidence."
+    },
+    {
+      "id": "G07",
+      "retainedRequirement": "Reap and workload live absence",
+      "proposedEvidence": "Actual tracer/runner/direct/adopted waits; PID1 alive during frozen only-PID1 completion, paired scoped wait/ECHILD records.",
+      "limit": "Live absence is not zombie reaping; do not claim all historical tasks individually reaped by monitor."
+    },
+    {
+      "id": "G08",
+      "retainedRequirement": "Safety cleanup cannot qualify failure",
+      "proposedEvidence": "Exact CID cleanup/absence with original receipts; residual tasks, early PID1 exit, emergency kill/removal or uncertainty remain unqualified.",
+      "limit": "PID1 death killing orphans and cgroup deletion are not successful observer cleanup."
+    },
+    {
+      "id": "G09",
+      "retainedRequirement": "Whole current provenance and independent review",
+      "proposedEvidence": "New observation/admission schema and complete source/tool/image/context joins; actual same-subject nonauthor/nonoperator QA/security.",
+      "limit": "No synthesis of old per-PID custody fields or old SOURCE7 host-gate bypass."
+    },
+    {
+      "id": "G10",
+      "retainedRequirement": "Future actual Node/LOCAL route",
+      "proposedEvidence": "Actual matching container parent with fresh source449/path/mode/tool/context/prerequisite and authority joins.",
+      "limit": "No transfer from container qualification to existing HOST LOCAL, no native run under this proposal."
+    }
+  ],
+  "cases": [
+    "natural-zero",
+    "natural-refusal",
+    "deadline",
+    "interrupt",
+    "capture-fault",
+    "tracer-death",
+    "inner-parent-death"
+  ],
+  "timingSeconds": {
+    "registration": 3,
+    "captureActive": 4,
+    "captureCleanup": 2,
+    "captureReceiptCutoff": 7,
+    "workloadAbsenceCutoff": 7.25,
+    "guardTotal": 11,
+    "faultSelfExpiry": 30
+  },
+  "rawCapsBytes": {
+    "trace": 1048576,
+    "stdout": 65536,
+    "stderr": 262144
+  },
+  "productionTimersUnchanged": [
+    15,
+    240,
+    1500,
+    1800
+  ],
+  "realCasesExecuted": 0,
+  "noOldResultRetargeting": true
+}

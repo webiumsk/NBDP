@@ -1,0 +1,41 @@
+{
+  "schema": "e02-android-health-control-acceptance-v1",
+  "coordinator": "/root",
+  "decision": "ACCEPT_DIAGNOSTIC_PURE_CONTROLS_ONLY",
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r2/subject.json",
+    "bytes": 8770,
+    "sha256": "2182fc532a5710b73f7c9e99cc50747168af8543ec0e2b4e5c75c79a93ebe038"
+  },
+  "configuration": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r2/proposed-run-config.json",
+    "bytes": 3131,
+    "sha256": "522d24dade1e06dffbbbadbbb7e7c71493c0ed24fda56e1a104fe83d519f3f2d"
+  },
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r2/actual-controls/summary.json",
+    "bytes": 899,
+    "sha256": "695ccb901e975e6437066c2fda210f950f1d9a2b8203e07d9b12a04091ba2d7d"
+  },
+  "independentReviews": {
+    "qa": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r2/actual-controls-qa-review.json",
+      "bytes": 1620,
+      "sha256": "5385a0f5a8ae8bd01a5ceec94527f29656e2978f6ef822e179c14286028daa98"
+    },
+    "security": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r2/actual-controls-security-review.json",
+      "bytes": 1628,
+      "sha256": "a2051f5f8bd476f7e018249e6244114d19a5f98a83651aa996c7aa24dae333cc"
+    }
+  },
+  "counts": {
+    "guard": 29,
+    "mockedCleanup": 24,
+    "diagnosticData": 19
+  },
+  "executionReleased": false,
+  "limits": [
+    "No Android/ordinaryclient/E02PASS; actualdiagnosticrequiresseparaterootgrant."
+  ]
+}

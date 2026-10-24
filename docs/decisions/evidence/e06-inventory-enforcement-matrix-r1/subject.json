@@ -1,0 +1,138 @@
+{
+  "schema": "e06-real-matrix-source-config-subject-v1",
+  "authors": [
+    "/root",
+    "/root/e06_policy_marker_implementer"
+  ],
+  "inheritedProbeAuthors": [
+    "/root/e06_policy_marker_implementer",
+    "/root/negative_outer_implementer"
+  ],
+  "sourceAuthors": [
+    "/root",
+    "/root/negative_lane_architect",
+    "/root/recovery_fixture_parent",
+    "/root/negative_io_implementer",
+    "/root/negative_outer_implementer",
+    "/root/e06_policy_marker_implementer"
+  ],
+  "state": "WRITES_STOPPED_PENDING_INDEPENDENT_REVIEW",
+  "artifacts": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/matrix.py",
+      "bytes": 30358,
+      "sha256": "bf4fdedf43066059e158bdb4471f93698143f8643015253221a640ddc10c0519"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/config.json",
+      "bytes": 12481,
+      "sha256": "c0665fdd17af7518845507d9ad3a9aa6c9ebd1cfee479cff402d0bd3c85b7098"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/matrix.json",
+      "bytes": 59107,
+      "sha256": "9b3ad58b74470fff7c73e3a0d0b65645b8c4a69dec3ae092edaa40be71c99e55"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/PLAN.md",
+      "bytes": 10740,
+      "sha256": "ce10b2cbabd4c2bfee14d32f638086751865628c234663d68f323c1b20be590e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/static-checks.json",
+      "bytes": 9824,
+      "sha256": "065f5fccda69af82a61408786c243228979b42efdd8c539200a36928bf27b9c9"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/matrix.patch",
+      "bytes": 22787,
+      "sha256": "b5f17ad3bf73762276373ef3e7c00aed21ed3fd0e6f22e3ffd33f433d69501d9"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/preparation-error.json",
+      "bytes": 571,
+      "sha256": "5421ffab2e26a01a383ad97e9d1711d5e82d5b6c47b730bd2376d94a009d9e45"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/preparation-inputs.json",
+      "bytes": 2938,
+      "sha256": "f23229eec791544bbf4ded11b0ca98d89cca55b9e2a2265b119cf4aaa4ed6b1c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/release-shape-NOT-A-RELEASE.json",
+      "bytes": 2268,
+      "sha256": "970114fa065da48cc4c452334c3fd9594ce57ae786b787b5c803342fc6b6a4f7"
+    }
+  ],
+  "sourceApproval": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-approval.json",
+    "bytes": 107717,
+    "sha256": "e3e41bb6bae55d80702f9002cc99c72ad3a6345405a5043d3123dcafcbea685e"
+  },
+  "controlApproval": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/control-approval.json",
+    "bytes": 1488,
+    "sha256": "c2c6d2b97ba4f25dbbb9074c079cd3ad29cbf9fa23aac709b31a97a273c0f5ee"
+  },
+  "grammarAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/acceptance.json",
+    "bytes": 1210,
+    "sha256": "8e55d89c5ee7e8173012818c5b8f5e902f6d2c7f16b818c3ca200bf292ea5af0"
+  },
+  "positiveAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/positive-baseline-acceptance.json",
+    "bytes": 1201,
+    "sha256": "335181094d00987325263e8731b8f8c43854113b9f30d333f5f3ae97d87f3bd6"
+  },
+  "matrix": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/matrix.json",
+    "bytes": 59107,
+    "sha256": "9b3ad58b74470fff7c73e3a0d0b65645b8c4a69dec3ae092edaa40be71c99e55"
+  },
+  "scopeReviewDecisions": {
+    "grammar": {
+      "qa": "ACCEPT_OPAQUE_GRAMMAR_CONTROLS_ONLY",
+      "security": "ACCEPT_OPAQUE_GRAMMAR_CONTROLS_ONLY"
+    },
+    "positive": {
+      "qa": "ACCEPT_REAL_INPUT_GATE_POSITIVE_ONLY",
+      "security": "ACCEPT_ACTUAL_INPUT_GATE_POSITIVE_ONLY"
+    }
+  },
+  "proposedInvocation": {
+    "tool": {
+      "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "bytes": 32959480,
+      "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+    },
+    "argvPrefix": [
+      "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "-I",
+      "-B",
+      "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/matrix.py",
+      "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/config.json",
+      "c0665fdd17af7518845507d9ad3a9aa6c9ebd1cfee479cff402d0bd3c85b7098"
+    ],
+    "trustedMissingOperands": [
+      "fresh exact root matrix-only release path after independent SOURCE/config review",
+      "exact root release SHA256",
+      "actual primary operator session /root"
+    ],
+    "environment": {
+      "PATH": "/usr/bin:/bin",
+      "LANG": "C.UTF-8",
+      "LC_ALL": "C.UTF-8",
+      "TZ": "UTC",
+      "WS_NO_BUFFER_UTIL": "1",
+      "WS_NO_UTF_8_VALIDATE": "1"
+    },
+    "externalMonitorSeconds": 600,
+    "requiresRawCommandEnvStdoutStderrLifecycleCapture": true
+  },
+  "executionReleased": false,
+  "proposedRows": 76,
+  "nativeJobs": 0,
+  "fullLocalAuthority": false,
+  "reservedQaOutputNotActivated": "/tmp/e6n-inventory-matrix-qa-ba68033f653d",
+  "nextGate": "Independent exact source/config QA+security review, then fresh root MATRIX-only release; no child execution authority."
+}

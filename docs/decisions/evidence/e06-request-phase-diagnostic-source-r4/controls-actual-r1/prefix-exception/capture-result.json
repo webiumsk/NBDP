@@ -1,0 +1,87 @@
+{
+  "argv": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "-c",
+    "import os,time; os.write(4,b'P'*32768); time.sleep(8)"
+  ],
+  "stdin": "DEVNULL_ZERO_BYTES",
+  "phaseCeilingSeconds": 2,
+  "phaseIncludesObserverAdmissionAndTracerStartup": true,
+  "cleanupCeilingSeconds": 0.5,
+  "launchAttempted": true,
+  "pid": 14,
+  "pidMeaning": "Owned tracer PID in tool execution namespace",
+  "exit": -2,
+  "reaped": true,
+  "forced": true,
+  "timedOut": false,
+  "signals": [
+    2
+  ],
+  "firstError": {
+    "type": "OSError",
+    "message": "FIXTURE_PREFIX_THEN_EXCEPTION"
+  },
+  "secondaryErrors": [
+    {
+      "type": "Refusal",
+      "message": "DIAGNOSTIC_TRACE_CAP"
+    },
+    {
+      "type": "Refusal",
+      "message": "FINAL_CAPTURE_WRITE_ACCOUNTING_DIFFERENCE_TRACE"
+    }
+  ],
+  "observedBytes": {
+    "trace": 32768,
+    "stdout": 0,
+    "stderr": 208
+  },
+  "retainedBytes": {
+    "trace": 128,
+    "stdout": 0,
+    "stderr": 208
+  },
+  "acknowledgedWriteBytes": {
+    "trace": 0,
+    "stdout": 0,
+    "stderr": 208
+  },
+  "writeState": {
+    "trace": "POISONED_FAILED_OR_UNCERTAIN",
+    "stdout": "WRITABLE",
+    "stderr": "WRITABLE"
+  },
+  "eof": {
+    "trace": true,
+    "stdout": true,
+    "stderr": true
+  },
+  "elapsedMilliseconds": 118,
+  "receivedSignals": [],
+  "raw": {
+    "trace": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/controls-actual-r1/prefix-exception/trace.bin",
+      "bytes": 128,
+      "sha256": "f16ef3e254ffb74b7e3c97d99486ef8c549e4c80bc6dfed7fe8c5e7e76f4fbcd"
+    },
+    "stdout": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/controls-actual-r1/prefix-exception/stdout.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stderr": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/controls-actual-r1/prefix-exception/stderr.bin",
+      "bytes": 208,
+      "sha256": "d697f75e1eb91332a709b329ef4ac98130c183769d848e7c44914575848a5544"
+    }
+  },
+  "retainedAccounting": "FINAL_RAW_FILE_DESCRIPTOR_BYTES",
+  "captureComplete": false,
+  "nativeCleanupQualified": false,
+  "nativeCleanupMeaning": "Never established by observer capture; forced/uncertain tracer cleanup remains unqualified.",
+  "traceeContainment": "UNKNOWN_REQUIRES_ACTUAL_NATIVE_AND_TRACE_GRAPH_REVIEW",
+  "killOnExit": "REQUESTED_NOT_HOST_ATTESTED"
+}

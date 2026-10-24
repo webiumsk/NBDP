@@ -1,0 +1,58 @@
+{
+  "schema": "e06-source4-future-control-commands-v1",
+  "state": "DOCUMENTED_NOT_EXECUTED_NOT_AUTHORIZATION",
+  "cwd": "/home/peterhorvath/apps/bitcoin/NBDP",
+  "interpreter": {
+    "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "bytes": 32959480,
+    "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+  },
+  "requiredBeforeAll": "Both actual matching independent SOURCE reviews plus explicit root release. Stop first failure, preserve, no retry.",
+  "oneFreshBatch": [
+    {
+      "scope": "pureCapture",
+      "count": 13,
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/capture-controls.py"
+      ]
+    },
+    {
+      "scope": "pathData",
+      "count": 3,
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/test_snapshot_paths.py"
+      ],
+      "externalRawCapture": "Root must bound10s active/12s total/64KiB per stream, retain natural exit/reap/EOF/raw0600 and full frozen source before/after, as R2 actual snapshot capture."
+    },
+    {
+      "scope": "guardModels",
+      "count": 16,
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/capture-data-controls.py",
+        "guard16"
+      ]
+    },
+    {
+      "scope": "admissionData",
+      "count": 14,
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/capture-data-controls.py",
+        "admission14"
+      ]
+    }
+  ],
+  "realStraceSeven": "DENIED until separate actual model/source review+root release; guard.py requires actual external source+modeled acceptance hashes, no future value supplied.",
+  "nodeLocal": "DENIED; full current whole-tested observer/helper closure and actual7 independently accepted exact tool/HOST/raw lifecycle scope remain mandatory."
+}

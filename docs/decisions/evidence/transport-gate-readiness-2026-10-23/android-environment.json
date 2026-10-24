@@ -1,0 +1,251 @@
+{
+  "schema": "nbdp-android-environment-readiness-v1",
+  "date": "2026-10-23",
+  "session": "/root/android_environment",
+  "state": "NOT_READY_FOR_NEW_CONTROL_RUN",
+  "scope": "Bounded environment/source/artifact inspection only; no emulator/device/container/build/install/network experiment launched.",
+  "references": [
+    "E02",
+    "E04",
+    "E06",
+    "Q06",
+    "Q24"
+  ],
+  "managedObservations": {
+    "platform": "Linux-7.1.5-76070105-generic-x86_64-with-glibc2.39",
+    "cpuCount": 22,
+    "cpuVirtualizationFlagsVisible": true,
+    "toolsOnPath": {
+      "adb": null,
+      "emulator": null,
+      "sdkmanager": null,
+      "avdmanager": null,
+      "java": null,
+      "javac": null,
+      "gradle": null,
+      "docker": "/usr/bin/docker",
+      "virsh": "/usr/bin/virsh",
+      "qemu-system-x86_64": "/usr/bin/qemu-system-x86_64"
+    },
+    "androidVariables": {
+      "ANDROID_HOME": null,
+      "ANDROID_SDK_ROOT": null,
+      "JAVA_HOME": null
+    },
+    "kvmVisible": false,
+    "dockerReadOnlyQuery": {
+      "argv": [
+        "docker",
+        "ps",
+        "-a",
+        "--format",
+        "{{.Names}} {{.Image}} {{.Status}}"
+      ],
+      "exit": 1,
+      "stderr": "permission denied while trying to connect to the docker API at unix:///var/run/docker.sock\n"
+    },
+    "dockerImagesQuery": {
+      "argv": [
+        "docker",
+        "images",
+        "--format",
+        "{{.Repository}}:{{.Tag}} {{.ID}} {{.Size}}"
+      ],
+      "exit": 1,
+      "stderr": "permission denied while trying to connect to the docker API at unix:///var/run/docker.sock\n"
+    },
+    "libvirtReadOnlyQuery": {
+      "argv": [
+        "virsh",
+        "--readonly",
+        "-c",
+        "qemu:///system",
+        "list",
+        "--all",
+        "--name"
+      ],
+      "exit": 1,
+      "stderr": "error: failed to connect to the hypervisor\nerror: Failed to connect socket to '/var/run/libvirt/libvirt-sock-ro': Operation not permitted\n"
+    },
+    "disk": {
+      "sharedFilesystemPaths": [
+        "/home/peterhorvath/apps/bitcoin/NBDP",
+        "/tmp"
+      ],
+      "freeBytesAtFinalProbe": 179453952,
+      "totalBytes": 481576673280,
+      "initialFreeBytes": 182177792
+    },
+    "memoryBytesAtFinalProbe": {
+      "MemTotal": 67040096256,
+      "MemAvailable": 15263506432,
+      "SwapTotal": 21474299904,
+      "SwapFree": 1886814208
+    },
+    "hostVMwareState": "UNKNOWN: managed PID namespace and denied read-only libvirt query do not establish host VM state."
+  },
+  "coordinatorVerifiedHostFacts": {
+    "source": "Actual coordinator mailbox, tool chunk ea914b exit0; not a command executed by this child. Coordinator should bind its retained host-probe artifact when publishing.",
+    "hostKvmExists": true,
+    "hostKvmOpenReadWriteSucceeded": true,
+    "dockerVersion": "29.9.0",
+    "dockerAccessibleWithSupportedScopedEscalation": true,
+    "hostFreeBytesAtCoordinatorProbe": 180051968,
+    "meaning": "Managed KVM invisibility/daemon denial is sandbox scope, not a request for the Product Owner to alter host KVM/Docker permissions."
+  },
+  "cachedAssets": {
+    "sourceCommit": "e6f464a1179def75274512b3c5bab921de3bf3d8",
+    "apk": {
+      "path": "/tmp/nbdp-e02-android-artifact/source/amethyst/build/outputs/apk/fdroid/debug/amethyst-fdroid-debug.apk",
+      "bytes": 165860063,
+      "sha256": "5165a9f79326524c494108b8ab728fb173ac14fa16bf67ebbd86364c895e98b5"
+    },
+    "apkCurrentMatchesManifest": true,
+    "artifactManifest": {
+      "path": "/tmp/nbdp-e02-android-artifact/records/artifact-manifest.json",
+      "bytes": 1768,
+      "sha256": "7a05ade74647386345283b9f4a182894bba845890bdf32160f855e16fcfe79ae"
+    },
+    "sourceManifest": {
+      "path": "/tmp/nbdp-e02-android-artifact/records/source-manifest.json",
+      "bytes": 1350,
+      "sha256": "f73c6472d75b7373f8e445ffa923f22776f7971dbe250138a1e241777c43d0ed"
+    },
+    "package": "com.vitorpamplona.amethyst.debug",
+    "versionName": "1.17.0-DEBUG",
+    "versionCode": 462,
+    "minSdk": 26,
+    "targetSdk": 37,
+    "nativeABIs": [
+      "arm64-v8a",
+      "armeabi-v7a",
+      "x86",
+      "x86_64"
+    ],
+    "signingCertificateSha256Recorded": "f6b725d0814d0ed98b8d06f8793df2ba7f8e01a6fc076dcfff2d5c68e8e3c6e5",
+    "signingVerificationPerformedToday": false,
+    "sdkRoot": "/tmp/nbdp-e02-ingress-runtime/sdk",
+    "sdkVersionEvidenceType": "source.properties inspection; not successful current tool runtime version output",
+    "platformToolsRevision": "37.0.1",
+    "emulatorRevision": "37.2.12",
+    "emulatorBuildId": "16428233",
+    "systemImage": {
+      "apiLevel": 36,
+      "extensionLevel": 17,
+      "abi": "x86_64",
+      "tag": "default",
+      "revision": 2
+    },
+    "sdkMetadata": [
+      {
+        "path": "/tmp/nbdp-e02-ingress-runtime/sdk/platform-tools/source.properties",
+        "bytes": 38,
+        "sha256": "2dccd788c0234d8cf7f7457377e57f57527a86a629c6ed54feb8af0f549dac38"
+      },
+      {
+        "path": "/tmp/nbdp-e02-ingress-runtime/sdk/emulator/source.properties",
+        "bytes": 103,
+        "sha256": "ba13085f647fb8389a4d06a1de0e4104ac4e841733e50f67223ac230e1ce685a"
+      },
+      {
+        "path": "/tmp/nbdp-e02-ingress-runtime/sdk/system-images/android-36/default/x86_64/source.properties",
+        "bytes": 319,
+        "sha256": "1a6e7c0b326c24c28ba501aa5ada247dd9fb0f087b662865f7bc649991fe74d1"
+      }
+    ],
+    "jdkReleaseMetadata": {
+      "path": "/tmp/nbdp-e02-android-artifact/toolchains/jdk21/release",
+      "version": "21.0.12.1",
+      "implementor": "Eclipse Adoptium"
+    },
+    "gradleDirectory": "/tmp/nbdp-e02-android-artifact/toolchains/gradle-9.8.0",
+    "downloadsOrRebuildNeededForExistingExactApk": false
+  },
+  "actualToolVersionProbes": [
+    {
+      "argv": [
+        "/tmp/nbdp-e02-ingress-runtime/sdk/platform-tools/adb",
+        "version"
+      ],
+      "exit": -6,
+      "stdout": "",
+      "stderr": "10-23 19:51:57.735     4     4 F adb     : adb_utils.cpp:315 Cannot mkdir '/home/peterhorvath/.android': Read-only file system\n"
+    },
+    {
+      "argv": [
+        "/tmp/nbdp-e02-ingress-runtime/sdk/platform-tools/adb",
+        "version"
+      ],
+      "environmentOverrides": {
+        "ANDROID_USER_HOME": "/tmp/nbdp-android-readiness-20261023/android-user"
+      },
+      "exit": -6,
+      "stdout": "",
+      "stderr": "10-23 19:52:46.446     4     4 F adb     : adb_utils.cpp:315 Cannot mkdir '/home/peterhorvath/.android': Read-only file system\n"
+    }
+  ],
+  "versionProbeMeaning": "Both adb version calls aborted (-6) before reporting version because adb attempted to mkdir the read-only personal ~/.android path, including with isolated ANDROID_USER_HOME. Neither started a server or changed global config; no personal HOME override is proposed. Use the reviewed container environment, not ad hoc direct adb calls.",
+  "historicalLab": {
+    "root": "/tmp/nbdp-e02-minimal-rs-v7",
+    "runId": "c0c1175179794cf3ab1f41bba22a4f2a",
+    "evidenceType": "Existing historical records inspected, not current live-container state.",
+    "startupNegative": {
+      "path": "/tmp/nbdp-e02-minimal-rs-v7/records/coordinator-startup-negative.json",
+      "bytes": 7059,
+      "sha256": "0aa0e2e325eebe3edb895d7816bc797cedf351608e487ba65120fc630f4c6544"
+    },
+    "startupActualReady": false,
+    "startupUIExecuted": false,
+    "startupFailure": "Shared clock lock stalled under prior lease guards.",
+    "finishedAndStopMarkersPresent": true,
+    "cleanupRecord": {
+      "path": "/tmp/nbdp-e02-minimal-rs-v7/runs/c0c1175179794cf3ab1f41bba22a4f2a/cleanup.json",
+      "bytes": 8515,
+      "sha256": "5791a75205564be00db18d98ab34ae8f8fef7edba721308027d2903ef68f4744"
+    },
+    "recordedAndroidImage": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+    "historicalImageCurrentlyInDocker": "UNKNOWN: child managed daemon access denied; coordinator can inspect exact image read-only with supported escalation.",
+    "oldAndroidStateAllocatedBytes": 383266816,
+    "oldAndroidStateFiles": 28,
+    "oldConfiguredDataPartitionBytes": 6442450944,
+    "oldStateIsNotFreshInput": true
+  },
+  "resourceAdmission": {
+    "existingReviewedBootDriver": {
+      "path": "/tmp/nbdp-e02-sdk-boot-observation/driver.py",
+      "bytes": 20684,
+      "sha256": "505426cc3613c5717b958e41d7d70a469239ba2942972e70e8d35a66399f84c1"
+    },
+    "existingDriverMinimumPersistentFreeBytes": 6442450944,
+    "existingDriverMinimumMemAvailableBytes": 12884901888,
+    "existingDriverTmpfsStateCeilingBytes": 10737418240,
+    "currentDiskPassesExistingDriver": false,
+    "currentMemoryPassesExistingDriver": true,
+    "missingPersistentBytesToExistingGuard": 6262996992,
+    "evidenceLimits": "The existing guard is a reviewed admission threshold, not measured peak usage or an empirically minimal UI requirement. Historical boot used a10GiB tmpfs ceiling and did not publish peak /state use; old pre-UI state already allocated383266816B. There is no evidence here that2GiB would suffice. No arbitrary8GiB requirement is introduced."
+  },
+  "nextExecutableTask": {
+    "owner": "implementer with coordinator launch and independent QA/security",
+    "prerequisites": [
+      "Free at least6GiB total on the shared persistent filesystem to satisfy the existing reviewed boot guard, or separately review a smaller resource plan with measured peak/headroom.",
+      "Use supported scoped host access; no user KVM/Docker permission change is required.",
+      "Verify exact cached image/tool/source manifests and fresh disposable output root; do not reuse consumed historical grants or populated old AVD state.",
+      "Review exact synthetic relay/control input plan, raw content/tag capture route and fresh bounded cleanup before launch."
+    ],
+    "steps": [
+      "Reuse the already built exact source-linked APK and cached SDK read-only; no download/build needed.",
+      "Prepare fresh disposable AVD/state and namespace-local ADB/relay endpoints using existing reviewed container isolation.",
+      "Record actual SDK/guest/app package identity and readiness; install only the verified APK into the disposable guest.",
+      "Run the separately reviewed ordinary-client input matrix and retain actual UI and raw content/tag evidence.",
+      "Have independent QA/security inspect exact captured evidence before any canonical result change."
+    ],
+    "completion": "Actual complete ordinary-client control evidence at exact pin with mandatory rendering/preservation observations and no skipped mandatory rows; metadata inspection, APK build, boot readiness or one Hello observation alone is insufficient."
+  },
+  "minimalProductOwnerAction": "Provide persistent free space meeting the existing6GiB guard (or a separately scoped writable filesystem with that headroom). Do not delete retained experiment evidence blindly. KVM/Docker permission reapproval, APK rebuild and repeated PO scope approval are unnecessary.",
+  "projectFilesChangedOnly": [
+    "docs/decisions/evidence/transport-gate-readiness-2026-10-23/android-environment.json",
+    "docs/decisions/evidence/transport-gate-readiness-2026-10-23/android-environment.md"
+  ],
+  "experimentsExecutedThisAssignment": [],
+  "architectureOrCanonicalStatusChanged": false
+}

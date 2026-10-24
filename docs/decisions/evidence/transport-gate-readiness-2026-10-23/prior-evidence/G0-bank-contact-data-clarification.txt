@@ -1,0 +1,15 @@
+# G0 invoice/credit-note content clarification: IBAN and contacts
+
+Date:2026-10-17. **OWNER-SELECTED TARGET CONTENT — NOT A SUITABILITY OR PRODUCTION APPROVAL.**
+
+The owner replied: “IBAN tam predsa musí byť, nie? aj kontaktné údaje”. Record IBAN and ordinary contact information as included content in the selected invoice/credit-note assessment target. The coordinator's earlier proposed exclusion was too narrow and is superseded. Do not ask the owner again whether these content families belong in scope.
+
+Support IBAN and ordinary document contact names, postal addresses, phone numbers and email addresses when present. This is a product content-support requirement, not a claim that every invoice/credit note must contain every field or a statement of legal requirements. Optionality, representation and validation remain future profile rules. Preserve exact original bytes; do not strip these fields or publish them in routing/discovery metadata to fit a former classification proposal.
+
+IBAN is declared document data. Its receipt, signature or extraction does not authorize payment, refund, beneficiary replacement or a change of previously trusted payment instructions. Contact data similarly establishes neither organization identity nor action authority. Scope includes ordinary contact details that can identify individuals; it does not automatically include arbitrary other personal/sensitive records, credentials, all banking instructions or every attachment.
+
+Keep remaining unspecified requirements separate: other document/attachment content, actual endpoint/signer/recipient trust, disclosure consequences and action policies. Apply the owner's reply only to the included IBAN/contact content; no new permission question is issued in this clarification task.
+
+[Updated requirements](../requirements/invoices-credit-notes-scope.md), [owner worksheet](../requirements/invoices-credit-notes-owner-input.md) and [paper mapping](../requirements/invoices-credit-notes-paper-mapping.md) reflect this change. Exact earlier reviewed versions and their pins remain under [preserved inputs](evidence/g0-bank-contact-clarification/before-manifest.json). Original review reports remain historical; new independent delta reviews are required for these changed document bytes.
+
+No runtime tests, schema/wire change, new NIP/kind, architecture decision, real-data processing or SDK/production approval follows. Existing G0/Q01 and all five blockers/canonical experiment prerequisites remain unchanged. No commit, PR or publication.

@@ -1,0 +1,186 @@
+test_01_Popen_failure_preserves_failure_and_runs_empty_census_cleanup (__main__.GuardFaultControls.test_01_Popen_failure_preserves_failure_and_runs_empty_census_cleanup) ... ok
+test_02_pidfd_failure_retains_actual_launch_handle_and_cleanup (__main__.GuardFaultControls.test_02_pidfd_failure_retains_actual_launch_handle_and_cleanup) ... ERROR
+test_03_identity_failure_afterPopen_retains_handle_and_cleanup (__main__.GuardFaultControls.test_03_identity_failure_afterPopen_retains_handle_and_cleanup) ... ERROR
+test_04_unregistered_descendant_is_censused_signalled_reaped_and_FAIL (__main__.GuardFaultControls.test_04_unregistered_descendant_is_censused_signalled_reaped_and_FAIL) ... ERROR
+test_05_ready_ACK_write_failure_does_not_discard_owner (__main__.GuardFaultControls.test_05_ready_ACK_write_failure_does_not_discard_owner) ... ok
+test_06_missing_registration_hits_absolute_ready_cutoff (__main__.GuardFaultControls.test_06_missing_registration_hits_absolute_ready_cutoff) ... ok
+test_07_corrupt_registration_JSON_is_refused_without_cleanup_dependency (__main__.GuardFaultControls.test_07_corrupt_registration_JSON_is_refused_without_cleanup_dependency) ... ok
+test_08_late_registration_remains_fail_even_if_then_present (__main__.GuardFaultControls.test_08_late_registration_remains_fail_even_if_then_present) ... ok
+test_09_late_capture_receipt_is_fail_despite_dead_tracees (__main__.GuardFaultControls.test_09_late_capture_receipt_is_fail_despite_dead_tracees) ... ok
+test_10_selfexpiry_belowguard_and_lateabsence_both_refused (__main__.GuardFaultControls.test_10_selfexpiry_belowguard_and_lateabsence_both_refused) ... ok
+test_11_reaped_or_reused_identity_never_signalled (__main__.GuardFaultControls.test_11_reaped_or_reused_identity_never_signalled) ... ERROR
+test_12_open_returned_reusedPID_descriptor_is_closed_unsignalable (__main__.GuardFaultControls.test_12_open_returned_reusedPID_descriptor_is_closed_unsignalable) ... ERROR
+test_13_open_returned_changedUID_descriptor_is_closed_unsignalable (__main__.GuardFaultControls.test_13_open_returned_changedUID_descriptor_is_closed_unsignalable) ... ERROR
+test_14_identity_exception_or_vanished_afteropen_closes_without_signal (__main__.GuardFaultControls.test_14_identity_exception_or_vanished_afteropen_closes_without_signal) ... ERROR
+test_15_fdinfo_mismatch_or_exception_closes_without_signal (__main__.GuardFaultControls.test_15_fdinfo_mismatch_or_exception_closes_without_signal) ... ERROR
+test_16_persistentcensus_failure_still_kills_reapsknown_and_staysFAIL (__main__.GuardFaultControls.test_16_persistentcensus_failure_still_kills_reapsknown_and_staysFAIL) ... ERROR
+
+======================================================================
+ERROR: test_02_pidfd_failure_retains_actual_launch_handle_and_cleanup (__main__.GuardFaultControls.test_02_pidfd_failure_retains_actual_launch_handle_and_cleanup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r3/test_guard_faults.py", line 68, in test_02_pidfd_failure_retains_actual_launch_handle_and_cleanup
+    def test_02_pidfd_failure_retains_actual_launch_handle_and_cleanup(self):self.cleanup_model('pidfd')
+                                                                             ~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r3/test_guard_faults.py", line 42, in cleanup_model
+    patch.object(m.os,'pidfd_open',side_effect=pidfd_failure,return_value=401),\
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/peterhorvath/.miniforge3/lib/python3.13/unittest/mock.py", line 1497, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "/home/peterhorvath/.miniforge3/lib/python3.13/unittest/mock.py", line 1467, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'os' (frozen)> does not have the attribute 'pidfd_open'
+
+======================================================================
+ERROR: test_03_identity_failure_afterPopen_retains_handle_and_cleanup (__main__.GuardFaultControls.test_03_identity_failure_afterPopen_retains_handle_and_cleanup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r3/test_guard_faults.py", line 69, in test_03_identity_failure_afterPopen_retains_handle_and_cleanup
+    def test_03_identity_failure_afterPopen_retains_handle_and_cleanup(self):self.cleanup_model('identity')
+                                                                             ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r3/test_guard_faults.py", line 42, in cleanup_model
+    patch.object(m.os,'pidfd_open',side_effect=pidfd_failure,return_value=401),\
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/peterhorvath/.miniforge3/lib/python3.13/unittest/mock.py", line 1497, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "/home/peterhorvath/.miniforge3/lib/python3.13/unittest/mock.py", line 1467, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'os' (frozen)> does not have the attribute 'pidfd_open'
+
+======================================================================
+ERROR: test_04_unregistered_descendant_is_censused_signalled_reaped_and_FAIL (__main__.GuardFaultControls.test_04_unregistered_descendant_is_censused_signalled_reaped_and_FAIL)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r3/test_guard_faults.py", line 70, in test_04_unregistered_descendant_is_censused_signalled_reaped_and_FAIL
+    def test_04_unregistered_descendant_is_censused_signalled_reaped_and_FAIL(self):self.cleanup_model('unregistered')
+                                                                                    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r3/test_guard_faults.py", line 42, in cleanup_model
+    patch.object(m.os,'pidfd_open',side_effect=pidfd_failure,return_value=401),\
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/peterhorvath/.miniforge3/lib/python3.13/unittest/mock.py", line 1497, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "/home/peterhorvath/.miniforge3/lib/python3.13/unittest/mock.py", line 1467, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'os' (frozen)> does not have the attribute 'pidfd_open'
+
+======================================================================
+ERROR: test_11_reaped_or_reused_identity_never_signalled (__main__.GuardFaultControls.test_11_reaped_or_reused_identity_never_signalled)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r3/test_guard_faults.py", line 106, in test_11_reaped_or_reused_identity_never_signalled
+    with patch.object(m.os,'kill') as kill,patch.object(m.signal,'pidfd_send_signal') as send:
+                                           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/peterhorvath/.miniforge3/lib/python3.13/unittest/mock.py", line 1497, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "/home/peterhorvath/.miniforge3/lib/python3.13/unittest/mock.py", line 1467, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'signal' from '/home/peterhorvath/.miniforge3/lib/python3.13/signal.py'> does not have the attribute 'pidfd_send_signal'
+
+======================================================================
+ERROR: test_12_open_returned_reusedPID_descriptor_is_closed_unsignalable (__main__.GuardFaultControls.test_12_open_returned_reusedPID_descriptor_is_closed_unsignalable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r3/test_guard_faults.py", line 137, in test_12_open_returned_reusedPID_descriptor_is_closed_unsignalable
+    def test_12_open_returned_reusedPID_descriptor_is_closed_unsignalable(self):self.acquisition_rejection('reuse')
+                                                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r3/test_guard_faults.py", line 126, in acquisition_rejection
+    with patch.object(m,'ancestry_tree',return_value=[row]),patch.object(m.os,'pidfd_open',return_value=401),\
+                                                            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/peterhorvath/.miniforge3/lib/python3.13/unittest/mock.py", line 1497, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "/home/peterhorvath/.miniforge3/lib/python3.13/unittest/mock.py", line 1467, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'os' (frozen)> does not have the attribute 'pidfd_open'
+
+======================================================================
+ERROR: test_13_open_returned_changedUID_descriptor_is_closed_unsignalable (__main__.GuardFaultControls.test_13_open_returned_changedUID_descriptor_is_closed_unsignalable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r3/test_guard_faults.py", line 138, in test_13_open_returned_changedUID_descriptor_is_closed_unsignalable
+    def test_13_open_returned_changedUID_descriptor_is_closed_unsignalable(self):self.acquisition_rejection('uid')
+                                                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r3/test_guard_faults.py", line 126, in acquisition_rejection
+    with patch.object(m,'ancestry_tree',return_value=[row]),patch.object(m.os,'pidfd_open',return_value=401),\
+                                                            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/peterhorvath/.miniforge3/lib/python3.13/unittest/mock.py", line 1497, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "/home/peterhorvath/.miniforge3/lib/python3.13/unittest/mock.py", line 1467, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'os' (frozen)> does not have the attribute 'pidfd_open'
+
+======================================================================
+ERROR: test_14_identity_exception_or_vanished_afteropen_closes_without_signal (__main__.GuardFaultControls.test_14_identity_exception_or_vanished_afteropen_closes_without_signal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r3/test_guard_faults.py", line 140, in test_14_identity_exception_or_vanished_afteropen_closes_without_signal
+    self.acquisition_rejection('identity-exception');self.acquisition_rejection('identity-vanished')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r3/test_guard_faults.py", line 126, in acquisition_rejection
+    with patch.object(m,'ancestry_tree',return_value=[row]),patch.object(m.os,'pidfd_open',return_value=401),\
+                                                            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/peterhorvath/.miniforge3/lib/python3.13/unittest/mock.py", line 1497, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "/home/peterhorvath/.miniforge3/lib/python3.13/unittest/mock.py", line 1467, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'os' (frozen)> does not have the attribute 'pidfd_open'
+
+======================================================================
+ERROR: test_15_fdinfo_mismatch_or_exception_closes_without_signal (__main__.GuardFaultControls.test_15_fdinfo_mismatch_or_exception_closes_without_signal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r3/test_guard_faults.py", line 142, in test_15_fdinfo_mismatch_or_exception_closes_without_signal
+    self.acquisition_rejection('fdinfo-mismatch');self.acquisition_rejection('fdinfo-exception')
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r3/test_guard_faults.py", line 126, in acquisition_rejection
+    with patch.object(m,'ancestry_tree',return_value=[row]),patch.object(m.os,'pidfd_open',return_value=401),\
+                                                            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/peterhorvath/.miniforge3/lib/python3.13/unittest/mock.py", line 1497, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "/home/peterhorvath/.miniforge3/lib/python3.13/unittest/mock.py", line 1467, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'os' (frozen)> does not have the attribute 'pidfd_open'
+
+======================================================================
+ERROR: test_16_persistentcensus_failure_still_kills_reapsknown_and_staysFAIL (__main__.GuardFaultControls.test_16_persistentcensus_failure_still_kills_reapsknown_and_staysFAIL)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r3/test_guard_faults.py", line 158, in test_16_persistentcensus_failure_still_kills_reapsknown_and_staysFAIL
+    patch.object(m.os,'pidfd_open',return_value=401),patch.object(m.Path,'read_text',return_value='Pid:\t93001\n'),\
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/peterhorvath/.miniforge3/lib/python3.13/unittest/mock.py", line 1497, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "/home/peterhorvath/.miniforge3/lib/python3.13/unittest/mock.py", line 1467, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'os' (frozen)> does not have the attribute 'pidfd_open'
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.512s
+
+FAILED (errors=9)

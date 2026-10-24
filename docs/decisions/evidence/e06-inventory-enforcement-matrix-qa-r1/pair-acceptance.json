@@ -1,0 +1,40 @@
+{
+  "schema": "e06-input-gate-matrix-pair-acceptance-v1",
+  "coordinator": "/root",
+  "decision": "ACCEPT_PRIMARY_QA_CALLER_MEMORY_MATRIX_PAIR_ONLY",
+  "primary": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/observation.json",
+    "bytes": 34613,
+    "sha256": "c444c779bd0de22036c5e43f285eac213863908b847f5f76691b83f262c541b9"
+  },
+  "qa": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-qa-r1/actual-run/observation.json",
+    "bytes": 34793,
+    "sha256": "3d0eaec6817e8fbbec616c14e3cb078d881e3b7ff2053c458b91021a3772753b"
+  },
+  "actualQaOperator": "/root/android_health_qa",
+  "actualQaToolAssociation": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-qa-r1/tool-association.json",
+    "bytes": 1639,
+    "sha256": "7e9600be99b4b17743e19a7cdca2ce3f8914207d45db01ddcff25e6ca732e10d"
+  },
+  "independentNonoperatorReviews": {
+    "qa": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-qa-r1/actual-pair-qa-review.json",
+      "bytes": 3059,
+      "sha256": "de4e9921227a841b19ccf532d78283476a57a3514b5286b7e4b3197fbd3e13e9"
+    },
+    "security": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-qa-r1/actual-pair-security-review.json",
+      "bytes": 3081,
+      "sha256": "2acb6f0edc457522dd98309ffbe9ac3bfb32af8544d927a012cc8f197c3a6b1f"
+    }
+  },
+  "casesPerRun": 76,
+  "executionReleased": false,
+  "nextTask": "ReviewactualLOCALconfigurationcore/worker, obtainconfigurationAcceptance, finalconfigandfreshLOCALrelease; actualaccepted_transport+twoF-onlynativejobsremainunexecuted.",
+  "limits": [
+    "NofullLOCAL/native/custody/TARGET/E06PASS/architectureclosure.",
+    "Independentoperatorrepetitionnotindependentimplementation."
+  ]
+}

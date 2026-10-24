@@ -1,0 +1,460 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v3/supervisor.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/supervisor.py
+@@ -77,7 +77,7 @@
+       value=Call(
+         func=Name(id='Path', ctx=Load()),
+         args=[
+-          Constant(value='/tmp/nbdp-e02-ordinary-client-api35-v3')])),
++          Constant(value='/tmp/nbdp-e02-ordinary-minimum-v1')])),
+     Assign(
+       targets=[
+         Name(id='OLD', ctx=Store())],
+@@ -88,7 +88,11 @@
+     Assign(
+       targets=[
+         Name(id='SCOPE', ctx=Store())],
+-      value=Constant(value='JS_TO_RUST_PEER_INCOMING_SCALAR2_RS_RELAY_ONE_CELL_PARTIAL_ONLY')),
++      value=Constant(value='E02_ORDINARY_MINIMUM_RS_TWO_ROLE_WINDOW_ONLY')),
++    Assign(
++      targets=[
++        Name(id='PROFILE', ctx=Store())],
++      value=Constant(value='e02-ordinary-minimum-rs-two-role-v1')),
+     Assign(
+       targets=[
+         Name(id='RUNTIME', ctx=Store())],
+@@ -1608,7 +1612,10 @@
+                     Constant(value='android_driver.py'),
+                     Constant(value='ui-plan.json'),
+                     Constant(value='fixture.mjs'),
+-                    Constant(value='fixture-plan.json')],
++                    Constant(value='fixture-plan.json'),
++                    Constant(value='minimum-plan.json'),
++                    Constant(value='business-rumor.json'),
++                    Constant(value='chat-rumor.json')],
+                   ctx=Load()),
+                 is_async=0)]))]),
+     FunctionDef(
+@@ -1617,7 +1624,8 @@
+         args=[
+           arg(arg='destination'),
+           arg(arg='run_id'),
+-          arg(arg='seconds')]),
++          arg(arg='seconds'),
++          arg(arg='ordinary_role')]),
+       body=[
+         Expr(
+           value=Constant(value='Prepare bytes only; does not issue a lease, import workers or start Docker.')),
+@@ -1682,6 +1690,45 @@
+                     Constant(value='helperApk')],
+                   ctx=Load()),
+                 is_async=0)])),
++        Assign(
++          targets=[
++            Name(id='minimum', ctx=Store())],
++          value=Call(
++            func=Name(id='strict', ctx=Load()),
++            args=[
++              Call(
++                func=Attribute(
++                  value=BinOp(
++                    left=Name(id='HERE', ctx=Load()),
++                    op=Div(),
++                    right=Constant(value='minimum-plan.json')),
++                  attr='read_bytes',
++                  ctx=Load()))])),
++        Expr(
++          value=Call(
++            func=Name(id='need', ctx=Load()),
++            args=[
++              Compare(
++                left=Name(id='ordinary_role', ctx=Load()),
++                ops=[
++                  In()],
++                comparators=[
++                  Tuple(
++                    elts=[
++                      Constant(value='incoming'),
++                      Constant(value='archive')],
++                    ctx=Load())]),
++              Constant(value='Closed separately granted role required')])),
++        Assign(
++          targets=[
++            Name(id='role', ctx=Store())],
++          value=Subscript(
++            value=Subscript(
++              value=Name(id='minimum', ctx=Load()),
++              slice=Constant(value='roles'),
++              ctx=Load()),
++            slice=Name(id='ordinary_role', ctx=Load()),
++            ctx=Load())),
+         Expr(
+           value=Call(
+             func=Attribute(
+@@ -1689,6 +1736,30 @@
+               attr='update',
+               ctx=Load()),
+             keywords=[
++              keyword(
++                arg='profileId',
++                value=Name(id='PROFILE', ctx=Load())),
++              keyword(
++                arg='ordinaryRole',
++                value=Name(id='ordinary_role', ctx=Load())),
++              keyword(
++                arg='windowId',
++                value=Subscript(
++                  value=Name(id='role', ctx=Load()),
++                  slice=Constant(value='windowId'),
++                  ctx=Load())),
++              keyword(
++                arg='account',
++                value=Subscript(
++                  value=Name(id='role', ctx=Load()),
++                  slice=Constant(value='account'),
++                  ctx=Load())),
++              keyword(
++                arg='peer',
++                value=Subscript(
++                  value=Name(id='role', ctx=Load()),
++                  slice=Constant(value='peer'),
++                  ctx=Load())),
+               keyword(
+                 arg='runId',
+                 value=Name(id='run_id', ctx=Load())),
+@@ -1771,7 +1842,7 @@
+                     ops=[
+                       Eq()],
+                     comparators=[
+-                      Constant(value='e02-api35-v3-first-cell-runtime-plan-v1')]),
++                      Constant(value='e02-ordinary-minimum-role-runtime-plan-v1')]),
+                   Compare(
+                     left=Subscript(
+                       value=Name(id='config', ctx=Load()),
+@@ -1782,6 +1853,116 @@
+                     comparators=[
+                       Name(id='SCOPE', ctx=Load())])]),
+               Constant(value='Fixed first slice only')])),
++        Expr(
++          value=Call(
++            func=Name(id='need', ctx=Load()),
++            args=[
++              BoolOp(
++                op=And(),
++                values=[
++                  Compare(
++                    left=Subscript(
++                      value=Name(id='config', ctx=Load()),
++                      slice=Constant(value='profileId'),
++                      ctx=Load()),
++                    ops=[
++                      Eq()],
++                    comparators=[
++                      Name(id='PROFILE', ctx=Load())]),
++                  Compare(
++                    left=Subscript(
++                      value=Name(id='config', ctx=Load()),
++                      slice=Constant(value='ordinaryRole'),
++                      ctx=Load()),
++                    ops=[
++                      In()],
++                    comparators=[
++                      Tuple(
++                        elts=[
++                          Constant(value='incoming'),
++                          Constant(value='archive')],
++                        ctx=Load())])]),
++              Constant(value='Fixed adopted minimum profile and role required')])),
++        Assign(
++          targets=[
++            Name(id='minimum', ctx=Store())],
++          value=Call(
++            func=Name(id='strict', ctx=Load()),
++            args=[
++              Call(
++                func=Attribute(
++                  value=BinOp(
++                    left=Name(id='HERE', ctx=Load()),
++                    op=Div(),
++                    right=Constant(value='minimum-plan.json')),
++                  attr='read_bytes',
++                  ctx=Load()))])),
++        Assign(
++          targets=[
++            Name(id='role', ctx=Store())],
++          value=Subscript(
++            value=Subscript(
++              value=Name(id='minimum', ctx=Load()),
++              slice=Constant(value='roles'),
++              ctx=Load()),
++            slice=Subscript(
++              value=Name(id='config', ctx=Load()),
++              slice=Constant(value='ordinaryRole'),
++              ctx=Load()),
++            ctx=Load())),
++        Expr(
++          value=Call(
++            func=Name(id='need', ctx=Load()),
++            args=[
++              BoolOp(
++                op=And(),
++                values=[
++                  Compare(
++                    left=Subscript(
++                      value=Name(id='minimum', ctx=Load()),
++                      slice=Constant(value='profileId'),
++                      ctx=Load()),
++                    ops=[
++                      Eq()],
++                    comparators=[
++                      Name(id='PROFILE', ctx=Load())]),
++                  Compare(
++                    left=Subscript(
++                      value=Name(id='config', ctx=Load()),
++                      slice=Constant(value='windowId'),
++                      ctx=Load()),
++                    ops=[
++                      Eq()],
++                    comparators=[
++                      Subscript(
++                        value=Name(id='role', ctx=Load()),
++                        slice=Constant(value='windowId'),
++                        ctx=Load())]),
++                  Compare(
++                    left=Subscript(
++                      value=Name(id='config', ctx=Load()),
++                      slice=Constant(value='account'),
++                      ctx=Load()),
++                    ops=[
++                      Eq()],
++                    comparators=[
++                      Subscript(
++                        value=Name(id='role', ctx=Load()),
++                        slice=Constant(value='account'),
++                        ctx=Load())]),
++                  Compare(
++                    left=Subscript(
++                      value=Name(id='config', ctx=Load()),
++                      slice=Constant(value='peer'),
++                      ctx=Load()),
++                    ops=[
++                      Eq()],
++                    comparators=[
++                      Subscript(
++                        value=Name(id='role', ctx=Load()),
++                        slice=Constant(value='peer'),
++                        ctx=Load())])]),
++              Constant(value='Exact fixed account/window bindings required')])),
+         Expr(
+           value=Call(
+             func=Name(id='need', ctx=Load()),
+@@ -2225,14 +2406,29 @@
+                   ctx=Load()))])),
+         For(
+           target=Name(id='descriptor', ctx=Store()),
+-          iter=Call(
+-            func=Attribute(
+-              value=Subscript(
+-                value=Name(id='fixture', ctx=Load()),
+-                slice=Constant(value='pins'),
++          iter=List(
++            elts=[
++              Starred(
++                value=Call(
++                  func=Attribute(
++                    value=Subscript(
++                      value=Name(id='fixture', ctx=Load()),
++                      slice=Constant(value='pins'),
++                      ctx=Load()),
++                    attr='values',
++                    ctx=Load())),
+                 ctx=Load()),
+-              attr='values',
+-              ctx=Load())),
++              Starred(
++                value=Call(
++                  func=Attribute(
++                    value=Subscript(
++                      value=Name(id='fixture', ctx=Load()),
++                      slice=Constant(value='oracles'),
++                      ctx=Load()),
++                    attr='values',
++                    ctx=Load())),
++                ctx=Load())],
++            ctx=Load()),
+           body=[
+             Expr(
+               value=Call(
+@@ -3994,7 +4190,25 @@
+                               BinOp(
+                                 left=Name(id='HERE', ctx=Load()),
+                                 op=Div(),
+-                                right=Constant(value='fixture-plan.json'))])])]),
++                                right=Constant(value='fixture-plan.json'))])]),
++                      Compare(
++                        left=Call(
++                          func=Attribute(
++                            value=Name(id='env', ctx=Load()),
++                            attr='get',
++                            ctx=Load()),
++                          args=[
++                            Constant(value='NBDP_MINIMUM_RUN_CONFIG_SHA256')]),
++                        ops=[
++                          Eq()],
++                        comparators=[
++                          Subscript(
++                            value=Attribute(
++                              value=Name(id='self', ctx=Load()),
++                              attr='plan_pin',
++                              ctx=Load()),
++                            slice=Constant(value='sha256'),
++                            ctx=Load())])]),
+                   Constant(value='Exact original service guard environment')])),
+             Expr(
+               value=Call(
+@@ -4696,7 +4910,16 @@
+                         BinOp(
+                           left=Name(id='HERE', ctx=Load()),
+                           op=Div(),
+-                          right=Constant(value='fixture-plan.json'))]))])),
++                          right=Constant(value='fixture-plan.json'))])),
++                  keyword(
++                    arg='NBDP_MINIMUM_RUN_CONFIG_SHA256',
++                    value=Subscript(
++                      value=Attribute(
++                        value=Name(id='self', ctx=Load()),
++                        attr='plan_pin',
++                        ctx=Load()),
++                      slice=Constant(value='sha256'),
++                      ctx=Load()))])),
+             For(
+               target=Tuple(
+                 elts=[
+@@ -6300,6 +6523,15 @@
+                     attr='environ',
+                     ctx=Load()),
+                   slice=Constant(value='NBDP_FIXTURE_PLAN_SHA256'),
++                  ctx=Load())),
++              keyword(
++                arg='NBDP_MINIMUM_RUN_CONFIG_SHA256',
++                value=Subscript(
++                  value=Attribute(
++                    value=Name(id='os', ctx=Load()),
++                    attr='environ',
++                    ctx=Load()),
++                  slice=Constant(value='NBDP_MINIMUM_RUN_CONFIG_SHA256'),
+                   ctx=Load()))])),
+         Expr(
+           value=Call(
+@@ -6650,7 +6882,7 @@
+                     ops=[
+                       Eq()],
+                     comparators=[
+-                      Constant(value='e02-api35-v3-first-cell-release-v1')]),
++                      Constant(value='e02-ordinary-minimum-role-release-v1')]),
+                   Compare(
+                     left=Subscript(
+                       value=Name(id='release', ctx=Load()),
+@@ -6689,6 +6921,39 @@
+                       Subscript(
+                         value=Name(id='config', ctx=Load()),
+                         slice=Constant(value='runId'),
++                        ctx=Load())]),
++                  Compare(
++                    left=Subscript(
++                      value=Name(id='release', ctx=Load()),
++                      slice=Constant(value='profileId'),
++                      ctx=Load()),
++                    ops=[
++                      Eq()],
++                    comparators=[
++                      Name(id='PROFILE', ctx=Load())]),
++                  Compare(
++                    left=Subscript(
++                      value=Name(id='release', ctx=Load()),
++                      slice=Constant(value='ordinaryRole'),
++                      ctx=Load()),
++                    ops=[
++                      Eq()],
++                    comparators=[
++                      Subscript(
++                        value=Name(id='config', ctx=Load()),
++                        slice=Constant(value='ordinaryRole'),
++                        ctx=Load())]),
++                  Compare(
++                    left=Subscript(
++                      value=Name(id='release', ctx=Load()),
++                      slice=Constant(value='windowId'),
++                      ctx=Load()),
++                    ops=[
++                      Eq()],
++                    comparators=[
++                      Subscript(
++                        value=Name(id='config', ctx=Load()),
++                        slice=Constant(value='windowId'),
+                         ctx=Load())])]),
+               Constant(value='Exact root first-cell release required')])),
+         For(
+@@ -7488,16 +7753,28 @@
+                     keys=[
+                       Constant(value='schema'),
+                       Constant(value='runId'),
++                      Constant(value='profileId'),
++                      Constant(value='ordinaryRole'),
++                      Constant(value='windowId'),
+                       Constant(value='runConfig'),
+                       Constant(value='runRelease'),
+                       Constant(value='lease'),
+                       Constant(value='canonicalE02Changed'),
+                       Constant(value='limits')],
+                     values=[
+-                      Constant(value='e02-api35-v3-first-cell-supervisor-result-v1'),
++                      Constant(value='e02-ordinary-minimum-role-supervisor-result-v1'),
+                       Subscript(
+                         value=Name(id='config', ctx=Load()),
+                         slice=Constant(value='runId'),
++                        ctx=Load()),
++                      Name(id='PROFILE', ctx=Load()),
++                      Subscript(
++                        value=Name(id='config', ctx=Load()),
++                        slice=Constant(value='ordinaryRole'),
++                        ctx=Load()),
++                      Subscript(
++                        value=Name(id='config', ctx=Load()),
++                        slice=Constant(value='windowId'),
+                         ctx=Load()),
+                       Name(id='config_pin', ctx=Load()),
+                       Name(id='release_pin', ctx=Load()),
+@@ -7553,6 +7830,22 @@
+               keyword(
+                 arg='type',
+                 value=Name(id='Path', ctx=Load()))])),
++        Expr(
++          value=Call(
++            func=Attribute(
++              value=Name(id='parser', ctx=Load()),
++              attr='add_argument',
++              ctx=Load()),
++            args=[
++              Constant(value='--ordinary-role')],
++            keywords=[
++              keyword(
++                arg='choices',
++                value=Tuple(
++                  elts=[
++                    Constant(value='incoming'),
++                    Constant(value='archive')],
++                  ctx=Load()))])),
+         Expr(
+           value=Call(
+             func=Attribute(
+@@ -7729,6 +8022,10 @@
+                           Attribute(
+                             value=Name(id='args', ctx=Load()),
+                             attr='seconds',
++                            ctx=Load()),
++                          Attribute(
++                            value=Name(id='args', ctx=Load()),
++                            attr='ordinary_role',
+                             ctx=Load())])])])),
+             Return(
+               value=Constant(value=0))]),

@@ -1,0 +1,19 @@
+{
+  "case": "timeout",
+  "argv": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "-c",
+    "import os,time,sys; os.write(4,b'prefix\\n'); time.sleep(8)"
+  ],
+  "writeFault": null,
+  "activeFixtureSeconds": 2,
+  "cleanupFixtureSeconds": ".5",
+  "fixtureCaps": {
+    "trace": 1024,
+    "stdout": 256,
+    "stderr": 512
+  },
+  "meaning": "Owned Python child/synthetic trace only; no Node/strace/LOCAL or actual EXITKILL claim."
+}

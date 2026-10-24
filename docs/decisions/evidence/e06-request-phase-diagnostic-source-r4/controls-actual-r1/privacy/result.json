@@ -1,0 +1,63 @@
+{
+  "testedInvalidPolicies": [
+    [
+      "--kill-on-exit",
+      "--interruptible=1",
+      "-f",
+      "-qq",
+      "-ttt",
+      "-s",
+      "256",
+      "-e",
+      "trace=execve,clone,clone3,fork,vfork,pipe,pipe2,dup,dup2,dup3,fcntl,openat,read,pread64,readv,write,pwrite64,writev,close",
+      "-e",
+      "raw=read,pread64,readv"
+    ],
+    [
+      "--kill-on-exit",
+      "--interruptible=1",
+      "-f",
+      "-qq",
+      "-ttt",
+      "-s",
+      "256",
+      "-e",
+      "trace=execve,clone,clone3,fork,vfork,pipe,pipe2,dup,dup2,dup3,fcntl,openat,read,pread64,readv,write,pwrite64,writev,close",
+      "-e",
+      "raw=read,pread64,readv,write,pwrite64,writev",
+      "-v"
+    ],
+    [
+      "--kill-on-exit",
+      "--interruptible=1",
+      "-f",
+      "-qq",
+      "-ttt",
+      "-s",
+      "256",
+      "-e",
+      "trace=execve,clone,clone3,fork,vfork,pipe,pipe2,dup,dup2,dup3,fcntl,openat,read,pread64,readv,write,pwrite64,writev,close",
+      "-e",
+      "raw=read,pread64,readv,write,pwrite64,writev",
+      "-p",
+      "1"
+    ],
+    [
+      "--kill-on-exit",
+      "--interruptible=1",
+      "-f",
+      "-qq",
+      "-ttt",
+      "-s",
+      "256",
+      "-e",
+      "trace=execve,clone,clone3,fork,vfork,pipe,pipe2,dup,dup2,dup3,fcntl,openat,read,pread64,readv,write,pwrite64,writev,close",
+      "-e",
+      "raw=read,pread64,readv,write,pwrite64,writev",
+      "-e",
+      "write=all"
+    ]
+  ],
+  "allRefused": true,
+  "actualTracing": false
+}

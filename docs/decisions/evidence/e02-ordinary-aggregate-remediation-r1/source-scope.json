@@ -1,0 +1,77 @@
+{
+  "schema": "e02-aggregate-source-remediation-scope-v1",
+  "status": "SOURCE_REMEDIATION_PREPARED_NOT_INDEPENDENTLY_ACCEPTED",
+  "actualFindings": [
+    "AGGREGATE_ACTUAL_OUTER_ARGV_MISMATCH",
+    "SEC-E02-AGG-INVENTORY-REVIEW-AUTHORS-001"
+  ],
+  "archiveNote": "Original findings.json uses a local QA summary alias QA-E02-AGG-OUTER-ARGV-001; the actual independently reported QA identifier is AGGREGATE_ACTUAL_OUTER_ARGV_MISMATCH. Original bytes remain preserved.",
+  "productionAstChangedFunctions": [
+    "inspect_outer",
+    "inventory_reviews"
+  ],
+  "otherProductionAstNodesUnchanged": true,
+  "originalPreparedControls": 23,
+  "currentPreparedControls": 28,
+  "newPreparedControls": [
+    "test_exact_reviewed_isolated_argv_accepts_only_two_named_interpreters",
+    "test_independent_inventory_review_accepts_disclosed_excluded_member_identities",
+    "test_inventory_review_excludes_undisclosed_member_authors_and_operators",
+    "test_inventory_review_requires_member_disclosure_even_for_exclusions",
+    "test_missing_reordered_changed_or_extra_flags_and_interpreters_refuse"
+  ],
+  "authorExecutedControls": 0,
+  "authorProjectImports": 0,
+  "sourcePins": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_control_aggregate_v1/aggregate.py",
+      "bytes": 39734,
+      "sha256": "bbd41e07a9659b3dacd78e337771854e1e84f9ecd141187e521dfe3050e0ba45"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_control_aggregate_v1/test_aggregate.py",
+      "bytes": 36573,
+      "sha256": "eafcfef179b34d8f22726c39fc53eb2937d5b051890efa1d40916f7944c32e7c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_control_aggregate_v1/INTERFACE.md",
+      "bytes": 13483,
+      "sha256": "d5cbd8066817ef5570e20def5c68886f4d39774b382b7c4c1490f559445240f7"
+    }
+  ],
+  "originalReviewAndFailedLaunchExemplarPins": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-aggregate-original-review-r1/independent-qa-review.json",
+      "bytes": 2135,
+      "sha256": "41fdd1ce4ed38480d8e8d4acc9091b76b9d094cb229a2bb758075aa0b06dbb01"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-aggregate-original-review-r1/independent-security-review.json",
+      "bytes": 2082,
+      "sha256": "938a60c62b241b9f728d6978ae405d372f3fa7f2d25f24db1737c4bb0bc94945"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-client-resume-r1/runtime-attempt-09/outer-launch-tool-input.json",
+      "bytes": 2072,
+      "sha256": "0a64cb1cd1f332d29283eceb305d8ef789f0e71e5064098f5b820fb612018cbb"
+    }
+  ],
+  "protectedR11SourcePinsVerified": 21,
+  "protectedSourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-client-resume-r1/complete-source-config-subject-r11.json",
+    "bytes": 11718,
+    "sha256": "d6f95a25f9bdcda4d828b885a206757107e1154e4b0628e202607bea143ef08b"
+  },
+  "diff": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-aggregate-remediation-r1/source.patch",
+    "bytes": 13807,
+    "sha256": "727ceb39fa7d943641ba9adfde8c2b63ae0255142f844fc21209b1cf49d69b6b"
+  },
+  "preparedCommand": "python3 -I -B -m unittest discover -s experiments/prototypes/e02_ordinary_control_aggregate_v1 -p test_aggregate.py -v",
+  "limits": [
+    "AST parsing and textual diff only; no project module imports, test execution or runtime qualification.",
+    "Failed R11 launch is only an exact argv contract exemplar, never a donating run or Popen/interpreter/host attestation.",
+    "Fresh independent QA/security review and separately released pure controls remain required.",
+    "Existing original reviews and23 prepared synthetic controls are not acceptance of changed source."
+  ]
+}

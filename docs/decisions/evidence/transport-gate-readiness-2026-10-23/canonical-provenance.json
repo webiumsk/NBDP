@@ -1,0 +1,695 @@
+{
+  "schema": "nbdp-transport-readiness-provenance-v1",
+  "date": "2026-10-23",
+  "coordinator": "/root",
+  "records": [
+    {
+      "id": "E01",
+      "status": "PASS",
+      "executedChecks": 140,
+      "failed": 0,
+      "exit": 0,
+      "sourceManifestEntries": 19,
+      "provenance": "ALL_RECORDED_SOURCE_CONFIG_LOCK_PINS_CURRENT",
+      "record": {
+        "path": "experiments/results/E01.json",
+        "bytes": 33546,
+        "sha256": "80a7a999b92e3beb91fd12fe78dd0d39c5e9b2bca3c1ba710545172ff1f83058"
+      },
+      "sourceChecks": [
+        {
+          "path": "experiments/fixtures/nip44.vectors.json",
+          "expected": "eae34c1d4eff1b58b448627d3310e495f7f0722ca6668296e7c31e88edf18171",
+          "actual": "eae34c1d4eff1b58b448627d3310e495f7f0722ca6668296e7c31e88edf18171"
+        },
+        {
+          "path": "experiments/package.json",
+          "expected": "229e43f88fa8cbfbb3680dd405726997d7e2a611df106373f7751fdae49e55b4",
+          "actual": "229e43f88fa8cbfbb3680dd405726997d7e2a611df106373f7751fdae49e55b4"
+        },
+        {
+          "path": "experiments/shared/rust/Cargo.toml",
+          "expected": "0efa262a02cb1632861bdf043c0c6753e398e40a6fe93c900ab10af1b6846fff",
+          "actual": "0efa262a02cb1632861bdf043c0c6753e398e40a6fe93c900ab10af1b6846fff"
+        },
+        {
+          "path": "experiments/shared/rust/rust-toolchain.toml",
+          "expected": "9cbde07377abdce69bc9580adb0315d52e2a09d6494a2005550a7e6733d9688b",
+          "actual": "9cbde07377abdce69bc9580adb0315d52e2a09d6494a2005550a7e6733d9688b"
+        },
+        {
+          "path": "experiments/docker/strfry.conf",
+          "expected": "002d1bb656522dd3e6739ea20e82829fd96bfdefb389f0517eab9367c0bdf2e2",
+          "actual": "002d1bb656522dd3e6739ea20e82829fd96bfdefb389f0517eab9367c0bdf2e2"
+        },
+        {
+          "path": "experiments/docker/rs-relay.toml",
+          "expected": "6775940c6258e2714a2a60793584ae549a50111154c743045a87d679af9a0b02",
+          "actual": "6775940c6258e2714a2a60793584ae549a50111154c743045a87d679af9a0b02"
+        },
+        {
+          "path": "experiments/shared/run.mjs",
+          "expected": "71f749240adb43b2dc92863f19a60d101a09365b0ca7976c1d55b238dc13e107",
+          "actual": "71f749240adb43b2dc92863f19a60d101a09365b0ca7976c1d55b238dc13e107"
+        },
+        {
+          "path": "experiments/shared/evidence.mjs",
+          "expected": "82750f33ddb00a246188705f5b16267eead2d08c4eb8b0ae7e3d7bf8416d6328",
+          "actual": "82750f33ddb00a246188705f5b16267eead2d08c4eb8b0ae7e3d7bf8416d6328"
+        },
+        {
+          "path": "experiments/shared/rust-client.mjs",
+          "expected": "9e98ca21825313a54ab20c44ab00049f7d19ecafe268dde55dcd556f33b757d8",
+          "actual": "9e98ca21825313a54ab20c44ab00049f7d19ecafe268dde55dcd556f33b757d8"
+        },
+        {
+          "path": "experiments/shared/attachment-crypto.mjs",
+          "expected": "e52aaa588b4ff6315bbc7ebc08b2d8786965687e18c6c9f56a75d4b08cc05f16",
+          "actual": "e52aaa588b4ff6315bbc7ebc08b2d8786965687e18c6c9f56a75d4b08cc05f16"
+        },
+        {
+          "path": "experiments/shared/correlation.mjs",
+          "expected": "47e6b4d203304404e318fda4d84226ed1a1b055abb566a39181090f2673f51e8",
+          "actual": "47e6b4d203304404e318fda4d84226ed1a1b055abb566a39181090f2673f51e8"
+        },
+        {
+          "path": "experiments/shared/discovery.mjs",
+          "expected": "a9a27dc188aed6284169751521b65c89da4a7052bfb2f9127f2c893ff17dfa23",
+          "actual": "a9a27dc188aed6284169751521b65c89da4a7052bfb2f9127f2c893ff17dfa23"
+        },
+        {
+          "path": "experiments/shared/relay.mjs",
+          "expected": "03d301607b797599fafbd788a1073a554cb698019cf52533a7ce6e65dbccc92b",
+          "actual": "03d301607b797599fafbd788a1073a554cb698019cf52533a7ce6e65dbccc92b"
+        },
+        {
+          "path": "experiments/shared/transport.mjs",
+          "expected": "0c6f43c1f17b6b898b05cebb72f43dfacf19cfbb2203bbd2d4c7676abf39fb18",
+          "actual": "0c6f43c1f17b6b898b05cebb72f43dfacf19cfbb2203bbd2d4c7676abf39fb18"
+        },
+        {
+          "path": "experiments/shared/rust/src/main.rs",
+          "expected": "95e05dde513e57d5e32830e8639632f34627bb34239c7e5916096fd3686edcba",
+          "actual": "95e05dde513e57d5e32830e8639632f34627bb34239c7e5916096fd3686edcba"
+        },
+        {
+          "path": "experiments/shared/candidate-profile.md",
+          "expected": "d0c49184fc3c11e3f37c914dba222216222335f7ea799efe38a03f768aaa0772",
+          "actual": "d0c49184fc3c11e3f37c914dba222216222335f7ea799efe38a03f768aaa0772"
+        },
+        {
+          "path": "experiments/e01-envelope/test.mjs",
+          "expected": "c3e54fbc27bba439f7d957e446307fc16490848f71a4fc09a99123991a10d53b",
+          "actual": "c3e54fbc27bba439f7d957e446307fc16490848f71a4fc09a99123991a10d53b"
+        },
+        {
+          "path": "experiments/package-lock.json",
+          "expected": "9c8d77e625a0d061b8c5d10de043980f523699d2f1c630e748351af5d98005b5",
+          "actual": "9c8d77e625a0d061b8c5d10de043980f523699d2f1c630e748351af5d98005b5"
+        },
+        {
+          "path": "experiments/shared/rust/Cargo.lock",
+          "expected": "f0fde33925f824f1d17699375b7842b2f8979da7e3ace918fd9364329e80f02f",
+          "actual": "f0fde33925f824f1d17699375b7842b2f8979da7e3ace918fd9364329e80f02f"
+        }
+      ],
+      "newRuntimePerformed": false
+    },
+    {
+      "id": "E02",
+      "status": "PARTIAL",
+      "executedChecks": 22,
+      "failed": 0,
+      "exit": 0,
+      "sourceManifestEntries": 19,
+      "provenance": "ALL_RECORDED_SOURCE_CONFIG_LOCK_PINS_CURRENT",
+      "record": {
+        "path": "experiments/results/E02.json",
+        "bytes": 10435,
+        "sha256": "aa46222ca2556570a342d8fe3c574bd96b8c630b9ec0b814f9e4bd7525231508"
+      },
+      "sourceChecks": [
+        {
+          "path": "experiments/fixtures/nip44.vectors.json",
+          "expected": "eae34c1d4eff1b58b448627d3310e495f7f0722ca6668296e7c31e88edf18171",
+          "actual": "eae34c1d4eff1b58b448627d3310e495f7f0722ca6668296e7c31e88edf18171"
+        },
+        {
+          "path": "experiments/package.json",
+          "expected": "229e43f88fa8cbfbb3680dd405726997d7e2a611df106373f7751fdae49e55b4",
+          "actual": "229e43f88fa8cbfbb3680dd405726997d7e2a611df106373f7751fdae49e55b4"
+        },
+        {
+          "path": "experiments/shared/rust/Cargo.toml",
+          "expected": "0efa262a02cb1632861bdf043c0c6753e398e40a6fe93c900ab10af1b6846fff",
+          "actual": "0efa262a02cb1632861bdf043c0c6753e398e40a6fe93c900ab10af1b6846fff"
+        },
+        {
+          "path": "experiments/shared/rust/rust-toolchain.toml",
+          "expected": "9cbde07377abdce69bc9580adb0315d52e2a09d6494a2005550a7e6733d9688b",
+          "actual": "9cbde07377abdce69bc9580adb0315d52e2a09d6494a2005550a7e6733d9688b"
+        },
+        {
+          "path": "experiments/docker/strfry.conf",
+          "expected": "002d1bb656522dd3e6739ea20e82829fd96bfdefb389f0517eab9367c0bdf2e2",
+          "actual": "002d1bb656522dd3e6739ea20e82829fd96bfdefb389f0517eab9367c0bdf2e2"
+        },
+        {
+          "path": "experiments/docker/rs-relay.toml",
+          "expected": "6775940c6258e2714a2a60793584ae549a50111154c743045a87d679af9a0b02",
+          "actual": "6775940c6258e2714a2a60793584ae549a50111154c743045a87d679af9a0b02"
+        },
+        {
+          "path": "experiments/shared/run.mjs",
+          "expected": "71f749240adb43b2dc92863f19a60d101a09365b0ca7976c1d55b238dc13e107",
+          "actual": "71f749240adb43b2dc92863f19a60d101a09365b0ca7976c1d55b238dc13e107"
+        },
+        {
+          "path": "experiments/shared/evidence.mjs",
+          "expected": "82750f33ddb00a246188705f5b16267eead2d08c4eb8b0ae7e3d7bf8416d6328",
+          "actual": "82750f33ddb00a246188705f5b16267eead2d08c4eb8b0ae7e3d7bf8416d6328"
+        },
+        {
+          "path": "experiments/shared/rust-client.mjs",
+          "expected": "9e98ca21825313a54ab20c44ab00049f7d19ecafe268dde55dcd556f33b757d8",
+          "actual": "9e98ca21825313a54ab20c44ab00049f7d19ecafe268dde55dcd556f33b757d8"
+        },
+        {
+          "path": "experiments/shared/attachment-crypto.mjs",
+          "expected": "e52aaa588b4ff6315bbc7ebc08b2d8786965687e18c6c9f56a75d4b08cc05f16",
+          "actual": "e52aaa588b4ff6315bbc7ebc08b2d8786965687e18c6c9f56a75d4b08cc05f16"
+        },
+        {
+          "path": "experiments/shared/correlation.mjs",
+          "expected": "47e6b4d203304404e318fda4d84226ed1a1b055abb566a39181090f2673f51e8",
+          "actual": "47e6b4d203304404e318fda4d84226ed1a1b055abb566a39181090f2673f51e8"
+        },
+        {
+          "path": "experiments/shared/discovery.mjs",
+          "expected": "a9a27dc188aed6284169751521b65c89da4a7052bfb2f9127f2c893ff17dfa23",
+          "actual": "a9a27dc188aed6284169751521b65c89da4a7052bfb2f9127f2c893ff17dfa23"
+        },
+        {
+          "path": "experiments/shared/relay.mjs",
+          "expected": "03d301607b797599fafbd788a1073a554cb698019cf52533a7ce6e65dbccc92b",
+          "actual": "03d301607b797599fafbd788a1073a554cb698019cf52533a7ce6e65dbccc92b"
+        },
+        {
+          "path": "experiments/shared/transport.mjs",
+          "expected": "0c6f43c1f17b6b898b05cebb72f43dfacf19cfbb2203bbd2d4c7676abf39fb18",
+          "actual": "0c6f43c1f17b6b898b05cebb72f43dfacf19cfbb2203bbd2d4c7676abf39fb18"
+        },
+        {
+          "path": "experiments/shared/rust/src/main.rs",
+          "expected": "95e05dde513e57d5e32830e8639632f34627bb34239c7e5916096fd3686edcba",
+          "actual": "95e05dde513e57d5e32830e8639632f34627bb34239c7e5916096fd3686edcba"
+        },
+        {
+          "path": "experiments/shared/candidate-profile.md",
+          "expected": "d0c49184fc3c11e3f37c914dba222216222335f7ea799efe38a03f768aaa0772",
+          "actual": "d0c49184fc3c11e3f37c914dba222216222335f7ea799efe38a03f768aaa0772"
+        },
+        {
+          "path": "experiments/e02-validation/test.mjs",
+          "expected": "a14d17faa40ebe7d27a5761ca837d0d9f8064fcc1d0a5e35c6782ea75638ae6b",
+          "actual": "a14d17faa40ebe7d27a5761ca837d0d9f8064fcc1d0a5e35c6782ea75638ae6b"
+        },
+        {
+          "path": "experiments/package-lock.json",
+          "expected": "9c8d77e625a0d061b8c5d10de043980f523699d2f1c630e748351af5d98005b5",
+          "actual": "9c8d77e625a0d061b8c5d10de043980f523699d2f1c630e748351af5d98005b5"
+        },
+        {
+          "path": "experiments/shared/rust/Cargo.lock",
+          "expected": "f0fde33925f824f1d17699375b7842b2f8979da7e3ace918fd9364329e80f02f",
+          "actual": "f0fde33925f824f1d17699375b7842b2f8979da7e3ace918fd9364329e80f02f"
+        }
+      ],
+      "newRuntimePerformed": false
+    },
+    {
+      "id": "E03",
+      "status": "PASS",
+      "executedChecks": 19,
+      "failed": 0,
+      "exit": 0,
+      "sourceManifestEntries": 19,
+      "provenance": "ALL_RECORDED_SOURCE_CONFIG_LOCK_PINS_CURRENT",
+      "record": {
+        "path": "experiments/results/E03.json",
+        "bytes": 7764,
+        "sha256": "84c5c5aad0fd01cb5d379384f78f89a5cc65d1f3bcba8178e4b66885f19b4760"
+      },
+      "sourceChecks": [
+        {
+          "path": "experiments/fixtures/nip44.vectors.json",
+          "expected": "eae34c1d4eff1b58b448627d3310e495f7f0722ca6668296e7c31e88edf18171",
+          "actual": "eae34c1d4eff1b58b448627d3310e495f7f0722ca6668296e7c31e88edf18171"
+        },
+        {
+          "path": "experiments/package.json",
+          "expected": "229e43f88fa8cbfbb3680dd405726997d7e2a611df106373f7751fdae49e55b4",
+          "actual": "229e43f88fa8cbfbb3680dd405726997d7e2a611df106373f7751fdae49e55b4"
+        },
+        {
+          "path": "experiments/shared/rust/Cargo.toml",
+          "expected": "0efa262a02cb1632861bdf043c0c6753e398e40a6fe93c900ab10af1b6846fff",
+          "actual": "0efa262a02cb1632861bdf043c0c6753e398e40a6fe93c900ab10af1b6846fff"
+        },
+        {
+          "path": "experiments/shared/rust/rust-toolchain.toml",
+          "expected": "9cbde07377abdce69bc9580adb0315d52e2a09d6494a2005550a7e6733d9688b",
+          "actual": "9cbde07377abdce69bc9580adb0315d52e2a09d6494a2005550a7e6733d9688b"
+        },
+        {
+          "path": "experiments/docker/strfry.conf",
+          "expected": "002d1bb656522dd3e6739ea20e82829fd96bfdefb389f0517eab9367c0bdf2e2",
+          "actual": "002d1bb656522dd3e6739ea20e82829fd96bfdefb389f0517eab9367c0bdf2e2"
+        },
+        {
+          "path": "experiments/docker/rs-relay.toml",
+          "expected": "6775940c6258e2714a2a60793584ae549a50111154c743045a87d679af9a0b02",
+          "actual": "6775940c6258e2714a2a60793584ae549a50111154c743045a87d679af9a0b02"
+        },
+        {
+          "path": "experiments/shared/run.mjs",
+          "expected": "71f749240adb43b2dc92863f19a60d101a09365b0ca7976c1d55b238dc13e107",
+          "actual": "71f749240adb43b2dc92863f19a60d101a09365b0ca7976c1d55b238dc13e107"
+        },
+        {
+          "path": "experiments/shared/evidence.mjs",
+          "expected": "82750f33ddb00a246188705f5b16267eead2d08c4eb8b0ae7e3d7bf8416d6328",
+          "actual": "82750f33ddb00a246188705f5b16267eead2d08c4eb8b0ae7e3d7bf8416d6328"
+        },
+        {
+          "path": "experiments/shared/rust-client.mjs",
+          "expected": "9e98ca21825313a54ab20c44ab00049f7d19ecafe268dde55dcd556f33b757d8",
+          "actual": "9e98ca21825313a54ab20c44ab00049f7d19ecafe268dde55dcd556f33b757d8"
+        },
+        {
+          "path": "experiments/shared/attachment-crypto.mjs",
+          "expected": "e52aaa588b4ff6315bbc7ebc08b2d8786965687e18c6c9f56a75d4b08cc05f16",
+          "actual": "e52aaa588b4ff6315bbc7ebc08b2d8786965687e18c6c9f56a75d4b08cc05f16"
+        },
+        {
+          "path": "experiments/shared/correlation.mjs",
+          "expected": "47e6b4d203304404e318fda4d84226ed1a1b055abb566a39181090f2673f51e8",
+          "actual": "47e6b4d203304404e318fda4d84226ed1a1b055abb566a39181090f2673f51e8"
+        },
+        {
+          "path": "experiments/shared/discovery.mjs",
+          "expected": "a9a27dc188aed6284169751521b65c89da4a7052bfb2f9127f2c893ff17dfa23",
+          "actual": "a9a27dc188aed6284169751521b65c89da4a7052bfb2f9127f2c893ff17dfa23"
+        },
+        {
+          "path": "experiments/shared/relay.mjs",
+          "expected": "03d301607b797599fafbd788a1073a554cb698019cf52533a7ce6e65dbccc92b",
+          "actual": "03d301607b797599fafbd788a1073a554cb698019cf52533a7ce6e65dbccc92b"
+        },
+        {
+          "path": "experiments/shared/transport.mjs",
+          "expected": "0c6f43c1f17b6b898b05cebb72f43dfacf19cfbb2203bbd2d4c7676abf39fb18",
+          "actual": "0c6f43c1f17b6b898b05cebb72f43dfacf19cfbb2203bbd2d4c7676abf39fb18"
+        },
+        {
+          "path": "experiments/shared/rust/src/main.rs",
+          "expected": "95e05dde513e57d5e32830e8639632f34627bb34239c7e5916096fd3686edcba",
+          "actual": "95e05dde513e57d5e32830e8639632f34627bb34239c7e5916096fd3686edcba"
+        },
+        {
+          "path": "experiments/shared/candidate-profile.md",
+          "expected": "d0c49184fc3c11e3f37c914dba222216222335f7ea799efe38a03f768aaa0772",
+          "actual": "d0c49184fc3c11e3f37c914dba222216222335f7ea799efe38a03f768aaa0772"
+        },
+        {
+          "path": "experiments/e03-discovery/test.mjs",
+          "expected": "6dac94b94a083bb0afe15bfcc5e9a78e9d04102978e72c3eadcb68165e9798a5",
+          "actual": "6dac94b94a083bb0afe15bfcc5e9a78e9d04102978e72c3eadcb68165e9798a5"
+        },
+        {
+          "path": "experiments/package-lock.json",
+          "expected": "9c8d77e625a0d061b8c5d10de043980f523699d2f1c630e748351af5d98005b5",
+          "actual": "9c8d77e625a0d061b8c5d10de043980f523699d2f1c630e748351af5d98005b5"
+        },
+        {
+          "path": "experiments/shared/rust/Cargo.lock",
+          "expected": "f0fde33925f824f1d17699375b7842b2f8979da7e3ace918fd9364329e80f02f",
+          "actual": "f0fde33925f824f1d17699375b7842b2f8979da7e3ace918fd9364329e80f02f"
+        }
+      ],
+      "newRuntimePerformed": false
+    },
+    {
+      "id": "E04",
+      "status": "NOT EXECUTED",
+      "executedChecks": 0,
+      "failed": 0,
+      "exit": 2,
+      "sourceManifestEntries": 19,
+      "provenance": "ALL_RECORDED_SOURCE_CONFIG_LOCK_PINS_CURRENT",
+      "record": {
+        "path": "experiments/results/E04.json",
+        "bytes": 3391,
+        "sha256": "9be031429c8f226d9cf7277f5ec4401cdd1d65f07e3f0ddd367e57b3f311e3ba"
+      },
+      "sourceChecks": [
+        {
+          "path": "experiments/fixtures/nip44.vectors.json",
+          "expected": "eae34c1d4eff1b58b448627d3310e495f7f0722ca6668296e7c31e88edf18171",
+          "actual": "eae34c1d4eff1b58b448627d3310e495f7f0722ca6668296e7c31e88edf18171"
+        },
+        {
+          "path": "experiments/package.json",
+          "expected": "229e43f88fa8cbfbb3680dd405726997d7e2a611df106373f7751fdae49e55b4",
+          "actual": "229e43f88fa8cbfbb3680dd405726997d7e2a611df106373f7751fdae49e55b4"
+        },
+        {
+          "path": "experiments/shared/rust/Cargo.toml",
+          "expected": "0efa262a02cb1632861bdf043c0c6753e398e40a6fe93c900ab10af1b6846fff",
+          "actual": "0efa262a02cb1632861bdf043c0c6753e398e40a6fe93c900ab10af1b6846fff"
+        },
+        {
+          "path": "experiments/shared/rust/rust-toolchain.toml",
+          "expected": "9cbde07377abdce69bc9580adb0315d52e2a09d6494a2005550a7e6733d9688b",
+          "actual": "9cbde07377abdce69bc9580adb0315d52e2a09d6494a2005550a7e6733d9688b"
+        },
+        {
+          "path": "experiments/docker/strfry.conf",
+          "expected": "002d1bb656522dd3e6739ea20e82829fd96bfdefb389f0517eab9367c0bdf2e2",
+          "actual": "002d1bb656522dd3e6739ea20e82829fd96bfdefb389f0517eab9367c0bdf2e2"
+        },
+        {
+          "path": "experiments/docker/rs-relay.toml",
+          "expected": "6775940c6258e2714a2a60793584ae549a50111154c743045a87d679af9a0b02",
+          "actual": "6775940c6258e2714a2a60793584ae549a50111154c743045a87d679af9a0b02"
+        },
+        {
+          "path": "experiments/shared/run.mjs",
+          "expected": "71f749240adb43b2dc92863f19a60d101a09365b0ca7976c1d55b238dc13e107",
+          "actual": "71f749240adb43b2dc92863f19a60d101a09365b0ca7976c1d55b238dc13e107"
+        },
+        {
+          "path": "experiments/shared/evidence.mjs",
+          "expected": "82750f33ddb00a246188705f5b16267eead2d08c4eb8b0ae7e3d7bf8416d6328",
+          "actual": "82750f33ddb00a246188705f5b16267eead2d08c4eb8b0ae7e3d7bf8416d6328"
+        },
+        {
+          "path": "experiments/shared/rust-client.mjs",
+          "expected": "9e98ca21825313a54ab20c44ab00049f7d19ecafe268dde55dcd556f33b757d8",
+          "actual": "9e98ca21825313a54ab20c44ab00049f7d19ecafe268dde55dcd556f33b757d8"
+        },
+        {
+          "path": "experiments/shared/attachment-crypto.mjs",
+          "expected": "e52aaa588b4ff6315bbc7ebc08b2d8786965687e18c6c9f56a75d4b08cc05f16",
+          "actual": "e52aaa588b4ff6315bbc7ebc08b2d8786965687e18c6c9f56a75d4b08cc05f16"
+        },
+        {
+          "path": "experiments/shared/correlation.mjs",
+          "expected": "47e6b4d203304404e318fda4d84226ed1a1b055abb566a39181090f2673f51e8",
+          "actual": "47e6b4d203304404e318fda4d84226ed1a1b055abb566a39181090f2673f51e8"
+        },
+        {
+          "path": "experiments/shared/discovery.mjs",
+          "expected": "a9a27dc188aed6284169751521b65c89da4a7052bfb2f9127f2c893ff17dfa23",
+          "actual": "a9a27dc188aed6284169751521b65c89da4a7052bfb2f9127f2c893ff17dfa23"
+        },
+        {
+          "path": "experiments/shared/relay.mjs",
+          "expected": "03d301607b797599fafbd788a1073a554cb698019cf52533a7ce6e65dbccc92b",
+          "actual": "03d301607b797599fafbd788a1073a554cb698019cf52533a7ce6e65dbccc92b"
+        },
+        {
+          "path": "experiments/shared/transport.mjs",
+          "expected": "0c6f43c1f17b6b898b05cebb72f43dfacf19cfbb2203bbd2d4c7676abf39fb18",
+          "actual": "0c6f43c1f17b6b898b05cebb72f43dfacf19cfbb2203bbd2d4c7676abf39fb18"
+        },
+        {
+          "path": "experiments/shared/rust/src/main.rs",
+          "expected": "95e05dde513e57d5e32830e8639632f34627bb34239c7e5916096fd3686edcba",
+          "actual": "95e05dde513e57d5e32830e8639632f34627bb34239c7e5916096fd3686edcba"
+        },
+        {
+          "path": "experiments/shared/candidate-profile.md",
+          "expected": "d0c49184fc3c11e3f37c914dba222216222335f7ea799efe38a03f768aaa0772",
+          "actual": "d0c49184fc3c11e3f37c914dba222216222335f7ea799efe38a03f768aaa0772"
+        },
+        {
+          "path": "experiments/e04-frame-limits/test.mjs",
+          "expected": "0d120c5b8ce9ec4bcf0bf80bdaff90111d195af0aab11b4b45f06f1201d55331",
+          "actual": "0d120c5b8ce9ec4bcf0bf80bdaff90111d195af0aab11b4b45f06f1201d55331"
+        },
+        {
+          "path": "experiments/package-lock.json",
+          "expected": "9c8d77e625a0d061b8c5d10de043980f523699d2f1c630e748351af5d98005b5",
+          "actual": "9c8d77e625a0d061b8c5d10de043980f523699d2f1c630e748351af5d98005b5"
+        },
+        {
+          "path": "experiments/shared/rust/Cargo.lock",
+          "expected": "f0fde33925f824f1d17699375b7842b2f8979da7e3ace918fd9364329e80f02f",
+          "actual": "f0fde33925f824f1d17699375b7842b2f8979da7e3ace918fd9364329e80f02f"
+        }
+      ],
+      "newRuntimePerformed": false
+    },
+    {
+      "id": "E05",
+      "status": "PASS",
+      "executedChecks": 25,
+      "failed": 0,
+      "exit": 0,
+      "sourceManifestEntries": 20,
+      "provenance": "ALL_RECORDED_SOURCE_CONFIG_LOCK_PINS_CURRENT",
+      "record": {
+        "path": "experiments/results/E05.json",
+        "bytes": 8854,
+        "sha256": "a82dc68bf538cbb026d99b78374b8349dc06fa1547d8b3b44e8591262ae872a3"
+      },
+      "sourceChecks": [
+        {
+          "path": "experiments/fixtures/nip44.vectors.json",
+          "expected": "eae34c1d4eff1b58b448627d3310e495f7f0722ca6668296e7c31e88edf18171",
+          "actual": "eae34c1d4eff1b58b448627d3310e495f7f0722ca6668296e7c31e88edf18171"
+        },
+        {
+          "path": "experiments/package.json",
+          "expected": "229e43f88fa8cbfbb3680dd405726997d7e2a611df106373f7751fdae49e55b4",
+          "actual": "229e43f88fa8cbfbb3680dd405726997d7e2a611df106373f7751fdae49e55b4"
+        },
+        {
+          "path": "experiments/shared/rust/Cargo.toml",
+          "expected": "0efa262a02cb1632861bdf043c0c6753e398e40a6fe93c900ab10af1b6846fff",
+          "actual": "0efa262a02cb1632861bdf043c0c6753e398e40a6fe93c900ab10af1b6846fff"
+        },
+        {
+          "path": "experiments/shared/rust/rust-toolchain.toml",
+          "expected": "9cbde07377abdce69bc9580adb0315d52e2a09d6494a2005550a7e6733d9688b",
+          "actual": "9cbde07377abdce69bc9580adb0315d52e2a09d6494a2005550a7e6733d9688b"
+        },
+        {
+          "path": "experiments/docker/strfry.conf",
+          "expected": "002d1bb656522dd3e6739ea20e82829fd96bfdefb389f0517eab9367c0bdf2e2",
+          "actual": "002d1bb656522dd3e6739ea20e82829fd96bfdefb389f0517eab9367c0bdf2e2"
+        },
+        {
+          "path": "experiments/docker/rs-relay.toml",
+          "expected": "6775940c6258e2714a2a60793584ae549a50111154c743045a87d679af9a0b02",
+          "actual": "6775940c6258e2714a2a60793584ae549a50111154c743045a87d679af9a0b02"
+        },
+        {
+          "path": "experiments/results/producer-profile-evidence.md",
+          "expected": "72f61c570854611e29f75e4bbdf20a09092507dcb1c333f19d2270c967253fa3",
+          "actual": "72f61c570854611e29f75e4bbdf20a09092507dcb1c333f19d2270c967253fa3"
+        },
+        {
+          "path": "experiments/shared/run.mjs",
+          "expected": "71f749240adb43b2dc92863f19a60d101a09365b0ca7976c1d55b238dc13e107",
+          "actual": "71f749240adb43b2dc92863f19a60d101a09365b0ca7976c1d55b238dc13e107"
+        },
+        {
+          "path": "experiments/shared/evidence.mjs",
+          "expected": "82750f33ddb00a246188705f5b16267eead2d08c4eb8b0ae7e3d7bf8416d6328",
+          "actual": "82750f33ddb00a246188705f5b16267eead2d08c4eb8b0ae7e3d7bf8416d6328"
+        },
+        {
+          "path": "experiments/shared/rust-client.mjs",
+          "expected": "9e98ca21825313a54ab20c44ab00049f7d19ecafe268dde55dcd556f33b757d8",
+          "actual": "9e98ca21825313a54ab20c44ab00049f7d19ecafe268dde55dcd556f33b757d8"
+        },
+        {
+          "path": "experiments/shared/attachment-crypto.mjs",
+          "expected": "e52aaa588b4ff6315bbc7ebc08b2d8786965687e18c6c9f56a75d4b08cc05f16",
+          "actual": "e52aaa588b4ff6315bbc7ebc08b2d8786965687e18c6c9f56a75d4b08cc05f16"
+        },
+        {
+          "path": "experiments/shared/correlation.mjs",
+          "expected": "47e6b4d203304404e318fda4d84226ed1a1b055abb566a39181090f2673f51e8",
+          "actual": "47e6b4d203304404e318fda4d84226ed1a1b055abb566a39181090f2673f51e8"
+        },
+        {
+          "path": "experiments/shared/discovery.mjs",
+          "expected": "a9a27dc188aed6284169751521b65c89da4a7052bfb2f9127f2c893ff17dfa23",
+          "actual": "a9a27dc188aed6284169751521b65c89da4a7052bfb2f9127f2c893ff17dfa23"
+        },
+        {
+          "path": "experiments/shared/relay.mjs",
+          "expected": "03d301607b797599fafbd788a1073a554cb698019cf52533a7ce6e65dbccc92b",
+          "actual": "03d301607b797599fafbd788a1073a554cb698019cf52533a7ce6e65dbccc92b"
+        },
+        {
+          "path": "experiments/shared/transport.mjs",
+          "expected": "0c6f43c1f17b6b898b05cebb72f43dfacf19cfbb2203bbd2d4c7676abf39fb18",
+          "actual": "0c6f43c1f17b6b898b05cebb72f43dfacf19cfbb2203bbd2d4c7676abf39fb18"
+        },
+        {
+          "path": "experiments/shared/rust/src/main.rs",
+          "expected": "95e05dde513e57d5e32830e8639632f34627bb34239c7e5916096fd3686edcba",
+          "actual": "95e05dde513e57d5e32830e8639632f34627bb34239c7e5916096fd3686edcba"
+        },
+        {
+          "path": "experiments/shared/candidate-profile.md",
+          "expected": "d0c49184fc3c11e3f37c914dba222216222335f7ea799efe38a03f768aaa0772",
+          "actual": "d0c49184fc3c11e3f37c914dba222216222335f7ea799efe38a03f768aaa0772"
+        },
+        {
+          "path": "experiments/e05-attachment-crypto/test.mjs",
+          "expected": "e5b0e7f728c2a775497f33ab97eb686ffaabc3c54877baec877acf1281536254",
+          "actual": "e5b0e7f728c2a775497f33ab97eb686ffaabc3c54877baec877acf1281536254"
+        },
+        {
+          "path": "experiments/package-lock.json",
+          "expected": "9c8d77e625a0d061b8c5d10de043980f523699d2f1c630e748351af5d98005b5",
+          "actual": "9c8d77e625a0d061b8c5d10de043980f523699d2f1c630e748351af5d98005b5"
+        },
+        {
+          "path": "experiments/shared/rust/Cargo.lock",
+          "expected": "f0fde33925f824f1d17699375b7842b2f8979da7e3ace918fd9364329e80f02f",
+          "actual": "f0fde33925f824f1d17699375b7842b2f8979da7e3ace918fd9364329e80f02f"
+        }
+      ],
+      "newRuntimePerformed": false
+    },
+    {
+      "id": "E06",
+      "status": "NOT EXECUTED",
+      "executedChecks": 0,
+      "failed": 0,
+      "exit": 2,
+      "sourceManifestEntries": 20,
+      "provenance": "ALL_RECORDED_SOURCE_CONFIG_LOCK_PINS_CURRENT",
+      "record": {
+        "path": "experiments/results/E06.json",
+        "bytes": 3507,
+        "sha256": "348c3eb912768a7593129a8236efcbaab95d291c9e3cd2eaf812f9a1628cc258"
+      },
+      "sourceChecks": [
+        {
+          "path": "experiments/fixtures/nip44.vectors.json",
+          "expected": "eae34c1d4eff1b58b448627d3310e495f7f0722ca6668296e7c31e88edf18171",
+          "actual": "eae34c1d4eff1b58b448627d3310e495f7f0722ca6668296e7c31e88edf18171"
+        },
+        {
+          "path": "experiments/package.json",
+          "expected": "229e43f88fa8cbfbb3680dd405726997d7e2a611df106373f7751fdae49e55b4",
+          "actual": "229e43f88fa8cbfbb3680dd405726997d7e2a611df106373f7751fdae49e55b4"
+        },
+        {
+          "path": "experiments/shared/rust/Cargo.toml",
+          "expected": "0efa262a02cb1632861bdf043c0c6753e398e40a6fe93c900ab10af1b6846fff",
+          "actual": "0efa262a02cb1632861bdf043c0c6753e398e40a6fe93c900ab10af1b6846fff"
+        },
+        {
+          "path": "experiments/shared/rust/rust-toolchain.toml",
+          "expected": "9cbde07377abdce69bc9580adb0315d52e2a09d6494a2005550a7e6733d9688b",
+          "actual": "9cbde07377abdce69bc9580adb0315d52e2a09d6494a2005550a7e6733d9688b"
+        },
+        {
+          "path": "experiments/docker/strfry.conf",
+          "expected": "002d1bb656522dd3e6739ea20e82829fd96bfdefb389f0517eab9367c0bdf2e2",
+          "actual": "002d1bb656522dd3e6739ea20e82829fd96bfdefb389f0517eab9367c0bdf2e2"
+        },
+        {
+          "path": "experiments/docker/rs-relay.toml",
+          "expected": "6775940c6258e2714a2a60793584ae549a50111154c743045a87d679af9a0b02",
+          "actual": "6775940c6258e2714a2a60793584ae549a50111154c743045a87d679af9a0b02"
+        },
+        {
+          "path": "experiments/fixtures/generated/E05-aes-gcm-vectors.json",
+          "expected": "df70855ef34c57dee655876555db14427f931da1f9819bf63586e4b1958949fa",
+          "actual": "df70855ef34c57dee655876555db14427f931da1f9819bf63586e4b1958949fa"
+        },
+        {
+          "path": "experiments/shared/run.mjs",
+          "expected": "71f749240adb43b2dc92863f19a60d101a09365b0ca7976c1d55b238dc13e107",
+          "actual": "71f749240adb43b2dc92863f19a60d101a09365b0ca7976c1d55b238dc13e107"
+        },
+        {
+          "path": "experiments/shared/evidence.mjs",
+          "expected": "82750f33ddb00a246188705f5b16267eead2d08c4eb8b0ae7e3d7bf8416d6328",
+          "actual": "82750f33ddb00a246188705f5b16267eead2d08c4eb8b0ae7e3d7bf8416d6328"
+        },
+        {
+          "path": "experiments/shared/rust-client.mjs",
+          "expected": "9e98ca21825313a54ab20c44ab00049f7d19ecafe268dde55dcd556f33b757d8",
+          "actual": "9e98ca21825313a54ab20c44ab00049f7d19ecafe268dde55dcd556f33b757d8"
+        },
+        {
+          "path": "experiments/shared/attachment-crypto.mjs",
+          "expected": "e52aaa588b4ff6315bbc7ebc08b2d8786965687e18c6c9f56a75d4b08cc05f16",
+          "actual": "e52aaa588b4ff6315bbc7ebc08b2d8786965687e18c6c9f56a75d4b08cc05f16"
+        },
+        {
+          "path": "experiments/shared/correlation.mjs",
+          "expected": "47e6b4d203304404e318fda4d84226ed1a1b055abb566a39181090f2673f51e8",
+          "actual": "47e6b4d203304404e318fda4d84226ed1a1b055abb566a39181090f2673f51e8"
+        },
+        {
+          "path": "experiments/shared/discovery.mjs",
+          "expected": "a9a27dc188aed6284169751521b65c89da4a7052bfb2f9127f2c893ff17dfa23",
+          "actual": "a9a27dc188aed6284169751521b65c89da4a7052bfb2f9127f2c893ff17dfa23"
+        },
+        {
+          "path": "experiments/shared/relay.mjs",
+          "expected": "03d301607b797599fafbd788a1073a554cb698019cf52533a7ce6e65dbccc92b",
+          "actual": "03d301607b797599fafbd788a1073a554cb698019cf52533a7ce6e65dbccc92b"
+        },
+        {
+          "path": "experiments/shared/transport.mjs",
+          "expected": "0c6f43c1f17b6b898b05cebb72f43dfacf19cfbb2203bbd2d4c7676abf39fb18",
+          "actual": "0c6f43c1f17b6b898b05cebb72f43dfacf19cfbb2203bbd2d4c7676abf39fb18"
+        },
+        {
+          "path": "experiments/shared/rust/src/main.rs",
+          "expected": "95e05dde513e57d5e32830e8639632f34627bb34239c7e5916096fd3686edcba",
+          "actual": "95e05dde513e57d5e32830e8639632f34627bb34239c7e5916096fd3686edcba"
+        },
+        {
+          "path": "experiments/shared/candidate-profile.md",
+          "expected": "d0c49184fc3c11e3f37c914dba222216222335f7ea799efe38a03f768aaa0772",
+          "actual": "d0c49184fc3c11e3f37c914dba222216222335f7ea799efe38a03f768aaa0772"
+        },
+        {
+          "path": "experiments/e06-kind15/test.mjs",
+          "expected": "de4b27ce69b4651f350ba55322cb6ee2a6fa2f9ab7d4962397b502f1890ba67f",
+          "actual": "de4b27ce69b4651f350ba55322cb6ee2a6fa2f9ab7d4962397b502f1890ba67f"
+        },
+        {
+          "path": "experiments/package-lock.json",
+          "expected": "9c8d77e625a0d061b8c5d10de043980f523699d2f1c630e748351af5d98005b5",
+          "actual": "9c8d77e625a0d061b8c5d10de043980f523699d2f1c630e748351af5d98005b5"
+        },
+        {
+          "path": "experiments/shared/rust/Cargo.lock",
+          "expected": "f0fde33925f824f1d17699375b7842b2f8979da7e3ace918fd9364329e80f02f",
+          "actual": "f0fde33925f824f1d17699375b7842b2f8979da7e3ace918fd9364329e80f02f"
+        }
+      ],
+      "newRuntimePerformed": false
+    }
+  ],
+  "totalSourceChecks": 116,
+  "limitations": [
+    "No runtime rerun or new build/binary/toolchain qualification.",
+    "PASS applies to unchanged canonical candidate only, not invoice-carrier derivatives.",
+    "No canonical results were rewritten."
+  ]
+}

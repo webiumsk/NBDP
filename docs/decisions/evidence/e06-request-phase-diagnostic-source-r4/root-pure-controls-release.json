@@ -1,0 +1,39 @@
+{
+  "schema": "nbdp-source4-pure-controls-root-release-v1",
+  "actor": "/root",
+  "decision": "RELEASE_ONE_FRESH_46_PURE_MODELED_BATCH_ONLY",
+  "operator": "/root/local_monitor_controls",
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/subject.json",
+    "bytes": 26581,
+    "sha256": "03661eea0eccefe72e28d386b7e4b2b020a4b10f322492a8b273dbc36a395474"
+  },
+  "sourceReviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/actual-source-qa-review.json",
+      "bytes": 366,
+      "sha256": "e25870e4b867d96c30f7fc76cdac305720fd945412c063f07d934a1cf1221a50"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/actual-source-security-review.json",
+      "bytes": 378,
+      "sha256": "d49dbab21e6df6ccdd65c107b0bc85f189b3a5a874d9c50f9b7394b01731300a"
+    }
+  ],
+  "commands": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/control-commands.json",
+    "bytes": 2311,
+    "sha256": "7ed75b443ced449346144db827e653f84f833db3f6d70a2fa0c496627aaf6f67"
+  },
+  "counts": {
+    "pureCapture": 13,
+    "pathData": 3,
+    "guardModels": 16,
+    "admissionData": 14
+  },
+  "stopFirstFailedSuite": true,
+  "noRetry": true,
+  "realStraceAuthorized": false,
+  "nodeLocalAuthorized": false,
+  "requirements": "Exact fixedcommands/current87+interpreter beforeafter, private bounded raw/lifecycle/actual originaltoolresponses; no source changes/selfapproval. Preserve all failures. Host execution context as pinned source requires."
+}

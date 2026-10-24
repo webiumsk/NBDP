@@ -1,0 +1,25 @@
+{
+  "schema": "nbdp-minimum-consumer-v2-source-disposition-v1",
+  "actor": "/root",
+  "decision": "ACCEPT_SOURCE_FOR_SCOPED_DATA_CONTROLS_ONLY",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r2/subject.json",
+    "bytes": 6892,
+    "sha256": "1c0aa126dd62f96298dada5765a5bb8b8237ba9abd08f5405982787f8863e558"
+  },
+  "actualIndependentReviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r2/actual-source-qa-review.json",
+      "bytes": 376,
+      "sha256": "c102883099d356e95eb29f87780a1c258963df5ff3c20116124e542072430e0a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r2/actual-source-security-review.json",
+      "bytes": 388,
+      "sha256": "2619be88841a82f1d11e1b2cbae5a671edb68d8b8cb8bbefae3b516f9bdfe1ff"
+    }
+  ],
+  "actualDataControlsExecuted": 0,
+  "androidAuthorized": false,
+  "next": "Freeze capturehelper and issue separate exactonce86DATArelease; rawactualresults needindependentQA/security."
+}

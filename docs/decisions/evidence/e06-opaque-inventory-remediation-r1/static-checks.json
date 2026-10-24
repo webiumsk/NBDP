@@ -1,0 +1,77 @@
+{
+  "schema": "e06-opaque-inventory-remediation-static-checks-v1",
+  "author": "/root/e06_policy_marker_implementer",
+  "state": "WRITES_STOPPED_SOURCE_ONLY",
+  "currentSources": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/admission.py",
+      "bytes": 53263,
+      "sha256": "24d928e46fa538b139c0e8418eeae777d682a99173a8f1a03334374b1626ec9f"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/qualification.py",
+      "bytes": 31089,
+      "sha256": "13e9ebf74caa8c473296b009ce66be1c5f02a469f7b2e90ca4cace20a0d175aa"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/runner.py",
+      "bytes": 27072,
+      "sha256": "7ea2ce4721fdc3e5d7f3b53c289d4f017937a5e66c49ae2a6a7ad4b7e5dde655"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/controls.py",
+      "bytes": 9591,
+      "sha256": "9572676fe54f206201e29229b3b8f256a0d53f1fba8c654b7c21ff91c041e7be"
+    }
+  ],
+  "diff": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/source.patch",
+    "bytes": 3426,
+    "sha256": "7a6144c94e4272f2ecb66df298707ceb42b0fb3f31d4409743a46cb4b72b490c"
+  },
+  "beforeManifest": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/change-manifest-before.json",
+    "bytes": 2547,
+    "sha256": "c761029bafd271425837c3e6f921769d78133fe3c30e39a7747c334fa2b4a0ff"
+  },
+  "negativeFinding": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/findings-before.json",
+    "bytes": 3974,
+    "sha256": "c3750bd636834f21e21a71a2429e1d73508b1249c71718e579b509e7b805af3b"
+  },
+  "sourceProof": {
+    "privateHelperStatements": 2,
+    "strictClosureEntry": true,
+    "unconditional512MiBCap": true,
+    "actualLoopHelperCallCount": 1,
+    "afterRemovingHelperAndRevertingLoopAstEqualsOriginal": true,
+    "dependentPythonAstEqualsOriginalOutsideAdmissionPins": [
+      "qualification.py",
+      "runner.py",
+      "controls.py"
+    ],
+    "rawReadersAndOutputDescriptorAstUnchanged": true
+  },
+  "preparedControls": {
+    "source": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/grammar_controls.py",
+      "bytes": 8326,
+      "sha256": "77fb47deff4657ebcd4717f0f8992d350468923aa22c4ee7551588e5acc317ce"
+    },
+    "config": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/grammar-control-config-PENDING.json",
+      "bytes": 1439,
+      "sha256": "6ad9f8596b79b1f18b995056d46a5b6b9edbb4454f4d5576289c146cb782b8c1"
+    },
+    "privateHelperCases": 17,
+    "sourceAstChecks": 1,
+    "readerOutputCases": 3,
+    "executed": 0,
+    "currentSourcePack": "PENDING",
+    "controlledOuterRunner": "PENDING"
+  },
+  "method": "Stdlib byte/hash/JSON/AST/diff inspection only; no project imports/evaluation/tests/native/services/Git.",
+  "sourceApprovalTransfer": false,
+  "wholeSourceClosureBuilt": false,
+  "executionReleased": false
+}

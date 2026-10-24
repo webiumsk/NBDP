@@ -1,0 +1,65 @@
+{
+  "schema": "ordinary-api35-v3-reached-boundary-data-v1",
+  "actualVisibilityReceipt": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-runtime-r3/actual-run/evidence/public-identity-visibility.json",
+    "bytes": 2588,
+    "sha256": "5298f1493f0175a1a7cd85281351039cfb13580d64d2aec4c161d0855ae71290"
+  },
+  "driverReceiptWholePublicNsecObserved": true,
+  "beforeAccessibilityPassword": "true",
+  "afterAccessibilityPassword": "true",
+  "driverSource": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-runtime-r3/source-profile/03-android_driver.py",
+    "bytes": 33452,
+    "sha256": "16f4a3ee95e854e0c8aedbd2d4ccfccaf1ac0500fb8cf78463dd89f24bad1132"
+  },
+  "runCallOrderSourceOnly": [
+    {
+      "call": "login",
+      "line": 519
+    },
+    {
+      "call": "own_identity",
+      "line": 520
+    },
+    {
+      "call": "local_relay",
+      "line": 521
+    }
+  ],
+  "sourceOrderInference": "The sequential frozen run() reached local_relay refusal, supporting that earlier login/own_identity calls returned. No standalone completed driver/account journal exists. This is a source-order inference, not independent GUI/protocol acceptance.",
+  "actualNprofileUiTextCaptures": [
+    {
+      "uiXml": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-runtime-r3/actual-run/ui/ui-016-own-public-share.xml",
+        "bytes": 17331,
+        "sha256": "4592e48a6f63cee98f7f6b1f8247624b0eb26544bc4c7d212c5821e5c9ccb33e"
+      },
+      "literalTextValues": [
+        "https://njump.to/nprofile1qqsvvprlj3q76ltdxpz5qm54cp7dshrh3e9cemeu5746czdet3cfaeg6hkryv"
+      ]
+    }
+  ],
+  "nprofileInterpretation": "Literal observed UI text only; this archiver did not import decoder/validator or assert independent profile validation.",
+  "firstError": "Expected control absent after bounded scroll: System",
+  "rawUiPngCount": 26,
+  "rawUiXmlCount": 26,
+  "fixtureLocalCaptureBytes": 0,
+  "publicationIntentPresent": false,
+  "receivedValidationPresent": false,
+  "rawExportPresent": false,
+  "newExecutedControlScopes": {
+    "cleanup": 26,
+    "UI": 49
+  },
+  "carriedUnchangedScopesOnly": {
+    "guard": 29,
+    "fixture": 27,
+    "consumer": 14
+  },
+  "limits": [
+    "Use actual current v3 visibility receipt/source ordering; do not carry v2 unreached/failed whole-input assertion.",
+    "Independent fresh PNG visual review remains required; no healthy/backend/cause/client defect claim.",
+    "No project import/runtime/test or source change by archiver."
+  ]
+}

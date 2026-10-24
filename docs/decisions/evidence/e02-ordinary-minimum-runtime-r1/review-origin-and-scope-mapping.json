@@ -1,0 +1,41 @@
+{
+  "schema": "nbdp-actual-agent-decision-scope-mapping-v1",
+  "actor": "/root",
+  "actualFinalDecisions": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-runtime-r1/qa-actual-final-decision.json",
+      "bytes": 788,
+      "sha256": "e2458a2c40ed7f25a573045f7d95e9d7d8bb143df22ea77440b2986b1b1341cb"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-runtime-r1/security-actual-final-decisions.json",
+      "bytes": 939,
+      "sha256": "7d0ba14cc01c6994d5b0f70acd318094dd1f3f7c9470418eaced122791de98ea"
+    }
+  ],
+  "earlierCoordinatorNormalizedReviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-runtime-r1/qa-review.json",
+      "bytes": 629,
+      "sha256": "d8e2720e6cd3dc803d4a607e4172543dd8785edd1e2b6500aa312df9e81361f0"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-runtime-r1/security-review.json",
+      "bytes": 639,
+      "sha256": "b4c293460dc0798fd2a10d7cc10f76197fe0e6d55add2ebcba32bedb6799b320"
+    }
+  ],
+  "acceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-runtime-r1/acceptance.json",
+    "bytes": 2091,
+    "sha256": "a62112992b90ea51c16769924a26bf3669022d649de9fb3db8042b6cb8ad434e"
+  },
+  "origin": "Structured transcription of actual separate subagent mailbox output, not verbatim authenticated provider logs.",
+  "mapping": "Earlier ACCEPT_FAILED_WINDOW_AND_READ_ONLY_DIAGNOSIS_ONLY is the coordinator normalized scope, not an exact literal emitted by either reviewer. Exact emitted decision fields are separately preserved above. They accept the same exact stopped failure and read-only diagnosis only.",
+  "remainingFinding": {
+    "severity": "MEDIUM",
+    "description": "Failed query drops send-callback/backend/guard-phase evidence; precise cause UNKNOWN.",
+    "nextTask": "Separately frozen transport-only diagnostic without Android, targeted controls and independent SOURCE/result review, then distinct finite root grant."
+  },
+  "noNewExecutionAuthority": true
+}

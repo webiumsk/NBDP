@@ -1,0 +1,81 @@
+{
+  "schema": "nbdp-reviewed-publication-metadata-delta-v1",
+  "reviewedSubject": {
+    "path": "docs/decisions/evidence/transport-gate-readiness-2026-10-23/review-subject.json",
+    "bytes": 8463,
+    "sha256": "e82f03422b5608111a280667b7e756a94f54f403bc01a4083afe9f68dfc82ebf"
+  },
+  "permission": "Both independent final reviews allow verified resultingPR/commit/publication metadata only.",
+  "verifiedPublication": {
+    "url": "https://github.com/webiumsk/NBDP/pull/3",
+    "number": 3,
+    "draft": true,
+    "state": "open",
+    "merged": false,
+    "base": "main",
+    "baseSha": "989e703f43b9a33b7297cd0f501a4271d7e0983a",
+    "reviewedContentCommit": "2760e9f4c225fadf6a45789f7ccaa6bf1ed002e9"
+  },
+  "files": [
+    {
+      "before": {
+        "path": "docs/PROJECT_STATE.md",
+        "bytes": 7919,
+        "sha256": "9925b6acd2830d419a9a6aba42eadade528dddd90a7fb335a7e83e2c2bcb6eec"
+      },
+      "after": {
+        "path": "docs/PROJECT_STATE.md",
+        "bytes": 8020,
+        "sha256": "8011e7a316b7efbb141e0f4dd503005b7618873cb346d845fa1aeee9e3ff0ee1"
+      },
+      "exactMetadataReplacements": [
+        {
+          "old": "PR is pending final independent review/publication; nothing merges automatically.",
+          "new": "Draft [PR#3](https://github.com/webiumsk/NBDP/pull/3) is open. Independent QA/security accepted the readiness/preflight scope; it remains unmerged and does not release an experiment."
+        }
+      ]
+    },
+    {
+      "before": {
+        "path": "docs/ROADMAP.md",
+        "bytes": 5598,
+        "sha256": "83cf2777aeef9540b234e89f256f15f8a5c504525eab4677595bc9a8b0c57468"
+      },
+      "after": {
+        "path": "docs/ROADMAP.md",
+        "bytes": 5699,
+        "sha256": "7730e3dce975a9f6eb6206d8f85bc0ca0ca54b00ecba0e9fafb294e0f93f771f"
+      },
+      "exactMetadataReplacements": [
+        {
+          "old": "current PR awaits final review/publication.",
+          "new": "draft [PR#3](https://github.com/webiumsk/NBDP/pull/3) is open after independent QA/security readiness/preflight acceptance and remains unmerged."
+        }
+      ]
+    },
+    {
+      "before": {
+        "path": "docs/development/codex-workflow.md",
+        "bytes": 9369,
+        "sha256": "53ad6a2e90ceb44536282881586af8f50d3f800eade924305d8c594d0579d375"
+      },
+      "after": {
+        "path": "docs/development/codex-workflow.md",
+        "bytes": 9578,
+        "sha256": "131494ea4e7a973f78462635ac282f4c05da4df7bbcbb04f0fa412863c4b9437"
+      },
+      "exactMetadataReplacements": [
+        {
+          "old": "Onlymain remains remotely.",
+          "new": "At initial verification onlymain existed remotely; this task subsequently published its named readiness branch."
+        },
+        {
+          "old": "Final independent review/publication is pending; nothing merges automatically.",
+          "new": "Independent QA/security accepted the readiness/preflight package and draft [PR#3](https://github.com/webiumsk/NBDP/pull/3) is open. It remains unmerged; no automatic merge or experiment release follows."
+        }
+      ]
+    }
+  ],
+  "otherReviewedFilesChanged": false,
+  "sourceGateStatusMeaningChanged": false
+}

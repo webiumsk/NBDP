@@ -1,0 +1,43 @@
+{
+  "schema": "e06-n02316-static-target-finding-v1",
+  "date": "2026-10-21",
+  "coordinator": "/root",
+  "id": "N02316-TARGET-POLICY-MARKER-CONFLATION-003",
+  "severity": "MEDIUM",
+  "status": "OPEN_SOURCE_ONLY",
+  "scope": "TARGET_ONLY",
+  "observedRuntimeFailure": false,
+  "source": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/protocol.mjs",
+    "bytes": 73471,
+    "sha256": "71b03a1bc8953d256a9efcf7ffff1e253f440d4ccb7a395c8ef3fda6e071cc98"
+  },
+  "sourceLine": 309,
+  "policy": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/transport-sub-evidence-prerequisite-v1.md",
+    "bytes": 3073,
+    "sha256": "0ed885e41d3cbb2d38af33cdd060e5ad5bea3327d0ce2a4306c123c170a15a25"
+  },
+  "finding": "Target fixedPrerequisites searches one contiguous adoption-and-policy token absent from the exact pinned adopted policy; actual adoption marker and policy name occur separately. Current Python fixed_prerequisites already checks the separate markers.",
+  "expectedEffect": "Static analysis predicts refusal ADOPTED_CANDIDATE_E02_POLICY for the genuine policy before target wire/native effects. No target executed to observe it.",
+  "independentDiscovery": {
+    "qa": "/root/negative_plan_qa",
+    "security": "/root/b12_barecall_security",
+    "securityFinding": "SECURITY-N02316-TARGET-POLICY-MARKER-CONFLATION-003",
+    "evidence": "Actual separate agent mailbox readiness reports; final bootstrap review reports will preserve exact finding."
+  },
+  "currentAction": "Preserve accepted443sourceClosure and historicalsourceacceptance. No correction in CONTROL bootstrap task.",
+  "requiredBeforeTargetRelease": [
+    "Separately assign/freeze narrow source remediation without changing policy pin/semantics.",
+    "Independent QA/security source review of changed closure.",
+    "Actual separately released regression accepts exact current policy and refuses missing/wrong marker/name/pin before target effects.",
+    "Renew sourceApproval/qualification joins for changed source."
+  ],
+  "notBlocked": "Isolated pure CONTROL bootstrap and future LOCAL preparation that do not evaluate target protocol fixedPrerequisites.",
+  "unchanged": [
+    "Q01/Q08/Q13/Q15/Q27 BLOCKER",
+    "Option B conditional",
+    "canonical E06 NOT EXECUTED",
+    "overlay E06 PARTIAL"
+  ]
+}

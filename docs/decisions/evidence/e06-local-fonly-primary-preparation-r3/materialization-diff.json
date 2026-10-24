@@ -1,0 +1,74 @@
+{
+  "schema": "e06-request-phase-local-data-renewal-v1",
+  "authors": [
+    "/root",
+    "/root/e06_local_configuration",
+    "/root/local_monitor_controls"
+  ],
+  "originalWorker": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-preparation-r2/worker-config.json",
+    "bytes": 114239,
+    "sha256": "fd681b2448333c65b4c717d863b8ed0c840cfb054aa747a6a477a9bc4f8ec22b"
+  },
+  "originalWholeCore": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-preparation-r2/configuration-core.json",
+    "bytes": 1864,
+    "sha256": "8011833c10a16e58bc2d84e68ab8886e3593e8bc6b074125c8c8ef2f43236518"
+  },
+  "newWorker": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-preparation-r3/worker-config.json",
+    "bytes": 114239,
+    "sha256": "7982491670f2ee6041620edb94a3bbec7c672cc85287bad863974a9ac58b0b58"
+  },
+  "newWholeCore": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-preparation-r3/configuration-core.json",
+    "bytes": 1864,
+    "sha256": "9aa6c08e2ac57986537e612b134a1225e6d2a4ecfdda589309ad7ce375be5707"
+  },
+  "workerChangedLeaves": [
+    {
+      "pointer": "/runId",
+      "before": "9df61b3f71ac",
+      "after": "0f7c2a38d95b"
+    },
+    {
+      "pointer": "/outputRoot",
+      "before": "/tmp/e6n-fonly-primary-9df61b3f71ac",
+      "after": "/tmp/e6n-fonly-primary-0f7c2a38d95b"
+    },
+    {
+      "pointer": "/jobs/0/output",
+      "before": "/tmp/e6n-fonly-primary-9df61b3f71ac/Q-JS",
+      "after": "/tmp/e6n-fonly-primary-0f7c2a38d95b/Q-JS"
+    },
+    {
+      "pointer": "/jobs/1/output",
+      "before": "/tmp/e6n-fonly-primary-9df61b3f71ac/Q-RUST",
+      "after": "/tmp/e6n-fonly-primary-0f7c2a38d95b/Q-RUST"
+    }
+  ],
+  "wholeCoreChangedLeaves": [
+    {
+      "pointer": "/runId",
+      "before": "9df61b3f71ac",
+      "after": "0f7c2a38d95b"
+    },
+    {
+      "pointer": "/workerConfig/path",
+      "before": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-preparation-r2/worker-config.json",
+      "after": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-preparation-r3/worker-config.json"
+    },
+    {
+      "pointer": "/workerConfig/sha256",
+      "before": "fd681b2448333c65b4c717d863b8ed0c840cfb054aa747a6a477a9bc4f8ec22b",
+      "after": "7982491670f2ee6041620edb94a3bbec7c672cc85287bad863974a9ac58b0b58"
+    }
+  ],
+  "allOtherTypedValuesIdentical": true,
+  "sourceClosure449Identical": true,
+  "nativeArgvEnvironmentOrBudgetsChanged": false,
+  "futureOutputAbsent": true,
+  "testsOrWorkloadsExecuted": 0,
+  "configurationApprovalCreated": false,
+  "releaseCreated": false
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "nbdp-startup-diagnostic-source-review-history-v1",
+  "transcribedBy": "/root",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-js-startup-prefix-diagnostic-r1/subject.json",
+    "bytes": 4660,
+    "sha256": "b0aec92b5436f3e64716e65f54f2a2fecf450424f1cb8524cd5466d6bc18096c"
+  },
+  "actualReviews": [
+    {
+      "session": "/root/transport_evidence_qa",
+      "role": "qa",
+      "decision": "HOLD",
+      "finding": {
+        "id": "QA-STARTUP-CAPTURE-PREFIX-001",
+        "severity": "MEDIUM",
+        "scope": "SOURCE_NOT_OBSERVED_RUNTIME",
+        "summary": "Shortpositive/prefixthenexception canunderstate retainedbytes andcleanupcap."
+      }
+    },
+    {
+      "session": "/root/attachment_profile_security",
+      "role": "security",
+      "initialDecision": "ACCEPT_DIAGNOSTIC_SOURCE_CONFIG_ONLY",
+      "amendedDecision": "HOLD",
+      "priorAcceptance": "WITHDRAWN_BEFORE_EXECUTION",
+      "reason": "Independentlyconfirmed the QA partial-write defect; originalsecurityreview missed it."
+    }
+  ],
+  "actualControls": 0,
+  "actualNodeOrTrace": 0,
+  "limits": "No sourceacceptancetransfers toamendedR2; originalstoppedbytes preserved."
+}

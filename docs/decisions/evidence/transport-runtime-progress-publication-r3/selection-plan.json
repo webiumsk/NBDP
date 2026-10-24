@@ -1,0 +1,47 @@
+{
+  "schema": "nbdp-progress-publication-selection-plan-v1",
+  "actor": "/root/progress_archive_implementer",
+  "state": "SOURCE_ONLY_AWAITING_EXPLICIT_FREEZE",
+  "roots": [
+    "docs/decisions/evidence/e06-js-startup-prefix-diagnostic-r4",
+    "docs/decisions/evidence/e02-android35-lavapipe-preparation-r1",
+    "docs/decisions/evidence/e02-android35-lavapipe-runtime-r1",
+    "docs/decisions/evidence/e02-owned-avd-overlay-reclamation-r3",
+    "docs/decisions/evidence/e02-ordinary-api35-preparation-r1",
+    "docs/decisions/evidence/e02-ordinary-api35-runtime-r1",
+    "experiments/prototypes/e02_android35_lavapipe_trace_v1",
+    "experiments/prototypes/e02_ordinary_client_api35_v1"
+  ],
+  "exclusions": [],
+  "limits": {
+    "maxFiles": 2500,
+    "maxFileBytes": 33554432,
+    "maxLogicalBytes": 67108864
+  },
+  "prohibitions": [
+    "No active mutable source snapshot before explicit owner freeze.",
+    "No SDK/APK/tool archive/disk image/private-key/full external license bodies.",
+    "No recursively copied external referents or previous publication archives.",
+    "No mutable PROJECT_STATE/ROADMAP/research index documents.",
+    "No project imports, experiment execution, Git/index mutation or publication."
+  ],
+  "requiredFreeze": {
+    "filename": "freeze-authorization.json",
+    "schema": "nbdp-progress-publication-freeze-v1",
+    "actor": "/root",
+    "state": "CLOSED_INPUTS_WRITES_STOPPED",
+    "allRootOwnersWritesStopped": true,
+    "priorPackagesReadOnly": true,
+    "scope": "DATA_ARCHIVE_ONLY",
+    "roots": "exact ordered roots above",
+    "script": "exact {path,bytes,sha256} descriptor of build_archive.py",
+    "selectionPlan": "exact {path,bytes,sha256} descriptor of selection-plan.json"
+  },
+  "expectedOutputs": [
+    "selection.json",
+    "completed-runtime-evidence.tar.gz",
+    "archive-index.json",
+    "archive-verification.json",
+    "normal-core-suggestion.json"
+  ]
+}

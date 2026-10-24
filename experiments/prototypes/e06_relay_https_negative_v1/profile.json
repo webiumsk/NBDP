@@ -1,0 +1,133 @@
+{
+  "state": "INERT_SOURCE_DATA_FREEZE",
+  "runtimeReadiness": "NOT_RUNTIME_READY",
+  "executionReleased": false,
+  "normativeAdoption": false,
+  "lane": "LAB-N-02-03-16",
+  "schema": "e06-negative-profile-freeze-v1",
+  "orderedCells": [
+    "N02-SF-JS",
+    "N02-SF-RUST",
+    "N02-RS-JS",
+    "N02-RS-RUST",
+    "N03-SF",
+    "N03-RS",
+    "N16-SF-JS",
+    "N16-SF-RUST",
+    "N16-RS-JS",
+    "N16-RS-RUST"
+  ],
+  "scheduling": {
+    "activeWindows": 1,
+    "parallelTargetChildren": 1,
+    "freshProcessPerWindow": true,
+    "freshPersistentNativePerApplicableWindow": true,
+    "maxWireJobsPerWindow": 2,
+    "maxNativeRequestsPerApplicableWindow": 1,
+    "noPostFrontierEvents": true,
+    "retryCount": 0,
+    "fallbackCount": 0
+  },
+  "relays": {
+    "strfry": "ws://127.0.0.1:17777",
+    "rs-relay": "ws://127.0.0.1:18081"
+  },
+  "timersMilliseconds": {
+    "phase": 1500000,
+    "labStartup": 360000,
+    "associationWindow": 240000,
+    "wireJob": 20000,
+    "websocketHandshake": 3000,
+    "nativeStart": 15000,
+    "nativeWriteAndReplyCombined": 15000,
+    "nativeTerminalClose": 5000,
+    "directChildFailureCleanup": 5000,
+    "windowCleanupTotal": 15000,
+    "finalLabCleanup": 60000,
+    "parentPipeDrainAfterOwnedChildExit": 2000
+  },
+  "deadlineSemantics": {
+    "phase": "Monotonic original deadline begins before owned lab setup and includes startup, all serial windows and capture. Never rebase. Stop dependent work on expiry.",
+    "window": "min(original phase deadline, window start+240s), parent and case enforce. Retains accepted I4 window bound including substantial current-source/inventory rehash overhead.",
+    "native": "One15s deadline includes stdin write plus complete reply; waiting cannot reset it. Terminal close has separate5s cap bounded by remaining window/phase.",
+    "cleanup": "Bounded failure cleanup remains available after work deadline; max15s/window and60s final lab cleanup, separately measured, no new target work. Forced/uncertain lifecycle never qualifies.",
+    "composition": "1500s phase and240s windows are independent maxima, not a guarantee all10 windows finish at every individual worst bound. No timing experiment or cap expansion for PASS."
+  },
+  "byteLimits": {
+    "privateFrame": 1048576,
+    "nativeRequestJSONL": 131072,
+    "nativeReplyJSONL": 16777216,
+    "childStdout": 16777216,
+    "childStderr": 65536,
+    "wireFrame": 262144,
+    "wireFramesPerJob": 16,
+    "wireRawBytesPerJob": 2097152,
+    "caseReplyJSONL": 16777216,
+    "recordOrDataRead": 33554432,
+    "caseEvidencePack": 33554432,
+    "runEvidencePack": 33554432,
+    "runEvidenceFiles": 2048,
+    "verifiedInputFiles": 2048,
+    "verifiedInputSingleFile": 536870912,
+    "verifiedInputTotalBytes": 4294967296,
+    "closureEntries": 1024,
+    "pathUTF8Bytes": 4096,
+    "capturedErrors": 32,
+    "diagnosticUTF8BytesEach": 1024
+  },
+  "nativeWindowBounds": {
+    "maxDEntries": 16,
+    "maxFEntries": 32,
+    "maxQualifyingFComparands": 2,
+    "noPruning": true,
+    "expectedN02": {
+      "dEntries": 0,
+      "fEntries": 1,
+      "capacityHeld": false
+    },
+    "expectedN16": {
+      "dEntries": 1,
+      "fEntries": 1,
+      "capacityHeld": false
+    }
+  },
+  "environments": {
+    "outerCaseWireAndNativeExact": {
+      "PATH": "/usr/bin:/bin",
+      "LANG": "C.UTF-8",
+      "LC_ALL": "C.UTF-8",
+      "TZ": "UTC",
+      "WS_NO_BUFFER_UTIL": "1",
+      "WS_NO_UTF_8_VALIDATE": "1"
+    },
+    "additionalVariablesAllowed": [],
+    "chromeVariable": "ABSENT",
+    "inheritParentEnvironment": false
+  },
+  "effects": {
+    "httpsListeners": 0,
+    "httpsServers": 0,
+    "acquisitionClients": 0,
+    "acquisitionConnections": 0,
+    "httpGets": 0,
+    "receivedEntityBytes": 0,
+    "consumerImportsOrCalls": 0,
+    "browserLaunches": 0,
+    "attachmentEncryptions": 0,
+    "generations": 0,
+    "attemptReservations": 0,
+    "originalReleases": 0,
+    "receipts": 0,
+    "businessEffects": 0
+  },
+  "resourceMeaning": "Bounds are inherited or narrowed from accepted I4 guards; monitor-owned constraints, not hard realtime/RSS/escaped-descendant certification. Shared tools/images/configs require exact fresh descriptor joins. No TLS key/certificate or attachment consumer is needed by this lane; do not start them.",
+  "finiteDenominator": {
+    "windows": 10,
+    "wholeSteps": 28,
+    "wireJobs": 14,
+    "nativeRequests": 8,
+    "nativeReplies": 8,
+    "dValidations": 4,
+    "fValidations": 8
+  }
+}

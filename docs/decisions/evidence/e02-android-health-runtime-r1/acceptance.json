@@ -1,0 +1,33 @@
+{
+  "schema": "e02-android-health-failure-evidence-acceptance-v1",
+  "coordinator": "/root",
+  "decision": "ACCEPT_FAILURE_DIAGNOSTIC_EVIDENCE_ONLY",
+  "subject": {
+    "path": "/tmp/nbdp-e02-android-health-v1/runs/8e4865aa7ad547968e7d3b4a53d7fcf6/diagnostic-result.json",
+    "bytes": 13937,
+    "sha256": "960c5dd801fd6a8af352bea1d01ddcb0a888f43c7e6cc0047cb8b43f5a80b3e7"
+  },
+  "independentReviews": {
+    "qa": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-runtime-r1/independent-qa-review.json",
+      "bytes": 2241,
+      "sha256": "6a460a072bb485c822f6b12b0db9ae26cd80efa3db7c6cee95e944023b8f09c4"
+    },
+    "security": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-runtime-r1/independent-security-review.json",
+      "bytes": 2253,
+      "sha256": "dc385a19a182cf0ec00747592a902fbff956b43058423581704668b44bfdd747"
+    }
+  },
+  "measuredDeltas": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-runtime-r1/measured-deltas.json",
+    "bytes": 1102,
+    "sha256": "fc86042d5a23b50c1ed351fd2521a4272b0f8c2ec3e22e133c1921fbe701566b"
+  },
+  "executionReleased": false,
+  "nextTask": "One separately frozen CPUquota-only B8 diagnostic withguest4/RAM/GPU/SDK/APK/procedureunchanged; independent review/release beforeactivation; noordinaryrow.",
+  "limits": [
+    "CauseUNRESOLVED; baselineANRprecedesAmethystintent.",
+    "NoE02PASS/healthybaseline/causalconclusion."
+  ]
+}

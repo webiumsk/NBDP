@@ -1,0 +1,105 @@
+{
+  "schema": "e02-minimum-current-pure-controls-execution-v1",
+  "actor": "/root/ordinary_api35_source",
+  "session": "/root/ordinary_api35_source",
+  "state": "WRITES_STOPPED",
+  "result": "ALL_FIVE_CHANGED_SEPARATE_PURE_SCOPES_COMPLETED",
+  "scopes": [
+    {
+      "scope": "cleanup",
+      "expected": 29,
+      "observed": 29,
+      "matched": true,
+      "receipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/current-controls-r1/cleanup-execution.json",
+        "bytes": 2016,
+        "sha256": "3f056748287b49a771f001593a72e797096a8e2c5b1428a371b9408ac1283450"
+      }
+    },
+    {
+      "scope": "ui-regression",
+      "expected": 49,
+      "observed": 49,
+      "matched": true,
+      "receipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/current-controls-r1/ui-regression-execution.json",
+        "bytes": 2041,
+        "sha256": "64a7f0fc98e735cf27ed0ebfe6346c0030595e3e7f766042fde66abc3a759c57"
+      }
+    },
+    {
+      "scope": "minimum-ui",
+      "expected": 21,
+      "observed": 21,
+      "matched": true,
+      "receipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/current-controls-r1/minimum-ui-execution.json",
+        "bytes": 2032,
+        "sha256": "5fd841f8ec068d23ad1e99364d1c0646ecbb4fc770c3574365317e96f9aed7a1"
+      }
+    },
+    {
+      "scope": "fixture-regression",
+      "expected": 27,
+      "observed": 27,
+      "matched": true,
+      "receipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/current-controls-r1/fixture-regression-execution.json",
+        "bytes": 2040,
+        "sha256": "2f7c417f367acb1ec361845f4e1ab3518c8ef65816faabec99e3b45c56727ff3"
+      }
+    },
+    {
+      "scope": "minimum-fixture",
+      "expected": 43,
+      "observed": 43,
+      "matched": true,
+      "receipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/current-controls-r1/minimum-fixture-execution.json",
+        "bytes": 2041,
+        "sha256": "bba72ac5715a4137d07187cce4d67732d5255ae132056e28aa4d677c516f5d44"
+      }
+    }
+  ],
+  "remainingScopesNotExecuted": [],
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/subject.json",
+    "bytes": 35766,
+    "sha256": "296acf346bb034bcb8becc22562494e5f37e78c3f78537d061e83455135315b4"
+  },
+  "configurations": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/proposed-incoming-run-config.json",
+      "bytes": 4138,
+      "sha256": "9403036b52608929f4be45a5998b6b134dfbdc9454887dcac9be0646848cce5e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/proposed-archive-run-config.json",
+      "bytes": 4136,
+      "sha256": "331a98d3fe0b386715e4c9a11c1abf335e03848eeaf7803eb71deb63a426141d"
+    }
+  ],
+  "runner": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/current-controls-r1/capture-controls.py",
+    "bytes": 13851,
+    "sha256": "8fc0b86374f7ed5e13ac51bdd9374035fe828c18301f5d32ea6907d6c9b90c9b"
+  },
+  "coordinatorAcknowledgement": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/current-controls-r1/coordinator-acknowledgement.json",
+    "bytes": 1748,
+    "sha256": "4e8985cdfdf0ee4451328790be5ab60569360e1fc33cb25f74b89e55d88f875c"
+  },
+  "newIndependentResultReviews": "PENDING_ACTUAL_OTHER_AGENTS",
+  "noRetry": true,
+  "androidServicesSdkInstallsLeasesGrantsReleases": 0,
+  "unchangedScopesNotReexecuted": {
+    "guard": 29
+  },
+  "unchangedScopeLink": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/unchanged-guard-scope-link.json",
+    "bytes": 2277,
+    "sha256": "232c06bcd83e1dc37764f1d0240ed07ee77ee2e622fe67a68ff6a95d9efec0de"
+  },
+  "canonicalPromotionOrBlockerChange": false,
+  "meaning": "Each scope has its own evidence/count. Synthetic DATA/pure controls do not establish ordinary-client runtime acceptance."
+}

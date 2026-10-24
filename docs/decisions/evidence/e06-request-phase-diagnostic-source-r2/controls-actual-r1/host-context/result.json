@@ -1,0 +1,20 @@
+{
+  "hostFixture": {
+    "uid": 1000,
+    "gid": 1000,
+    "uidMap": "identity",
+    "gidMap": "identity",
+    "userNamespace": "host",
+    "mountNamespace": "host"
+  },
+  "managedFixture": {
+    "uid": 1000,
+    "gid": 1000,
+    "uidMap": "managed",
+    "gidMap": "managed",
+    "userNamespace": "managed",
+    "mountNamespace": "host"
+  },
+  "mismatchRefused": true,
+  "actualHostProbe": false
+}

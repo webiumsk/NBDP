@@ -1,0 +1,43 @@
+{
+  "schema": "nbdp-source7-scoped64-result-acceptance-v1",
+  "actor": "/root",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r7/controls-external-r1/batch-subject.json",
+    "bytes": 55159,
+    "sha256": "71b061bb2459b0c3252b2e0a4c7b3a20c1aa241b3f1585e4df2f3557d2ef1fa8"
+  },
+  "actualCounts": [
+    13,
+    3,
+    30,
+    18
+  ],
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r7/controls-external-r1/actual-qa-decisions.json",
+      "bytes": 1261,
+      "sha256": "f6b92ce92608526507c33c60842b03e7c24ccf9e4600c8c57631a23b251b72bd"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r7/controls-external-r1/actual-security-decisions.json",
+      "bytes": 1278,
+      "sha256": "86255d6cf70915488f7a512f9142b30c5f30d4bf1849819f07a75992e9cf10bc"
+    }
+  ],
+  "pureAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r7/controls-external-r1/pure16-acceptance.json",
+    "bytes": 1721,
+    "sha256": "c78a4a6033dcada8f10675dfe010b4a08f1029dd9d9bde442c306de24c945f3f"
+  },
+  "modeledAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-guard-regression-acceptance.json",
+    "bytes": 2872,
+    "sha256": "5df82866fab62633e24879baeb56221e9b4d0d45e095dde7b942046416bcf8d8"
+  },
+  "origin": "Structured coordinator transcriptions of actual independent separate-session decisions; not authenticated provider logs.",
+  "limits": [
+    "Pure/model64 only, not actual seven or Node/LOCAL.",
+    "Diagnostic model AFTER values are fake; original live differing field remains UNKNOWN.",
+    "All original failures and canonical results unchanged."
+  ]
+}

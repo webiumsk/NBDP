@@ -1,0 +1,5 @@
+# R2 exact LOCAL monitor
+
+SOURCE ONLY; no release or execution. Derived from the independently reviewed R1 monitor. Changes only bind fresh R2 core/config/worker/approval/review/workflow/output identity and disclose all three configuration authors. Every function/class AST is unchanged except the expected runId literal. Original1800s total/1770active/30cleanup, fixed Popen, WNOWAIT lifecycle, stream caps and first-error rules are unchanged. Five actual prior owned-child controls cover unchanged lifecycle logic; they are not R2 full-admission results.
+
+Before activation verify exact external monitor pin, current full source/authority graph, owner0600 on every actual ownedJSON operand including fresh release/worker, fresh outputs and both actual monitor reviews. Root creates the genuine closed grant only afterward. Preserve all earlier failures. Actual admission may refuse and every outcome requires independent whole-result review. LOCAL noEffects fields are initialized literal zeros, not measured no-business-effect proof. No TARGET, original recovery or canonical PASS is claimed.

@@ -1,0 +1,32 @@
+{
+  "schema": "nbdp-source4-scoped-disposition-v1",
+  "actor": "/root",
+  "decision": "ACCEPT_DIAGNOSTIC_SOURCE_CONFIG_ONLY",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/subject.json",
+    "bytes": 26581,
+    "sha256": "03661eea0eccefe72e28d386b7e4b2b020a4b10f322492a8b273dbc36a395474"
+  },
+  "actualIndependentReviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/actual-source-qa-review.json",
+      "bytes": 366,
+      "sha256": "e25870e4b867d96c30f7fc76cdac305720fd945412c063f07d934a1cf1221a50"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/actual-source-security-review.json",
+      "bytes": 378,
+      "sha256": "d49dbab21e6df6ccdd65c107b0bc85f189b3a5a874d9c50f9b7394b01731300a"
+    }
+  ],
+  "allowedAfterSeparateRootRelease": [
+    13,
+    3,
+    16,
+    14
+  ],
+  "actualControlsExecuted": 0,
+  "actualStraceAuthorized": false,
+  "nodeLocalAuthorized": false,
+  "sourceFindings": "REMEDIATED_AT_SOURCE_RUNTIME_QUALIFICATION_PENDING"
+}

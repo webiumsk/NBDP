@@ -1,0 +1,19 @@
+{
+  "case": "natural-zero",
+  "argv": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "-c",
+    "import os,sys; x=sys.stdin.buffer.read(); os.write(4,b'stdin='+str(len(x)).encode()+b'\\n'); os.write(1,b'fixture-monitor-summary\\n')"
+  ],
+  "writeFault": null,
+  "activeFixtureSeconds": 2,
+  "cleanupFixtureSeconds": ".5",
+  "fixtureCaps": {
+    "trace": 1024,
+    "stdout": 256,
+    "stderr": 512
+  },
+  "meaning": "Owned Python child/synthetic trace only; no Node/strace/LOCAL or actual EXITKILL claim."
+}

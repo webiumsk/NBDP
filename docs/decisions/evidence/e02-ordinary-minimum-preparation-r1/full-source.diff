@@ -1,0 +1,2381 @@
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/EXPORT-CONTRACT.md
+@@ -0,0 +1,382 @@
++# Minimum ordinary-client export contract v1
++
++This is an experimental **SOURCE contract**, profile
++`e02-ordinary-minimum-rs-two-role-v1`. It implements the coordinator's separately
++adopted minimum method. It grants no execution or qualification authority.
++No aggregate consumer or canonical integration is implemented in this directory.
++The original eight-row profile/consumer remains strict and unchanged.
++
++## Closed membership and fresh windows
++
++Exactly two separate finite windows are required, with distinct run IDs, output
++directories, original leases and fresh AVD/app/helper/rs-relay states. Maximum
++concurrency is one. Each original lease is at most1800s, never renewed. Cleanup,
++fresh resource admission and a separate exact grant precede the other window;
++there is no automatic second run or inherited deadline. A failed whole window
++cannot donate an earlier export or GUI row. Preserve every attempt and refusal.
++
++| Role/window | Actual account | Counterparty | Ordered stages |
++| --- | --- | --- | --- |
++| `incoming` / `incoming-b` | public scalar2, pubkeyB | pubkeyA | `incoming-business`, `incoming-ordinary-chat` |
++| `archive` / `archive-a` | public scalar1, pubkeyA | original inner recipientB | `archive-business`, `archive-identical-replay`, `archive-fresh-wrap-replay` |
++
++Here A is `79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798`
++and B is `c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5`.
++Both are explicitly public disposable fixtures. Only JS produces these ordinary
++wraps. The complete independent JS/TypeScript-package and Rust primary matrix,
++both configured relays, peer/self roles, inboxes, negatives, replay and correlation
++stubs remain separate mandatory current evidence. This profile asserts no Rust
++producer/Amethyst or strfry/Amethyst coverage.
++
++The business input is the exact shared frozen `business-rumor.json`, including
++its timestamp and NIP01 ID, in both windows. Its origin is an earlier producer
++**expectation input**, never a failed observation donation. The harmless chat is
++the distinct frozen `chat-rumor.json`. Both windows require new actual client
++exports. The supporting v3 first-cell history is never converted into subrows.
++
++## Primitive types and schema-specific integers
++
++`Pin = {path: absolute canonical string, bytes: nonnegative bounded integer,
++sha256: lowercase hex64}` with exactly these fields. Symlink/path escapes,
++descriptor drift, duplicate JSON keys, NaN/Infinity and unrecognized fields in
++typed evidence contracts refuse qualification. Resolve `/session/fixtures/...`
++only to that exact window's `out/session/fixtures/...`; preserve the original
++guest descriptor and a separate verified host binding. Do not rewrite raw proof.
++
++Wire/rumor and JS event fields retain the existing strict safe-integer limits;
++kind14, timestamp, NIP01 ID, signatures, content and ordered tags retain the
++existing validators. No general timestamp exception or arbitrary schema allowlist
++is introduced. The future consumer must enumerate metadata operands explicitly:
++
++- `e02-minimum-selection-v1.capturedMonotonicNs`: nonnegative signed64 host ns.
++- `e02-clipboard-capture-v1`: original helper `elapsedRealtimeNanos`,
++  `wallClockMillis`, `clipboardTimestamp`, bytes/count integer operands only,
++  under the original helper contract. Host and guest monotonic values are never
++  compared as absolute timestamps.
++- Original lease UTC/BOOTTIME/MONOTONIC ns and cleanup/command lifecycle metadata
++  retain their exact existing schemas, domains and source-reviewed bounds.
++- Proxy `sequence`, connection IDs, request/EOSE sequence values and publication
++  attempt epochs are positive JS safe integers. An epoch is1 or2 in the incoming
++  window and1 through3 in archive; it is scoped to one window, not globally unique.
++- Visible text-node counts are integers1 through3 for archive replay and exactly1
++  for initial/chat selection. They are not global bubble or business-effect counts.
++
++Raw command streams and Docker inspections remain separately pinned originals.
++Do not parse unrelated opaque fields merely to relax an existing integer rule.
++Any genuinely new runtime schema needs an explicit reviewed typed mapping.
++
++For this distinct multi-observation consumer contract the finite DATA admission
++ceilings per window are4096 command receipts,140 UI captures,16,777,216 proxy
++bytes/262,144 proxy rows,20,000 regular graph files and250,000 descriptor visits.
++These are conservative parser/cardinality ceilings, not increased runtime action,
++scroll, capture, cgroup or deadline budgets and not measured usage. A source
++upper-bound accounting is840 snapshot receipts (140×6),240 UI action receipts
++(120×2), at most544 boot/fixed-admission receipts,128 fixture-call receipts
++(64×2), plus128 conservative create/cleanup receipts: below1880.4096 leaves
++bounded bookkeeping margin. Do not copy the old single-cell512 receipt ceiling
++or interpret the new consumer ceiling as permission for arbitrary commands.
++
++## Exact nested operand types
++
++All objects below have exactly the named keys; `?` denotes a conditional key
++only where explicitly stated. `Safe` means a nonnegative JS-safe integer, never
++a boolean/float/string coercion. `Seq` is a positive Safe bounded by proxy rows;
++`CommandSeq` is1..4096. A subscription is a UTF8 string bounded by the262144-byte
++raw frame cap; filters are the exact bounded/depth32 JSON filter array from the
++actual REQ, with at least one matching1059/#p filter. No expected filter is
++substituted for actual client bytes.
++
++```text
++Generation = {connection:1..64, subscription:string,
++              requestSequence:Seq, eoseSequence:Seq}
++Gate = Generation + {filters: actual JSON filter array}
++Attempt = {epoch:1..roleStageCount, stageId: closed StageId}
++           // epoch == index+1 for a successful role window
++Delivery = {connection:1..64, subscription:string,
++            rowSequence:Seq, sentSequence:Seq,
++            forwardGeneration:Generation, completionGeneration:Generation,
++            forwardAttempt:Attempt, completionAttempt:Attempt}
++ValidationPins = {transport:Pin, validation:Pin}
++GuestHostBinding = {guest:Pin, host:Pin}
++WireOrigin = "ACTUAL_APP_SOCKET_FRAME"|"ACTUAL_RELAY_QUERY_NO_NEW_APP_FRAME"
++Inner = {id:hex64,pubkey:A,created_at:Safe,kind:14,
++         tags:[["p",B]],content:exact frozen string}
++Signed1059 = {id:hex64,pubkey:hex64,created_at:Safe,kind:1059,
++              tags:[["p",roleAccount]],content:encrypted string,sig:hex128}
++```
++
++Every `GuestHostBinding.guest.path` is unique; a repeated reference may resolve
++to the same binding, but divergent bytes/host aliases refuse. Host paths must be
++the exact corresponding window root, never another run, a shared expected oracle
++or an arbitrary alias. Raw validated frame/transport records remain unchanged.
++
++```text
++SentFrame = {frame:Pin, eventId:hex64|null, messageType:"EVENT"|"REQ",
++             sendInvoked:true, sendCallbackCompleted:true,
++             callbackBufferHash:hex64}
++ActualReply = {rawBase64:string, frame: ["OK",hex64,true,string]
++                                      |["EVENT","e02-owned-query",Signed1059]}
++Exchange = {ack:[ActualReply], received:[ActualReply],
++            eose:null|{rawBase64:string,frame:["EOSE","e02-owned-query"]},
++            sentFrames:[SentFrame], elapsedNanoseconds:Safe[0..1800000000000]}
++Prepared = {schema:"e02-minimum-prepared-v1", profileId, windowId, role,
++            rumors:{business:Inner,chat:Inner}, events:[Signed1059],
++            expected:{closed role StageId -> {stage:Stage,rumor:Pin,content:Pin}}}
++PrepareResult = {profileId,windowId,ordinaryRole,expected,prepared:Pin,inboxes:Pin}
++StatusResult = {profileId,windowId,stageId:StageId|null,stageIndex:0..roleStageCount,
++                complete:boolean,ready:boolean,gate:Gate|null,captureSequence:Safe,
++                scope:"SUBSCRIPTION_PREFLIGHT_NOT_CLIENT_RECEIPT"}
++PublishResult = {profileId,windowId,stage:Stage,publication:Pin,
++                 publicationWindow:Pin,validation:ValidationPins,
++                 producerValidation:Pin,actualNewAppFrameObserved:boolean}
++```
++
++`SentFrame.frame` pins the exact immutable Buffer passed to `ws.send`, with its
++actual send callback and unchanged Buffer hash. The exchange waits for callbacks
++and matching ACK/EOSE. A reconstructed event serialization is not this operand.
++Compare initial and identical replay sent-frame bytes directly. EVENT IDs match
++their frame; a REQ has eventId:null and the exact owned query subscription.
++`Exchange.elapsedNanoseconds` is a measured monotonic duration under the original
++lease, not absolute host ns, resource usage, or an invented API completion flag.
++
++```text
++PublicationWindow = {schema:"e02-minimum-publication-window-v1",
++ profileId,windowId,stageId:StageId,eventId:hex64,attempt:Attempt,
++ intentSequence:Seq,closeSequence:Seq,actualNewAppFrameObserved:boolean,
++ candidateAppFrameSeen:boolean,elapsedNanoseconds:Safe[0..1800000000000],
++ clock:"NODE_PROCESS_HRTIME_MONOTONIC",origin:WireOrigin}
++FixtureCall = {schema:"e02-minimum-fixture-call-v1",profileId,windowId,
++ operation:"prepare"|"status"|"publish",ordinal:1..64,
++ commandSequence:CommandSeq,command:Pin,reply:Pin}
++CustodySegment = {commandSequenceFirst:CommandSeq,commandSequenceLast:CommandSeq,
++ uiCaptureSerialFirst:1..140,uiCaptureSerialLast:1..140,
++ uiActionCountBefore:0..120,uiActionCountAfter:0..120,
++ uiCaptures:[{png:Pin,xml:Pin}]}
++```
++
++Window intent/close sequence values join the actual `PUBLICATION_INTENT` and
++`PUBLICATION_WINDOW_CLOSED` rows in `e02-minimum-proxy-row-v1` capture. A query-only
++absence requires candidateAppFrameSeen:false within that sealed interval; an
++uncompleted candidate forward/callback cannot masquerade as absence. Retain and
++inspect all later raw history too: absence in this bounded interval is not a claim
++that no later app frame ever existed. Duration is measured, not presumed10s.
++
++Each observation's subscriptionStatusReply pins the exact actual successful
++status wrapper; subscriptionStatusCall pins its FixtureCall and
++subscriptionStatusCommand pins the corresponding actual command receipt.
++Parsed reply.result equals embedded subscriptionStatus. The whole ordered
++fixtureCalls array, stage custody segments and complete command/UI inventory
++must join without omitted, reordered, duplicated or unexplained commands.
++Status is preflight; the publisher must independently bind its own current gate.
++
++`e02-minimum-transport-v1` has exactly schema and six Pin fields:
++frame, wire, jsRequest, rustRequest, jsResult and rustResult. The validated-wire
++record has exactly schema,profileId,windowId,stageId,origin,
++clientReceiptEstablished,transport:Pin,rustBinary:Pin,rustSource:Pin,rustInput:Pin,
++rustStdout:Pin,rustStderr:Pin,rustExit:0,rustSignal:null,actualQueriedEvent,
++js,rust,clientRetention. `js` and `rust` are the same successful normalized
++current-adapter result, with the exact frozen rumor, correct declared role and
++dispatch eligibility; business includes the exact parsed frozen envelope and
++chat omits envelope. Decrypt counters retain the original validator meanings.
++
++The actual native API is Node `spawnSync`, not Popen. The producer requires no
++`native.error`, status0, signal:null, stderr length0, exactly two stdout JSON
++lines, first source echo identical to the pinned Rust source and second successful
++validation identical to JS. Retain exact stdin/stdout/stderr Pins. The record
++does not invent Popen/EOF/reaped/error:false fields the native API never emitted;
++outer actual Node command lifecycle/tool witnesses remain separately required.
++
++Frozen rumor.created_at may precede both leases. NIP59 randomized outer/seal
++created_at may also precede a lease. Never inherit a one-cell timestamp-inside-
++lease test for these protocol fields. Freshness comes from actual current
++source-bound preparation/wrapping/sending, fresh exclusive state, guarded
++original clocks and authentic tool/history witnesses, not from changing the
++shared inner oracle or pretending protocol timestamps are execution witnesses.
++
++The proxy row exact common keys are schema (`e02-minimum-proxy-row-v1`), sequence,
++utc (ISO UTC string) and direction. Direction-specific keys are:
++
++```text
++OPEN: connection,userAgent(string<=1024chars)
++APP_TO_RELAY: connection,rawBase64
++RELAY_TO_APP: connection,rawBase64,publicationGeneration:Generation|null,
++              publicationAttempt:Attempt|null
++APP_SOCKET_SEND_COMPLETE: connection,sourceSequence:Seq,
++              publicationGeneration:Generation|null,publicationAttempt:Attempt|null
++CLOSE: connection
++PUBLICATION_GENERATION_INVALIDATED: connection,
++              reason:"REQ_REPLACED"|"APP_CLOSE"|"RELAY_CLOSED"|"CONNECTION_CLOSED",gate:Gate
++PRODUCER_TO_RELAY: exchangeLabel,rawBase64,frame:Pin
++RELAY_TO_PRODUCER: exchangeLabel,rawBase64
++PUBLICATION_INTENT: stageId,eventId,attempt
++PUBLICATION_WINDOW_CLOSED: stageId,eventId,attempt,intentSequence,
++              actualNewAppFrameObserved,candidateAppFrameSeen,elapsedNanoseconds
++```
++
++`exchangeLabel` is the closed preparation or stage publish/query label,1..48
++lowercase ASCII letters/digits/hyphens. Backend outgoing and incoming raw bytes,
++including unrecognized/negative frames, share the original16MiB total capture
++bound. Query EOSE is retained raw, never synthesized.
++
++The close row's own common sequence is closeSequence in PublicationWindow. All
++Nostr rawBase64 bytes must decode strictly and join the exact actual decoded
++frame, without generating an EVENT/EOSE to repair a missing row. Window duration
++and booleans have the exact domains specified above; names alone never widen
++integer types. Publication windows do not discard any later raw proxy rows.
++
++## Producer and actual wire lineage
++
++The only fixture CLI/control operations are `serve`, `prepare`, `status` and
++`publish`; external requests have exactly `{op}` and cannot supply an event,
++key, nonce, role, stage index or recipient. Role/account/window comes exclusively
++from the hash-bound fixed run configuration. The prepared stage order is finite;
++prepare is once-only and a failed publication remains sticky. Every ordinary
++wrap is produced by the same pinned existing `transport.wrap` implementation;
++no crypto primitive or nonce profile is introduced.
++
++`e02-minimum-fixture-command-v1` has exactly schema, profileId, windowId,
++operation, caseId (`minimum-two-role-rs`), ok and result. Failed replies never
++qualify. `prepare.result.expected` is keyed by the exact role's stage IDs and
++contains `{stage,rumor:Pin,content:Pin}` for each. A status names the current
++stage/index and actual current subscription gate; a status alone is not receipt.
++
++`Stage = {id,index,oracle,dispatch,normalizedRole,identicalReplay,freshWrap,
++requiresNewAppFrame}`, exactly the closed `stageSpec` outputs. Business incoming
++has dispatch eligibilitytrue/roleincoming; harmless chatfalse/rolechat; every
++archive stagefalse/rolearchive. These are validator eligibility results, never
++measurements of NBDP handler effects.
++
++Every publication requires a current actual app1059 `#p` account subscription
++and same-generation EOSE before publishing. Bind raw REQ/EOSE, connection and
++subscription IDs, request/EOSE sequences, before gate, forwarding/callback gates,
++publication attempt epoch/stage, raw app EVENT and relay query. Replaced REQ,
++CLOSE, reconnect or changed EOSE cannot reuse a stale generation. A fresh gate
++after a between-stage reconnect is distinct; a change during an active attempt
++refuses that attempt. A delayed prior callback cannot qualify a new attempt.
++
++The three evidence origins are deliberately distinct:
++
++1. Initial business, incoming chat and fresh-wrap replay **require a newly
++   observed actual app socket frame** with current attempt/generation custody.
++2. An identical archive event replay may be deduplicated by the relay. If no
++   new app frame is observed in the bounded interval, record that absence,
++   actual publication/OK, exact relay query and complete proxy history. No prior
++   frame or synthesized EVENT/EOSE can fill this position.
++3. In that duplicate case, native/JS validation can use the **actual relay query
++   frame**, explicitly `ACTUAL_RELAY_QUERY_NO_NEW_APP_FRAME`. It establishes
++   retained relay wire/role eligibility, not that Amethyst received or handled
++   the identical outer twice. A fresh post-replay client GUI/export is still
++   mandatory.
++
++`e02-minimum-validated-wire-record-v1.origin` is exactly
++`ACTUAL_APP_SOCKET_FRAME` or `ACTUAL_RELAY_QUERY_NO_NEW_APP_FRAME`;
++`clientReceiptEstablished` must equal the first origin. Preserve native source
++echo, exact native stdin/stdout/stderr, exit0/natural completion, independent
++normalized JS/Rust results, frame/wire pins and the six-field frozen rumor join.
++The associated `e02-minimum-transport-v1` cannot be passed to the old consumer as
++an old-profile observation. A query-origin record is forbidden for any stage
++whose `requiresNewAppFrame` istrue.
++
++`e02-minimum-stage-publication-v1` binds profile/window/stage, attempt, intent,
++gate, publicationWindow, actual publication, actual query and event, `actualNewAppFrameObserved`,
++delivery ornull, validation, producerValidation, clientRetention,
++validationOrigin and replayLimit. Forward/completion attempt and generation
++fields are required on actual delivery; absence isnull, never a cached delivery.
++
++For identical replay the complete outer event and serialized Nostr application
++EVENT payload are identical; WebSocket connection/header/masking bytes need not
++be. Fresh replay must have a different genuinely produced outer ID and the same
++original inner rumor. In every archive stage the outer recipient isA while the
++inner author remainsA and ordered private recipient tag remainsB.
++
++## Actual GUI, attribution and client-origin exports
++
++The fixed client/APK/helper/source/SDK/dependency pins, fresh own-account GUI and
++saved/reopened TorOff evidence apply independently to each window. Decode the
++actual nprofile GUI using a pinned reviewed decoder and join its resulting
++pubkey to the expected role account. A declared account field or Known tab alone
++is not account/attribution proof. The driver emits the actual profile GUI and
++explicitly leaves independent decoding/review pending.
++
++The incoming conversation is selected from New Requests; sender archive from
++Known, as supported by pinned Amethyst source. Exact source-backed live selectors
++remain **NOT_RUNTIME_VALIDATED** until actual use. Missing or ambiguous controls
++refuse; there is no guessed coordinate or unknown-screen fallback. Voice calling
++is an optional feature in the pinned source and is not a chat recognition gate.
++Recognition requires the actual Back control, matching enabled Amethyst expected
++note text and either the unique empty private Message composer or the exact
++source-backed missing-recipient-DM-relays footer. That warning replaces the
++composer in the pinned source; it is never sufficient without the known room
++navigation/Back/actual expected note. The warning is read only and never clicked.
++Both branches still require the actual selected-note export.
++No composer is used to insert a fixture or trigger a business operation.
++
++Every stage, including both replay stages, gets a fresh selected-note PNG/XML,
++foreground helper CLEAR receipt, actual long-press/More Options/Copy raw JSON,
++foreground helper CAPTURE receipt and helper-owned raw bytes. Case IDs are the
++closed stage IDs, so exclusive helper files cannot overwrite an earlier stage.
++Require focus, one text/plain item, sentinel/fresh timestamp custody and exact
++byte count/SHA256. No expected JSON may enter clipboard/composer/helper intent,
++no host clipboard synchronization and no Amethyst private-file extraction.
++
++The raw client JSON must equal the frozen typed inner rumor in all six fields:
++id, pubkey, created_at, kind, tags and content. UTF8 content and private tag order
++are exact; no Unicode normalization/trim/reinterpretation. The only permitted
++additional representation field is exactly `sig:""`; retain raw bytes unchanged
++while excluding that empty representation field for semantic comparison.
++Wrong conversation/author/recipient, missing or changed tags/content or any
++other extra/signature field is negative evidence, not an ordinary UI limitation.
++
++`e02-minimum-selection-v1` binds profile/window/observation/account/peer,
++originalAuthor/originalOrderedTags/rumorId, action/method, helperPackage,
++helperArtifact/receipt, capturedMonotonicNs, selectedGui,
++matchingVisibleTextNodes and explicit limits. The actual inner bindings and
++account GUI/wire lineage, not a display name alone, establish attribution.
++
++On replay, preserve actual visible matching text-node positions/count and the
++selected uniquely lowest match. An ambiguous equal position refuses. The source
++does not claim these text nodes equal bubble counts. `duplicateObservation`
++records the current viewport scope, visibleMatchingTextNodeCount,
++globalDuplicateBubbleCount:null, globalDuplicateBubbleCountStatus:
++`UNKNOWN_UNMEASURED`, and businessEffectsMeasured:false. No initialized zero
++counter or dispatchfalse value establishes absence of business effects.
++
++## Whole-run witnesses and future qualification boundary
++
++`e02-minimum-role-driver-result-v1` contains exactly schema, profileId, windowId,
++ordinaryRole, runId, runConfig, runRelease, executionState (`PARTIAL`),
++accountIdentityGUI, expectedAccountPubkey, accountIdentityQualification,
++torConfigurationGUI, environmentAnrEvidence, allUICaptures, fixtureCalls, observations, limits
++and canonicalE02Changed:false. Each ordered observation contains id, state
++(`EXPORTED_PENDING_INDEPENDENT_WHOLE_RUN_REVIEW`), selection, uiPng/uiXml,
++rawClientRumor, clipboardClear, visibleMatchingTextNodeCount,
++duplicateObservation, expectedRumor, publication, actualNewAppFrameObserved,
++originalGuestToHostBindings, subscriptionStatus, subscriptionStatusReply,
++subscriptionStatusCall, subscriptionStatusCommand and custodySegment.
++
++A separately versioned root-owned consumer must also bind:
++
++- adopted-method descriptor and exact author/source/configuration/membership;
++- actual independent SOURCE/control acceptances, with byte-identical carry
++  scopes explicit and changed controls actually rerun;
++- fresh actual resource receipt (including coordinator>=8GiB output filesystem
++  margin), exact original1800s grant/lease, complete clock/command/GUI history;
++- actual fixed interpreter/argv launch and completion tool witnesses, raw streams,
++  fields genuinely returned by that tool API, complete supervisor and all-four-owned
++  cleanup/absence result. Original tool response objects may be persisted immediately
++  by the coordinator. Process command journals separately provide their actual
++  status/reap/EOF/force/error/time operands; neither journal nor tool receipt is
++  relabelled as the other. No fabricated portable Popen attestation, source-constructor
++  proof or unavailable API field is required. Preserve actual argv order and source bytes;
++- complete attempt inventory and all failed/refused histories;
++- actual nonauthor/nonoperator QA and security reviews of the **same whole
++  window graph**, externally hash-bound with authentic agent-session provenance.
++
++Approval-shaped JSON authored by the operator is not independent review.
++A source fix, compiled module, exit0, assertion count, producer decrypt or partial
++GUI step cannot qualify a failed whole window. The new aggregate and canonical
++integration are root-owned next tasks, not implemented or approved here.
++Canonical E02 remains PARTIAL until all applicable current ordinary and primary
++criteria and reviewed integration are complete; the dependency gates and
++architectural blockers remain unchanged. Ordinary JSON/chat UI understanding
++does not assert invoice approval, payment capability or NBDP business dispatch.
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v3/README.md
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/README.md
+@@ -1,92 +1,55 @@
+-# API35 ordinary-client v3: semantic shape without positional identity
++# Adopted minimum ordinary-client SOURCE profile
+ 
+-SOURCE ONLY. No v3 controls or Android actions have executed. New source/config
+-and plan: `docs/decisions/evidence/e02-ordinary-api35-preparation-r3/`.
+-The exact failed v2 sources, observations and original wrong-index test case are
+-preserved. Actual ui009->ui010 showed the whole public synthetic NSEC, same
+-shown eye and password metadata; only button.index3->2 changed in the added
+-fingerprint when the preceding placeholder TextView disappeared.
++Profile `e02-ordinary-minimum-rs-two-role-v1` is a distinct two-window laboratory
++method adopted by the coordinator after independent proposal review. This is
++SOURCE preparation, not execution approval or E02 completion. The immutable old
++eight-row contract and every failed API35/v3 observation remain preserved.
+ 
+-The only driver change excludes positional index from the semantic-shape keys
+-and clarifies its docstring. All other driver methods are AST-identical to v2:
+-closed current uniqueness/package/ancestry/bounds, known source-bound shown
+-state, at most one Hide-to-Show action, exact entire public NSEC, post-input
+-PNG/XML/evidence, existing keyboard-dismissal check, ANR, fixture/export,
+-budgets and original1800s lease remain unchanged. Matching class/package and
+-resource IDs (often empty) establishes semantic shape consistency; it never
+-proves a persistent object identity across Compose recomposition.
++Incoming account B receives a business rumor from A and a distinct harmless
++ordinary chat. Archive account A receives its own business self-wrap while the
++original inner author A and recipient pB remain unchanged; the exact outer is
++replayed and then a genuinely fresh wrap of the same frozen rumor is published.
++These are two independently fresh sequential app/helper/AVD/rs-relay states,
++with fixed per-role configs and separate finite original1800s grants. No failed
++whole window can donate early rows. Only JS produces ordinary-client wraps;
++current independent primary JS/Rust directions, both relays and every remaining
++canonical criterion still require separate evidence.
+ 
+-49 UI and26 namespace/release cleanup definitions need actual independent
+-SOURCE review, then finite current controls and independent result acceptance.
+-The real disappearing-placeholder/index3->2 regression complements the prior
+-synthetic geometry-only case. Foreign/duplicate/malformed controls, semantic
+-resource/class/package/role changes, changed eye, unknown metadata and all
+-partial/masked/missing/wrong whole-value cases still refuse. Actual PNG/XML
+-and fresh runtime review remain required; source tests alone prove no client
+-interop or canonical PASS.
++Every stage requires source-bound actual subscription/EOSE, actual publication
++and wire lineage, selected-note PNG/XML, real foreground helper custody and an
++exact whole six-field client-origin export with ordered private tags. An empty
++unsigned representation sig is preserved and compared under the explicit
++contract. Identical replay may have NO_NEW_APP_FRAME because the relay deduplicates;
++its bounded absence, exact original sent Buffer, actual publication/query and
++fresh post-replay client export remain mandatory. It is never evidence that the
++app handled the same outer twice. Fresh-wrap replay requires a new app frame.
++Visible text nodes are not global bubble counts or business-effect measurements.
+ 
+-SDK35/APK/helper/images/Lavapipe/containerCPU8/guest4CPU4096MiB/memswap8192MiB/
+-PID512/requested2048M/source6GiB floor remain unchanged. Fresh coordinator
+-measured>=8GiB on the actual output filesystem is required before any grant,
+-as a conservative margin rather than a measured minimum or guarantee.
+-Identical guard29/fixture27/consumer14 retain only their explicitly pinned prior
+-pure scopes; no reexecution or transfer to changed UI/cleanup/ordinary behavior.
++The frozen business oracle is an earlier producer EXPECTATION INPUT, not an
++observation from a failed run. Historical inner and randomized NIP59 timestamps
++need not lie inside the new lease; actual fresh preparation/wrapping/tool/window
++custody establishes runtime freshness. Public scalar1 NSEC was encoded once by
++a separately authorized pinned nip19 format-only operation, with raw lifecycle
++and before/after inventory; no signing/encryption/transport test occurred.
+ 
+-Same first JS-to-Rust incoming rsrelay cell only. Canonical E02 remains PARTIAL22
+-and blockers remain open. No producer/matrix extension or gate interpretation
+-is introduced; canonical coverage reconciliation is a separate architect task.
+-No new kind/NIP, production SDK, deployment, production data or automatic merge.
+-Historical instructions below grant no v3 activation authority.
++Source-audited navigation uses one exact expanded Feeds collapse under the
++original scroll/action/capture budgets, then actual System/Relays; Relay Settings,
++Local Relays, owned Add a Relay field/trailing Add, exact local text row and Save.
++No invented row DM flags exist. Known/New Requests are role-bound, with Back and
++the expected note plus either the empty Message composer or the precise read-only
++missing-recipient-relays warning. More Options/Copy raw JSON are source-backed.
++All new DOM exposure assumptions are NOT_RUNTIME_VALIDATED and must fail closed.
++Pinned-source label/line mapping and frozen failed-v3 Feeds XML are in preparation.
+ 
+----
++One source-backed Hide→Show visibility action, whole exact public NSEC and fresh
++PNG/XML remain mandatory per role. Password accessibility metadata alone does not
++prove masking; semantic class/package/resource-id shape never proves persistent
++Android object identity. Tor saved/reopened Off, unknown/Quickstep refusal and
++at most two known Settings/SystemUI Wait actions remain unchanged.
+ 
+-# Ordinary-client first-slice prototype
+-
+-This experimental source prepares one real **JS-to-Rust / incoming / rs-relay** business-envelope observation in pinned Amethyst. It is not a complete E02 implementation or canonical result. The full agreed eight-row coverage remains required separately; one qualified row remains PARTIAL with seven missing rows.
+-
+-## Components and ownership
+-
+-- `clipboard-helper/` and `build_helper.py` prepare the separately reviewed disposable foreground helper. It has no INTERNET permission or network/service/provider path. Its exact built APK is a later runtime input; no Amethyst patch/rebuild is required.
+-- `android_driver.py` exposes only `run(runtime)` and performs no import-time work, direct subprocesses or Docker/ADB escape hatch. `ui-plan.json` freezes its one-cell UI route and finite limits.
+-- The separately owned supervisor/lease sources supply current-source validation, actual original nonrenewable UTC/BOOTTIME/MONOTONIC lease checks, finite command custody, isolated runtime activation and exact-owned cleanup. The independently authored fixture supplies the actual live app-subscription gate, received EVENT/wire bytes and independent JS/Rust validation requests/results.
+-- The evidence consumer is separately owned under `../e02_ordinary_control_evidence_v1/`; it cannot manufacture runtime authenticity or promote canonical E02.
+-
+-No source/build plan, runtime template or documentation file grants activation authority. All actual runtime/configuration/source/QA/security/release joins must be completed first.
+-
+-## Driver runtime API
+-
+-The fixed host driver requires:
+-
+-```
+-runtime.plan                 # exact materialized run configuration
+-runtime.plan_pin             # descriptor used as runConfig
+-runtime.release_pin          # descriptor used as runRelease
+-runtime.out                  # fresh host run output root
+-runtime.check()
+-runtime.sleep(seconds)
+-runtime.adb(tokens, timeout=20) -> raw bytes
+-runtime.snapshot(unique_name) -> {png: descriptor, xml: descriptor}
+-runtime.fixture(prepare|status|publish) -> raw JSON wrapper bytes
+-runtime.put_bytes(relative_path, raw) -> exclusive immutable descriptor
+-runtime.put_json(relative_path, integer-only JSON) -> exclusive immutable descriptor
+-```
+-
+-`adb` receives tokens after the supervisor's fixed `-s emulator-5554`. The driver types only the public scalar2 nsec and the declared local relay URL. All taps/long presses derive from current hierarchy control bounds; recognized screen/label ambiguity refuses. Bounded scrolling requires an actual known screen anchor and exactly one current scrollable region. There is no guessed-coordinate or unknown-screen fallback.
+-
+-The fixture wrapper is `{schema,operation,caseId,ok,result}`. Prepared original/expected files exist before login/publication. Every `/session/fixtures/...` descriptor maps only to the same bytes at `runtime.out/session/fixtures/...`; hashes are verified. The driver preserves the original producer transport record and emits a separate path-rebound host transport record without changing any frame/wire/request/result bytes.
+-
+-## Actual clipboard capture route
+-
+-The driver records the real conversation, opens the helper with the case ID only, presses **Clear clipboard**, then returns to the same note. It long-presses actual message bounds and selects pinned Amethyst's **More Options → Copy raw JSON**. It then foregrounds the helper and explicitly presses **Capture clipboard** while focused.
+-
+-The helper accepts one text/plain `ClipData.Item.getText()` value, refuses URI/Intent/coercion, empty/stale sentinel, malformed Unicode and more than64KiB. It neither trims nor normalizes the UTF8 output. Exclusive private files are read back only with `adb exec-out run-as org.nbdp.clipboard.capture cat files/captures/<fixed-case-id>...`. No Amethyst private file, host clipboard, public composer or expected-JSON intent is used.
+-
+-The driver verifies the helper's raw byte count/hash and exact complete typed six-field inner rumor against the source-bound expected subject. Pretty JSON whitespace may differ. The unsigned Amethyst export may additionally contain strictly `sig:""`; that representation field is excluded only from semantic comparison, while captured bytes remain unchanged. Nonempty/null/nonstring signatures or other extra fields refuse. The driver retains the selected-note PNG/XML, action-sheet transitions, actual capture receipt, original transport proof and own-account public-profile GUI for independent decoding. Guest elapsed and host monotonic clocks are never compared as absolute timestamps. PNG/XML are sequential captures, not an atomic observation.
+-
+-## Existing findings and activation boundary
+-
+-The old HIGH finding allowed GUI actions after an expired session. This prototype must use the new reviewed guard before every UI/fixture/container action and after all waits/resumption. No watchdog can promise cleanup while the host cannot execute. The old v7 shared-clock-lock startup failure is preserved; its underlying cause remains unproven. Neither issue is cured by deleting checks or reusing a consumed old grant.
+-
+-No unsupported `-no-clipboard` flag is assumed. Exact emulator help, headless/no-desktop-socket environment, private network and actual listeners must support the eventual host-clipboard/egress claim. Headless mode alone is insufficient proof.
+-
+-Before an actual run, independently review all source/configuration/inputs, the exact built helper identity, required lease refusal tests and bounded exact-owned cleanup. Retain every failure and partial capture. Actual observation acceptance still requires independent QA/security review. Ordinary JSON display/export does not establish NBDP business understanding, invoice approval, payment or an SDK capability.
++Read [EXPORT-CONTRACT.md](EXPORT-CONTRACT.md) for exact operands and evidence
++origins, and [SUPERVISOR.md](SUPERVISOR.md) for authority/resource boundaries.
++New whole-history aggregation/canonical integration is root-owned and absent.
++All changed control suites are prepared, NOT RUN; only byte-identical guard29
++has an explicit prior accepted scope link. Canonical E02 remains PARTIAL22;
++Q01/Q08/Q13/Q15/Q27 remain BLOCKER. No production SDK/kind/NIP/deployment or merge.
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v3/SUPERVISOR.md
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/SUPERVISOR.md
+@@ -1,93 +1,41 @@
+-# API35 ordinary-client v3: semantic shape without positional identity
++# Minimum profile finite supervisor
+ 
+-SOURCE ONLY. No v3 controls or Android actions have executed. New source/config
+-and plan: `docs/decisions/evidence/e02-ordinary-api35-preparation-r3/`.
+-The exact failed v2 sources, observations and original wrong-index test case are
+-preserved. Actual ui009->ui010 showed the whole public synthetic NSEC, same
+-shown eye and password metadata; only button.index3->2 changed in the added
+-fingerprint when the preceding placeholder TextView disappeared.
++This supervisor executes exactly one fixed incoming OR archive role, never two
++windows automatically. Materialized DATA configs are not grants. The separately
++external-hash-bound root release must name the exact config/profile/role/window
++and fresh run ID; no v3 release/schema is accepted. Each role gets fresh exclusive
++output, app/helper/AVD/relay state and its own original1800s lease. A subsequent
++role requires completed cleanup, fresh admission and a new separate grant.
+ 
+-The only driver change excludes positional index from the semantic-shape keys
+-and clarifies its docstring. All other driver methods are AST-identical to v2:
+-closed current uniqueness/package/ancestry/bounds, known source-bound shown
+-state, at most one Hide-to-Show action, exact entire public NSEC, post-input
+-PNG/XML/evidence, existing keyboard-dismissal check, ANR, fixture/export,
+-budgets and original1800s lease remain unchanged. Matching class/package and
+-resource IDs (often empty) establishes semantic shape consistency; it never
+-proves a persistent object identity across Compose recomposition.
++Nine runtime source/data files are staged from exact config Pins. The fixed
++run-config SHA is passed and verified in owned containers and fixture service.
++The original source/SDK/APK/helper/guard-bundle/installed dependency checks remain.
++The unchanged lease guard binds UTC/BOOTTIME/MONOTONIC; closed commands, original
++namespace isolation, readonly mounts, capabilities, cgroups, limits, first error
++and all-four-container cleanup/absence behavior remain inherited. The actual
++source/config/typed AST diff identifies every changed method.
+ 
+-49 UI and26 namespace/release cleanup definitions need actual independent
+-SOURCE review, then finite current controls and independent result acceptance.
+-The real disappearing-placeholder/index3->2 regression complements the prior
+-synthetic geometry-only case. Foreign/duplicate/malformed controls, semantic
+-resource/class/package/role changes, changed eye, unknown metadata and all
+-partial/masked/missing/wrong whole-value cases still refuse. Actual PNG/XML
+-and fresh runtime review remain required; source tests alone prove no client
+-interop or canonical PASS.
++API35 SDK434-file inventory, Amethyst e6f464... APK5165a9f..., helpera680e5...,
++Lavapipe, Android container8CPU/8GiB/PID512, guest4CPU/4096MiB are retained.
++Requested userdata2048M and source6GiB admission floor are unchanged. All seven
++retained old hardware files normalized userdata to6g; requested2048M is not proof
++of a2GiB footprint. The separate SDK35 no-install6G profile failed before guest
++startup with7326.61MB available versus7372.80MB required; this is no OS-failure
++inference. Root additionally requires fresh>=8GiB free on the actual output
++filesystem before EACH role grant. It is a conservative coordinator margin,
++not a measured minimum, peak or guarantee, and does not lower the source6GiB
++floor. Fresh12GiB MemAvailable, at least8 affinity CPUs and actual KVM are required.
++No never-ANR health gate or larger deadline/resource allowance is introduced.
+ 
+-SDK35/APK/helper/images/Lavapipe/containerCPU8/guest4CPU4096MiB/memswap8192MiB/
+-PID512/requested2048M/source6GiB floor remain unchanged. Fresh coordinator
+-measured>=8GiB on the actual output filesystem is required before any grant,
+-as a conservative margin rather than a measured minimum or guarantee.
+-Identical guard29/fixture27/consumer14 retain only their explicitly pinned prior
+-pure scopes; no reexecution or transfer to changed UI/cleanup/ordinary behavior.
++Original runtime caps remain120 UI actions,140 captures, seven generic scroll
++attempts, one specifically source-backed Feeds collapse and at most two known
++Settings/SystemUI Wait recoveries. Unknown/Quickstep dialogs refuse. Each native
++validator must naturally satisfy actual spawnSync error/status/signal/stderr and
++two-line source/validation conditions; no fabricated Popen EOF/reap fields exist.
++Actual command journals retain their own lifecycle; original external tool
++responses are separately preserved with exactly the fields that tool returned.
+ 
+-Same first JS-to-Rust incoming rsrelay cell only. Canonical E02 remains PARTIAL22
+-and blockers remain open. No producer/matrix extension or gate interpretation
+-is introduced; canonical coverage reconciliation is a separate architect task.
+-No new kind/NIP, production SDK, deployment, production data or automatic merge.
+-Historical instructions below grant no v3 activation authority.
+-
+----
+-
+-# E02 finite foreground supervisor
+-
+-This prototype implements one JS-to-Rust peer-incoming control on nostr-rs-relay using the pinned Amethyst APK and public scalar2 account. A completed cell remains scoped PARTIAL. It cannot remove canonical E02's mandatory skip, establish the wider eight-cell matrix or authorize native E06/production work.
+-
+-The initial R2 preparation notes and their original resource/profile claims are preserved byte-for-byte in [the historical snapshot](../../../docs/decisions/evidence/e02-ordinary-client-resume-r1/source-docs-r10-before-current-profile/SUPERVISOR.md). Use the actual versioned source/configuration reviews, releases and run receipts for current authority; this document grants no execution.
+-
+-## Current resource and isolation profile
+-
+-The reviewed headroom trial configures Android with 4 vCPU and 4096 MiB guest RAM, inside a container capped at 8192 MiB memory, memory-swap of 8192 MiB, a CPU quota of 4 and 512 PIDs. Equal memory/swap caps permit no additional swap allocation. Other role limits are unchanged; configured aggregate memory maxima are 9856 MiB (9.625 GiB). Admission requires effective host affinity at least 4, MemAvailable at least 12 GiB and persistent free disk at least 6 GiB before issuing a lease.
+-
+-These are configuration ceilings and admission guards, not measured peaks, proven minimum requirements or an ANR diagnosis. Actual Docker inspections verify the fixed resource and ownership values. Earlier attempts used guest2048 MiB/2 vCPU and container6144 MiB/CPU 2; their failures remain history.
+-
+-Every container has an exact immutable CID and fresh run/role/creation-nonce labels. Creation uses cached image IDs with `--pull=never`, dropped capabilities, no-new-privileges, read-only source mounts and fixed owned writable state. Only Android receives the KVM device. There is no host network, published host port, Docker socket, personal directory or GUI/auth socket mount. Services share the exact owned network-none anchor namespace.
+-
+-Before installing APKs or touching the UI, the supervisor captures and validates actual `ip -j addr`: exactly one loopback interface with typed LOOPBACK flags and numeric host-scope loopback addresses. It then validates actual five-column `ss -H -lnt` rows. Numeric loopback and IPv4-mapped loopback endpoints may use valid ports; wildcard exceptions are only the fixed relay port 8080 forms. This classifies reachability inside the private namespace. It does not attribute every listener to a service or prove emulator APIs disabled.
+-
+-The pinned emulator runs with `-ports 5554,5555`, `-no-window`, no explicit grpc/grpc-ui options and no DISPLAY/WAYLAND/DBUS/XAUTHORITY environment or host desktop mounts. Headless mode/options alone do not prove absence of internal gRPC or clipboard APIs. The experiment deliberately uses Android's guest clipboard through a foreground helper. Do not invent an unsupported `-no-clipboard` option or claim all clipboard APIs are disabled.
+-
+-## Immutable lease and owned cleanup
+-
+-The original UTC, MONOTONIC and BOOTTIME 1800 s lease includes setup and is never renewed after READY. Each fresh clock sample validates boot/time-namespace metadata before a tight clock-only bracket, with at most three 50 ms candidates. Metadata latency remains charged against original expiry, rollback, drift and 15 s observation-gap checks. This assumes the reviewed capability/no-setns path and no privileged-host adversary; it is not hostile-host or hard realtime protection.
+-
+-Checks surround each action and continue while owned commands run. A refusal persists sticky revocation before cancellation. Process-group signals occur only while the direct child remains retained under WNOWAIT ownership; no numeric group signal follows a consuming wait. Already dispatched work is not atomically cancelled, and cleanup while the host cannot execute is not promised. Historical ingress HIGH findings are not globally closed by these controls.
+-
+-Cleanup first proves exact CID/name/run/role/creation-nonce/image ownership, then independently attempts diagnostics, exact-CID removal and absence inspection. Diagnostic or isolation failure cannot prevent removal of a proven owned resource; foreign identities are not removed. Uncertain cleanup, failed retention or removal produces FAILED_UNQUALIFIED/nonzero while retaining the first error and raw driver evidence. Guest service failure bytes are forwarded when available; missing buffered logs do not establish an emulator root cause.
+-
+-## Fixed observation and command surface
+-
+-`android_driver.run(runtime)` uses only guarded check/sleep/ADB/snapshot, fixed fixture prepare/status/publish and exclusive bounded output writes. No arbitrary shell, URI reader, generic exec or expected clipboard content is exposed. ADB targets the fixed disposable emulator. Initial wait-for-device and pinned Amethyst installation have 180 s ceilings; other allowed ADB commands use 30 s, read-only probes 10 s, all within the original lease.
+-
+-Known Tor and Android Settings/SystemUI ANR dialogs have exact bounded recognition during login. Only regular-connection selection or Wait is allowed respectively. Every before/after frame is retained; persistent/unknown dialogs refuse, and OS health remains UNKNOWN after Wait. The driver explicitly selects Off, saves, reopens settings and preserves PNG/XML. XML does not expose the spinner value, so independent visual inspection of the reopened PNG must verify saved Off before accepting that configuration.
+-
+-Only fixed public disposable identity/relay inputs enter the app. Whole intended login text must be observed before submission. Actual current app REQ/EOSE generation must qualify before publication. Retain the forwarded EVENT/query and actual independent JS/Rust request/reply evidence. Select the rendered note, clear the guest clipboard, use Copy raw JSON and extract the foreground helper's private receipt/raw bytes through the fixed run-as operation. Expected JSON must never be supplied to the helper or clipboard. Preserve exact captured bytes and typed rumor/tag comparison; the pinned serializer's empty unsigned `sig` is the only documented normalization.
+-
+-## Reviews, controls and invocation
+-
+-Source-only controls cover lease refusal/ownership, namespace/resource configuration and mocked UI behavior. They are distinct preparation scopes; their counts must not be pooled into E02 assertions or represented as real client observations. Source inspection, APK build/installation, boot and a screenshot alone do not qualify the ordinary-client control. The current versioned readiness record names the actual executed control/source pins.
+-
+-After independent review, config materialization writes metadata only:
+-
+-```text
+-python3 -I -B supervisor.py --materialize <fresh-absolute-config> --run-id <fresh32hex> --seconds 1800
+-```
+-
+-Materialization starts no lease, Docker or device. A separate root release must bind exact runId/scope/configuration, integer notAfterUtcNs and actual QA/security/control-evidence descriptors. Verify fresh APK/helper/SDK/bundle/dependency/image/source pins and resource admission before activation.
+-
+-```text
+-python3 -I -B supervisor.py --config <absolute-config> --config-sha <sha256> --release <absolute-release> --release-sha <sha256> --out /tmp/nbdp-e02-ordinary-client-v1/runs/<fresh32hex>
+-```
+-
+-Keep the foreground controller supervised and retain natural exit, raw streams, supervisor/driver results and exact-owned cleanup. A consumed grant/output cannot be reused. `supervisor-result.json` reports raw failure or scoped PARTIAL, never canonical PASS; `driver-result.json` exists only after the complete fixed cell. Further cells require a separately reviewed versioned procedure and evidence integration; no runtime authority comes from a plan or this README.
++The source floor is not fresh runtime admission evidence. No SDK tools, Docker,
++Android, lease/grant or control test was executed by this SOURCE preparation.
++Current runtime plans/configs remain candidates pending independent SOURCE review,
++changed pure controls, new root consumer review and exact activation decisions.
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v3/android_driver.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/android_driver.py
+@@ -11,11 +11,21 @@
+ APP_COMPONENT = APP + '/com.vitorpamplona.amethyst.ui.MainActivity'
+ HELPER = 'org.nbdp.clipboard.capture'
+ HELPER_COMPONENT = HELPER + '/.CaptureActivity'
+-CASE = 'js-to-rust-incoming-rs'
++CASE = 'minimum-two-role-rs'
++PROFILE = 'e02-ordinary-minimum-rs-two-role-v1'
+ NSEC = 'nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpqptcfk2'
+ ACCOUNT = 'c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5'
+ PEER = '79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798'
+ URL = 'ws://localhost:17777'
++ROLE_SPECS = {
++    'incoming': {'windowId': 'incoming-b', 'account': ACCOUNT, 'peer': PEER,
++        'nsec': NSEC, 'tab': 'New Requests',
++        'stages': ('incoming-business', 'incoming-ordinary-chat')},
++    'archive': {'windowId': 'archive-a', 'account': PEER, 'peer': ACCOUNT,
++        'nsec': 'nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqsmhltgl',
++        'tab': 'Known', 'stages': ('archive-business', 'archive-identical-replay', 'archive-fresh-wrap-replay')},
++}
++
+ TOR_FAILURE_TITLE = "Tor isn't connecting"
+ TOR_FAILURE_BODY = ("Amethyst couldn't finish bootstrapping Tor. Use a regular (non-Tor) connection "
+                     "so the feed can load? We'll remember this choice for the next hour and re-try Tor after that.")
+@@ -63,10 +73,29 @@
+ def fixture(runtime, operation):
+     runtime.check()
+     raw = runtime.fixture(operation)
+-    runtime.put_bytes('evidence/fixture-' + operation + '-reply.json', raw)
++    sequence = getattr(runtime, '_minimum_fixture_sequence', 0) + 1
++    runtime._minimum_fixture_sequence = sequence
++    reply_pin = runtime.put_bytes('evidence/fixture-%02d-%s-reply.json' % (sequence, operation), raw)
+     value = loads(raw)
+-    need(value['schema'] == 'e02-fixture-command-v1' and value['operation'] == operation
+-         and value['caseId'] == CASE and value['ok'] is True, 'Exact successful fixture operation required')
++    spec = ROLE_SPECS[runtime.plan['ordinaryRole']]
++    need(value['schema'] == 'e02-minimum-fixture-command-v1' and value['operation'] == operation
++         and value['caseId'] == CASE and value['profileId'] == PROFILE
++         and value['windowId'] == spec['windowId'] and value['ok'] is True,
++         'Exact successful closed minimum fixture reply required')
++    runtime.check()
++    command_path = runtime.out / ('commands/%04d.json' % runtime.sequence)
++    command_raw = command_path.read_bytes()
++    need(len(command_raw) <= 2097152, 'Bounded actual fixture command receipt required')
++    command_pin = {'path': str(command_path), 'bytes': len(command_raw),
++                   'sha256': hashlib.sha256(command_raw).hexdigest()}
++    call = {'schema': 'e02-minimum-fixture-call-v1', 'profileId': PROFILE,
++            'windowId': spec['windowId'], 'operation': operation, 'ordinal': sequence,
++            'commandSequence': runtime.sequence, 'command': command_pin, 'reply': reply_pin}
++    call_pin = runtime.put_json('evidence/fixture-%02d-%s-call.json' % (sequence, operation), call)
++    runtime._minimum_last_fixture_call = (call, call_pin)
++    if not hasattr(runtime, '_minimum_fixture_calls'):
++        runtime._minimum_fixture_calls = []
++    runtime._minimum_fixture_calls.append(call_pin)
+     runtime.check()
+     return value['result']
+ 
+@@ -84,6 +113,10 @@
+ class UI:
+     def __init__(self, runtime):
+         self.runtime = runtime
++        self.ordinary_role = runtime.plan['ordinaryRole']
++        need(self.ordinary_role in ROLE_SPECS, 'Closed minimum account role required')
++        self.role_spec = ROLE_SPECS[self.ordinary_role]
++        self.public_nsec = self.role_spec['nsec']
+         self.serial = 0
+         self.actions = 0
+         self.tree = None
+@@ -284,8 +317,8 @@
+         need(bool(self.find(value)), 'Expected control absent after bounded scroll: ' + value)
+ 
+     def input_text(self, value, label):
+-        need(value in (NSEC, URL), 'Only fixed public synthetic identity/local URL may be typed')
+-        if value == NSEC:
++        need(value in (self.public_nsec, URL), 'Only fixed public synthetic identity/local URL may be typed')
++        if value == self.public_nsec:
+             field, button, shown = self.identity_visibility()
+             need(shown, 'Public identity must be visibly unmasked before typing')
+             before_input = self.current
+@@ -293,14 +326,14 @@
+             before_password = field.get('password')
+         self.adb(['shell', 'input', 'text', value])
+         self.refresh(label)
+-        if value == NSEC:
++        if value == self.public_nsec:
+             field, button, shown = self.identity_visibility()
+             need(shown, 'Public identity must remain visibly unmasked after typing')
+             need(self.identity_control_subject(field, button) == before_subject,
+                  'Identity field structure changed across public input')
+         edits = [n for n in self.nodes() if n.get('class') == 'android.widget.EditText' and n.get('text') == value]
+         need(len(edits) == 1, 'Actual input field must contain the whole intended value')
+-        if value == NSEC:
++        if value == self.public_nsec:
+             self.runtime.put_json('evidence/public-identity-visibility.json', {
+                 'schema': 'e02-source-bound-public-identity-visibility-v1',
+                 'amethystCommit': 'e6f464a1179def75274512b3c5bab921de3bf3d8',
+@@ -316,10 +349,10 @@
+                            'Field geometry is validated on every capture; IME or multiline reflow is not a change of structural field identity.']})
+         if any('inputmethod' in n.get('package', '') for n in self.nodes()):
+             self.key_back('keyboard-dismissed')
+-            if value == NSEC:
++            if value == self.public_nsec:
+                 field, button, shown = self.identity_visibility()
+                 need(shown and self.identity_control_subject(field, button) == before_subject
+-                     and field.get('text') == NSEC,
++                     and field.get('text') == self.public_nsec,
+                      'Whole visible public identity must survive keyboard dismissal')
+ 
+     def identity_controls(self):
+@@ -437,7 +470,7 @@
+                    'The reopened saved-state PNG requires independent visual Off verification.',
+                    'GUI configuration is not network-isolation evidence.']})
+     ui.tap(ui.visible_identity_field(), 'login-field-focused')
+-    ui.input_text(NSEC, 'whole-disposable-identity')
++    ui.input_text(ui.public_nsec, 'whole-disposable-identity')
+     ui.click('Login', 'login-submitted')
+     for _ in range(8):
+         if ui.find('Your Profile Picture', True):
+@@ -461,135 +494,366 @@
+             'meaning': 'Actual share GUI retained for independent public-key decoding; no share target opened.'}
+ 
+ 
++def expanded_feeds_header(ui):
++    """Exact observed two-child header and same-section expanded anchors only."""
++    labels = ui.find('Feeds')
++    if not labels:
++        return None
++    need(len(labels) == 1, 'Unique current Feeds label required')
++    label = labels[0]
++    parents = [n for n in ui.nodes() if label in list(n)]
++    need(len(parents) == 1, 'Direct Feeds header ownership required')
++    header = parents[0]
++    children = list(header)
++    icons = [n for n in children if n.get('content-desc') == 'Feeds' and not n.get('text')]
++    need(header.get('class') == 'android.view.View' and header.get('clickable') == 'true'
++         and len(children) == 2 and label in children and len(icons) == 1
++         and label.get('class') == 'android.widget.TextView'
++         and all(n.get('package') == APP and n.get('enabled') == 'true' for n in (header, label, icons[0])),
++         'Known enabled Amethyst Feeds header structure required')
++    sections = [n for n in ui.nodes() if header in list(n)]
++    need(len(sections) == 1, 'Unique actual Feeds section owner required')
++    section = sections[0]
++    need(section.get('class') == 'android.view.View' and section.get('package') == APP
++         and section.get('enabled') == 'true', 'Known actual Feeds section required')
++    # The observed section clips its header by2px. Do not demand full enclosure.
++    expanded = []
++    for title in ('Reads', 'Pictures'):
++        anchors = [n for n in section.iter('node') if n.get('text') == title]
++        need(len(anchors) <= 1, 'Ambiguous same-section expanded Feeds anchor')
++        if not anchors:
++            return None  # No asserted expanded/collapsed state from a clipped viewport.
++        need(anchors[0].get('package') == APP and anchors[0].get('enabled') == 'true',
++             'Foreign or disabled same-section Feeds anchor')
++        expanded.append(anchors[0])
++    regions = [n for n in ui.nodes() if n.get('scrollable') == 'true']
++    need(len(regions) == 1 and regions[0].get('class') == 'android.widget.ScrollView'
++         and regions[0].get('package') == APP and section in list(regions[0].iter('node')),
++         'Known sole drawer ScrollView ownership required')
++    x, y, right, bottom = ui.bounds(header)
++    sx, sy, sr, sb = ui.bounds(regions[0])
++    need(sx <= (x + right) // 2 < sr and sy <= (y + bottom) // 2 < sb,
++         'Actual Feeds click centre outside current drawer viewport')
++    for child in children:
++        left, top, cr, cb = ui.bounds(child)
++        need(x <= left < cr <= right and y <= top < cb <= bottom,
++             'Feeds header child outside actual clickable header')
++    return header
++
++
++def seek_system(ui):
++    """One known Feeds collapse within original seven scroll attempts."""
++    collapsed = False
++    for _ in range(7):
++        if ui.find('System'):
++            return
++        need(ui.find('Close navigation menu', True), 'Known drawer anchor required before System seek')
++        if not collapsed:
++            header = expanded_feeds_header(ui)
++            if header is not None:
++                before = ui.current
++                collapsed = True
++                ui.tap(header, 'feeds-collapsed-once')
++                ui.runtime.put_json('evidence/feeds-collapse-gui.json', {
++                    'schema': 'e02-minimum-feeds-collapse-gui-v1', 'before': before, 'after': ui.current,
++                    'actions': 1, 'meaning': 'Known expanded section toggled once; no invented collapsed accessibility attribute.',
++                    'limits': 'Actual System and Relays still required. Planned source-backed procedure, no global scroll/action/lease increase.'})
++                if ui.find('System'):
++                    return
++        regions = [n for n in ui.nodes() if n.get('scrollable') == 'true']
++        need(len(regions) == 1 and regions[0].get('package') == APP,
++             'Exactly one current Amethyst drawer scroll region required')
++        x, y, right, bottom = ui.bounds(regions[0])
++        center = (x + right) // 2
++        ui.adb(['shell', 'input', 'swipe', str(center), str(y + (bottom-y)*4//5),
++                str(center), str(y + (bottom-y)//4), '350'])
++        ui.runtime.sleep(1)
++        ui.refresh('system-seek-scroll')
++    need(bool(ui.find('System')), 'Expected control absent after bounded System seek')
++
++
++def local_relay_field(ui, expected_text=None):
++    known_control(ui, 'Relay Settings')
++    heading = known_control(ui, 'Local Relays')
++    threshold = ui.bounds(heading)[3]
++    candidates = [n for n in ui.nodes() if n.get('class') == 'android.widget.EditText'
++                  and ui.bounds(n)[1] > threshold]
++    need(bool(candidates), 'Actual Local Relays editor must be visible below its heading')
++    field = min(candidates, key=lambda n: ui.bounds(n)[1])
++    need(field.get('package') == APP and field.get('enabled') == 'true', 'Owned Local Relays editor required')
++    for title in ('Trusted Relays', 'Search Relays', 'Indexer Relays'):
++        need(not any(threshold < ui.bounds(n)[1] < ui.bounds(field)[1] for n in ui.find(title)),
++             'Different relay section lies before selected Local editor')
++    labels = [n for n in field.iter('node') if n.get('text') == 'Add a Relay']
++    need(len(labels) == 1 and labels[0].get('package') == APP and labels[0].get('enabled') == 'true',
++         'Exact source-backed Add a Relay field ownership required')
++    if expected_text is not None:
++        need(field.get('text') == expected_text, 'Expected exact Local Relays editor value missing')
++    return field
++
++
++def local_relay_add_button(ui):
++    field = local_relay_field(ui, URL)
++    adds = [n for n in field.iter('node') if n.get('text') == 'Add']
++    need(len(adds) == 1 and adds[0].get('package') == APP and adds[0].get('enabled') == 'true',
++         'Only Add inside exact Local URL field may be used')
++    buttons = [n for n in field.iter('node') if n is not field and n.get('clickable') == 'true'
++               and adds[0] in list(n.iter('node'))]
++    need(len(buttons) == 1 and buttons[0].get('class') in ('android.view.View', 'android.widget.Button')
++         and buttons[0].get('package') == APP and buttons[0].get('enabled') == 'true',
++         'Unique current trailing Local Add button ancestry required')
++    button = buttons[0]
++    x, y, right, bottom = ui.bounds(button)
++    fx, fy, fr, fb = ui.bounds(field)
++    need(fx <= (x+right)//2 < fr and fy <= (y+bottom)//2 < fb,
++         'Actual Local Add centre outside current URL field')
++    return button
++
++
+ def local_relay(ui):
+     ui.click('Your Profile Picture', 'relay-drawer', True)
+-    ui.scroll_to('System', 'Close navigation menu')
++    seek_system(ui)
+     if not ui.find('Relays'):
+-        ui.click('System', 'system-expanded')
++        ui.tap(known_control(ui, 'System'), 'system-expanded')
+     ui.scroll_to('Relays', 'Close navigation menu')
+-    ui.click('Relays', 'relay-settings')
++    ui.tap(known_control(ui, 'Relays'), 'relay-settings')
++    known_control(ui, 'Relay Settings')
+     ui.scroll_to('Local Relays', 'Relay Settings', editable_below=True)
+-    heading = ui.one('Local Relays')
+-    threshold = ui.bounds(heading)[3]
+-    below = [n for n in ui.nodes() if n.get('class') == 'android.widget.EditText' and ui.bounds(n)[1] > threshold]
+-    need(bool(below), 'Local relay field must be visible below its heading')
+-    field = min(below, key=lambda n: ui.bounds(n)[1])
+-    for other in ('Trusted Relays', 'Search Relays', 'Indexer Relays'):
+-        for node in ui.find(other):
+-            need(not threshold < ui.bounds(node)[1] < ui.bounds(field)[1], 'Adjacent relay section is not Local Relays')
+-    ui.tap(field, 'local-relay-field')
++    ui.tap(local_relay_field(ui, ''), 'local-relay-field')
+     ui.input_text(URL, 'local-relay-url')
+-    field = next(n for n in ui.nodes() if n.get('class') == 'android.widget.EditText' and n.get('text') == URL)
+-    center = sum(ui.bounds(field)[1::2]) // 2
+-    adds = [n for n in ui.find('Add') if abs(sum(ui.bounds(n)[1::2])//2 - center) <= 100]
+-    need(len(adds) == 1, 'Only Add in actual Local Relays row may be used')
+-    ui.tap(adds[0], 'local-relay-added')
+-    need(ui.find('localhost:17777') or ui.find('Relay localhost:17777', True), 'Actual local relay row missing')
+-    ui.click('Save', 'local-relay-saved')
+-    ui.click('Messages', 'messages', True)
+-    ui.click('New Requests', 'new-requests')
+-
+-
+-def helper(ui, action):
+-    ui.adb(['shell', 'am', 'start', '-W', '-n', HELPER_COMPONENT, '--es', 'caseId', CASE])
++    ui.tap(local_relay_add_button(ui), 'local-relay-added')
++    field = local_relay_field(ui, '')
++    heading = known_control(ui, 'Local Relays')
++    top, bottom = ui.bounds(heading)[3], ui.bounds(field)[1]
++    rows = [n for n in ui.find('localhost:17777') if top <= ui.bounds(n)[1] < ui.bounds(n)[3] <= bottom]
++    need(len(rows) == 1 and rows[0].get('package') == APP and rows[0].get('enabled') == 'true',
++         'Actual newly added LOCAL displayURL row required before its own footer')
++    ui.runtime.put_json('evidence/local-relay-gui.json', {
++        'schema': 'e02-minimum-local-relay-gui-v1', 'afterAdd': ui.current,
++        'localDisplayUrl': 'localhost:17777', 'editorCleared': True,
++        'meaning': 'Local list row/editor GUI only; later actual subscription/EOSE/wire still required.'})
++    ui.tap(known_control(ui, 'Save'), 'local-relay-saved')
++
++
++def helper(ui, action, case_id):
++    need(case_id in ui.role_spec['stages'] and action in ('CLEAR', 'CAPTURE'), 'Closed role helper operation required')
++    ui.adb(['shell', 'am', 'start', '-W', '-n', HELPER_COMPONENT, '--es', 'caseId', case_id])
+     ui.refresh('helper-' + action.lower())
+     ui.click('Clear clipboard' if action == 'CLEAR' else 'Capture clipboard', 'helper-' + action.lower() + '-result')
+     suffix = '.clear.json' if action == 'CLEAR' else '.receipt.json'
+-    raw = ui.adb(['exec-out', 'run-as', HELPER, 'cat', 'files/captures/' + CASE + suffix])
++    raw = ui.adb(['exec-out', 'run-as', HELPER, 'cat', 'files/captures/' + case_id + suffix])
+     value = loads(raw)
+-    need(value['schema'] == 'e02-clipboard-capture-v1' and value['caseId'] == CASE
++    need(value['schema'] == 'e02-clipboard-capture-v1' and value['caseId'] == case_id
+          and value['action'] == action and value['foregroundFocus'] is True, 'Actual focused helper receipt required')
+-    descriptor = ui.runtime.put_bytes('evidence/helper-' + action.lower() + '.json', raw)
++    descriptor = ui.runtime.put_bytes('evidence/' + case_id + '/helper-' + action.lower() + '.json', raw)
+     return value, descriptor
++
++
++def known_control(ui, value, description=False):
++    control = ui.one(value, description)
++    need(control.get('package') == APP and control.get('enabled') == 'true',
++         'Unique enabled current Amethyst control required: ' + value)
++    ui.bounds(control)
++    return control
++
++
++def chat_context(ui, token='NBDP/experiment'):
++    known_control(ui, 'Back', True)
++    need(token in ('NBDP/experiment', 'NBDP harmless ordinary chat control'), 'Closed actual note anchor required')
++    notes = ui.find(token, contains=True)
++    need(bool(notes) and all(n.get('package') == APP and n.get('enabled') == 'true' for n in notes),
++         'Actual expected note required in the known private room')
++    # Calling and composer availability are conditional in the pinned source.
++    warning = 'DM inbox relays not found. Messages cannot be delivered until they configure their relay list.'
++    labels, warnings = ui.find('Message'), ui.find(warning)
++    need(not (labels and warnings), 'Ambiguous private-room footer states')
++    if warnings:
++        need(len(warnings) == 1 and warnings[0].get('package') == APP
++             and warnings[0].get('enabled') == 'true', 'Known missing-recipient-inbox footer required')
++        ui.bounds(warnings[0])
++        return 'RECIPIENT_DM_RELAYS_WARNING_READ_ONLY'
++    need(len(labels) == 1 and labels[0].get('package') == APP and labels[0].get('enabled') == 'true',
++         'Known source-backed private-message footer required')
++    fields = [n for n in ui.nodes() if n.get('class') == 'android.widget.EditText'
++              and labels[0] in list(n.iter('node'))]
++    need(len(fields) == 1 and fields[0].get('package') == APP and fields[0].get('enabled') == 'true'
++         and not fields[0].get('text'), 'Private chat composer ownership/empty state required')
++    ui.bounds(fields[0])
++    return 'EMPTY_COMPOSER_READ_ONLY'
++
++
++def open_messages(ui):
++    ui.tap(known_control(ui, 'Messages', True), 'minimum-messages')
++    known_control(ui, 'Known')
++    known_control(ui, 'New Requests')
++    ui.tap(known_control(ui, ui.role_spec['tab']), 'minimum-role-tab')
++
++
++def wait_subscription(ui, stage_id):
++    for _ in range(20):
++        status = fixture(ui.runtime, 'status')
++        need(status['stageId'] == stage_id and status['windowId'] == ui.role_spec['windowId'],
++             'Exact next role stage subscription status required')
++        if status['ready'] is True:
++            call, call_pin = ui.runtime._minimum_last_fixture_call
++            return {'result': status, 'rawReply': call['reply'], 'call': call_pin, 'command': call['command']}
++        ui.runtime.sleep(2)
++    raise ValueError('No current matching app1059#p/EOSE; nothing published')
++
++
++def select_note(ui, token, replay):
++    chat_context(ui, token)
++    notes = ui.find(token, contains=True)
++    need(1 <= len(notes) <= (3 if replay else 1), 'Bounded actual selected-note match count required')
++    need(all(n.get('package') == APP and n.get('enabled') == 'true' for n in notes),
++         'Actual selected notes must belong to enabled Amethyst')
++    rows = [(ui.bounds(n), n) for n in notes]
++    lowest = max(bounds[3] for bounds, _ in rows)
++    selected = [node for bounds, node in rows if bounds[3] == lowest]
++    need(len(selected) == 1, 'Unique actual lowest matching note required; no ambiguous duplicate fallback')
++    return selected[0], [{'bounds': list(bounds), 'text': node.get('text')} for bounds, node in rows]
++
++
++def export_note(ui, stage, token, expected):
++    case_id = stage['id']
++    cleared, clear_pin = helper(ui, 'CLEAR', case_id)
++    need(cleared['status'] == 'EMPTY_SENTINEL_SET', 'Guest clipboard was not cleared')
++    ui.key_back('minimum-return-selected')
++    note, visible_nodes = select_note(ui, token, stage['index'] > 0 and ui.ordinary_role == 'archive')
++    selected = ui.current
++    x, y, right, bottom = ui.bounds(note)
++    cx, cy = (x+right)//2, (y+bottom)//2
++    ui.adb(['shell', 'input', 'swipe', str(cx), str(cy), str(cx), str(cy), '700'])
++    ui.refresh('minimum-message-actions')
++    ui.tap(known_control(ui, 'More Options'), 'minimum-expanded-actions')
++    ui.tap(known_control(ui, 'Copy raw JSON'), 'minimum-copy-raw')
++    captured, helper_pin = helper(ui, 'CAPTURE', case_id)
++    need(captured['status'] == 'CAPTURED' and captured['mime'] == 'text/plain'
++         and captured['clipboardItemCount'] == 1 and captured['clipboardTimestamp'] >= cleared['wallClockMillis'],
++         'Fresh real selected-note clipboard custody required')
++    raw = ui.adb(['exec-out', 'run-as', HELPER, 'cat', 'files/captures/' + case_id + '.raw.json'])
++    need(len(raw) <= 65536 and captured['bytes'] == len(raw)
++         and captured['sha256'] == hashlib.sha256(raw).hexdigest(), 'Whole raw UTF8 custody required')
++    exported = loads(raw)
++    if type(exported) is dict and set(exported) == set(expected) | {'sig'}:
++        need(type(exported['sig']) is str and exported['sig'] == '', 'Only empty unsigned export sig permitted')
++        exported = {key: value for key, value in exported.items() if key != 'sig'}
++    need(equal(exported, expected), 'Actual client export differs from frozen whole six-field inner rumor')
++    raw_pin = ui.runtime.put_bytes('evidence/' + case_id + '/client-raw-rumor.json', raw)
++    selection = ui.runtime.put_json('evidence/' + case_id + '/selection.json', {
++        'schema': 'e02-minimum-selection-v1', 'profileId': PROFILE, 'windowId': ui.role_spec['windowId'],
++        'observationId': case_id, 'account': ui.role_spec['account'], 'peer': ui.role_spec['peer'],
++        'originalAuthor': expected['pubkey'], 'originalOrderedTags': expected['tags'], 'rumorId': expected['id'],
++        'action': 'COPY_RAW_JSON', 'method': 'ANDROID_LOCAL_FOREGROUND', 'helperPackage': HELPER,
++        'helperArtifact': ui.runtime.plan['helperApk'], 'helperReceipt': helper_pin,
++        'capturedMonotonicNs': time.monotonic_ns(), 'selectedGui': selected,
++        'matchingVisibleTextNodes': visible_nodes,
++        'limits': 'Visible text-node matches are not global bubble counts or measured business effects. Shape and screen coordinates are not persistent object identities.'})
++    return {'id': case_id, 'state': 'EXPORTED_PENDING_INDEPENDENT_WHOLE_RUN_REVIEW',
++            'selection': selection, 'uiPng': selected['png'], 'uiXml': selected['xml'],
++            'rawClientRumor': raw_pin, 'clipboardClear': clear_pin,
++            'visibleMatchingTextNodeCount': len(visible_nodes),
++            'duplicateObservation': {'scope': 'CURRENT_VISIBLE_MATCHING_TEXT_NODES_ONLY',
++                'visibleMatchingTextNodeCount': len(visible_nodes),
++                'globalDuplicateBubbleCount': None, 'globalDuplicateBubbleCountStatus': 'UNKNOWN_UNMEASURED',
++                'businessEffectsMeasured': False}}
++
++
++def map_guest_graph(runtime, value, bindings):
++    if type(value) is dict:
++        if set(value) == {'path', 'bytes', 'sha256'} and value['path'].startswith('/session/fixtures/'):
++            mapped_pin = mapped(runtime, value)
++            prior = [row for row in bindings if row['guest']['path'] == value['path']]
++            need(not prior or equal(prior[0], {'guest': value, 'host': mapped_pin}), 'Divergent guest/host descriptor alias')
++            if not prior:
++                bindings.append({'guest': value, 'host': mapped_pin})
++            return
++        for item in value.values():
++            map_guest_graph(runtime, item, bindings)
++    elif type(value) is list:
++        for item in value:
++            map_guest_graph(runtime, item, bindings)
+ 
+ 
+ def run(runtime):
+     runtime.check()
+     plan = loads((HERE / 'ui-plan.json').read_bytes())
+-    need(plan['caseId'] == CASE and plan['account'] == ACCOUNT and plan['peer'] == PEER
+-         and plan['localRelay'] == URL and plan['scope'] == 'ONE_REAL_ENVELOPE_FIRST_SLICE_ONLY', 'Fixed UI slice required')
++    role = runtime.plan['ordinaryRole']
++    need(role in ROLE_SPECS and runtime.plan['profileId'] == PROFILE and plan['profileId'] == PROFILE,
++         'Exact minimum role profile required')
++    spec = ROLE_SPECS[role]
++    need(runtime.plan['windowId'] == spec['windowId'] and runtime.plan['account'] == spec['account']
++         and runtime.plan['peer'] == spec['peer'] and plan['localRelay'] == URL,
++         'One fixed account/peer per fresh role window required')
+     prepared = fixture(runtime, 'prepare')
+-    expected_pin = mapped(runtime, prepared['expectedRumor'])
+-    expected = loads(read(expected_pin))
+-    content_pin = mapped(runtime, prepared['expectedContent'])
+-    need(read(content_pin).decode('utf-8') == expected['content'] and expected['pubkey'] == PEER
+-         and expected['kind'] == 14 and expected['tags'] == [['p', ACCOUNT]], 'Canonical incoming envelope subject required')
+-    need(plan['visibleToken'] in expected['content'], 'Actual envelope must contain the declared UI token')
++    need(prepared['windowId'] == spec['windowId'] and prepared['ordinaryRole'] == role
++         and set(prepared['expected']) == set(spec['stages']), 'Exact frozen role-stage expectations required')
+     ui = UI(runtime)
+     tor_ui = login(ui)
+     account_ui = own_identity(ui)
+     local_relay(ui)
+-    need(not ui.find(plan['visibleToken'], contains=True), 'Fresh input already rendered before publication')
+-    for _ in range(20):
+-        status_raw = runtime.fixture('status')
+-        status = loads(status_raw)
+-        need(status['schema'] == 'e02-fixture-command-v1' and status['operation'] == 'status'
+-             and status['ok'] is True and status['caseId'] == CASE, 'Exact live subscription status required')
+-        if status['result']['ready'] is True:
+-            runtime.put_bytes('evidence/subscription-status.json', status_raw)
+-            break
+-        runtime.sleep(2)
+-    else:
+-        raise ValueError('No actual matching app REQ/EOSE; nothing published')
+-    published = fixture(runtime, 'publish')
+-    for _ in range(12):
+-        ui.refresh('await-real-envelope')
+-        if ui.find(plan['visibleToken'], contains=True):
+-            break
+-        runtime.sleep(2)
+-    else:
+-        raise ValueError('Actual envelope was not rendered')
+-    previews = ui.find(plan['visibleToken'], contains=True)
+-    need(len(previews) == 1, 'Unique current incoming conversation preview required')
+-    ui.tap(previews[0], 'actual-conversation')
+-    need(ui.find('Back', True) and ui.find('Voice call', True), 'Recognized chat conversation required')
+-    cleared, clear_pin = helper(ui, 'CLEAR')
+-    need(cleared['status'] == 'EMPTY_SENTINEL_SET', 'Guest clipboard was not cleared')
+-    ui.key_back('return-selected-note')
+-    selected = ui.current
+-    notes = ui.find(plan['visibleToken'], contains=True)
+-    need(len(notes) == 1, 'Select one real note, not cached/duplicate content')
+-    x, y, right, bottom = ui.bounds(notes[0])
+-    center_x, center_y = (x+right)//2, (y+bottom)//2
+-    ui.adb(['shell', 'input', 'swipe', str(center_x), str(center_y), str(center_x), str(center_y), '700'])
+-    ui.refresh('message-action-sheet')
+-    ui.click('More Options', 'expanded-message-actions')
+-    ui.click('Copy raw JSON', 'real-copy-raw-json')
+-    captured, helper_pin = helper(ui, 'CAPTURE')
+-    need(captured['status'] == 'CAPTURED' and captured['mime'] == 'text/plain'
+-         and captured['clipboardItemCount'] == 1 and captured['clipboardTimestamp'] >= cleared['wallClockMillis'], 'Fresh copied text required')
+-    raw = ui.adb(['exec-out', 'run-as', HELPER, 'cat', 'files/captures/' + CASE + '.raw.json'])
+-    need(len(raw) <= 65536 and captured['bytes'] == len(raw)
+-         and captured['sha256'] == hashlib.sha256(raw).hexdigest(), 'Whole captured UTF-8 custody required')
+-    exported = loads(raw)
+-    if type(exported) is dict and set(exported) == set(expected) | {'sig'}:
+-        need(type(exported['sig']) is str and exported['sig'] == '', 'Only empty unsigned export signature permitted')
+-        exported = {key: value for key, value in exported.items() if key != 'sig'}
+-    need(equal(exported, expected), 'Actual client export differs from expected whole inner rumor')
+-    raw_pin = runtime.put_bytes('evidence/client-raw-rumor.json', raw)
+-    transport_original = mapped(runtime, published['transport'])
+-    transport = loads(read(transport_original, 16777216))
+-    need(transport['schema'] == 'e02-ordinary-transport-v1', 'Actual received-wire transport proof required')
+-    transport = dict(transport, **{k: mapped(runtime, v) for k, v in transport.items() if k != 'schema'})
+-    transport_pin = runtime.put_json('evidence/transport-host-paths.json', transport)
+-    selection = runtime.put_json('evidence/selection.json', {
+-        'schema': 'e02-ordinary-selection-v1', 'observationId': CASE, 'account': ACCOUNT,
+-        'peer': PEER, 'rumorId': expected['id'], 'action': 'COPY_RAW_JSON',
+-        'method': 'ANDROID_LOCAL_FOREGROUND', 'helperPackage': HELPER,
+-        'helperArtifact': runtime.plan['helperApk'], 'helperReceipt': helper_pin,
+-        'capturedMonotonicNs': time.monotonic_ns()})
++    open_messages(ui)
++    need(not ui.find(plan['businessVisibleToken'], contains=True)
++         and not ui.find(plan['chatVisibleToken'], contains=True), 'Fresh role already contains declared inputs')
++    observations = []
++    for index, stage_id in enumerate(spec['stages']):
++        command_start, ui_start, action_start = runtime.sequence + 1, ui.serial, ui.actions
++        expected_pin = mapped(runtime, prepared['expected'][stage_id]['rumor'])
++        expected = loads(read(expected_pin))
++        need(set(expected) == {'id', 'pubkey', 'created_at', 'kind', 'tags', 'content'}
++             and expected['pubkey'] == PEER and expected['kind'] == 14 and expected['tags'] == [['p', ACCOUNT]],
++             'Original shared authorA/innerpB must remain unchanged in both role windows')
++        token = plan['chatVisibleToken'] if stage_id == 'incoming-ordinary-chat' else plan['businessVisibleToken']
++        need(token in expected['content'], 'Frozen actual note token missing')
++        if index:
++            ui.key_back('minimum-return-thread')
++            chat_context(ui)
++        status = wait_subscription(ui, stage_id)
++        published = fixture(runtime, 'publish')
++        stage = published['stage']
++        need(stage['id'] == stage_id and stage['index'] == index
++             and published['windowId'] == spec['windowId'], 'Ordered finite role stage required')
++        for _ in range(12):
++            ui.refresh('minimum-await-note')
++            if ui.find(token, contains=True):
++                break
++            runtime.sleep(2)
++        else:
++            raise ValueError('Expected actual minimum note not rendered')
++        if index == 0:
++            previews = ui.find(token, contains=True)
++            need(len(previews) == 1 and previews[0].get('package') == APP
++                 and previews[0].get('enabled') == 'true', 'Unique actual fresh role conversation preview required')
++            ui.tap(previews[0], 'minimum-actual-conversation')
++            chat_context(ui, token)
++        observation = export_note(ui, stage, token, expected)
++        bindings = []
++        map_guest_graph(runtime, published, bindings)
++        publication = mapped(runtime, published['publication'])
++        publication_record = loads(read(publication, 16777216))
++        map_guest_graph(runtime, publication_record, bindings)
++        need(publication_record['stage']['id'] == stage_id and publication_record['windowId'] == spec['windowId'],
++             'Actual publication graph must match selected stage')
++        observation.update(expectedRumor=expected_pin, publication=publication,
++            actualNewAppFrameObserved=published['actualNewAppFrameObserved'],
++            originalGuestToHostBindings=bindings, subscriptionStatus=status['result'],
++            subscriptionStatusReply=status['rawReply'], subscriptionStatusCall=status['call'],
++            subscriptionStatusCommand=status['command'], custodySegment={
++                'commandSequenceFirst': command_start, 'commandSequenceLast': runtime.sequence,
++                'uiCaptureSerialFirst': ui_start + 1, 'uiCaptureSerialLast': ui.serial,
++                'uiActionCountBefore': action_start, 'uiActionCountAfter': ui.actions,
++                'uiCaptures': ui.captures[ui_start:ui.serial]})
++        observations.append(observation)
+     runtime.check()
+-    return {'schema': 'e02-first-slice-driver-result-v1', 'runId': runtime.plan['runId'],
+-        'runConfig': runtime.plan_pin, 'runRelease': runtime.release_pin,
+-        'executionState': 'PARTIAL', 'accountIdentityGUI': account_ui,
+-        'torConfigurationGUI': tor_ui,
+-        'environmentAnrEvidence': ui.environment_anr_evidence,
+-        'expectedRumor': expected_pin, 'originalTransport': transport_original,
+-        'clipboardClear': clear_pin, 'allUICaptures': ui.captures,
+-        'observations': [{'id': CASE, 'status': 'COMPLETE', 'transport': transport_pin,
+-            'selection': selection, 'uiPng': selected['png'], 'uiXml': selected['xml'],
+-            'rawClientRumor': raw_pin, 'error': None}],
+-        'limits': ['One actual first slice only; seven proposed coverage rows remain missing.',
+-                   'GUI captures are sequential, not atomic. Account public profile needs independent decoding.',
+-                   'Ordinary JSON rendering/export is not a business-dispatch/approval capability.'],
++    return {'schema': 'e02-minimum-role-driver-result-v1', 'profileId': PROFILE,
++        'windowId': spec['windowId'], 'ordinaryRole': role, 'runId': runtime.plan['runId'],
++        'runConfig': runtime.plan_pin, 'runRelease': runtime.release_pin, 'executionState': 'PARTIAL',
++        'accountIdentityGUI': account_ui, 'expectedAccountPubkey': spec['account'],
++        'accountIdentityQualification': 'ACTUAL_NPROFILE_INDEPENDENT_DECODE_AND_REVIEW_REQUIRED',
++        'torConfigurationGUI': tor_ui, 'environmentAnrEvidence': ui.environment_anr_evidence,
++        'allUICaptures': ui.captures, 'fixtureCalls': runtime._minimum_fixture_calls, 'observations': observations,
++        'limits': ['One complete fresh role window only; root-owned new consumer and second window/current primary workload still required.',
++            'Identical replay may have no new app EVENT; retain honest absence/query lineage and actual post-replay client export.',
++            'No business-effect measurement is inferred from primary dispatch eligibility or UI duplicate text nodes.',
++            'No canonicalPASS, eight-profile reinterpretation, blocker closure or automatic row donation.'],
+         'canonicalE02Changed': False}
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/business-rumor.json
+@@ -0,0 +1,13 @@
++{
++  "pubkey": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
++  "created_at": 1792806046,
++  "kind": 14,
++  "tags": [
++    [
++      "p",
++      "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5"
++    ]
++  ],
++  "content": "{\"protocol\":\"NBDP/experiment\",\"version\":1,\"type\":\"document\",\"id\":\"000000000000000000000000000000000000000000000000000000000000000a\",\"from\":\"79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798\",\"to\":\"c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5\",\"context\":\"synthetic\",\"required\":[],\"document\":{\"id\":\"dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd\",\"revision\":1,\"sha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"bytes\":7,\"media\":\"application/octet-stream\"}}",
++  "id": "e2b4accf597c65d5a3749f44551545f2be430a0ac3ddfb4cf694c9d12ae6df14"
++}
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/chat-rumor.json
+@@ -0,0 +1,13 @@
++{
++  "pubkey": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
++  "created_at": 1792806047,
++  "kind": 14,
++  "tags": [
++    [
++      "p",
++      "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5"
++    ]
++  ],
++  "content": "NBDP harmless ordinary chat control — faktúra 𐐀",
++  "id": "f335fb5dbee6dda9fff841581bfa552584dd56782ff100ce0912a4708f0de71f"
++}
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/encode-public-scalar1.mjs
+@@ -0,0 +1,8 @@
++// Solely Bech32 format materialization of the explicitly public disposable scalar1.
++import fs from 'node:fs';
++import {nsecEncode} from '/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/nostr-tools/lib/esm/nip19.js';
++const p='/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/scalar1-format-data/input.json';
++const input=JSON.parse(fs.readFileSync(p,'utf8'));
++if(Object.keys(input).length!==1||input.scalarHex!=='0'.repeat(63)+'1')throw Error('ONLY_PUBLIC_SCALAR1_DATA');
++const nsec=nsecEncode(Uint8Array.from(Buffer.from(input.scalarHex,'hex')));
++process.stdout.write(JSON.stringify({schema:'e02-public-scalar1-format-data-v1',scalarHex:input.scalarHex,nsec,operation:'NIP19_FORMAT_ENCODING_ONLY_NO_SIGN_ENCRYPT_NETWORK'})+'\n');
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v3/fixture-plan.json
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/fixture-plan.json
+@@ -1,13 +1,10 @@
+ {
+-  "schema": "e02-single-cell-fixture-plan-v1",
++  "schema": "e02-ordinary-minimum-fixture-plan-v1",
+   "state": "SOURCE_ONLY_NOT_RELEASED",
+-  "caseId": "js-to-rust-incoming-rs",
++  "caseId": "minimum-two-role-rs",
+   "direction": "JS_TO_RUST",
+-  "role": "incoming",
++  "role": "FROM_HASH_BOUND_ROLE_CONFIG",
+   "relay": "rs-relay",
+-  "senderScalar": 1,
+-  "recipientScalar": 2,
+-  "envelopeNumber": 10,
+   "proxyUrl": "ws://127.0.0.1:17777",
+   "backendUrl": "ws://127.0.0.1:8080",
+   "output": "/session/fixtures",
+@@ -56,7 +53,7 @@
+     "networkTimeoutMilliseconds": 10000,
+     "rustTimeoutMilliseconds": 8000
+   },
+-  "scope": "One ordinary-client incoming envelope/export cell only. Full E02 remains PARTIAL; no client-retention inference from fixture or validator results.",
++  "scope": "Distinct two fresh ordinary role windows, finite2incoming/3archive stages; all primary and canonical integration obligations remain separate.",
+   "dependencyFiles": [
+     {
+       "source": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/.package-lock.json",
+@@ -4955,5 +4952,47 @@
+       "sha256": "e37bddaf6d40a3b2ee107906f792cc5117e543cba776fa25f7aeeb3908637f7c"
+     }
+   ],
+-  "dependencyScope": "Installed regular-file tree used by the canonical JS adapter; .bin symlink launchers are not executed. No lockfile-only installed-code provenance claim."
++  "dependencyScope": "Installed regular-file tree used by the canonical JS adapter; .bin symlink launchers are not executed. No lockfile-only installed-code provenance claim.",
++  "profileId": "e02-ordinary-minimum-rs-two-role-v1",
++  "roles": {
++    "incoming": {
++      "windowId": "incoming-b",
++      "account": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
++      "peer": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
++      "scalar": 2,
++      "nsec": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpqptcfk2",
++      "tab": "New Requests",
++      "stages": [
++        "incoming-business",
++        "incoming-ordinary-chat"
++      ]
++    },
++    "archive": {
++      "windowId": "archive-a",
++      "account": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
++      "peer": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
++      "scalar": 1,
++      "nsec": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqsmhltgl",
++      "tab": "Known",
++      "stages": [
++        "archive-business",
++        "archive-identical-replay",
++        "archive-fresh-wrap-replay"
++      ]
++    }
++  },
++  "oracles": {
++    "business": {
++      "source": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/business-rumor.json",
++      "path": "/input/business-rumor.json",
++      "bytes": 910,
++      "sha256": "8bb0efcf8cc5a503e8f653885503958520f1a069066e549cd60dec7128d25291"
++    },
++    "chat": {
++      "source": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/chat-rumor.json",
++      "path": "/input/chat-rumor.json",
++      "bytes": 384,
++      "sha256": "f796df4b3ad76f832248fb60bdfb0d134a830257e95c0559b44d4fce0a900dc5"
++    }
++  }
+ }
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v3/fixture.mjs
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/fixture.mjs
+@@ -1,4 +1,4 @@
+-// SOURCE ONLY: one synthetic ordinary-client envelope cell; no E02 PASS claim.
++// SOURCE ONLY: distinct two-role minimum profile; no crypto/runtime executed by preparation.
+ import fs from 'node:fs';
+ import net from 'node:net';
+ import crypto from 'node:crypto';
+@@ -8,7 +8,7 @@
+ const DIR='/session/fixtures', PLAN='/input/fixture-plan.json';
+ const A='79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798';
+ const B='c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5';
+-const CASE='js-to-rust-incoming-rs', SOCKET=DIR+'/control.sock';
++const CASE='minimum-two-role-rs', PROFILE='e02-ordinary-minimum-rs-two-role-v1', SOCKET=DIR+'/control.sock';
+ const sha=raw=>crypto.createHash('sha256').update(raw).digest('hex');
+ const same=(a,b)=>typeof a===typeof b&&(a===null||b===null?a===b:Array.isArray(a)||Array.isArray(b)?Array.isArray(a)&&Array.isArray(b)&&a.length===b.length&&a.every((x,i)=>same(x,b[i])):typeof a==='object'?Object.keys(a).length===Object.keys(b).length&&Object.keys(a).every(k=>Object.hasOwn(b,k)&&same(a[k],b[k])):a===b);
+ function need(v,why){if(!v)throw Error(why);}
+@@ -25,7 +25,13 @@
+ }
+ function plan(){
+  const b=raw(PLAN);need(sha(b)===process.env.NBDP_FIXTURE_PLAN_SHA256,'EXTERNAL_FIXTURE_PLAN_SHA');const p=JSON.parse(b);
+- need(p.schema==='e02-single-cell-fixture-plan-v1'&&p.caseId===CASE&&p.direction==='JS_TO_RUST'&&p.role==='incoming'&&p.relay==='rs-relay'&&p.senderScalar===1&&p.recipientScalar===2&&p.envelopeNumber===10&&p.proxyUrl==='ws://127.0.0.1:17777'&&p.backendUrl==='ws://127.0.0.1:8080'&&p.output===DIR,'FIXED_FIRST_SLICE');
++ need(p.schema==='e02-ordinary-minimum-fixture-plan-v1'&&p.caseId===CASE&&p.profileId===PROFILE&&p.direction==='JS_TO_RUST'&&p.relay==='rs-relay'&&p.proxyUrl==='ws://127.0.0.1:17777'&&p.backendUrl==='ws://127.0.0.1:8080'&&p.output===DIR,'FIXED_MINIMUM_PROFILE');
++ const configRaw=raw('/input/run-config.json');
++ need(sha(configRaw)===process.env.NBDP_MINIMUM_RUN_CONFIG_SHA256,'EXTERNAL_ROLE_CONFIG_SHA');
++ const config=JSON.parse(configRaw);need(config.profileId===PROFILE&&['incoming','archive'].includes(config.ordinaryRole),'CLOSED_ROLE_CONFIG');
++ const spec=roleSpec(config.ordinaryRole);need(config.windowId===spec.windowId&&config.account===spec.account&&config.peer===spec.peer,'ROLE_ACCOUNT_BINDING');
++ p.ordinaryRole=config.ordinaryRole;p.roleSpec=spec;
++ for(const d of Object.values(p.oracles)){const q=pin(d.path);need(q.bytes===d.bytes&&q.sha256===d.sha256,'FROZEN_ORACLE_PIN');} 
+  need(Array.isArray(p.dependencyFiles)&&p.dependencyFiles.length>0&&p.dependencyFiles.length<=4096,'PINNED_INSTALLED_DEPENDENCIES');for(const d of [...Object.values(p.pins),...p.dependencyFiles]){const q=pin(d.path);need(q.bytes===d.bytes&&q.sha256===d.sha256,'CURRENT_SOURCE_BINARY_PIN');}
+  const e01=doc(p.pins.e01.path),e02=doc(p.pins.e02.path);
+  need(e01.status==='PASS'&&e01.environment.rust_binary_sha256===p.pins.rustBinary.sha256&&e02.status==='PARTIAL','CURRENT_CANONICAL_CANDIDATE');
+@@ -54,6 +60,42 @@
+  return c?.active===true&&Number.isSafeInteger(s?.req)&&Number.isSafeInteger(s?.eose)&&s.eose>s.req&&s.req===expected.requestSequence&&s.eose===expected.eoseSequence&&s.filters.some(f=>matchesFilter(f,event,recipient));
+ }
+ 
++// Closed pure metadata contracts. These functions do not produce/validate crypto.
++export function roleSpec(role){
++ need(role==='incoming'||role==='archive','CLOSED_ROLE');
++ return role==='incoming'?{windowId:'incoming-b',account:B,peer:A,scalar:2,validationRole:'incoming',stages:['incoming-business','incoming-ordinary-chat']}:
++ {windowId:'archive-a',account:A,peer:B,scalar:1,validationRole:'archive',stages:['archive-business','archive-identical-replay','archive-fresh-wrap-replay']};
++}
++export function stageSpec(role,index){
++ const r=roleSpec(role);need(Number.isSafeInteger(index)&&index>=0&&index<r.stages.length,'CLOSED_STAGE_INDEX');
++ const id=r.stages[index],chat=id==='incoming-ordinary-chat',duplicate=id==='archive-identical-replay';
++ return {id,index,oracle:chat?'chat':'business',dispatch:role==='incoming'&&!chat,
++   normalizedRole:role==='archive'?'archive':chat?'chat':'incoming',
++   identicalReplay:duplicate,freshWrap:!duplicate,requiresNewAppFrame:!duplicate};
++}
++export function exactInnerShape(r){
++ return !!r&&typeof r==='object'&&!Array.isArray(r)&&Object.keys(r).length===6&&
++ ['id','pubkey','created_at','kind','tags','content'].every(k=>Object.hasOwn(r,k))&&
++ /^[0-9a-f]{64}$/.test(r.id)&&r.pubkey===A&&Number.isSafeInteger(r.created_at)&&r.created_at>=0&&r.kind===14&&
++ typeof r.content==='string'&&same(r.tags,[['p',B]]);
++}
++export function attemptLineageMatches(expected,forward,complete){
++ return !!expected&&!!forward&&!!complete&&Number.isSafeInteger(expected.epoch)&&expected.epoch>0&&
++ ['incoming-business','incoming-ordinary-chat','archive-business','archive-identical-replay','archive-fresh-wrap-replay'].includes(expected.stageId)&&
++ expected.epoch===forward.epoch&&expected.epoch===complete.epoch&&expected.stageId===forward.stageId&&expected.stageId===complete.stageId;
++}
++export function stageDeliveryAllowed(stage,observed,origin){
++ if(typeof observed!=='boolean'||!stage)return false;
++ const allowed=[stageSpec('incoming',0),stageSpec('incoming',1),stageSpec('archive',0),stageSpec('archive',1),stageSpec('archive',2)];
++ if(!allowed.some(value=>same(value,stage)))return false;
++ if(observed)return origin==='ACTUAL_APP_SOCKET_FRAME';
++ return stage.id==='archive-identical-replay'&&stage.index===1&&stage.identicalReplay===true&&stage.requiresNewAppFrame===false&&origin==='ACTUAL_RELAY_QUERY_NO_NEW_APP_FRAME';
++}
++export function replayBinding(stage,event,initial){
++ if(!stage||!event||!initial)return false;
++ return stage.identicalReplay?same(event,initial):stage.index===2?event.id!==initial.id:true;
++}
++
+ async function main(){
+  const mode=process.argv[2];need(process.argv.length===3&&['serve','prepare','status','publish'].includes(mode),'FIXED_CLI');check();const p=plan();
+  if(mode!=='serve'){
+@@ -67,12 +109,22 @@
+  const {default:WebSocket,WebSocketServer}=await import('ws');check();
+  need(!fs.existsSync(SOCKET),'FRESH_CONTROL_SOCKET');fs.mkdirSync(DIR,{recursive:true,mode:0o700});
+  const captureFd=fs.openSync(DIR+'/capture.jsonl','wx',0o600);let sequence=0,total=0,next=0,attempted=false,busy=false,closed=false,delivery=null,publicationGate=null,publicationInvalidated=false;
+- const connections=new Map();
+- function log(value){const row={schema:'e02-app-proxy-row-v1',sequence:++sequence,utc:new Date().toISOString(),...value};const b=Buffer.from(JSON.stringify(row)+'\n');total+=b.length;need(total<=p.limits.captureBytes,'CAPTURE_BOUND');fs.writeSync(captureFd,b);return row;}
+- function prepared(){const d=doc(DIR+'/prepared.json');need(d.schema==='e02-first-cell-prepared-v1'&&d.caseId===CASE&&d.senderPub===A&&d.recipientPub===B&&d.rumor.id===T.getEventHash(d.rumor)&&d.rumor.content===JSON.stringify(T.envelope(A,B,10))&&same(d.rumor.tags,[['p',B]]),'FIXED_PREPARED_RUMOR');need(d.events.length===2&&d.events.every((e,i)=>e.kind===1059&&verifyEvent(JSON.parse(JSON.stringify(e)))&&same(e.tags,[['p',i===0?B:A]])),'PREPARED_WRAPS');return d;}
+- function gate(){if(!fs.existsSync(DIR+'/prepared.json'))return null;return matchingSubscription(connections,prepared().events[0],B);}
+- function invalidatePublication(c,id,reason){if(publicationGate&&c.id===publicationGate.connection&&(id===null||id===publicationGate.subscription)){if(!publicationInvalidated)log({connection:c.id,direction:'PUBLICATION_GENERATION_INVALIDATED',reason,gate:publicationGate});publicationInvalidated=true;delivery=null;}}
+- function qualifiedDelivery(before,event){return !publicationInvalidated&&delivery!==null&&publicationGenerationMatches(connections,before,event,B)&&publicationGenerationMatches(connections,delivery.forwardGeneration,event,B)&&same(delivery.forwardGeneration,delivery.completionGeneration);}
++ const connections=new Map();let stageIndex=0,attemptEpoch=0,activeAttempt=null,publicationWindowOpen=false,attemptSawFrame=false;
++ const spec=p.roleSpec;
++ function selectedEvent(){return prepared().events[stageIndex];}
++ function selectedStage(){return stageSpec(p.ordinaryRole,stageIndex);}
++ function log(value){const row={schema:'e02-minimum-proxy-row-v1',sequence:++sequence,utc:new Date().toISOString(),...value};const b=Buffer.from(JSON.stringify(row)+'\n');total+=b.length;need(total<=p.limits.captureBytes,'CAPTURE_BOUND');fs.writeSync(captureFd,b);return row;}
++ function prepared(){
++  const d=doc(DIR+'/prepared.json');need(d.schema==='e02-minimum-prepared-v1'&&d.profileId===PROFILE&&d.windowId===spec.windowId,'FIXED_PREPARED_PROFILE');
++  for(const name of ['business','chat'])need(exactInnerShape(d.rumors[name])&&d.rumors[name].id===T.getEventHash(d.rumors[name])&&same(d.rumors[name],doc(p.oracles[name].path)),'FROZEN_SHARED_INNER');
++  need(d.rumors.business.content===JSON.stringify(T.envelope(A,B,10))&&d.rumors.chat.content==='NBDP harmless ordinary chat control — faktúra 𐐀','FROZEN_CONTENT');
++  need(d.events.length===spec.stages.length&&d.events.every(e=>e.kind===1059&&verifyEvent(JSON.parse(JSON.stringify(e)))&&same(e.tags,[['p',spec.account]])),'ROLE_WRAPS');
++  if(p.ordinaryRole==='archive')need(same(d.events[0],d.events[1])&&d.events[2].id!==d.events[0].id,'IDENTICAL_AND_FRESH_ARCHIVE_WRAPS');
++  return d;
++ }
++ function gate(){if(!fs.existsSync(DIR+'/prepared.json')||stageIndex>=spec.stages.length)return null;return matchingSubscription(connections,selectedEvent(),spec.account);}
++ function invalidatePublication(c,id,reason){if(attempted&&publicationGate&&c.id===publicationGate.connection&&(id===null||id===publicationGate.subscription)){if(!publicationInvalidated)log({connection:c.id,direction:'PUBLICATION_GENERATION_INVALIDATED',reason,gate:publicationGate});publicationInvalidated=true;delivery=null;}}
++ function qualifiedDelivery(before,event){return !publicationInvalidated&&delivery!==null&&attemptLineageMatches(activeAttempt,delivery.forwardAttempt,delivery.completionAttempt)&&publicationGenerationMatches(connections,before,event,spec.account)&&publicationGenerationMatches(connections,delivery.forwardGeneration,event,spec.account)&&same(delivery.forwardGeneration,delivery.completionGeneration);}
+  function fatal(error){if(closed)return;closed=true;try{putJSON('serve-error.json',{error:String(error),sequence,scope:'UNQUALIFIED_NO_E02_PROMOTION'});}catch{}for(const c of connections.values()){c.app.terminate();c.upstream.terminate();}server.close();control.close();clearInterval(watchdog);process.exitCode=2;}
+  const server=new WebSocketServer({host:'127.0.0.1',port:17777,maxPayload:p.limits.messageBytes,perMessageDeflate:false});
+  server.on('connection',(app,request)=>{try{check();need(++next<=p.limits.connections,'CONNECTION_BOUND');const upstream=new WebSocket(p.backendUrl,{perMessageDeflate:false,handshakeTimeout:3000,maxPayload:p.limits.messageBytes});const c={id:next,active:true,app,upstream,subscriptions:new Map(),pending:[]};connections.set(c.id,c);log({connection:c.id,direction:'OPEN',userAgent:String(request.headers['user-agent']??'').slice(0,1024)});
+@@ -80,26 +132,123 @@
+   upstream.on('open',()=>{try{check();for(const bytes of c.pending){check();upstream.send(bytes,{binary:false});}c.pending=[];}catch(e){fatal(e);}});
+   upstream.on('message',(data,binary)=>{try{
+    check();need(!binary,'TEXT_ONLY_NOSTR');const bytes=Buffer.from(data);const f=T.strictJSON(bytes.toString('utf8'));
+-   const candidate=attempted&&Array.isArray(f)&&f[0]==='EVENT'&&f[2]?.id===prepared().events[0].id&&c.id===publicationGate?.connection&&f[1]===publicationGate?.subscription;
+-   const forwardGeneration=candidate&&!publicationInvalidated&&publicationGenerationMatches(connections,publicationGate,f[2],B)?currentGeneration(c,f[1]):null;
+-   const row=log({connection:c.id,direction:'RELAY_TO_APP',rawBase64:bytes.toString('base64'),publicationGeneration:forwardGeneration});
++   const candidate=attempted&&publicationWindowOpen&&Array.isArray(f)&&f[0]==='EVENT'&&stageIndex<spec.stages.length&&f[2]?.id===selectedEvent().id&&c.id===publicationGate?.connection&&f[1]===publicationGate?.subscription;
++   const forwardAttempt=candidate&&activeAttempt?{...activeAttempt}:null;
++   const forwardGeneration=candidate&&!publicationInvalidated&&publicationGenerationMatches(connections,publicationGate,f[2],spec.account)?currentGeneration(c,f[1]):null;
++   if(candidate)attemptSawFrame=true;
++   const row=log({connection:c.id,direction:'RELAY_TO_APP',rawBase64:bytes.toString('base64'),publicationGeneration:forwardGeneration,publicationAttempt:forwardAttempt});
+    if(Array.isArray(f)&&f[0]==='EOSE'&&c.subscriptions.has(f[1]))c.subscriptions.get(f[1]).eose=row.sequence;
+    if(Array.isArray(f)&&f[0]==='CLOSED'){invalidatePublication(c,f[1],'RELAY_CLOSED');c.subscriptions.delete(f[1]);}
+    check();app.send(bytes,{binary:false},error=>{try{
+     check();if(error)throw error;
+-    const completionGeneration=forwardGeneration&&!publicationInvalidated&&publicationGenerationMatches(connections,publicationGate,f[2],B)?currentGeneration(c,f[1]):null;
+-    const sent=log({connection:c.id,direction:'APP_SOCKET_SEND_COMPLETE',sourceSequence:row.sequence,publicationGeneration:completionGeneration});
+-    if(!delivery&&forwardGeneration&&completionGeneration&&same(forwardGeneration,completionGeneration))delivery={frame:bytes,event:f[2],connection:c.id,subscription:f[1],rowSequence:row.sequence,sentSequence:sent.sequence,forwardGeneration,completionGeneration};
++    const completionAttempt=forwardAttempt&&activeAttempt?{...activeAttempt}:null;
++    const completionGeneration=forwardGeneration&&publicationWindowOpen&&attemptLineageMatches(activeAttempt,forwardAttempt,completionAttempt)&&!publicationInvalidated&&publicationGenerationMatches(connections,publicationGate,f[2],spec.account)?currentGeneration(c,f[1]):null;
++    const sent=log({connection:c.id,direction:'APP_SOCKET_SEND_COMPLETE',sourceSequence:row.sequence,publicationGeneration:completionGeneration,publicationAttempt:completionAttempt});
++    if(!delivery&&forwardGeneration&&completionGeneration&&same(forwardGeneration,completionGeneration))delivery={frame:bytes,event:f[2],connection:c.id,subscription:f[1],rowSequence:row.sequence,sentSequence:sent.sequence,forwardGeneration,completionGeneration,forwardAttempt,completionAttempt};
+    }catch(e){fatal(e);}});
+   }catch(e){fatal(e);}});
+   for(const socket of [app,upstream]){socket.on('error',error=>fatal(error));socket.on('close',()=>{try{invalidatePublication(c,null,'CONNECTION_CLOSED');c.active=false;c.subscriptions.clear();app.terminate();upstream.terminate();log({connection:c.id,direction:'CLOSE'});}catch(e){fatal(e);}});}
+  }catch(e){fatal(e);}});
+  server.on('error',fatal);
+- async function exchange(events,filter){check();return await new Promise((resolve,reject)=>{const ws=new WebSocket(p.backendUrl,{perMessageDeflate:false,handshakeTimeout:3000,maxPayload:p.limits.messageBytes});const ack=[],received=[];let settled=false;const timer=setTimeout(()=>finish(Error('RELAY_TIMEOUT')),p.limits.networkTimeoutMilliseconds);function finish(error){if(settled)return;settled=true;clearTimeout(timer);ws.terminate();error?reject(error):resolve({ack,received});}ws.on('open',()=>{try{check();for(const event of events??[]){check();ws.send(JSON.stringify(['EVENT',event]));}if(filter){check();ws.send(JSON.stringify(['REQ','e02-owned-query',filter]));}}catch(e){finish(e);}});ws.on('message',data=>{try{check();const bytes=Buffer.from(data);const f=T.strictJSON(bytes.toString('utf8'));if(f[0]==='OK'){ack.push({rawBase64:bytes.toString('base64'),frame:f});need(f[2]===true,'RELAY_REFUSAL');if(events&&events.every(e=>ack.some(r=>r.frame[1]===e.id&&r.frame[2]===true)))finish();}if(f[0]==='EVENT'&&f[1]==='e02-owned-query')received.push({rawBase64:bytes.toString('base64'),frame:f});if(f[0]==='EOSE'&&f[1]==='e02-owned-query')finish();}catch(e){finish(e);}});ws.on('error',finish);ws.on('close',()=>{if(!settled)finish(Error('EARLY_RELAY_CLOSE'));});});}
+- async function prepare(){check();need(!fs.existsSync(DIR+'/prepared.json'),'PREPARE_ONCE');const from=T.secret(1),to=T.secret(2),envelope=T.envelope(A,B,10),rumor=T.rumor(envelope,A,B);need(T.getPublicKey(from)===A&&T.getPublicKey(to)===B,'PUBLIC_TEST_IDENTITIES');check();const events=[T.wrap(rumor,from,B),T.wrap(rumor,from,A)];const expectedRumor=putJSON('expected-rumor.json',rumor),expectedContent=put(DIR+'/expected-content.txt',rumor.content);const expected=putJSON('expected.json',{schema:'e02-first-cell-expected-v1',caseId:CASE,direction:'js-to-rust',role:'incoming',relay:'rs-relay',senderPub:A,recipientPub:B,envelope,rumor,createdUTC:new Date().toISOString()});const preparedPin=putJSON('prepared.json',{schema:'e02-first-cell-prepared-v1',caseId:CASE,senderPub:A,recipientPub:B,rumor,events,expected});check();const now=Math.floor(Date.now()/1000),inboxes=[from,to].map(sk=>T.finalizeEvent({kind:10050,created_at:now,tags:[['relay',p.proxyUrl]],content:''},sk));const r=await exchange(inboxes,null);check();const inboxPin=putJSON('inboxes.json',{events:inboxes,...r});return {expected,expectedRumor,expectedContent,prepared:preparedPin,inboxes:inboxPin};}
+- function validateActual(frame,queried){check();const f=T.strictJSON(frame.toString('utf8'));need(f[0]==='EVENT'&&same(f[2],queried),'ACTUAL_APP_RELAY_EVENT_JOIN');const wire=JSON.stringify(f[2]);const request={op:'validate',wire,secret:'2'.padStart(64,'0'),role:'incoming',expectedSender:A};const framePin=put(DIR+'/frame.json',frame),wirePin=put(DIR+'/wire.json',wire);const jsRequest=putJSON('js-request.json',request),rustRequest=putJSON('rust-request.json',request);check();const js=T.validate(wire,T.secret(2),{role:'incoming',expectedSender:A});const jsResult=putJSON('js-result.json',js);check();const requests=[{op:'source'},request],stdin=requests.map(x=>JSON.stringify(x)).join('\n')+'\n';const input=put(DIR+'/Rust-stdin.jsonl',stdin);const native=spawnSync(p.pins.rustBinary.path,[],{input:stdin,timeout:p.limits.rustTimeoutMilliseconds,maxBuffer:1048576,env:{PATH:'/usr/bin:/bin',LANG:'C.UTF-8',LC_ALL:'C.UTF-8'}});const stdout=put(DIR+'/Rust-stdout.jsonl',native.stdout??Buffer.alloc(0)),stderr=put(DIR+'/Rust-stderr.bin',native.stderr??Buffer.alloc(0));check();need(!native.error&&native.status===0&&native.signal===null&&(native.stderr?.length??0)===0,'NATURAL_RUST_VALIDATION');const replies=String(native.stdout).trimEnd().split('\n').map(x=>T.strictJSON(x));need(replies.length===2&&replies[0].ok===true&&replies[0].value===fs.readFileSync(p.pins.rustSource.path,'utf8')&&replies[1].ok===true,'CURRENT_RUST_SOURCE_REPLY');const rust=replies[1].value,rustResult=putJSON('rust-result.json',rust);need(same(js,rust)&&js.ok===true&&same(js.value.rumor,prepared().rumor)&&js.value.dispatch===true&&js.value.role==='incoming','INDEPENDENT_ACTUAL_RECEIVED_VALIDATION');const transport=putJSON('consumer-transport.json',{schema:'e02-ordinary-transport-v1',frame:framePin,wire:wirePin,jsRequest,rustRequest,jsResult,rustResult});const validation=putJSON('validation.json',{schema:'e02-received-validation-record-v1',caseId:CASE,transport,rustBinary:p.pins.rustBinary,rustSource:p.pins.rustSource,rustInput:input,rustStdout:stdout,rustStderr:stderr,rustExit:native.status,rustSignal:native.signal,actualQueriedEvent:queried,js,rust,clientRetention:'NOT_ESTABLISHED_BY_TRANSPORT_VALIDATION'});return {transport,validation};}
+- async function publish(){check();need(!attempted,'PUBLISH_ONCE');const before=gate();need(before!==null,'NO_CURRENT_APP_SUBSCRIPTION_EOSE');const d=prepared();publicationGate=before;attempted=true;putJSON('publish-intent.json',{schema:'e02-publish-intent-v1',caseId:CASE,prepared:pin(DIR+'/prepared.json'),gate:before,issuedUTC:new Date().toISOString()});check();const result=await exchange(d.events,null);check();const until=process.hrtime.bigint()+10000000000n;while(!delivery&&!publicationInvalidated&&process.hrtime.bigint()<until){check();await new Promise(r=>setTimeout(r,100));}check();need(qualifiedDelivery(before,d.events[0]),'NO_MATCHING_ACTUAL_APP_BOUND_GENERATION');const query=await exchange(null,{ids:[d.events[0].id],limit:1});check();need(query.received.length===1,'EXACT_QUERIED_EVENT');need(qualifiedDelivery(before,d.events[0]),'GENERATION_CHANGED_DURING_RELAY_QUERY');const queried=query.received[0].frame[2];const v=validateActual(delivery.frame,queried);check();need(qualifiedDelivery(before,d.events[0]),'GENERATION_CHANGED_BEFORE_RECORD');const publication=putJSON('publish.json',{schema:'e02-first-cell-publication-v1',caseId:CASE,prepared:pin(DIR+'/prepared.json'),gate:before,publication:result,query,delivery:{connection:delivery.connection,subscription:delivery.subscription,rowSequence:delivery.rowSequence,sentSequence:delivery.sentSequence,forwardGeneration:delivery.forwardGeneration,completionGeneration:delivery.completionGeneration},...v,clientRetention:'UNVERIFIED_UNTIL_REAL_CLIENT_EXPORT',scope:'FIRST_INCOMING_CELL_ONLY_E02_PARTIAL'});return {publication,...v};}
+- const control=net.createServer({allowHalfOpen:true},socket=>{let b='';socket.on('data',chunk=>{b+=chunk.toString('utf8');if(Buffer.byteLength(b)>1024)socket.destroy();});socket.on('end',async()=>{let acquired=false;try{check();const q=JSON.parse(b);need(Object.keys(q).length===1&&['prepare','status','publish'].includes(q.op),'FIXED_CONTROL_OPERATION');need(!busy,'COMMAND_IN_PROGRESS');busy=true;acquired=true;let result;if(q.op==='prepare')result=await prepare();else if(q.op==='publish')result=await publish();else result={caseId:CASE,ready:gate()!==null,gate:gate(),captureSequence:sequence,scope:'SUBSCRIPTION_PREFLIGHT_NOT_CLIENT_RECEIPT'};check();socket.end(JSON.stringify({schema:'e02-fixture-command-v1',operation:q.op,caseId:CASE,ok:true,result})+'\n');}catch(error){try{putJSON('command-error-'+Date.now()+'.json',{operation:'CONTROL',error:String(error)});}catch{}socket.end(JSON.stringify({ok:false,error:String(error)})+'\n');}finally{if(acquired)busy=false;}});});
++ async function exchange(events,filter,label){
++  check();need(typeof label==='string'&&/^[a-z0-9-]{1,48}$/.test(label),'FIXED_EXCHANGE_LABEL');
++  const started=process.hrtime.bigint();
++  return await new Promise((resolve,reject)=>{
++   const ws=new WebSocket(p.backendUrl,{perMessageDeflate:false,handshakeTimeout:3000,maxPayload:p.limits.messageBytes});
++   const ack=[],received=[],sentFrames=[];let settled=false,queryEnded=false,eose=null;
++   const timer=setTimeout(()=>finish(Error('RELAY_TIMEOUT')),p.limits.networkTimeoutMilliseconds);
++   function finish(error){
++    if(settled)return;settled=true;clearTimeout(timer);ws.terminate();
++    const elapsedNanoseconds=Number(process.hrtime.bigint()-started);
++    if(error){reject(error);return;}
++    resolve({ack,received,eose,sentFrames,elapsedNanoseconds});
++   }
++   function maybeComplete(){
++    if(!sentFrames.length||!sentFrames.every(row=>row.sendCallbackCompleted))return;
++    if(events&&events.every(event=>ack.some(row=>row.frame[1]===event.id&&row.frame[2]===true)))finish();
++    else if(filter&&queryEnded)finish();
++   }
++   function sendKnown(frame,eventId){
++    check();const bytes=Buffer.from(JSON.stringify(frame));
++    const framePin=put(DIR+'/'+label+'-'+sentFrames.length+'-sent-frame.json',bytes);
++    const row={frame:framePin,eventId,messageType:frame[0],sendInvoked:true,sendCallbackCompleted:false,callbackBufferHash:null};
++    sentFrames.push(row);
++    log({direction:'PRODUCER_TO_RELAY',exchangeLabel:label,rawBase64:bytes.toString('base64'),frame:framePin});
++    ws.send(bytes,{binary:false},error=>{try{
++     check();if(error)throw error;
++     need(sha(bytes)===framePin.sha256,'ACTUAL_SENT_BUFFER_MUTATION');
++     row.sendCallbackCompleted=true;row.callbackBufferHash=sha(bytes);maybeComplete();
++    }catch(error){finish(error);}});
++   }
++   ws.on('open',()=>{try{
++    check();for(const event of events??[])sendKnown(['EVENT',event],event.id);
++    if(filter)sendKnown(['REQ','e02-owned-query',filter],null);
++   }catch(error){finish(error);}});
++   ws.on('message',data=>{try{
++    check();const bytes=Buffer.from(data);
++    log({direction:'RELAY_TO_PRODUCER',exchangeLabel:label,rawBase64:bytes.toString('base64')});
++    const frame=T.strictJSON(bytes.toString('utf8'));
++    if(frame[0]==='OK'){ack.push({rawBase64:bytes.toString('base64'),frame});need(frame[2]===true,'RELAY_REFUSAL');}
++    if(frame[0]==='EVENT'&&frame[1]==='e02-owned-query')received.push({rawBase64:bytes.toString('base64'),frame});
++    if(frame[0]==='EOSE'&&frame[1]==='e02-owned-query'){eose={rawBase64:bytes.toString('base64'),frame};queryEnded=true;}
++    maybeComplete();
++   }catch(error){finish(error);}});
++   ws.on('error',finish);ws.on('close',()=>{if(!settled)finish(Error('EARLY_RELAY_CLOSE'));});
++  });
++ }
++ async function prepare(){
++  check();need(!fs.existsSync(DIR+'/prepared.json'),'PREPARE_ONCE');
++  const from=T.secret(1),local=T.secret(spec.scalar),rumors={business:doc(p.oracles.business.path),chat:doc(p.oracles.chat.path)};
++  need(T.getPublicKey(from)===A&&T.getPublicKey(local)===spec.account,'PUBLIC_ROLE_IDENTITIES');
++  for(const r of Object.values(rumors))need(exactInnerShape(r)&&r.id===T.getEventHash(r),'FROZEN_INPUT_RUMOR_ID');
++  check();const initial=T.wrap(rumors.business,from,spec.account);
++  const events=p.ordinaryRole==='incoming'?[initial,T.wrap(rumors.chat,from,B)]:[initial,initial,T.wrap(rumors.business,from,A)];
++  const expected={};for(let i=0;i<spec.stages.length;i++){const s=stageSpec(p.ordinaryRole,i);expected[s.id]={stage:s,rumor:putJSON(s.id+'-expected-rumor.json',rumors[s.oracle]),content:put(DIR+'/'+s.id+'-expected-content.txt',rumors[s.oracle].content)};}
++  const preparedPin=putJSON('prepared.json',{schema:'e02-minimum-prepared-v1',profileId:PROFILE,windowId:spec.windowId,role:p.ordinaryRole,rumors,events,expected});
++  prepared();check();const now=Math.floor(Date.now()/1000),inboxes=[T.secret(1),T.secret(2)].map(sk=>T.finalizeEvent({kind:10050,created_at:now,tags:[['relay',p.proxyUrl]],content:''},sk));
++  const r=await exchange(inboxes,null,'prepare-inboxes');check();const inboxPin=putJSON('inboxes.json',{events:inboxes,...r});
++  return {profileId:PROFILE,windowId:spec.windowId,ordinaryRole:p.ordinaryRole,expected,prepared:preparedPin,inboxes:inboxPin};
++ }
++ function validateActual(frame,queried,stage,origin){check();const f=T.strictJSON(frame.toString('utf8'));need(f[0]==='EVENT'&&same(f[2],queried),'ACTUAL_VALIDATED_FRAME_QUERY_JOIN');const wire=JSON.stringify(f[2]);const request={op:'validate',wire,secret:String(spec.scalar).padStart(64,'0'),role:spec.validationRole,expectedSender:A};const framePin=put(DIR+'/'+stage.id+'-frame.json',frame),wirePin=put(DIR+'/'+stage.id+'-wire.json',wire);const jsRequest=putJSON(stage.id+'-js-request.json',request),rustRequest=putJSON(stage.id+'-rust-request.json',request);check();const js=T.validate(wire,T.secret(spec.scalar),{role:spec.validationRole,expectedSender:A});const jsResult=putJSON(stage.id+'-js-result.json',js);check();const requests=[{op:'source'},request],stdin=requests.map(x=>JSON.stringify(x)).join('\n')+'\n';const input=put(DIR+'/'+stage.id+'-Rust-stdin.jsonl',stdin);const native=spawnSync(p.pins.rustBinary.path,[],{input:stdin,timeout:p.limits.rustTimeoutMilliseconds,maxBuffer:1048576,env:{PATH:'/usr/bin:/bin',LANG:'C.UTF-8',LC_ALL:'C.UTF-8'}});const stdout=put(DIR+'/'+stage.id+'-Rust-stdout.jsonl',native.stdout??Buffer.alloc(0)),stderr=put(DIR+'/'+stage.id+'-Rust-stderr.bin',native.stderr??Buffer.alloc(0));check();need(!native.error&&native.status===0&&native.signal===null&&(native.stderr?.length??0)===0,'NATURAL_RUST_VALIDATION');const replies=String(native.stdout).trimEnd().split('\n').map(x=>T.strictJSON(x));need(replies.length===2&&replies[0].ok===true&&replies[0].value===fs.readFileSync(p.pins.rustSource.path,'utf8')&&replies[1].ok===true,'CURRENT_RUST_SOURCE_REPLY');const rust=replies[1].value,rustResult=putJSON(stage.id+'-rust-result.json',rust);need(same(js,rust)&&js.ok===true&&same(js.value.rumor,prepared().rumors[stage.oracle])&&js.value.dispatch===stage.dispatch&&js.value.role===stage.normalizedRole,'INDEPENDENT_VALIDATED_FRAME_ROLE_RESULT');const transport=putJSON(stage.id+'-consumer-transport.json',{schema:'e02-minimum-transport-v1',frame:framePin,wire:wirePin,jsRequest,rustRequest,jsResult,rustResult});const validation=putJSON(stage.id+'-validation.json',{schema:'e02-minimum-validated-wire-record-v1',profileId:PROFILE,windowId:spec.windowId,stageId:stage.id,origin,clientReceiptEstablished:origin==='ACTUAL_APP_SOCKET_FRAME',transport,rustBinary:p.pins.rustBinary,rustSource:p.pins.rustSource,rustInput:input,rustStdout:stdout,rustStderr:stderr,rustExit:native.status,rustSignal:native.signal,actualQueriedEvent:queried,js,rust,clientRetention:'NOT_ESTABLISHED_BY_TRANSPORT_VALIDATION'});return {transport,validation};}
++ async function publish(){
++  check();need(stageIndex<spec.stages.length&&!publicationInvalidated,'FINITE_ROLE_STAGE_OR_STICKY_FAILURE');
++  const d=prepared(),stage=selectedStage(),event=d.events[stageIndex],initial=d.events[0],before=gate();
++  need(before!==null&&replayBinding(stage,event,initial),'CURRENT_STAGE_BINDINGS_REQUIRED');
++  publicationGate=before;delivery=null;attempted=true;activeAttempt={epoch:++attemptEpoch,stageId:stage.id};
++  publicationWindowOpen=true;attemptSawFrame=false;const windowStarted=process.hrtime.bigint();
++  const intentRow=log({direction:'PUBLICATION_INTENT',stageId:stage.id,eventId:event.id,attempt:activeAttempt});
++  const intent=putJSON(stage.id+'-publish-intent.json',{schema:'e02-minimum-publish-intent-v1',profileId:PROFILE,windowId:spec.windowId,stage,attempt:activeAttempt,intentSequence:intentRow.sequence,prepared:pin(DIR+'/prepared.json'),gate:before,issuedUTC:new Date().toISOString()});
++  check();const publication=await exchange([event],null,stage.id+'-publish');check();
++  const until=process.hrtime.bigint()+10000000000n;
++  while(!delivery&&!publicationInvalidated&&process.hrtime.bigint()<until){check();await new Promise(r=>setTimeout(r,100));}
++  check();need(!publicationInvalidated&&publicationGenerationMatches(connections,before,event,spec.account),'CURRENT_GENERATION_AFTER_PUBLICATION');
++  const observed=qualifiedDelivery(before,event);
++  need(observed||!attemptSawFrame,'UNCOMPLETED_APP_FRAME_IS_NOT_QUERY_ONLY_ABSENCE');
++  need(stageDeliveryAllowed(stage,observed,observed?'ACTUAL_APP_SOCKET_FRAME':'ACTUAL_RELAY_QUERY_NO_NEW_APP_FRAME'),'MISSING_REQUIRED_NEW_APP_EVENT_FRAME');
++  publicationWindowOpen=false;
++  const elapsedNanoseconds=Number(process.hrtime.bigint()-windowStarted);
++  need(Number.isSafeInteger(elapsedNanoseconds)&&elapsedNanoseconds>=0&&elapsedNanoseconds<=1800000000000,'BOUNDED_MEASURED_WINDOW_TIME');
++  const closedRow=log({direction:'PUBLICATION_WINDOW_CLOSED',stageId:stage.id,eventId:event.id,attempt:activeAttempt,
++   intentSequence:intentRow.sequence,actualNewAppFrameObserved:observed,candidateAppFrameSeen:attemptSawFrame,elapsedNanoseconds});
++  const publicationWindow=putJSON(stage.id+'-publication-window.json',{schema:'e02-minimum-publication-window-v1',
++   profileId:PROFILE,windowId:spec.windowId,stageId:stage.id,eventId:event.id,attempt:activeAttempt,
++   intentSequence:intentRow.sequence,closeSequence:closedRow.sequence,actualNewAppFrameObserved:observed,
++   candidateAppFrameSeen:attemptSawFrame,elapsedNanoseconds,clock:'NODE_PROCESS_HRTIME_MONOTONIC',
++   origin:observed?'ACTUAL_APP_SOCKET_FRAME':'ACTUAL_RELAY_QUERY_NO_NEW_APP_FRAME'});
++  const query=await exchange(null,{ids:[event.id],limit:1},stage.id+'-query');check();need(query.received.length===1&&same(query.received[0].frame[2],event),'EXACT_PUBLISHED_EVENT_QUERY');
++  const validation=validateActual(observed?delivery.frame:Buffer.from(query.received[0].rawBase64,'base64'),query.received[0].frame[2],stage,observed?'ACTUAL_APP_SOCKET_FRAME':'ACTUAL_RELAY_QUERY_NO_NEW_APP_FRAME');
++  const produced=JSON.stringify(event),producerResult=T.validate(produced,T.secret(spec.scalar),{role:spec.validationRole,expectedSender:A});
++  need(producerResult.ok===true&&same(producerResult.value.rumor,d.rumors[stage.oracle])&&producerResult.value.dispatch===stage.dispatch&&producerResult.value.role===stage.normalizedRole,'DECLARED_ROLE_DISPATCH_ELIGIBILITY');
++  const producerValidation=putJSON(stage.id+'-producer-validation.json',{schema:'e02-minimum-producer-validation-v1',stageId:stage.id,actualPublishedEvent:event,result:producerResult,meaning:'Producer validation only; not a business effect or substitute for actual app wire/export.'});
++  check();need(!publicationInvalidated&&publicationGenerationMatches(connections,before,event,spec.account),'CURRENT_GENERATION_BEFORE_STAGE_RECORD');
++  const record=putJSON(stage.id+'-publication.json',{schema:'e02-minimum-stage-publication-v1',profileId:PROFILE,windowId:spec.windowId,stage,attempt:activeAttempt,intent,publicationWindow,gate:before,publication,query,event,
++   actualNewAppFrameObserved:observed,delivery:observed?{connection:delivery.connection,subscription:delivery.subscription,rowSequence:delivery.rowSequence,sentSequence:delivery.sentSequence,forwardGeneration:delivery.forwardGeneration,completionGeneration:delivery.completionGeneration,forwardAttempt:delivery.forwardAttempt,completionAttempt:delivery.completionAttempt}:null,
++   validation,producerValidation,clientRetention:'UNVERIFIED_REQUIRES_FRESH_CLIENT_SELECTION_EXPORT',validationOrigin:observed?'ACTUAL_APP_SOCKET_FRAME':'ACTUAL_RELAY_QUERY_NO_NEW_APP_FRAME',
++   replayLimit:stage.identicalReplay&&!observed?'No new frame observed in bounded interval; retain honest publication/query/history and require post-replay real client export. No synthesized EVENT or earlier-frame donation.':null});
++  stageIndex++;attempted=false;activeAttempt=null;
++  return {profileId:PROFILE,windowId:spec.windowId,stage,publication:record,publicationWindow,validation,producerValidation,actualNewAppFrameObserved:observed};
++ }
++ const control=net.createServer({allowHalfOpen:true},socket=>{let b='';socket.on('data',chunk=>{b+=chunk.toString('utf8');if(Buffer.byteLength(b)>1024)socket.destroy();});socket.on('end',async()=>{let acquired=false;try{check();const q=JSON.parse(b);need(Object.keys(q).length===1&&['prepare','status','publish'].includes(q.op),'FIXED_CONTROL_OPERATION');need(!busy,'COMMAND_IN_PROGRESS');busy=true;acquired=true;let result;if(q.op==='prepare')result=await prepare();else if(q.op==='publish')result=await publish();else result={profileId:PROFILE,windowId:spec.windowId,stageId:stageIndex<spec.stages.length?selectedStage().id:null,stageIndex,complete:stageIndex===spec.stages.length,ready:gate()!==null,gate:gate(),captureSequence:sequence,scope:'SUBSCRIPTION_PREFLIGHT_NOT_CLIENT_RECEIPT'};check();socket.end(JSON.stringify({schema:'e02-minimum-fixture-command-v1',profileId:PROFILE,windowId:spec.windowId,operation:q.op,caseId:CASE,ok:true,result})+'\n');}catch(error){try{putJSON('command-error-'+Date.now()+'.json',{operation:'CONTROL',error:String(error)});}catch{}socket.end(JSON.stringify({ok:false,error:String(error)})+'\n');}finally{if(acquired)busy=false;}});});
+  control.on('error',fatal);check();control.listen(SOCKET,()=>{fs.chmodSync(SOCKET,0o600);putJSON('serve-ready.json',{schema:'e02-fixture-service-ready-v1',caseId:CASE,proxy:p.proxyUrl,backend:p.backendUrl,scope:'NO_CLIENT_RECEIPT_OR_E02_PASS'});});
+  const watchdog=setInterval(()=>{try{check();}catch(e){fatal(e);}},1000);
+  for(const sig of ['SIGTERM','SIGINT'])process.on(sig,()=>{if(closed)return;closed=true;clearInterval(watchdog);for(const c of connections.values()){c.app.terminate();c.upstream.terminate();}server.close();control.close();try{fs.fsyncSync(captureFd);fs.closeSync(captureFd);}catch{}});
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/minimum-plan.json
+@@ -0,0 +1,41 @@
++{
++  "schema": "e02-ordinary-minimum-profile-plan-v1",
++  "profileId": "e02-ordinary-minimum-rs-two-role-v1",
++  "ordinaryProducer": "JS_ONLY",
++  "relay": "rs-relay",
++  "roles": {
++    "incoming": {
++      "windowId": "incoming-b",
++      "account": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
++      "peer": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
++      "scalar": 2,
++      "nsec": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpqptcfk2",
++      "tab": "New Requests",
++      "stages": [
++        "incoming-business",
++        "incoming-ordinary-chat"
++      ]
++    },
++    "archive": {
++      "windowId": "archive-a",
++      "account": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
++      "peer": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
++      "scalar": 1,
++      "nsec": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqsmhltgl",
++      "tab": "Known",
++      "stages": [
++        "archive-business",
++        "archive-identical-replay",
++        "archive-fresh-wrap-replay"
++      ]
++    }
++  },
++  "businessId": "e2b4accf597c65d5a3749f44551545f2be430a0ac3ddfb4cf694c9d12ae6df14",
++  "chatId": "f335fb5dbee6dda9fff841581bfa552584dd56782ff100ce0912a4708f0de71f",
++  "perWindowOriginalLeaseSeconds": 1800,
++  "maximumRoleWindows": 2,
++  "reuseV3Observation": false,
++  "sharedOracleMeaning": "Frozen v2 producer EXPECTATION INPUT only; never a failed-row donation. Both roles require genuine new client exports.",
++  "canonicalPass": false,
++  "maximumConcurrentWindows": 1
++}
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v3/runtime-plan.json
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/runtime-plan.json
+@@ -1,10 +1,4 @@
+ {
+-  "schema": "e02-api35-v3-first-cell-runtime-plan-v1",
+-  "state": "SOURCE_ONLY_V3_SEMANTIC_SHAPE_NO_POSITIONAL_IDENTITY_NOT_TESTED_NOT_RELEASED",
+-  "ready": false,
+-  "scope": "JS_TO_RUST_PEER_INCOMING_SCALAR2_RS_RELAY_ONE_CELL_PARTIAL_ONLY",
+-  "runId": null,
+-  "maximumOriginalLeaseSeconds": 1800,
+   "runtimeImage": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+   "relayImage": "sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82",
+   "sdkRoot": "/tmp/nbdp-e02-api35-fixture-r2/sdk",
+@@ -18,25 +12,19 @@
+     "bytes": 16787,
+     "sha256": "a680e513a9b36cab634620507b77bba36532ce13acb465a860c7bef60d23ec20"
+   },
+-  "guardSubsetReview": "PENDING",
+-  "actualGuardTests": "UNCHANGED_BYTES_SCOPE_LINK_ONLY_NO_NEW_EXECUTION",
+-  "supervisorSource": "MATERIALIZED_REQUIRES_NEW_SOURCE_REVIEW",
+-  "driverSource": "ONLY_VOLATILE_INDEX_EXCLUSION_AND_SEMANTIC_SHAPE_DOCSTRING_REQUIRE_REVIEW",
+-  "fixtureSource": "BYTE_IDENTICAL_TO_CURRENT_R11",
+-  "currentE01AndE02Provenance": "RECHECK_REQUIRED_FOR_RUN",
+-  "sourceAndDependencyPins": "EXTERNAL_PROPOSED_CONFIG_REQUIRES_REVIEW",
+-  "exactIndependentRuntimeReviews": "PENDING_NEW_SOURCE_AND_ACTUAL_CONTROLS",
++  "schema": "e02-ordinary-minimum-role-runtime-plan-v1",
++  "state": "SOURCE_ONLY_PENDING_INDEPENDENT_REVIEW_CHANGED_CONTROLS_AND_SEPARATE_ROLE_GRANTS",
++  "scope": "E02_ORDINARY_MINIMUM_RS_TWO_ROLE_WINDOW_ONLY",
++  "profileId": "e02-ordinary-minimum-rs-two-role-v1",
++  "maximumOriginalLeaseSeconds": 1800,
++  "maximumConcurrentWindows": 1,
++  "ready": false,
+   "executionReleased": false,
+   "canonicalE02": "PARTIAL22_UNCHANGED",
+   "limits": [
+-    "SOURCE ONLY: exact independent QA/security of v3 semantic correction, actual currentUI49/cleanup26 controls and independent result review, then fresh exact coordinator release.",
+-    "Same firstJS-to-Rust incoming rsrelay cell only; other seven producer cells and canonical integration remain undone.",
+-    "Retain one source-bound Hide Password to Show Password eye action; password metadata remains closed/recorded but is not visual-mask proof alone.",
+-    "Fresh post-input PNG/XML, same unique closed structural field/eye identity, Show Password state and exact whole public synthetic NSEC remain mandatory.",
+-    "Guard/fixture/consumer source/test bytes unchanged; only explicitly pinned actual29/27/14 prior pure scopes may carry, not priorUI38/cleanup24 or ordinary acceptance.",
+-    "SDK35/APK/helper/Lavapipe/containerCPU8/guest4CPU4096MiB/memswap8192MiB/PID512/original1800s lease, requested2048M partition/source6GiB floor unchanged.",
+-    "Coordinator requires fresh>=8GiB on actual output filesystem before ordinary grant: conservative margin, not measured minimum or boot guarantee.",
+-    "Known Settings/SystemUI Wait-only<=2 remains bounded; unknown/Quickstep refuse. No new health gate, fallback, SDK/kind/NIP, deployment or blocker closure.",
+-    "Semantic class/package/resource-id role shape is not persistent object identity. Positional indices may change when placeholder disappears; current bounds/unique ancestry/known shown state/exact whole public NSEC remain required."
++    "Distinct fresh incoming/archive states; fixed JS-only producer on rs-relay; full current independent primary matrix remains separately mandatory.",
++    "Original guard/clocks/isolation/cgroup/action/capture/scroll/known-ANR/deadline limits retained.",
++    "Requested2048M/source6GiB floor unchanged; actual old hardware normalized6g. Fresh>=8GiB actual output filesystem admission is coordinator conservative margin, not measured minimum or guarantee.",
++    "No consumer/canonical integration implemented here; new root-owned consumer, actual controls and independent results review required."
+   ]
+ }
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v3/supervisor.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/supervisor.py
+@@ -24,9 +24,10 @@
+ # Guest source is staged at /input/supervisor.py. Host-only helpers use this
+ # fixed authorized checkout; module initialization must also work in /input.
+ REPO = Path('/home/peterhorvath/apps/bitcoin/NBDP')
+-LAB = Path('/tmp/nbdp-e02-ordinary-client-api35-v3')
++LAB = Path('/tmp/nbdp-e02-ordinary-minimum-v1')
+ OLD = Path('/tmp/nbdp-e02-minimal-rs-v7')
+-SCOPE = 'JS_TO_RUST_PEER_INCOMING_SCALAR2_RS_RELAY_ONE_CELL_PARTIAL_ONLY'
++SCOPE = 'E02_ORDINARY_MINIMUM_RS_TWO_ROLE_WINDOW_ONLY'
++PROFILE = 'e02-ordinary-minimum-rs-two-role-v1'
+ RUNTIME = 'sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f'
+ RELAY = 'sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82'
+ PY = ['/guard-python/lib/ld-linux-x86-64.so.2', '--inhibit-cache', '--library-path',
+@@ -214,16 +215,22 @@
+ 
+ def source_pins():
+     return [pin(HERE / name) for name in ('supervisor.py', 'lease_guard.py',
+-            'android_driver.py', 'ui-plan.json', 'fixture.mjs', 'fixture-plan.json')]
+-
+-
+-def materialize(destination, run_id, seconds):
++            'android_driver.py', 'ui-plan.json', 'fixture.mjs', 'fixture-plan.json',
++            'minimum-plan.json', 'business-rumor.json', 'chat-rumor.json')]
++
++
++def materialize(destination, run_id, seconds, ordinary_role):
+     """Prepare bytes only; does not issue a lease, import workers or start Docker."""
+     need(re.fullmatch('[0-9a-f]{32}', run_id) and 60 <= seconds <= 1800, 'Fresh bounded run identity')
+     old = strict((HERE / 'runtime-plan.json').read_bytes())
+     config = {k: old[k] for k in ('schema', 'scope', 'runtimeImage', 'relayImage',
+               'sdkRoot', 'amethystApk', 'helperApk')}
+-    config.update(runId=run_id, originalLeaseSeconds=seconds,
++    minimum = strict((HERE / 'minimum-plan.json').read_bytes())
++    need(ordinary_role in ('incoming', 'archive'), 'Closed separately granted role required')
++    role = minimum['roles'][ordinary_role]
++    config.update(profileId=PROFILE, ordinaryRole=ordinary_role, windowId=role['windowId'],
++                  account=role['account'], peer=role['peer'],
++                  runId=run_id, originalLeaseSeconds=seconds,
+                   sourceAndDependencyPins=source_pins(),
+                   sdkInventory=pin(REPO / 'docs/decisions/evidence/e02-api35-fixture-preparation-r2/sdk-tree.json'),
+                   guardBundleInventory=pin(OLD / 'records/guard-bundle-manifest.json'),
+@@ -235,8 +242,15 @@
+ 
+ 
+ def verify_config(config):
+-    need(config['schema'] == 'e02-api35-v3-first-cell-runtime-plan-v1' and config['scope'] == SCOPE,
++    need(config['schema'] == 'e02-ordinary-minimum-role-runtime-plan-v1' and config['scope'] == SCOPE,
+          'Fixed first slice only')
++    need(config['profileId'] == PROFILE and config['ordinaryRole'] in ('incoming', 'archive'),
++         'Fixed adopted minimum profile and role required')
++    minimum = strict((HERE / 'minimum-plan.json').read_bytes())
++    role = minimum['roles'][config['ordinaryRole']]
++    need(minimum['profileId'] == PROFILE and config['windowId'] == role['windowId']
++         and config['account'] == role['account'] and config['peer'] == role['peer'],
++         'Exact fixed account/window bindings required')
+     need(config['runtimeImage'] == RUNTIME and config['relayImage'] == RELAY, 'Exact cached images only')
+     need(re.fullmatch('[0-9a-f]{32}', config['runId']) and type(config['originalLeaseSeconds']) is int
+          and 60 <= config['originalLeaseSeconds'] <= 1800, 'Immutable finite run required')
+@@ -266,7 +280,7 @@
+              and not path.is_symlink() and path.stat().st_size == descriptor['bytes']
+              and digest(path) == descriptor['sha256'], 'Guard interpreter bundle changed')
+     fixture = strict((HERE / 'fixture-plan.json').read_bytes())
+-    for descriptor in fixture['pins'].values():
++    for descriptor in [*fixture['pins'].values(), *fixture['oracles'].values()]:
+         checked({k: descriptor[k] if k != 'path' else descriptor['source']
+                  for k in ('path', 'bytes', 'sha256')})
+     dependencies = REPO / 'experiments/node_modules'
+@@ -419,7 +433,8 @@
+         need(not any(k in env for k in ('DISPLAY', 'WAYLAND_DISPLAY', 'DBUS_SESSION_BUS_ADDRESS', 'XAUTHORITY')),
+              'No host GUI/clipboard bridge environment')
+         need(env.get('NBDP_LEASE_SHA256') == self.lease_sha
+-             and env.get('NBDP_FIXTURE_PLAN_SHA256') == digest(HERE / 'fixture-plan.json'), 'Exact original service guard environment')
++             and env.get('NBDP_FIXTURE_PLAN_SHA256') == digest(HERE / 'fixture-plan.json')
++             and env.get('NBDP_MINIMUM_RUN_CONFIG_SHA256') == self.plan_pin['sha256'], 'Exact original service guard environment')
+         need(data['Config']['Entrypoint'] == [PY[0]] and data['Config']['Cmd'] == entry['command']
+              and data['Config']['User'] == str(os.getuid()) + ':' + str(os.getgid()), 'Actual entrypoint/user mismatch')
+         actual_mounts = {(m['Source'], m['Destination'], m['RW']) for m in data['Mounts'] if m['Type'] == 'bind'}
+@@ -467,7 +482,8 @@
+         for key, value in entry['labels'].items():
+             args += ['--label', key + '=' + value]
+         environment = dict(self.guard.ENV, NBDP_LEASE_SHA256=self.lease_sha,
+-                           NBDP_FIXTURE_PLAN_SHA256=digest(HERE / 'fixture-plan.json'))
++                           NBDP_FIXTURE_PLAN_SHA256=digest(HERE / 'fixture-plan.json'),
++                           NBDP_MINIMUM_RUN_CONFIG_SHA256=self.plan_pin['sha256'])
+         for key, value in environment.items():
+             args += ['--env', key + '=' + value]
+         for source, target, writable in mounts:
+@@ -642,7 +658,8 @@
+     lease = guard.Lease('/session/lease.json', os.environ['NBDP_LEASE_SHA256'], '/session/control')
+     lease.check()
+     env = dict(guard.ENV, NBDP_LEASE_SHA256=os.environ['NBDP_LEASE_SHA256'],
+-               NBDP_FIXTURE_PLAN_SHA256=os.environ['NBDP_FIXTURE_PLAN_SHA256'])
++               NBDP_FIXTURE_PLAN_SHA256=os.environ['NBDP_FIXTURE_PLAN_SHA256'],
++               NBDP_MINIMUM_RUN_CONFIG_SHA256=os.environ['NBDP_MINIMUM_RUN_CONFIG_SHA256'])
+     signal.signal(signal.SIGTERM, lambda *_: lease.revoke('Owned service interrupted'))
+     signal.signal(signal.SIGINT, lambda *_: lease.revoke('Owned service interrupted'))
+     def run(argv, timeout):
+@@ -671,9 +688,11 @@
+     need(config_pin['sha256'] == config_sha and release_pin['sha256'] == release_sha, 'External root pins required')
+     config, release = strict(config_path.read_bytes()), strict(release_path.read_bytes())
+     fixture = verify_config(config)  # All source/provenance checks before dependent imports.
+-    need(release['schema'] == 'e02-api35-v3-first-cell-release-v1' and release['executionAuthorized'] is True
++    need(release['schema'] == 'e02-ordinary-minimum-role-release-v1' and release['executionAuthorized'] is True
+          and release['runConfig'] == config_pin and release['scope'] == SCOPE
+-         and release['runId'] == config['runId'], 'Exact root first-cell release required')
++         and release['runId'] == config['runId'] and release['profileId'] == PROFILE
++         and release['ordinaryRole'] == config['ordinaryRole']
++         and release['windowId'] == config['windowId'], 'Exact root first-cell release required')
+     for key in ('qaReview', 'securityReview', 'guardRegressionEvidence'):
+         checked(release[key])
+     need(out == LAB / 'runs' / config['runId'] and not os.path.lexists(out), 'Fresh fixed own run directory')
+@@ -739,8 +758,9 @@
+         except BaseException as failure:
+             cleanup = {'ok': False, 'rows': [], 'evidence': None,
+                        'errors': ['Unexpected cleanup failure: ' + repr(failure)]}
+-        final_code = finalize(out, {'schema': 'e02-api35-v3-first-cell-supervisor-result-v1',
+-            'runId': config['runId'], 'runConfig': config_pin, 'runRelease': release_pin,
++        final_code = finalize(out, {'schema': 'e02-ordinary-minimum-role-supervisor-result-v1',
++            'runId': config['runId'], 'profileId': PROFILE,
++            'ordinaryRole': config['ordinaryRole'], 'windowId': config['windowId'], 'runConfig': config_pin, 'runRelease': release_pin,
+             'lease': lease_pin, 'canonicalE02Changed': False,
+             'limits': ['One cell only; mandatory wider matrix remains missing.',
+                        'No hard realtime/suspended-host cleanup guarantee.',
+@@ -752,6 +772,7 @@
+     parser = argparse.ArgumentParser(description=__doc__)
+     parser.add_argument('--guest', choices=ROLES)
+     parser.add_argument('--materialize', type=Path)
++    parser.add_argument('--ordinary-role', choices=('incoming', 'archive'))
+     parser.add_argument('--run-id')
+     parser.add_argument('--seconds', type=int, default=1800)
+     parser.add_argument('--config', type=Path)
+@@ -766,7 +787,7 @@
+         return 0
+     if args.materialize:
+         need(args.run_id and not args.config and not args.release and not args.out, 'Materialize only')
+-        print(json.dumps(materialize(args.materialize, args.run_id, args.seconds)))
++        print(json.dumps(materialize(args.materialize, args.run_id, args.seconds, args.ordinary_role)))
+         return 0
+     need(all((args.config, args.config_sha, args.release, args.release_sha, args.out)), 'Exact externally pinned config/release/out required')
+     return execute(args.config, args.config_sha, args.release, args.release_sha, args.out)
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v3/test_android_driver.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/test_android_driver.py
+@@ -120,6 +120,7 @@
+ 
+ class MockRuntime:
+     def __init__(self, out, snapshots):
++        self.plan = {'ordinaryRole': 'incoming'}
+         self.out = out
+         self.snapshots = list(snapshots)
+         self.snapshot_names = []
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v3/test_cleanup.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/test_cleanup.py
+@@ -50,6 +50,7 @@
+ class CleanupTests(unittest.TestCase):
+     def runtime(self, out, foreign=False):
+         runtime = subject.Runtime.__new__(subject.Runtime)
++        runtime.plan_pin = {'sha256': 'e' * 64}
+         runtime.out, runtime.docker, runtime.host_env = out, '/not-executed/docker', {}
+         runtime.ids, runtime.lease_sha = {'anchor': CID}, 'd' * 64
+         entry = {'name': 'nbdp-e02-' + 'a' * 32 + '-anchor', 'image': subject.RUNTIME,
+@@ -61,7 +62,8 @@
+             labels['nbdp.creation'] = 'f' * 32
+         data = {'Id': CID, 'Name': '/' + entry['name'], 'Image': subject.RUNTIME,
+                 'Config': {'Labels': labels, 'Env': ['NBDP_LEASE_SHA256=' + runtime.lease_sha,
+-                    'NBDP_FIXTURE_PLAN_SHA256=' + subject.digest(subject.HERE / 'fixture-plan.json')],
++                    'NBDP_FIXTURE_PLAN_SHA256=' + subject.digest(subject.HERE / 'fixture-plan.json'),
++                    'NBDP_MINIMUM_RUN_CONFIG_SHA256=' + runtime.plan_pin['sha256']],
+                     'Entrypoint': [subject.PY[0]], 'Cmd': entry['command'],
+                     'User': str(os.getuid()) + ':' + str(os.getgid())},
+                 'HostConfig': {'NetworkMode': 'none', 'Privileged': False, 'PortBindings': {},
+@@ -367,21 +369,58 @@
+         affinity.assert_called_once_with(0)
+ 
+ 
++    def test_minimum_role_config_environment_cannot_drift_in_owned_service(self):
++        with tempfile.TemporaryDirectory() as directory:
++            runtime, data = self.runtime(Path(directory))
++            data['Config']['Env'] = [value for value in data['Config']['Env']
++                                    if not value.startswith('NBDP_MINIMUM_RUN_CONFIG_SHA256=')]
++            data['Config']['Env'].append('NBDP_MINIMUM_RUN_CONFIG_SHA256=' + 'f' * 64)
++            with self.assertRaisesRegex(RuntimeError, 'Exact original service guard environment'):
++                runtime.validate_owned('anchor', data)
++
++
+ class ProfileIsolationControls(unittest.TestCase):
+-    def test_v2_runtime_schema_refuses_before_source_or_sdk_inventory_work(self):
+-        config = {'schema': 'e02-api35-v2-first-cell-runtime-plan-v1', 'scope': subject.SCOPE}
++    def test_unknown_role_refuses_before_minimum_plan_or_inventory_work(self):
++        for role in ('other', None, True):
++            with self.subTest(role=role), patch.object(subject, 'source_pins') as sources:
++                with self.assertRaisesRegex(RuntimeError, 'Fixed adopted minimum profile and role'):
++                    subject.verify_config({'schema': 'e02-ordinary-minimum-role-runtime-plan-v1',
++                        'scope': subject.SCOPE, 'profileId': subject.PROFILE, 'ordinaryRole': role})
++                sources.assert_not_called()
++
++    def test_other_role_or_window_release_refuses_before_resource_actions(self):
++        for role, window in [('archive', 'archive-a'), ('incoming', 'archive-a')]:
++            with self.subTest(role=role, window=window), tempfile.TemporaryDirectory() as directory:
++                root = Path(directory)
++                config, release = root / 'config.json', root / 'release.json'
++                config.write_text(json.dumps({'runId': 'a' * 32, 'ordinaryRole': 'incoming', 'windowId': 'incoming-b'}))
++                release.write_text(json.dumps({'schema': 'e02-ordinary-minimum-role-release-v1',
++                    'executionAuthorized': True, 'runConfig': subject.pin(config), 'scope': subject.SCOPE,
++                    'runId': 'a' * 32, 'profileId': subject.PROFILE, 'ordinaryRole': role, 'windowId': window}))
++                with patch.object(subject, 'verify_config', return_value={}), \
++                        patch.object(subject, 'load_module') as imports, \
++                        patch.object(subject.shutil, 'disk_usage') as disk:
++                    with self.assertRaisesRegex(RuntimeError, 'Exact root first-cell release'):
++                        subject.execute(config, subject.pin(config)['sha256'], release,
++                            subject.pin(release)['sha256'], root / 'never-created')
++                imports.assert_not_called()
++                disk.assert_not_called()
++                self.assertFalse((root / 'never-created').exists())
++
++    def test_legacy_v3_runtime_schema_refuses_before_source_or_sdk_inventory_work(self):
++        config = {'schema': 'e02-api35-v3-first-cell-runtime-plan-v1', 'scope': subject.SCOPE}
+         with patch.object(subject, 'source_pins') as sources, patch.object(subject, 'checked') as checked:
+             with self.assertRaisesRegex(RuntimeError, 'Fixed first slice only'):
+                 subject.verify_config(config)
+         sources.assert_not_called()
+         checked.assert_not_called()
+ 
+-    def test_v2_release_schema_refuses_before_resources_imports_or_lab_creation(self):
++    def test_legacy_v3_release_schema_refuses_before_resources_imports_or_lab_creation(self):
+         with tempfile.TemporaryDirectory(prefix='nbdp-e02-v3-release-negative-') as directory:
+             root = Path(directory)
+             config, release = root / 'config.json', root / 'release.json'
+             config.write_text(json.dumps({'runId': 'a' * 32}))
+-            release.write_text(json.dumps({'schema': 'e02-api35-v2-first-cell-release-v1'}))
++            release.write_text(json.dumps({'schema': 'e02-api35-v3-first-cell-release-v1'}))
+             with patch.object(subject, 'verify_config', return_value={}), \
+                     patch.object(subject, 'checked') as checked, \
+                     patch.object(subject, 'load_module') as imports, \
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/test_minimum_driver.py
+@@ -0,0 +1,300 @@
++"""Prepared pure role/navigation/export controls; never actual UI observations."""
++import hashlib
++import importlib.util
++import json
++from pathlib import Path
++import tempfile
++import unittest
++from unittest.mock import patch
++import xml.etree.ElementTree as ET
++
++HERE = Path(__file__).resolve().parent
++ROOT = HERE.parents[2]
++EVIDENCE = ROOT / 'docs/decisions/evidence/e02-ordinary-minimum-preparation-r1'
++SPEC = importlib.util.spec_from_file_location('minimum_prepared_ui_base_controls', HERE / 'test_android_driver.py')
++base = importlib.util.module_from_spec(SPEC)
++SPEC.loader.exec_module(base)
++driver = base.driver
++
++
++def navigation_fixture(number):
++    descriptors = json.loads((EVIDENCE / 'navigation-fixtures.json').read_text())['files']
++    row = next(row for row in descriptors if Path(row['path']).name.startswith('ui-' + number) and row['path'].endswith('.xml'))
++    raw = Path(row['path']).read_bytes()
++    if len(raw) != row['bytes'] or hashlib.sha256(raw).hexdigest() != row['sha256']:
++        raise AssertionError('Frozen negative-history navigation DATA changed')
++    return raw
++
++
++def chat_screen(token='NBDP/experiment'):
++    tree = ET.Element('hierarchy')
++    base.node(tree, **{'content-desc': 'Back', 'class': 'android.view.View'})
++    field = base.node(tree, bounds='[20,1400][1000,1550]', **{'class': 'android.widget.EditText'})
++    base.node(field, 'Message', '[40,1420][300,1490]')
++    base.node(tree, token, '[100,500][850,700]')
++    return ET.tostring(tree)
++
++
++class MinimumRoleNavigationControls(unittest.TestCase):
++    def setUp(self):
++        self.temp = tempfile.TemporaryDirectory(prefix='nbdp-minimum-role-controls-')
++        self.addCleanup(self.temp.cleanup)
++        self.out = Path(self.temp.name)
++
++    def ui(self, snapshots, role='incoming'):
++        runtime = base.MockRuntime(self.out, snapshots)
++        runtime.plan['ordinaryRole'] = role
++        runtime.plan['helperApk'] = {'path': '/CONTROL_FIXTURE_NOT_AN_APK', 'bytes': 0, 'sha256': '0' * 64}
++        return driver.UI(runtime), runtime
++
++    def test_unknown_role_refuses_before_any_adb(self):
++        runtime = base.MockRuntime(self.out, [])
++        runtime.plan['ordinaryRole'] = 'other'
++        with self.assertRaisesRegex(ValueError, 'Closed minimum account role'):
++            driver.UI(runtime)
++        self.assertEqual(runtime.adb_calls, [])
++
++    def test_archive_types_only_exact_whole_public_scalar1_nsec(self):
++        value = driver.ROLE_SPECS['archive']['nsec']
++        ui, runtime = self.ui([base.actual_structure_login(False), base.source_shown_login(value)], 'archive')
++        ui.refresh('archive-source-shown')
++        ui.input_text(value, 'archive-whole-public-key')
++        self.assertEqual(runtime.adb_calls, [['shell', 'input', 'text', value]])
++        self.assertEqual(runtime.records['evidence/public-identity-visibility.json']['afterEyeDescription'], 'Show Password')
++
++    def test_other_role_nsec_never_enters_current_window(self):
++        for role, other in [('incoming', 'archive'), ('archive', 'incoming')]:
++            with self.subTest(role=role):
++                ui, runtime = self.ui([], role)
++                with self.assertRaisesRegex(ValueError, 'Only fixed public synthetic identity'):
++                    ui.input_text(driver.ROLE_SPECS[other]['nsec'], 'wrong-role')
++                self.assertEqual(runtime.adb_calls, [])
++
++    def test_archive_partial_masked_or_wrong_input_never_counts_as_complete(self):
++        value = driver.ROLE_SPECS['archive']['nsec']
++        for wrong in (value[:-1], '\u2022' * len(value), driver.NSEC):
++            with self.subTest(wrong=wrong), tempfile.TemporaryDirectory(dir=self.out) as child:
++                ui, runtime = self.ui([base.actual_structure_login(False), base.source_shown_login(wrong)], 'archive')
++                runtime.out = Path(child)
++                ui.refresh('before-wrong-archive-key')
++                with self.assertRaisesRegex(ValueError, 'whole intended value'):
++                    ui.input_text(value, 'wrong-archive-key')
++                self.assertEqual(runtime.adb_calls, [['shell', 'input', 'text', value]])
++
++    def test_helper_cannot_export_another_role_stage(self):
++        ui, runtime = self.ui([], 'incoming')
++        with self.assertRaisesRegex(ValueError, 'Closed role helper operation'):
++            driver.helper(ui, 'CLEAR', 'archive-business')
++        self.assertEqual(runtime.adb_calls, [])
++
++    def test_chat_context_uses_message_composer_not_optional_calling_feature(self):
++        ui, runtime = self.ui([chat_screen()])
++        ui.refresh('known-chat-no-call-button')
++        driver.chat_context(ui)
++        self.assertFalse(ui.find('Voice call', True))
++        self.assertEqual(runtime.adb_calls, [])
++
++    def test_chat_context_rejects_foreign_or_nonempty_composer(self):
++        for key, value in [('package', 'foreign.app'), ('text', 'unexpected-composer-input')]:
++            with self.subTest(key=key), tempfile.TemporaryDirectory(dir=self.out) as child:
++                tree = ET.fromstring(chat_screen())
++                next(n for n in tree.iter('node') if n.get('class') == 'android.widget.EditText').set(key, value)
++                ui, runtime = self.ui([ET.tostring(tree)])
++                runtime.out = Path(child)
++                ui.refresh('invalid-composer')
++                with self.assertRaises(ValueError):
++                    driver.chat_context(ui)
++                self.assertEqual(runtime.adb_calls, [])
++
++    def test_known_recipient_inbox_warning_is_read_only_room_branch(self):
++        tree = ET.fromstring(chat_screen())
++        tree.remove(next(n for n in tree if n.get('class') == 'android.widget.EditText'))
++        base.node(tree, 'DM inbox relays not found. Messages cannot be delivered until they configure their relay list.',
++                  '[20,1400][1000,1550]')
++        ui, runtime = self.ui([ET.tostring(tree)])
++        ui.refresh('room-warning-with-real-note')
++        self.assertEqual(driver.chat_context(ui), 'RECIPIENT_DM_RELAYS_WARNING_READ_ONLY')
++        self.assertEqual(runtime.adb_calls, [])
++
++    def test_recipient_warning_without_expected_note_does_not_identify_room(self):
++        tree = ET.fromstring(chat_screen('unrelated-content'))
++        tree.remove(next(n for n in tree if n.get('class') == 'android.widget.EditText'))
++        base.node(tree, 'DM inbox relays not found. Messages cannot be delivered until they configure their relay list.')
++        ui, runtime = self.ui([ET.tostring(tree)])
++        ui.refresh('warning-is-not-room-proof')
++        with self.assertRaisesRegex(ValueError, 'Actual expected note'):
++            driver.chat_context(ui)
++        self.assertEqual(runtime.adb_calls, [])
++
++    def relay_screen(self, url=driver.URL, extra_neighbor=False):
++        tree = ET.Element('hierarchy')
++        base.node(tree, 'Relay Settings', '[50,40][700,110]')
++        base.node(tree, 'Local Relays', '[50,200][700,260]')
++        field = base.node(tree, url, '[50,400][1000,550]', **{'class': 'android.widget.EditText'})
++        base.node(field, 'Add a Relay', '[70,405][400,445]')
++        button = base.node(field, bounds='[800,450][980,530]', clickable='true', **{'class': 'android.view.View'})
++        base.node(button, 'Add', '[825,465][955,515]')
++        if extra_neighbor:
++            base.node(tree, 'Add', '[825,565][955,615]')
++        return tree
++
++    def test_local_add_uses_only_trailing_button_of_exact_typed_editor(self):
++        ui, runtime = self.ui([ET.tostring(self.relay_screen(extra_neighbor=True))])
++        ui.refresh('multiple-relay-add-labels')
++        button = driver.local_relay_add_button(ui)
++        self.assertEqual(button.get('bounds'), '[800,450][980,530]')
++        self.assertEqual(runtime.adb_calls, [])
++
++    def test_neighbor_section_field_or_wrong_local_url_refuses_before_add(self):
++        for wrong_url, different_section in [('ws://wrong:17777', False), (driver.URL, True)]:
++            with self.subTest(wrong=wrong_url), tempfile.TemporaryDirectory(dir=self.out) as child:
++                tree = self.relay_screen(url=wrong_url)
++                if different_section:
++                    base.node(tree, 'Trusted Relays', '[50,300][700,350]')
++                ui, runtime = self.ui([ET.tostring(tree)])
++                runtime.out = Path(child)
++                ui.refresh('wrong-relay-editor')
++                with self.assertRaises(ValueError):
++                    driver.local_relay_add_button(ui)
++                self.assertEqual(runtime.adb_calls, [])
++
++    def test_local_add_foreign_or_detached_button_never_gets_clicked(self):
++        for detached in (False, True):
++            with self.subTest(detached=detached), tempfile.TemporaryDirectory(dir=self.out) as child:
++                tree = self.relay_screen()
++                field = next(n for n in tree.iter('node') if n.get('class') == 'android.widget.EditText')
++                label = next(n for n in field.iter('node') if n.get('text') == 'Add')
++                if detached:
++                    parent = next(n for n in field.iter('node') if label in list(n))
++                    parent.remove(label)
++                    tree.append(label)
++                else:
++                    label.set('package', 'foreign.app')
++                ui, runtime = self.ui([ET.tostring(tree)])
++                runtime.out = Path(child)
++                ui.refresh('unowned-add-button')
++                with self.assertRaises(ValueError):
++                    driver.local_relay_add_button(ui)
++                self.assertEqual(runtime.adb_calls, [])
++
++    def test_actual_feeds_header_accepts_observed_two_pixel_section_clip(self):
++        ui, runtime = self.ui([navigation_fixture('022')])
++        ui.refresh('actual-frozen-expanded-feeds')
++        header = driver.expanded_feeds_header(ui)
++        self.assertEqual(header.get('bounds'), '[66,1161][906,1264]')
++        self.assertEqual(runtime.adb_calls, [])
++
++    def test_feeds_partial_viewport_does_not_invent_collapsed_state_or_action(self):
++        tree = ET.fromstring(navigation_fixture('022'))
++        for parent in tree.iter('node'):
++            for child in list(parent):
++                if child.get('text') == 'Pictures':
++                    parent.remove(child)
++        ui, runtime = self.ui([ET.tostring(tree)])
++        ui.refresh('partial-expanded-anchors')
++        self.assertIsNone(driver.expanded_feeds_header(ui))
++        self.assertEqual(runtime.adb_calls, [])
++
++    def test_feeds_foreign_duplicate_or_unowned_header_never_gets_a_click(self):
++        for variant in ('foreign', 'duplicate', 'detached'):
++            with self.subTest(variant=variant), tempfile.TemporaryDirectory(dir=self.out) as child:
++                tree = ET.fromstring(navigation_fixture('022'))
++                label = next(n for n in tree.iter('node') if n.get('text') == 'Feeds')
++                if variant == 'foreign':
++                    label.set('package', 'foreign.app')
++                elif variant == 'duplicate':
++                    base.node(tree, 'Feeds')
++                else:
++                    parent = next(n for n in tree.iter('node') if label in list(n))
++                    parent.remove(label)
++                    tree.append(label)
++                ui, runtime = self.ui([ET.tostring(tree)])
++                runtime.out = Path(child)
++                ui.refresh('invalid-feeds-header')
++                with self.assertRaises(ValueError):
++                    driver.expanded_feeds_header(ui)
++                self.assertEqual(runtime.adb_calls, [])
++
++    def test_one_known_feeds_collapse_then_actual_system_gate(self):
++        after = ET.fromstring(navigation_fixture('022'))
++        base.node(after, 'System', '[66,1280][848,1330]')
++        ui, runtime = self.ui([navigation_fixture('022'), ET.tostring(after)])
++        ui.refresh('before-one-collapse')
++        driver.seek_system(ui)
++        self.assertEqual(runtime.adb_calls, [['shell', 'input', 'tap', '486', '1212']])
++        self.assertEqual(runtime.records['evidence/feeds-collapse-gui.json']['actions'], 1)
++
++    def test_system_seek_does_not_repeat_feeds_toggle_or_increase_seven_scrolls(self):
++        ui, runtime = self.ui([navigation_fixture('022')] * 10)
++        ui.refresh('before-exhausted-system-seek')
++        with self.assertRaisesRegex(ValueError, 'bounded System seek'):
++            driver.seek_system(ui)
++        self.assertEqual(len([row for row in runtime.adb_calls if row[:3] == ['shell', 'input', 'tap']]), 1)
++        self.assertEqual(len([row for row in runtime.adb_calls if row[:3] == ['shell', 'input', 'swipe']]), 7)
++
++    def test_initial_ambiguous_note_refuses_but_replay_records_visible_matches(self):
++        tree = ET.fromstring(chat_screen())
++        base.node(tree, 'NBDP/experiment', '[100,800][850,1000]')
++        ui, runtime = self.ui([ET.tostring(tree)])
++        ui.refresh('two-matching-text-nodes')
++        with self.assertRaisesRegex(ValueError, 'match count'):
++            driver.select_note(ui, 'NBDP/experiment', False)
++        selected, rows = driver.select_note(ui, 'NBDP/experiment', True)
++        self.assertEqual(len(rows), 2)
++        self.assertEqual(selected.get('bounds'), '[100,800][850,1000]')
++        self.assertEqual(runtime.adb_calls, [])
++
++    def test_replay_ambiguous_equal_bottom_never_selects_arbitrarily(self):
++        tree = ET.fromstring(chat_screen())
++        base.node(tree, 'NBDP/experiment', '[100,500][850,700]')
++        ui, runtime = self.ui([ET.tostring(tree)])
++        ui.refresh('ambiguous-duplicate-position')
++        with self.assertRaisesRegex(ValueError, 'Unique actual lowest'):
++            driver.select_note(ui, 'NBDP/experiment', True)
++        self.assertEqual(runtime.adb_calls, [])
++
++    def export_case(self, observed, expected):
++        raw = json.dumps(observed, ensure_ascii=False).encode()
++        ui, runtime = self.ui([chat_screen(), chat_screen(), base.screen(['More Options']),
++                               base.screen(['Copy raw JSON']), chat_screen()])
++        original = runtime.adb
++        def adb(args):
++            if args[:3] == ['exec-out', 'run-as', driver.HELPER]:
++                runtime.adb_calls.append(list(args))
++                return raw
++            return original(args)
++        runtime.adb = adb
++        def helper(subject, action, case_id):
++            value = {'status': 'EMPTY_SENTINEL_SET', 'wallClockMillis': 1} if action == 'CLEAR' else {
++                'status': 'CAPTURED', 'mime': 'text/plain', 'clipboardItemCount': 1,
++                'clipboardTimestamp': 2, 'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()}
++            return value, runtime.put_json('synthetic-helper-' + action + '.json', value)
++        ui.refresh('synthetic-export-start')
++        with patch.object(driver, 'helper', helper):
++            return driver.export_note(ui, {'id': 'incoming-business', 'index': 0}, 'NBDP/experiment', expected), runtime
++
++    def test_export_preserves_whole_frozen_six_fields_and_original_ordered_tags(self):
++        expected = json.loads((HERE / 'business-rumor.json').read_text())
++        result, runtime = self.export_case(dict(expected, sig=''), expected)
++        raw = Path(result['rawClientRumor']['path']).read_bytes()
++        self.assertEqual(json.loads(raw), dict(expected, sig=''))
++        selection = runtime.records['evidence/incoming-business/selection.json']
++        self.assertEqual(selection['originalOrderedTags'], expected['tags'])
++        self.assertEqual(result['duplicateObservation']['globalDuplicateBubbleCountStatus'], 'UNKNOWN_UNMEASURED')
++        self.assertFalse(any(row[:3] == ['shell', 'input', 'text'] for row in runtime.adb_calls))
++
++    def test_export_wrong_inner_recipient_content_or_signature_never_becomes_retention(self):
++        expected = json.loads((HERE / 'business-rumor.json').read_text())
++        for patch_value in ({'tags': [['p', driver.PEER]]}, {'content': 'mutated'}, {'sig': 'not-empty'}):
++            with self.subTest(patch=patch_value), tempfile.TemporaryDirectory(dir=self.out) as child:
++                previous = self.out
++                self.out = Path(child)
++                try:
++                    with self.assertRaisesRegex(ValueError, 'whole six-field|empty unsigned'):
++                        self.export_case(dict(expected, **patch_value), expected)
++                finally:
++                    self.out = previous
++
++
++if __name__ == '__main__':
++    unittest.main()
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/test_minimum_fixture.mjs
+@@ -0,0 +1,45 @@
++// Prepared pure metadata controls only. No wrap/sign/encrypt/native/network call.
++import assert from 'node:assert/strict';
++import {roleSpec,stageSpec,exactInnerShape,replayBinding,attemptLineageMatches,stageDeliveryAllowed} from './fixture.mjs';
++const A='79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798';
++const B='c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5';
++const cases=[];
++function check(name,run){run();cases.push(name);}
++check('incoming-account-is-B-peer-is-A',()=>assert.deepEqual([roleSpec('incoming').account,roleSpec('incoming').peer,roleSpec('incoming').scalar],[B,A,2]));
++check('archive-account-is-A-original-peer-is-B',()=>assert.deepEqual([roleSpec('archive').account,roleSpec('archive').peer,roleSpec('archive').scalar],[A,B,1]));
++for(const role of ['unknown','',null,2])check('refuse-unknown-role-'+String(role),()=>assert.throws(()=>roleSpec(role),/CLOSED_ROLE/));
++for(const [role,index] of [['incoming',2],['archive',3],['archive',-1],['incoming',0.5],['incoming','0']])check('refuse-outside-stage-'+role+'-'+index,()=>assert.throws(()=>stageSpec(role,index),/CLOSED_STAGE_INDEX/));
++for(const [role,index,id,dispatch,normalized] of [
++ ['incoming',0,'incoming-business',true,'incoming'],['incoming',1,'incoming-ordinary-chat',false,'chat'],
++ ['archive',0,'archive-business',false,'archive'],['archive',1,'archive-identical-replay',false,'archive'],
++ ['archive',2,'archive-fresh-wrap-replay',false,'archive']]){
++ check('closed-stage-'+id,()=>assert.deepEqual([stageSpec(role,index).id,stageSpec(role,index).dispatch,stageSpec(role,index).normalizedRole],[id,dispatch,normalized]));
++}
++const rumor={id:'a'.repeat(64),pubkey:A,created_at:1,kind:14,tags:[['p',B]],content:'SYNTHETIC_METADATA_ONLY'};
++check('six-field-original-pB-shape',()=>assert.equal(exactInnerShape(rumor),true));
++for(const [label,patch] of [['rewritten-inner-pA',{tags:[['p',A]]}],['wrong-author',{pubkey:B}],['extra-sig',{sig:''}],
++ ['fractional-timestamp',{created_at:1.5}],['string-kind',{kind:'14'}],['reordered-private-tag',{tags:[['x','other'],['p',B]]}]]){
++ check('refuse-inner-'+label,()=>assert.equal(exactInnerShape({...rumor,...patch}),false));
++}
++const initial={id:'b'.repeat(64),content:'ciphertext-metadata'},fresh={id:'c'.repeat(64),content:'fresh-ciphertext-metadata'};
++check('identical-replay-preserves-entire-outer',()=>assert.equal(replayBinding(stageSpec('archive',1),{...initial},initial),true));
++check('identical-replay-cannot-mutate-content',()=>assert.equal(replayBinding(stageSpec('archive',1),{...initial,content:'changed'},initial),false));
++check('fresh-wrap-id-must-differ',()=>assert.equal(replayBinding(stageSpec('archive',2),initial,initial),false));
++check('fresh-wrap-distinct-id-metadata',()=>assert.equal(replayBinding(stageSpec('archive',2),fresh,initial),true));
++const attempt={epoch:1,stageId:'archive-identical-replay'};
++check('same-attempt-custody',()=>assert.equal(attemptLineageMatches(attempt,{...attempt},{...attempt}),true));
++for(const [name,forward,complete] of [['old-forward',{...attempt,epoch:0},attempt],['old-completion',attempt,{...attempt,epoch:0}],
++ ['wrong-stage',{...attempt,stageId:'archive-business'},attempt],['missing',null,attempt],['typed-epoch',{...attempt,epoch:'1'},attempt]]){
++ check('refuse-attempt-'+name,()=>assert.equal(attemptLineageMatches(attempt,forward,complete),false));
++}
++check('unknown-stage-is-not-an-attempt-contract',()=>assert.equal(attemptLineageMatches({epoch:1,stageId:'unknown'},{epoch:1,stageId:'unknown'},{epoch:1,stageId:'unknown'}),false));
++for(const [role,index] of [['incoming',0],['incoming',1],['archive',0],['archive',2]]){
++ check('new-app-frame-required-'+role+'-'+index,()=>assert.equal(stageDeliveryAllowed(stageSpec(role,index),false,'ACTUAL_RELAY_QUERY_NO_NEW_APP_FRAME'),false));
++}
++check('identical-replay-query-absence-is-labelled-not-receipt',()=>assert.equal(stageDeliveryAllowed(stageSpec('archive',1),false,'ACTUAL_RELAY_QUERY_NO_NEW_APP_FRAME'),true));
++check('query-cannot-claim-app-frame',()=>assert.equal(stageDeliveryAllowed(stageSpec('archive',1),true,'ACTUAL_RELAY_QUERY_NO_NEW_APP_FRAME'),false));
++check('prior-frame-cannot-fill-missing-current-delivery',()=>assert.equal(stageDeliveryAllowed(stageSpec('archive',1),false,'ACTUAL_APP_SOCKET_FRAME'),false));
++check('unknown-stage-shape-does-not-open-future-scope',()=>assert.equal(stageDeliveryAllowed({...stageSpec('archive',1),id:'unknown'},false,'ACTUAL_RELAY_QUERY_NO_NEW_APP_FRAME'),false));
++check('mutated-stage-policy-refuses',()=>assert.equal(stageDeliveryAllowed({...stageSpec('archive',2),requiresNewAppFrame:false},false,'ACTUAL_RELAY_QUERY_NO_NEW_APP_FRAME'),false));
++console.log(JSON.stringify({scope:'MINIMUM_ROLE_REPLAY_ORIGIN_METADATA_CONTROLS_ONLY',checks:cases.length,cases,
++ cryptoExecuted:false,actualClientExecuted:false,canonicalPromotion:false}));
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v3/ui-plan.json
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/ui-plan.json
+@@ -1,47 +1,42 @@
+ {
+-  "schema": "e02-first-slice-ui-plan-v1",
+-  "state": "SOURCE_ONLY_PENDING_COMPLETE_RUNTIME_REVIEW",
+-  "scope": "ONE_REAL_ENVELOPE_FIRST_SLICE_ONLY",
+-  "caseId": "js-to-rust-incoming-rs",
+-  "direction": "js-to-rust",
+-  "role": "incoming",
+-  "relay": "rs-relay",
+-  "account": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
+-  "peer": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+-  "localRelay": "ws://localhost:17777",
+-  "visibleToken": "NBDP/experiment",
++  "schema": "e02-ordinary-minimum-ui-plan-v1",
++  "profileId": "e02-ordinary-minimum-rs-two-role-v1",
+   "clientCommit": "e6f464a1179def75274512b3c5bab921de3bf3d8",
+   "clientPackage": "com.vitorpamplona.amethyst.debug",
+-  "clientComponent": "com.vitorpamplona.amethyst.debug/com.vitorpamplona.amethyst.ui.MainActivity",
+-  "helperPackage": "org.nbdp.clipboard.capture",
+-  "display": {"width": 1080, "height": 1920},
+-  "limits": {"maximumSnapshots": 140, "maximumActions": 120, "rawClipboardBytes": 65536},
+-  "closedTransitions": [
+-    "Fresh Amethyst pm clear must return Success; launch exact MainActivity.",
+-    "Optional one known System UI ANR Wait; unknown screens refuse.",
+-    "Adjust Tor Settings; labeled Active Tor Engine spinner; Off; Save.",
+-    "Type only the fixed public scalar2 nsec; verify complete visible input; Login.",
+-    "Own Profile, More Options, Share: retain actual public nprofile preview without selecting a share target.",
+-    "Drawer System/Relays: select actual Local Relays field, add only ws://localhost:17777, Save.",
+-    "Messages/New Requests; require live app1059#pB REQ/EOSE gate before fresh business-envelope publication.",
+-    "Open unique actually rendered business-envelope conversation; preserve selected-note PNG/XML.",
+-    "Foreground helper Clear clipboard; return to the same real note.",
+-    "Long press current message bounds, More Options, Copy raw JSON.",
+-    "Foreground helper Capture clipboard; run-as reads only helper-owned fixed files.",
+-    "Require exact whole typed inner rumor and exact UTF8 byte/hash custody before one COMPLETE observation."
+-  ],
+-  "prohibitions": [
+-    "No expected JSON injected into clipboard, composer, helper intent or Amethyst private state.",
+-    "No host clipboard access, public-network egress, unknown-screen coordinate fallback, alternate app/account or arbitrary shell.",
+-    "No inference that one cell completes the eight-row coverage proposal or canonical E02.",
+-    "Source preparation and helper build are not Android/control runtime approval."
+-  ],
+-  "mandatoryBeforeActivation": [
+-    "Exact complete supervisor/lease/driver/fixture/dependency plan and independently reviewed fresh root release.",
+-    "Original absolute UTC, BOOTTIME and MONOTONIC boundaries before and after actions/waits; expired/invalid sessions issue zero actions.",
+-    "Host clipboard desktop bridge isolation and actual namespace/listener/egress proof; no guessed emulator flag.",
+-    "Exact helper APK and pinned Amethyst installation identity; fresh disposable AVD; qualified exact-owned cleanup."
+-  ],
+-  "executionReleased": false,
+-  "canonicalE02Changed": false
++  "localRelay": "ws://localhost:17777",
++  "roles": {
++    "incoming": {
++      "windowId": "incoming-b",
++      "account": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
++      "peer": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
++      "scalar": 2,
++      "nsec": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpqptcfk2",
++      "tab": "New Requests",
++      "stages": [
++        "incoming-business",
++        "incoming-ordinary-chat"
++      ]
++    },
++    "archive": {
++      "windowId": "archive-a",
++      "account": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
++      "peer": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
++      "scalar": 1,
++      "nsec": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqsmhltgl",
++      "tab": "Known",
++      "stages": [
++        "archive-business",
++        "archive-identical-replay",
++        "archive-fresh-wrap-replay"
++      ]
++    }
++  },
++  "businessVisibleToken": "NBDP/experiment",
++  "chatVisibleToken": "NBDP harmless ordinary chat control",
++  "maximumSnapshots": 140,
++  "maximumActions": 120,
++  "rawClipboardBytes": 65536,
++  "plannedSelectorsRuntimeValidated": false,
++  "maximumFeedsCollapses": 1,
++  "executionReleased": false
+ }

@@ -1,0 +1,88 @@
+{
+  "schema": "e06-n02316-actual-control-acceptance-v1",
+  "coordinator": "/root",
+  "date": "2026-10-21",
+  "decision": "ACCEPT_EXACT_FOURTEEN_PURE_CONTROLS_ONLY",
+  "subject": {
+    "path": "/tmp/e6n-controls-20261021b/actual-control-evidence.json",
+    "bytes": 92316,
+    "sha256": "10b10ffab18b413ef6a226fd384746d492063da66dbbb30dfaa0ed36d66b8fff"
+  },
+  "compatibleControlApproval": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-control-bootstrap-r2/control-approval.json",
+    "bytes": 1495,
+    "sha256": "6862d0955991ca868ada9f5d1a2b25e34d3dce0bc961acca97a71817c0218e53"
+  },
+  "independentReviews": {
+    "qa": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-control-bootstrap-r2/qa-runtime-review.json",
+      "bytes": 8688,
+      "sha256": "19f56c86d7d21ab3b2d9ca176e4f9db24371187c7ba9159dcff6c65bbe886a61"
+    },
+    "security": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-control-bootstrap-r2/security-runtime-review.json",
+      "bytes": 6640,
+      "sha256": "69a77f4d3aa12de8577f1a519554dde06a0a09070b27ebaee53a599b66b41eb3"
+    }
+  },
+  "runtimeRecord": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-control-bootstrap-r2/runtime-record.json",
+    "bytes": 9527,
+    "sha256": "bffdea8db076d913cb353681b651ac1197ded22370f770e90dea922be25286d1"
+  },
+  "readinessAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-control-bootstrap-r2/readiness-acceptance.json",
+    "bytes": 2460,
+    "sha256": "f1e79daa1779881b07b43259cf14b3df0a520e095ade7f063b65ffbf5a2e690b"
+  },
+  "sourceApproval": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-implementation-r2/source-approval.json",
+    "bytes": 105881,
+    "sha256": "813f3ac1b47763e29005ac0b2c8d208231e51136617b5c1ed44d5278219151c8"
+  },
+  "sourceClosure": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-implementation-r2/source-closure.json",
+    "bytes": 100218,
+    "sha256": "6d25069c7832687e2e14c168a428beb945c5909059ae48521033d611d5ae5fb4"
+  },
+  "actualFacts": {
+    "singleInvocations": 1,
+    "matchedOrderedRows": 14,
+    "mirroredOwnedFiles": 9,
+    "childNamespacePid": 4,
+    "naturalExitCode": 0,
+    "reaped": true,
+    "stdoutEOF": true,
+    "stderrEOF": true,
+    "forced": false,
+    "timedOut": false,
+    "errors": [],
+    "bootstrapElapsedMilliseconds": 53286,
+    "outerToolSession": 19742,
+    "outerActualExitCode": 0,
+    "outerStderrBytes": 0
+  },
+  "findingDisposition": {
+    "controlSourceEntrySchema": "CLOSED_FOR_EXACT_R2_SOURCE_AND_ACTUAL_ATTEMPT_ONLY",
+    "targetPolicyMarker": "OPEN_SOURCE_ONLY",
+    "inventoryDerivationEnforcementRegression": "PENDING_BEFORE_LOCAL",
+    "ownedRequestCustodyEnforcementRegression": "PENDING_BEFORE_TARGET"
+  },
+  "preservedR1Negative": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-control-bootstrap-r1/failed-attempt-r1/evidence.json",
+    "bytes": 4332,
+    "sha256": "a2915601b2665f886b075d8c22cb709323556588003146b9a09d95c0f90df422"
+  },
+  "scopeLimits": [
+    "One shared-host/harness pure-control invocation, independently reviewed, not independently repeated execution.",
+    "N03_NO_NATIVE and N16_DENY_NO_GENERATION are DATA_CONSISTENCY_ONLY, not private guard/no-call or generation enforcement.",
+    "No native RC or19LAB-N qualification, native job, target release, E06PASS, blocker closure, architectural adoption or SDK authorization.",
+    "Source-owned child lifecycle/elapsed facts; independent tool-host PID/reap/containment UNKNOWN.360s externalmonitor remains proposed and unimplemented."
+  ],
+  "nextAction": "Separately frozen target policy-marker source correction first, independent same-closure source review and renewed source/control evidence joins; then inventory/materialization enforcement regression before LOCAL qualification. No relabeling/reuse of this actual capture for changed source.",
+  "executionReleased": {
+    "LOCAL": false,
+    "TARGET": false
+  },
+  "publication": "No Git mutation, commit, PR, push, merge or publication."
+}

@@ -1,0 +1,1023 @@
+{
+  "state": "INERT_SOURCE_DATA_FREEZE",
+  "runtimeReadiness": "NOT_RUNTIME_READY",
+  "executionReleased": false,
+  "normativeAdoption": false,
+  "lane": "LAB-N-02-03-16",
+  "schema": "e06-negative-selection-freeze-v1",
+  "orderedCells": [
+    "N02-SF-JS",
+    "N02-SF-RUST",
+    "N02-RS-JS",
+    "N02-RS-RUST",
+    "N03-SF",
+    "N03-RS",
+    "N16-SF-JS",
+    "N16-SF-RUST",
+    "N16-RS-JS",
+    "N16-RS-RUST"
+  ],
+  "cells": [
+    {
+      "cellId": "N02-SF-JS",
+      "windowId": "W-N02-SF-JS",
+      "subprofileId": "N02",
+      "family": "invoice",
+      "producer": "RUST",
+      "relay": "strfry",
+      "metadataBackend": "JS",
+      "engine": null,
+      "jobs": [
+        {
+          "ordinal": 0,
+          "slot": "F",
+          "wire": {
+            "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.incoming.wire",
+            "bytes": 2897,
+            "sha256": "06a372bca1fadd8f028203289cda89bca49b9d43a89e2b31c1ba3d69228b0bb3"
+          }
+        }
+      ],
+      "nativeRequestCount": 1,
+      "nativeExpectedReference": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N02/expectedByBackend/JS",
+        "meaning": "SOURCE_CANDIDATE_PENDING_ACTUAL_QUALIFICATION"
+      },
+      "steps": [
+        {
+          "stepId": "N02-S01",
+          "operation": "F_ONLY_AUTH",
+          "phase": "COLLECT",
+          "associationState": "ORPHAN_F",
+          "eligibilityState": "INCOMPLETE_ORPHAN",
+          "status": "ORPHAN_PENDING",
+          "stage": "metadata",
+          "reason": "F_AUTHENTICATED_D_MISSING",
+          "actions": [
+            "RECEIVE_F",
+            "START_NATIVE",
+            "AUTHENTICATE_F_ONLY"
+          ]
+        },
+        {
+          "stepId": "N02-S02",
+          "operation": "CLOSEOUT_NO_SEAL",
+          "phase": "TERMINAL",
+          "associationState": "ORPHAN_F",
+          "eligibilityState": "INCOMPLETE_ORPHAN",
+          "status": "NO_ACQUISITION",
+          "stage": "association",
+          "reason": "MISSING_D",
+          "actions": [
+            "CLOSE_NATIVE",
+            "QUALIFY_OWNED_TERMINAL",
+            "FINAL_CURRENT_INTEGRITY",
+            "PUBLISH_NEGATIVE_OBSERVATION"
+          ]
+        }
+      ],
+      "completedStepCounts": {
+        "publications": 1,
+        "queries": 1,
+        "events": 1,
+        "metadataRequests": 1,
+        "metadataReplies": 1,
+        "dValidations": 0,
+        "fValidations": 1,
+        "attemptReservations": 0,
+        "acquisitionConnections": 0,
+        "httpGets": 0,
+        "receivedEntityBytes": 0,
+        "consumerAttempts": 0,
+        "attachmentEncryptions": 0,
+        "publicReleases": 0
+      },
+      "localPermissionSchedule": "NOT_APPLICABLE_INCOMPLETE_PAIR",
+      "postFrontierJobs": []
+    },
+    {
+      "cellId": "N02-SF-RUST",
+      "windowId": "W-N02-SF-RUST",
+      "subprofileId": "N02",
+      "family": "invoice",
+      "producer": "RUST",
+      "relay": "strfry",
+      "metadataBackend": "RUST",
+      "engine": null,
+      "jobs": [
+        {
+          "ordinal": 0,
+          "slot": "F",
+          "wire": {
+            "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.incoming.wire",
+            "bytes": 2897,
+            "sha256": "06a372bca1fadd8f028203289cda89bca49b9d43a89e2b31c1ba3d69228b0bb3"
+          }
+        }
+      ],
+      "nativeRequestCount": 1,
+      "nativeExpectedReference": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N02/expectedByBackend/RUST",
+        "meaning": "SOURCE_CANDIDATE_PENDING_ACTUAL_QUALIFICATION"
+      },
+      "steps": [
+        {
+          "stepId": "N02-S01",
+          "operation": "F_ONLY_AUTH",
+          "phase": "COLLECT",
+          "associationState": "ORPHAN_F",
+          "eligibilityState": "INCOMPLETE_ORPHAN",
+          "status": "ORPHAN_PENDING",
+          "stage": "metadata",
+          "reason": "F_AUTHENTICATED_D_MISSING",
+          "actions": [
+            "RECEIVE_F",
+            "START_NATIVE",
+            "AUTHENTICATE_F_ONLY"
+          ]
+        },
+        {
+          "stepId": "N02-S02",
+          "operation": "CLOSEOUT_NO_SEAL",
+          "phase": "TERMINAL",
+          "associationState": "ORPHAN_F",
+          "eligibilityState": "INCOMPLETE_ORPHAN",
+          "status": "NO_ACQUISITION",
+          "stage": "association",
+          "reason": "MISSING_D",
+          "actions": [
+            "CLOSE_NATIVE",
+            "QUALIFY_OWNED_TERMINAL",
+            "FINAL_CURRENT_INTEGRITY",
+            "PUBLISH_NEGATIVE_OBSERVATION"
+          ]
+        }
+      ],
+      "completedStepCounts": {
+        "publications": 1,
+        "queries": 1,
+        "events": 1,
+        "metadataRequests": 1,
+        "metadataReplies": 1,
+        "dValidations": 0,
+        "fValidations": 1,
+        "attemptReservations": 0,
+        "acquisitionConnections": 0,
+        "httpGets": 0,
+        "receivedEntityBytes": 0,
+        "consumerAttempts": 0,
+        "attachmentEncryptions": 0,
+        "publicReleases": 0
+      },
+      "localPermissionSchedule": "NOT_APPLICABLE_INCOMPLETE_PAIR",
+      "postFrontierJobs": []
+    },
+    {
+      "cellId": "N02-RS-JS",
+      "windowId": "W-N02-RS-JS",
+      "subprofileId": "N02",
+      "family": "invoice",
+      "producer": "RUST",
+      "relay": "rs-relay",
+      "metadataBackend": "JS",
+      "engine": null,
+      "jobs": [
+        {
+          "ordinal": 0,
+          "slot": "F",
+          "wire": {
+            "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.incoming.wire",
+            "bytes": 2897,
+            "sha256": "06a372bca1fadd8f028203289cda89bca49b9d43a89e2b31c1ba3d69228b0bb3"
+          }
+        }
+      ],
+      "nativeRequestCount": 1,
+      "nativeExpectedReference": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N02/expectedByBackend/JS",
+        "meaning": "SOURCE_CANDIDATE_PENDING_ACTUAL_QUALIFICATION"
+      },
+      "steps": [
+        {
+          "stepId": "N02-S01",
+          "operation": "F_ONLY_AUTH",
+          "phase": "COLLECT",
+          "associationState": "ORPHAN_F",
+          "eligibilityState": "INCOMPLETE_ORPHAN",
+          "status": "ORPHAN_PENDING",
+          "stage": "metadata",
+          "reason": "F_AUTHENTICATED_D_MISSING",
+          "actions": [
+            "RECEIVE_F",
+            "START_NATIVE",
+            "AUTHENTICATE_F_ONLY"
+          ]
+        },
+        {
+          "stepId": "N02-S02",
+          "operation": "CLOSEOUT_NO_SEAL",
+          "phase": "TERMINAL",
+          "associationState": "ORPHAN_F",
+          "eligibilityState": "INCOMPLETE_ORPHAN",
+          "status": "NO_ACQUISITION",
+          "stage": "association",
+          "reason": "MISSING_D",
+          "actions": [
+            "CLOSE_NATIVE",
+            "QUALIFY_OWNED_TERMINAL",
+            "FINAL_CURRENT_INTEGRITY",
+            "PUBLISH_NEGATIVE_OBSERVATION"
+          ]
+        }
+      ],
+      "completedStepCounts": {
+        "publications": 1,
+        "queries": 1,
+        "events": 1,
+        "metadataRequests": 1,
+        "metadataReplies": 1,
+        "dValidations": 0,
+        "fValidations": 1,
+        "attemptReservations": 0,
+        "acquisitionConnections": 0,
+        "httpGets": 0,
+        "receivedEntityBytes": 0,
+        "consumerAttempts": 0,
+        "attachmentEncryptions": 0,
+        "publicReleases": 0
+      },
+      "localPermissionSchedule": "NOT_APPLICABLE_INCOMPLETE_PAIR",
+      "postFrontierJobs": []
+    },
+    {
+      "cellId": "N02-RS-RUST",
+      "windowId": "W-N02-RS-RUST",
+      "subprofileId": "N02",
+      "family": "invoice",
+      "producer": "RUST",
+      "relay": "rs-relay",
+      "metadataBackend": "RUST",
+      "engine": null,
+      "jobs": [
+        {
+          "ordinal": 0,
+          "slot": "F",
+          "wire": {
+            "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.incoming.wire",
+            "bytes": 2897,
+            "sha256": "06a372bca1fadd8f028203289cda89bca49b9d43a89e2b31c1ba3d69228b0bb3"
+          }
+        }
+      ],
+      "nativeRequestCount": 1,
+      "nativeExpectedReference": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N02/expectedByBackend/RUST",
+        "meaning": "SOURCE_CANDIDATE_PENDING_ACTUAL_QUALIFICATION"
+      },
+      "steps": [
+        {
+          "stepId": "N02-S01",
+          "operation": "F_ONLY_AUTH",
+          "phase": "COLLECT",
+          "associationState": "ORPHAN_F",
+          "eligibilityState": "INCOMPLETE_ORPHAN",
+          "status": "ORPHAN_PENDING",
+          "stage": "metadata",
+          "reason": "F_AUTHENTICATED_D_MISSING",
+          "actions": [
+            "RECEIVE_F",
+            "START_NATIVE",
+            "AUTHENTICATE_F_ONLY"
+          ]
+        },
+        {
+          "stepId": "N02-S02",
+          "operation": "CLOSEOUT_NO_SEAL",
+          "phase": "TERMINAL",
+          "associationState": "ORPHAN_F",
+          "eligibilityState": "INCOMPLETE_ORPHAN",
+          "status": "NO_ACQUISITION",
+          "stage": "association",
+          "reason": "MISSING_D",
+          "actions": [
+            "CLOSE_NATIVE",
+            "QUALIFY_OWNED_TERMINAL",
+            "FINAL_CURRENT_INTEGRITY",
+            "PUBLISH_NEGATIVE_OBSERVATION"
+          ]
+        }
+      ],
+      "completedStepCounts": {
+        "publications": 1,
+        "queries": 1,
+        "events": 1,
+        "metadataRequests": 1,
+        "metadataReplies": 1,
+        "dValidations": 0,
+        "fValidations": 1,
+        "attemptReservations": 0,
+        "acquisitionConnections": 0,
+        "httpGets": 0,
+        "receivedEntityBytes": 0,
+        "consumerAttempts": 0,
+        "attachmentEncryptions": 0,
+        "publicReleases": 0
+      },
+      "localPermissionSchedule": "NOT_APPLICABLE_INCOMPLETE_PAIR",
+      "postFrontierJobs": []
+    },
+    {
+      "cellId": "N03-SF",
+      "windowId": "W-N03-SF",
+      "subprofileId": "N03",
+      "family": "invoice",
+      "producer": "RUST",
+      "relay": "strfry",
+      "metadataBackend": null,
+      "engine": null,
+      "jobs": [
+        {
+          "ordinal": 0,
+          "slot": "D",
+          "wire": {
+            "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-metadata-materialization-r3/primary/artifacts/000.incoming.wire",
+            "bytes": 3921,
+            "sha256": "9a7c53306aca263d8fcf9da83f2a09725d2198c223c54b201efa967319045283"
+          }
+        }
+      ],
+      "nativeRequestCount": 0,
+      "nativeExpectedReference": null,
+      "steps": [
+        {
+          "stepId": "N03-S01",
+          "operation": "RECEIVE_D",
+          "phase": "COLLECT",
+          "associationState": "D_RECEIVED_ONLY",
+          "eligibilityState": "INCOMPLETE_NOT_AUTHENTICATED",
+          "status": "RECEIVED",
+          "stage": "relay",
+          "reason": "D_RECEIVED_UNAUTHENTICATED",
+          "actions": [
+            "RECEIVE_D"
+          ]
+        },
+        {
+          "stepId": "N03-S02",
+          "operation": "CLOSEOUT_NO_METADATA_NO_SEAL",
+          "phase": "TERMINAL",
+          "associationState": "D_RECEIVED_ONLY",
+          "eligibilityState": "INCOMPLETE_NOT_AUTHENTICATED",
+          "status": "NO_ACQUISITION",
+          "stage": "association",
+          "reason": "MISSING_F",
+          "actions": [
+            "QUALIFY_OWNED_TERMINAL",
+            "FINAL_CURRENT_INTEGRITY",
+            "PUBLISH_NEGATIVE_OBSERVATION"
+          ]
+        }
+      ],
+      "completedStepCounts": {
+        "publications": 1,
+        "queries": 1,
+        "events": 1,
+        "metadataRequests": 0,
+        "metadataReplies": 0,
+        "dValidations": 0,
+        "fValidations": 0,
+        "attemptReservations": 0,
+        "acquisitionConnections": 0,
+        "httpGets": 0,
+        "receivedEntityBytes": 0,
+        "consumerAttempts": 0,
+        "attachmentEncryptions": 0,
+        "publicReleases": 0
+      },
+      "localPermissionSchedule": "NOT_APPLICABLE_INCOMPLETE_PAIR",
+      "postFrontierJobs": []
+    },
+    {
+      "cellId": "N03-RS",
+      "windowId": "W-N03-RS",
+      "subprofileId": "N03",
+      "family": "invoice",
+      "producer": "RUST",
+      "relay": "rs-relay",
+      "metadataBackend": null,
+      "engine": null,
+      "jobs": [
+        {
+          "ordinal": 0,
+          "slot": "D",
+          "wire": {
+            "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-metadata-materialization-r3/primary/artifacts/000.incoming.wire",
+            "bytes": 3921,
+            "sha256": "9a7c53306aca263d8fcf9da83f2a09725d2198c223c54b201efa967319045283"
+          }
+        }
+      ],
+      "nativeRequestCount": 0,
+      "nativeExpectedReference": null,
+      "steps": [
+        {
+          "stepId": "N03-S01",
+          "operation": "RECEIVE_D",
+          "phase": "COLLECT",
+          "associationState": "D_RECEIVED_ONLY",
+          "eligibilityState": "INCOMPLETE_NOT_AUTHENTICATED",
+          "status": "RECEIVED",
+          "stage": "relay",
+          "reason": "D_RECEIVED_UNAUTHENTICATED",
+          "actions": [
+            "RECEIVE_D"
+          ]
+        },
+        {
+          "stepId": "N03-S02",
+          "operation": "CLOSEOUT_NO_METADATA_NO_SEAL",
+          "phase": "TERMINAL",
+          "associationState": "D_RECEIVED_ONLY",
+          "eligibilityState": "INCOMPLETE_NOT_AUTHENTICATED",
+          "status": "NO_ACQUISITION",
+          "stage": "association",
+          "reason": "MISSING_F",
+          "actions": [
+            "QUALIFY_OWNED_TERMINAL",
+            "FINAL_CURRENT_INTEGRITY",
+            "PUBLISH_NEGATIVE_OBSERVATION"
+          ]
+        }
+      ],
+      "completedStepCounts": {
+        "publications": 1,
+        "queries": 1,
+        "events": 1,
+        "metadataRequests": 0,
+        "metadataReplies": 0,
+        "dValidations": 0,
+        "fValidations": 0,
+        "attemptReservations": 0,
+        "acquisitionConnections": 0,
+        "httpGets": 0,
+        "receivedEntityBytes": 0,
+        "consumerAttempts": 0,
+        "attachmentEncryptions": 0,
+        "publicReleases": 0
+      },
+      "localPermissionSchedule": "NOT_APPLICABLE_INCOMPLETE_PAIR",
+      "postFrontierJobs": []
+    },
+    {
+      "cellId": "N16-SF-JS",
+      "windowId": "W-N16-SF-JS",
+      "subprofileId": "N16",
+      "family": "invoice",
+      "producer": "RUST",
+      "relay": "strfry",
+      "metadataBackend": "JS",
+      "engine": null,
+      "jobs": [
+        {
+          "ordinal": 0,
+          "slot": "D",
+          "wire": {
+            "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-metadata-materialization-r3/primary/artifacts/000.incoming.wire",
+            "bytes": 3921,
+            "sha256": "9a7c53306aca263d8fcf9da83f2a09725d2198c223c54b201efa967319045283"
+          }
+        },
+        {
+          "ordinal": 1,
+          "slot": "F",
+          "wire": {
+            "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.incoming.wire",
+            "bytes": 2897,
+            "sha256": "06a372bca1fadd8f028203289cda89bca49b9d43a89e2b31c1ba3d69228b0bb3"
+          }
+        }
+      ],
+      "nativeRequestCount": 1,
+      "nativeExpectedReference": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/JS",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "steps": [
+        {
+          "stepId": "N16-S01",
+          "operation": "D_F_AUTH",
+          "phase": "COLLECT",
+          "associationState": "ONE_CANONICAL_F",
+          "eligibilityState": "AUTHENTICATED_POLICY_UNDECIDED",
+          "status": "AUTHENTICATED",
+          "stage": "metadata",
+          "reason": "D_F_AUTHENTICATED",
+          "actions": [
+            "RECEIVE_D",
+            "RECEIVE_F",
+            "START_NATIVE",
+            "AUTHENTICATE_D_F"
+          ]
+        },
+        {
+          "stepId": "N16-S02",
+          "operation": "DENY_PERMISSION",
+          "phase": "HELD",
+          "associationState": "ONE_CANONICAL_F",
+          "eligibilityState": "DENIED",
+          "status": "LOCAL_REFUSAL",
+          "stage": "policy",
+          "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+          "actions": [
+            "RECORD_LOCAL_DENY"
+          ]
+        },
+        {
+          "stepId": "N16-S03",
+          "operation": "SEAL_REFUSED",
+          "phase": "HELD",
+          "associationState": "ONE_CANONICAL_F",
+          "eligibilityState": "DENIED",
+          "status": "SEAL_REFUSED",
+          "stage": "policy",
+          "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+          "actions": [
+            "ATTEMPT_SEAL_EXPECT_POLICY_REFUSAL"
+          ]
+        },
+        {
+          "stepId": "N16-S04",
+          "operation": "CLOSEOUT",
+          "phase": "TERMINAL",
+          "associationState": "ONE_CANONICAL_F",
+          "eligibilityState": "DENIED",
+          "status": "NO_ACQUISITION",
+          "stage": "policy",
+          "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+          "actions": [
+            "CLOSE_NATIVE",
+            "QUALIFY_OWNED_TERMINAL",
+            "FINAL_CURRENT_INTEGRITY",
+            "PUBLISH_NEGATIVE_OBSERVATION"
+          ]
+        }
+      ],
+      "completedStepCounts": {
+        "publications": 2,
+        "queries": 2,
+        "events": 2,
+        "metadataRequests": 1,
+        "metadataReplies": 1,
+        "dValidations": 1,
+        "fValidations": 1,
+        "attemptReservations": 0,
+        "acquisitionConnections": 0,
+        "httpGets": 0,
+        "receivedEntityBytes": 0,
+        "consumerAttempts": 0,
+        "attachmentEncryptions": 0,
+        "publicReleases": 0
+      },
+      "localPermissionSchedule": "UNDECIDED_THROUGH_S01_THEN_DENY_ONLY",
+      "postFrontierJobs": []
+    },
+    {
+      "cellId": "N16-SF-RUST",
+      "windowId": "W-N16-SF-RUST",
+      "subprofileId": "N16",
+      "family": "invoice",
+      "producer": "RUST",
+      "relay": "strfry",
+      "metadataBackend": "RUST",
+      "engine": null,
+      "jobs": [
+        {
+          "ordinal": 0,
+          "slot": "D",
+          "wire": {
+            "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-metadata-materialization-r3/primary/artifacts/000.incoming.wire",
+            "bytes": 3921,
+            "sha256": "9a7c53306aca263d8fcf9da83f2a09725d2198c223c54b201efa967319045283"
+          }
+        },
+        {
+          "ordinal": 1,
+          "slot": "F",
+          "wire": {
+            "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.incoming.wire",
+            "bytes": 2897,
+            "sha256": "06a372bca1fadd8f028203289cda89bca49b9d43a89e2b31c1ba3d69228b0bb3"
+          }
+        }
+      ],
+      "nativeRequestCount": 1,
+      "nativeExpectedReference": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/RUST",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "steps": [
+        {
+          "stepId": "N16-S01",
+          "operation": "D_F_AUTH",
+          "phase": "COLLECT",
+          "associationState": "ONE_CANONICAL_F",
+          "eligibilityState": "AUTHENTICATED_POLICY_UNDECIDED",
+          "status": "AUTHENTICATED",
+          "stage": "metadata",
+          "reason": "D_F_AUTHENTICATED",
+          "actions": [
+            "RECEIVE_D",
+            "RECEIVE_F",
+            "START_NATIVE",
+            "AUTHENTICATE_D_F"
+          ]
+        },
+        {
+          "stepId": "N16-S02",
+          "operation": "DENY_PERMISSION",
+          "phase": "HELD",
+          "associationState": "ONE_CANONICAL_F",
+          "eligibilityState": "DENIED",
+          "status": "LOCAL_REFUSAL",
+          "stage": "policy",
+          "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+          "actions": [
+            "RECORD_LOCAL_DENY"
+          ]
+        },
+        {
+          "stepId": "N16-S03",
+          "operation": "SEAL_REFUSED",
+          "phase": "HELD",
+          "associationState": "ONE_CANONICAL_F",
+          "eligibilityState": "DENIED",
+          "status": "SEAL_REFUSED",
+          "stage": "policy",
+          "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+          "actions": [
+            "ATTEMPT_SEAL_EXPECT_POLICY_REFUSAL"
+          ]
+        },
+        {
+          "stepId": "N16-S04",
+          "operation": "CLOSEOUT",
+          "phase": "TERMINAL",
+          "associationState": "ONE_CANONICAL_F",
+          "eligibilityState": "DENIED",
+          "status": "NO_ACQUISITION",
+          "stage": "policy",
+          "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+          "actions": [
+            "CLOSE_NATIVE",
+            "QUALIFY_OWNED_TERMINAL",
+            "FINAL_CURRENT_INTEGRITY",
+            "PUBLISH_NEGATIVE_OBSERVATION"
+          ]
+        }
+      ],
+      "completedStepCounts": {
+        "publications": 2,
+        "queries": 2,
+        "events": 2,
+        "metadataRequests": 1,
+        "metadataReplies": 1,
+        "dValidations": 1,
+        "fValidations": 1,
+        "attemptReservations": 0,
+        "acquisitionConnections": 0,
+        "httpGets": 0,
+        "receivedEntityBytes": 0,
+        "consumerAttempts": 0,
+        "attachmentEncryptions": 0,
+        "publicReleases": 0
+      },
+      "localPermissionSchedule": "UNDECIDED_THROUGH_S01_THEN_DENY_ONLY",
+      "postFrontierJobs": []
+    },
+    {
+      "cellId": "N16-RS-JS",
+      "windowId": "W-N16-RS-JS",
+      "subprofileId": "N16",
+      "family": "invoice",
+      "producer": "RUST",
+      "relay": "rs-relay",
+      "metadataBackend": "JS",
+      "engine": null,
+      "jobs": [
+        {
+          "ordinal": 0,
+          "slot": "D",
+          "wire": {
+            "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-metadata-materialization-r3/primary/artifacts/000.incoming.wire",
+            "bytes": 3921,
+            "sha256": "9a7c53306aca263d8fcf9da83f2a09725d2198c223c54b201efa967319045283"
+          }
+        },
+        {
+          "ordinal": 1,
+          "slot": "F",
+          "wire": {
+            "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.incoming.wire",
+            "bytes": 2897,
+            "sha256": "06a372bca1fadd8f028203289cda89bca49b9d43a89e2b31c1ba3d69228b0bb3"
+          }
+        }
+      ],
+      "nativeRequestCount": 1,
+      "nativeExpectedReference": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/JS",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "steps": [
+        {
+          "stepId": "N16-S01",
+          "operation": "D_F_AUTH",
+          "phase": "COLLECT",
+          "associationState": "ONE_CANONICAL_F",
+          "eligibilityState": "AUTHENTICATED_POLICY_UNDECIDED",
+          "status": "AUTHENTICATED",
+          "stage": "metadata",
+          "reason": "D_F_AUTHENTICATED",
+          "actions": [
+            "RECEIVE_D",
+            "RECEIVE_F",
+            "START_NATIVE",
+            "AUTHENTICATE_D_F"
+          ]
+        },
+        {
+          "stepId": "N16-S02",
+          "operation": "DENY_PERMISSION",
+          "phase": "HELD",
+          "associationState": "ONE_CANONICAL_F",
+          "eligibilityState": "DENIED",
+          "status": "LOCAL_REFUSAL",
+          "stage": "policy",
+          "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+          "actions": [
+            "RECORD_LOCAL_DENY"
+          ]
+        },
+        {
+          "stepId": "N16-S03",
+          "operation": "SEAL_REFUSED",
+          "phase": "HELD",
+          "associationState": "ONE_CANONICAL_F",
+          "eligibilityState": "DENIED",
+          "status": "SEAL_REFUSED",
+          "stage": "policy",
+          "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+          "actions": [
+            "ATTEMPT_SEAL_EXPECT_POLICY_REFUSAL"
+          ]
+        },
+        {
+          "stepId": "N16-S04",
+          "operation": "CLOSEOUT",
+          "phase": "TERMINAL",
+          "associationState": "ONE_CANONICAL_F",
+          "eligibilityState": "DENIED",
+          "status": "NO_ACQUISITION",
+          "stage": "policy",
+          "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+          "actions": [
+            "CLOSE_NATIVE",
+            "QUALIFY_OWNED_TERMINAL",
+            "FINAL_CURRENT_INTEGRITY",
+            "PUBLISH_NEGATIVE_OBSERVATION"
+          ]
+        }
+      ],
+      "completedStepCounts": {
+        "publications": 2,
+        "queries": 2,
+        "events": 2,
+        "metadataRequests": 1,
+        "metadataReplies": 1,
+        "dValidations": 1,
+        "fValidations": 1,
+        "attemptReservations": 0,
+        "acquisitionConnections": 0,
+        "httpGets": 0,
+        "receivedEntityBytes": 0,
+        "consumerAttempts": 0,
+        "attachmentEncryptions": 0,
+        "publicReleases": 0
+      },
+      "localPermissionSchedule": "UNDECIDED_THROUGH_S01_THEN_DENY_ONLY",
+      "postFrontierJobs": []
+    },
+    {
+      "cellId": "N16-RS-RUST",
+      "windowId": "W-N16-RS-RUST",
+      "subprofileId": "N16",
+      "family": "invoice",
+      "producer": "RUST",
+      "relay": "rs-relay",
+      "metadataBackend": "RUST",
+      "engine": null,
+      "jobs": [
+        {
+          "ordinal": 0,
+          "slot": "D",
+          "wire": {
+            "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-metadata-materialization-r3/primary/artifacts/000.incoming.wire",
+            "bytes": 3921,
+            "sha256": "9a7c53306aca263d8fcf9da83f2a09725d2198c223c54b201efa967319045283"
+          }
+        },
+        {
+          "ordinal": 1,
+          "slot": "F",
+          "wire": {
+            "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.incoming.wire",
+            "bytes": 2897,
+            "sha256": "06a372bca1fadd8f028203289cda89bca49b9d43a89e2b31c1ba3d69228b0bb3"
+          }
+        }
+      ],
+      "nativeRequestCount": 1,
+      "nativeExpectedReference": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/RUST",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "steps": [
+        {
+          "stepId": "N16-S01",
+          "operation": "D_F_AUTH",
+          "phase": "COLLECT",
+          "associationState": "ONE_CANONICAL_F",
+          "eligibilityState": "AUTHENTICATED_POLICY_UNDECIDED",
+          "status": "AUTHENTICATED",
+          "stage": "metadata",
+          "reason": "D_F_AUTHENTICATED",
+          "actions": [
+            "RECEIVE_D",
+            "RECEIVE_F",
+            "START_NATIVE",
+            "AUTHENTICATE_D_F"
+          ]
+        },
+        {
+          "stepId": "N16-S02",
+          "operation": "DENY_PERMISSION",
+          "phase": "HELD",
+          "associationState": "ONE_CANONICAL_F",
+          "eligibilityState": "DENIED",
+          "status": "LOCAL_REFUSAL",
+          "stage": "policy",
+          "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+          "actions": [
+            "RECORD_LOCAL_DENY"
+          ]
+        },
+        {
+          "stepId": "N16-S03",
+          "operation": "SEAL_REFUSED",
+          "phase": "HELD",
+          "associationState": "ONE_CANONICAL_F",
+          "eligibilityState": "DENIED",
+          "status": "SEAL_REFUSED",
+          "stage": "policy",
+          "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+          "actions": [
+            "ATTEMPT_SEAL_EXPECT_POLICY_REFUSAL"
+          ]
+        },
+        {
+          "stepId": "N16-S04",
+          "operation": "CLOSEOUT",
+          "phase": "TERMINAL",
+          "associationState": "ONE_CANONICAL_F",
+          "eligibilityState": "DENIED",
+          "status": "NO_ACQUISITION",
+          "stage": "policy",
+          "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+          "actions": [
+            "CLOSE_NATIVE",
+            "QUALIFY_OWNED_TERMINAL",
+            "FINAL_CURRENT_INTEGRITY",
+            "PUBLISH_NEGATIVE_OBSERVATION"
+          ]
+        }
+      ],
+      "completedStepCounts": {
+        "publications": 2,
+        "queries": 2,
+        "events": 2,
+        "metadataRequests": 1,
+        "metadataReplies": 1,
+        "dValidations": 1,
+        "fValidations": 1,
+        "attemptReservations": 0,
+        "acquisitionConnections": 0,
+        "httpGets": 0,
+        "receivedEntityBytes": 0,
+        "consumerAttempts": 0,
+        "attachmentEncryptions": 0,
+        "publicReleases": 0
+      },
+      "localPermissionSchedule": "UNDECIDED_THROUGH_S01_THEN_DENY_ONLY",
+      "postFrontierJobs": []
+    }
+  ],
+  "fixtureFamily": {
+    "availability": "ACCEPTED_EXISTING_DATA_ONLY",
+    "D": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-metadata-materialization-r3/primary/artifacts/000.json",
+      "bytes": 10082,
+      "sha256": "ca54582cc8a315615bea807d934389812a902d2df2bda135614e703037fe7f4d"
+    },
+    "F": {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.F.json",
+      "bytes": 826,
+      "sha256": "c3d939e95ff21dbaadc322259a60e34f9d35549b082faa87c980afc8c6e81e29"
+    },
+    "dRumorId": "c4f3f2a08ad09ef7f9be6a0e82efaa5b136b54016fd1a4db2d4d92bf4cb704e7",
+    "fRumorId": "66221fc9dd752034847a48d68a8904d528a8b8a26cc333bc317614a437c9aaeb",
+    "metadataRequests": {
+      "JS": {
+        "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.JS.request.json",
+        "bytes": 14116,
+        "sha256": "ecd5f4cf9f9f1ae5c3d46cc5edd7135404f6a4b8b0728bfc781b0889d4049ff4"
+      },
+      "RUST": {
+        "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.RUST.request.json",
+        "bytes": 14116,
+        "sha256": "ecd5f4cf9f9f1ae5c3d46cc5edd7135404f6a4b8b0728bfc781b0889d4049ff4"
+      }
+    },
+    "metadataExpected": {
+      "JS": {
+        "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.JS.expected.json",
+        "bytes": 7746,
+        "sha256": "b2af6ebd64434c3541bad82ffbee9b664377931c0984f87fcb7b92ef8f697cc1"
+      },
+      "RUST": {
+        "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.RUST.expected.json",
+        "bytes": 7770,
+        "sha256": "4bb1c8965d80e44233775334a08f22ceb3fb64a883a3f458b20a68e93977413d"
+      }
+    },
+    "scope": {
+      "enabled": true,
+      "role": "incoming",
+      "expectedLocal": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
+      "expectedPeer": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+      "expectedContext": "3333333333333333333333333333333333333333333333333333333333333333",
+      "allowedOrigin": "https://files.invalid:18443"
+    },
+    "newProofs": {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/proofs.json",
+      "bytes": 11002,
+      "sha256": "761f25658113941c8c7cace0a15d40a53c71d84aa3007235296f2f63cb4aed37"
+    },
+    "oldDProofs": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-metadata-materialization-r3/primary/proofs.json",
+      "bytes": 740469,
+      "sha256": "cf7e9455e15a2dddd46785ca702e72dd779ced3941de0e14a596dc8da576af49"
+    },
+    "producer": "RUST",
+    "incomingWires": {
+      "D": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-metadata-materialization-r3/primary/artifacts/000.incoming.wire",
+        "bytes": 3921,
+        "sha256": "9a7c53306aca263d8fcf9da83f2a09725d2198c223c54b201efa967319045283"
+      },
+      "F": {
+        "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.incoming.wire",
+        "bytes": 2897,
+        "sha256": "06a372bca1fadd8f028203289cda89bca49b9d43a89e2b31c1ba3d69228b0bb3"
+      }
+    }
+  },
+  "fixtureUse": {
+    "archiveWires": "NOT_SELECTED",
+    "pairedRequestFiles": "SCOPE_AND_SECRET_REFERENCE_ONLY_NOT_AUTHENTICATION",
+    "actualWires": "Only actual owned EVENT object byte spans enter native requests, never reserialized fixture objects.",
+    "N02": "dWireHex=null, actual F span; new whole backend-native objects are candidates until separately qualified.",
+    "N03": "Actual D receive only; no native child/request/reply/authenticated D claim.",
+    "N16": "Actual D/F spans; unchanged paired expected object is checker-only; native enabled=true.",
+    "blob": "NOT_OPENED_NOT_SELECTED_FOR_ACQUISITION",
+    "temporaryOperands": "Missing/drifted paths refuse. Durable-mirror mapping needs separate byte-exact review; no rematerialization."
+  },
+  "stepIdentity": "Canonical stepId is Nxx-Syy, unique within its cell; records bind cellId/windowId out of band and output root/cellId/stepId.json. No canonical N or Q/E renumbering.",
+  "total": {
+    "windows": 10,
+    "wholeSteps": 28,
+    "wireJobs": 14,
+    "nativeRequests": 8,
+    "nativeReplies": 8,
+    "dValidations": 4,
+    "fValidations": 8
+  },
+  "countMeaning": "Closed design expectations only, not actual observations; completedStepCounts apply after each successful listed step, with earlier internal attempts retained on failure."
+}
