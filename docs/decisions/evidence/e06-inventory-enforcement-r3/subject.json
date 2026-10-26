@@ -1,0 +1,112 @@
+{
+  "schema": "e06-inventory-probe-source-config-subject-v1",
+  "author": "/root/e06_policy_marker_implementer",
+  "coordinator": "/root",
+  "authors": [
+    "/root",
+    "/root/e06_policy_marker_implementer"
+  ],
+  "inheritedProbeAuthors": [
+    "/root/e06_policy_marker_implementer",
+    "/root/negative_outer_implementer"
+  ],
+  "sourceAuthors": [
+    "/root",
+    "/root/negative_lane_architect",
+    "/root/recovery_fixture_parent",
+    "/root/negative_io_implementer",
+    "/root/negative_outer_implementer",
+    "/root/e06_policy_marker_implementer"
+  ],
+  "state": "WRITES_STOPPED_PENDING_INDEPENDENT_REVIEW",
+  "artifacts": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/probe.py",
+      "bytes": 20271,
+      "sha256": "6e8e2cf8b86bf7deab068b515a5e7f0d7ff1204647e04392c472e0c8106448d7"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/config.json",
+      "bytes": 11393,
+      "sha256": "0ffd70dae1444616607122249f2f265faca0ea831ea574b8b674e89eedb89dae"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/PLAN.md",
+      "bytes": 6167,
+      "sha256": "6da82cb3f968fe06a75ef81df94e897d14ac5821616f967c453857ae66a020d7"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/static-checks.json",
+      "bytes": 15923,
+      "sha256": "ade9032bff9581109449bd9039333531549fa2e62a47e7904631bcc7e80b235d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/probe.patch",
+      "bytes": 3904,
+      "sha256": "755d8390fb967667a36102321235a994e9dd6a987a1c93a6840b2f944744d3ed"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/release-shape-NOT-A-RELEASE.json",
+      "bytes": 1460,
+      "sha256": "b6349684a46a9d5856f15052b2968153bd9580b473621c36ca79b053db2cb427"
+    }
+  ],
+  "scope": "R3 exact authority/admission descriptors and fresh identities only; one EXPECT_ACCEPT realgate probe NOT_EXECUTED; no full LOCAL/native/TARGET authority.",
+  "sourceApproval": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-approval.json",
+    "bytes": 107717,
+    "sha256": "e3e41bb6bae55d80702f9002cc99c72ad3a6345405a5043d3123dcafcbea685e"
+  },
+  "controlApproval": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/control-approval.json",
+    "bytes": 1488,
+    "sha256": "c2c6d2b97ba4f25dbbb9074c079cd3ad29cbf9fa23aac709b31a97a273c0f5ee"
+  },
+  "futureOuterInvocation": {
+    "tool": {
+      "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "bytes": 32959480,
+      "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+    },
+    "argvPrefix": [
+      "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "-I",
+      "-B",
+      "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/probe.py",
+      "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/config.json",
+      "0ffd70dae1444616607122249f2f265faca0ea831ea574b8b674e89eedb89dae"
+    ],
+    "trustedMissingOperands": [
+      "NEW root probe-only release path after actual21 acceptance and exact independent SOURCE/config review",
+      "exact root release SHA256",
+      "actual execution session /root"
+    ],
+    "environment": {
+      "PATH": "/usr/bin:/bin",
+      "LANG": "C.UTF-8",
+      "LC_ALL": "C.UTF-8",
+      "TZ": "UTC",
+      "WS_NO_BUFFER_UTIL": "1",
+      "WS_NO_UTF_8_VALIDATE": "1"
+    },
+    "externalMonitorSeconds": 180,
+    "bootstrapPinCheckedBeforeEvaluation": true
+  },
+  "executionReleased": false,
+  "originalSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/subject.json",
+    "bytes": 4202,
+    "sha256": "621d021f77c834adb6926cfeaa7f8e73b7175360731a0cf36b73854c4dd23f9e"
+  },
+  "preservedActualGateFailure": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/actual-run/observation.json",
+    "bytes": 17080,
+    "sha256": "5d70028c828fca93bfb6f057dbc21340808599f8b67df76a2f47ed7c3ab2edb6"
+  },
+  "preservedWrapperFailure": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r1/outer-actual/execution.json",
+    "bytes": 2243,
+    "sha256": "2247c2bc4df10753b0515055fb05635a37848017b38af136b193cb96da60e3e5"
+  },
+  "grammarGate": "Separate actual21 qualification and independent result acceptance required before root activation; not granted by this subject."
+}

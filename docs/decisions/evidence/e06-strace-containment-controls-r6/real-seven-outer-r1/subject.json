@@ -1,0 +1,345 @@
+{
+  "schema": "e06-actual-strace-containment-subject-v1",
+  "authors": [
+    "/root/local_monitor_controls"
+  ],
+  "operator": "/root/local_monitor_controls",
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/subject.json",
+    "bytes": 6403,
+    "sha256": "f43eac2cbe5e415cd4c45708926b26f25d10c194058a3f7657d8d779d2aabf53"
+  },
+  "observerSourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r7/subject.json",
+    "bytes": 48486,
+    "sha256": "76a3d594f5a94f8c1db85198c16e13f9c7b6f669eb4980e5b2dc2e7d78f85df5"
+  },
+  "pidfdProvider": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/pidfd-provider.json",
+    "bytes": 2489,
+    "sha256": "69426068143bf3d74488fc6e16eb0f1f5dd1696b025d1fd53b89db47dee9b0d8"
+  },
+  "tools": {
+    "python": {
+      "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "bytes": 32959480,
+      "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+    },
+    "strace": {
+      "path": "/usr/bin/strace",
+      "bytes": 2087432,
+      "sha256": "28f957c227012de0b18d1bd7fff2d396cb693ea60ed8013be68de071e84b5001"
+    }
+  },
+  "hostContext": {
+    "uid": 1000,
+    "gid": 1000,
+    "uidMap": "         0          0 4294967295\n",
+    "gidMap": "         0          0 4294967295\n",
+    "userNamespace": "user:[4026531837]",
+    "mountNamespace": "mnt:[4026531832]"
+  },
+  "cases": [
+    {
+      "case": "natural-zero",
+      "disposition": "QUALIFIED_FIXTURE_CONTAINMENT_ONLY",
+      "realStrace": true,
+      "sameObserverCapture": true,
+      "readyBarrierComplete": true,
+      "safetyFallbackUsed": false,
+      "allKnownPidsExitedBeforeFallback": true,
+      "allOwnedChildrenReaped": true,
+      "noPostReapSignal": true,
+      "rawCapsRespected": true,
+      "privacyQualified": true,
+      "record": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/guard-result.json",
+        "bytes": 57023,
+        "sha256": "fa7079ff831545489294f20dfe4e27ee0d2c61835fcbefc22884c184dd9306a2"
+      }
+    },
+    {
+      "case": "natural-refusal",
+      "disposition": "UNQUALIFIED_FIXTURE_CONTAINMENT",
+      "realStrace": true,
+      "sameObserverCapture": true,
+      "readyBarrierComplete": false,
+      "safetyFallbackUsed": true,
+      "allKnownPidsExitedBeforeFallback": false,
+      "allOwnedChildrenReaped": true,
+      "noPostReapSignal": true,
+      "rawCapsRespected": false,
+      "privacyQualified": false,
+      "record": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-refusal/guard-result.json",
+        "bytes": 13514,
+        "sha256": "9f1c4be6b9e45f31b24ae4ad5d34be6e5ec82c6f4bcf7dc8a88a90835308a777"
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-refusal/guard-result.json",
+      "bytes": 13514,
+      "sha256": "9f1c4be6b9e45f31b24ae4ad5d34be6e5ec82c6f4bcf7dc8a88a90835308a777"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-refusal/runner-ack.json",
+      "bytes": 21,
+      "sha256": "3176928fc504a82201171b3482dc1bdf8464065dcd20c1e20c4ea0e71d62e2e9"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-refusal/runner-ready.json",
+      "bytes": 21,
+      "sha256": "3176928fc504a82201171b3482dc1bdf8464065dcd20c1e20c4ea0e71d62e2e9"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-refusal/runner-stderr.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-refusal/runner-stdout.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-refusal/stderr.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-refusal/stdout.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-refusal/trace.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-refusal/tracer-ready.json",
+      "bytes": 770,
+      "sha256": "6b48474ca1bcf1801fe5e7625471fa039cb96bedc8d29e6ae2c483d7c1cc26df"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/all-ready.json",
+      "bytes": 14670,
+      "sha256": "065758eabfdc805870b8b47eadf31724f4ebdd7872b8de06df4b77c1fdaf1541"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/child-ack.json",
+      "bytes": 47,
+      "sha256": "614d455be9d081fc2a663114efd04749206f98660f935f8254fbd447c660e21d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/child-exercised.json",
+      "bytes": 50,
+      "sha256": "8847dfba806ab7d195585ae1c15d1890c1d38b04d72a822e6faf1c376ad67d2b"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/child-ready.json",
+      "bytes": 738,
+      "sha256": "46d0593cc114a332b81e3463a92368454cbe82b6540c7448f594e9e9e448e8b5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/child-spawn-ack.json",
+      "bytes": 55,
+      "sha256": "6e291a4649b7acb6c717498b79754405cb38bddc21f167922fd6c24dfc188fa1"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/child-spawn-intent.json",
+      "bytes": 796,
+      "sha256": "f8f976f105579496527a647329c9a3b9eec3a4d0379df02989a8d45468189a2a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/child-synthetic.bin",
+      "bytes": 76,
+      "sha256": "a4983e2765c0e8d374a321668681451d3b661b72d990130b6a83b1c18cdf072a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/grandchild-ack.json",
+      "bytes": 47,
+      "sha256": "cda95175c13f565af94876828ba084654d6df5fa17303c6cb3479f5f23bc013a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/grandchild-exercised.json",
+      "bytes": 50,
+      "sha256": "529d04fc0714697a86763bf0fd65e7c33664a764140c096c24e0aed74d371a67"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/grandchild-ready.json",
+      "bytes": 748,
+      "sha256": "1c6a79ccb79dcfd2067d7ebb05719b37d06f482a8c8e1bc756a393bb8364b476"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/grandchild-synthetic.bin",
+      "bytes": 76,
+      "sha256": "a4983e2765c0e8d374a321668681451d3b661b72d990130b6a83b1c18cdf072a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/guard-result.json",
+      "bytes": 57023,
+      "sha256": "fa7079ff831545489294f20dfe4e27ee0d2c61835fcbefc22884c184dd9306a2"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/observer-capture.json",
+      "bytes": 2856,
+      "sha256": "83991a6c648bebdca12871dab1f651be0e52fe831e802beb67ec5e95f1f30d22"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/parent-ack.json",
+      "bytes": 47,
+      "sha256": "87f09c93f65fb38d3d606aa24fff3b67942c010e22094a2227e1582aa51aa320"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/parent-exercised.json",
+      "bytes": 50,
+      "sha256": "bb82f526f8492df198851511ed1d248c6ffa2e8282d8cb96d94a3d2c66c526f1"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/parent-ready.json",
+      "bytes": 740,
+      "sha256": "34e613b0305388bbda80d6490a48d6bf15ae18da0a9ef1be8223d6c1bc17c160"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/parent-spawn-ack.json",
+      "bytes": 50,
+      "sha256": "781aa9990ccb35afc47bf7d21eb8b5fdd4e2a975b638ae8d372c2b8b0eaebc16"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/parent-spawn-intent.json",
+      "bytes": 793,
+      "sha256": "fe4c25b32d19f8ead3dd38107ff4cc7eac9897cf345b969ee13493b81925e58d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/parent-synthetic.bin",
+      "bytes": 76,
+      "sha256": "a4983e2765c0e8d374a321668681451d3b661b72d990130b6a83b1c18cdf072a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/runner-ack.json",
+      "bytes": 21,
+      "sha256": "3fdc612916283670f184e88c077c0d415e9451240667f5edf765305e4c3850b2"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/runner-events.json",
+      "bytes": 147,
+      "sha256": "a56a9270a084dfabe1a3030fe7ce3dbe4b20c8251ef60a5325875dc5a55e6719"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/runner-ready.json",
+      "bytes": 21,
+      "sha256": "3fdc612916283670f184e88c077c0d415e9451240667f5edf765305e4c3850b2"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/runner-stderr.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/runner-stdout.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/stderr.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/stdout.bin",
+      "bytes": 180,
+      "sha256": "dd80e1d034f0fea76bfc68d07e3038bdb245f525e84245493dafffbffd74f715"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/trace.bin",
+      "bytes": 78560,
+      "sha256": "d876f6c8fcb2ad80ac0641fe38986925d5f6b08852fdaf4772e225119b6f78e3"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/natural-zero/tracer-ready.json",
+      "bytes": 764,
+      "sha256": "8877106438868dfd89d13a0a342d557c5df49f47b459359d97c00ad2b31c647e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/actual-containment-r1/raw-suite.json",
+      "bytes": 82089,
+      "sha256": "9aae498b3a4b12b3f7c0d4f75b1ba4c438fd40eb08f3338cf6c3d641286f40a5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/real-seven-outer-r1/manifest.json",
+      "bytes": 29740,
+      "sha256": "69802cbfe62d6744fcfbe32b723eb1fa725f384c3605f0c0a92edf1c133acef0"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/real-seven-outer-r1/postflight.json",
+      "bytes": 601708,
+      "sha256": "d6d2a431b5c189dda9322e8fa1089281f681905c61658b9d0be8070800d6b7a5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/real-seven-outer-r1/preflight.json",
+      "bytes": 598696,
+      "sha256": "6c966fbd3c9211805f7850338822a074c7cfd9505553bc60f835e7037b93eafc"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/real-seven-outer-r1/runtime-results.json",
+      "bytes": 22170,
+      "sha256": "99739e84a3d6a43415a36b7f3b39e125c32b14b467bd188f2e233a4d533169dd"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/real-seven-outer-r1/stderr.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/real-seven-outer-r1/stdout.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/real-seven-outer-r1/tool-association.json",
+      "bytes": 2615,
+      "sha256": "884d6f651c3e937a98067ec79b5f6b4ec427777ee460f37405f354b323799f04"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/real-seven-outer-r1/tool-launch.json",
+      "bytes": 110,
+      "sha256": "c8c22e514a342723d8d0383f772b75a3130c9e3a36e53100bc060aa7a84265dc"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/real-seven-outer-r1/tool-postflight.json",
+      "bytes": 534,
+      "sha256": "cc8a59bb2c5bbb62c25e7a779c42e0110744f75d6a8e86f1c50b6530913dfae7"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/real-seven-outer-r1/tool-preflight.json",
+      "bytes": 540,
+      "sha256": "a2edef170a31ddb195e91271a2b370045c741c39c8b83789691a626628e2b72b"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/real-seven-outer-r1/tool-wait-1.json",
+      "bytes": 105,
+      "sha256": "ab24c44c13c78f40ae649a7fa2f03d62e37f8822f1d233e4fdcaa77fcd0d6884"
+    }
+  ],
+  "runtimeResults": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/real-seven-outer-r1/runtime-results.json",
+    "bytes": 22170,
+    "sha256": "99739e84a3d6a43415a36b7f3b39e125c32b14b467bd188f2e233a4d533169dd"
+  },
+  "manifest": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r6/real-seven-outer-r1/manifest.json",
+    "bytes": 29740,
+    "sha256": "69802cbfe62d6744fcfbe32b723eb1fa725f384c3605f0c0a92edf1c133acef0"
+  },
+  "actualCases": 2,
+  "narrowQualifiedCases": 1,
+  "failedCases": 1,
+  "notExecuted": 5,
+  "disposition": "FAIL_HOLD_NO_CONTAINMENT_ACCEPTANCE",
+  "activationUnlocked": false,
+  "canonicalPass": false,
+  "independentReview": "PENDING"
+}

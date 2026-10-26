@@ -1,0 +1,82 @@
+{
+  "schema": "nbdp-e06-docker-boundary-proposal-prerequisites-v1",
+  "state": "SOURCE_PLAN_ONLY",
+  "observedImage": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+  "observedKernel": "7.1.5-76070105-generic",
+  "observedHostUid": 1000,
+  "items": [
+    {
+      "id": "P01",
+      "dependency": "SOURCE proposal adoption",
+      "owner": "root + independent qa/security",
+      "acceptance": "Exact frozen proposal/criterion mapping accepted by actual separate sessions and adopted by root.",
+      "status": "PENDING_NO_ADOPTION_OR_REVIEW_CREATED"
+    },
+    {
+      "id": "P02",
+      "dependency": "Implementation SOURCE and controls",
+      "owner": "implementer + independent qa/security",
+      "acceptance": "Small HOST monitor/PID1 driver, unchanged capture proof, exact mounts/config/schema and meaningful models frozen/reviewed; no imports or experiments implied.",
+      "status": "MISSING_IMPLEMENTATION_NOT_AUTHORIZED_BY_THIS_PACKET"
+    },
+    {
+      "id": "P03",
+      "dependency": "Tools and glibc/loader mounts",
+      "owner": "implementer",
+      "acceptance": "Closed canonical read-only Python3.13/strace/loader/glibc2.39/ELF+Python dependency manifest; actual loaded paths/hash/sys.executable verified by later capability check.",
+      "status": "UNKNOWN_IMAGE_COMPATIBILITY_NO_RUNTIME"
+    },
+    {
+      "id": "P04",
+      "dependency": "Numeric UID and private authorities",
+      "owner": "implementer + security",
+      "acceptance": "Explicit UID/GID1000, actual maps and source-owner visibility/0600 readability; no chmod or owner normalization of existing inputs.",
+      "status": "UNKNOWN_IMAGE_NBDP_NAME_IS_NOT_UID_PROOF"
+    },
+    {
+      "id": "P05",
+      "dependency": "Isolation and migration restriction",
+      "owner": "implementer + security",
+      "acceptance": "Actual private PID/IPC/cgroup namespaces, networknone, readonly explicit mounts, no socket/CAPSYSADMIN/privilege/globalpolicy; workload cannot administer/migrate cgroups.",
+      "status": "UNKNOWN_NO_TEST_CONTAINER"
+    },
+    {
+      "id": "P06",
+      "dependency": "Exact HOST cgroup observation",
+      "owner": "implementer",
+      "acceptance": "Actual CID/init-PID/cgroup/inode association, bounded anchored events/membership access and no unexpected nested cgroup.",
+      "status": "UNKNOWN_NO_CGROUP_READ_ROUTE_PROVED"
+    },
+    {
+      "id": "P07",
+      "dependency": "Single capability check",
+      "owner": "root + implementer + independent qa/security",
+      "acceptance": "Separately finite-released one public cooperative-child check: before-fork admission, child tracing, pause+frozen1, mapping/isolation, wait/reap, onlyPID1 completion whilealive, natural exit/exact cleanup.",
+      "status": "NOT_EXECUTED_NO_RELEASE"
+    },
+    {
+      "id": "P08",
+      "dependency": "One real seven-case suite",
+      "owner": "root + implementer + independent qa/security",
+      "acceptance": "Separate exact finite root release after current SOURCE/control/capability acceptance; all seven once under original timing/privacy/lifecycle and honest cleanup semantics.",
+      "status": "NOT_EXECUTED_NO_RELEASE"
+    },
+    {
+      "id": "P09",
+      "dependency": "New reader and actual result admission",
+      "owner": "implementer + independent qa/security",
+      "acceptance": "Versioned reader rejects missing freeze/mapping/unknownmember/earlyPID1/emergencycleanup/stale source/wrong context and requires genuine same-subject independent whole-seven decisions.",
+      "status": "MISSING_NO_FUTURE_ACCEPTANCE_SUPPLIED"
+    },
+    {
+      "id": "P10",
+      "dependency": "Matching future Node/LOCAL preparation",
+      "owner": "root + implementer + independent qa/security",
+      "acceptance": "Fresh exact container execution candidate and source449, tools, paths, modes, configuration, environment/prerequisite, LOCAL and observation authorities.",
+      "status": "NOT_READY_NO_HOST_PASS_TRANSFER"
+    }
+  ],
+  "userInputRequired": null,
+  "approvalLimit": "PO decision only for actual canonical reduction, architecture/gate change, scope expansion or otherwise prohibited global intervention; none is proposed.",
+  "implementationAndRuntimeAuthorized": false
+}

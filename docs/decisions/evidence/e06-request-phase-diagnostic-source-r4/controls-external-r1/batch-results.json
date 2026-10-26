@@ -1,0 +1,74 @@
+{
+  "schema": "e06-source4-actual-partial-batch-results-v1",
+  "operator": "/root/local_monitor_controls",
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/subject.json",
+    "bytes": 26581,
+    "sha256": "03661eea0eccefe72e28d386b7e4b2b020a4b10f322492a8b273dbc36a395474"
+  },
+  "release": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/root-pure-controls-release.json",
+    "bytes": 1722,
+    "sha256": "9c9214658fd1931331d0c374a5c17c7a80b3190d1a88bebf457fe6bd9367e4ae"
+  },
+  "scopes": {
+    "pure13": {
+      "actual": 13,
+      "passed": 13,
+      "errors": 0,
+      "status": "COMPLETED_SUBSET_ONLY"
+    },
+    "path3": {
+      "actual": 3,
+      "passed": 3,
+      "errors": 0,
+      "status": "COMPLETED_SUBSET_ONLY"
+    },
+    "guard16": {
+      "actual": 16,
+      "passed": 7,
+      "failed": 0,
+      "errors": 9,
+      "skipped": 0,
+      "status": "FAILED"
+    },
+    "admission14": {
+      "actual": 0,
+      "status": "NOT_EXECUTED_STOP_FIRST_FAILED_SUITE",
+      "planned": 14
+    }
+  },
+  "pure16Subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/controls-external-r1/pure16-subject.json",
+    "bytes": 24507,
+    "sha256": "c738176e0c68d79e0c825a60b8d57033ee62168aac9952b30aca807084bc7274"
+  },
+  "modeledSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/controls-external-r1/modeled-subject.json",
+    "bytes": 6035,
+    "sha256": "594de6505066269361c979524f120a9e8073fc44d038c02278c91b3437c10fdd"
+  },
+  "manifest": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/controls-external-r1/manifest.json",
+    "bytes": 53873,
+    "sha256": "cdee9ca488f2951b6dc9468681545886603aebb7660aa94c154bcb7d8b79cf6f"
+  },
+  "toolAssociation": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/controls-external-r1/tool-association.json",
+    "bytes": 3579,
+    "sha256": "e8f0cd2c4fa3775916e2c3f52eb12cd4c08ba0db913f3fa8c1ec9dde93c12f75"
+  },
+  "frozenSource87Unchanged": true,
+  "all94SourceInterpreterReleaseReviewPinsStatUnchanged": true,
+  "postflight": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/controls-external-r1/postflight.json",
+    "bytes": 48210,
+    "sha256": "4a3c0388006f91f2b831a6d7fb2dc2e82a99fe2543275c2ba3ac95b84602d909"
+  },
+  "firstFailedSuite": "guard16",
+  "retries": 0,
+  "sourceModified": false,
+  "actualStraceNodeLocal": 0,
+  "overallDisposition": "FAIL_HOLD_NO_ACTIVATION",
+  "independentReviewRequired": true
+}

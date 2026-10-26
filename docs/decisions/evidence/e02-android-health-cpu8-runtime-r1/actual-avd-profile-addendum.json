@@ -1,0 +1,34 @@
+{
+  "scope": "Post-cleanup retained AVD text configuration, no disk images; complements original selected raw manifests.",
+  "profiles": [
+    {
+      "label": "A",
+      "original": {
+        "path": "/tmp/nbdp-e02-android-health-v1/runs/8e4865aa7ad547968e7d3b4a53d7fcf6/android-state/avd/ordinary.avd/config.ini",
+        "bytes": 576,
+        "sha256": "45f1bbfdf46d2786734bdfc418f120a2947533e598680b2dbc7ce22649b334f6"
+      },
+      "mirror": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-cpu8-runtime-r1/actual-avd-profile-A.ini",
+        "bytes": 576,
+        "sha256": "45f1bbfdf46d2786734bdfc418f120a2947533e598680b2dbc7ce22649b334f6"
+      }
+    },
+    {
+      "label": "B",
+      "original": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/android-state/avd/ordinary.avd/config.ini",
+        "bytes": 576,
+        "sha256": "45f1bbfdf46d2786734bdfc418f120a2947533e598680b2dbc7ce22649b334f6"
+      },
+      "mirror": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-cpu8-runtime-r1/actual-avd-profile-B.ini",
+        "bytes": 576,
+        "sha256": "45f1bbfdf46d2786734bdfc418f120a2947533e598680b2dbc7ce22649b334f6"
+      }
+    }
+  ],
+  "limits": [
+    "Configuration is not utilization/health evidence; Docker actualcaps andprivatecgroupraw remainseparate."
+  ]
+}

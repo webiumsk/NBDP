@@ -1,0 +1,44 @@
+{
+  "schema": "e02-transport-diagnostic-static-partition-v1",
+  "allPythonSyntaxParsedWithoutImport": true,
+  "pythonTestDefinitions": {
+    "test_source_controls.py": 10
+  },
+  "nodeEngineParseOrImport": false,
+  "guardBytesUnchanged": true,
+  "threeRolesOnly": [
+    "anchor",
+    "rs-relay",
+    "fixture"
+  ],
+  "noAdbSnapshotOrSdkMountBranches": "Runtime.adb/snapshot removed; start has no Android branch; all devices refused. Borrowed guard ENV has dormant old SDK path strings only.",
+  "limitsUnchanged": {
+    "messageBytes": 262144,
+    "captureBytes": 16777216,
+    "networkTimeoutMilliseconds": 10000,
+    "handshakeTimeoutMilliseconds": 3000,
+    "controlTimeoutMilliseconds": 45000
+  },
+  "parentFixtureCommandSeconds": 55,
+  "proposedLeaseSeconds": 300,
+  "maximumOriginalLeaseSeconds": 1800,
+  "knownSourceModelDifferences": [
+    "Context dependency injection only for targeted fake model; real runtime context hard-bound internally.",
+    "Raw phase evidence before guard grants no action; terminal callbacks context only.",
+    "Persist partial outcome on reject instead of losing it; original timers/guard/query unchanged."
+  ],
+  "publicExactFrameInputs": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/publish-frame.json",
+      "bytes": 2907,
+      "sha256": "844e64e2790a9833880aedc3016e9da82130a29d9e415858d0d46fdcb8946494"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/query-frame.json",
+      "bytes": 112,
+      "sha256": "ae042185e892c9a385b7add6442e478834817d8ed310f8967e7dc3d4bd689389"
+    }
+  ],
+  "noNsecOrKeyOrNonceInput": true,
+  "allControlsRuntimeAndProbesExecuted": 0
+}

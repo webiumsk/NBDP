@@ -1,0 +1,44 @@
+{
+  "reviewer": "/root/transport_evidence_qa",
+  "role": "qa",
+  "decision": "ACCEPT_SOURCE_AND_SYNTHETIC_DATA_CONTROLS_ONLY",
+  "attribution": "Coordinator transcription of actual independent source report.",
+  "sources": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_control_aggregate_v1/aggregate.py",
+      "bytes": 39163,
+      "sha256": "c80dd575cbdd03c534c6d13162d8f2cb54178c2a773e6360dfe117777b210d39"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_control_aggregate_v1/test_aggregate.py",
+      "bytes": 31910,
+      "sha256": "55477f0e1fa24f3cfc2178d640f7c2a39225ce6e04113a5744e495f1f9682040"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_control_aggregate_v1/INTERFACE.md",
+      "bytes": 12547,
+      "sha256": "19989578bbc03ebe1ff52e6239666b99ff39ee2926449b2f448a311c6abdb92b"
+    }
+  ],
+  "findings": [
+    {
+      "id": "AGGREGATE_ACTUAL_OUTER_ARGV_MISMATCH",
+      "severity": "MEDIUM",
+      "scope": "ACTUAL_RUNTIME_READINESS_ONLY",
+      "finding": "Only13-token -B admitted; actual documented -I -B has14tokens and is not represented by syntheticpositive.",
+      "evidenceType": "SOURCE_DOCUMENTED_CONTRACT_MISMATCH_NOT_RUNTIME_REPRODUCED",
+      "requiredFix": "Bindactualexemplar andsupport exact reviewed invocation flags/interpreter/authoritytails withpositiveandnegativecontrols; do notnormalizeflagsaway."
+    }
+  ],
+  "pureControlReadiness": "ACCEPT_23_SYNTHETIC_DATA_CONTROLS_ONLY",
+  "verified": [
+    "Pinnedfixedv1reusedunchanged; namedmetadata-nsdoesnotrelaxwire/rumor/helper/selection.",
+    "Wholefailedrunsdonatenothing; compatibilityfailure/duplicate/conflict visibility; statuses supplementalonly.",
+    "23preparedsyntheticDATAcontrols patchonlyclient/prerequisitefrontgates, noactualclient/transport/reviewevents."
+  ],
+  "limits": [
+    "Noactualruntime/member/inventoryacceptance; externalrealreviewprovenancemandatory.",
+    "Source/hash/ASTonly/noimports/tests/writesbyreviewer.",
+    "No canonicalPASS/skipremoval/Qclosure."
+  ]
+}

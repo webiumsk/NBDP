@@ -1,0 +1,46 @@
+{
+  "schema": "e06-r2-component-provenance-not-result-transfer-v1",
+  "actualR2SourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r2/subject.json",
+    "bytes": 15159,
+    "sha256": "cad7f6db25726a6c258f7c79aae90a7329e51d9746fc3eecb6fbb9ef80712d1e"
+  },
+  "actualR2SixteenResultSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r2/controls-external-r1/subject.json",
+    "bytes": 23902,
+    "sha256": "ff01a26af2014f7ded52f37303ddf60bcead58c5486854c9bff61679b9ffffda"
+  },
+  "actualR2Acceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r2/controls-external-r1/acceptance.json",
+    "bytes": 1449,
+    "sha256": "e1cde50b6356564196d81e8744f2fb1cdb4b432187e79afe70b22ef3e49e9695"
+  },
+  "actualR2Counts": {
+    "pure": 13,
+    "snapshotData": 3
+  },
+  "currentR3ExecutionCounts": {
+    "pure": 0,
+    "snapshotData": 0,
+    "guardModels": 0,
+    "admissionData": 0,
+    "realStrace": 0
+  },
+  "unchangedComponents": {
+    "captureFunctionAstSha256": "971f1a575c2fee2af0ac2802b4ddd8c9dd938dc123a6a2316a7150a58e671733",
+    "snapshotPathsFunctionAstSha256": "48d99bf96051ea97c196fe44e4f0bc91ddeb09aef2713c5647efd688d2d22b52",
+    "pure13TestBytes": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r3/test_observer.py",
+      "bytes": 11049,
+      "sha256": "fea835f60edd61aea4166596c701083e2af6547ec5163bb284746efde42401d4"
+    },
+    "snapshot3TestBytes": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r3/test_snapshot_paths.py",
+      "bytes": 1918,
+      "sha256": "f8ad557699152309ccd9d078f7312b44be73501abaa9a9acc7573e0f73cc142d"
+    }
+  },
+  "wholeObserverBytesUnchanged": false,
+  "wholeHelperBytesUnchanged": false,
+  "meaning": "HistoricalR2 proof supports unchanged components ONLY. No R3 actual13/3 claim. Current gate requires actual16 receipts over COMPLETE current frozen observer/helper closure; fresh run is small and avoids retargeting or AST-only acceptance."
+}

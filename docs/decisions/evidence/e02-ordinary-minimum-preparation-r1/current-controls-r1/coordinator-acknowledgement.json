@@ -1,0 +1,41 @@
+{
+  "schema": "e02-minimum-current-controls-root-ack-v1",
+  "actor": "/root",
+  "sourceSubjectSha256": "296acf346bb034bcb8becc22562494e5f37e78c3f78537d061e83455135315b4",
+  "pureControlsAuthorized": true,
+  "actualSourceQaAccepted": true,
+  "actualSourceSecurityAccepted": true,
+  "runner": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/current-controls-r1/capture-controls.py",
+    "bytes": 13851,
+    "sha256": "8fc0b86374f7ed5e13ac51bdd9374035fe828c18301f5d32ea6907d6c9b90c9b"
+  },
+  "controlPlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/current-controls-r1/control-plan.json",
+    "bytes": 3430,
+    "sha256": "ed677a772445597d995e7f587161f78952698edd21429800d0b53b824c8d0433"
+  },
+  "sourceQaReview": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/actual-source-qa-review.json",
+    "bytes": 2332,
+    "sha256": "2f1fae2c1727cdf3132aef3f093df24923dab56cd4284279e8ac2e5deaa5bd2b"
+  },
+  "sourceSecurityReview": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/actual-source-security-review.json",
+    "bytes": 2344,
+    "sha256": "db0cf50a1a4dae3ae3204b7b5c34025bdf34eb9b555c09697394822e04c5b34f"
+  },
+  "allowedSeparateCounts": [
+    29,
+    49,
+    21,
+    27,
+    43
+  ],
+  "stopFirstFailure": true,
+  "noRetry": true,
+  "androidAuthorized": false,
+  "servicesAuthorized": false,
+  "cryptoOrNativeAuthorized": false,
+  "meaning": "Actual coordinator authorization for the five source-reviewed mock/metadata suites only. No Android/SDK/crypto/native/experiment promotion."
+}

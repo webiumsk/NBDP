@@ -1,0 +1,44 @@
+{
+  "reviewer": "/root/attachment_profile_security",
+  "role": "security",
+  "decision": "HOLD_ACTUAL_AGGREGATE_USE",
+  "attribution": "Coordinator transcription of actual independent source report.",
+  "sources": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_control_aggregate_v1/aggregate.py",
+      "bytes": 39163,
+      "sha256": "c80dd575cbdd03c534c6d13162d8f2cb54178c2a773e6360dfe117777b210d39"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_control_aggregate_v1/test_aggregate.py",
+      "bytes": 31910,
+      "sha256": "55477f0e1fa24f3cfc2178d640f7c2a39225ce6e04113a5744e495f1f9682040"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_control_aggregate_v1/INTERFACE.md",
+      "bytes": 12547,
+      "sha256": "19989578bbc03ebe1ff52e6239666b99ff39ee2926449b2f448a311c6abdb92b"
+    }
+  ],
+  "findings": [
+    {
+      "id": "SEC-E02-AGG-INVENTORY-REVIEW-AUTHORS-001",
+      "severity": "MEDIUM",
+      "scope": "ACTUAL_RUNTIME_READINESS_ONLY",
+      "finding": "Inventoryreviewersexcludeonlyinventoryauthors/operator, notinventoriedmemberauthors/operators.",
+      "evidenceType": "SOURCE_INSPECTION_ONLY_NOT_RUNTIME_EXPLOIT",
+      "requiredFix": "ExcludeunionofinventoryandALLmemberauthors/operatorsincludingexcludedattempts; addself-reviewandindependentpositiveregressions."
+    }
+  ],
+  "pureControlReadiness": "ACCEPT_23_SYNTHETIC_DATA_CONTROLS_ONLY",
+  "verified": [
+    "Pinnedfixedv1reusedunchanged; namedmetadata-nsdoesnotrelaxwire/rumor/helper/selection.",
+    "Wholefailedrunsdonatenothing; compatibilityfailure/duplicate/conflict visibility; statuses supplementalonly.",
+    "23preparedsyntheticDATAcontrols patchonlyclient/prerequisitefrontgates, noactualclient/transport/reviewevents."
+  ],
+  "limits": [
+    "Noactualruntime/member/inventoryacceptance; externalrealreviewprovenancemandatory.",
+    "Source/hash/ASTonly/noimports/tests/writesbyreviewer.",
+    "No canonicalPASS/skipremoval/Qclosure."
+  ]
+}

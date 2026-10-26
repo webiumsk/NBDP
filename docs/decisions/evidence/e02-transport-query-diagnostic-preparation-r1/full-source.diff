@@ -1,0 +1,1699 @@
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/CONTRACT.md
+@@ -0,0 +1,145 @@
++# Transport query diagnostic v1 — SOURCE only
++
++This is a separately versioned diagnostic of the retained minimum incoming
++failure, not another ordinary-client attempt. It is limited to one baseline:
++publish the existing2907-byte public synthetic signed outer, then issue its exact
++112-byte query by ID/limit1. There is no Android/Amethyst app/proxy, NSEC entry,
++new key generation, signing/encrypt/decrypt, Rust native validator, file profile
++or SDK. The malformed unused incoming plan NSEC is not copied or corrected.
++Optional modeled APP REQ bursts are explicitly deferred beyond this v1 baseline.
++
++## Frozen operands and isolation
++
++Event ID `1203eaed1d1c6fd2d3fe9600209c3bc2036e68e9a7b79bb8b720989d06b844da`.
++The outgoing publish Buffer and query Buffer remain exact archived bytes:
++SHA256 `844e64e2790a9833880aedc3016e9da82130a29d9e415858d0d46fdcb8946494`
++and `ae042185e892c9a385b7add6442e478834817d8ed310f8967e7dc3d4bd689389`.
++Replaying identical public signed ciphertext is not encrypting different
++plaintext under a reused key/nonce. No encryption/nonce profile is reinterpreted.
++
++Use the exact existing runtime/rs-relay image digests, Node/ws installed tree,
++unchanged guard/interpreter bundle and mounted relay config. Original three
++cgroup caps remain anchor128MiB/64PID/1CPU, relay512MiB/128PID/1CPU and
++fixture1024MiB/128PID/1CPU; memory=swap. Anchor has network none; the two services
++share only its private namespace. No host ports/device/GUI/shared clipboard or
++SDK/APK mounts. No new infrastructure manager: the copied original finite
++command/ownership/identity/cleanup helpers remain explicit and diffed. The only
++start/validation changes close roles to three, remove Android methods/branches
++and bind the same guard bundle readonly in every role. The borrowed guard ENV
++contains unused historical SDK path strings; no SDK is mounted or invoked and
++no ADB method/guest route exists.
++
++Every runtime command requires current source/config/dependency pins, an exact
++fresh root release, actual SOURCE/control acceptance and fresh admission receipt.
++The release is externally authenticated by the coordinator; JSON labels alone
++cannot prove a real instruction or reviewer. Fresh output/run ID/lease and actual
++original outer tool responses must be preserved. This preparation creates only
++an unexecuted config candidate, never a release/lease or acceptance. No old
++failed window donates a row. Diagnostic success does not change E02 PARTIAL22,
++E04/E06 prerequisites or Q01/Q08/Q13/Q15/Q27 BLOCKER classifications.
++
++## Guard and timeout preservation
++
++The lease guard is byte-identical. It enforces the same closed original lease
++with UTC/MONOTONIC/BOOTTIME, rollback/drift/observation-gap refusal and exact owned
++child lifecycle. Default proposed diagnostic lease300s is shorter; maximum
++remains1800s and includes setup. It is never renewed. Original service ceiling
++1800s, parent fixture command55s and Unix control reply45s remain unchanged.
++Network timeout10000ms starts at the original pre-open position; WebSocket
++handshake remains3000ms. Synchronous guard calls remain in the same exchange
++entry/open/send/send-callback/backend-message positions. Original1000ms watchdog
++also remains. Instrumentation is not an asynchronous guard approximation, timer
++restart, relaxed EOSE/query criterion or measured speed improvement.
++
++Only source extraction/metadata AST/hash operations occurred here. Prepared
++fake-socket models never execute the actual guard; real guard behavior still
++needs actual runtime qualification under a fresh grant. Existing unchanged
++guard29 is an explicit prior byte-bound scope, not new execution. Source/cleanup
++mock definitions are independent of runtime interoperability.
++
++## Phase evidence and refusal boundaries
++
++`exchange.mjs` is an instrumented sibling of the preserved original function.
++Its runtime context is fixed to real pinned ws, process.hrtime.bigint, built-in
++timers, unchanged synchronous Python guard and bounded local evidence writer.
++Model injection is only an internal test interface; no config/CLI can inject a
++different clock, timer, socket or guard. The existing strictJSON and semantic
++whole-object equality functions are extracted unchanged; no crypto library is
++imported to obtain them.
++
++Each phase row has schema `e02-transport-query-phase-v1`, positive sequence,
++ISO UTC string, `monotonicNanoseconds` as a canonical nonnegative decimal string,
++phase name and only its source-emitted fields. Global capture cap16MiB and frame
++cap262144 bytes remain. The monotonic string is process-local timing, never a
++relaxation of existing wire integer rules or a CPU/RSS/PSI measurement.
++
++Phases include guard entry/ok/refused, exchange start/timer armed, socket open,
++send intent/invoke entry/returned/callback entry/guard passed, raw backend callback
++entry/guard passed, socket error/close, timer firing and resolved/rejected outcome.
++A raw callback-entry row is written before guard solely as refusal-context
++evidence. It never authorizes a send, decode, forward, validation or contribution
++after guard failure. Terminal callbacks are context only. The only post-failure
++socket action is cleanup termination of that exact owned socket. First failed
++control closes its own server/sockets; host command failure revokes the original
++shared lease and executes exact-CID cleanup. No retry or later case follows.
++
++The frozen source's old pre-send row was merely intent. Here SEND_INVOKE_RETURNED
++separately records returning from ws.send; SEND_CALLBACK_ENTRY and guarded callback
++completion separately bind the exact same Buffer hash. None alone proves relay
++kernel receipt. RAW_BACKEND_CALLBACK_ENTRY is entry into the JS callback, not a
++kernel-arrival timestamp. Guard entry→exit includes spawn/wait/instrumentation
++wall latency, not isolated Python CPU time. All overhead is visible and prevents
++an unsupported causal comparison with the original uninstrumented failure.
++
++Each exchange outcome is exclusively persisted on resolve OR reject, retaining
++elapsed duration, original partial ACK/received/EOSE/sent-frame state and first
++error. Failed socket cleanup follows terminal evidence; evidence-write errors
++remain failures. The baseline requires a positive publication ACK plus exactly
++one queried original event and its actual EOSE. Query responses remain semantic
++whole-event comparisons without imposing JSON object key order. No EVENT/EOSE,
++callback, backend receipt or success result is synthesized by runtime code.
++
++Raw diagnostic observer phases can narrow callback/guard/timer uncertainty.
++They cannot by themselves prove internal relay DB queue/checkpoint/load shedding,
++CPU scheduling cause, memory exhaustion or Amethyst incompatibility. Operational
++relay logging is retained if actually available; this profile does not invent
++logs or silently change RUST_LOG/configuration. A no-Android baseline success is
++not proof that the original app traffic was causal.
++
++## Source/config/release and result
++
++Config is closed: schema `e02-transport-query-diagnostic-config-v1`, scope,
++runId, originalLeaseSeconds, runtimeImage, relayImage, sourceAndDependencyPins,
++guardBundleRoot, guardBundleInventory and relayConfig. All eight staged inputs
++remain fixed. The fixture plan has only scenario/backend/limits/public frame
++pins/current installed dependency inventory and empty native mounts. No identity,
++key/NSEC/nonce, arbitrary URL, stage or external event can arrive through control.
++
++Root release is closed: schema `e02-transport-query-diagnostic-release-v1`,
++runId, scope, config, sourceSubject, sourceQaReview, sourceSecurityReview,
++controlAcceptance, freshAdmission, operator, issuedAtUtcNs and notAfterUtcNs.
++The actual source/control/whole-run reviews and tool origins remain external
++coordinator-authenticated evidence, not authored approval placeholders.
++
++CLI guest roles are exactly anchor/rs-relay/fixture. Fixture CLI/control permits
++prepare/status/publish only; prepare is once, baseline publish is once. Main
++supervisor calls prepare then publish, no hidden warm-up/availability publication.
++It waits only for the local control-ready file under its fixed10s source bound.
++A not-yet-ready relay may fail the original first3s handshake; preserve that
++failure rather than retry. Existing network operations contact only private
++loopback8080 in the shared network-none namespace.
++
++Baseline output `e02-transport-query-baseline-v1` reports
++BASELINE_PUB_QUERY_OBSERVED with real publication/query results and explicit
++ordinaryClientObservedfalse/signEncryptDecryptExecutedfalse/nativeRustExecutedfalse.
++This excludes NBDP crypto operations; standard WebSocket/hash internals and the
++required actual Python guard are not falsely described as absent processes.
++Supervisor output retains the original first-error/secondary cleanup behavior,
++with a new diagnostic schema and ordinaryClientQualifiedfalse. Even a successful
++supervisor result is scoped PARTIAL diagnostic evidence, never canonical PASS.
++
++Future prerequisites: independent SOURCE QA/security, meaningful current model/
++source controls and independent result acceptance; actual current image/bundle/
++source/dependency/admission receipts and exact finite root grant; actual raw
++phase/command/process/cleanup evidence and independent nonoperator review. No
++such experiment or grant exists in this SOURCE packet.
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/README.md
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/README.md
+@@ -1,55 +1,19 @@
+-# Adopted minimum ordinary-client SOURCE profile
++# One-public-event relay query diagnostic — SOURCE only
+ 
+-Profile `e02-ordinary-minimum-rs-two-role-v1` is a distinct two-window laboratory
+-method adopted by the coordinator after independent proposal review. This is
+-SOURCE preparation, not execution approval or E02 completion. The immutable old
+-eight-row contract and every failed API35/v3 observation remain preserved.
++The retained incoming failure published successfully and forwarded an actual APP
++frame, then timed out on a separate ID query. Its whole window remains failed.
++This minimal no-Android diagnostic publishes only the exact existing public
++signed outer and its exact112-byte query to the pinned isolated rs-relay.
+ 
+-Incoming account B receives a business rumor from A and a distinct harmless
+-ordinary chat. Archive account A receives its own business self-wrap while the
+-original inner author A and recipient pB remain unchanged; the exact outer is
+-replayed and then a genuinely fresh wrap of the same frozen rumor is published.
+-These are two independently fresh sequential app/helper/AVD/rs-relay states,
+-with fixed per-role configs and separate finite original1800s grants. No failed
+-whole window can donate early rows. Only JS produces ordinary-client wraps;
+-current independent primary JS/Rust directions, both relays and every remaining
+-canonical criterion still require separate evidence.
++It reuses the actual unchanged lease/finite custody/owned CID cleanup helpers
++and original10s network/3s handshake/55s command/1800s maximum lease limits.
++Instrumented phases distinguish intent, send return/callback, raw message entry,
++EOSE, synchronous guard latency and timeout/refusal without weakening guards.
++No signer/NSEC/crypto/native validator/SDK/app or new profile is introduced.
++Modeled background REQ traffic remains deferred beyond this single baseline.
+ 
+-Every stage requires source-bound actual subscription/EOSE, actual publication
+-and wire lineage, selected-note PNG/XML, real foreground helper custody and an
+-exact whole six-field client-origin export with ordered private tags. An empty
+-unsigned representation sig is preserved and compared under the explicit
+-contract. Identical replay may have NO_NEW_APP_FRAME because the relay deduplicates;
+-its bounded absence, exact original sent Buffer, actual publication/query and
+-fresh post-replay client export remain mandatory. It is never evidence that the
+-app handled the same outer twice. Fresh-wrap replay requires a new app frame.
+-Visible text nodes are not global bubble counts or business-effect measurements.
+-
+-The frozen business oracle is an earlier producer EXPECTATION INPUT, not an
+-observation from a failed run. Historical inner and randomized NIP59 timestamps
+-need not lie inside the new lease; actual fresh preparation/wrapping/tool/window
+-custody establishes runtime freshness. Public scalar1 NSEC was encoded once by
+-a separately authorized pinned nip19 format-only operation, with raw lifecycle
+-and before/after inventory; no signing/encryption/transport test occurred.
+-
+-Source-audited navigation uses one exact expanded Feeds collapse under the
+-original scroll/action/capture budgets, then actual System/Relays; Relay Settings,
+-Local Relays, owned Add a Relay field/trailing Add, exact local text row and Save.
+-No invented row DM flags exist. Known/New Requests are role-bound, with Back and
+-the expected note plus either the empty Message composer or the precise read-only
+-missing-recipient-relays warning. More Options/Copy raw JSON are source-backed.
+-All new DOM exposure assumptions are NOT_RUNTIME_VALIDATED and must fail closed.
+-Pinned-source label/line mapping and frozen failed-v3 Feeds XML are in preparation.
+-
+-One source-backed Hide→Show visibility action, whole exact public NSEC and fresh
+-PNG/XML remain mandatory per role. Password accessibility metadata alone does not
+-prove masking; semantic class/package/resource-id shape never proves persistent
+-Android object identity. Tor saved/reopened Off, unknown/Quickstep refusal and
+-at most two known Settings/SystemUI Wait actions remain unchanged.
+-
+-Read [EXPORT-CONTRACT.md](EXPORT-CONTRACT.md) for exact operands and evidence
+-origins, and [SUPERVISOR.md](SUPERVISOR.md) for authority/resource boundaries.
+-New whole-history aggregation/canonical integration is root-owned and absent.
+-All changed control suites are prepared, NOT RUN; only byte-identical guard29
+-has an explicit prior accepted scope link. Canonical E02 remains PARTIAL22;
+-Q01/Q08/Q13/Q15/Q27 remain BLOCKER. No production SDK/kind/NIP/deployment or merge.
++Read CONTRACT.md and the preparation source/control plan. All20 fake-socket
++model and10 source/custody definitions are prepared, not run. No Node import,
++Docker, service, probe, lease, diagnostic or test was executed in preparation.
++Source AST/hash comparison is not runtime qualification. Existing failures,
++nonoperative metadata finding, canonical statuses, gates and blockers remain.
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/exchange.mjs
+@@ -0,0 +1,68 @@
++// SOURCE-only instrumented sibling of the exact original exchange.
++// Dependencies are explicit for synthetic model tests; runtime binds only reviewed
++// real ws, unchanged sync lease guard, process.hrtime, and built-in timers.
++export async function exchange(ctx,events,filter,label){
++ const {WebSocket,p,check,phase,put,strictJSON,sha,clock,arm,clear}=ctx;
++ check('exchange-entry');
++ if(typeof label!=='string'||!/^[a-z0-9-]{1,48}$/.test(label))throw Error('FIXED_EXCHANGE_LABEL');
++ const started=clock();phase('EXCHANGE_START',{label});
++ return await new Promise((resolve,reject)=>{
++  const ws=new WebSocket(p.backendUrl,{perMessageDeflate:false,handshakeTimeout:3000,maxPayload:p.limits.messageBytes});
++  const ack=[],received=[],sentFrames=[];let settled=false,queryEnded=false,eose=null;
++  const timer=arm(()=>{phase('TIMER_FIRED',{label});finish(Error('RELAY_TIMEOUT'));},p.limits.networkTimeoutMilliseconds);
++  phase('TIMER_ARMED',{label,timeoutMilliseconds:p.limits.networkTimeoutMilliseconds});
++  function finish(error){
++   if(settled)return;settled=true;clear(timer);
++   // Terminal evidence is retained even when a guard refused; cleanup touches
++   // only this owned socket. No new send/forward/validation is authorized here.
++   const elapsedNanoseconds=Number(clock()-started);
++   const outcome={label,elapsedNanoseconds,ack,received,eose,sentFrames,error:error?String(error):null};
++   phase(error?'EXCHANGE_REJECTED':'EXCHANGE_RESOLVED',{label,elapsedNanoseconds,error:error?String(error):null});
++   put(label+'-outcome.json',Buffer.from(JSON.stringify(outcome,null,2)+'\n'));
++   ws.terminate();
++   if(error){reject(error);return;}
++   resolve({ack,received,eose,sentFrames,elapsedNanoseconds});
++  }
++  function maybeComplete(){
++   if(!sentFrames.length||!sentFrames.every(row=>row.sendCallbackCompleted))return;
++   if(events&&events.every(event=>ack.some(row=>row.frame[1]===event.id&&row.frame[2]===true)))finish();
++   else if(filter&&queryEnded)finish();
++  }
++  function sendKnown(frame,eventId){
++   check('send-before');const bytes=Buffer.from(JSON.stringify(frame));
++   const framePin=put(label+'-'+sentFrames.length+'-sent-frame.json',bytes);
++   const row={frame:framePin,eventId,messageType:frame[0],sendInvoked:false,sendCallbackCompleted:false,callbackBufferHash:null};
++   sentFrames.push(row);phase('SEND_INTENT',{label,eventId,rawBase64:bytes.toString('base64')});
++   // An intent record is explicitly not a completed send callback/backend receipt.
++   phase('SEND_INVOKE_ENTRY',{label,eventId});
++   ws.send(bytes,{binary:false},error=>{try{
++    phase('SEND_CALLBACK_ENTRY',{label,eventId,error:error?String(error):null});
++    if(settled){phase('TERMINAL_CALLBACK_CONTEXT_ONLY',{label});return;}
++    check('send-callback');if(error)throw error;
++    if(sha(bytes)!==framePin.sha256)throw Error('ACTUAL_SENT_BUFFER_MUTATION');
++    row.sendCallbackCompleted=true;row.callbackBufferHash=sha(bytes);
++    phase('SEND_CALLBACK_GUARD_PASSED',{label,eventId});maybeComplete();
++   }catch(error){finish(error);}});
++   row.sendInvoked=true;phase('SEND_INVOKE_RETURNED',{label,eventId});
++  }
++  ws.on('open',()=>{try{
++   phase('SOCKET_OPEN_CALLBACK_ENTRY',{label});
++   if(settled){phase('TERMINAL_CALLBACK_CONTEXT_ONLY',{label});return;}
++   check('socket-open');for(const event of events??[])sendKnown(['EVENT',event],event.id);
++   if(filter)sendKnown(['REQ','e02-owned-query',filter],null);
++  }catch(error){finish(error);}});
++  ws.on('message',data=>{try{
++   const bytes=Buffer.from(data);
++   phase('RAW_BACKEND_CALLBACK_ENTRY',{label,rawBase64:bytes.toString('base64')});
++   if(settled){phase('TERMINAL_CALLBACK_CONTEXT_ONLY',{label});return;}
++   check('backend-message');
++   const frame=strictJSON(bytes.toString('utf8'));phase('BACKEND_MESSAGE_GUARD_PASSED',{label,messageType:frame[0]});
++   if(frame[0]==='OK'){ack.push({rawBase64:bytes.toString('base64'),frame});if(frame[2]!==true)throw Error('RELAY_REFUSAL');}
++   if(frame[0]==='EVENT'&&frame[1]==='e02-owned-query')received.push({rawBase64:bytes.toString('base64'),frame});
++   if(frame[0]==='EOSE'&&frame[1]==='e02-owned-query'){eose={rawBase64:bytes.toString('base64'),frame};queryEnded=true;}
++   maybeComplete();
++  }catch(error){finish(error);}});
++  ws.on('error',error=>{phase('SOCKET_ERROR_CALLBACK_ENTRY',{label,error:String(error)});finish(error);});
++  ws.on('close',()=>{phase('SOCKET_CLOSE_CALLBACK_ENTRY',{label});if(!settled)finish(Error('EARLY_RELAY_CLOSE'));});
++ });
++}
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/fixture-plan.json
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/fixture-plan.json
+@@ -1,59 +1,27 @@
+ {
+-  "schema": "e02-ordinary-minimum-fixture-plan-v1",
+-  "state": "SOURCE_ONLY_NOT_RELEASED",
+-  "caseId": "minimum-two-role-rs",
+-  "direction": "JS_TO_RUST",
+-  "role": "FROM_HASH_BOUND_ROLE_CONFIG",
+-  "relay": "rs-relay",
+-  "proxyUrl": "ws://127.0.0.1:17777",
++  "schema": "e02-transport-query-diagnostic-fixture-v1",
++  "scenario": "BASELINE_ONE_PUB_THEN_EXACT_QUERY",
+   "backendUrl": "ws://127.0.0.1:8080",
+   "output": "/session/fixtures",
+-  "pins": {
+-    "transport": {
+-      "source": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/transport.mjs",
+-      "path": "/input/transport.mjs",
+-      "bytes": 6421,
+-      "sha256": "0c6f43c1f17b6b898b05cebb72f43dfacf19cfbb2203bbd2d4c7676abf39fb18"
+-    },
+-    "rustBinary": {
+-      "source": "/tmp/nbdp-005-rust-target/debug/nbdp-experiment-rust",
+-      "path": "/input/nbdp-experiment-rust",
+-      "bytes": 24117328,
+-      "sha256": "ecd1c1ab446782e263ae9e606117486b25d79b16732de5c4fac97e78b31699d9"
+-    },
+-    "rustSource": {
+-      "source": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/rust/src/main.rs",
+-      "path": "/input/rust-source.rs",
+-      "bytes": 12938,
+-      "sha256": "95e05dde513e57d5e32830e8639632f34627bb34239c7e5916096fd3686edcba"
+-    },
+-    "packageLock": {
+-      "source": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/package-lock.json",
+-      "path": "/input/package-lock.json",
+-      "bytes": 6095,
+-      "sha256": "9c8d77e625a0d061b8c5d10de043980f523699d2f1c630e748351af5d98005b5"
+-    },
+-    "e01": {
+-      "source": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/results/E01.json",
+-      "path": "/input/E01.json",
+-      "bytes": 33546,
+-      "sha256": "80a7a999b92e3beb91fd12fe78dd0d39c5e9b2bca3c1ba710545172ff1f83058"
+-    },
+-    "e02": {
+-      "source": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/results/E02.json",
+-      "path": "/input/E02.json",
+-      "bytes": 10435,
+-      "sha256": "aa46222ca2556570a342d8fe3c574bd96b8c630b9ec0b814f9e4bd7525231508"
+-    }
++  "eventId": "1203eaed1d1c6fd2d3fe9600209c3bc2036e68e9a7b79bb8b720989d06b844da",
++  "publish": {
++    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/publish-frame.json",
++    "bytes": 2907,
++    "sha256": "844e64e2790a9833880aedc3016e9da82130a29d9e415858d0d46fdcb8946494"
++  },
++  "query": {
++    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/query-frame.json",
++    "bytes": 112,
++    "sha256": "ae042185e892c9a385b7add6442e478834817d8ed310f8967e7dc3d4bd689389"
+   },
+   "limits": {
+     "messageBytes": 262144,
+     "captureBytes": 16777216,
+-    "connections": 64,
+     "networkTimeoutMilliseconds": 10000,
+-    "rustTimeoutMilliseconds": 8000
++    "handshakeTimeoutMilliseconds": 3000,
++    "controlTimeoutMilliseconds": 45000
+   },
+-  "scope": "Distinct two fresh ordinary role windows, finite2incoming/3archive stages; all primary and canonical integration obligations remain separate.",
++  "pins": {},
+   "dependencyFiles": [
+     {
+       "source": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/.package-lock.json",
+@@ -4952,47 +4920,8 @@
+       "sha256": "e37bddaf6d40a3b2ee107906f792cc5117e543cba776fa25f7aeeb3908637f7c"
+     }
+   ],
+-  "dependencyScope": "Installed regular-file tree used by the canonical JS adapter; .bin symlink launchers are not executed. No lockfile-only installed-code provenance claim.",
+-  "profileId": "e02-ordinary-minimum-rs-two-role-v1",
+-  "roles": {
+-    "incoming": {
+-      "windowId": "incoming-b",
+-      "account": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
+-      "peer": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+-      "scalar": 2,
+-      "nsec": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpqptcfk2",
+-      "tab": "New Requests",
+-      "stages": [
+-        "incoming-business",
+-        "incoming-ordinary-chat"
+-      ]
+-    },
+-    "archive": {
+-      "windowId": "archive-a",
+-      "account": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+-      "peer": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
+-      "scalar": 1,
+-      "nsec": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqsmhltgl",
+-      "tab": "Known",
+-      "stages": [
+-        "archive-business",
+-        "archive-identical-replay",
+-        "archive-fresh-wrap-replay"
+-      ]
+-    }
+-  },
+-  "oracles": {
+-    "business": {
+-      "source": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/business-rumor.json",
+-      "path": "/input/business-rumor.json",
+-      "bytes": 910,
+-      "sha256": "8bb0efcf8cc5a503e8f653885503958520f1a069066e549cd60dec7128d25291"
+-    },
+-    "chat": {
+-      "source": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/chat-rumor.json",
+-      "path": "/input/chat-rumor.json",
+-      "bytes": 384,
+-      "sha256": "f796df4b3ad76f832248fb60bdfb0d134a830257e95c0559b44d4fce0a900dc5"
+-    }
+-  }
++  "nodeVersion": "v22.18.0",
++  "wsVersion": "8.18.3",
++  "modeledBackgroundBurst": "DEFERRED_NOT_IMPLEMENTED_OR_GRANTED",
++  "scope": "DIAGNOSTIC_ONLY_NO_ANDROID_APP_OR_E02_COMPLETION"
+ }
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/fixture.mjs
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/fixture.mjs
+@@ -1,256 +1,73 @@
+-// SOURCE ONLY: distinct two-role minimum profile; no crypto/runtime executed by preparation.
++// SOURCE ONLY: one direct backend PUB/REQ diagnostic, never an APP observation.
+ import fs from 'node:fs';
+ import net from 'node:net';
+-import crypto from 'node:crypto';
++import {createHash} from 'node:crypto';
+ import {spawnSync} from 'node:child_process';
+ import {pathToFileURL} from 'node:url';
+-
+-const DIR='/session/fixtures', PLAN='/input/fixture-plan.json';
+-const A='79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798';
+-const B='c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5';
+-const CASE='minimum-two-role-rs', PROFILE='e02-ordinary-minimum-rs-two-role-v1', SOCKET=DIR+'/control.sock';
+-const sha=raw=>crypto.createHash('sha256').update(raw).digest('hex');
+-const same=(a,b)=>typeof a===typeof b&&(a===null||b===null?a===b:Array.isArray(a)||Array.isArray(b)?Array.isArray(a)&&Array.isArray(b)&&a.length===b.length&&a.every((x,i)=>same(x,b[i])):typeof a==='object'?Object.keys(a).length===Object.keys(b).length&&Object.keys(a).every(k=>Object.hasOwn(b,k)&&same(a[k],b[k])):a===b);
+-function need(v,why){if(!v)throw Error(why);}
+-function pin(path){const s=fs.lstatSync(path);need(s.isFile()&&!s.isSymbolicLink(),'REGULAR_FILE');const raw=fs.readFileSync(path);return {path,bytes:raw.length,sha256:sha(raw)};}
+-function raw(path){const b=fs.readFileSync(path);need(b.length<=16777216,'DATA_BOUND');return b;}
+-function doc(path){return JSON.parse(raw(path));}
+-function put(path,data){const b=Buffer.isBuffer(data)?data:Buffer.from(data);need(b.length<=16777216,'WRITE_BOUND');fs.writeFileSync(path,b,{flag:'wx',mode:0o600});return pin(path);}
+-function putJSON(name,value){return put(DIR+'/'+name,JSON.stringify(value,null,2)+'\n');}
+-function check(){
++import {exchange} from './exchange.mjs';
++import {strictJSON,same} from './strict-json.mjs';
++const DIR='/session/fixtures',PLAN='/input/fixture-plan.json',SOCKET=DIR+'/control.sock';
++const sha=b=>createHash('sha256').update(b).digest('hex');
++function need(v,m){if(!v)throw Error(m);}
++function read(p){const b=fs.readFileSync(p);need(b.length<=16777216,'INPUT_BOUND');return b;}
++function put(name,b){need(/^[a-z0-9.-]+$/.test(name)&&b.length<=16777216,'BOUNDED_FIXED_OUTPUT');const path=DIR+'/'+name;fs.writeFileSync(path,b,{flag:'wx',mode:0o600});return {path,bytes:b.length,sha256:sha(b)};}
++function putJSON(name,v){return put(name,Buffer.from(JSON.stringify(v,null,2)+'\n'));}
++// The guard invocation/body is byte-for-byte the original check body, renamed.
++function guardCheck(){
+  const expected=process.env.NBDP_LEASE_SHA256;need(/^[0-9a-f]{64}$/.test(expected??''),'EXTERNAL_LEASE_SHA');
+  const argv=['--inhibit-cache','--library-path','/guard-python/lib','/guard-python/bin/python3.11','-B','-P','-S','-s','/input/lease_guard.py','check',expected];
+  const r=spawnSync('/guard-python/lib/ld-linux-x86-64.so.2',argv,{env:process.env,timeout:5000,maxBuffer:1048576});
+  need(!r.error&&r.status===0&&r.signal===null,'FINITE_LEASE_DENIED:'+String(r.stderr??'').slice(0,2048));
+ }
+-function plan(){
+- const b=raw(PLAN);need(sha(b)===process.env.NBDP_FIXTURE_PLAN_SHA256,'EXTERNAL_FIXTURE_PLAN_SHA');const p=JSON.parse(b);
+- need(p.schema==='e02-ordinary-minimum-fixture-plan-v1'&&p.caseId===CASE&&p.profileId===PROFILE&&p.direction==='JS_TO_RUST'&&p.relay==='rs-relay'&&p.proxyUrl==='ws://127.0.0.1:17777'&&p.backendUrl==='ws://127.0.0.1:8080'&&p.output===DIR,'FIXED_MINIMUM_PROFILE');
+- const configRaw=raw('/input/run-config.json');
+- need(sha(configRaw)===process.env.NBDP_MINIMUM_RUN_CONFIG_SHA256,'EXTERNAL_ROLE_CONFIG_SHA');
+- const config=JSON.parse(configRaw);need(config.profileId===PROFILE&&['incoming','archive'].includes(config.ordinaryRole),'CLOSED_ROLE_CONFIG');
+- const spec=roleSpec(config.ordinaryRole);need(config.windowId===spec.windowId&&config.account===spec.account&&config.peer===spec.peer,'ROLE_ACCOUNT_BINDING');
+- p.ordinaryRole=config.ordinaryRole;p.roleSpec=spec;
+- for(const d of Object.values(p.oracles)){const q=pin(d.path);need(q.bytes===d.bytes&&q.sha256===d.sha256,'FROZEN_ORACLE_PIN');} 
+- need(Array.isArray(p.dependencyFiles)&&p.dependencyFiles.length>0&&p.dependencyFiles.length<=4096,'PINNED_INSTALLED_DEPENDENCIES');for(const d of [...Object.values(p.pins),...p.dependencyFiles]){const q=pin(d.path);need(q.bytes===d.bytes&&q.sha256===d.sha256,'CURRENT_SOURCE_BINARY_PIN');}
+- const e01=doc(p.pins.e01.path),e02=doc(p.pins.e02.path);
+- need(e01.status==='PASS'&&e01.environment.rust_binary_sha256===p.pins.rustBinary.sha256&&e02.status==='PARTIAL','CURRENT_CANONICAL_CANDIDATE');
+- for(const r of [e01,e02])need(r.source_sha256['shared/transport.mjs']===p.pins.transport.sha256&&r.source_sha256['shared/rust/src/main.rs']===p.pins.rustSource.sha256,'CURRENT_ADAPTER_SOURCE_JOIN');
+- return p;
+-}
+-
+-// Pure metadata filter checks; no claim that a synthetic map is an app observation.
+-export function matchesFilter(f,event,recipient){
+- if(!f||typeof f!=='object'||Array.isArray(f)||!Array.isArray(f.kinds)||!f.kinds.includes(1059)||!Array.isArray(f['#p'])||!f['#p'].includes(recipient))return false;
+- if(Object.hasOwn(f,'since')&&(!Number.isSafeInteger(f.since)||f.since>event.created_at))return false;
+- if(Object.hasOwn(f,'until')&&(!Number.isSafeInteger(f.until)||f.until<event.created_at))return false;
+- for(const name of ['ids','authors'])if(Object.hasOwn(f,name)&&(!Array.isArray(f[name])||!f[name].some(x=>typeof x==='string'&&(name==='ids'?event.id:event.pubkey).startsWith(x))))return false;
+- for(const [k,v] of Object.entries(f))if(k.startsWith('#')&&(!Array.isArray(v)||!event.tags.some(t=>t[0]===k.slice(1)&&v.includes(t[1]))))return false;
+- return true;
+-}
+-export function matchingSubscription(connections,event,recipient){
+- for(const c of connections.values())if(c.active)for(const [id,s] of c.subscriptions)if(s.eose!==null&&s.filters.some(f=>matchesFilter(f,event,recipient)))return {connection:c.id,subscription:id,requestSequence:s.req,eoseSequence:s.eose,filters:s.filters};
+- return null;
+-}
+-function currentGeneration(c,id){const s=c?.subscriptions.get(id);return s?{connection:c.id,subscription:id,requestSequence:s.req,eoseSequence:s.eose}:null;}
+-// An ID reused by a replacement REQ is a different generation, even after a new EOSE.
+-export function publicationGenerationMatches(connections,expected,event,recipient){
+- if(!expected)return false;
+- const c=connections.get(expected.connection),s=c?.subscriptions.get(expected.subscription);
+- return c?.active===true&&Number.isSafeInteger(s?.req)&&Number.isSafeInteger(s?.eose)&&s.eose>s.req&&s.req===expected.requestSequence&&s.eose===expected.eoseSequence&&s.filters.some(f=>matchesFilter(f,event,recipient));
+-}
+-
+-// Closed pure metadata contracts. These functions do not produce/validate crypto.
+-export function roleSpec(role){
+- need(role==='incoming'||role==='archive','CLOSED_ROLE');
+- return role==='incoming'?{windowId:'incoming-b',account:B,peer:A,scalar:2,validationRole:'incoming',stages:['incoming-business','incoming-ordinary-chat']}:
+- {windowId:'archive-a',account:A,peer:B,scalar:1,validationRole:'archive',stages:['archive-business','archive-identical-replay','archive-fresh-wrap-replay']};
+-}
+-export function stageSpec(role,index){
+- const r=roleSpec(role);need(Number.isSafeInteger(index)&&index>=0&&index<r.stages.length,'CLOSED_STAGE_INDEX');
+- const id=r.stages[index],chat=id==='incoming-ordinary-chat',duplicate=id==='archive-identical-replay';
+- return {id,index,oracle:chat?'chat':'business',dispatch:role==='incoming'&&!chat,
+-   normalizedRole:role==='archive'?'archive':chat?'chat':'incoming',
+-   identicalReplay:duplicate,freshWrap:!duplicate,requiresNewAppFrame:!duplicate};
+-}
+-export function exactInnerShape(r){
+- return !!r&&typeof r==='object'&&!Array.isArray(r)&&Object.keys(r).length===6&&
+- ['id','pubkey','created_at','kind','tags','content'].every(k=>Object.hasOwn(r,k))&&
+- /^[0-9a-f]{64}$/.test(r.id)&&r.pubkey===A&&Number.isSafeInteger(r.created_at)&&r.created_at>=0&&r.kind===14&&
+- typeof r.content==='string'&&same(r.tags,[['p',B]]);
+-}
+-export function attemptLineageMatches(expected,forward,complete){
+- return !!expected&&!!forward&&!!complete&&Number.isSafeInteger(expected.epoch)&&expected.epoch>0&&
+- ['incoming-business','incoming-ordinary-chat','archive-business','archive-identical-replay','archive-fresh-wrap-replay'].includes(expected.stageId)&&
+- expected.epoch===forward.epoch&&expected.epoch===complete.epoch&&expected.stageId===forward.stageId&&expected.stageId===complete.stageId;
+-}
+-export function stageDeliveryAllowed(stage,observed,origin){
+- if(typeof observed!=='boolean'||!stage)return false;
+- const allowed=[stageSpec('incoming',0),stageSpec('incoming',1),stageSpec('archive',0),stageSpec('archive',1),stageSpec('archive',2)];
+- if(!allowed.some(value=>same(value,stage)))return false;
+- if(observed)return origin==='ACTUAL_APP_SOCKET_FRAME';
+- return stage.id==='archive-identical-replay'&&stage.index===1&&stage.identicalReplay===true&&stage.requiresNewAppFrame===false&&origin==='ACTUAL_RELAY_QUERY_NO_NEW_APP_FRAME';
+-}
+-export function replayBinding(stage,event,initial){
+- if(!stage||!event||!initial)return false;
+- return stage.identicalReplay?same(event,initial):stage.index===2?event.id!==initial.id:true;
+-}
+-
+ async function main(){
+- const mode=process.argv[2];need(process.argv.length===3&&['serve','prepare','status','publish'].includes(mode),'FIXED_CLI');check();const p=plan();
+- if(mode!=='serve'){
+-  const response=await new Promise((resolve,reject)=>{const c=net.connect(SOCKET);let b=Buffer.alloc(0);const timer=setTimeout(()=>{c.destroy();reject(Error('CONTROL_TIMEOUT'));},45000);c.on('connect',()=>{check();c.end(JSON.stringify({op:mode})+'\n');});c.on('data',x=>{b=Buffer.concat([b,x]);if(b.length>1048576){c.destroy();reject(Error('CONTROL_REPLY_BOUND'));}});c.on('end',()=>{clearTimeout(timer);try{resolve(JSON.parse(b));}catch(e){reject(e);}});c.on('error',e=>{clearTimeout(timer);reject(e);});});
+-  check();need(response.ok===true,'FIXTURE_COMMAND_FAILED:'+response.error);process.stdout.write(JSON.stringify(response)+'\n');return;
++ need(process.argv.length===3&&['serve','prepare','status','publish'].includes(process.argv[2]),'CLOSED_DIAGNOSTIC_CLI');
++ guardCheck();
++ const pb=read(PLAN);need(sha(pb)===process.env.NBDP_FIXTURE_PLAN_SHA256,'EXACT_PLAN');const p=strictJSON(pb.toString());
++ need(process.version==='v22.18.0','PINNED_NODE_VERSION');
++ need(p.schema==='e02-transport-query-diagnostic-fixture-v1'&&p.scenario==='BASELINE_ONE_PUB_THEN_EXACT_QUERY'&&p.backendUrl==='ws://127.0.0.1:8080','CLOSED_BASELINE');
++ need(JSON.stringify(p.limits)===JSON.stringify({messageBytes:262144,captureBytes:16777216,networkTimeoutMilliseconds:10000,handshakeTimeoutMilliseconds:3000,controlTimeoutMilliseconds:45000}),'UNCHANGED_LIMITS');
++ const wsPackage=strictJSON(read('/input/node_modules/ws/package.json').toString());need(wsPackage.version==='8.18.3','PINNED_WS_VERSION');
++ const config=read('/input/run-config.json');need(sha(config)===process.env.NBDP_MINIMUM_RUN_CONFIG_SHA256,'EXACT_CONFIG');
++ for(const d of p.dependencyFiles)need(sha(read(d.path))===d.sha256&&read(d.path).length===d.bytes,'INSTALLED_DEPENDENCY_PIN');
++ if(process.argv[2]!=='serve'){
++  const response=await new Promise((resolve,reject)=>{const c=net.connect(SOCKET);let b=Buffer.alloc(0);const timer=setTimeout(()=>{c.destroy();reject(Error('CONTROL_TIMEOUT'));},45000);c.on('connect',()=>{guardCheck();c.end(JSON.stringify({op:process.argv[2]})+'\n');});c.on('data',x=>{b=Buffer.concat([b,x]);if(b.length>1048576){c.destroy();reject(Error('CONTROL_REPLY_BOUND'));}});c.on('end',()=>{clearTimeout(timer);try{resolve(strictJSON(b.toString()));}catch(error){reject(error);}});c.on('error',error=>{clearTimeout(timer);reject(error);});});
++  guardCheck();need(response.ok===true,'DIAGNOSTIC_COMMAND_FAILED:'+response.error);process.stdout.write(JSON.stringify(response)+'\n');return;
+  }
+- const T=await import('./transport.mjs');check();
+- // The unchanged canonical adapter uses verifyEvent internally but does not export it.
+- // Import the same pinned installed dependency only after the plan/source/lease gates.
+- const {verifyEvent}=await import('nostr-tools/pure');check();need(typeof verifyEvent==='function','PINNED_VERIFY_EVENT_API');
+- const {default:WebSocket,WebSocketServer}=await import('ws');check();
+- need(!fs.existsSync(SOCKET),'FRESH_CONTROL_SOCKET');fs.mkdirSync(DIR,{recursive:true,mode:0o700});
+- const captureFd=fs.openSync(DIR+'/capture.jsonl','wx',0o600);let sequence=0,total=0,next=0,attempted=false,busy=false,closed=false,delivery=null,publicationGate=null,publicationInvalidated=false;
+- const connections=new Map();let stageIndex=0,attemptEpoch=0,activeAttempt=null,publicationWindowOpen=false,attemptSawFrame=false;
+- const spec=p.roleSpec;
+- function selectedEvent(){return prepared().events[stageIndex];}
+- function selectedStage(){return stageSpec(p.ordinaryRole,stageIndex);}
+- function log(value){const row={schema:'e02-minimum-proxy-row-v1',sequence:++sequence,utc:new Date().toISOString(),...value};const b=Buffer.from(JSON.stringify(row)+'\n');total+=b.length;need(total<=p.limits.captureBytes,'CAPTURE_BOUND');fs.writeSync(captureFd,b);return row;}
+- function prepared(){
+-  const d=doc(DIR+'/prepared.json');need(d.schema==='e02-minimum-prepared-v1'&&d.profileId===PROFILE&&d.windowId===spec.windowId,'FIXED_PREPARED_PROFILE');
+-  for(const name of ['business','chat'])need(exactInnerShape(d.rumors[name])&&d.rumors[name].id===T.getEventHash(d.rumors[name])&&same(d.rumors[name],doc(p.oracles[name].path)),'FROZEN_SHARED_INNER');
+-  need(d.rumors.business.content===JSON.stringify(T.envelope(A,B,10))&&d.rumors.chat.content==='NBDP harmless ordinary chat control — faktúra 𐐀','FROZEN_CONTENT');
+-  need(d.events.length===spec.stages.length&&d.events.every(e=>e.kind===1059&&verifyEvent(JSON.parse(JSON.stringify(e)))&&same(e.tags,[['p',spec.account]])),'ROLE_WRAPS');
+-  if(p.ordinaryRole==='archive')need(same(d.events[0],d.events[1])&&d.events[2].id!==d.events[0].id,'IDENTICAL_AND_FRESH_ARCHIVE_WRAPS');
+-  return d;
++ const {default:WebSocket}=await import('ws');guardCheck();
++ let sequence=0,total=0,closed=false,attempted=false,prepared=false,busy=false;
++ const sockets=new Set();const fd=fs.openSync(DIR+'/phase-trace.jsonl','wx',0o600);
++ function phase(phase,fields={}){
++  const row={schema:'e02-transport-query-phase-v1',sequence:++sequence,utc:new Date().toISOString(),monotonicNanoseconds:process.hrtime.bigint().toString(),phase,...fields};
++  const raw=Buffer.from(JSON.stringify(row)+'\n');total+=raw.length;need(total<=16777216,'ORIGINAL_CAPTURE_BOUND');fs.writeSync(fd,raw);
+  }
+- function gate(){if(!fs.existsSync(DIR+'/prepared.json')||stageIndex>=spec.stages.length)return null;return matchingSubscription(connections,selectedEvent(),spec.account);}
+- function invalidatePublication(c,id,reason){if(attempted&&publicationGate&&c.id===publicationGate.connection&&(id===null||id===publicationGate.subscription)){if(!publicationInvalidated)log({connection:c.id,direction:'PUBLICATION_GENERATION_INVALIDATED',reason,gate:publicationGate});publicationInvalidated=true;delivery=null;}}
+- function qualifiedDelivery(before,event){return !publicationInvalidated&&delivery!==null&&attemptLineageMatches(activeAttempt,delivery.forwardAttempt,delivery.completionAttempt)&&publicationGenerationMatches(connections,before,event,spec.account)&&publicationGenerationMatches(connections,delivery.forwardGeneration,event,spec.account)&&same(delivery.forwardGeneration,delivery.completionGeneration);}
+- function fatal(error){if(closed)return;closed=true;try{putJSON('serve-error.json',{error:String(error),sequence,scope:'UNQUALIFIED_NO_E02_PROMOTION'});}catch{}for(const c of connections.values()){c.app.terminate();c.upstream.terminate();}server.close();control.close();clearInterval(watchdog);process.exitCode=2;}
+- const server=new WebSocketServer({host:'127.0.0.1',port:17777,maxPayload:p.limits.messageBytes,perMessageDeflate:false});
+- server.on('connection',(app,request)=>{try{check();need(++next<=p.limits.connections,'CONNECTION_BOUND');const upstream=new WebSocket(p.backendUrl,{perMessageDeflate:false,handshakeTimeout:3000,maxPayload:p.limits.messageBytes});const c={id:next,active:true,app,upstream,subscriptions:new Map(),pending:[]};connections.set(c.id,c);log({connection:c.id,direction:'OPEN',userAgent:String(request.headers['user-agent']??'').slice(0,1024)});
+-  app.on('message',(data,binary)=>{try{check();need(!binary,'TEXT_ONLY_NOSTR');const bytes=Buffer.from(data);const f=T.strictJSON(bytes.toString('utf8'));const row=log({connection:c.id,direction:'APP_TO_RELAY',rawBase64:bytes.toString('base64')});if(Array.isArray(f)&&f[0]==='REQ'&&typeof f[1]==='string'){invalidatePublication(c,f[1],'REQ_REPLACED');c.subscriptions.set(f[1],{req:row.sequence,eose:null,filters:f.slice(2)});}if(Array.isArray(f)&&f[0]==='CLOSE'){invalidatePublication(c,f[1],'APP_CLOSE');c.subscriptions.delete(f[1]);}if(upstream.readyState===WebSocket.OPEN){check();upstream.send(bytes,{binary:false});}else{need(c.pending.length<64,'PENDING_FRAME_BOUND');c.pending.push(bytes);}}catch(e){fatal(e);}});
+-  upstream.on('open',()=>{try{check();for(const bytes of c.pending){check();upstream.send(bytes,{binary:false});}c.pending=[];}catch(e){fatal(e);}});
+-  upstream.on('message',(data,binary)=>{try{
+-   check();need(!binary,'TEXT_ONLY_NOSTR');const bytes=Buffer.from(data);const f=T.strictJSON(bytes.toString('utf8'));
+-   const candidate=attempted&&publicationWindowOpen&&Array.isArray(f)&&f[0]==='EVENT'&&stageIndex<spec.stages.length&&f[2]?.id===selectedEvent().id&&c.id===publicationGate?.connection&&f[1]===publicationGate?.subscription;
+-   const forwardAttempt=candidate&&activeAttempt?{...activeAttempt}:null;
+-   const forwardGeneration=candidate&&!publicationInvalidated&&publicationGenerationMatches(connections,publicationGate,f[2],spec.account)?currentGeneration(c,f[1]):null;
+-   if(candidate)attemptSawFrame=true;
+-   const row=log({connection:c.id,direction:'RELAY_TO_APP',rawBase64:bytes.toString('base64'),publicationGeneration:forwardGeneration,publicationAttempt:forwardAttempt});
+-   if(Array.isArray(f)&&f[0]==='EOSE'&&c.subscriptions.has(f[1]))c.subscriptions.get(f[1]).eose=row.sequence;
+-   if(Array.isArray(f)&&f[0]==='CLOSED'){invalidatePublication(c,f[1],'RELAY_CLOSED');c.subscriptions.delete(f[1]);}
+-   check();app.send(bytes,{binary:false},error=>{try{
+-    check();if(error)throw error;
+-    const completionAttempt=forwardAttempt&&activeAttempt?{...activeAttempt}:null;
+-    const completionGeneration=forwardGeneration&&publicationWindowOpen&&attemptLineageMatches(activeAttempt,forwardAttempt,completionAttempt)&&!publicationInvalidated&&publicationGenerationMatches(connections,publicationGate,f[2],spec.account)?currentGeneration(c,f[1]):null;
+-    const sent=log({connection:c.id,direction:'APP_SOCKET_SEND_COMPLETE',sourceSequence:row.sequence,publicationGeneration:completionGeneration,publicationAttempt:completionAttempt});
+-    if(!delivery&&forwardGeneration&&completionGeneration&&same(forwardGeneration,completionGeneration))delivery={frame:bytes,event:f[2],connection:c.id,subscription:f[1],rowSequence:row.sequence,sentSequence:sent.sequence,forwardGeneration,completionGeneration,forwardAttempt,completionAttempt};
+-   }catch(e){fatal(e);}});
+-  }catch(e){fatal(e);}});
+-  for(const socket of [app,upstream]){socket.on('error',error=>fatal(error));socket.on('close',()=>{try{invalidatePublication(c,null,'CONNECTION_CLOSED');c.active=false;c.subscriptions.clear();app.terminate();upstream.terminate();log({connection:c.id,direction:'CLOSE'});}catch(e){fatal(e);}});}
+- }catch(e){fatal(e);}});
+- server.on('error',fatal);
+- async function exchange(events,filter,label){
+-  check();need(typeof label==='string'&&/^[a-z0-9-]{1,48}$/.test(label),'FIXED_EXCHANGE_LABEL');
+-  const started=process.hrtime.bigint();
+-  return await new Promise((resolve,reject)=>{
+-   const ws=new WebSocket(p.backendUrl,{perMessageDeflate:false,handshakeTimeout:3000,maxPayload:p.limits.messageBytes});
+-   const ack=[],received=[],sentFrames=[];let settled=false,queryEnded=false,eose=null;
+-   const timer=setTimeout(()=>finish(Error('RELAY_TIMEOUT')),p.limits.networkTimeoutMilliseconds);
+-   function finish(error){
+-    if(settled)return;settled=true;clearTimeout(timer);ws.terminate();
+-    const elapsedNanoseconds=Number(process.hrtime.bigint()-started);
+-    if(error){reject(error);return;}
+-    resolve({ack,received,eose,sentFrames,elapsedNanoseconds});
+-   }
+-   function maybeComplete(){
+-    if(!sentFrames.length||!sentFrames.every(row=>row.sendCallbackCompleted))return;
+-    if(events&&events.every(event=>ack.some(row=>row.frame[1]===event.id&&row.frame[2]===true)))finish();
+-    else if(filter&&queryEnded)finish();
+-   }
+-   function sendKnown(frame,eventId){
+-    check();const bytes=Buffer.from(JSON.stringify(frame));
+-    const framePin=put(DIR+'/'+label+'-'+sentFrames.length+'-sent-frame.json',bytes);
+-    const row={frame:framePin,eventId,messageType:frame[0],sendInvoked:true,sendCallbackCompleted:false,callbackBufferHash:null};
+-    sentFrames.push(row);
+-    log({direction:'PRODUCER_TO_RELAY',exchangeLabel:label,rawBase64:bytes.toString('base64'),frame:framePin});
+-    ws.send(bytes,{binary:false},error=>{try{
+-     check();if(error)throw error;
+-     need(sha(bytes)===framePin.sha256,'ACTUAL_SENT_BUFFER_MUTATION');
+-     row.sendCallbackCompleted=true;row.callbackBufferHash=sha(bytes);maybeComplete();
+-    }catch(error){finish(error);}});
+-   }
+-   ws.on('open',()=>{try{
+-    check();for(const event of events??[])sendKnown(['EVENT',event],event.id);
+-    if(filter)sendKnown(['REQ','e02-owned-query',filter],null);
+-   }catch(error){finish(error);}});
+-   ws.on('message',data=>{try{
+-    check();const bytes=Buffer.from(data);
+-    log({direction:'RELAY_TO_PRODUCER',exchangeLabel:label,rawBase64:bytes.toString('base64')});
+-    const frame=T.strictJSON(bytes.toString('utf8'));
+-    if(frame[0]==='OK'){ack.push({rawBase64:bytes.toString('base64'),frame});need(frame[2]===true,'RELAY_REFUSAL');}
+-    if(frame[0]==='EVENT'&&frame[1]==='e02-owned-query')received.push({rawBase64:bytes.toString('base64'),frame});
+-    if(frame[0]==='EOSE'&&frame[1]==='e02-owned-query'){eose={rawBase64:bytes.toString('base64'),frame};queryEnded=true;}
+-    maybeComplete();
+-   }catch(error){finish(error);}});
+-   ws.on('error',finish);ws.on('close',()=>{if(!settled)finish(Error('EARLY_RELAY_CLOSE'));});
+-  });
++ function check(label){phase('GUARD_ENTRY',{label});try{guardCheck();phase('GUARD_EXIT_OK',{label});}catch(error){phase('GUARD_EXIT_REFUSED',{label,error:String(error)});throw error;}}
++ const pub=read('/input/publish-frame.json'),query=read('/input/query-frame.json');
++ need(sha(pub)===p.publish.sha256&&pub.length===p.publish.bytes&&sha(query)===p.query.sha256&&query.length===112,'EXACT_FROZEN_PUBLIC_FRAMES');
++ const pf=strictJSON(pub.toString()),qf=strictJSON(query.toString());
++ need(pf[0]==='EVENT'&&pf.length===2&&pf[1].id===p.eventId&&pf[1].kind===1059,'ORIGINAL_SIGNED_OUTER');
++ need(JSON.stringify(qf)===JSON.stringify(['REQ','e02-owned-query',{ids:[p.eventId],limit:1}]),'UNCHANGED_EXACT_QUERY');
++ need(Buffer.from(JSON.stringify(pf)).equals(pub)&&Buffer.from(JSON.stringify(qf)).equals(query),'EXACT_SERIALIZED_BUFFERS');
++ const ctx={WebSocket:class extends WebSocket{constructor(...a){super(...a);sockets.add(this);}},p,check,phase,put,strictJSON,sha,clock:()=>process.hrtime.bigint(),arm:setTimeout,clear:clearTimeout};
++ async function baseline(){
++  check('baseline-entry');need(prepared&&!attempted,'ONE_PREPARED_BASELINE_ONLY');attempted=true;
++  const publication=await exchange(ctx,[pf[1]],null,'baseline-publish');check('after-publication');
++  const received=await exchange(ctx,null,qf[2],'baseline-query');check('after-query');
++  need(received.received.length===1&&same(received.received[0].frame[2],pf[1])&&received.eose?.frame[1]==='e02-owned-query','EXACT_REAL_QUERY_EVENT_AND_EOSE');
++  const result=putJSON('baseline-result.json',{schema:'e02-transport-query-baseline-v1',state:'BASELINE_PUB_QUERY_OBSERVED',publication,query:received,diagnosticOnly:true,ordinaryClientObserved:false,signEncryptDecryptExecuted:false,nativeRustExecuted:false});
++  return {state:'BASELINE_PUB_QUERY_OBSERVED',result};
+  }
+- async function prepare(){
+-  check();need(!fs.existsSync(DIR+'/prepared.json'),'PREPARE_ONCE');
+-  const from=T.secret(1),local=T.secret(spec.scalar),rumors={business:doc(p.oracles.business.path),chat:doc(p.oracles.chat.path)};
+-  need(T.getPublicKey(from)===A&&T.getPublicKey(local)===spec.account,'PUBLIC_ROLE_IDENTITIES');
+-  for(const r of Object.values(rumors))need(exactInnerShape(r)&&r.id===T.getEventHash(r),'FROZEN_INPUT_RUMOR_ID');
+-  check();const initial=T.wrap(rumors.business,from,spec.account);
+-  const events=p.ordinaryRole==='incoming'?[initial,T.wrap(rumors.chat,from,B)]:[initial,initial,T.wrap(rumors.business,from,A)];
+-  const expected={};for(let i=0;i<spec.stages.length;i++){const s=stageSpec(p.ordinaryRole,i);expected[s.id]={stage:s,rumor:putJSON(s.id+'-expected-rumor.json',rumors[s.oracle]),content:put(DIR+'/'+s.id+'-expected-content.txt',rumors[s.oracle].content)};}
+-  const preparedPin=putJSON('prepared.json',{schema:'e02-minimum-prepared-v1',profileId:PROFILE,windowId:spec.windowId,role:p.ordinaryRole,rumors,events,expected});
+-  prepared();check();const now=Math.floor(Date.now()/1000),inboxes=[T.secret(1),T.secret(2)].map(sk=>T.finalizeEvent({kind:10050,created_at:now,tags:[['relay',p.proxyUrl]],content:''},sk));
+-  const r=await exchange(inboxes,null,'prepare-inboxes');check();const inboxPin=putJSON('inboxes.json',{events:inboxes,...r});
+-  return {profileId:PROFILE,windowId:spec.windowId,ordinaryRole:p.ordinaryRole,expected,prepared:preparedPin,inboxes:inboxPin};
+- }
+- function validateActual(frame,queried,stage,origin){check();const f=T.strictJSON(frame.toString('utf8'));need(f[0]==='EVENT'&&same(f[2],queried),'ACTUAL_VALIDATED_FRAME_QUERY_JOIN');const wire=JSON.stringify(f[2]);const request={op:'validate',wire,secret:String(spec.scalar).padStart(64,'0'),role:spec.validationRole,expectedSender:A};const framePin=put(DIR+'/'+stage.id+'-frame.json',frame),wirePin=put(DIR+'/'+stage.id+'-wire.json',wire);const jsRequest=putJSON(stage.id+'-js-request.json',request),rustRequest=putJSON(stage.id+'-rust-request.json',request);check();const js=T.validate(wire,T.secret(spec.scalar),{role:spec.validationRole,expectedSender:A});const jsResult=putJSON(stage.id+'-js-result.json',js);check();const requests=[{op:'source'},request],stdin=requests.map(x=>JSON.stringify(x)).join('\n')+'\n';const input=put(DIR+'/'+stage.id+'-Rust-stdin.jsonl',stdin);const native=spawnSync(p.pins.rustBinary.path,[],{input:stdin,timeout:p.limits.rustTimeoutMilliseconds,maxBuffer:1048576,env:{PATH:'/usr/bin:/bin',LANG:'C.UTF-8',LC_ALL:'C.UTF-8'}});const stdout=put(DIR+'/'+stage.id+'-Rust-stdout.jsonl',native.stdout??Buffer.alloc(0)),stderr=put(DIR+'/'+stage.id+'-Rust-stderr.bin',native.stderr??Buffer.alloc(0));check();need(!native.error&&native.status===0&&native.signal===null&&(native.stderr?.length??0)===0,'NATURAL_RUST_VALIDATION');const replies=String(native.stdout).trimEnd().split('\n').map(x=>T.strictJSON(x));need(replies.length===2&&replies[0].ok===true&&replies[0].value===fs.readFileSync(p.pins.rustSource.path,'utf8')&&replies[1].ok===true,'CURRENT_RUST_SOURCE_REPLY');const rust=replies[1].value,rustResult=putJSON(stage.id+'-rust-result.json',rust);need(same(js,rust)&&js.ok===true&&same(js.value.rumor,prepared().rumors[stage.oracle])&&js.value.dispatch===stage.dispatch&&js.value.role===stage.normalizedRole,'INDEPENDENT_VALIDATED_FRAME_ROLE_RESULT');const transport=putJSON(stage.id+'-consumer-transport.json',{schema:'e02-minimum-transport-v1',frame:framePin,wire:wirePin,jsRequest,rustRequest,jsResult,rustResult});const validation=putJSON(stage.id+'-validation.json',{schema:'e02-minimum-validated-wire-record-v1',profileId:PROFILE,windowId:spec.windowId,stageId:stage.id,origin,clientReceiptEstablished:origin==='ACTUAL_APP_SOCKET_FRAME',transport,rustBinary:p.pins.rustBinary,rustSource:p.pins.rustSource,rustInput:input,rustStdout:stdout,rustStderr:stderr,rustExit:native.status,rustSignal:native.signal,actualQueriedEvent:queried,js,rust,clientRetention:'NOT_ESTABLISHED_BY_TRANSPORT_VALIDATION'});return {transport,validation};}
+- async function publish(){
+-  check();need(stageIndex<spec.stages.length&&!publicationInvalidated,'FINITE_ROLE_STAGE_OR_STICKY_FAILURE');
+-  const d=prepared(),stage=selectedStage(),event=d.events[stageIndex],initial=d.events[0],before=gate();
+-  need(before!==null&&replayBinding(stage,event,initial),'CURRENT_STAGE_BINDINGS_REQUIRED');
+-  publicationGate=before;delivery=null;attempted=true;activeAttempt={epoch:++attemptEpoch,stageId:stage.id};
+-  publicationWindowOpen=true;attemptSawFrame=false;const windowStarted=process.hrtime.bigint();
+-  const intentRow=log({direction:'PUBLICATION_INTENT',stageId:stage.id,eventId:event.id,attempt:activeAttempt});
+-  const intent=putJSON(stage.id+'-publish-intent.json',{schema:'e02-minimum-publish-intent-v1',profileId:PROFILE,windowId:spec.windowId,stage,attempt:activeAttempt,intentSequence:intentRow.sequence,prepared:pin(DIR+'/prepared.json'),gate:before,issuedUTC:new Date().toISOString()});
+-  check();const publication=await exchange([event],null,stage.id+'-publish');check();
+-  const until=process.hrtime.bigint()+10000000000n;
+-  while(!delivery&&!publicationInvalidated&&process.hrtime.bigint()<until){check();await new Promise(r=>setTimeout(r,100));}
+-  check();need(!publicationInvalidated&&publicationGenerationMatches(connections,before,event,spec.account),'CURRENT_GENERATION_AFTER_PUBLICATION');
+-  const observed=qualifiedDelivery(before,event);
+-  need(observed||!attemptSawFrame,'UNCOMPLETED_APP_FRAME_IS_NOT_QUERY_ONLY_ABSENCE');
+-  need(stageDeliveryAllowed(stage,observed,observed?'ACTUAL_APP_SOCKET_FRAME':'ACTUAL_RELAY_QUERY_NO_NEW_APP_FRAME'),'MISSING_REQUIRED_NEW_APP_EVENT_FRAME');
+-  publicationWindowOpen=false;
+-  const elapsedNanoseconds=Number(process.hrtime.bigint()-windowStarted);
+-  need(Number.isSafeInteger(elapsedNanoseconds)&&elapsedNanoseconds>=0&&elapsedNanoseconds<=1800000000000,'BOUNDED_MEASURED_WINDOW_TIME');
+-  const closedRow=log({direction:'PUBLICATION_WINDOW_CLOSED',stageId:stage.id,eventId:event.id,attempt:activeAttempt,
+-   intentSequence:intentRow.sequence,actualNewAppFrameObserved:observed,candidateAppFrameSeen:attemptSawFrame,elapsedNanoseconds});
+-  const publicationWindow=putJSON(stage.id+'-publication-window.json',{schema:'e02-minimum-publication-window-v1',
+-   profileId:PROFILE,windowId:spec.windowId,stageId:stage.id,eventId:event.id,attempt:activeAttempt,
+-   intentSequence:intentRow.sequence,closeSequence:closedRow.sequence,actualNewAppFrameObserved:observed,
+-   candidateAppFrameSeen:attemptSawFrame,elapsedNanoseconds,clock:'NODE_PROCESS_HRTIME_MONOTONIC',
+-   origin:observed?'ACTUAL_APP_SOCKET_FRAME':'ACTUAL_RELAY_QUERY_NO_NEW_APP_FRAME'});
+-  const query=await exchange(null,{ids:[event.id],limit:1},stage.id+'-query');check();need(query.received.length===1&&same(query.received[0].frame[2],event),'EXACT_PUBLISHED_EVENT_QUERY');
+-  const validation=validateActual(observed?delivery.frame:Buffer.from(query.received[0].rawBase64,'base64'),query.received[0].frame[2],stage,observed?'ACTUAL_APP_SOCKET_FRAME':'ACTUAL_RELAY_QUERY_NO_NEW_APP_FRAME');
+-  const produced=JSON.stringify(event),producerResult=T.validate(produced,T.secret(spec.scalar),{role:spec.validationRole,expectedSender:A});
+-  need(producerResult.ok===true&&same(producerResult.value.rumor,d.rumors[stage.oracle])&&producerResult.value.dispatch===stage.dispatch&&producerResult.value.role===stage.normalizedRole,'DECLARED_ROLE_DISPATCH_ELIGIBILITY');
+-  const producerValidation=putJSON(stage.id+'-producer-validation.json',{schema:'e02-minimum-producer-validation-v1',stageId:stage.id,actualPublishedEvent:event,result:producerResult,meaning:'Producer validation only; not a business effect or substitute for actual app wire/export.'});
+-  check();need(!publicationInvalidated&&publicationGenerationMatches(connections,before,event,spec.account),'CURRENT_GENERATION_BEFORE_STAGE_RECORD');
+-  const record=putJSON(stage.id+'-publication.json',{schema:'e02-minimum-stage-publication-v1',profileId:PROFILE,windowId:spec.windowId,stage,attempt:activeAttempt,intent,publicationWindow,gate:before,publication,query,event,
+-   actualNewAppFrameObserved:observed,delivery:observed?{connection:delivery.connection,subscription:delivery.subscription,rowSequence:delivery.rowSequence,sentSequence:delivery.sentSequence,forwardGeneration:delivery.forwardGeneration,completionGeneration:delivery.completionGeneration,forwardAttempt:delivery.forwardAttempt,completionAttempt:delivery.completionAttempt}:null,
+-   validation,producerValidation,clientRetention:'UNVERIFIED_REQUIRES_FRESH_CLIENT_SELECTION_EXPORT',validationOrigin:observed?'ACTUAL_APP_SOCKET_FRAME':'ACTUAL_RELAY_QUERY_NO_NEW_APP_FRAME',
+-   replayLimit:stage.identicalReplay&&!observed?'No new frame observed in bounded interval; retain honest publication/query/history and require post-replay real client export. No synthesized EVENT or earlier-frame donation.':null});
+-  stageIndex++;attempted=false;activeAttempt=null;
+-  return {profileId:PROFILE,windowId:spec.windowId,stage,publication:record,publicationWindow,validation,producerValidation,actualNewAppFrameObserved:observed};
+- }
+- const control=net.createServer({allowHalfOpen:true},socket=>{let b='';socket.on('data',chunk=>{b+=chunk.toString('utf8');if(Buffer.byteLength(b)>1024)socket.destroy();});socket.on('end',async()=>{let acquired=false;try{check();const q=JSON.parse(b);need(Object.keys(q).length===1&&['prepare','status','publish'].includes(q.op),'FIXED_CONTROL_OPERATION');need(!busy,'COMMAND_IN_PROGRESS');busy=true;acquired=true;let result;if(q.op==='prepare')result=await prepare();else if(q.op==='publish')result=await publish();else result={profileId:PROFILE,windowId:spec.windowId,stageId:stageIndex<spec.stages.length?selectedStage().id:null,stageIndex,complete:stageIndex===spec.stages.length,ready:gate()!==null,gate:gate(),captureSequence:sequence,scope:'SUBSCRIPTION_PREFLIGHT_NOT_CLIENT_RECEIPT'};check();socket.end(JSON.stringify({schema:'e02-minimum-fixture-command-v1',profileId:PROFILE,windowId:spec.windowId,operation:q.op,caseId:CASE,ok:true,result})+'\n');}catch(error){try{putJSON('command-error-'+Date.now()+'.json',{operation:'CONTROL',error:String(error)});}catch{}socket.end(JSON.stringify({ok:false,error:String(error)})+'\n');}finally{if(acquired)busy=false;}});});
+- control.on('error',fatal);check();control.listen(SOCKET,()=>{fs.chmodSync(SOCKET,0o600);putJSON('serve-ready.json',{schema:'e02-fixture-service-ready-v1',caseId:CASE,proxy:p.proxyUrl,backend:p.backendUrl,scope:'NO_CLIENT_RECEIPT_OR_E02_PASS'});});
+- const watchdog=setInterval(()=>{try{check();}catch(e){fatal(e);}},1000);
+- for(const sig of ['SIGTERM','SIGINT'])process.on(sig,()=>{if(closed)return;closed=true;clearInterval(watchdog);for(const c of connections.values()){c.app.terminate();c.upstream.terminate();}server.close();control.close();try{fs.fsyncSync(captureFd);fs.closeSync(captureFd);}catch{}});
++ const server=net.createServer({allowHalfOpen:true},socket=>{let b='';socket.on('data',x=>{b+=x.toString();if(Buffer.byteLength(b)>1024)socket.destroy();});socket.on('end',async()=>{let acquired=false;try{
++  check('control-entry');const q=strictJSON(b);need(Object.keys(q).length===1&&['prepare','status','publish'].includes(q.op)&&!busy&&!closed,'CLOSED_FINITE_COMMAND');busy=true;acquired=true;let result;
++  if(q.op==='prepare'){need(!prepared&&!attempted,'PREPARE_ONCE');prepared=true;result={ready:true,scenario:p.scenario};}
++  else if(q.op==='status')result={prepared,attempted,diagnosticOnly:true};
++  else result=await baseline();
++  check('control-success');socket.end(JSON.stringify({schema:'e02-transport-query-control-v1',ok:true,operation:q.op,result})+'\n');
++ }catch(error){phase('CONTROL_REJECTED',{error:String(error)});putJSON('control-error.json',{error:String(error),sequence});socket.end(JSON.stringify({ok:false,error:String(error)})+'\n');closed=true;clearInterval(watchdog);for(const s of sockets)s.terminate();server.close();process.exitCode=2;
++ }finally{if(acquired)busy=false;}});});
++ const watchdog=setInterval(()=>{if(closed)return;try{check('original-watchdog');}catch(error){phase('WATCHDOG_REFUSED',{error:String(error)});closed=true;for(const s of sockets)s.terminate();server.close();clearInterval(watchdog);process.exitCode=2;}},1000);
++ server.on('error',error=>{phase('CONTROL_SERVER_ERROR',{error:String(error)});closed=true;clearInterval(watchdog);for(const s of sockets)s.terminate();process.exitCode=2;});
++ check('control-listen-before');server.listen(SOCKET,()=>{fs.chmodSync(SOCKET,0o600);putJSON('serve-ready.json',{schema:'e02-transport-query-ready-v1',scope:'DIAGNOSTIC_ONLY_NO_APP_PROXY_OR_OBSERVATIONS',nodeVersion:process.version,nodeExecutable:process.execPath,wsVersion:wsPackage.version});});
++ process.once('exit',()=>{try{fs.fsyncSync(fd);fs.closeSync(fd);}catch{}});
++ for(const signal of ['SIGTERM','SIGINT'])process.on(signal,()=>{if(closed)return;closed=true;clearInterval(watchdog);for(const s of sockets)s.terminate();server.close();fs.fsyncSync(fd);});
+ }
+ if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href)main().catch(error=>{process.stderr.write(String(error)+'\n');process.exitCode=2;});
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/publish-frame.json
+@@ -0,0 +1 @@
++["EVENT",{"kind":1059,"content":"Aun/I3n0vy7/jo/pMazu2aFlS2VYxk/NLZjDL/9dvPwRwfx5yL5gFwhyAFeI6SfkNK6dXekwy9kQg+ElKriZb73vV74Sc7xMFrdqQlmpWL288ZwFuPH9TFrgXx14/SY/KNmznbJ3dlIBhZnvHd1XGbdguKPbz6Ee5fVpVOr8922Rz5panMDgf4aCj6j8yPGs3QoHgPDAAqyMVGPgl/WYcQyPqt7vOw0tfDrkWLVQgs+S6e/3Xyaf+gfVlXu0pZNe4js524VZ4A38yUTcByzwTuifJuLeQc2JKyvTjrJ+kpZIWDhawsZgsQrEFuq8dQglzTU7IL0oC+9JXyuI111ArMgKOt25j3r7fiiZHt6q55i305Zl5MHI3f04Au1GXN/YDFaqorpsPcPUy758KTN3S89TND8Ptl3f9gz54QJDRFs84ZK0hrExCFL2nH3fi+Q/mghb4ENwaH/ENVPtQKBvYEhz3ZXTsaCu8iBqeQ8ClYEzIxCvoYlF+UAkPZ0XyDkvumifjlockTXU4fetaB+wDDI6JW8bDaBCKOrhBZ25YnMGcnx+4b4UqAaPoD9v/rFmmqvzszjAtt7El0zJClsGxHr+hrj3Qt9zLvp46BsPXOtcLLYuQsP4Qv97I99umDfdSTIDsUuT6EcDU74IrmSJKcxYGc+dluwBDed5S6HuVWcrRGL0oeirJZQ2vBYS2B4EdtEGOscRhCA5ziOq+gRv6Vc8j2jSXsxRHsVBONEw9VzVVF8xOCu7GeA7o7Pbaj65ojB8IzpMft2k/0k0/vPd55CGpKLH1lVOcxpUVaWDZ3QZyOYt3yy34ytScv1T30XeRGr5TUWoajKC9HTVI4SM2atnX3fG7rNpl2+6VjfXqeq9eiBtFjojLpg+cbmSM0M7NF2neKjnTah7UJSgrxMNP4R52nuChPNI1ZKrxD5EfL9xipJB6Epdi+vuD3YL+XTQKa3A0tzE2KdSHdn60CQTPv/toqh7ctG3mPvEZ70a7//ZyuZ+8f/AmCqSfVp1JbhGGrpmgp8Z3T6aIxNJKtF8x8YVpeK8BUAZtbqNinloVir0nhHdKd3HLCchPM6xuDzRZMNxqeMPrGJSTNareUmg8dNgJE5MxjKtgBg03+JFk3Gal5bJJNmDfPxtirvybwOOKW6luUecO3hcp6u4cOqg3SRMJ6lA8wEze5v7S5HwwRNUaLkSYBOq8nLp74VBvGSvH8JvJ5NOCdydNSiQ7E9HusySiZxxm2n/YzES5SZGGVu3bhYaClRkWXwuA5oXmj5Q0vBGZDCxpLy1FuEgUqj+nMRX6kiPS2FIAAS773tyuiivvRWBaRODjgfGtxdUbkNq4o5gj1s8vQtO7J2bt7AjvBXIZcPKwYYfLLmoIagF9RRaLGyPM4r1T3IhbHEToreGOYoAhz5/qQftel/+FKwObxQ/I0K22AS3bf1KpCZbBbkmU0s5qW722Rtdz5jJ6KeaR9BtgcvPGHaVfBrPYss/4JcZVrA+4LPRr5l4yuNdWJN/Vn8RBC1c0h4UZybZjtkX2g5kCpU9J1Zkcq2xzRDfCHzw1kenegDwoYgmha3j6ODllmWIuGM1/ynK3/srn2ZHo0v5Vi5TiQhGCWYCcZFp34HIHyye/vqCu3/LtkMla9GECYKguRfPEtfg/07LLZUC1sL8GJaz9jegE6/UIQ3zkgO/0Io4KTA22CI80Exq+DFiPhIs17oxvZFDF24zLt9TAu02WHW6TOsGpMPwtfIuyWIkT4KuAnEc3mgLT27NpAjXq4FD6vZ+t4sIZjuKUzVQb5+68bL/uEprvr0bpzSswzhwQfKeYfB1s1bMvBDXJMyde6tFpO5uC+k+btCHfKOsZnxaJur8iVZOruxb2rbt2JF9VA/dnjvk6eWm/iCJPL3F+5PgywwlmdbTGo6yXWZqYz1twEm2Fi1qI/oFEIeKCVdLh6m05RQX8cHTyvacOz9uldRVn2/avr7AdMyxh8RktWeTQglVMQ0eEP14NSzaxRBJJ6BaIf+4aU1WFk4NM5G+g6Lsbc/ZSE5H+p4d+dpsOZOxEqTGQzMGg6Q5iMMF4XISor25rr6R+T1XRPS3o7K30ETOtgTCWxuEWCj3Z2ewI0AphDvXV96Wml4GQifh9hEGJFCGusZky6Ttfg57bQ/YIAZxuqgsiS8NQaXbebIuxUMXeOAc6m3et3UMkhZCLUHraqacIrDlOqrPbs8/9TQHYX4BkuPl/idOCMda7Y5EU2OPrCiFhdLjFnjwW4Ssa2pw2E4ds8mprXwSrjnvCl9PIJwnPuvazRXP+AW8KtbuQ5IlwVGi5qvY31L14/yoMRDATChpaHMpjgEaQbAVQlIlApHyZiAdQZoU6yG/2nLhCmAh4at8IuE+90H4LPn+ehWzTpcpCTVnVtbKH9b3od10QYtmr/g80XeP4SHmhGINwIYZXk8djfX854vZFjCicwIlHeVevMqlLZuBWhNupItcg34=","created_at":1792669326,"tags":[["p","c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5"]],"pubkey":"78aa835b5656ae805850d5a3949f73c676685145b1680c81f239f85515214446","id":"1203eaed1d1c6fd2d3fe9600209c3bc2036e68e9a7b79bb8b720989d06b844da","sig":"ff117d1ce1d80f8a4dc3100e5e55fcfcbd1be58a07c4a2902d12d16e9c7267f090550487e8d42527f897e2da2c5e66ccfc26c455bb16d6ca2cd4cda7509fe6ea"}]--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/query-frame.json
+@@ -0,0 +1 @@
++["REQ","e02-owned-query",{"ids":["1203eaed1d1c6fd2d3fe9600209c3bc2036e68e9a7b79bb8b720989d06b844da"],"limit":1}]--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/strict-json.mjs
+@@ -0,0 +1,22 @@
++// Exact existing transport strictJSON extraction; no crypto imports.
++const assert=(ok,reason)=>{if(!ok)throw Error(reason);};
++export function strictJSON(text) {
++  assert(Buffer.byteLength(text)<=2_000_000, 'resource');
++  const stack=[];
++  // Scan raw JSON strings and container boundaries before parsing; escaped keys compare decoded.
++  for(let i=0;i<text.length;i++) {
++    const c=text[i];
++    if(c==='"') {
++      const start=i++;
++      while(i<text.length) { if(text[i]==='\\') {i+=2;continue;} if(text[i]==='"')break;i++; }
++      let next=i+1; while(/\s/.test(text[next]??'X')) next++;
++      if(text[next]===':') { const frame=stack.at(-1);assert(frame?.type==='{','json');const key=JSON.parse(text.slice(start,i+1));assert(!frame.keys.has(key),'json');frame.keys.add(key); }
++    } else if(/[-0-9]/.test(c)){let end=i+1;while(end<text.length&&!/[\s,}\]]/.test(text[end]))end++;assert(/^(0|[1-9][0-9]*|-[1-9][0-9]*)$/.test(text.slice(i,end)),'json');i=end-1;}
++    else if(c==='{'||c==='[') { stack.push({type:c,keys:new Set()});assert(stack.length<=32,'json'); }
++    else if(c==='}'||c===']') { const f=stack.pop();assert(f?.type===(c==='}'?'{':'['),'json'); }
++  }
++  assert(stack.length===0,'json');
++  try{return JSON.parse(text);}catch{throw Error('json');}
++}
++
++export const same=(a,b)=>typeof a===typeof b&&(a===null||b===null?a===b:Array.isArray(a)||Array.isArray(b)?Array.isArray(a)&&Array.isArray(b)&&a.length===b.length&&a.every((x,i)=>same(x,b[i])):typeof a==='object'?Object.keys(a).length===Object.keys(b).length&&Object.keys(a).every(k=>Object.hasOwn(b,k)&&same(a[k],b[k])):a===b);
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/supervisor.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/supervisor.py
+@@ -1,82 +1,31 @@
+-"""Finite, foreground-owned E02 first-cell launcher. SOURCE ONLY until reviewed.
+-
+-No service, experiment, subprocess or project import occurs merely on import.
+-The immutable run config and a separately externally pinned root release are
+-required. One successful cell remains PARTIAL; no canonical record is written.
+-"""
++"""SOURCE ONLY: finite isolated transport diagnostic, no Android or service on import."""
+ import argparse
+ import hashlib
+ import importlib.util
+-import ipaddress
+ import json
+ import os
+ from pathlib import Path, PurePosixPath
+ import re
+-import shutil
+ import signal
+-import stat
+ import subprocess
+ import sys
+ import time
+ import uuid
+-
+-HERE = Path(__file__).resolve().parent
+-# Guest source is staged at /input/supervisor.py. Host-only helpers use this
+-# fixed authorized checkout; module initialization must also work in /input.
+-REPO = Path('/home/peterhorvath/apps/bitcoin/NBDP')
+-LAB = Path('/tmp/nbdp-e02-ordinary-minimum-v1')
+-OLD = Path('/tmp/nbdp-e02-minimal-rs-v7')
+-SCOPE = 'E02_ORDINARY_MINIMUM_RS_TWO_ROLE_WINDOW_ONLY'
+-PROFILE = 'e02-ordinary-minimum-rs-two-role-v1'
+-RUNTIME = 'sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f'
+-RELAY = 'sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82'
+-PY = ['/guard-python/lib/ld-linux-x86-64.so.2', '--inhibit-cache', '--library-path',
+-      '/guard-python/lib', '/guard-python/bin/python3.11', '-B', '-P', '-S', '-s']
+-ROLES = ('anchor', 'rs-relay', 'fixture', 'android')
+-LIMITS = {'anchor': (128, 64, 1), 'rs-relay': (512, 128, 1),
+-          'fixture': (1024, 128, 1), 'android': (8192, 512, 8)}
+-LOG_OPTIONS = ['--log-driver', 'local', '--log-opt', 'max-size=16m',
+-               '--log-opt', 'max-file=1', '--log-opt', 'compress=false']
+-CONFIG = '''avd.ini.encoding=UTF-8
+-AvdId=ordinary
+-avd.ini.displayname=NBDP disposable ordinary client
+-image.sysdir.1=system-images/android-35/default/x86_64/
+-abi.type=x86_64
+-hw.cpu.arch=x86_64
+-hw.cpu.ncore=4
+-hw.ramSize=4096
+-hw.lcd.width=1080
+-hw.lcd.height=1920
+-hw.lcd.density=420
+-hw.gpu.enabled=yes
+-hw.gpu.mode=lavapipe
+-hw.keyboard=yes
+-hw.audioInput=no
+-hw.audioOutput=no
+-hw.sdCard=no
+-hw.camera.back=none
+-hw.camera.front=none
+-disk.dataPartition.size=2048M
+-fastboot.forceColdBoot=yes
+-showDeviceFrame=no
+-PlayStore.enabled=false
+-'''
+-EMULATOR = ['/sdk/emulator/emulator', '-avd', 'ordinary', '-ports', '5554,5555',
+-            '-no-window', '-no-snapshot', '-wipe-data', '-no-audio', '-camera-back',
+-            'none', '-camera-front', 'none', '-gpu', 'lavapipe',
+-            '-memory', '4096', '-cores', '4', '-no-boot-anim', '-no-metrics',
+-            '-netdelay', 'none', '-netspeed', 'full', '-accel', 'on']
++HERE=Path(__file__).resolve().parent
++REPO=Path('/home/peterhorvath/apps/bitcoin/NBDP')
++LAB=Path('/tmp/nbdp-e02-transport-query-diagnostic-v1')
++ROLES=('anchor','rs-relay','fixture')
++RUNTIME='sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f'
++RELAY='sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82'
++LIMITS={'anchor':(128,64,1),'rs-relay':(512,128,1),'fixture':(1024,128,1)}
++PY=['/guard-python/lib/ld-linux-x86-64.so.2','--inhibit-cache','--library-path','/guard-python/lib','/guard-python/bin/python3.11','-B','-P','-S','-s']
++LOG_OPTIONS=['--log-driver','local','--log-opt','max-size=16m','--log-opt','max-file=1','--log-opt','compress=false']
++SCOPE='E02_TRANSPORT_QUERY_DIAGNOSTIC_ONLY_NO_ANDROID_NO_E02_COMPLETION'
+ 
+ 
+ def need(value, message):
+     if not value:
+         raise RuntimeError(message)
+-
+-
+-def require_android_affinity():
+-    """Trial admission only; configured caps are not measured resource usage."""
+-    need(len(os.sched_getaffinity(0)) >= 8, 'Android resource trial requires at least8 host affinity CPUs')
+-
+ 
+ def strict(raw):
+     def pairs(items):
+@@ -88,7 +37,6 @@
+     return json.loads(raw, object_pairs_hook=pairs,
+                       parse_constant=lambda _: need(False, 'Nonfinite metadata'))
+ 
+-
+ def digest(path):
+     h = hashlib.sha256()
+     with Path(path).open('rb') as stream:
+@@ -96,19 +44,16 @@
+             h.update(chunk)
+     return h.hexdigest()
+ 
+-
+ def pin(path):
+     path = Path(path)
+     need(path.is_absolute() and not path.is_symlink() and path.resolve(strict=True) == path
+          and path.is_file(), 'Canonical regular input required: ' + str(path))
+     return {'path': str(path), 'bytes': path.stat().st_size, 'sha256': digest(path)}
+ 
+-
+ def checked(descriptor):
+     need(set(descriptor) == {'path', 'bytes', 'sha256'}, 'Closed file pin required')
+     need(pin(descriptor['path']) == descriptor, 'Pinned bytes changed: ' + descriptor['path'])
+     return Path(descriptor['path'])
+-
+ 
+ def put(path, raw):
+     path = Path(path)
+@@ -120,10 +65,8 @@
+         os.fsync(stream.fileno())
+     return pin(path)
+ 
+-
+ def jsonbytes(value):
+     return (json.dumps(value, indent=2, ensure_ascii=False) + '\n').encode('utf-8')
+-
+ 
+ def exact_cid_absent(result, cid):
+     """Accept only the CLI's complete exact-CID inspect-not-found response.
+@@ -141,169 +84,70 @@
+                         + re.escape(cid.encode('ascii')),
+                         result.stderr.rstrip(b'\r\n')) is not None
+ 
+-
+-def validate_namespace_addresses(raw):
+-    """Actual private network inventory must expose only the loopback device."""
+-    need(type(raw) is bytes and len(raw) <= 1048576, 'Bounded actual namespace inventory required')
+-    rows = strict(raw)
+-    need(type(rows) is list and len(rows) == 1 and type(rows[0]) is dict
+-         and rows[0].get('ifname') == 'lo', 'Private namespace must expose only one loopback interface')
+-    interface = rows[0]
+-    need(type(interface.get('flags')) is list and len(interface['flags']) <= 32
+-         and all(type(flag) is str for flag in interface['flags'])
+-         and 'LOOPBACK' in interface['flags'], 'Actual typed LOOPBACK flags required')
+-    addresses = interface.get('addr_info')
+-    need(type(addresses) is list and 0 < len(addresses) <= 16, 'Actual loopback address inventory required')
+-    for entry in addresses:
+-        need(type(entry) is dict and type(entry.get('local')) is str and '%' not in entry['local'],
+-             'Unzoned numeric loopback address required')
+-        address = ipaddress.ip_address(entry['local'])
+-        need(address.is_loopback and entry.get('family') == ('inet' if address.version == 4 else 'inet6')
+-             and entry.get('scope') == 'host' and type(entry.get('prefixlen')) is int
+-             and entry['prefixlen'] == (8 if address.version == 4 else 128), 'Unexpected namespace address')
+-
+-
+-def classify_listener_endpoint(local):
+-    """Strict numeric endpoint; APIs may exist inside the isolated namespace."""
+-    need(type(local) is str and '%' not in local, 'Unzoned numeric listener required')
+-    match = re.fullmatch(r'\[([^\[\]]+)\]:([1-9][0-9]{0,4})', local)
+-    if match:
+-        address = ipaddress.IPv6Address(match[1]); port = int(match[2])
+-    else:
+-        match = re.fullmatch(r'([0-9.]+):([1-9][0-9]{0,4})', local)
+-        need(match is not None, 'Malformed listener endpoint')
+-        address = ipaddress.IPv4Address(match[1]); port = int(match[2])
+-    need(1 <= port <= 65535, 'Listener port out of range')
+-    mapped = address.ipv4_mapped if address.version == 6 else None
+-    loopback = address.is_loopback or mapped is not None and mapped.is_loopback
+-    relay = local in ('0.0.0.0:8080', '[::]:8080')
+-    need(loopback or relay, 'Nonloopback listener outside exact relay bind')
+-    return {'endpoint': local, 'address': str(address), 'port': port,
+-            'scope': 'namespace-loopback' if loopback else 'relay-wildcard'}
+-
+-
+-def validate_namespace_listeners(raw):
+-    need(type(raw) is bytes and len(raw) <= 1048576, 'Bounded actual listener inventory required')
+-    lines = raw.decode('ascii', 'strict').splitlines()
+-    need(0 < len(lines) <= 4096, 'Nonempty bounded listener inventory required')
+-    rows = []
+-    for line in lines:
+-        fields = line.split()
+-        need(len(fields) == 5 and fields[0] == 'LISTEN'
+-             and all(re.fullmatch('[0-9]{1,10}', value) and int(value) <= 4294967295 for value in fields[1:3])
+-             and fields[4] in ('0.0.0.0:*', '[::]:*', '*:*'), 'Malformed actual ss listener row')
+-        rows.append(classify_listener_endpoint(fields[3]))
+-    return rows
+-
+-
+-def qualify_namespace(runtime):
+-    """Inventory gate precedes listeners and any caller's install/UI phase."""
+-    addresses = runtime.guest('android', ['probe', 'ip', '-j', 'addr'], 15)
+-    runtime.put_bytes('evidence/network-addresses.json', addresses)
+-    validate_namespace_addresses(addresses)
+-    listeners = runtime.guest('android', ['probe', 'ss', '-H', '-lnt'], 15)
+-    runtime.put_bytes('evidence/listeners.txt', listeners)
+-    runtime.put_json('evidence/listener-classification.json', validate_namespace_listeners(listeners))
+-
+-
+ def load_module(name, path):
+     spec = importlib.util.spec_from_file_location(name, path)
+     module = importlib.util.module_from_spec(spec)
+     spec.loader.exec_module(module)
+     return module
+ 
+-
+-def source_pins():
+-    return [pin(HERE / name) for name in ('supervisor.py', 'lease_guard.py',
+-            'android_driver.py', 'ui-plan.json', 'fixture.mjs', 'fixture-plan.json',
+-            'minimum-plan.json', 'business-rumor.json', 'chat-rumor.json')]
+-
+-
+-def materialize(destination, run_id, seconds, ordinary_role):
+-    """Prepare bytes only; does not issue a lease, import workers or start Docker."""
+-    need(re.fullmatch('[0-9a-f]{32}', run_id) and 60 <= seconds <= 1800, 'Fresh bounded run identity')
+-    old = strict((HERE / 'runtime-plan.json').read_bytes())
+-    config = {k: old[k] for k in ('schema', 'scope', 'runtimeImage', 'relayImage',
+-              'sdkRoot', 'amethystApk', 'helperApk')}
+-    minimum = strict((HERE / 'minimum-plan.json').read_bytes())
+-    need(ordinary_role in ('incoming', 'archive'), 'Closed separately granted role required')
+-    role = minimum['roles'][ordinary_role]
+-    config.update(profileId=PROFILE, ordinaryRole=ordinary_role, windowId=role['windowId'],
+-                  account=role['account'], peer=role['peer'],
+-                  runId=run_id, originalLeaseSeconds=seconds,
+-                  sourceAndDependencyPins=source_pins(),
+-                  sdkInventory=pin(REPO / 'docs/decisions/evidence/e02-api35-fixture-preparation-r2/sdk-tree.json'),
+-                  guardBundleInventory=pin(OLD / 'records/guard-bundle-manifest.json'),
+-                  guardBundleRoot=str(OLD / 'guard-python'),
+-                  relayConfig=pin(REPO / 'experiments/docker/rs-relay.toml'),
+-                  state='PINNED_CANDIDATE_REQUIRES_SEPARATE_REVIEW_AND_RELEASE',
+-                  canonicalE02='PARTIAL22_UNCHANGED')
+-    return put(destination, jsonbytes(config))
+-
+-
+-def verify_config(config):
+-    need(config['schema'] == 'e02-ordinary-minimum-role-runtime-plan-v1' and config['scope'] == SCOPE,
+-         'Fixed first slice only')
+-    need(config['profileId'] == PROFILE and config['ordinaryRole'] in ('incoming', 'archive'),
+-         'Fixed adopted minimum profile and role required')
+-    minimum = strict((HERE / 'minimum-plan.json').read_bytes())
+-    role = minimum['roles'][config['ordinaryRole']]
+-    need(minimum['profileId'] == PROFILE and config['windowId'] == role['windowId']
+-         and config['account'] == role['account'] and config['peer'] == role['peer'],
+-         'Exact fixed account/window bindings required')
+-    need(config['runtimeImage'] == RUNTIME and config['relayImage'] == RELAY, 'Exact cached images only')
+-    need(re.fullmatch('[0-9a-f]{32}', config['runId']) and type(config['originalLeaseSeconds']) is int
+-         and 60 <= config['originalLeaseSeconds'] <= 1800, 'Immutable finite run required')
+-    need(config['sourceAndDependencyPins'] == source_pins(), 'Current full worker source pins required')
+-    for name in ('amethystApk', 'helperApk', 'relayConfig', 'sdkInventory', 'guardBundleInventory'):
+-        checked(config[name])
+-    need(config['sdkRoot'] == '/tmp/nbdp-e02-api35-fixture-r2/sdk'
+-         and config['guardBundleRoot'] == str(OLD / 'guard-python'), 'Fixed cached roots')
+-    # Exact SDK file inventory includes modes and safe in-tree symlinks.
+-    inventory = strict(checked(config['sdkInventory']).read_bytes())
+-    root = Path(config['sdkRoot'])
+-    rows = []
+-    for path in sorted(root.rglob('*')):
+-        if path.is_symlink():
+-            need(path.resolve(strict=True).is_relative_to(root), 'SDK symlink escapes')
+-            rows.append({'path': str(path.relative_to(root)), 'symlink': str(path.readlink())})
+-        elif path.is_file():
+-            rows.append({'path': str(path.relative_to(root)), 'size': path.stat().st_size,
+-                         'mode': oct(path.stat().st_mode & 0o777), 'sha256': digest(path)})
++def finalize(out, base, primary_error, cleanup):
++    """Retain the first failure; cleanup/retention failures never become exit0."""
++    secondary = list(cleanup.get('errors', []))
++    if any(row.get('error') or row.get('errors') or not row.get('absenceConfirmed')
++           for row in cleanup.get('rows', [])) and not secondary:
++        secondary.append('Cleanup row failed or exact absence uncertain')
++    if not cleanup.get('ok') and not secondary:
++        secondary.append('Cleanup incomplete or absence uncertain')
++    error = primary_error
++    if error is None and secondary:
++        error = secondary.pop(0)
++    value = dict(base, executionState='FAILED_UNQUALIFIED' if error else 'PARTIAL',
++                 error=error, secondaryErrors=secondary, cleanup=cleanup)
++    try:
++        put(out / 'supervisor-result.json', jsonbytes(value))
++    except BaseException as failure:
++        # The foreground caller retains stderr when filesystem evidence fails.
++        value['executionState'] = 'FAILED_UNQUALIFIED'
++        if value['error'] is None:
++            value['error'] = 'Final result retention failed: ' + repr(failure)
+         else:
+-            need(path.is_dir(), 'Unexpected SDK special file')
+-    need(rows == inventory['files'], 'SDK installed inventory changed')
+-    bundle = strict(checked(config['guardBundleInventory']).read_bytes())
+-    for name, descriptor in bundle['files'].items():
+-        path = Path(config['guardBundleRoot']) / name
+-        need(path.resolve(strict=True).is_relative_to(Path(config['guardBundleRoot']))
+-             and not path.is_symlink() and path.stat().st_size == descriptor['bytes']
+-             and digest(path) == descriptor['sha256'], 'Guard interpreter bundle changed')
+-    fixture = strict((HERE / 'fixture-plan.json').read_bytes())
+-    for descriptor in [*fixture['pins'].values(), *fixture['oracles'].values()]:
+-        checked({k: descriptor[k] if k != 'path' else descriptor['source']
+-                 for k in ('path', 'bytes', 'sha256')})
+-    dependencies = REPO / 'experiments/node_modules'
+-    actual = set()
+-    for path in dependencies.rglob('*'):
+-        if path.is_symlink():
+-            need(path.resolve(strict=True).is_relative_to(dependencies), 'Dependency symlink escapes')
+-        elif path.is_file():
+-            actual.add(str(PurePosixPath('/input/node_modules') / path.relative_to(dependencies)))
+-        else:
+-            need(path.is_dir(), 'Dependency special file')
+-    need(actual == {d['path'] for d in fixture['dependencyFiles']}, 'Installed dependency inventory changed')
+-    for d in fixture['dependencyFiles']:
+-        relative = PurePosixPath(d['path']).relative_to('/input/node_modules')
+-        checked({'path': str(dependencies / relative), 'bytes': d['bytes'], 'sha256': d['sha256']})
+-    # Preserve source-specific provenance. Historical PASS is not copied onto changes.
+-    for record in ('E01.json', 'E02.json'):
+-        value = strict((REPO / 'experiments/results' / record).read_bytes())
+-        for relative, expected in value['source_sha256'].items():
+-            path = REPO / 'experiments' / relative
+-            need(not path.is_symlink() and digest(path) == expected, 'Canonical prerequisite provenance drift')
+-    return fixture
+-
++            value['secondaryErrors'].append('Final result retention failed: ' + repr(failure))
++        sys.stderr.write(json.dumps(value, ensure_ascii=True) + '\n')
++        return 2
++    return 2 if error else 0
++
++def run_service(lease, argv, timeout, env, stdout=None, stderr=None):
++    """Forward actual captured service bytes on failure, then re-raise it.
++
++    Failed capture forwarding is secondary and cannot mask the original child
++    failure. Both streams are attempted independently; no fixture replacement.
++    """
++    stdout = sys.stdout.buffer if stdout is None else stdout
++    stderr = sys.stderr.buffer if stderr is None else stderr
++    def forward(result):
++        failures = []
++        for stream, key in ((stdout, 'stdout'), (stderr, 'stderr')):
++            try:
++                stream.write(result[key]); stream.flush()
++            except BaseException as error:
++                failures.append(key + ': ' + repr(error))
++        return failures
++    try:
++        result = lease.run_checked(argv, timeout, env)
++    except BaseException:
++        result = getattr(lease, 'last_result', None)
++        if result is not None:
++            failures = forward(result)
++            if failures:
++                try:
++                    sys.stderr.write('Secondary service capture forwarding failure: ' + repr(failures) + '\n')
++                except BaseException:
++                    pass
++        raise
++    failures = forward(result)
++    need(not failures, 'Service capture forwarding failed: ' + repr(failures))
++    need(result['exit'] == 0 and result['error'] is None and result['reaped']
++         and not result['forced'], 'Owned service failed')
+ 
+ class Runtime:
+     def __init__(self, config, config_pin, release_pin, out, guard, lease, fixture):
+@@ -340,13 +184,6 @@
+ 
+     def put_json(self, relative, value):
+         return self.put_bytes(relative, jsonbytes(value))
+-
+-    def map_session_pin(self, descriptor):
+-        path = PurePosixPath(descriptor['path'])
+-        need(path.is_relative_to('/session/fixtures') and '..' not in path.parts, 'Fixed fixture mapping')
+-        result = dict(descriptor, path=str(self.out / 'session/fixtures' / path.relative_to('/session/fixtures')))
+-        checked(result)
+-        return result
+ 
+     def command(self, args, timeout=30):
+         self.check()
+@@ -377,12 +214,6 @@
+         return self.command(['exec', self.ids[role], *PY, '/input/lease_guard.py',
+                              'exec', self.lease_sha, *payload], timeout)
+ 
+-    def adb(self, args, timeout=30):
+-        need(self.guard.allowed_adb(args), 'Closed ADB allowlist refused')
+-        ceiling = self.guard.adb_timeout(args)
+-        need(0 < timeout <= ceiling, 'Fixed ADB ceiling')
+-        return self.guest('android', ['adb', *args], timeout + 5)
+-
+     def fixture(self, operation):
+         need(operation in ('prepare', 'status', 'publish'), 'Fixed fixture operations')
+         self.check()
+@@ -390,15 +221,6 @@
+         raw = self.command(['exec', self.ids['fixture'], '/usr/local/bin/node', '/input/fixture.mjs', operation], 55)
+         self.check()
+         return raw
+-
+-    def snapshot(self, name):
+-        need(re.fullmatch('[a-z0-9-]{1,64}', name), 'Named snapshot required')
+-        self.adb(['shell', 'uiautomator', 'dump', '/sdcard/nbdp-window.xml'])
+-        xml = self.adb(['shell', 'cat', '/sdcard/nbdp-window.xml'])
+-        png = self.adb(['exec-out', 'screencap', '-p'])
+-        need(png.startswith(b'\x89PNG\r\n\x1a\n') and b'<hierarchy' in xml, 'Actual UI bytes required')
+-        return {'xml': self.put_bytes('ui/' + name + '.xml', xml),
+-                'png': self.put_bytes('ui/' + name + '.png', png)}
+ 
+     def inspect(self, role):
+         rows = strict(self.command(['inspect', self.ids[role]]))
+@@ -440,10 +262,10 @@
+         actual_mounts = {(m['Source'], m['Destination'], m['RW']) for m in data['Mounts'] if m['Type'] == 'bind'}
+         need(actual_mounts == set(tuple(x) for x in entry['mounts']), 'Actual input mount allowlist mismatch')
+         devices = hc.get('Devices') or []
+-        need(devices == ([{'PathOnHost': '/dev/kvm', 'PathInContainer': '/dev/kvm',
+-                          'CgroupPermissions': 'rw'}] if role == 'android' else []), 'Exact KVM device only')
++        need(devices == [], 'No devices/SDK/Android in diagnostic')
+ 
+     def start(self, role):
++        need(role in ROLES, 'Only three diagnostic roles allowed')
+         self.check()
+         image = RELAY if role == 'rs-relay' else RUNTIME
+         nonce = uuid.uuid4().hex
+@@ -458,8 +280,8 @@
+         mount(self.out / 'input', '/input')
+         mount(self.out / 'session/lease.json', '/session/lease.json')
+         mount(self.out / 'session/control', '/session/control', True)
++        mount(self.plan['guardBundleRoot'], '/guard-python')
+         if role == 'rs-relay':
+-            mount(self.plan['guardBundleRoot'], '/guard-python')
+             mount(self.plan['relayConfig']['path'], '/src/config.toml')
+             mount(self.out / 'relay-data', '/data', True)
+         if role == 'fixture':
+@@ -467,11 +289,6 @@
+             mount(REPO / 'experiments/node_modules', '/input/node_modules')
+             for d in self.fixture_plan['pins'].values():
+                 mount(d['source'], d['path'])
+-        if role == 'android':
+-            mount(self.plan['sdkRoot'], '/sdk')
+-            mount(self.plan['amethystApk']['path'], '/artifact.apk')
+-            mount(self.plan['helperApk']['path'], '/helper.apk')
+-            mount(self.out / 'android-state', '/state', True)
+         memory, pids, cpus = LIMITS[role]
+         args = ['create', '--pull=never', '--name', entry['name'], '--network', 'none' if role == 'anchor' else 'container:' + self.ids['anchor'],
+                 '--user', str(os.getuid()) + ':' + str(os.getgid()), '--cap-drop', 'ALL', '--security-opt',
+@@ -488,8 +305,6 @@
+             args += ['--env', key + '=' + value]
+         for source, target, writable in mounts:
+             args += ['--mount', 'type=bind,src=' + source + ',dst=' + target + ('' if writable else ',readonly')]
+-        if role == 'android':
+-            args += ['--device', '/dev/kvm:/dev/kvm:rw', '--group-add', str(os.stat('/dev/kvm').st_gid)]
+         entry['command'] = [*PY[1:], '/input/supervisor.py', '--guest', role]
+         self.intents[role] = entry  # Intent precedes creation; cleanup can reconcile an interrupted response.
+         self.put_json('ownership/' + role + '-intent.json', entry)
+@@ -589,213 +404,124 @@
+             evidence = None
+         return dict(summary, evidence=evidence)
+ 
+-
+-def finalize(out, base, primary_error, cleanup):
+-    """Retain the first failure; cleanup/retention failures never become exit0."""
+-    secondary = list(cleanup.get('errors', []))
+-    if any(row.get('error') or row.get('errors') or not row.get('absenceConfirmed')
+-           for row in cleanup.get('rows', [])) and not secondary:
+-        secondary.append('Cleanup row failed or exact absence uncertain')
+-    if not cleanup.get('ok') and not secondary:
+-        secondary.append('Cleanup incomplete or absence uncertain')
+-    error = primary_error
+-    if error is None and secondary:
+-        error = secondary.pop(0)
+-    value = dict(base, executionState='FAILED_UNQUALIFIED' if error else 'PARTIAL',
+-                 error=error, secondaryErrors=secondary, cleanup=cleanup)
++def source_pins():
++    return [pin(HERE/name) for name in ('supervisor.py','lease_guard.py','fixture.mjs',
++        'exchange.mjs','strict-json.mjs','fixture-plan.json','publish-frame.json','query-frame.json')]
++
++
++def verify_config(config):
++    need(set(config)=={'schema','scope','runId','originalLeaseSeconds','runtimeImage','relayImage',
++        'sourceAndDependencyPins','guardBundleRoot','guardBundleInventory','relayConfig'},'Closed diagnostic config')
++    need(config['schema']=='e02-transport-query-diagnostic-config-v1' and config['scope']==SCOPE,'Diagnostic scope only')
++    need(config['runtimeImage']==RUNTIME and config['relayImage']==RELAY,'Original exact images')
++    need(re.fullmatch('[0-9a-f]{32}',config['runId']) and type(config['originalLeaseSeconds']) is int
++        and 60<=config['originalLeaseSeconds']<=1800,'Original finite lease without renewal')
++    need(config['sourceAndDependencyPins']==source_pins(),'Exact current diagnostic sources/inputs')
++    need(config['guardBundleRoot']=='/tmp/nbdp-e02-minimal-rs-v7/guard-python','Exact existing guard root')
++    bundle=strict(checked(config['guardBundleInventory']).read_bytes())
++    for name,d in bundle['files'].items():
++        p=Path(config['guardBundleRoot'])/name
++        need(p.resolve(strict=True).is_relative_to(Path(config['guardBundleRoot']))
++            and not p.is_symlink() and p.stat().st_size==d['bytes'] and digest(p)==d['sha256'],'Guard bundle drift')
++    checked(config['relayConfig'])
++    fixture=strict((HERE/'fixture-plan.json').read_bytes())
++    need(fixture['schema']=='e02-transport-query-diagnostic-fixture-v1' and fixture['scenario']=='BASELINE_ONE_PUB_THEN_EXACT_QUERY'
++        and fixture['limits']=={'messageBytes':262144,'captureBytes':16777216,'networkTimeoutMilliseconds':10000,
++                              'handshakeTimeoutMilliseconds':3000,'controlTimeoutMilliseconds':45000},'Original fixed diagnostic limits')
++    for d in fixture['dependencyFiles']:
++        checked({'path':d['source'],'bytes':d['bytes'],'sha256':d['sha256']})
++    need(fixture['pins']=={},'No crypto/native/SDK mounts')
++    return fixture
++
++
++def guest(role):
++    need(role in ROLES,'No Android or arbitrary service role')
++    guard=load_module('diag_guest_guard','/input/lease_guard.py')
++    lease=guard.Lease('/session/lease.json',os.environ['NBDP_LEASE_SHA256'],'/session/control')
++    lease.check()
++    config_raw=Path('/input/run-config.json').read_bytes()
++    need(hashlib.sha256(config_raw).hexdigest()==os.environ['NBDP_MINIMUM_RUN_CONFIG_SHA256'],'Exact original diagnostic config')
++    env=dict(guard.ENV,NBDP_LEASE_SHA256=os.environ['NBDP_LEASE_SHA256'],
++        NBDP_FIXTURE_PLAN_SHA256=os.environ['NBDP_FIXTURE_PLAN_SHA256'],
++        NBDP_MINIMUM_RUN_CONFIG_SHA256=os.environ['NBDP_MINIMUM_RUN_CONFIG_SHA256'])
++    signal.signal(signal.SIGTERM,lambda *_:lease.revoke('Owned service interrupted'))
++    signal.signal(signal.SIGINT,lambda *_:lease.revoke('Owned service interrupted'))
++    if role=='anchor':
++        while True:lease.sleep(1)
++    elif role=='rs-relay':run_service(lease,['/src/target/release/nostr-rs-relay','--db','/data'],1800,env)
++    else:run_service(lease,['/usr/local/bin/node','/input/fixture.mjs','serve'],1800,env)
++
++
++def execute(config_path,config_sha,release_path,release_sha,out):
++    cp,rp=pin(config_path),pin(release_path)
++    need(cp['sha256']==config_sha and rp['sha256']==release_sha,'External config/release hashes')
++    config,release=strict(config_path.read_bytes()),strict(release_path.read_bytes())
++    fixture=verify_config(config)
++    need(set(release)=={'schema','runId','scope','config','sourceSubject','sourceQaReview','sourceSecurityReview',
++        'controlAcceptance','freshAdmission','operator','issuedAtUtcNs','notAfterUtcNs'},'Closed root diagnostic release')
++    need(release['schema']=='e02-transport-query-diagnostic-release-v1' and release['scope']==SCOPE
++        and release['runId']==config['runId'] and release['config']==cp and release['operator']=='/root','Exact separately authorized root role')
++    for key in ('sourceSubject','sourceQaReview','sourceSecurityReview','controlAcceptance','freshAdmission'):checked(release[key])
++    need(type(release['issuedAtUtcNs']) is int and type(release['notAfterUtcNs']) is int
++        and release['issuedAtUtcNs']<=time.time_ns()<release['notAfterUtcNs'],'Actual release interval')
++    need(out==LAB/'runs'/config['runId'] and not out.exists(),'Fresh exclusive diagnostic output')
++    guard=load_module('diag_host_guard',HERE/'lease_guard.py')
++    out.mkdir(parents=True,mode=0o700)
++    for directory in ('input','session/control','session/fixtures','relay-data','docker-config'):
++        (out/directory).mkdir(parents=True,mode=0o700)
++    put(out/'docker-config/config.json',b'{}\n')
++    value=guard.issue(config['runId'],config['originalLeaseSeconds'])
++    need(value['deadlineUtcNs']<=release['notAfterUtcNs'],'Original diagnostic deadline inside root release')
++    lp=put(out/'session/lease.json',jsonbytes(value))
++    lease=guard.Lease(lp['path'],lp['sha256'],out/'session/control')
++    runtime=Runtime(config,cp,rp,out,guard,lease,fixture)
++    signal.signal(signal.SIGTERM,lambda *_:lease.revoke('Coordinator interrupted'))
++    signal.signal(signal.SIGINT,lambda *_:lease.revoke('Coordinator interrupted'))
++    error=None
+     try:
+-        put(out / 'supervisor-result.json', jsonbytes(value))
+-    except BaseException as failure:
+-        # The foreground caller retains stderr when filesystem evidence fails.
+-        value['executionState'] = 'FAILED_UNQUALIFIED'
+-        if value['error'] is None:
+-            value['error'] = 'Final result retention failed: ' + repr(failure)
+-        else:
+-            value['secondaryErrors'].append('Final result retention failed: ' + repr(failure))
+-        sys.stderr.write(json.dumps(value, ensure_ascii=True) + '\n')
+-        return 2
+-    return 2 if error else 0
+-
+-
+-def run_service(lease, argv, timeout, env, stdout=None, stderr=None):
+-    """Forward actual captured service bytes on failure, then re-raise it.
+-
+-    Failed capture forwarding is secondary and cannot mask the original child
+-    failure. Both streams are attempted independently; no fixture replacement.
+-    """
+-    stdout = sys.stdout.buffer if stdout is None else stdout
+-    stderr = sys.stderr.buffer if stderr is None else stderr
+-    def forward(result):
+-        failures = []
+-        for stream, key in ((stdout, 'stdout'), (stderr, 'stderr')):
+-            try:
+-                stream.write(result[key]); stream.flush()
+-            except BaseException as error:
+-                failures.append(key + ': ' + repr(error))
+-        return failures
+-    try:
+-        result = lease.run_checked(argv, timeout, env)
+-    except BaseException:
+-        result = getattr(lease, 'last_result', None)
+-        if result is not None:
+-            failures = forward(result)
+-            if failures:
+-                try:
+-                    sys.stderr.write('Secondary service capture forwarding failure: ' + repr(failures) + '\n')
+-                except BaseException:
+-                    pass
+-        raise
+-    failures = forward(result)
+-    need(not failures, 'Service capture forwarding failed: ' + repr(failures))
+-    need(result['exit'] == 0 and result['error'] is None and result['reaped']
+-         and not result['forced'], 'Owned service failed')
+-
+-
+-def guest(role):
+-    """Fixed service entrypoints. Every nested payload has the original lease."""
+-    need(role in ROLES, 'Fixed owned role only')
+-    guard = load_module('e02_guest_guard', '/input/lease_guard.py')
+-    lease = guard.Lease('/session/lease.json', os.environ['NBDP_LEASE_SHA256'], '/session/control')
+-    lease.check()
+-    env = dict(guard.ENV, NBDP_LEASE_SHA256=os.environ['NBDP_LEASE_SHA256'],
+-               NBDP_FIXTURE_PLAN_SHA256=os.environ['NBDP_FIXTURE_PLAN_SHA256'],
+-               NBDP_MINIMUM_RUN_CONFIG_SHA256=os.environ['NBDP_MINIMUM_RUN_CONFIG_SHA256'])
+-    signal.signal(signal.SIGTERM, lambda *_: lease.revoke('Owned service interrupted'))
+-    signal.signal(signal.SIGINT, lambda *_: lease.revoke('Owned service interrupted'))
+-    def run(argv, timeout):
+-        run_service(lease, argv, timeout, env)
+-    if role == 'anchor':
+-        while True:
+-            lease.sleep(1)
+-    if role == 'rs-relay':
+-        run(['/src/target/release/nostr-rs-relay', '--db', '/data'], 1800)
+-    elif role == 'fixture':
+-        run(['/usr/local/bin/node', '/input/fixture.mjs', 'serve'], 1800)
+-    else:
+-        lease.check()
+-        fd = os.open('/dev/kvm', os.O_RDWR); os.close(fd)
+-        state = Path('/state')
+-        for relative in ('home', 'android', 'avd/ordinary.avd'):
+-            lease.dispatch(lambda p=state / relative: p.mkdir(parents=True, exist_ok=False, mode=0o700))
+-        lease.dispatch(lambda: put(state / 'avd/ordinary.ini', b'avd.ini.encoding=UTF-8\npath=/state/avd/ordinary.avd\npath.rel=avd/ordinary.avd\ntarget=android-35\n'))
+-        lease.dispatch(lambda: put(state / 'avd/ordinary.avd/config.ini', CONFIG.encode()))
+-        run(['/sdk/platform-tools/adb', '-L', 'tcp:localhost:5037', 'start-server'], 15)
+-        run(EMULATOR, 1800)
+-
+-
+-def execute(config_path, config_sha, release_path, release_sha, out):
+-    config_pin, release_pin = pin(config_path), pin(release_path)
+-    need(config_pin['sha256'] == config_sha and release_pin['sha256'] == release_sha, 'External root pins required')
+-    config, release = strict(config_path.read_bytes()), strict(release_path.read_bytes())
+-    fixture = verify_config(config)  # All source/provenance checks before dependent imports.
+-    need(release['schema'] == 'e02-ordinary-minimum-role-release-v1' and release['executionAuthorized'] is True
+-         and release['runConfig'] == config_pin and release['scope'] == SCOPE
+-         and release['runId'] == config['runId'] and release['profileId'] == PROFILE
+-         and release['ordinaryRole'] == config['ordinaryRole']
+-         and release['windowId'] == config['windowId'], 'Exact root first-cell release required')
+-    for key in ('qaReview', 'securityReview', 'guardRegressionEvidence'):
+-        checked(release[key])
+-    need(out == LAB / 'runs' / config['runId'] and not os.path.lexists(out), 'Fresh fixed own run directory')
+-    need(shutil.disk_usage(LAB).free >= 6 * 1024**3, 'At least6GiB persistent free required')
+-    available = next(int(line.split()[1]) * 1024 for line in Path('/proc/meminfo').read_text().splitlines() if line.startswith('MemAvailable:'))
+-    need(available >= 12 * 1024**3, 'At least12GiB MemAvailable required')
+-    require_android_affinity()
+-    need(stat.S_ISCHR(os.stat('/dev/kvm').st_mode), 'Exact KVM device required')
+-    guard = load_module('e02_host_guard', HERE / 'lease_guard.py')
+-    out.mkdir(parents=True, mode=0o700)
+-    for directory in ('input', 'session/control', 'session/fixtures', 'android-state', 'relay-data', 'docker-config'):
+-        (out / directory).mkdir(parents=True, mode=0o700)
+-    put(out / 'docker-config/config.json', b'{}\n')
+-    # Original issuance includes input staging and every subsequent resource action.
+-    lease_value = guard.issue(config['runId'], config['originalLeaseSeconds'])
+-    need(type(release['notAfterUtcNs']) is int and lease_value['deadlineUtcNs'] <= release['notAfterUtcNs'], 'Original deadline outside release')
+-    lease_pin = put(out / 'session/lease.json', jsonbytes(lease_value))
+-    lease = guard.Lease(lease_pin['path'], lease_pin['sha256'], out / 'session/control')
+-    runtime = Runtime(config, config_pin, release_pin, out, guard, lease, fixture)
+-    signal.signal(signal.SIGTERM, lambda *_: lease.revoke('Coordinator interrupted'))
+-    signal.signal(signal.SIGINT, lambda *_: lease.revoke('Coordinator interrupted'))
+-    error = None
+-    try:
+-        for descriptor in config['sourceAndDependencyPins']:
+-            runtime.put_bytes('input/' + Path(descriptor['path']).name, checked(descriptor).read_bytes())
+-        runtime.put_bytes('input/run-config.json', config_path.read_bytes())
+-        # Nested read-only bind targets must exist before mounting /input RO.
+-        for descriptor in fixture['pins'].values():
+-            target = out / 'input' / PurePosixPath(descriptor['path']).relative_to('/input')
+-            runtime.check(); put(target, b''); runtime.check()
+-        runtime.check(); (out / 'input/node_modules').mkdir(mode=0o700); runtime.check()
+-        runtime.inputs_sealed = True
+-        runtime.check()
+-        for role in ROLES:
+-            runtime.start(role)
+-        runtime.adb(['wait-for-device'], timeout=180)
+-        for _ in range(240):
+-            if runtime.adb(['shell', 'getprop', 'sys.boot_completed']).strip() == b'1':
+-                break
+-            runtime.sleep(1)
+-        else:
+-            raise RuntimeError('Guest boot phase timed out')
+-        qualify_namespace(runtime)
+-        runtime.adb(['install', '--no-streaming', '/artifact.apk'], timeout=180)
+-        runtime.adb(['install', '-t', '--no-streaming', '/helper.apk'])
+-        runtime.adb(['reverse', 'tcp:17777', 'tcp:17777'])
+-        runtime.put_bytes('evidence/adb-reverse.txt', runtime.adb(['reverse', '--list']))
+-        for property_name in ('ro.build.fingerprint', 'ro.build.version.sdk'):
+-            runtime.put_bytes('evidence/' + property_name + '.txt', runtime.adb(['shell', 'getprop', property_name]))
+-        driver = load_module('e02_first_cell_driver', out / 'input/android_driver.py')
+-        result = driver.run(runtime)
+-        runtime.put_json('driver-result.json', result)
++        for d in config['sourceAndDependencyPins']:
++            runtime.put_bytes('input/'+Path(d['path']).name,checked(d).read_bytes())
++        runtime.put_bytes('input/run-config.json',config_path.read_bytes())
++        (out/'input/node_modules').mkdir(mode=0o700)
++        runtime.inputs_sealed=True
++        for role in ROLES:runtime.start(role)
++        for _ in range(40):
++            runtime.check()
++            if (out/'session/fixtures/serve-ready.json').is_file():break
++            runtime.sleep(.25)
++        else:raise RuntimeError('Diagnostic control socket not ready under fixed bounded source wait')
++        prepared=runtime.fixture('prepare')
++        runtime.put_bytes('evidence/prepare-reply.json',prepared)
++        raw=runtime.fixture('publish')  # Original55s command ceiling; one attempt only.
++        runtime.put_bytes('evidence/diagnostic-reply.json',raw)
++        result=strict(raw)
++        need(result['ok'] is True and result['result']['state']=='BASELINE_PUB_QUERY_OBSERVED','Full exact diagnostic result')
+         runtime.check()
+     except BaseException as exc:
+-        error = repr(exc)
+-        try:
+-            lease.revoke('First-cell stopped: ' + error)
+-        except BaseException:
+-            pass
++        error=repr(exc)
++        try:lease.revoke('Diagnostic stopped: '+error)
++        except BaseException:pass
+     finally:
+-        try:
+-            cleanup = runtime.cleanup()
+-        except BaseException as failure:
+-            cleanup = {'ok': False, 'rows': [], 'evidence': None,
+-                       'errors': ['Unexpected cleanup failure: ' + repr(failure)]}
+-        final_code = finalize(out, {'schema': 'e02-ordinary-minimum-role-supervisor-result-v1',
+-            'runId': config['runId'], 'profileId': PROFILE,
+-            'ordinaryRole': config['ordinaryRole'], 'windowId': config['windowId'], 'runConfig': config_pin, 'runRelease': release_pin,
+-            'lease': lease_pin, 'canonicalE02Changed': False,
+-            'limits': ['One cell only; mandatory wider matrix remains missing.',
+-                       'No hard realtime/suspended-host cleanup guarantee.',
+-                       'Independent QA/security must inspect actual results before acceptance.']}, error, cleanup)
+-    return final_code
++        try:cleanup=runtime.cleanup()
++        except BaseException as exc:cleanup={'ok':False,'rows':[],'evidence':None,'errors':[repr(exc)]}
++        return finalize(out,{'schema':'e02-transport-query-diagnostic-result-v1','runId':config['runId'],
++            'config':cp,'release':rp,'lease':lp,'scope':SCOPE,'canonicalE02Changed':False,
++            'ordinaryClientQualified':False},error,cleanup)
+ 
+ 
+ def main():
+-    parser = argparse.ArgumentParser(description=__doc__)
+-    parser.add_argument('--guest', choices=ROLES)
+-    parser.add_argument('--materialize', type=Path)
+-    parser.add_argument('--ordinary-role', choices=('incoming', 'archive'))
+-    parser.add_argument('--run-id')
+-    parser.add_argument('--seconds', type=int, default=1800)
+-    parser.add_argument('--config', type=Path)
+-    parser.add_argument('--config-sha')
+-    parser.add_argument('--release', type=Path)
+-    parser.add_argument('--release-sha')
+-    parser.add_argument('--out', type=Path)
+-    args = parser.parse_args()
+-    if args.guest:
+-        need(len(sys.argv) == 3, 'Closed guest invocation')
+-        guest(args.guest)
+-        return 0
+-    if args.materialize:
+-        need(args.run_id and not args.config and not args.release and not args.out, 'Materialize only')
+-        print(json.dumps(materialize(args.materialize, args.run_id, args.seconds, args.ordinary_role)))
+-        return 0
+-    need(all((args.config, args.config_sha, args.release, args.release_sha, args.out)), 'Exact externally pinned config/release/out required')
+-    return execute(args.config, args.config_sha, args.release, args.release_sha, args.out)
+-
+-
+-if __name__ == '__main__':
+-    try:
+-        raise SystemExit(main())
+-    except Exception as exc:
+-        sys.stderr.write(type(exc).__name__ + ': ' + str(exc)[:4096] + '\n')
+-        raise SystemExit(2)
++    parser=argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('--guest',choices=ROLES)
++    parser.add_argument('--config',type=Path);parser.add_argument('--config-sha')
++    parser.add_argument('--release',type=Path);parser.add_argument('--release-sha')
++    parser.add_argument('--out',type=Path)
++    args=parser.parse_args()
++    if args.guest:return guest(args.guest) or 0
++    need(all((args.config,args.config_sha,args.release,args.release_sha,args.out)),'Exact external diagnostic grant required')
++    return execute(args.config,args.config_sha,args.release,args.release_sha,args.out)
++
++
++if __name__=='__main__':
++    try:code=main()
++    except BaseException as error:sys.stderr.write(type(error).__name__+': '+str(error)[:4096]+'\n');code=2
++    raise SystemExit(code)
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/test_exchange_model.mjs
+@@ -0,0 +1,52 @@
++// PREPARED model controls only: fake sockets, fake clock/timers, no real guard,
++// network, crypto primitive, native child, Docker, relay, Android or SDK.
++import assert from 'node:assert/strict';
++import {createHash} from 'node:crypto';
++import {exchange} from './exchange.mjs';
++import {strictJSON,same} from './strict-json.mjs';
++const EVENT={id:'a'.repeat(64),kind:1059,tags:[['p','b'.repeat(64)]],content:'MODEL_NOT_CIPHERTEXT'};
++const cases=[];const test=async(name,fn)=>{await fn();cases.push(name);};
++function model(options={}){
++ const phases=[],files=new Map(),sockets=[],timers=[];let tick=0n,held=null;
++ const sha=b=>createHash('sha256').update(b).digest('hex');
++ const phase=(name,v={})=>phases.push({phase:name,...v});
++ function responses(socket,frame){if(options.silent)return;
++  const values=frame[0]==='EVENT'?[['OK',EVENT.id,options.refusal!==true,'']]:[['EVENT','e02-owned-query',options.wrongEvent?{...EVENT,id:'c'.repeat(64)}:EVENT],['EOSE',options.wrongEose?'wrong-subscription':'e02-owned-query']];
++  for(const value of values)socket.emit('message',Buffer.from(JSON.stringify(value)));
++ }
++ class FakeSocket{
++  constructor(url,settings){this.url=url;this.settings=settings;this.handlers={};this.sent=[];this.terminated=false;sockets.push(this);queueMicrotask(()=>this.emit('open'));}
++  on(name,fn){(this.handlers[name]??=[]).push(fn);}
++  emit(name,...args){for(const f of this.handlers[name]??[])f(...args);}
++  send(bytes,settings,callback){this.sent.push(Buffer.from(bytes));const f=JSON.parse(bytes);if(options.mutate)bytes[0]=32;
++   queueMicrotask(()=>{if(options.holdCallback){held=()=>callback(null);responses(this,f);}else if(options.replyBeforeCallback){responses(this,f);callback(null);}else{callback(options.sendError?Error('MODEL_SEND_ERROR'):null);if(!this.terminated)responses(this,f);}});
++  }
++  terminate(){this.terminated=true;queueMicrotask(()=>this.emit('close'));}
++ }
++ const ctx={WebSocket:FakeSocket,p:{backendUrl:'ws://127.0.0.1:8080',limits:{messageBytes:262144,networkTimeoutMilliseconds:10000}},
++  check:label=>{phase('MODEL_GUARD_ENTRY',{label});if(options.deny===label){phase('MODEL_GUARD_REFUSED',{label});throw Error('MODEL_GUARD_DENIED');}phase('MODEL_GUARD_OK',{label});},phase,
++  put:(name,raw)=>{assert.equal(files.has(name),false);files.set(name,Buffer.from(raw));return {path:'/MODEL_ONLY/'+name,bytes:raw.length,sha256:sha(raw)};},strictJSON,sha,clock:()=>{tick+=1000n;return tick;},
++  arm:(fn,ms)=>{const t={fn,ms,cleared:false};timers.push(t);return t;},clear:t=>{t.cleared=true;}};
++ return {ctx,phases,files,sockets,timers,fire:()=>{for(const t of timers)if(!t.cleared)t.fn();},release:()=>held(),drain:async()=>{await Promise.resolve();await Promise.resolve();await Promise.resolve();}};
++}
++await test('original10s3s-ack-and-real-send-callback-model',async()=>{const m=model();const r=await exchange(m.ctx,[EVENT],null,'model-publish');assert.equal(m.timers[0].ms,10000);assert.equal(m.sockets[0].settings.handshakeTimeout,3000);assert.equal(r.ack[0].frame[2],true);assert.equal(r.sentFrames[0].sendInvoked,true);assert.equal(r.sentFrames[0].sendCallbackCompleted,true);assert.equal(r.sentFrames[0].callbackBufferHash,r.sentFrames[0].frame.sha256);});
++await test('query-event-and-exact-eose-model',async()=>{const m=model();const r=await exchange(m.ctx,null,{ids:[EVENT.id],limit:1},'model-query');assert.equal(r.received.length,1);assert.deepEqual(r.eose.frame,['EOSE','e02-owned-query']);});
++await test('eose-before-send-callback-does-not-require-packet-order',async()=>{const m=model({replyBeforeCallback:true});const r=await exchange(m.ctx,null,{ids:[EVENT.id],limit:1},'model-query');assert.equal(r.sentFrames[0].sendCallbackCompleted,true);});
++await test('no-success-until-actual-model-send-callback',async()=>{const m=model({holdCallback:true});let resolved=false;const p=exchange(m.ctx,null,{ids:[EVENT.id],limit:1},'model-query').then(r=>{resolved=true;return r;});await m.drain();assert.equal(resolved,false);m.release();await p;});
++await test('timeout-retains-partial-send-state-and-rejection',async()=>{const m=model({silent:true});const p=exchange(m.ctx,null,{ids:[EVENT.id],limit:1},'model-query');await m.drain();m.fire();await assert.rejects(p,/RELAY_TIMEOUT/);const outcome=JSON.parse(m.files.get('model-query-outcome.json'));assert.equal(outcome.sentFrames[0].sendCallbackCompleted,true);assert.equal(outcome.eose,null);assert.match(outcome.error,/RELAY_TIMEOUT/);});
++await test('intent-is-before-send-invoke-not-callback-proof',async()=>{const m=model();await exchange(m.ctx,[EVENT],null,'model-publish');const names=m.phases.map(x=>x.phase);assert.ok(names.indexOf('SEND_INTENT')<names.indexOf('SEND_INVOKE_ENTRY'));assert.ok(names.indexOf('SEND_INVOKE_RETURNED')<names.indexOf('SEND_CALLBACK_ENTRY'));});
++await test('raw-backend-callback-precedes-original-guard',async()=>{const m=model();await exchange(m.ctx,[EVENT],null,'model-publish');const i=m.phases.findIndex(x=>x.phase==='RAW_BACKEND_CALLBACK_ENTRY');assert.equal(m.phases[i+1].phase,'MODEL_GUARD_ENTRY');assert.equal(m.phases[i+1].label,'backend-message');});
++await test('guard-refused-open-sends-nothing',async()=>{const m=model({deny:'socket-open'});await assert.rejects(exchange(m.ctx,[EVENT],null,'model-publish'),/MODEL_GUARD_DENIED/);assert.equal(m.sockets[0].sent.length,0);});
++await test('guard-refused-before-send-sends-nothing',async()=>{const m=model({deny:'send-before'});await assert.rejects(exchange(m.ctx,[EVENT],null,'model-publish'),/MODEL_GUARD_DENIED/);assert.equal(m.sockets[0].sent.length,0);});
++await test('guard-refused-message-keeps-raw-context-without-success',async()=>{const m=model({deny:'backend-message'});await assert.rejects(exchange(m.ctx,[EVENT],null,'model-publish'),/MODEL_GUARD_DENIED/);assert.equal(m.phases.some(x=>x.phase==='RAW_BACKEND_CALLBACK_ENTRY'),true);assert.equal(m.phases.some(x=>x.phase==='BACKEND_MESSAGE_GUARD_PASSED'),false);});
++await test('guard-refused-send-callback-is-not-completed',async()=>{const m=model({deny:'send-callback'});await assert.rejects(exchange(m.ctx,[EVENT],null,'model-publish'),/MODEL_GUARD_DENIED/);const o=JSON.parse(m.files.get('model-publish-outcome.json'));assert.equal(o.sentFrames[0].sendCallbackCompleted,false);});
++await test('send-error-preserves-error-no-success',async()=>{const m=model({sendError:true});await assert.rejects(exchange(m.ctx,[EVENT],null,'model-publish'),/MODEL_SEND_ERROR/);});
++await test('same-buffer-mutation-refuses',async()=>{const m=model({mutate:true});await assert.rejects(exchange(m.ctx,[EVENT],null,'model-publish'),/ACTUAL_SENT_BUFFER_MUTATION/);});
++await test('relay-negative-ack-refuses',async()=>{const m=model({refusal:true});await assert.rejects(exchange(m.ctx,[EVENT],null,'model-publish'),/RELAY_REFUSAL/);});
++await test('wrong-eose-subscription-never-completes',async()=>{const m=model({wrongEose:true});const p=exchange(m.ctx,null,{ids:[EVENT.id],limit:1},'model-query');await m.drain();m.fire();await assert.rejects(p,/RELAY_TIMEOUT/);});
++await test('late-message-after-terminal-is-context-only',async()=>{const m=model();await exchange(m.ctx,[EVENT],null,'model-publish');const before=m.phases.filter(x=>x.phase==='MODEL_GUARD_ENTRY').length;m.sockets[0].emit('message',Buffer.from('["EOSE","e02-owned-query"]'));assert.equal(m.phases.at(-1).phase,'TERMINAL_CALLBACK_CONTEXT_ONLY');assert.equal(m.phases.filter(x=>x.phase==='MODEL_GUARD_ENTRY').length,before);});
++await test('same-original-query-result-object-key-order-independent',()=>assert.equal(same({id:'x',kind:1059},{kind:1059,id:'x'}),true));
++await test('same-query-result-content-change-refuses',()=>assert.equal(same(EVENT,{...EVENT,content:'changed'}),false));
++await test('original-strict-json-duplicate-key-refuses',()=>assert.throws(()=>strictJSON('{"id":"x","id":"y"}')));
++await test('unknown-exchange-label-refuses-before-socket',async()=>{const m=model();await assert.rejects(exchange(m.ctx,[EVENT],null,'../outside'),/FIXED_EXCHANGE_LABEL/);assert.equal(m.sockets.length,0);});
++console.log(JSON.stringify({scope:'TRANSPORT_QUERY_FAKE_SOCKET_PHASE_MODEL_ONLY',checks:cases.length,cases,realGuardExecuted:false,networkExecuted:false,cryptoExecuted:false,ordinaryClientQualified:false}));
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/test_source_controls.py
+@@ -0,0 +1,94 @@
++"""PREPARED source/custody mock controls. No guard issue, tools or containers."""
++import ast
++import hashlib
++import importlib.util
++import json
++from pathlib import Path
++import subprocess
++import tempfile
++import unittest
++from unittest.mock import patch
++
++HERE=Path(__file__).resolve().parent
++ROOT=HERE.parents[2]
++BASE=ROOT/'experiments/prototypes/e02_ordinary_minimum_v1'
++SPEC=importlib.util.spec_from_file_location('query_diagnostic_subject',HERE/'supervisor.py')
++subject=importlib.util.module_from_spec(SPEC)
++SPEC.loader.exec_module(subject)
++CID='c'*64
++
++
++def function_ast(source,name,klass=None):
++ tree=ast.parse(source)
++ if klass:tree=next(n for n in tree.body if isinstance(n,ast.ClassDef) and n.name==klass)
++ return ast.dump(next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name==name),include_attributes=False)
++
++
++class SourceCustodyControls(unittest.TestCase):
++ def test_guard_is_exact_original_unchanged_bytes(self):
++  self.assertEqual((HERE/'lease_guard.py').read_bytes(),(BASE/'lease_guard.py').read_bytes())
++
++ def test_original_clock_command_identity_cleanup_methods_unchanged(self):
++  for name in ('check','command','record_command','validate_identity','cleanup'):
++   with self.subTest(name=name):self.assertEqual(function_ast((HERE/'supervisor.py').read_text(),name,'Runtime'),function_ast((BASE/'supervisor.py').read_text(),name,'Runtime'))
++
++ def test_original_owned_child_lifecycle_forwarding_unchanged(self):
++  for name in ('run_service','finalize','exact_cid_absent'):
++   self.assertEqual(function_ast((HERE/'supervisor.py').read_text(),name),function_ast((BASE/'supervisor.py').read_text(),name))
++
++ def test_only_three_roles_no_adb_snapshot_or_sdk_route(self):
++  self.assertEqual(subject.ROLES,('anchor','rs-relay','fixture'))
++  self.assertFalse(hasattr(subject.Runtime,'adb'));self.assertFalse(hasattr(subject.Runtime,'snapshot'))
++  with self.assertRaisesRegex(RuntimeError,'three diagnostic roles'):subject.Runtime.start(object(),'android')
++
++ def test_signed_public_input_and_query_exact_frozen_hashes(self):
++  self.assertEqual(hashlib.sha256((HERE/'publish-frame.json').read_bytes()).hexdigest(),'844e64e2790a9833880aedc3016e9da82130a29d9e415858d0d46fdcb8946494')
++  self.assertEqual(len((HERE/'query-frame.json').read_bytes()),112)
++  self.assertEqual(hashlib.sha256((HERE/'query-frame.json').read_bytes()).hexdigest(),'ae042185e892c9a385b7add6442e478834817d8ed310f8967e7dc3d4bd689389')
++
++ def test_no_signing_key_or_nonce_input_in_diagnostic_plan(self):
++  plan=json.loads((HERE/'fixture-plan.json').read_text())
++  self.assertEqual(plan['pins'],{})
++  self.assertNotIn('roles',plan);self.assertNotIn('nsec',plan)
++  self.assertNotIn('decryption-key',(HERE/'fixture.mjs').read_text())
++
++ def test_closed_cid_absence_is_not_generic_exit1(self):
++  self.assertTrue(subject.exact_cid_absent(subprocess.CompletedProcess([],1,b'[]\n',b'Error: No such object: '+CID.encode()+b'\n'),CID))
++  self.assertFalse(subject.exact_cid_absent(subprocess.CompletedProcess([],1,b'',b'permission denied'),CID))
++
++ def runtime(self,out,foreign=False):
++  r=subject.Runtime.__new__(subject.Runtime);r.out=out;r.docker='/NO_TOOL_EXECUTED/docker';r.host_env={}
++  r.ids={'anchor':CID};r.plan_pin={'sha256':'e'*64};r.lease_sha='d'*64
++  entry={'name':'owned-diagnostic-anchor','image':subject.RUNTIME,'labels':{'nbdp.run':'a'*32,'nbdp.role':'anchor','nbdp.creation':'b'*32},'command':['fixed'],'mounts':[]};r.intents={'anchor':entry}
++  labels=dict(entry['labels'])
++  if foreign:labels['nbdp.creation']='f'*32
++  data={'Id':CID,'Name':'/'+entry['name'],'Image':subject.RUNTIME,'Config':{'Labels':labels,'Env':['NBDP_LEASE_SHA256='+r.lease_sha,'NBDP_FIXTURE_PLAN_SHA256='+subject.digest(HERE/'fixture-plan.json'),'NBDP_MINIMUM_RUN_CONFIG_SHA256='+r.plan_pin['sha256']],'Entrypoint':[subject.PY[0]],'Cmd':entry['command'],'User':str(subject.os.getuid())+':'+str(subject.os.getgid())},'HostConfig':{'NetworkMode':'none','Privileged':False,'PortBindings':{},'CapAdd':[],'ReadonlyRootfs':True,'CapDrop':['ALL'],'SecurityOpt':['no-new-privileges'],'Memory':128*1048576,'MemorySwap':128*1048576,'PidsLimit':64,'NanoCpus':1000000000,'Devices':[]},'Mounts':[]}
++  return r,data
++
++ def cleanup_model(self,out,foreign=False,absence=False):
++  r,data=self.runtime(out,foreign);calls=[];inspect=0
++  def run(argv,**unused):
++   nonlocal inspect
++   args=argv[1:];calls.append(args)
++   if args[0]=='inspect':
++    inspect+=1
++    if inspect==1:return subprocess.CompletedProcess(argv,0,json.dumps([data]).encode(),b'')
++    return subprocess.CompletedProcess(argv,1,b'[]\n',b'permission denied' if absence else b'Error: No such object: '+CID.encode()+b'\n')
++   return subprocess.CompletedProcess(argv,0,b'',b'')
++  with patch.object(subject.subprocess,'run',run):result=r.cleanup()
++  return result,calls
++
++ def test_exact_owned_cleanup_remove_and_absence_positive(self):
++  with tempfile.TemporaryDirectory() as tmp:
++   result,calls=self.cleanup_model(Path(tmp));self.assertTrue(result['ok']);self.assertIn(['rm','-f',CID],calls);self.assertTrue(result['rows'][0]['absenceConfirmed'])
++
++ def test_foreign_creation_identity_never_removed(self):
++  with tempfile.TemporaryDirectory() as tmp:
++   result,calls=self.cleanup_model(Path(tmp),foreign=True);self.assertFalse(result['ok']);self.assertFalse(any(c[0]=='rm' for c in calls))
++
++ def test_uncertain_absence_remains_failure(self):
++  with tempfile.TemporaryDirectory() as tmp:
++   result,calls=self.cleanup_model(Path(tmp),absence=True);self.assertFalse(result['ok']);self.assertIn(['rm','-f',CID],calls);self.assertFalse(result['rows'][0]['absenceConfirmed'])
++
++
++if __name__=='__main__':unittest.main(verbosity=2)

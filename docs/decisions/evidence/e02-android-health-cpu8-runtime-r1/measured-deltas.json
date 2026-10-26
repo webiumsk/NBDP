@@ -1,0 +1,39 @@
+{
+  "schema": "nbdp-android-health-cpu8-measured-deltas-v1",
+  "scope": "EntireownedAndroidDockercontainercgroup,sequentialreads",
+  "diagnosticWindowNs": 55167522465,
+  "baselineMonotonicNs": 1084718328389574,
+  "postMonotonicNs": 1084737278498826,
+  "intervalNs": 18950109252,
+  "cpuDelta": {
+    "usage_usec": 71629460,
+    "user_usec": 66265614,
+    "system_usec": 5363847,
+    "nice_usec": 66263000,
+    "core_sched.force_idle_usec": 0,
+    "nr_periods": 189,
+    "nr_throttled": 26,
+    "throttled_usec": 13659108,
+    "nr_bursts": 0,
+    "burst_usec": 0
+  },
+  "memoryEventDelta": {
+    "low": 0,
+    "high": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0,
+    "sock_throttled": 0
+  },
+  "baselineMemoryCurrentBytes": 5441028096,
+  "postMemoryCurrentBytes": 5457518592,
+  "environmentStatus": "ENVIRONMENT_FAILURE",
+  "firstEnvironmentError": "Observed Android ANR: System UI isn't responding",
+  "limits": [
+    "CPUquota-onlyB8didnotremoveobservedSystemUIANR; causalitystillUNRESOLVED.",
+    "Throttledperiodsarenotwalltimeloss%; snapshotwindowsdifferAandB, notmatchedcausalA/B.",
+    "NoOOMcounterincrementsdoesnotproveabsenceofmemorypressure; guest-swapconfigurationunchanged.",
+    "Noordinaryrow/E02PASS, no automaticfurtherresourceincrease."
+  ]
+}

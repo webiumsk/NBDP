@@ -1,0 +1,65 @@
+{
+  "schema": "api35-initialization-failure-review-subject-v1",
+  "author": "/root/android_health_implementer",
+  "runOperator": "/root",
+  "state": "WRITES_STOPPED_PENDING_INDEPENDENT_REVIEW",
+  "scope": "RAW_INITIALIZATION_FAILURE_ONLY",
+  "evidence": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/mirror-manifest.json",
+      "bytes": 41123,
+      "sha256": "68fda6104c232a40e1d71da931a3f6984c891a7c37f79ad9f578c0fcea343b1f"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/observation.json",
+      "bytes": 9235,
+      "sha256": "cb5b3e03a7de2d5424fa694af0efba715fcbb91ca62c7108b36b96c0a3d3c93e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/profile-observation.json",
+      "bytes": 647,
+      "sha256": "11d63af10879d04345cc33781ddc91cabb5189cf1baad891d7f1544f556d64df"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/root-tool-association.json",
+      "bytes": 649,
+      "sha256": "8f3f7a566446d1595a3e3c47117a47d763e58cf38923f5bc41d23d5374383285"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/archive-execution.json",
+      "bytes": 515,
+      "sha256": "700f6991e13a3b1ef6aab62047c3fe7502d00dc8e0e5ab4808f893c3bbdae88a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/archive-data.py",
+      "bytes": 10457,
+      "sha256": "bb56a4d8f5a71dde6836374ee002ec4b3474758cf75ad8481bd489e663c117de"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/README.md",
+      "bytes": 3441,
+      "sha256": "43b0377de4009138bb358ca41c44f5faddd612fc7d6014332f0ab6c4cdc701cb"
+    }
+  ],
+  "actualRunConfig": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/actual-run/input/run-config.json",
+    "bytes": 3250,
+    "sha256": "58ff6ddc679a7366839b26b31ce81c2fbc2d0ec08867e06652d37ab7e5ed88ac"
+  },
+  "actualIssuedRelease": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/preparation-inputs/exact-root-android35-release.json",
+    "bytes": 2035,
+    "sha256": "89ecc155f32383dba1807a7dd7cf6bde4ef113b6d798722a7dfda51cb560a8b7"
+  },
+  "canonicalE02Changed": false,
+  "ordinaryControlQualified": false,
+  "API35GuestBootedOrQualified": false,
+  "requiredReviews": [
+    "Independent actual raw QA",
+    "Independent actual raw security"
+  ],
+  "limits": [
+    "No source/SDK/timer/partition/disk-limit change, rerun, reclamation or approval.",
+    "Correct config schema from staged config and source AST; preparation-history label excluded."
+  ]
+}

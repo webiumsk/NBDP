@@ -1,0 +1,135 @@
+{
+  "schema": "e06-local-fonly-proposed-execution-plan-v1",
+  "state": "DATA_ONLY_NOT_RELEASED",
+  "author": "/root/e06_local_configuration",
+  "executionReady": false,
+  "runId": "f42a68921299",
+  "executionSession": "/root",
+  "runRole": "primary",
+  "configurationCore": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-preparation-r1/configuration-core.json",
+    "bytes": 1864,
+    "sha256": "a53d5cd74d911b0c054b155661bde0092b26fbacd4272a9193a9eaaad3e2bf04"
+  },
+  "workerConfig": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-preparation-r1/worker-config.json",
+    "bytes": 114239,
+    "sha256": "5481327da143fe892465fe7e9ff5c91fabf6c47ab28163c71180872f130fdf63"
+  },
+  "workflowPrerequisites": {
+    "currentSourceAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/acceptance.json",
+      "bytes": 2485,
+      "sha256": "cd32f47b3e7aa5e178ad82d84175115d87dab6e19c2bd5e99b0f341d668e964e"
+    },
+    "currentControlAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/control-acceptance.json",
+      "bytes": 1683,
+      "sha256": "96fb74a47dc5693bd45271142fc81a0d8e14c35814b9a77e26c73b15448f4ca9"
+    },
+    "currentGrammarAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/acceptance.json",
+      "bytes": 1210,
+      "sha256": "8e55d89c5ee7e8173012818c5b8f5e902f6d2c7f16b818c3ca200bf292ea5af0"
+    },
+    "primaryMatrixAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/acceptance.json",
+      "bytes": 1416,
+      "sha256": "834526802dce0ab821d6d6447511f707b7086a810f2c21a1fe3ae29534d7ccc1"
+    },
+    "independentQaMatrixAcceptance": null,
+    "pairedMatrixAcceptance": null,
+    "gate": "Coordinator must record actual paired matrix qualification before LOCAL release; no schema field is invented."
+  },
+  "finalization": {
+    "requiredReviewDecision": "ACCEPT_CONFIGURATION_ONLY",
+    "reviewSubject": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-preparation-r1/configuration-core.json",
+      "bytes": 1864,
+      "sha256": "a53d5cd74d911b0c054b155661bde0092b26fbacd4272a9193a9eaaad3e2bf04"
+    },
+    "configurationApprovalSchema": "n02316-local-configuration-approval-v1",
+    "finalConfigurationPath": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-preparation-r1/qualification-config.json",
+    "releaseSchema": "n02316-local-qualification-release-v1",
+    "releaseDecision": "RELEASE_EXACT_LOCAL_F_ONLY_RUN_ONLY",
+    "createdApproval": false,
+    "createdFinalConfiguration": false,
+    "createdRelease": false
+  },
+  "conditionalInvocation": {
+    "interpreter": {
+      "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "bytes": 32959480,
+      "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+    },
+    "argvPrefix": [
+      "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "-I",
+      "-B",
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/qualification.py"
+    ],
+    "requiredFreshOperands": [
+      "final configuration path",
+      "final configuration SHA256",
+      "fresh root release path",
+      "fresh root release SHA256",
+      "/root",
+      "primary"
+    ],
+    "environment": {
+      "PATH": "/usr/bin:/bin",
+      "LANG": "C.UTF-8",
+      "LC_ALL": "C.UTF-8",
+      "TZ": "UTC",
+      "WS_NO_BUFFER_UTIL": "1",
+      "WS_NO_UTF_8_VALIDATE": "1"
+    },
+    "cwd": "/home/peterhorvath/apps/bitcoin/NBDP",
+    "stdin": "EMPTY_BYTES",
+    "proposedExternalCeilingSeconds": 1800,
+    "warning": "The actual CLI immediately runs JS then RUST after full admission; there is no admission-only flag."
+  },
+  "preservedBudgetsSeconds": {
+    "localPhase": 1500,
+    "perJob": 240,
+    "startup": 15,
+    "combinedWriteReply": 15,
+    "terminal": 5,
+    "postTerminalDrain": 2,
+    "failureCleanupAggregate": 15
+  },
+  "expectedRun": {
+    "orderedJobs": [
+      "Q-JS",
+      "Q-RUST"
+    ],
+    "metadataRequests": 2,
+    "metadataReplies": 2,
+    "dValidations": 0,
+    "fValidations": 2,
+    "requiredStatus": "MATCHED"
+  },
+  "requiredEvidence": [
+    "Real launch/response/terminal receipts and raw streams for each fresh owned native child.",
+    "Natural0/reap/full EOF, empty stderr, current original source/input pins, no first/secondary errors.",
+    "Whole typed13-key JS/RUST reply equality and original-versus-owned request byte custody.",
+    "Actual accepted_transport verification before native work; it has not been invoked here.",
+    "Independent actual-result review; later QA native repetition must use a distinct actual session."
+  ],
+  "outputRoot": "/tmp/e6n-fonly-primary-f42a68921299",
+  "outputCreated": false,
+  "actualExecution": {
+    "projectImports": 0,
+    "projectEvaluations": 0,
+    "tests": 0,
+    "nativeJobs": 0,
+    "transportVerifiers": 0,
+    "crypto": 0,
+    "network": 0
+  },
+  "limits": [
+    "Only orphan F-only metadata evidence could result; no acquisition, recovered originals or N02 completion.",
+    "N03/N16 private target guards and original/owned-request custody regression remain TARGET gates.",
+    "No canonical E06 PASS, architectural blocker closure, SDK, production or profile adoption."
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "e02-android-lavapipe-trace-runtime-plan-v1",
+  "state": "SOURCE_ONLY_NOT_EXECUTED_NOT_RELEASED",
+  "ready": false,
+  "scope": "ANDROID_LAVAPIPE_TRACE_ONLY_NO_INSTALL_OR_INTENT",
+  "runId": null,
+  "maximumOriginalLeaseSeconds": 1800,
+  "runtimeImage": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+  "relayImage": "sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82",
+  "sdkRoot": "/tmp/nbdp-e02-ingress-runtime/sdk",
+  "amethystApk": {
+    "path": "/tmp/nbdp-e02-android-artifact/source/amethyst/build/outputs/apk/fdroid/debug/amethyst-fdroid-debug.apk",
+    "bytes": 165860063,
+    "sha256": "5165a9f79326524c494108b8ab728fb173ac14fa16bf67ebbd86364c895e98b5"
+  },
+  "helperApk": {
+    "path": "/tmp/nbdp-e02-ordinary-client-v1/helper-build-20261023a/clipboard-capture.apk",
+    "bytes": 16787,
+    "sha256": "a680e513a9b36cab634620507b77bba36532ce13acb465a860c7bef60d23ec20"
+  },
+  "guardSubsetReview": "PENDING",
+  "actualGuardTests": "NOT_EXECUTED",
+  "supervisorSource": "MATERIALIZED_REQUIRES_REVIEW",
+  "driverSource": "MATERIALIZED_REQUIRES_REVIEW",
+  "fixtureSource": "BYTE_IDENTICAL_INERT_BASELINE",
+  "currentE01AndE02Provenance": "RECHECK_REQUIRED_FOR_RUN",
+  "sourceAndDependencyPins": "PROPOSED_EXTERNAL_CONFIG_PENDING_REVIEW",
+  "exactIndependentRuntimeReviews": "PENDING",
+  "executionReleased": false,
+  "canonicalE02": "PARTIAL22_UNCHANGED",
+  "limits": [
+    "SOURCE ONLY; new independent QA/security and actual controls before fresh Lavapipe trace root release.",
+    "Early30s after ADB before original boot wait; postboot180s before any install; both inside the immutable original1800s lease.",
+    "No APK/helper installation, Amethyst intent, identity/login/input/publication/clipboard/dialog action.",
+    "CPU8 container/guest4vCPU/4096MiB/container8192MiB=swap/PID512/SDK/image/coldboot unchanged; requested renderer only becomes lavapipe.",
+    "Renderer/vendor require actual raw runtime corroboration, not CLI/config or cached-library names.",
+    "Fixed exclusive live emulator spool within original stdout8MiB/stderr256KiB; new exact owned Android session/fixtures RW bind; no generic capture paths."
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "schema": "nbdp-actual-independent-review-transcription-v1",
+  "transcribedBy": "/root",
+  "reviewer": "/root/attachment_profile_security",
+  "role": "security",
+  "decision": "ACCEPT_FAILED_OWNED_CHILD_CONTROL_EVIDENCE_ONLY",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-js-startup-prefix-diagnostic-r2/controls-subject.json",
+    "bytes": 1673,
+    "sha256": "339d931918dd1a76e303f277748d02ecc8fb5e71ac1f83f64c07598f316a354e"
+  },
+  "activationDisposition": "HOLD",
+  "findings": [
+    {
+      "id": "SEC-STARTUP-CONTROL-COVERAGE-001",
+      "severity": "MEDIUM",
+      "summary": "7executed5pass2fail; shortpositivebranch notreachedbeforefixture.15s deadline; timeoutprefixalsoabsent. Causeunmeasured, notproductiontimerdefect.",
+      "requiredFix": "Finitefixtureonlyallowance2s/sleep8s, clockstillbeforePopen/unreset, preserveall7branchassertions; freshsource/controlreviewbeforeonefreshsuite."
+    },
+    {
+      "id": "SEC-STARTUP-CONTROL-CAPTURE-MODE-001",
+      "severity": "LOW",
+      "summary": "Three suitefiles0664underprivate700;42casefiles600; manifesthonestlyfalse. Noexternalexposureproven.",
+      "requiredFix": "Newfutureexclusive600capturehelper; preservefailedartifacts/modesunchanged."
+    }
+  ],
+  "verified": [
+    "All48manifestfiles/source5beforeafter match;7cases5PASS2FAIL/noerrors/skips, actual507d52/76188/344dd9controller2/naturalsuite1/EOF/noforce.",
+    "Prefixthenexception DIDactual128raw/ack0/singlewrite/poison/firsterror+cleanup; positive-short branchactual0/writecalls[] nottested.",
+    "All7ownedchildrenreaped/EOF/no postreapsignal; raw/count/capsmatch, noNode/trace/grant."
+  ],
+  "limits": [
+    "Failure-only evidence; no pass pooling/unchangedretry/deadlinewaiver/diagnosticactivation."
+  ]
+}

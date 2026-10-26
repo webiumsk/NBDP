@@ -1,0 +1,35 @@
+{
+  "schema": "nbdp-preflight-independent-source-review-v1",
+  "reportingMode": "COORDINATOR_PERSISTED_FROM_ACTUAL_AGENT_MAILBOX",
+  "reviewer": "/root/transport_evidence_qa",
+  "role": "qa",
+  "decision": "ACCEPT_READ_ONLY_PREFLIGHT_ONLY",
+  "subjects": [
+    {
+      "path": "experiments/tools/check-android-control-readiness.py",
+      "bytes": 6726,
+      "sha256": "f7087ab938e6f5015c913eedfccb25e6bc5c5521c1ad6e92818c2d81ac5cdc85"
+    },
+    {
+      "path": "docs/decisions/evidence/transport-gate-readiness-2026-10-23/preflight-usage.md",
+      "bytes": 3830,
+      "sha256": "8cd0546725a6b4565d86e6a4c3d651447f8ded2a19750a7ebd4935a037372880"
+    }
+  ],
+  "findings": [],
+  "reviewMethod": "Independent source/hash/AST inspection only; no script import/evaluation/probe execution by reviewer.",
+  "acceptedScope": [
+    "Fixed APK/manifest and scoped SDK metadata/presence checks.",
+    "Retained6GiB disk/12GiB MemAvailable guards.",
+    "KVM open/fstat/close without ioctl.",
+    "Single fixed shell-free localUnixDocker version query, minimalenv/nonpersonalconfig/12s timeout.",
+    "No ADB/emulator/build/install/services/experiment/HOME or credential mutation.",
+    "Exit0 is preparation readiness only, exit2 blocked; E02promotionfalse."
+  ],
+  "limits": [
+    "No SDKbinary/image complete provenance or new runtime qualification.",
+    "No resource reservation/hostile-host or hard-memory bound; subprocess output truncated only after capture.",
+    "Actual UI/export harness and observations/review remain required.",
+    "No canonical gate/profile/blocker/SDK approval."
+  ]
+}

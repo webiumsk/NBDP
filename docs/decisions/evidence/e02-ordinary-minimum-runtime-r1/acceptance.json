@@ -1,0 +1,46 @@
+{
+  "schema": "nbdp-e02-minimum-failed-window-acceptance-v1",
+  "actor": "/root",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-runtime-r1/subject-r2.json",
+    "bytes": 1783,
+    "sha256": "16329ef1108d447500ab5392de9e55237236fedce3cd4dee4ec3b3505610e7f4"
+  },
+  "diagnosisSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-relay-diagnosis-r1/subject.json",
+    "bytes": 1750,
+    "sha256": "45022fca1e1f53aff5c74fa4c1dabb9d13b77f76e0141c71700c3a55500855ff"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-runtime-r1/qa-review.json",
+      "bytes": 629,
+      "sha256": "d8e2720e6cd3dc803d4a607e4172543dd8785edd1e2b6500aa312df9e81361f0"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-runtime-r1/security-review.json",
+      "bytes": 639,
+      "sha256": "b4c293460dc0798fd2a10d7cc10f76197fe0e6d55add2ebcba32bedb6799b320"
+    }
+  ],
+  "decision": "ACCEPT_PRESERVED_FAILURE_AND_DIAGNOSIS_ONLY",
+  "ordinaryCellQualified": false,
+  "ordinaryRowsQualified": 0,
+  "canonicalStatus": "PARTIAL22_UNCHANGED",
+  "archiveExecuted": false,
+  "actual": {
+    "commandReceipts": 360,
+    "naturalExit0": 359,
+    "naturalExit2": 1,
+    "pngXmlPairs": 36,
+    "allFourOwnedContainersRemoved": true
+  },
+  "origin": "Structured coordinator transcription of actual separate subagent mailbox decisions; detailed final reports follow separately, not verbatim provider logs.",
+  "limits": [
+    "Raw query intent predates ws.send; send callback/backend receipt/cause UNKNOWN.",
+    "Actual relay OK and app forwarding are transport observations, not rendering/export/private-tag retention.",
+    "Entire failed window contributes zero accepted rows.",
+    "Original erroneous exitCode collector summary is preserved with explicit corrected subject-r2.",
+    "No Android retry, diagnostic execution, E02 PASS, E04/E06 unlock or blocker closure."
+  ]
+}

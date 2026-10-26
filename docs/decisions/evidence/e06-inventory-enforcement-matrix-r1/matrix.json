@@ -1,0 +1,1204 @@
+{
+  "schema": "e06-inventory-fixed-refusal-matrix-v1",
+  "state": "SOURCE_ONLY_PRECOMMITTED_EXPECTATIONS_NOT_EXECUTED",
+  "sourceAdmission": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/admission.py",
+    "bytes": 53263,
+    "sha256": "24d928e46fa538b139c0e8418eeae777d682a99173a8f1a03334374b1626ec9f"
+  },
+  "inventory": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-qualification-plan-r2/inputs.json",
+    "bytes": 14050,
+    "sha256": "3db5af42a29c70e6f0bb8e62268c56e782e16da62043dd260add82d38753e5c0"
+  },
+  "materialization": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/derivation.json",
+    "bytes": 2672,
+    "sha256": "1a52ba219b7dd9eb4d757a8612230ab7ddaded357cb9a4bd9d8899f216a49ec8"
+  },
+  "rows": [
+    {
+      "id": "BASELINE_CURRENT_VALID",
+      "mutation": {
+        "operation": "none"
+      },
+      "expectedOutcome": "ACCEPT",
+      "expectedFirstError": null,
+      "firstCheckAttribution": "ACTUAL_LOCAL_INPUT_GATE",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "INVENTORY_WRONG_REFERENCE",
+      "mutation": {
+        "operation": "setWorker",
+        "key": "inputInventory",
+        "value": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-qualification-plan-r2/acceptance.json",
+          "bytes": 3596,
+          "sha256": "fb29a25955ae9178f7dd9e781c448a1486fbd7267beb02443c78421e1deb0f93"
+        }
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "EXACT_SAVED_INPUT_INVENTORY",
+      "firstCheckAttribution": "local_worker_inputs: exact inventory descriptor before membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "INVENTORY_OLD_REFERENCE",
+      "mutation": {
+        "operation": "setWorker",
+        "key": "inputInventory",
+        "value": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-qualification-plan-r1/inputs.json",
+          "bytes": 14050,
+          "sha256": "6e7d94e990d5f5bf380dee69e650bfaf969e2e422f3d00c326ae57c5a9069639"
+        }
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "EXACT_SAVED_INPUT_INVENTORY",
+      "firstCheckAttribution": "local_worker_inputs: exact inventory descriptor before membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "INVENTORY_MAPPING_MISSING",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-qualification-plan-r2/inputs.json",
+          "bytes": 14050,
+          "sha256": "3db5af42a29c70e6f0bb8e62268c56e782e16da62043dd260add82d38753e5c0"
+        }
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-qualification-plan-r2/inputs.json",
+      "firstCheckAttribution": "local_worker_inputs: inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_01_acceptedInertFreeze",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-freeze-r2/acceptance.json",
+          "bytes": 3561,
+          "sha256": "e5cd4e5d51055ee4c2feede53c6cd3e7c83ac51e74d3eafb6cb5514c5d156ffb"
+        },
+        "role": "acceptedInertFreeze"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-freeze-r2/acceptance.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_02_acceptedInertSourceDataClosure",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-freeze-r2/source-data-closure.json",
+          "bytes": 2753,
+          "sha256": "a081c1cdd4cd4182620635c8cc8e82879708a0b2d3ca02b2433f637612a8ce22"
+        },
+        "role": "acceptedInertSourceDataClosure"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-freeze-r2/source-data-closure.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_03_N_SOURCE.md",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/SOURCE.md",
+          "bytes": 5474,
+          "sha256": "ac2a85391e583a995950d248cf2af3c8bfefbda363c35e9a51139473885813cc"
+        },
+        "role": "N_SOURCE.md"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/SOURCE.md",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_04_N_contract.json",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/contract.json",
+          "bytes": 22787,
+          "sha256": "5208c3bbfd1dea75577c90c0bdea49b9410ac4163e09ca5d09af8d7702196d13"
+        },
+        "role": "N_contract.json"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/contract.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_05_N_interfaces.md",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/interfaces.md",
+          "bytes": 14702,
+          "sha256": "c04ae8e852b096403c865a6daf22c45eed071dc5248035cea0954762da925af7"
+        },
+        "role": "N_interfaces.md"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/interfaces.md",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_06_N_profile.json",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/profile.json",
+          "bytes": 4442,
+          "sha256": "c7167a764d562e6878b8ba35535c8938c4c04a836bd25cea1aeb396f9e8d9bae"
+        },
+        "role": "N_profile.json"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/profile.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_07_N_selection-map.json",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/selection-map.json",
+          "bytes": 32883,
+          "sha256": "d66ec8cf79b9d572eb0268a307ed782047a9cb897a65de83b6b00f430fa6cf09"
+        },
+        "role": "N_selection-map.json"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/selection-map.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_08_N_native-oracles.json",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/native-oracles.json",
+          "bytes": 27629,
+          "sha256": "12a508cc4060ad920ebcba0aeb0c23f5b7de7c311aaeec575cb4bf5f0ad28a2a"
+        },
+        "role": "N_native-oracles.json"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/native-oracles.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_09_N_NATIVE_ORACLES.md",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/NATIVE_ORACLES.md",
+          "bytes": 18655,
+          "sha256": "69388bb061a87bd3bc938154556228fffc9157cca7bb32a67ad8d2e75c0d00a6"
+        },
+        "role": "N_NATIVE_ORACLES.md"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/NATIVE_ORACLES.md",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_10_N_bridge-schemas.json",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/bridge-schemas.json",
+          "bytes": 158719,
+          "sha256": "89173066418eddd16f1d2a14ecee4b04470072385c1883aab48a01dd6e41281a"
+        },
+        "role": "N_bridge-schemas.json"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/bridge-schemas.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_11_N_worker-schemas.json",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/worker-schemas.json",
+          "bytes": 101686,
+          "sha256": "f6578bba812f4859e853c34c95ce1f4dad6f2363af6bf6b899b4d5684fbe74f5"
+        },
+        "role": "N_worker-schemas.json"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/worker-schemas.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_12_N_oracles.json",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/oracles.json",
+          "bytes": 105615,
+          "sha256": "317047707f19f429791b2a3cec730550c18427bb58c25cfcaa0702edf290c0cd"
+        },
+        "role": "N_oracles.json"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/oracles.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_13_N_protected-deltas.json",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/protected-deltas.json",
+          "bytes": 12189,
+          "sha256": "70846060c58d5ff5f11ab930a9a0fcd2013a3f69e7c420a2e2bdd358aee24d99"
+        },
+        "role": "N_protected-deltas.json"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/protected-deltas.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_14_N_BRIDGE.md",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/BRIDGE.md",
+          "bytes": 16984,
+          "sha256": "1f363f50d5e41413b05e4bb862e8eb53b7288ab8a205000287d69862af5049e7"
+        },
+        "role": "N_BRIDGE.md"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/BRIDGE.md",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_15_inertFreezeReview_qa",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/qa-negative-interface-freeze-review-r2.json",
+          "bytes": 12593,
+          "sha256": "a0be83bb88749e81547fd40f233e68b801287aacc314bf5408a4fe65bbff39e1"
+        },
+        "role": "inertFreezeReview_qa"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/qa-negative-interface-freeze-review-r2.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_16_inertFreezeReview_security",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/security-negative-interface-freeze-review-r2.json",
+          "bytes": 9943,
+          "sha256": "92ac5e8122f9a84d897cc08ce2133a2989868e923e0dd69f6ab1382ebfc30839"
+        },
+        "role": "inertFreezeReview_security"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/security-negative-interface-freeze-review-r2.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_17_acceptedPositivePair",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-pair-r1/acceptance.json",
+          "bytes": 9782,
+          "sha256": "fc0841714c8f53246cc19daa24625a5353bdf59da13fa5fbd1161e82636834c0"
+        },
+        "role": "acceptedPositivePair"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-pair-r1/acceptance.json",
+      "firstCheckAttribution": "fixed_prerequisites: earlier shared prerequisite membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_18_positivePairComparison",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-pair-r1/comparison.json",
+          "bytes": 26512,
+          "sha256": "5ee60498f55eda55443e02a6a5d3d41d569ccbdd6543672205d3a69d3848fd2f"
+        },
+        "role": "positivePairComparison"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-pair-r1/comparison.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_19_positive_sourceClosure",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-streamed-evidence-source-r1/source-closure.json",
+          "bytes": 84475,
+          "sha256": "8401512404a7571961044f6e5b14fe652f3f764fcac49270b54a75dd328824b7"
+        },
+        "role": "positive_sourceClosure"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-streamed-evidence-source-r1/source-closure.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_20_positive_sourceApproval",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-streamed-evidence-source-r1/source-approval.json",
+          "bytes": 76467,
+          "sha256": "a6fd8e9f3681db37ca0cde0df08accd9d8b784cfa95087579363ef2ec0fff216"
+        },
+        "role": "positive_sourceApproval"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-streamed-evidence-source-r1/source-approval.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_21_canonicalE06Plan",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/research/required-experiments.md",
+          "bytes": 57615,
+          "sha256": "96731d33162ff4c4f2569f5a8688bb0a3416be42e74b758ca4a9136f71d24925"
+        },
+        "role": "canonicalE06Plan"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/docs/research/required-experiments.md",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_22_experimentReadme",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/README.md",
+          "bytes": 4996,
+          "sha256": "0d00ac17929309077f4c74ce9ed836e13150319e01a810d159b5c8e6f566dc28"
+        },
+        "role": "experimentReadme"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/README.md",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_23_canonicalE06Record",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/results/E06.json",
+          "bytes": 3507,
+          "sha256": "348c3eb912768a7593129a8236efcbaab95d291c9e3cd2eaf812f9a1628cc258"
+        },
+        "role": "canonicalE06Record"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/results/E06.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_24_nativeSource_JS_METADATA",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_invoice_file_v1/js/metadata.mjs",
+          "bytes": 16205,
+          "sha256": "c9f0cd7055a98e2edcfcc32efc9be99e499077dc6d131472cb4c179b8c4c348c"
+        },
+        "role": "nativeSource_JS_METADATA"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_invoice_file_v1/js/metadata.mjs",
+      "firstCheckAttribution": "local_worker_inputs: earlier worker tools membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_25_nativeSource_RUST_METADATA",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_invoice_file_v1/rust/src/main.rs",
+          "bytes": 17485,
+          "sha256": "9b1dd9cd07bf655793ed9b6b0b30eb751c593ee697258124f1be8aef641fbb96"
+        },
+        "role": "nativeSource_RUST_METADATA"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_invoice_file_v1/rust/src/main.rs",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_26_nativeSource_JS_TRANSPORT",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_authenticated_carrier/js/transport.mjs",
+          "bytes": 18462,
+          "sha256": "9627f3ea61996ee4f2e1336982c92569d638d1a42ca8e55c259e34cfde24b8cd"
+        },
+        "role": "nativeSource_JS_TRANSPORT"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_authenticated_carrier/js/transport.mjs",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_27_nativeSource_RUST_ADAPTER",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_invoice_file_v1/rust/src/baseline/mod.rs",
+          "bytes": 26224,
+          "sha256": "8b05696a2229b8fb1b9439329b78a2cc26118935f5f4452e2f5ec869f02fbee2"
+        },
+        "role": "nativeSource_RUST_ADAPTER"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_invoice_file_v1/rust/src/baseline/mod.rs",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_28_nativeSource_RUST_BASELINE",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_invoice_file_v1/rust/src/baseline/main.rs",
+          "bytes": 25503,
+          "sha256": "01dd3a6a541a1ea92dc681d6d331a5501286fb375909b07803bdcfbeccc816fd"
+        },
+        "role": "nativeSource_RUST_BASELINE"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_invoice_file_v1/rust/src/baseline/main.rs",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_29_existing_fWire",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.incoming.wire",
+          "bytes": 2897,
+          "sha256": "06a372bca1fadd8f028203289cda89bca49b9d43a89e2b31c1ba3d69228b0bb3"
+        },
+        "role": "existing_fWire"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/tmp/e6https-prepare-prepr501/PREPARE/invoice.incoming.wire",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_30_existing_F",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.F.json",
+          "bytes": 826,
+          "sha256": "c3d939e95ff21dbaadc322259a60e34f9d35549b082faa87c980afc8c6e81e29"
+        },
+        "role": "existing_F"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/tmp/e6https-prepare-prepr501/PREPARE/invoice.F.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_31_existing_preparationProofs",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/tmp/e6https-prepare-prepr501/PREPARE/proofs.json",
+          "bytes": 11002,
+          "sha256": "761f25658113941c8c7cace0a15d40a53c71d84aa3007235296f2f63cb4aed37"
+        },
+        "role": "existing_preparationProofs"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/tmp/e6https-prepare-prepr501/PREPARE/proofs.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_32_existing_catalogue",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/tmp/e6https-prepare-prepr501/PREPARE/catalogue.json",
+          "bytes": 5653,
+          "sha256": "3741ed00a14095d43a3f312177672ccccf2d240aba8592577e2d4637d4a03d12"
+        },
+        "role": "existing_catalogue"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/tmp/e6https-prepare-prepr501/PREPARE/catalogue.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_33_existing_R5MaterializationAcceptance",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/fixture-materialization-acceptance-r5.json",
+          "bytes": 1595,
+          "sha256": "11ae5a7d69e7b3c99a6262e50e7aa4824b9ca54fdf0e465adce79bc435e52afc"
+        },
+        "role": "existing_R5MaterializationAcceptance"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/fixture-materialization-acceptance-r5.json",
+      "firstCheckAttribution": "fixed_prerequisites: earlier shared prerequisite membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_34_existing_R5InputAcceptance",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/fixture-input-acceptance-r5.json",
+          "bytes": 2524,
+          "sha256": "a80d6272492f395f36d8afea0d3283a07e406eecfc6243fd4eaeea3fef85ceae"
+        },
+        "role": "existing_R5InputAcceptance"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/fixture-input-acceptance-r5.json",
+      "firstCheckAttribution": "fixed_prerequisites: earlier shared prerequisite membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_35_unchangedN16PairedExpected_JS",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.JS.expected.json",
+          "bytes": 7746,
+          "sha256": "b2af6ebd64434c3541bad82ffbee9b664377931c0984f87fcb7b92ef8f697cc1"
+        },
+        "role": "unchangedN16PairedExpected_JS"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/tmp/e6https-prepare-prepr501/PREPARE/invoice.JS.expected.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_36_unchangedN16PairedExpected_RUST",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.RUST.expected.json",
+          "bytes": 7770,
+          "sha256": "4bb1c8965d80e44233775334a08f22ceb3fb64a883a3f458b20a68e93977413d"
+        },
+        "role": "unchangedN16PairedExpected_RUST"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/tmp/e6https-prepare-prepr501/PREPARE/invoice.RUST.expected.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_37_existingIncomingFInspector_JS_request",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/tmp/e6https-prepare-prepr501/PREPARE/jobs/03/stdin.json",
+          "bytes": 6187,
+          "sha256": "ec8edf35a4c85a4d05bf4a578f962e1a6df8fd48059468d60cbf967ff92505d3"
+        },
+        "role": "existingIncomingFInspector_JS_request"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/tmp/e6https-prepare-prepr501/PREPARE/jobs/03/stdin.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_38_existingIncomingFInspector_JS_rawReply",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/tmp/e6https-prepare-prepr501/PREPARE/jobs/03/reply.json",
+          "bytes": 904,
+          "sha256": "e1674622ae56f98e53f5653992ada9d27cec4ec5c4b5c03ceaa022da89ee6561"
+        },
+        "role": "existingIncomingFInspector_JS_rawReply"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/tmp/e6https-prepare-prepr501/PREPARE/jobs/03/reply.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_39_existingIncomingFInspector_RUST_request",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/tmp/e6https-prepare-prepr501/PREPARE/jobs/04/stdin.json",
+          "bytes": 6187,
+          "sha256": "ec8edf35a4c85a4d05bf4a578f962e1a6df8fd48059468d60cbf967ff92505d3"
+        },
+        "role": "existingIncomingFInspector_RUST_request"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/tmp/e6https-prepare-prepr501/PREPARE/jobs/04/stdin.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_40_existingIncomingFInspector_RUST_rawReply",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/tmp/e6https-prepare-prepr501/PREPARE/jobs/04/reply.json",
+          "bytes": 924,
+          "sha256": "30e728e75c2bb9be832974ba3e8b3946a44897c8c405edcdcc224fa058717cc4"
+        },
+        "role": "existingIncomingFInspector_RUST_rawReply"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/tmp/e6https-prepare-prepr501/PREPARE/jobs/04/reply.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_41_positivePrimaryManifest",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-execution-r3/primary-manifest.json",
+          "bytes": 79719,
+          "sha256": "71d58aa857ffaf09568100d3750e5dd6b6aed21767b055ce44b1373773640748"
+        },
+        "role": "positivePrimaryManifest"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-execution-r3/primary-manifest.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_42_pinnedNode",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+          "bytes": 121613584,
+          "sha256": "ccacb2d6d87ba6d118b2bffc1ae33747a05cc5fc6b1f1ec4fc1d420b687e952d"
+        },
+        "role": "pinnedNode"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+      "firstCheckAttribution": "local_worker_inputs: earlier worker tools membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_43_pinnedPython",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+          "bytes": 32959480,
+          "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+        },
+        "role": "pinnedPython"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/.miniforge3/bin/python3.13",
+      "firstCheckAttribution": "local_worker_inputs: earlier worker tools membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_44_pinnedNativeRust",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/tmp/nbdp-e06-build-tv5zqp4j/target/debug/nbdp-experiment-rust",
+          "bytes": 26400472,
+          "sha256": "55205961550c66467be356b13adeafaf43599ca6f59f2db5ebf1de9293c3045d"
+        },
+        "role": "pinnedNativeRust"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/tmp/nbdp-e06-build-tv5zqp4j/target/debug/nbdp-experiment-rust",
+      "firstCheckAttribution": "local_worker_inputs: earlier worker tools membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_45_protectedI4_metadata_loader.mjs",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/metadata_loader.mjs",
+          "bytes": 5555,
+          "sha256": "776d1651fa23379f3ae8ef7f53d1a455fa462af5687b47f428a3ce8cb8a1b811"
+        },
+        "role": "protectedI4_metadata_loader.mjs"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/metadata_loader.mjs",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_46_protectedI4_wire.mjs",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/wire.mjs",
+          "bytes": 21148,
+          "sha256": "d731160a94fa5bd5c95a9ed20ff23ba3b4b91bb69e43e9e04022c499e114625d"
+        },
+        "role": "protectedI4_wire.mjs"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/wire.mjs",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_47_protectedI4_protocol.mjs",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/protocol.mjs",
+          "bytes": 78090,
+          "sha256": "a1c5a88ef79202d3c60297018aa08fda04f324ff94db9bd05b1359dcfef8789e"
+        },
+        "role": "protectedI4_protocol.mjs"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/protocol.mjs",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_48_positive_primary_capture",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/tmp/e6i4-primary-i4p003a/capture.json",
+          "bytes": 9475,
+          "sha256": "9dc25b42d15fc0f999e924a98db508bfd5b4732d66bbaa9ccf8016984b1aea30"
+        },
+        "role": "positive_primary_capture"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/tmp/e6i4-primary-i4p003a/capture.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_49_positive_primary_JS_nativeCall",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/tmp/e6i4-primary-i4p003a/C01/native-call.json",
+          "bytes": 1000,
+          "sha256": "23147b64cdd9afa693aa621fae317908379fb85cbf4e171b5bc00ce3fa0253df"
+        },
+        "role": "positive_primary_JS_nativeCall"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/tmp/e6i4-primary-i4p003a/C01/native-call.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_50_positive_primary_JS_nativeTerminal",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/tmp/e6i4-primary-i4p003a/C01/metadata-terminal.json",
+          "bytes": 1423,
+          "sha256": "6c65200e7a2e2d0b3196b33ffe6ab6fe17b5f2ce7a9a8e3b8abd108db6d9d693"
+        },
+        "role": "positive_primary_JS_nativeTerminal"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/tmp/e6i4-primary-i4p003a/C01/metadata-terminal.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_51_positive_primary_RUST_nativeCall",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/tmp/e6i4-primary-i4p003a/C02/native-call.json",
+          "bytes": 1002,
+          "sha256": "7adbef477b47fcbd9824a6c1dabda0974eac255e5d722d6b04eb8f300a9a687b"
+        },
+        "role": "positive_primary_RUST_nativeCall"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/tmp/e6i4-primary-i4p003a/C02/native-call.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_52_positive_primary_RUST_nativeTerminal",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/tmp/e6i4-primary-i4p003a/C02/metadata-terminal.json",
+          "bytes": 1202,
+          "sha256": "a6c217f282c464b956266225dcbdcfa8d5ec5b4c5c1363dda4e8d838f887f417"
+        },
+        "role": "positive_primary_RUST_nativeTerminal"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/tmp/e6i4-primary-i4p003a/C02/metadata-terminal.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_53_positive_qa_capture",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/tmp/e6i4-qa-i4q003a/capture.json",
+          "bytes": 9215,
+          "sha256": "efa783d6bed01183f5fb4e403d3b54c27acd56bab1de3132ce076fcaa4bacf37"
+        },
+        "role": "positive_qa_capture"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/tmp/e6i4-qa-i4q003a/capture.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_54_positive_qa_JS_nativeCall",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/tmp/e6i4-qa-i4q003a/C01/native-call.json",
+          "bytes": 975,
+          "sha256": "28dcb1df9b6619bb2de9a719d31313041d3365b56ee904bad6aab29598cabe72"
+        },
+        "role": "positive_qa_JS_nativeCall"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/tmp/e6i4-qa-i4q003a/C01/native-call.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_55_positive_qa_JS_nativeTerminal",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/tmp/e6i4-qa-i4q003a/C01/metadata-terminal.json",
+          "bytes": 1398,
+          "sha256": "ec7ef2f75f1c4fcc05c13d23e2f9a28c1aa5a7eb8da77177a370fcc59df2fbb8"
+        },
+        "role": "positive_qa_JS_nativeTerminal"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/tmp/e6i4-qa-i4q003a/C01/metadata-terminal.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_56_positive_qa_RUST_nativeCall",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/tmp/e6i4-qa-i4q003a/C02/native-call.json",
+          "bytes": 977,
+          "sha256": "260f4608f6f373d5771332df544208d2e03db378f223cbae287d332e193ba0ed"
+        },
+        "role": "positive_qa_RUST_nativeCall"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/tmp/e6i4-qa-i4q003a/C02/native-call.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MISSING_57_positive_qa_RUST_nativeTerminal",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/tmp/e6i4-qa-i4q003a/C02/metadata-terminal.json",
+          "bytes": 1182,
+          "sha256": "a791ebc0fdc784a625c5b8c1e80e56b4bbfa5e76ca0ea0ac5cf6dd6003611bf1"
+        },
+        "role": "positive_qa_RUST_nativeTerminal"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/tmp/e6i4-qa-i4q003a/C02/metadata-terminal.json",
+      "firstCheckAttribution": "local_worker_inputs: actual57-role inventory membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "ROLE_MAPPING_DESCRIPTOR_DRIFT",
+      "mutation": {
+        "operation": "replaceMapping",
+        "original": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/README.md",
+          "bytes": 4996,
+          "sha256": "0d00ac17929309077f4c74ce9ed836e13150319e01a810d159b5c8e6f566dc28"
+        },
+        "replacement": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/README.md",
+          "bytes": 4996,
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/experiments/README.md",
+      "firstCheckAttribution": "local_worker_inputs: experimentReadme membership; caller mapping descriptor only",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "MATERIALIZATION_MAPPING_MISSING",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/derivation.json",
+          "bytes": 2672,
+          "sha256": "1a52ba219b7dd9eb4d757a8612230ab7ddaded357cb9a4bd9d8899f216a49ec8"
+        }
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/derivation.json",
+      "firstCheckAttribution": "local_worker_inputs: separate materialization membership",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "OUTPUT_MAPPING_MISSING_request.jsonl",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/request.jsonl",
+          "bytes": 6276,
+          "sha256": "dc586e609758fb6656c76ab5698985b9620d91e1852c8abfb85b2aaf9da636b0"
+        }
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/request.jsonl",
+      "firstCheckAttribution": "local_worker_inputs: materialized output membership before raw reads",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "OUTPUT_MAPPING_MISSING_JS.expected.json",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/JS.expected.json",
+          "bytes": 1477,
+          "sha256": "70d6b37cefa44a237a4ba94cdff6745db57222dc79bdbced0979e64c360f363d"
+        }
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/JS.expected.json",
+      "firstCheckAttribution": "local_worker_inputs: materialized output membership before raw reads",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "OUTPUT_MAPPING_MISSING_RUST.expected.json",
+      "mutation": {
+        "operation": "removeMapping",
+        "descriptor": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/RUST.expected.json",
+          "bytes": 1499,
+          "sha256": "2c3812c2097bdbb7db69dfc1575a0400f64ef67c47ecc2de46177cc8acfdac3a"
+        }
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "MISSING_OR_DRIFTED_MEMBER:/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/RUST.expected.json",
+      "firstCheckAttribution": "local_worker_inputs: materialized output membership before raw reads",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "REQUEST_WRONG_REFERENCE",
+      "mutation": {
+        "operation": "setWorker",
+        "key": "request",
+        "value": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/JS.expected.json",
+          "bytes": 1477,
+          "sha256": "70d6b37cefa44a237a4ba94cdff6745db57222dc79bdbced0979e64c360f363d"
+        }
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "FIXED_MATERIALIZED_INPUT_DESCRIPTORS",
+      "firstCheckAttribution": "local_worker_inputs: request/expected descriptor equality",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "EXPECTED_JS_RUST_SWAPPED",
+      "mutation": {
+        "operation": "swapExpected"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "FIXED_MATERIALIZED_INPUT_DESCRIPTORS",
+      "firstCheckAttribution": "local_worker_inputs: request/expected descriptor equality",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "CANDIDATE_WRONG_REFERENCE",
+      "mutation": {
+        "operation": "setConfig",
+        "key": "candidate",
+        "value": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/worker-schemas.json",
+          "bytes": 101686,
+          "sha256": "f6578bba812f4859e853c34c95ce1f4dad6f2363af6bf6b899b4d5684fbe74f5"
+        }
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "SAVED_F_ONLY_SOURCE_INPUTS",
+      "firstCheckAttribution": "local_worker_inputs: elected candidate exact descriptor",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "PLAN_STALE_REFERENCE",
+      "mutation": {
+        "operation": "setWorker",
+        "key": "acceptedPlan",
+        "value": {
+          "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-qualification-plan-r1/acceptance.json",
+          "bytes": 3581,
+          "sha256": "fe2e3d846cddcaf8ecb3f309a9edbb0b0c18e9b513413c51d181d4f98e50187b"
+        }
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "FIXED_LOCAL_DEPENDENCIES",
+      "firstCheckAttribution": "local_worker_inputs: current acceptedPlan before candidate/inventory",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "IDENTITY_MISMATCH_runId",
+      "mutation": {
+        "operation": "setWorker",
+        "key": "runId",
+        "value": "ffffffffffff"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "SAME_LOCAL_CONFIG_WORKER_IDENTITY",
+      "firstCheckAttribution": "local_worker_inputs: final caller identity join",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "IDENTITY_MISMATCH_executionSession",
+      "mutation": {
+        "operation": "setWorker",
+        "key": "executionSession",
+        "value": "/root/reserved-unassigned-session"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "SAME_LOCAL_CONFIG_WORKER_IDENTITY",
+      "firstCheckAttribution": "local_worker_inputs: final caller identity join",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "IDENTITY_MISMATCH_runRole",
+      "mutation": {
+        "operation": "setWorker",
+        "key": "runRole",
+        "value": "qa"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "SAME_LOCAL_CONFIG_WORKER_IDENTITY",
+      "firstCheckAttribution": "local_worker_inputs: final caller identity join",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "OUTPUT_NAMESPACE_MISMATCH",
+      "mutation": {
+        "operation": "setWorker",
+        "key": "outputRoot",
+        "value": "/tmp/e6n-invalid-namespace-only"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "EXACT_LOCAL_OUTPUT_NAMESPACE",
+      "firstCheckAttribution": "local_worker_inputs: output namespace before jobs",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "JOB_OUTPUT_JOIN_MISMATCH_0",
+      "mutation": {
+        "operation": "setJobOutput",
+        "index": 0,
+        "value": "/tmp/e6n-uncreated-wrong-job-join"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "EXACT_LOCAL_JOB_DIRECTORY_JOIN",
+      "firstCheckAttribution": "local_worker_inputs: ordered job output join",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    },
+    {
+      "id": "JOB_OUTPUT_JOIN_MISMATCH_1",
+      "mutation": {
+        "operation": "setJobOutput",
+        "index": 1,
+        "value": "/tmp/e6n-uncreated-wrong-job-join"
+      },
+      "expectedOutcome": "REFUSE",
+      "expectedFirstError": "EXACT_LOCAL_JOB_DIRECTORY_JOIN",
+      "firstCheckAttribution": "local_worker_inputs: ordered job output join",
+      "scope": "CALLER_MEMORY_OR_MAPPING_ONLY_NOT_ON_DISK_DRIFT_OR_FS_RACE"
+    }
+  ],
+  "rowCount": 76,
+  "missingRoleRows": 57,
+  "negativeRows": 75,
+  "mutationDomain": "Caller-memory config/worker/mapping only; original files/readers/validators unchanged."
+}

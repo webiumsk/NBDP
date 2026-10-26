@@ -1,0 +1,52 @@
+{
+  "schema": "nbdp-progress-publication-selection-plan-v1",
+  "actor": "/root/progress_archive_implementer",
+  "state": "SOURCE_ONLY_AWAITING_EXPLICIT_FREEZE",
+  "roots": [
+    "experiments/prototypes/e02_ordinary_client_api35_v2",
+    "experiments/prototypes/e02_ordinary_client_api35_v3",
+    "docs/decisions/evidence/e02-ordinary-api35-preparation-r2",
+    "docs/decisions/evidence/e02-ordinary-api35-preparation-r3",
+    "docs/decisions/evidence/e02-ordinary-api35-runtime-r2",
+    "docs/decisions/evidence/e02-ordinary-api35-runtime-r3",
+    "docs/decisions/evidence/e02-ordinary-api35-structure-diagnosis-r1",
+    "docs/decisions/evidence/e02-ordinary-api35-navigation-diagnosis-r1",
+    "docs/decisions/evidence/e02-ordinary-minimum-profile-proposal-r1",
+    "docs/decisions/evidence/e02-owned-avd-overlay-reclamation-r5",
+    "docs/decisions/evidence/e02-owned-avd-overlay-reclamation-r6"
+  ],
+  "exclusions": [],
+  "limits": {
+    "maxFiles": 2500,
+    "maxFileBytes": 33554432,
+    "maxLogicalBytes": 67108864
+  },
+  "prohibitions": [
+    "No archive until a separate exact coordinator freeze and explicit DATA execution instruction.",
+    "No SDK/APK/tool archive/disk image/private-key/DB/full external license bodies.",
+    "No recursively copied external referents or previous publication archives.",
+    "No mutable current project/research indexes, active minimum producer source, E06 observer/core/execution-r3 or later revisions.",
+    "No project imports, experiment execution, Git/index mutation or publication."
+  ],
+  "snapshotSemantics": "The minimum-method proposal preserves11 point-in-time authority inputs. Original external origin paths are not asserted current; a later legitimate runbook change must not invalidate or rewrite the historical snapshot.",
+  "syntheticFixtureScope": "Explicitly public disposable scalar2 NSEC test source and captures may be preserved as synthetic evidence; not production credentials.",
+  "requiredFreeze": {
+    "filename": "freeze-authorization.json",
+    "schema": "nbdp-progress-publication-freeze-v1",
+    "actor": "/root",
+    "state": "CLOSED_INPUTS_WRITES_STOPPED",
+    "allRootOwnersWritesStopped": true,
+    "priorPackagesReadOnly": true,
+    "scope": "DATA_ARCHIVE_ONLY",
+    "roots": "exact ordered roots above",
+    "script": "exact {path,bytes,sha256} descriptor of build_archive.py",
+    "selectionPlan": "exact {path,bytes,sha256} descriptor of selection-plan.json"
+  },
+  "expectedOutputs": [
+    "selection.json",
+    "completed-runtime-evidence.tar.gz",
+    "archive-index.json",
+    "archive-verification.json",
+    "normal-core-suggestion.json"
+  ]
+}

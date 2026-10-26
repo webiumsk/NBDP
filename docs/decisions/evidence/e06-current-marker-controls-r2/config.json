@@ -1,0 +1,71 @@
+{
+  "schema": "e06-local-marker-controls-configuration-v1",
+  "scope": "TEN_CURRENT_SOURCE_LOCAL_POLICY_SLICES_ONLY",
+  "sourceClosure": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-closure.json",
+    "bytes": 102080,
+    "sha256": "76cfc1d55602c4c18f7adabde2b67679f3d828517a4cf4abefdf13d57029b100"
+  },
+  "sourceApproval": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-approval.json",
+    "bytes": 107717,
+    "sha256": "e3e41bb6bae55d80702f9002cc99c72ad3a6345405a5043d3123dcafcbea685e"
+  },
+  "sourceAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/acceptance.json",
+    "bytes": 2485,
+    "sha256": "cd32f47b3e7aa5e178ad82d84175115d87dab6e19c2bd5e99b0f341d668e964e"
+  },
+  "node": {
+    "path": "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+    "bytes": 121613584,
+    "sha256": "ccacb2d6d87ba6d118b2bffc1ae33747a05cc5fc6b1f1ec4fc1d420b687e952d"
+  },
+  "sources": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/protocol.mjs",
+      "bytes": 73552,
+      "sha256": "8ceb004085d7c86dd2a1cf7f0b8009975ad807c2172d8bd0c7b455b12a3cdceb"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/test_policy_marker.mjs",
+      "bytes": 4419,
+      "sha256": "c4e799d5dafb5ecc9782c2b45517ac9c065a042380c563bd4e9d216d974cf07b"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/qualification-schemas.json",
+      "bytes": 133680,
+      "sha256": "dcbbbd2c9b84d5cd477718896f287f8abc6f6574e148a04421bc3a9043157a2b"
+    }
+  ],
+  "argv": [
+    "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+    "--test",
+    "--experimental-test-isolation=none",
+    "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/test_policy_marker.mjs"
+  ],
+  "environment": {
+    "PATH": "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin:/usr/local/bin:/usr/bin:/bin",
+    "LANG": "C.UTF-8"
+  },
+  "timeoutSeconds": 30,
+  "expectedDistinctTestNames": [
+    "exact pinned adopted policy passes its source prerequisite slice",
+    "missing adoption marker refuses",
+    "wrong adoption marker refuses",
+    "missing policy name refuses",
+    "wrong policy version refuses",
+    "missing closure reference refuses before policy acceptance",
+    "drifted closure pin refuses",
+    "wrong content hash refuses even with internally matching descriptor references",
+    "swapped manifest prerequisite refuses",
+    "file bytes changed after pinning refuse"
+  ],
+  "outputRoot": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r2/actual",
+  "executionReleased": false,
+  "limits": [
+    "No native/network/relay/LOCAL/TARGET execution.",
+    "Ten local source/file slices do not qualify full14 controls or E06.",
+    "All current-source/input pins and root release required before invocation."
+  ]
+}

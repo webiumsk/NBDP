@@ -1,0 +1,59 @@
+/home/peterhorvath/.miniforge3/bin/python3.13 -I -B - <<'PY'
+from pathlib import Path
+import collections,gzip,hashlib,json,os,stat,tarfile
+R=Path('/home/peterhorvath/apps/bitcoin/NBDP');P=R/'docs/decisions/evidence/transport-runtime-progress-publication-r5'
+def pin(p):
+ h=hashlib.sha256();n=0
+ with p.open('rb') as f:
+  while b:=f.read(1048576):h.update(b);n+=len(b)
+ return {'path':str(p),'bytes':n,'sha256':h.hexdigest()}
+def actual_stat(p):
+ s=p.lstat()
+ return dict(device=s.st_dev,inode=s.st_ino,bytes=s.st_size,mode=stat.S_IMODE(s.st_mode),uid=s.st_uid,gid=s.st_gid,nlink=s.st_nlink,mtimeNs=s.st_mtime_ns,ctimeNs=s.st_ctime_ns)
+index=json.loads((P/'archive-index.json').read_bytes());plan=json.loads((P/'selection-plan.json').read_bytes())
+archive=P/'completed-runtime-evidence.tar.gz';assert pin(archive)==index['archive']
+expected={m['archivePath']:m for m in index['members']};assert len(expected)==index['memberCount']==2293
+assert len(plan['roots'])==17
+seen=[];total=0;modes=collections.Counter()
+with archive.open('rb') as f:
+ header=f.read(10);assert header[:4]==b'\x1f\x8b\x08\x00' and header[4:8]==b'\0'*4
+with gzip.open(archive,'rb') as compressed:
+ with tarfile.open(fileobj=compressed,mode='r|',encoding='ascii',errors='strict') as bundle:
+  assert not bundle.pax_headers
+  for member in bundle:
+   name=member.name;assert name in expected and name not in seen
+   assert name.isascii() and not name.startswith('/') and '\\' not in name and all(x not in ('','.','..') for x in name.split('/'))
+   assert member.type==tarfile.REGTYPE and not member.pax_headers and not member.linkname
+   assert (member.mode,member.uid,member.gid,member.mtime,member.uname,member.gname)==(0o600,0,0,0,'','')
+   row=expected[name];assert member.size==row['original']['bytes']<=100000000
+   h=hashlib.sha256();n=0
+   stream=bundle.extractfile(member)  # Byte stream only; never filesystem extraction.
+   assert stream is not None
+   with stream:
+    while b:=stream.read(1048576):n+=len(b);h.update(b)
+   assert n==row['original']['bytes'] and h.hexdigest()==row['original']['sha256']
+   source=Path(row['original']['path']);assert source.resolve()==source and not source.is_symlink()
+   assert actual_stat(source)==row['originalStat'] and pin(source)==row['original']
+   modes[oct(row['originalStat']['mode'])]+=1;seen.append(name);total+=n
+assert seen==sorted(expected) and total==index['logicalBytes']==37177131
+assert len(seen)<=10000 and total<=250000000
+membership=[]
+for relative in plan['roots']:
+ root=R/relative;assert root.is_dir() and root.resolve()==root
+ for path in sorted(root.rglob('*')):
+  s=path.lstat();assert not stat.S_ISLNK(s.st_mode)
+  if stat.S_ISDIR(s.st_mode):continue
+  assert stat.S_ISREG(s.st_mode)
+  membership.append('repository/'+path.relative_to(R).as_posix())
+assert sorted(membership)==seen
+assert not any('e02_transport_query_diagnostic_' in n or 'terminal-assessment' in n for n in seen)
+result={'schema':'nbdp-p5-independent-stream-verification-v1','actor':'/root/local_monitor_controls',
+ 'method':'SEPARATE_STDLIB_PROCESS_GZIP_TAR_STREAM_READ_AGAINST_FROZEN_INDEX_NOT_BUILDER_IMPORT_OR_AGENT_APPROVAL',
+ 'archive':pin(archive),'index':pin(P/'archive-index.json'),'roots':17,'members':len(seen),'logicalBytes':total,
+ 'allArchiveHashesSizesMetadataAndOriginalBytesStatMembershipMatch':True,'sortedMembers':True,
+ 'originalModesIndexed':dict(modes),'archiveModes':'NORMALIZED_0600_NOT_REPLAY_RESTORATION',
+ 'filesystemExtraction':False,'projectImports':0,'experimentsExecuted':0,'gitMutations':0,'publication':False,'independentReview':'PENDING'}
+raw=(json.dumps(result,indent=2)+'\n').encode();fd=os.open(P/'independent-stream-verification.json',os.O_WRONLY|os.O_CREAT|os.O_EXCL|os.O_NOFOLLOW,0o600)
+with os.fdopen(fd,'wb') as f:assert f.write(raw)==len(raw);f.flush();os.fsync(f.fileno())
+print(json.dumps({'verification':pin(P/'independent-stream-verification.json'),'members':len(seen),'logicalBytes':total,'originalModes':dict(modes),'noExtractionImportsExperiments':True}))
+PY

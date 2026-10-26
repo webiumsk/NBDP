@@ -1,0 +1,74 @@
+{
+  "schema": "nbdp-progress-publication-archive-execution-v1",
+  "actor": "/root/progress_archive_implementer",
+  "evidenceType": "ACTUAL_DATA_ONLY_SERIALIZATION",
+  "authorization": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/transport-runtime-progress-publication-r4/freeze-authorization.json",
+    "bytes": 1481,
+    "sha256": "29f8d521c2dd15b9d005db9784441133b5b6378c57b1925170806cb8fe1ffcbb"
+  },
+  "source": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/transport-runtime-progress-publication-r4/build_archive.py",
+    "bytes": 15669,
+    "sha256": "b41be3f79be68b430c83c2aa01f44286e266a5aaac0481f715c99a76b50965d3"
+  },
+  "selectionPlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/transport-runtime-progress-publication-r4/selection-plan.json",
+    "bytes": 2634,
+    "sha256": "564357462b1dd8ea09d1702fc11da79dac03ad1fa5e50955a923a816b8884fb9"
+  },
+  "command": "python3 -I -B docs/decisions/evidence/transport-runtime-progress-publication-r4/build_archive.py --build-after-explicit-freeze",
+  "actualForeground": {
+    "launchTool": "0badc2",
+    "sessionId": 30951,
+    "intermediateTool": "8629db",
+    "completionTool": "c2bacd",
+    "exitCode": 0,
+    "completed": true
+  },
+  "archiveBuildCount": 1,
+  "sourceOnlyPriorCheckpoint": {
+    "sourceAstAndDataValidationTool": "728aba",
+    "exitCode": 0,
+    "scriptNotExecutedAtThatCheckpoint": true
+  },
+  "preBuildFreezeAndSourcePinCheck": {
+    "tool": "b88db8",
+    "exitCode": 0
+  },
+  "actualResult": {
+    "memberCount": 1894,
+    "logicalBytes": 27568525,
+    "archive": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/transport-runtime-progress-publication-r4/completed-runtime-evidence.tar.gz",
+      "bytes": 15918334,
+      "sha256": "2a605cf407c077eb4a30051292f8b474fe96973732f588b34f03734d1ca0a769"
+    },
+    "index": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/transport-runtime-progress-publication-r4/archive-index.json",
+      "bytes": 1297178,
+      "sha256": "c0ea6faa2874fca3c3031ff1201b4da33603e4d1c97d68536812b49e01d30b75"
+    },
+    "verification": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/transport-runtime-progress-publication-r4/archive-verification.json",
+      "bytes": 1181,
+      "sha256": "d6576fb793e90e57b7dc4b11f5d5242ee2f45c7cde2f81a0ceecb484c1b60e1b"
+    }
+  },
+  "actions": {
+    "projectImports": 0,
+    "experiments": 0,
+    "services": 0,
+    "gitMutations": 0,
+    "publication": false,
+    "sourceOrSdkChanges": false,
+    "originalFilesChanged": false
+  },
+  "limits": [
+    "This foreground built and verified one DATA copy; it did not operate any archived experiment.",
+    "Exact selected original hashes/stat/membership were rechecked; unselected external authority origins are not asserted current.",
+    "Root attested all eleven owners WRITES_STOPPED; active minimum producer and E06 observer/core/execution-r3 are excluded.",
+    "No second archive/reproducibility build or portable runtime replay was performed.",
+    "Independent package QA/security review is required before publication."
+  ]
+}

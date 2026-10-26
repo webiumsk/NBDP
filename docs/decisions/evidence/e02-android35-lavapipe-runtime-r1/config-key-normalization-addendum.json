@@ -1,0 +1,86 @@
+{
+  "schema": "api35-config-key-normalization-addendum-v1",
+  "evidenceType": "DATA_PARSING_CORRECTION_ONLY",
+  "author": "/root/android_health_implementer",
+  "finding": "Actual independent QA LOW: original derived report returned null because keys retained trailing whitespace.",
+  "originalDerivedReport": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/profile-observation.json",
+    "bytes": 647,
+    "sha256": "11d63af10879d04345cc33781ddc91cabb5189cf1baad891d7f1544f556d64df"
+  },
+  "exactRawConfig": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/actual-run/android-state/avd/ordinary.avd/config.ini",
+    "bytes": 564,
+    "sha256": "ba431436dcf65fba34625774ec583528218f8601d881eecce813d213821e44ec"
+  },
+  "extractionScript": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/extract-normalized-config.py",
+    "bytes": 3822,
+    "sha256": "2422fe5bae407f0a865d5505ef316cb0a5e499132e40d1015e87952518007407"
+  },
+  "method": "Split each noncomment setting at the first equals sign; strip key and value whitespace; reject duplicate/empty normalized keys; preserve values as strings.",
+  "correctedConfiguredFields": {
+    "hw.cpu.ncore": "4",
+    "hw.ramSize": "4096",
+    "hw.gpu.mode": "lavapipe",
+    "disk.dataPartition.size": "6442450944",
+    "image.sysdir.1": "system-images/android-35/default/x86_64/"
+  },
+  "supersedes": "Only the five null configured fields in the original derived report; original report/raw/index/subject remain intact.",
+  "meaning": "Retained AVD config settings after failed initialization, not observed running guest resources, booted API or allocated userdata partition. They may have been normalized by emulator startup.",
+  "partitionLimit": "The retained file says6442450944. This addendum neither changes the source-requested partition setting nor claims successful allocation or permission to change it.",
+  "execution": {
+    "projectImports": false,
+    "runtimeOrExperiment": false,
+    "sourceOrSdkChanged": false
+  },
+  "preservedOriginalFiles": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/profile-observation.json",
+      "bytes": 647,
+      "sha256": "11d63af10879d04345cc33781ddc91cabb5189cf1baad891d7f1544f556d64df"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/subject.json",
+      "bytes": 2982,
+      "sha256": "fb12d9d9e429ee55ca1f688b34bae7a71037e21c0300ad0c83841f261cde5154"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/mirror-manifest.json",
+      "bytes": 41123,
+      "sha256": "68fda6104c232a40e1d71da931a3f6984c891a7c37f79ad9f578c0fcea343b1f"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/artifact-manifest.json",
+      "bytes": 28750,
+      "sha256": "95c2609d249ea4a8247e084e6691c57b309718f57558798a61f525e5396fd997"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/observation.json",
+      "bytes": 9235,
+      "sha256": "cb5b3e03a7de2d5424fa694af0efba715fcbb91ca62c7108b36b96c0a3d3c93e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/README.md",
+      "bytes": 3441,
+      "sha256": "43b0377de4009138bb358ca41c44f5faddd612fc7d6014332f0ab6c4cdc701cb"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/archive-data.py",
+      "bytes": 10457,
+      "sha256": "bb56a4d8f5a71dde6836374ee002ec4b3474758cf75ad8481bd489e663c117de"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/archive-execution.json",
+      "bytes": 515,
+      "sha256": "700f6991e13a3b1ef6aab62047c3fe7502d00dc8e0e5ab4808f893c3bbdae88a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android35-lavapipe-runtime-r1/actual-run/android-state/avd/ordinary.avd/config.ini",
+      "bytes": 564,
+      "sha256": "ba431436dcf65fba34625774ec583528218f8601d881eecce813d213821e44ec"
+    }
+  ],
+  "allOriginalPinsUnchanged": true,
+  "remainingReview": "Independent QA/security assessment of this DATA correction belongs to the coordinator."
+}

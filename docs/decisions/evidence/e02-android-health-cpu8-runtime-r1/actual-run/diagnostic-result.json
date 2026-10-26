@@ -1,0 +1,380 @@
+{
+  "schema": "e02-android-health-observation-v1",
+  "scope": "ANDROID_HEALTH_DIAGNOSTIC_ONLY_NO_LOGIN_OR_TRANSPORT",
+  "diagnosticOnly": true,
+  "ordinaryControlQualified": false,
+  "phaseBudgetSeconds": 180,
+  "startedMonotonicNs": 1084716606711807,
+  "environmentStatus": "ENVIRONMENT_FAILURE",
+  "firstEnvironmentError": "Observed Android ANR: System UI isn't responding",
+  "firstError": null,
+  "secondaryErrors": [],
+  "observations": [
+    {
+      "phase": "baseline",
+      "id": "private-cgroup",
+      "startedMonotonicNs": 1084716606759374,
+      "endedMonotonicNs": 1084718509543742,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/baseline-private-cgroup.bin",
+        "bytes": 835,
+        "sha256": "89133d608d85be6b236a8ddd53bf23c17505ed301d7527a8bc40cf4e2000f888"
+      },
+      "status": "CAPTURED",
+      "metricStatus": "CAPTURED"
+    },
+    {
+      "phase": "baseline",
+      "id": "logcat",
+      "startedMonotonicNs": 1084718518320628,
+      "endedMonotonicNs": 1084719731163273,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/baseline-logcat.bin",
+        "bytes": 164901,
+        "sha256": "cceb37f64ba6419c31a582c5659cd83a4dd58e87669ba4657c8fb99cd5796573"
+      },
+      "status": "CAPTURED"
+    },
+    {
+      "phase": "baseline",
+      "id": "lastanr",
+      "startedMonotonicNs": 1084719775140827,
+      "endedMonotonicNs": 1084720956809974,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/baseline-lastanr.bin",
+        "bytes": 88,
+        "sha256": "42cf4931006fd0ff42d3522af31f9346431b409aa22a793ecc16b5aedeed28a1"
+      },
+      "status": "CAPTURED"
+    },
+    {
+      "phase": "baseline",
+      "id": "cpuinfo",
+      "startedMonotonicNs": 1084720982073205,
+      "endedMonotonicNs": 1084721974476132,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/baseline-cpuinfo.bin",
+        "bytes": 6206,
+        "sha256": "940719fc541c66f94c0806a4296a7ff09b85e74cc632072db2fa59453a5146cf"
+      },
+      "status": "CAPTURED"
+    },
+    {
+      "phase": "baseline",
+      "id": "meminfo",
+      "startedMonotonicNs": 1084722003917891,
+      "endedMonotonicNs": 1084723136588221,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/baseline-meminfo.bin",
+        "bytes": 1292,
+        "sha256": "e9fb1ec236bc3913eec6ad3b5b2da4071b17c11d0c5973f4949e8238414dac25"
+      },
+      "status": "CAPTURED"
+    },
+    {
+      "phase": "baseline",
+      "id": "pressure-cpu",
+      "startedMonotonicNs": 1084723177298827,
+      "endedMonotonicNs": 1084724379846104,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/baseline-pressure-cpu.bin",
+        "bytes": 26,
+        "sha256": "357228cb029555345a537241010bfdfa6bd900382415b656a638925d2a5bfb86"
+      },
+      "status": "UNKNOWN_UNAVAILABLE",
+      "originalReadExit": null
+    },
+    {
+      "phase": "baseline",
+      "id": "pressure-memory",
+      "startedMonotonicNs": 1084724389642680,
+      "endedMonotonicNs": 1084725350061723,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/baseline-pressure-memory.bin",
+        "bytes": 26,
+        "sha256": "357228cb029555345a537241010bfdfa6bd900382415b656a638925d2a5bfb86"
+      },
+      "status": "UNKNOWN_UNAVAILABLE",
+      "originalReadExit": null
+    },
+    {
+      "phase": "baseline",
+      "id": "pressure-io",
+      "startedMonotonicNs": 1084725413354357,
+      "endedMonotonicNs": 1084726335703002,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/baseline-pressure-io.bin",
+        "bytes": 26,
+        "sha256": "357228cb029555345a537241010bfdfa6bd900382415b656a638925d2a5bfb86"
+      },
+      "status": "UNKNOWN_UNAVAILABLE",
+      "originalReadExit": null
+    },
+    {
+      "phase": "baseline",
+      "id": "uiautomator",
+      "startedMonotonicNs": 1084726377357858,
+      "endedMonotonicNs": 1084730267728522,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/baseline-uiautomator.bin",
+        "bytes": 48,
+        "sha256": "40aa1b0fd3396783a5e56f86abaea16ba007450e5c23acaa51961059e42f8a4a"
+      },
+      "status": "CAPTURED"
+    },
+    {
+      "phase": "baseline",
+      "id": "ui-xml",
+      "startedMonotonicNs": 1084730286193994,
+      "endedMonotonicNs": 1084731298193177,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/baseline-ui-xml.bin",
+        "bytes": 4448,
+        "sha256": "9f9456e297c717b05a3a00901f5200d7f147cf1783746b153b0725e6b67e601d"
+      },
+      "status": "CAPTURED",
+      "observedAnrTitles": [
+        "System UI isn't responding"
+      ]
+    },
+    {
+      "phase": "baseline",
+      "id": "ui-png",
+      "startedMonotonicNs": 1084731361381738,
+      "endedMonotonicNs": 1084733947678359,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/baseline-ui-png.bin",
+        "bytes": 435372,
+        "sha256": "33e54d713136bb8c5dfdda9988b75c13963ed7d0da35f15229af8973846710e1"
+      },
+      "status": "CAPTURED"
+    },
+    {
+      "phase": "start",
+      "id": "intent",
+      "startedMonotonicNs": 1084733999927869,
+      "endedMonotonicNs": 1084735257200573,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/start-intent.bin",
+        "bytes": 101,
+        "sha256": "3b76525398c46e92f30c8014c895f5dc3d18c690f463a86eb0e1ab8da9dae5dc"
+      },
+      "status": "CAPTURED"
+    },
+    {
+      "phase": "immediate-post",
+      "id": "private-cgroup",
+      "startedMonotonicNs": 1084735308976830,
+      "endedMonotonicNs": 1084737456675106,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/immediate-post-private-cgroup.bin",
+        "bytes": 835,
+        "sha256": "877abeec859c55bf9ae4cf3672868448c05677ccf2f3f50aac3a35a26143192a"
+      },
+      "status": "CAPTURED",
+      "metricStatus": "CAPTURED"
+    },
+    {
+      "phase": "immediate-post",
+      "id": "logcat",
+      "startedMonotonicNs": 1084737494822158,
+      "endedMonotonicNs": 1084738974338488,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/immediate-post-logcat.bin",
+        "bytes": 167507,
+        "sha256": "063228e6bf57c48784cbf2173e969898616c9aafbff2a19eb073b9c7ad99cb16"
+      },
+      "status": "CAPTURED"
+    },
+    {
+      "phase": "immediate-post",
+      "id": "lastanr",
+      "startedMonotonicNs": 1084739030641445,
+      "endedMonotonicNs": 1084740014375255,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/immediate-post-lastanr.bin",
+        "bytes": 88,
+        "sha256": "42cf4931006fd0ff42d3522af31f9346431b409aa22a793ecc16b5aedeed28a1"
+      },
+      "status": "CAPTURED"
+    },
+    {
+      "phase": "immediate-post",
+      "id": "cpuinfo",
+      "startedMonotonicNs": 1084740060663044,
+      "endedMonotonicNs": 1084741501778028,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/immediate-post-cpuinfo.bin",
+        "bytes": 6206,
+        "sha256": "b7fec44feef031eaf129d234f282316b3b4b91581e6d3339b92a446a6803b3fe"
+      },
+      "status": "CAPTURED"
+    },
+    {
+      "phase": "immediate-post",
+      "id": "meminfo",
+      "startedMonotonicNs": 1084741554371752,
+      "endedMonotonicNs": 1084742964852006,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/immediate-post-meminfo.bin",
+        "bytes": 1292,
+        "sha256": "6934ee97b57bd0a77b8e9c1d33109293ebc2c32f84eb294198f84a331952d8bb"
+      },
+      "status": "CAPTURED"
+    },
+    {
+      "phase": "immediate-post",
+      "id": "pressure-cpu",
+      "startedMonotonicNs": 1084743012203413,
+      "endedMonotonicNs": 1084744095650882,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/immediate-post-pressure-cpu.bin",
+        "bytes": 26,
+        "sha256": "357228cb029555345a537241010bfdfa6bd900382415b656a638925d2a5bfb86"
+      },
+      "status": "UNKNOWN_UNAVAILABLE",
+      "originalReadExit": null
+    },
+    {
+      "phase": "immediate-post",
+      "id": "pressure-memory",
+      "startedMonotonicNs": 1084744141070764,
+      "endedMonotonicNs": 1084745307676933,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/immediate-post-pressure-memory.bin",
+        "bytes": 26,
+        "sha256": "357228cb029555345a537241010bfdfa6bd900382415b656a638925d2a5bfb86"
+      },
+      "status": "UNKNOWN_UNAVAILABLE",
+      "originalReadExit": null
+    },
+    {
+      "phase": "immediate-post",
+      "id": "pressure-io",
+      "startedMonotonicNs": 1084745340952258,
+      "endedMonotonicNs": 1084746776910382,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/immediate-post-pressure-io.bin",
+        "bytes": 26,
+        "sha256": "357228cb029555345a537241010bfdfa6bd900382415b656a638925d2a5bfb86"
+      },
+      "status": "UNKNOWN_UNAVAILABLE",
+      "originalReadExit": null
+    },
+    {
+      "phase": "immediate-post",
+      "id": "uiautomator",
+      "startedMonotonicNs": 1084746823205556,
+      "endedMonotonicNs": 1084753238637700,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/immediate-post-uiautomator.bin",
+        "bytes": 48,
+        "sha256": "40aa1b0fd3396783a5e56f86abaea16ba007450e5c23acaa51961059e42f8a4a"
+      },
+      "status": "CAPTURED"
+    },
+    {
+      "phase": "immediate-post",
+      "id": "ui-xml",
+      "startedMonotonicNs": 1084753297481947,
+      "endedMonotonicNs": 1084754529249941,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/immediate-post-ui-xml.bin",
+        "bytes": 4448,
+        "sha256": "9f9456e297c717b05a3a00901f5200d7f147cf1783746b153b0725e6b67e601d"
+      },
+      "status": "CAPTURED",
+      "observedAnrTitles": [
+        "System UI isn't responding"
+      ]
+    },
+    {
+      "phase": "immediate-post",
+      "id": "ui-png",
+      "startedMonotonicNs": 1084754582658614,
+      "endedMonotonicNs": 1084756968550455,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/immediate-post-ui-png.bin",
+        "bytes": 104355,
+        "sha256": "647d98ae45fc10bec1cc09e9f4ec6da9a328b16461795a3e5032001a2fbd5f2b"
+      },
+      "status": "CAPTURED"
+    },
+    {
+      "phase": "late",
+      "id": "logcat",
+      "startedMonotonicNs": 1084761991476003,
+      "endedMonotonicNs": 1084763301990950,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/late-logcat.bin",
+        "bytes": 164967,
+        "sha256": "9eac943209e3e559ea2fb1408c63b4b84e5dc89d7313048fe5e3c551cd47db4d"
+      },
+      "status": "CAPTURED"
+    },
+    {
+      "phase": "late",
+      "id": "lastanr",
+      "startedMonotonicNs": 1084763357093425,
+      "endedMonotonicNs": 1084764315410830,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/late-lastanr.bin",
+        "bytes": 88,
+        "sha256": "42cf4931006fd0ff42d3522af31f9346431b409aa22a793ecc16b5aedeed28a1"
+      },
+      "status": "CAPTURED"
+    },
+    {
+      "phase": "late",
+      "id": "uiautomator",
+      "startedMonotonicNs": 1084764343865917,
+      "endedMonotonicNs": 1084768941269730,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/late-uiautomator.bin",
+        "bytes": 48,
+        "sha256": "40aa1b0fd3396783a5e56f86abaea16ba007450e5c23acaa51961059e42f8a4a"
+      },
+      "status": "CAPTURED"
+    },
+    {
+      "phase": "late",
+      "id": "ui-xml",
+      "startedMonotonicNs": 1084768977916802,
+      "endedMonotonicNs": 1084769986742222,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/late-ui-xml.bin",
+        "bytes": 4448,
+        "sha256": "9f9456e297c717b05a3a00901f5200d7f147cf1783746b153b0725e6b67e601d"
+      },
+      "status": "CAPTURED",
+      "observedAnrTitles": [
+        "System UI isn't responding"
+      ]
+    },
+    {
+      "phase": "late",
+      "id": "ui-png",
+      "startedMonotonicNs": 1084770008514260,
+      "endedMonotonicNs": 1084771724886673,
+      "raw": {
+        "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostics/late-ui-png.bin",
+        "bytes": 104355,
+        "sha256": "647d98ae45fc10bec1cc09e9f4ec6da9a328b16461795a3e5032001a2fbd5f2b"
+      },
+      "status": "CAPTURED"
+    }
+  ],
+  "activityIntents": 1,
+  "identityInputs": 0,
+  "loginActions": 0,
+  "fixtureOperations": 0,
+  "clipboardOperations": 0,
+  "limits": [
+    "A bounded observation window does not establish healthy OS or an ANR cause.",
+    "Cgroup values measure the entire owned Android container, not one emulator process.",
+    "No ordinary-client compatibility or canonical E02 acceptance."
+  ],
+  "activityStartMeaning": "INTENT_DISPATCHED_ONLY; no -W/startup-duration/readiness claim",
+  "endedMonotonicNs": 1084771774234272,
+  "observationWindowMeaning": "Actual timestamps only; no asserted healthy stabilization interval"
+}

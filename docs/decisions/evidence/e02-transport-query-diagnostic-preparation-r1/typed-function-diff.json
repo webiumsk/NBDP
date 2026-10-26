@@ -1,0 +1,96 @@
+{
+  "schema": "e02-transport-diagnostic-python-function-diff-v1",
+  "files": [
+    {
+      "file": "supervisor.py",
+      "before": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/supervisor.py",
+        "bytes": 41932,
+        "sha256": "1a21ebb69bfdf6096d11b24ed6f9e7fe3b13e33b4afd954b69b9644be3ae0b63"
+      },
+      "after": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/supervisor.py",
+        "bytes": 28127,
+        "sha256": "55d0ef4c49b4fcb3220deaf6e5f49bac947257ea8e1e9bb7837caa9f3d7209f8"
+      },
+      "unchangedFunctions": [
+        "need",
+        "strict",
+        "digest",
+        "pin",
+        "checked",
+        "put",
+        "jsonbytes",
+        "exact_cid_absent",
+        "load_module",
+        "finalize",
+        "run_service",
+        "Runtime.__init__",
+        "Runtime.check",
+        "Runtime.sleep",
+        "Runtime.put_bytes",
+        "Runtime.put_json",
+        "Runtime.command",
+        "Runtime.record_command",
+        "Runtime.guest",
+        "Runtime.fixture",
+        "Runtime.inspect",
+        "Runtime.validate_identity",
+        "Runtime.cleanup"
+      ],
+      "changedOrAddedFunctions": [
+        "Runtime",
+        "Runtime.validate_owned",
+        "Runtime.start",
+        "source_pins",
+        "verify_config",
+        "guest",
+        "execute",
+        "main"
+      ],
+      "removedFunctions": [
+        "require_android_affinity",
+        "validate_namespace_addresses",
+        "classify_listener_endpoint",
+        "validate_namespace_listeners",
+        "qualify_namespace",
+        "materialize",
+        "Runtime.map_session_pin",
+        "Runtime.adb",
+        "Runtime.snapshot"
+      ]
+    },
+    {
+      "file": "lease_guard.py",
+      "before": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/lease_guard.py",
+        "bytes": 14846,
+        "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+      },
+      "after": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/lease_guard.py",
+        "bytes": 14846,
+        "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+      },
+      "unchangedFunctions": [
+        "LeaseDenied",
+        "strict",
+        "sample",
+        "issue",
+        "allowed_adb",
+        "adb_timeout",
+        "Lease",
+        "Lease.__init__",
+        "Lease.revoke",
+        "Lease.check",
+        "Lease.sleep",
+        "Lease.dispatch",
+        "Lease.run_checked",
+        "main"
+      ],
+      "changedOrAddedFunctions": [],
+      "removedFunctions": []
+    }
+  ],
+  "method": "stdlib ast.parse/dump only; no imports or runtime"
+}

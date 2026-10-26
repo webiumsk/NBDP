@@ -1,0 +1,598 @@
+{
+  "schema": "e06-negative-native-oracle-candidates-v1",
+  "state": "SOURCE_EXPECTATION_NOT_OBSERVED",
+  "evidenceType": "STATIC_SOURCE_AND_RETAINED_DATA_DERIVATION_ONLY",
+  "runtimeAuthority": false,
+  "actualOracleQualification": "PENDING",
+  "scope": "N02_N03_N16_INVOICE_ONLY",
+  "inputs": {
+    "plan": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-plan-r1/proposal.md",
+      "bytes": 20087,
+      "sha256": "af2e928556c4f4a73c86a9e0074fed5c5ab8cf29d1d4bf8ff05057813210babd"
+    },
+    "planAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-plan-r1/acceptance.json",
+      "bytes": 2174,
+      "sha256": "35eabe86ff16e4b33bf2a73d0cf859f5dee7b22099981f7ec16ba8ce6e5fb23d"
+    },
+    "positivePairAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-pair-r1/acceptance.json",
+      "bytes": 9782,
+      "sha256": "fc0841714c8f53246cc19daa24625a5353bdf59da13fa5fbd1161e82636834c0"
+    },
+    "parentContract": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/contract.json",
+      "bytes": 21113,
+      "sha256": "c15e87802d199e049eb535b130b0db420cc869982deeb51911239ab803924bc3"
+    },
+    "parentSelection": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_composition_v1/selection-map.json",
+      "bytes": 35919,
+      "sha256": "f523aee4be1e4b5fa5adc51723c414f859465517bf99f79f0e91d1e13a26c1d2"
+    },
+    "D": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-metadata-materialization-r3/primary/artifacts/000.json",
+      "bytes": 10082,
+      "sha256": "ca54582cc8a315615bea807d934389812a902d2df2bda135614e703037fe7f4d"
+    },
+    "F": {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.F.json",
+      "bytes": 826,
+      "sha256": "c3d939e95ff21dbaadc322259a60e34f9d35549b082faa87c980afc8c6e81e29"
+    },
+    "dWire": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-metadata-materialization-r3/primary/artifacts/000.incoming.wire",
+      "bytes": 3921,
+      "sha256": "9a7c53306aca263d8fcf9da83f2a09725d2198c223c54b201efa967319045283"
+    },
+    "fWire": {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.incoming.wire",
+      "bytes": 2897,
+      "sha256": "06a372bca1fadd8f028203289cda89bca49b9d43a89e2b31c1ba3d69228b0bb3"
+    },
+    "pairedRequests": {
+      "JS": {
+        "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.JS.request.json",
+        "bytes": 14116,
+        "sha256": "ecd5f4cf9f9f1ae5c3d46cc5edd7135404f6a4b8b0728bfc781b0889d4049ff4"
+      },
+      "RUST": {
+        "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.RUST.request.json",
+        "bytes": 14116,
+        "sha256": "ecd5f4cf9f9f1ae5c3d46cc5edd7135404f6a4b8b0728bfc781b0889d4049ff4"
+      }
+    },
+    "pairedExpected": {
+      "JS": {
+        "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.JS.expected.json",
+        "bytes": 7746,
+        "sha256": "b2af6ebd64434c3541bad82ffbee9b664377931c0984f87fcb7b92ef8f697cc1"
+      },
+      "RUST": {
+        "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.RUST.expected.json",
+        "bytes": 7770,
+        "sha256": "4bb1c8965d80e44233775334a08f22ceb3fb64a883a3f458b20a68e93977413d"
+      }
+    },
+    "preparationProofs": {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/proofs.json",
+      "bytes": 11002,
+      "sha256": "761f25658113941c8c7cace0a15d40a53c71d84aa3007235296f2f63cb4aed37"
+    },
+    "originalDProofs": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-metadata-materialization-r3/primary/proofs.json",
+      "bytes": 740469,
+      "sha256": "cf7e9455e15a2dddd46785ca702e72dd779ced3941de0e14a596dc8da576af49"
+    },
+    "catalogue": {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/catalogue.json",
+      "bytes": 5653,
+      "sha256": "3741ed00a14095d43a3f312177672ccccf2d240aba8592577e2d4637d4a03d12"
+    },
+    "R5MaterializationAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/fixture-materialization-acceptance-r5.json",
+      "bytes": 1595,
+      "sha256": "11ae5a7d69e7b3c99a6262e50e7aa4824b9ca54fdf0e465adce79bc435e52afc"
+    },
+    "R5InputAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/fixture-input-acceptance-r5.json",
+      "bytes": 2524,
+      "sha256": "a80d6272492f395f36d8afea0d3283a07e406eecfc6243fd4eaeea3fef85ceae"
+    },
+    "sources": {
+      "JS_METADATA": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_invoice_file_v1/js/metadata.mjs",
+        "bytes": 16205,
+        "sha256": "c9f0cd7055a98e2edcfcc32efc9be99e499077dc6d131472cb4c179b8c4c348c"
+      },
+      "RUST_METADATA": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_invoice_file_v1/rust/src/main.rs",
+        "bytes": 17485,
+        "sha256": "9b1dd9cd07bf655793ed9b6b0b30eb751c593ee697258124f1be8aef641fbb96"
+      },
+      "JS_TRANSPORT": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/invoice_authenticated_carrier/js/transport.mjs",
+        "bytes": 18462,
+        "sha256": "9627f3ea61996ee4f2e1336982c92569d638d1a42ca8e55c259e34cfde24b8cd"
+      },
+      "RUST_ADAPTER": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_invoice_file_v1/rust/src/baseline/mod.rs",
+        "bytes": 26224,
+        "sha256": "8b05696a2229b8fb1b9439329b78a2cc26118935f5f4452e2f5ec869f02fbee2"
+      },
+      "RUST_BASELINE": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_invoice_file_v1/rust/src/baseline/main.rs",
+        "bytes": 25503,
+        "sha256": "01dd3a6a541a1ea92dc681d6d331a5501286fb375909b07803bdcfbeccc816fd"
+      }
+    }
+  },
+  "requestGrammar": {
+    "keys": [
+      "op",
+      "secretHex",
+      "config",
+      "dWireHex",
+      "fWireHex"
+    ],
+    "additionalKeys": false,
+    "op": "correlate-file-metadata",
+    "configKeys": [
+      "enabled",
+      "role",
+      "expectedLocal",
+      "expectedPeer",
+      "expectedContext",
+      "allowedOrigin"
+    ],
+    "configAdditionalKeys": false,
+    "configLiteral": {
+      "enabled": true,
+      "role": "incoming",
+      "expectedLocal": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
+      "expectedPeer": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+      "expectedContext": "3333333333333333333333333333333333333333333333333333333333333333",
+      "allowedOrigin": "https://files.invalid:18443"
+    },
+    "secretHexLiteral": "0000000000000000000000000000000000000000000000000000000000000002",
+    "dWireHex": "null for N02; actual received D EVENT raw span lowercase hex for N16",
+    "fWireHex": "required native string: actual received F EVENT raw span lowercase hex, never reserialized",
+    "lineBoundBytes": 131072,
+    "wireHexBoundChars": 32748,
+    "expectedDataInWorkerRequest": false
+  },
+  "canonicalIds": {
+    "D": "c4f3f2a08ad09ef7f9be6a0e82efaa5b136b54016fd1a4db2d4d92bf4cb704e7",
+    "F": "66221fc9dd752034847a48d68a8904d528a8b8a26cc333bc317614a437c9aaeb",
+    "meaning": "Copied accepted retained native/fixture IDs; not recomputed here. F parent tag does not authenticate or supply D."
+  },
+  "N02": {
+    "state": "SOURCE_EXPECTATION_NOT_OBSERVED",
+    "actualOracleQualification": "PENDING",
+    "precondition": "Fresh native process/window, empty retained D/F, exactly one call, enabled incoming scope; only selected F received.",
+    "requestCandidate": {
+      "op": "correlate-file-metadata",
+      "secretHex": "0000000000000000000000000000000000000000000000000000000000000002",
+      "config": {
+        "enabled": true,
+        "role": "incoming",
+        "expectedLocal": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
+        "expectedPeer": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+        "expectedContext": "3333333333333333333333333333333333333333333333333333333333333333",
+        "allowedOrigin": "https://files.invalid:18443"
+      },
+      "dWireHex": null,
+      "fWireHex": "7b22636f6e74656e74223a22416c475571483449484a2f2f65454b47486b464f52306d38496c3552586230354f514c4d69552b483734526738704e49676b67594f496f564f596e6e79553364765658626657387158446d4d4f4c5834486b6a45624454443538306c4f45735351367856486f486446723636744448486e2b34324d2f2b5a534b486c79683337594732546d724a35326a6c2b792b5857726366516b317775664f4e4c464755614b4a624a766c6d4e66316d4f4141426267677365426559504631356c54634575394b50734d7868494f616d6144387a75704c476d533147522b6a7537643965464a416d644d61336342314669666568756a6a474a344e424d714f2b4b5a373663664155737952717237514e746c454d4f4e506757426635672b304f524d756d7830665354446f554c594758347234786244787778675378494d7a37375a6e452f4271396a425a626d614b51463435446f3356495042444f7064713177744d6148576c724979523073624f4c4555736c6a6e4a57367262467056756467594d663379684c6964395559527566416f49646d31786b31755430304861736571555478314c35425a53776834636853314b31506936462b576e2f485953364467393246364562794674626f6b397a416f55584b654b4234325878704e74415a6842385863586b6a746b556c42734173576b3043655150705646664a724d695874745973715a7a4a5657344d4e6e5858554c37486f713473336775647973516d717155704f68616b41324378504f737a7a64414f61635755684b34494c716e496256694c334b6c715154755031614e5971496d7a6a787557762f5538344848594d5346624b43617849526368763259514a344c343252634a323162756458376f4f577241684e536737456e4d344171484e36686d7a3649627a4562446e3062324a5a4362532f4f6e70683458785457417175516b4e7131784d746d796f69454a31456a564c36596556656f563846764d704332562f4a2b5875454579334c356d48317165577a596d6c6848326c374630746b64364139544c656e5133682f66742f35375a537745456a4f626b41735565486b7439384248655478767057533745702f4b736b6c46515670546f5a6136397a4e6242317a4c7763716b4a547847465451535230784e3746465253786c365252706d357978444e714368786849366f5a365a30376352345a626839766673396c47466748442b6b6e656a69323871785133497654396f79312b2b6651764468363266752f7656304f6f56792f52546c51505178376e41573156527458673037712b513852726f347656742b697046355034505431634757477132585951626e4c353466396b6f55703734457a6b574a456d734d58666d5543314f324e4b685575394166516472647564514d627535556c6e656d414a304450545a736f4d486c796b7a535751556c4b78327a497855304b2b6f343749584432762b57327955765738523447444e6d6953303332695666545731364c757678425a546548704859396c584357474c442b48773574494d47747673726b754b436b6b48504742694874453478432f69444243543546767a2f42484834324873632b587864756b375a4557614c6443625051384c57614e62554d626c647154665678766e42644c75516274743076325753367a4934595742455a4767343168716f31754348343072365751716a7943516d507464716452736a4865376f6e546f3377574b436a753169616443466177384f37552f5068667736625952326f79362f707379727342796943344a65444a6c31532f6d6a633264734c686d6e5741754944524e2f5167786353383459396e685a6966727a354b796c4f6e744e46414644524931316b776e673556586e64484263782f3738684646584e526a75364a675653452f51794b31566c705357447374484b686e384e674c476855455a4e576d63594f7a444378634d794b74746834524b6a4d73785169685a5172617271506a6144694a3151646952766c5755394459594f796830455959454c35667642635264445a4a31676662715435454536745a74756464562b71745476336954546d446b7672304554784556766b37757841496a6d7938697663446c376c4276594c364d7837356c6a787a612f365856386130665158704d774546464f343157466a6a67636432364a4a38702f424a34344634564376666758495075485739717555784c34504c493174424b6c5732734f422b727455644d30746b2b36514c793071633049554f327659617647746150655756444d656535474a52455061327438436b362b51797877534237466c51346d3938322b332b586b4c594658666f7852586b794a615256374834714c6451503848723766597446582b307951466435787348673935756348484d483841597458654e6e4c586864304f597366493457507a674c7538795755374b647a676e7330614c5359745854464866416c7839773932496f474e5052436d64754262426770375234534f6f4b68664e464438356e44676c694e36422f784177506f4f4a70546f6c75737454754f426479414873503043434b4252685234317939593149524745744e71363448445670535a4b61705330625952436d42756936386c4c312f76726969586a3648576f3139534f54695a46314d64634130695a316f64446a653933504b323636664644486c2b426a49636e4e57426738576e5544684f5062302f6f6363557a726831464561452b2b6f6a45744b774c69517145686c30663155656c4b364e74436c5a3352304f542b6469793479776b306b334453502f4e71567476734257486b324a69587155324a69525474434b4a6a46727755577866594a74316f2f756a4c6143534548464365302f514b716d5366336f3038682f51503844314a6847494e4b462f5577426e4c55514478526d34463378374c46674b705a2f6e7938724d31424766476c74546b734771466741356d6f336f39736b303971396c68743251423466677939583152334f374e784c37646e6e68317a7244377546776f7a51706766516b6a7a646573664a766f44526143565968414756612f75614c6f4431557278754c6266785a6b6d5854505258616a565a385a2f765a534e782f72507546504a784f716d736457546d7179726956323262664e61354370706a6739536e63424a3251494f464279537567737941637630785446507439464a6c6a744e676d4254423759596c4b52644d34334e7a494966527669574b6b4f455a57356262714935746b4c6b7347757437674342626644323666635a304b3363533253674c55613061524a616f69686e72394d6d305a596c316f4951384c512b3233614b2b496b702f6d74632f47312f336658666158723378784f6630672b39536f5a467378476d6c636f6d476a32562b4a424d46706f68724c38764278593d222c22637265617465645f6174223a313739323238383831362c226964223a2232633863643034303036333565383032313339333438393235646230303864316535643266633764663462363463643937343534393639336565393334663237222c226b696e64223a313035392c227075626b6579223a2239613530376639323437326663303263363235656136653237383835333834376236633661353334306536666138663638386461656436306561636464663463222c22736967223a223438653035623732373466303535653932336639326265636134663237343035383232336536643338666163396363623739303364373862353335643935656432633864333766316336646638396233636239353165383930356561366161643436376238666263373262616232656633643036613131663431626563323365222c2274616773223a5b5b2270222c2263363034376639343431656437643664333034353430366539356330376364383563373738653462386365663363613761626163303962393563373039656535225d5d7d"
+    },
+    "referenceWire": {
+      "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.incoming.wire",
+      "bytes": 2897,
+      "sha256": "06a372bca1fadd8f028203289cda89bca49b9d43a89e2b31c1ba3d69228b0bb3"
+    },
+    "requestCandidateUse": "Inert fixture-based reference only. Actual later workload must derive fWireHex from its OWN received EVENT raw span, dWireHex=null. No expected reply may enter native request/auth path.",
+    "expectedByBackend": {
+      "JS": {
+        "schema": "e06-file-metadata-result-v1",
+        "component": "METADATA_AUTHENTICATION_ONLY",
+        "status": "ORPHAN_PENDING",
+        "stage": "ASSOCIATION",
+        "reason": "ORPHAN_F",
+        "dSource": "ABSENT",
+        "dRumorId": null,
+        "fRumorId": "66221fc9dd752034847a48d68a8904d528a8b8a26cc333bc317614a437c9aaeb",
+        "association": "PENDING_NO_D",
+        "validation": {
+          "D": null,
+          "F": {
+            "backend": "JS",
+            "entry": "validate-bytes",
+            "rawReply": {
+              "ok": true,
+              "value": {
+                "rumor": {
+                  "id": "66221fc9dd752034847a48d68a8904d528a8b8a26cc333bc317614a437c9aaeb",
+                  "pubkey": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+                  "created_at": 1792300100,
+                  "kind": 15,
+                  "tags": [
+                    [
+                      "p",
+                      "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5"
+                    ],
+                    [
+                      "e",
+                      "c4f3f2a08ad09ef7f9be6a0e82efaa5b136b54016fd1a4db2d4d92bf4cb704e7",
+                      "",
+                      "reply"
+                    ],
+                    [
+                      "file-type",
+                      "application/octet-stream"
+                    ],
+                    [
+                      "encryption-algorithm",
+                      "aes-gcm"
+                    ],
+                    [
+                      "decryption-key",
+                      "8004a7d0836323bd2829b5688c31fe85e298557e616e74246918ea65db59e2d0"
+                    ],
+                    [
+                      "decryption-nonce",
+                      "ac18604e01a1c182a1ad4992"
+                    ],
+                    [
+                      "x",
+                      "aba67e462b0ef41729c3bb31f1f50b98c4ae2245f20e9f1adb312174d18952c5"
+                    ],
+                    [
+                      "ox",
+                      "6509423fd9da5c225d2f8619ffae394b40f9f7686fee55a38c54b1424ac65f46"
+                    ],
+                    [
+                      "size",
+                      "20"
+                    ]
+                  ],
+                  "content": "https://files.invalid:18443/aba67e462b0ef41729c3bb31f1f50b98c4ae2245f20e9f1adb312174d18952c5"
+                },
+                "dispatch": false,
+                "role": "file"
+              },
+              "decrypts": [
+                1,
+                1
+              ]
+            }
+          }
+        },
+        "validationCallCounts": {
+          "D": 0,
+          "F": 1
+        },
+        "window": {
+          "dEntries": 0,
+          "fEntries": 1,
+          "capacityHeld": false
+        },
+        "limitations": "NO_ACQUISITION_NO_ORIGINAL_VERIFICATION_NO_DURABILITY_NO_RECEIPT_NO_BUSINESS_AUTHORITY"
+      },
+      "RUST": {
+        "schema": "e06-file-metadata-result-v1",
+        "component": "METADATA_AUTHENTICATION_ONLY",
+        "status": "ORPHAN_PENDING",
+        "stage": "ASSOCIATION",
+        "reason": "ORPHAN_F",
+        "dSource": "ABSENT",
+        "dRumorId": null,
+        "fRumorId": "66221fc9dd752034847a48d68a8904d528a8b8a26cc333bc317614a437c9aaeb",
+        "association": "PENDING_NO_D",
+        "validation": {
+          "D": null,
+          "F": {
+            "backend": "RUST",
+            "entry": "validate-bytes",
+            "rawReply": {
+              "ok": true,
+              "value": {
+                "decrypts": [
+                  1,
+                  1
+                ],
+                "ok": true,
+                "value": {
+                  "dispatch": false,
+                  "role": "file",
+                  "rumor": {
+                    "content": "https://files.invalid:18443/aba67e462b0ef41729c3bb31f1f50b98c4ae2245f20e9f1adb312174d18952c5",
+                    "created_at": 1792300100,
+                    "id": "66221fc9dd752034847a48d68a8904d528a8b8a26cc333bc317614a437c9aaeb",
+                    "kind": 15,
+                    "pubkey": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+                    "tags": [
+                      [
+                        "p",
+                        "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5"
+                      ],
+                      [
+                        "e",
+                        "c4f3f2a08ad09ef7f9be6a0e82efaa5b136b54016fd1a4db2d4d92bf4cb704e7",
+                        "",
+                        "reply"
+                      ],
+                      [
+                        "file-type",
+                        "application/octet-stream"
+                      ],
+                      [
+                        "encryption-algorithm",
+                        "aes-gcm"
+                      ],
+                      [
+                        "decryption-key",
+                        "8004a7d0836323bd2829b5688c31fe85e298557e616e74246918ea65db59e2d0"
+                      ],
+                      [
+                        "decryption-nonce",
+                        "ac18604e01a1c182a1ad4992"
+                      ],
+                      [
+                        "x",
+                        "aba67e462b0ef41729c3bb31f1f50b98c4ae2245f20e9f1adb312174d18952c5"
+                      ],
+                      [
+                        "ox",
+                        "6509423fd9da5c225d2f8619ffae394b40f9f7686fee55a38c54b1424ac65f46"
+                      ],
+                      [
+                        "size",
+                        "20"
+                      ]
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "validationCallCounts": {
+          "D": 0,
+          "F": 1
+        },
+        "window": {
+          "dEntries": 0,
+          "fEntries": 1,
+          "capacityHeld": false
+        },
+        "limitations": "NO_ACQUISITION_NO_ORIGINAL_VERIFICATION_NO_DURABILITY_NO_RECEIPT_NO_BUSINESS_AUTHORITY"
+      }
+    },
+    "incomingFProofs": {
+      "JS": {
+        "proofIndex": 4,
+        "proof": {
+          "jobId": "invoice:inspect:incoming:JS",
+          "backend": "JS",
+          "role": "incoming",
+          "request": {
+            "path": "/tmp/e6https-prepare-prepr501/PREPARE/jobs/03/stdin.json",
+            "bytes": 6187,
+            "sha256": "ec8edf35a4c85a4d05bf4a578f962e1a6df8fd48059468d60cbf967ff92505d3"
+          },
+          "rawReply": {
+            "path": "/tmp/e6https-prepare-prepr501/PREPARE/jobs/03/reply.json",
+            "bytes": 904,
+            "sha256": "e1674622ae56f98e53f5653992ada9d27cec4ec5c4b5c03ceaa022da89ee6561"
+          },
+          "fullChainSuccess": true
+        }
+      },
+      "RUST": {
+        "proofIndex": 5,
+        "proof": {
+          "jobId": "invoice:inspect:incoming:RUST",
+          "backend": "RUST",
+          "role": "incoming",
+          "request": {
+            "path": "/tmp/e6https-prepare-prepr501/PREPARE/jobs/04/stdin.json",
+            "bytes": 6187,
+            "sha256": "ec8edf35a4c85a4d05bf4a578f962e1a6df8fd48059468d60cbf967ff92505d3"
+          },
+          "rawReply": {
+            "path": "/tmp/e6https-prepare-prepr501/PREPARE/jobs/04/reply.json",
+            "bytes": 924,
+            "sha256": "30e728e75c2bb9be832974ba3e8b3946a44897c8c405edcdcc224fa058717cc4"
+          },
+          "fullChainSuccess": true
+        }
+      }
+    },
+    "compositionExpectation": {
+      "pairedSubject": null,
+      "generation": null,
+      "snapshot": null,
+      "eligibility": "NO_ELIGIBLE_D_F_PAIR",
+      "nativeDValidated": false,
+      "nativeFValidated": true,
+      "meaning": "Proposed composition interpretation only; these are NOT extra native13 fields or observed capability states."
+    }
+  },
+  "N03": {
+    "state": "NO_NATIVE_CALL",
+    "nativeBackend": null,
+    "nativeRequest": null,
+    "nativeExpected": null,
+    "nativeChild": null,
+    "metadataRecord": null,
+    "validationCallCounts": {
+      "D": 0,
+      "F": 0
+    },
+    "meaning": "Relay-received D only, no fresh native D authentication. Native API requires F: no dummy request/reply or backend."
+  },
+  "N16": {
+    "state": "REUSE_UNCHANGED_PAIRED_EXPECTATION_DESCRIPTORS",
+    "pairedExpected": {
+      "JS": {
+        "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.JS.expected.json",
+        "bytes": 7746,
+        "sha256": "b2af6ebd64434c3541bad82ffbee9b664377931c0984f87fcb7b92ef8f697cc1"
+      },
+      "RUST": {
+        "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.RUST.expected.json",
+        "bytes": 7770,
+        "sha256": "4bb1c8965d80e44233775334a08f22ceb3fb64a883a3f458b20a68e93977413d"
+      }
+    },
+    "pairedRequests": {
+      "JS": {
+        "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.JS.request.json",
+        "bytes": 14116,
+        "sha256": "ecd5f4cf9f9f1ae5c3d46cc5edd7135404f6a4b8b0728bfc781b0889d4049ff4"
+      },
+      "RUST": {
+        "path": "/tmp/e6https-prepare-prepr501/PREPARE/invoice.RUST.request.json",
+        "bytes": 14116,
+        "sha256": "ecd5f4cf9f9f1ae5c3d46cc5edd7135404f6a4b8b0728bfc781b0889d4049ff4"
+      }
+    },
+    "scope": "Native enabled=true unchanged. Separate acquisition-permission deny AFTER paired auth; no native config disable/reply mutation.",
+    "actualOracleQualification": "NO_NEW_QUALIFICATION_FROM_THIS_FILE"
+  },
+  "derivation": {
+    "expectedTopKeys": [
+      "schema",
+      "component",
+      "status",
+      "stage",
+      "reason",
+      "dSource",
+      "dRumorId",
+      "fRumorId",
+      "association",
+      "validation",
+      "validationCallCounts",
+      "window",
+      "limitations"
+    ],
+    "changedPathsVsPaired": {
+      "JS": [
+        "/status",
+        "/reason",
+        "/dSource",
+        "/dRumorId",
+        "/association",
+        "/validation/D",
+        "/validationCallCounts/D",
+        "/window/dEntries"
+      ],
+      "RUST": [
+        "/status",
+        "/reason",
+        "/dSource",
+        "/dRumorId",
+        "/association",
+        "/validation/D",
+        "/validationCallCounts/D",
+        "/window/dEntries"
+      ]
+    },
+    "unchangedIncomingFProofSubtrees": true,
+    "pairedReconstructionExact": true,
+    "selectedInputsPinnedBeforeAndAfter": true,
+    "selectedReadInputCount": 27,
+    "projectImports": 0,
+    "nativeCalls": 0,
+    "newCryptoOrFixtures": 0,
+    "sourcePinRoles": "Metadata entries independently match accepted M contract sourceLineage. Additional transport/baseline helper sources are current-hashed explanatory source references, not a claim they belong to M runtime closure or new binary attestation."
+  },
+  "sourceReferences": {
+    "JS_METADATA": {
+      "freshState": [
+        13,
+        13
+      ],
+      "emptyCall": [
+        95,
+        98
+      ],
+      "replyConstructor": [
+        100,
+        107
+      ],
+      "validateF": [
+        143,
+        163
+      ],
+      "fileShape": [
+        165,
+        189
+      ],
+      "orphanRetention": [
+        212,
+        220
+      ],
+      "nullDBranch": [
+        279,
+        302
+      ]
+    },
+    "RUST_METADATA": {
+      "freshState": [
+        40,
+        47
+      ],
+      "emptyObservationAndReply": [
+        59,
+        78
+      ],
+      "localRequest": [
+        127,
+        145
+      ],
+      "validateF": [
+        168,
+        187
+      ],
+      "shapeAndConstants": [
+        189,
+        229
+      ],
+      "nullDAndOrphan": [
+        232,
+        311
+      ],
+      "freshProcess": [
+        337,
+        351
+      ]
+    },
+    "JS_TRANSPORT": {
+      "FReturnAndDecryptCounters": [
+        67,
+        105
+      ]
+    },
+    "RUST_BASELINE": {
+      "FReturnAndDecryptCounters": [
+        65,
+        117
+      ]
+    },
+    "RUST_ADAPTER": {
+      "nativeEnvelope": [
+        382,
+        390
+      ]
+    }
+  },
+  "unresolvedGaps": [],
+  "limits": [
+    "These complete candidates are source expectations, not observed F-only metadata replies or qualified oracles.",
+    "Both backends require separately admitted actual F-only qualification with whole raw reply/lifecycle/current pins and independent review.",
+    "Existing incoming F inspections supply retained validation facts only; they are not F-only metadata composition runs.",
+    "N16 paired descriptors are unchanged references and grant no additional adoption or execution authority.",
+    "No plaintext/original oracle is placed in the candidate native request. No fixture/crypto generation, acquisition, file consumer, receipt/business effect, SDK or Q closure."
+  ]
+}

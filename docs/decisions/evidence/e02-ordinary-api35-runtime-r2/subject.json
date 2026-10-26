@@ -1,0 +1,78 @@
+{
+  "schema": "ordinary-api35-v2-runtime-failure-subject-v1",
+  "author": "/root/android_health_implementer",
+  "runOperator": "/root",
+  "state": "WRITES_STOPPED_PENDING_INDEPENDENT_REVIEW",
+  "scope": "ACTUAL_FIRST_CELL_STRUCTURE_GUARD_FAILURE_ONLY",
+  "evidence": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-runtime-r2/mirror-manifest.json",
+      "bytes": 229038,
+      "sha256": "55137916a2ff64068c0cba90c3071749c52f2fbb5bb62e7d301acfe7e01ba632"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-runtime-r2/observation.json",
+      "bytes": 8967,
+      "sha256": "19f35846b980f3a51eb7e2f13d474fbdcbdcf95865ae6187fee122eacb64d5d8"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-runtime-r2/whole-public-input-observation.json",
+      "bytes": 2029,
+      "sha256": "e9f6fc01b1bc0fa1e95ddecfe6f588cd20d9839b4596c2667120ecd5e1bfadb7"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-runtime-r2/exclusions.json",
+      "bytes": 191120,
+      "sha256": "6d3efa2aba581f1e7b2095253f97627e00b623cd604a9f4498c8b2dd0b94a424"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-runtime-r2/root-finished.json",
+      "bytes": 1429,
+      "sha256": "90bc6154d7edee78c50d42f6b378613bc1a56ab20ffb32a1b9fff0db83e86f79"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-runtime-r2/actual-input-bindings.json",
+      "bytes": 2426,
+      "sha256": "ee4c881064a18d525449349d4c496caf328258be42f6356ada75a0db59e89323"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-runtime-r2/archive-execution.json",
+      "bytes": 620,
+      "sha256": "380828892a592e81fb556bf5b55dd0fa6021bc8b6c96ef8857760a799b5ebc1d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-runtime-r2/archive-data.py",
+      "bytes": 11758,
+      "sha256": "ef6009cacc2ce8b292d9c47a6b72d5c51ae2377e3fc10fc22f5ed921d920ef93"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-runtime-r2/README.md",
+      "bytes": 3429,
+      "sha256": "58e7f3a8827397fe0c41659bf3a88b522653f81021f78121d1e15a8da3a15f8c"
+    }
+  ],
+  "actualSupervisor": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-runtime-r2/actual-run/supervisor-result.json",
+    "bytes": 3015,
+    "sha256": "1800f9ce15e33970d3ca7ffc21eb82dd07437ebf0a0657e26cb89d0c2e8ee2f6"
+  },
+  "requiredReviews": [
+    "Independent actual failure raw QA",
+    "Independent actual failure raw security"
+  ],
+  "canonicalE02Changed": false,
+  "ordinaryCellQualified": false,
+  "newControlScopes": {
+    "cleanup": 26,
+    "UI": 47
+  },
+  "carriedUnchangedScopesOnly": {
+    "guard": 29,
+    "fixture": 27,
+    "consumer": 14
+  },
+  "limits": [
+    "No root cause/client defect/masking inference, healthy baseline, backend qualification or PASS.",
+    "No source/configuration/shared/Git changes or rerun; public scalar2 lineage preserved."
+  ]
+}

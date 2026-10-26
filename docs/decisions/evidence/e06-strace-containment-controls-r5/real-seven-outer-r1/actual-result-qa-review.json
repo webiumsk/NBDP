@@ -1,0 +1,41 @@
+{
+  "schema": "nbdp-actual-independent-review-transcription-v1",
+  "transcribedBy": "/root",
+  "role": "qa",
+  "session": "/root/transport_evidence_qa",
+  "decision": "ACCEPT_ACTUAL_CONTROL_BATCH_FAILURE_EVIDENCE_ONLY",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r5/real-seven-outer-r1/subject.json",
+    "bytes": 10805,
+    "sha256": "e35a10a4e037e8fa610ad8c9579aff77835c8b1e77b1d14e9f98b8a7b874f376"
+  },
+  "overallDisposition": "FAIL_HOLD_NO_CONTAINMENT_ACCEPTANCE",
+  "findings": [
+    {
+      "id": "QA-E06-CUSTODY-COMPARISON-DIAGNOSTICS-008",
+      "severity": "MEDIUM",
+      "evidence": "Acquisitionpredicate combinesfullidentitydict equalityandguardUID; aftercomparison snapshot/differingfields notsaved. BEFORE3804908/start124734905/UID1000/PPID3804907/SID3804908/emptycmdline doesnotidentifyactualmismatch.",
+      "qualification": "Exactfield/cause UNKNOWN; noconfirmedPIDreuse/UIDchange/exec/stracebug/escape.",
+      "requiredNext": "Versioned bounded BEFORE/AFTER-or-error/stage/guardUID/differingfield instrumentation only; keep EXACTrefusal/custody/provisionalclose/unsignalable semantics, no retries/delays/exemptions. Any laterstable-vs-context rulechangerequiresnewactualevidence/riskreview.",
+      "requiredRegressions": [
+        "Allidentityfieldmismatches preservebothsamples",
+        "Aftermissing/readerror retainsoriginalexception/status",
+        "RejectedFDclosesonce/nevercommitsorsignals",
+        "UID/starttime/PID/fdinfo mismatchesrefuse",
+        "Loggingfailure/privacy/bounds preservefirstfault/close/no foreign orpostreapsignal"
+      ]
+    }
+  ],
+  "verified": [
+    "817source/review/tool/lib prepost bytes/stats equal,142whole/current449/246history preserved;26rawregular600/18actualtree exact.",
+    "HOSTsingleexecd48b70exit2, originalAPIobjects no session/wait/outerEOF/reap/forcefabricated.",
+    "0qualified/1failed/6NOTEXECUTED; beforeREADY/no temporalproof/no completecapture/privacy.",
+    "Provisionalfd9rejectedclosedwithoutsignal,4validatedheldidentities/ACK; open5/send4;5signals incl1directunreapednumericfallback, allbefore recordedreap; no rejectedidentitytarget.",
+    "Owncensus/reapempty/uncertainfalse areguardrecords only, no independentlivenessprobe. Prefixbuffer-suppressedtraceincomplete; sourcefalseflags notpromotedbybytes-under-cap."
+  ],
+  "limits": [
+    "Actual read/hash/stat/raw/source only; noimports/probes/APIcalls/rerun/edits byreviewer.",
+    "Historicalfailure remainsFAIL; cleanupfallbacknotEXITKILL/whole7 qualification.",
+    "Noactual7/NodeLOCAL/canonicalPASS/blocker/SDK/releasegrant."
+  ]
+}

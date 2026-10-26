@@ -1,0 +1,41 @@
+{
+  "schema": "nbdp-actual-independent-review-transcription-v1",
+  "transcribedBy": "/root",
+  "role": "qa",
+  "session": "/root/transport_evidence_qa",
+  "decision": "ACCEPT_ACTUAL_CONTROL_BATCH_FAILURE_EVIDENCE_ONLY",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r4/real-seven-outer-r1/subject.json",
+    "bytes": 20382,
+    "sha256": "4cf9a871c7ae7e5c3964566695cd34560637d9ae384e6acff6cd3b62e233be88"
+  },
+  "overallDisposition": "FAIL_HOLD_NO_CONTAINMENT_ACCEPTANCE",
+  "findings": [
+    {
+      "id": "QA-E06-CONTAINMENT-HISTORICAL-REGISTRATION-007",
+      "severity": "MEDIUM",
+      "evidence": "AfterallfiveexplicitrolesACK, guard.py298 checks cumulativeknown.registered, including validated historically acquired unregistered identity3761653/start124460277. It was held before formal tracerACK and later originalidentityabsentafterparentreap. No liveness snapshot at READY or sourcepurpose proof.",
+      "impact": "Refusal demonstrateshistoricalunregisteredknownidentity, notconfirmedliveunknownatREADY. Secondcase/remainingfiveunqualified. Noescape/stracevulnerabilitydemonstrated.",
+      "requiredFix": "Strict bounded readiness-barrier evidence distinguishing historical exited identities fromactualcurrentlive ones; validatedheldpidfd exit/originalidentity/census/reap proof only. Unknownlive/newafterREADY/uncertain cases fail; noargv/role/count/quietperiod exemptions; preservecustody/cleanup/no-fallback qualification.",
+      "requiredRegressions": [
+        "PreREADYexitedtransient explicitterminalproof",
+        "StillliveunknownatREADY",
+        "NewunknownafterREADY",
+        "Missing/uncertainexit oracquisition/census",
+        "PIDreuse safety"
+      ]
+    }
+  ],
+  "verified": [
+    "779descriptorhashes,58artifactfiles/60uniquepins,272beforeafterstat/112whole/current449 unchanged; allraw600.",
+    "Actualb128c7/session31078\u2192f50edfexit2 objects preserved; no inventedouterEOF/reap/force/fullwalltime.",
+    "Naturalzeroonlyspecificfixturequalified:5held+5ACK/3sessions/natural0/full3EOF/reaped/no force/errors, raw79448/180/0sixrawsyscalls/sentinelstdoutonly; receipt1.015890207s/absence1.065169502s.",
+    "NaturalrefusalfirstUNREGISTERED... safetyfallbackTRUE/missingcapturesecondary,5laterNOTEXECUTED/noretry. Rawprefixnocompletecapture/privacy qualification.",
+    "Provider11open/5sendattempts correlatedrawknownidentities/signalreturnevents;6signals include1stable-direct-unreapednumericfallback; none recordedforeign/postreap. Bothownedgraphsreportempty/reaped/uncertainfalse, noindependentPIDabsenceprobe."
+  ],
+  "limits": [
+    "Read/hash/stat/raw/source only byreviewer, no imports/newPIDprobe/trace/APIcalls/reruns/edits.",
+    "Oldfailure remainsFAIL; fallbackcleanupisnotEXITKILLqualification, case1isnotcompletegate.",
+    "NoNodeLOCAL/completecontainment/canonicalPASS/blockerclosure orsourceamendmentapproval."
+  ]
+}

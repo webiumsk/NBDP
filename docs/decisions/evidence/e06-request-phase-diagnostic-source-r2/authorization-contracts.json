@@ -1,0 +1,117 @@
+{
+  "schema": "e06-real-request-observer-authorization-contracts-v1",
+  "state": "SCHEMAS_ONLY_NO_ACTUAL_APPROVAL_OR_RELEASE",
+  "localRelease": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-execution-r3/exact-root-local-release.json",
+    "schema": "n02316-local-qualification-release-v1",
+    "decision": "RELEASE_EXACT_LOCAL_F_ONLY_RUN_ONLY",
+    "fields": [
+      "schema",
+      "decision",
+      "rootSession",
+      "executionSession",
+      "runRole",
+      "config",
+      "workerConfig",
+      "sourceApproval",
+      "controlAcceptance",
+      "configurationAcceptance"
+    ],
+    "extraTracingFieldsAllowed": false
+  },
+  "observationRelease": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r2/exact-root-observation-release.json",
+    "schema": "e06-real-request-observer-release-v1",
+    "decision": "RELEASE_EXACT_REAL_REQUEST_OBSERVATION_ONLY",
+    "fields": [
+      "schema",
+      "decision",
+      "scope",
+      "runId",
+      "rootSession",
+      "executionSession",
+      "observer",
+      "configurationCore",
+      "sourceSubject",
+      "localMonitor",
+      "localConfiguration",
+      "localRelease",
+      "qaReview",
+      "securityReview",
+      "actualControlAcceptance",
+      "actualContainmentAcceptance",
+      "issuedAtUtcNs",
+      "notAfterUtcNs"
+    ],
+    "sourceReviewDecision": "ACCEPT_DIAGNOSTIC_SOURCE_CONFIG_ONLY",
+    "sourceReviewClosedFields": [
+      "role",
+      "session",
+      "decision",
+      "subject"
+    ],
+    "sourceReviewersDistinctNonauthors": true,
+    "maxAuthorityWindowSeconds": 1860,
+    "minimumRemainingAuthorityAtAdmissionSeconds": 1800,
+    "actualWorkMaximumSeconds": 1800,
+    "authorityWindowNotWorkBudgetExtension": true
+  },
+  "actualObserverControls": {
+    "schema": "e06-request-observer-control-acceptance-v1",
+    "decision": "ACCEPT_OBSERVER_PURE_CONTROLS_ONLY",
+    "requiredActualControls": 13,
+    "requiredFields": [
+      "schema",
+      "decision",
+      "sourceSubject",
+      "controlSubject",
+      "actualControls",
+      "operator",
+      "authors",
+      "reviews",
+      "actualSnapshotRegressions",
+      "snapshotControlSubject"
+    ],
+    "reviewClosedFields": [
+      "role",
+      "session",
+      "decision",
+      "subject"
+    ],
+    "reviewDecision": "ACCEPT_OBSERVER_PURE_CONTROLS_ONLY",
+    "reviewersDistinctNonauthorNonoperator": true,
+    "requiredActualSnapshotRegressions": 3
+  },
+  "futureHashPolicy": "All descriptors must come from actual canonical root-created records after review/results; no future hash, approval or release exists in this source preparation.",
+  "actualContainmentAcceptance": {
+    "path": "ACTUAL_ROOT_CREATED_AFTER_RUNTIME_AND_REVIEW_ONLY",
+    "schema": "e06-strace-containment-acceptance-v1",
+    "decision": "ACCEPT_ACTUAL_PINNED_STRACE_CONTAINMENT_ONLY",
+    "requiredActualCases": 7,
+    "noSkippedCases": true,
+    "anySafetyFallback": "FAIL_NO_NODE_UNLOCK",
+    "requiredFields": [
+      "schema",
+      "decision",
+      "sourceSubject",
+      "containmentSourceSubject",
+      "controlSubject",
+      "tools",
+      "hostContext",
+      "fixtureCases",
+      "captureFunctionAstSha256",
+      "results",
+      "operator",
+      "authors",
+      "reviews"
+    ],
+    "reviewClosedFields": [
+      "role",
+      "session",
+      "decision",
+      "subject"
+    ],
+    "reviewDecision": "ACCEPT_ACTUAL_PINNED_STRACE_CONTAINMENT_ONLY",
+    "reviewersDistinctNonauthorNonoperator": true
+  }
+}

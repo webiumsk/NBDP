@@ -1,0 +1,46 @@
+{
+  "schema": "nbdp-actual-independent-review-transcription-v1",
+  "transcribedBy": "/root",
+  "reviewer": "/root/transport_evidence_qa",
+  "role": "qa",
+  "decision": "HOLD",
+  "subject": {
+    "path": "docs/decisions/evidence/e06-request-phase-diagnostic-source-r3/subject.json",
+    "bytes": 21307,
+    "sha256": "b440de3e2c7a877e2f8302c1b0f87d5f99461508ef348db8f56c7fe89cd07cbe"
+  },
+  "findings": [
+    {
+      "id": "QA-E06-CONTAINMENT-PIDFD-CUSTODY-004",
+      "severity": "HIGH",
+      "evidence": "SafetyOwner.census stores a provisional pidfd before post-open identity/starttime/UID/fdinfo validation. A caught mismatch leaves it signalable under the old identity.",
+      "impact": "Source-level race could signal an unrelated reused-PID process during cleanup.",
+      "requiredFix": "Validate unattached local handle completely before transfer; close on every failure; failed custody must never be signalable.",
+      "requiredRegressions": [
+        "Post-open live foreign PID reuse closes fd and sends zero signals.",
+        "Post-open identity/UID mismatch, identity exception and fdinfo mismatch/read failure close provisional fd.",
+        "Failed custody cannot use numeric fallback; valid custody keeps normal cleanup."
+      ],
+      "qualification": "Source inspection only; no actual foreign signal, runtime race or exploit observed."
+    },
+    {
+      "id": "QA-E06-CONTAINMENT-CENSUS-CLEANUP-005",
+      "severity": "MEDIUM",
+      "evidence": "Cleanup puts census, safe known-handle signaling and reap in one try. Persistent census errors skip already-owned safe cleanup until the11s bound.",
+      "requiredFix": "Separate census fault recording from bounded known-safe cleanup/reap; retain first fault and never qualify uncertain absence.",
+      "requiredRegression": "Persistent census failure after validated ownership must still stop/reap known children and retain FAIL.",
+      "qualification": "Source analysis only; no observed runtime leak."
+    }
+  ],
+  "verified": [
+    "Frozen65members and oldhistory/source449 preserved.",
+    "Expiry/registration design improved:3sregistration/7scapture/7.25sabsence/11sguard vs30sfaultfixture.",
+    "CaptureAST/original13+3 sources unchanged; old actual16 acceptance remains at its original subject.",
+    "No new actualcontrols/strace/Node/LOCAL/grants."
+  ],
+  "limits": [
+    "Read/hash/AST only; no project imports/tests/runtime/edits/Git by reviewer.",
+    "Source findings do not prove runtime exploitation; amended source requires matching independent review and actual qualification."
+  ],
+  "controlReleaseRecommendation": "Do not run SOURCE3 merely to repeat closures. Fix two findings, freeze and review new source, then one fresh separately counted batch."
+}

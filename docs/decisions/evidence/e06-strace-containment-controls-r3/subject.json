@@ -1,0 +1,114 @@
+{
+  "schema": "e06-strace-containment-source-subject-v1",
+  "state": "SOURCE_ONLY_NOT_EXECUTED_NOT_APPROVED",
+  "authors": [
+    "/root/local_monitor_controls"
+  ],
+  "observer": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/observer.py",
+    "bytes": 39600,
+    "sha256": "b46efd6ea99d582a0ff13efc64fad46b586a61c238fe72cc9404a27d2331f478"
+  },
+  "observerConfiguration": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/observer-configuration-core.json",
+    "bytes": 13844,
+    "sha256": "af49849dc0de4e86a1beb485c8406d72cb02ca91a0e4a836c373e918c8efd2fc"
+  },
+  "observerHelper": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/capture-controls.py",
+    "bytes": 9204,
+    "sha256": "7d9cc1c4169deea4818cb4fee0475e5199850a85d8a66bcd8cfd6f29c854184a"
+  },
+  "captureFunctionAstSha256": "971f1a575c2fee2af0ac2802b4ddd8c9dd938dc123a6a2316a7150a58e671733",
+  "tools": {
+    "python": {
+      "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "bytes": 32959480,
+      "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+    },
+    "strace": {
+      "path": "/usr/bin/strace",
+      "bytes": 2087432,
+      "sha256": "28f957c227012de0b18d1bd7fff2d396cb693ea60ed8013be68de071e84b5001"
+    }
+  },
+  "hostContext": {
+    "uid": 1000,
+    "gid": 1000,
+    "uidMap": "         0          0 4294967295\n",
+    "gidMap": "         0          0 4294967295\n",
+    "userNamespace": "user:[4026531837]",
+    "mountNamespace": "mnt:[4026531832]"
+  },
+  "fixtureCases": [
+    "natural-zero",
+    "natural-refusal",
+    "deadline",
+    "interrupt",
+    "capture-fault",
+    "tracer-death",
+    "inner-parent-death"
+  ],
+  "files": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r3/PLAN.md",
+      "bytes": 3509,
+      "sha256": "a06d159cb2942b17e35477c27f61340da10803ad91dfa4982dc4a766bf46ed12"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r3/fixture.py",
+      "bytes": 3424,
+      "sha256": "a0dd142b795222350baeacf39be9d9bdc1ca3178b7f474391763ece28dbc37cf"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r3/guard.py",
+      "bytes": 26495,
+      "sha256": "59dfcb76501a10341c1b3dad99ed899a0eb8967fb13a1f8b32e9650345904213"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r3/runner.py",
+      "bytes": 3349,
+      "sha256": "f7d18cc1d7c00d1c97fc9ff9ea8d6c78743d997f69a821b088bd9410861e7585"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r3/test_guard_faults.py",
+      "bytes": 13101,
+      "sha256": "bfa56db357ecf616586a1815eb11a76a00bfd4ba353399a8346bed3d3b342614"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r3/timing-policy.json",
+      "bytes": 323,
+      "sha256": "b6463dc6c02151cccebee296574b73c081fee55f3b626fcaa0c0ea29d7034d80"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/observer.py",
+      "bytes": 39600,
+      "sha256": "b46efd6ea99d582a0ff13efc64fad46b586a61c238fe72cc9404a27d2331f478"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/observer-configuration-core.json",
+      "bytes": 13844,
+      "sha256": "af49849dc0de4e86a1beb485c8406d72cb02ca91a0e4a836c373e918c8efd2fc"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/capture-controls.py",
+      "bytes": 9204,
+      "sha256": "7d9cc1c4169deea4818cb4fee0475e5199850a85d8a66bcd8cfd6f29c854184a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/test_admission.py",
+      "bytes": 7200,
+      "sha256": "a9653dd9641125da673d653a5aea87c8fcbc5ff79eef76ee734754b36e55992f"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/capture-data-controls.py",
+      "bytes": 9658,
+      "sha256": "8dac68f26b8bd4440181c2700f65fdf8dea5b7c66c242d7c9833a8e9c0931e7b"
+    }
+  ],
+  "modeledGuardDefinitions": 16,
+  "admissionDataDefinitions": 14,
+  "targetedNewSecurityFamilies": 5,
+  "actualControlsExecuted": 0,
+  "activationUnlocked": false
+}

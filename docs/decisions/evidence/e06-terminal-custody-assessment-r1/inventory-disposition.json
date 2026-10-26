@@ -1,0 +1,46 @@
+{
+  "schema": "nbdp-cgroup-readonly-inventory-disposition-v1",
+  "actor": "/root",
+  "records": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-terminal-custody-assessment-r1/host-cgroup-inventory-original-tool.json",
+      "bytes": 8001,
+      "sha256": "75ec87dea532a062d96d635d23b5f50b7edf656b8b53bb3de23d90d2c009afa0"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-terminal-custody-assessment-r1/docker-inventory-first-tool-response.json",
+      "bytes": 357,
+      "sha256": "14b4a9c004992ae2af157f63e72754f51598f8a178288c203665df1f14d6f523"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-terminal-custody-assessment-r1/docker-image-corrected-original-tool.json",
+      "bytes": 1270,
+      "sha256": "ee64014d9165d5dc75cc88e4a18072b427e40b15b478951bfeb3b272bdff782f"
+    }
+  ],
+  "observed": {
+    "uid": 1000,
+    "kernel": "7.1.5-76070105-generic",
+    "hostPrivateDelegation": "Writable user@1000.service/app.slice hierarchy exists; workload same-UID migration restrictions/exclusive administration NOT established.",
+    "dockerDriver": "systemd",
+    "dockerCgroupVersion": "2",
+    "dockerSecurityOptions": [
+      "apparmor/default",
+      "seccomp/builtin",
+      "cgroupns"
+    ],
+    "runtimeImage": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+    "runtimeImageUser": "nbdp"
+  },
+  "initialInspectionFailure": "Docker Go template requested absent optional Entrypoint field and exited1 after successful info. Original preserved; subsequent filtered Python JSON inspection exit0 confirms image/optional fields.",
+  "decision": "PREPARE_DOCKER_BOUNDARY_SOURCE_PROPOSAL_ONLY",
+  "rationale": "Host same-UID writable delegation does not supply the required migration restriction. Docker offers an existing private PID/cgroup route without global policy changes, pending actual method capability evidence.",
+  "missing": [
+    "No test container was created. Freeze completion, cgroup membership access, glibc/loader/UID/path joins and controlled cleanup remain unverified.",
+    "New versioned method needs explicit canonical-criterion mapping and independent QA/security; old seven-case failures and source449 remain unchanged.",
+    "If PID1 shares cgroup, verify live workload absence while supervisor remains alive; do not count PID1 exit/emergency destruction as successful observer cleanup.",
+    "No host/container PASS transfer. Matching native/LOCAL candidate needs renewed source/configuration/environment/prerequisite evidence."
+  ],
+  "performed": "Read-only stat/access/current-self-cgroup/kernel and filtered Docker info/image inspection only. No membership enumeration, cgroup creation/write/freeze, process probe, signal, container start or experiment.",
+  "userInputRequired": null
+}

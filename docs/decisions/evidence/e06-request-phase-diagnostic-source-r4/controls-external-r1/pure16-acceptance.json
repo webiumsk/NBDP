@@ -1,0 +1,46 @@
+{
+  "schema": "e06-request-observer-control-acceptance-v1",
+  "decision": "ACCEPT_OBSERVER_PURE_CONTROLS_ONLY",
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/subject.json",
+    "bytes": 26581,
+    "sha256": "03661eea0eccefe72e28d386b7e4b2b020a4b10f322492a8b273dbc36a395474"
+  },
+  "controlSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/controls-external-r1/pure16-subject.json",
+    "bytes": 24507,
+    "sha256": "c738176e0c68d79e0c825a60b8d57033ee62168aac9952b30aca807084bc7274"
+  },
+  "actualControls": 13,
+  "actualSnapshotRegressions": 3,
+  "operator": "/root/local_monitor_controls",
+  "authors": [
+    "/root",
+    "/root/local_monitor_controls"
+  ],
+  "reviews": [
+    {
+      "role": "qa",
+      "session": "/root/transport_evidence_qa",
+      "decision": "ACCEPT_OBSERVER_PURE_CONTROLS_ONLY",
+      "subject": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/controls-external-r1/pure16-subject.json",
+        "bytes": 24507,
+        "sha256": "c738176e0c68d79e0c825a60b8d57033ee62168aac9952b30aca807084bc7274"
+      }
+    },
+    {
+      "role": "security",
+      "session": "/root/attachment_profile_security",
+      "decision": "ACCEPT_OBSERVER_PURE_CONTROLS_ONLY",
+      "subject": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/controls-external-r1/pure16-subject.json",
+        "bytes": 24507,
+        "sha256": "c738176e0c68d79e0c825a60b8d57033ee62168aac9952b30aca807084bc7274"
+      }
+    }
+  ],
+  "guardModelsQualified": 0,
+  "admissionControlsExecuted": 0,
+  "nodeLocalAuthorized": false
+}

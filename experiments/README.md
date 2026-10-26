@@ -36,16 +36,8 @@ Ordinary-client ecosystem controls, public-network delivery, seven-day real-time
 
 From the repository root, run `python3 experiments/validate-evidence.py`. It checks all six report/status/hash records, original research hashes, canonical Q/E mappings and local Markdown targets/anchors. This is documentation/evidence validation, not a cryptographic audit or substitute for experiment runtime. Each exact final runtime command is in its result report; blocked E04/E06 commands return 2.
 
-The ordinary-client control needs a separate qualified Android environment (no adb, emulator or /dev/kvm was present in this lab). E02 currently always records that control as unexecuted; an actual control driver/evidence integration must be added before its complete rerun can PASS. Installing a tool or passing an ad hoc JSON approval flag is not that evidence. The following preparation commands are prospective and were NOT executed here:
+The initial2026-10-11 lab lacked Android tooling. That is historical: the exact source-linked Amethyst APK, SDK, emulator and image are now cached and reverified. Supported host execution has KVM/Docker access; current disk space fails the retained6GiB preparation guard. See the [current readiness index](../docs/research/transport-gate-readiness-2026-10-23.md), [exact client runbook](../docs/research/amethyst-control-runbook.md) and read-only `tools/check-android-control-readiness.py`. Do not rebuild/download the APK or change personal Android configuration merely to prepare the cached control.
 
-```sh
-git clone https://github.com/vitorpamplona/amethyst.git /tmp/nbdp-005-amethyst-control
-git -C /tmp/nbdp-005-amethyst-control checkout e6f464a1179def75274512b3c5bab921de3bf3d8
-cd /tmp/nbdp-005-amethyst-control
-./gradlew :amethyst:tasks --all
-# Choose and record the supported isolated build variant from this exact pin.
-adb reverse tcp:17777 tcp:17777
-adb reverse tcp:18081 tcp:18081
-```
+E02 currently always records the mandatory Amethyst control as unexecuted. Actual selected-note inner content/private-tag export, a reviewed driver and a hash-bound evidence consumer are required before a complete current workflow can PASS. Build/boot/Hello, screenshot alone, an ad hoc approval flag or safely displayed unparsed business JSON are not equivalent claims. An ordinary client need not implement NBDP business UI.
 
-Use fresh app/device state, disposable public test identities and a network policy allowing only the forwarded lab relays. Observe the published E02 kind14 fixtures, ordinary text, unsupported versions/features and retained private fields; save the build/runtime/fixture hashes and exact UI/driver steps. No build variant, APK, install or UI compatibility is asserted here. The remaining dependent reproduction commands are `node shared/run.mjs E04` and `node shared/run.mjs E06` only after their complete prerequisites pass.
+Canonical dependent commands remain blocked until complete prerequisites pass. Existing separately adopted named-candidate transport sub-evidence has its own reviewed exact gates and does not turn E02 or full E04/E06 intoPASS. Full E06 does not require E04PASS. Preserve historical canonical results; launchers and `validate-evidence.py` can write result/history files and must not be run merely to check documentation.

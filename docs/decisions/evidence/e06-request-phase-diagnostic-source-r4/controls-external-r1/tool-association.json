@@ -1,0 +1,78 @@
+{
+  "schema": "e06-actual-tool-return-association-v1",
+  "operator": "/root/local_monitor_controls",
+  "format": "Exact observed tool-return object fields/values JSON serialization; no provider attestation or omitted-field invention.",
+  "source": "Original exec_command/write_stdin return objects serialized immediately before further lifecycle/test work.",
+  "objects": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/controls-external-r1/tool-13-launch.json",
+      "bytes": 131,
+      "sha256": "4606f0421eac3391b1089f0400e48a30636f08dce5c0f5ff87118119a3e0e54c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/controls-external-r1/tool-13-completion.json",
+      "bytes": 126,
+      "sha256": "f353cc6539f4e41b27ba067412fe8f9a1d516e929ff75794af0b2579d7a5ac3c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/controls-external-r1/tool-3-execution.json",
+      "bytes": 582,
+      "sha256": "987e5180e78ae585b80649de8f990bbb96b55c6226093825d498a97ff1ed1250"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/controls-external-r1/tool-16-execution.json",
+      "bytes": 131,
+      "sha256": "cf87d8bbc6f8c5bb41e6155df78ec7b99eb86ee2882e9780acca64d0396977b2"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/controls-external-r1/tool-16-completion.json",
+      "bytes": 126,
+      "sha256": "1a4d2348f80e03ba73150de251d3c45b18669847c7b99dcdc19348ce55fbfbda"
+    }
+  ],
+  "interpretation": {
+    "tool-13-launch.json": "668642 foreground64396 yielded; no exit field exposed yet",
+    "tool-13-completion.json": "8ec083 natural exit0 after write_stdin",
+    "tool-3-execution.json": "ccffb7 natural exit0 external snapshot capture, all output fields retained",
+    "tool-16-execution.json": "81ba76 foreground53393 yielded; filename execution denotes LAUNCH object, not completion",
+    "tool-16-completion.json": "a80eae natural helper exit2; child suite1 retained in its own separate journal"
+  },
+  "actualChildCommands": [
+    {
+      "scope": "pureCapture",
+      "count": 13,
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/capture-controls.py"
+      ]
+    },
+    {
+      "scope": "pathData",
+      "count": 3,
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/test_snapshot_paths.py"
+      ],
+      "externalRawCapture": "Root must bound10s active/12s total/64KiB per stream, retain natural exit/reap/EOF/raw0600 and full frozen source before/after, as R2 actual snapshot capture."
+    },
+    {
+      "scope": "guardModels",
+      "count": 16,
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r4/capture-data-controls.py",
+        "guard16"
+      ]
+    }
+  ],
+  "firstFailedSuite": "guard16",
+  "admission14": "NOT_EXECUTED_STOP_FIRST_FAILED_SUITE",
+  "retries": 0,
+  "noActualStraceNodeLocal": true
+}

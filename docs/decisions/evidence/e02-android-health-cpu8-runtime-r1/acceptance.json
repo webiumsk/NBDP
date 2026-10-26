@@ -1,0 +1,38 @@
+{
+  "schema": "e02-cpu8-failure-diagnostic-acceptance-v1",
+  "coordinator": "/root",
+  "decision": "ACCEPT_FAILURE_DIAGNOSTIC_EVIDENCE_ONLY",
+  "subject": {
+    "path": "/tmp/nbdp-e02-android-health-cpu8-v1/runs/47f51f07d66d42f2b520fcbd2c64c866/diagnostic-result.json",
+    "bytes": 14078,
+    "sha256": "0f764b3d3794cfb30d6d8e21df53416411d416d025189c0d268225fd3dca7884"
+  },
+  "independentReviews": {
+    "qa": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-cpu8-runtime-r1/independent-qa-review.json",
+      "bytes": 2225,
+      "sha256": "c1b1c39aee60cb6865228bd34aa7560de560a029449ec73804a254002fcd0fa5"
+    },
+    "security": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-cpu8-runtime-r1/independent-security-review.json",
+      "bytes": 2242,
+      "sha256": "163828052c3be2e08a4b87e5c8b6e7a3a1500ac8fa65a6d252a43dd2d467c228"
+    }
+  },
+  "profileA": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-runtime-r1/acceptance.json",
+    "bytes": 1524,
+    "sha256": "2461898e43c8cc7ebe7b7bd9c7f76b2b60a674c6cbc23bb31ecf208a021d2d98"
+  },
+  "measuredDeltas": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-cpu8-runtime-r1/measured-deltas.json",
+    "bytes": 1289,
+    "sha256": "c4f25128a65d45832080f4635d2b21094de696801be0e10e4a8a900036431720"
+  },
+  "executionReleased": false,
+  "nextTask": "Preparebefore-install/earlybootmatchingANRtracecapturewithfixedreadonlycommands; nofurtherresourcechangeorordinaryretryuntilreviewed.",
+  "neededHumanInput": null,
+  "limits": [
+    "CPUquota8notfix; causalityunresolved; noE02PASS/healthybaseline."
+  ]
+}

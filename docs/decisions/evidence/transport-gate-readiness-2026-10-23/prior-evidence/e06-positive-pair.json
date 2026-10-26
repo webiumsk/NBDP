@@ -1,0 +1,203 @@
+{
+  "schema": "e06-i4-exact-positive-pair-acceptance-v1",
+  "decision": "ACCEPT_EXACT_FOUR_WINDOW_PAIR_ONLY",
+  "qualified": true,
+  "coordinatorSession": "/root",
+  "scope": "FOUR_SYNTHETIC_POSITIVE_LAB_I4_WINDOWS_REPEATED_PRIMARY_AND_INDEPENDENT_QA_ONLY",
+  "comparison": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-pair-r1/comparison.json",
+    "bytes": 26512,
+    "sha256": "5ee60498f55eda55443e02a6a5d3d41d569ccbdd6543672205d3a69d3848fd2f"
+  },
+  "actualReviews": [
+    {
+      "role": "qa",
+      "session": "/root/negative_plan_qa",
+      "decision": "ACCEPT_EXACT_FOUR_WINDOW_PAIR_ONLY",
+      "artifact": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/qa-composition-pair-runtime-review-r1.json",
+        "bytes": 16117,
+        "sha256": "b48e750dfd2c3a61f66d4f4b526095cd8fe07bb4175f98fa869930b42adeabed"
+      }
+    },
+    {
+      "role": "security",
+      "session": "/root/b12_barecall_security",
+      "decision": "ACCEPT_EXACT_FOUR_WINDOW_PAIR_ONLY",
+      "artifact": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/security-composition-pair-runtime-review-r1.json",
+        "bytes": 6308,
+        "sha256": "8c87db8845775745b785e3e4daa3266a6a30a06509786f41d01c51f06a901e60"
+      }
+    }
+  ],
+  "runs": [
+    {
+      "role": "primary",
+      "executionSession": "/root",
+      "toolSession": 80817,
+      "evidence": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-primary-runtime-r1/evidence.json",
+        "bytes": 227104,
+        "sha256": "92191f29211eda7f5ffac44d7da67c5511395eaf33d835743175fc1fe0135271"
+      },
+      "capture": {
+        "path": "/tmp/e6i4-primary-i4p003a/capture.json",
+        "bytes": 9475,
+        "sha256": "9dc25b42d15fc0f999e924a98db508bfd5b4732d66bbaa9ccf8016984b1aea30"
+      },
+      "artifactManifest": {
+        "path": "/tmp/e6i4-primary-i4p003a/artifact-manifest.json",
+        "bytes": 58066,
+        "sha256": "2fb0cec2a635906a3446a58827f0cab3db35a7b3370f1430e22025956f86565c"
+      },
+      "manifest": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-execution-r3/primary-manifest.json",
+        "bytes": 79719,
+        "sha256": "71d58aa857ffaf09568100d3750e5dd6b6aed21767b055ce44b1373773640748"
+      },
+      "release": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-execution-r3/primary-release.json",
+        "bytes": 1362,
+        "sha256": "21cf1d4460280c06ac235a45aca334845f0652d388828f014a5f7eee689c4050"
+      },
+      "labCleanup": {
+        "path": "/tmp/e6i4-primary-i4p003a/lab/cleanup.json",
+        "bytes": 446,
+        "sha256": "b7bcb3462503754fb1142a71f6cbfc400957334af13365fed98e548977415f4a"
+      },
+      "sourceOwnedTimingsMilliseconds": {
+        "elapsedMilliseconds": 454561,
+        "labStartupMilliseconds": 3567,
+        "labCleanupMilliseconds": 2890
+      },
+      "nativeMirrors": 369
+    },
+    {
+      "role": "qa",
+      "executionSession": "/root/s0_reference_runtime_qa",
+      "toolSession": 88741,
+      "evidence": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-qa-runtime-r1/evidence.json",
+        "bytes": 223217,
+        "sha256": "2fc27d312ba16b7ef4dc03922018a1c9c6551974ca242c9dc5cf8f5082651e08"
+      },
+      "capture": {
+        "path": "/tmp/e6i4-qa-i4q003a/capture.json",
+        "bytes": 9215,
+        "sha256": "efa783d6bed01183f5fb4e403d3b54c27acd56bab1de3132ce076fcaa4bacf37"
+      },
+      "artifactManifest": {
+        "path": "/tmp/e6i4-qa-i4q003a/artifact-manifest.json",
+        "bytes": 56227,
+        "sha256": "e9bf8a897420d622e4438576cce6021aebe71b9581d9150ede52da3498777c15"
+      },
+      "manifest": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-execution-r3/qa-manifest.json",
+        "bytes": 79709,
+        "sha256": "0d6081d7ec3eb0fbcf505e8ec8c72668f68792549150ac28a3000578755b7381"
+      },
+      "release": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-execution-r3/qa-release.json",
+        "bytes": 1371,
+        "sha256": "ff4fbcaab6eb2aba89c7a4d2d83d4f27c0bd35e68af2faf675d8231013be6528"
+      },
+      "labCleanup": {
+        "path": "/tmp/e6i4-qa-i4q003a/lab/cleanup.json",
+        "bytes": 446,
+        "sha256": "16e16d3b9cb87d2b555433ff019e8ae6865368df18e163b9043fe9ec34944d5c"
+      },
+      "sourceOwnedTimingsMilliseconds": {
+        "elapsedMilliseconds": 450889,
+        "labStartupMilliseconds": 3497,
+        "labCleanupMilliseconds": 2977
+      },
+      "nativeMirrors": 369
+    }
+  ],
+  "qaOperatorFacts": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/qa-composition-runtime-execution-r1.json",
+    "bytes": 23004,
+    "sha256": "7b1766b15ab161bacf98f77d44b9f5245ded7ca9c2dae7843da80ef2b218ad6a"
+  },
+  "sourceClosure": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-streamed-evidence-source-r1/source-closure.json",
+    "bytes": 84475,
+    "sha256": "8401512404a7571961044f6e5b14fe652f3f764fcac49270b54a75dd328824b7"
+  },
+  "sourceApproval": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-streamed-evidence-source-r1/source-approval.json",
+    "bytes": 76467,
+    "sha256": "a6fd8e9f3681db37ca0cde0df08accd9d8b784cfa95087579363ef2ec0fff216"
+  },
+  "actualControlAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-control-bootstrap-r4/acceptance.json",
+    "bytes": 2042,
+    "sha256": "3b1f4e776f579d312f24482d8e663693ee5fb08c65f524fa09377c0e0026067b"
+  },
+  "countsPerRun": {
+    "publications": 8,
+    "queries": 8,
+    "events": 8,
+    "metadataRequests": 4,
+    "metadataReplies": 4,
+    "dValidations": 4,
+    "fValidations": 4,
+    "attemptReservations": 4,
+    "acquisitionConnections": 4,
+    "httpGets": 4,
+    "receivedEntityBytes": 80,
+    "consumerAttempts": 4,
+    "attachmentEncryptions": 0,
+    "publicReleases": 4
+  },
+  "pairDenominator": {
+    "logicalCells": 4,
+    "repetitions": 2,
+    "caseExecutions": 8,
+    "stepExecutions": 56,
+    "nativeMirrorFiles": 738
+  },
+  "crossRunComparison": {
+    "commonStepPairs": 28,
+    "commonSemanticFields": 17,
+    "dynamicFieldsWholeCheckedSeparatelyPerRun": 6,
+    "byteEqualNativeRequestPairs": 4,
+    "byteEqualWholeNativeReplyPairs": 4,
+    "byteEqual20ByteSnapshotPairs": 4,
+    "actualOriginalHexEach": "00ff8001",
+    "wholePublicByteEqualityClaim": false
+  },
+  "preservedFailures": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-primary-negative-r1/evidence.json",
+      "bytes": 65644,
+      "sha256": "521ddafa72923ffdc120d3260a5931f1926f288ecb042311decd179e437e0de6"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-primary-negative-r2/evidence.json",
+      "bytes": 65818,
+      "sha256": "9997fc8d221445e86841b825c24bf63ae26cbe913ddb98c7fd00f3b918abf49a"
+    }
+  ],
+  "remediationScope": "Historical absent-error-field and streaming-evidence/data-reader findings are qualified only for this exact positive pair and its accepted pure controls; original failed runs remain FAIL.",
+  "canonicalExperiment": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/results/E06.json",
+    "bytes": 3507,
+    "sha256": "348c3eb912768a7593129a8236efcbaab95d291c9e3cd2eaf812f9a1628cc258"
+  },
+  "canonicalStatus": "NOT EXECUTED",
+  "overlayStatus": "E06_PARTIAL",
+  "nextPlanAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-plan-r1/acceptance.json",
+    "bytes": 2174,
+    "sha256": "35eabe86ff16e4b33bf2a73d0cf859f5dee7b22099981f7ec16ba8ce6e5fb23d"
+  },
+  "nextBoundedTask": "Separately assign inert derivative interface/profile/selection/schema/full-oracle/protected-delta freeze for invoice-only N02/N03/N16. No negative implementation/runtime release is created.",
+  "limits": [
+    "Actual independent agent/tool sessions on shared host/harness/synthetic inputs, not independent hosts or wholly independent orchestration implementations.",
+    "Source-owned monotonic durations and recorded child lifecycle do not attest tool-host outerPID/reap/lifetime, hard realtime, escaped descendants or atomic cleanup under external kill.",
+    "Native11NOT_EXECUTED/3NOT_READY/null and19deferredLABN obligations remain unchanged.",
+    "No receipt/businessapproval/payment/durability/globalfinality/FS/PCS/wholeE06PASS/Qclosure/G1/SDK/deployment/merge/publication authority."
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "schema": "e06-authority-mode-remediation-result-v1",
+  "actor": "/root",
+  "utcNs": 1792797114080133293,
+  "before": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-authority-mode-remediation-r1/before.json",
+    "bytes": 3971,
+    "sha256": "cfd6d485e46a033c97b1f174aa834cfde75a424b9e58b02e505703779cd5a25d"
+  },
+  "changedOnly": [
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-approval.json",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/control-approval.json"
+  ],
+  "newMode": "0600",
+  "uniqueOperandsAfter": [
+    {
+      "descriptor": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-preparation-r1/worker-config.json",
+        "bytes": 114239,
+        "sha256": "5481327da143fe892465fe7e9ff5c91fabf6c47ab28163c71180872f130fdf63"
+      },
+      "mode": "0o600",
+      "uid": 1000,
+      "gid": 1000,
+      "device": 64513,
+      "inode": 23217465,
+      "nlink": 1,
+      "ctimeNs": 1792793207544155863,
+      "mtimeNs": 1792793207544155863
+    },
+    {
+      "descriptor": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-execution-r1/exact-root-local-release.json",
+        "bytes": 1500,
+        "sha256": "c4793539e4213fc7daf35bdce419d86ee92a1a9edb69c830e1ff69a974df4eb9"
+      },
+      "mode": "0o600",
+      "uid": 1000,
+      "gid": 1000,
+      "device": 64513,
+      "inode": 23221362,
+      "nlink": 1,
+      "ctimeNs": 1792796725335224461,
+      "mtimeNs": 1792796725335224461
+    },
+    {
+      "descriptor": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-approval.json",
+        "bytes": 107717,
+        "sha256": "e3e41bb6bae55d80702f9002cc99c72ad3a6345405a5043d3123dcafcbea685e"
+      },
+      "mode": "0o600",
+      "uid": 1000,
+      "gid": 1000,
+      "device": 64513,
+      "inode": 22561593,
+      "nlink": 1,
+      "ctimeNs": 1792797111427802596,
+      "mtimeNs": 1792789997516582669
+    },
+    {
+      "descriptor": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/control-approval.json",
+        "bytes": 1488,
+        "sha256": "c2c6d2b97ba4f25dbbb9074c079cd3ad29cbf9fa23aac709b31a97a273c0f5ee"
+      },
+      "mode": "0o600",
+      "uid": 1000,
+      "gid": 1000,
+      "device": 64513,
+      "inode": 22694638,
+      "nlink": 1,
+      "ctimeNs": 1792797111427802596,
+      "mtimeNs": 1792790519233887409
+    },
+    {
+      "descriptor": {
+        "path": "/tmp/e6n-controls-f5b3f410dfec/actual-control-evidence.json",
+        "bytes": 93982,
+        "sha256": "548482449d9bd1145f0e51faa58b3ac181dbff898ae80b41831fd30689195fca"
+      },
+      "mode": "0o600",
+      "uid": 1000,
+      "gid": 1000,
+      "device": 64513,
+      "inode": 1751089,
+      "nlink": 1,
+      "ctimeNs": 1792790304236055298,
+      "mtimeNs": 1792790304236055298
+    },
+    {
+      "descriptor": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-closure.json",
+        "bytes": 102080,
+        "sha256": "76cfc1d55602c4c18f7adabde2b67679f3d828517a4cf4abefdf13d57029b100"
+      },
+      "mode": "0o600",
+      "uid": 1000,
+      "gid": 1000,
+      "device": 64513,
+      "inode": 22560797,
+      "nlink": 1,
+      "ctimeNs": 1792789759985548797,
+      "mtimeNs": 1792789759985548797
+    }
+  ],
+  "current449SourcePinsMatch": true,
+  "sourceBytesPathsOwnersInodesMtimesUnchanged": true,
+  "limitations": [
+    "Git does not preserve0600 separately from0644; runtime authority materialization must explicitly enforce this boundary.",
+    "Original first-run files/negative outcome remain; tightening is preparation only, no retry or native qualification.",
+    "No schema/source449/validator/expectedanswer/gate/architectural blocker change."
+  ]
+}

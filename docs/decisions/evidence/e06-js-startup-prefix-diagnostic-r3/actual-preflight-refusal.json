@@ -1,0 +1,35 @@
+{
+  "schema": "e06-startup-diagnostic-preflight-refusal-v1",
+  "actor": "/root",
+  "tool": "ad1d06",
+  "exit": 2,
+  "stage": "ADMISSION_BEFORE_OUTPUT_AND_CHILD",
+  "stderr": "DIAGNOSTIC_PREFLIGHT_OR_CAPTURE_FAILURE: Refusal: ORIGINAL_BYTES_OR_STAT_DRIFT:/etc/ld.so.cache\n",
+  "grant": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-js-startup-prefix-diagnostic-r3/exact-root-diagnostic-release.json",
+    "bytes": 1601,
+    "sha256": "0880e6eb6361387f45e996e57329d281338fd440ae49935144329f7e4a2e95cf"
+  },
+  "actualNodeOrTraceStarted": false,
+  "actualOutputExists": false,
+  "observedNamespaceComparison": {
+    "managedTool": "9ebc52",
+    "hostTool": "c6fd6c",
+    "path": "/etc/ld.so.cache",
+    "sameBytes": 102411,
+    "sameSha256": "5f7def01ce6182be0ab52ef5964a3f2e79bd81edd2989da7e72729c74bfef312",
+    "sameDevice": 64513,
+    "sameInode": 9437504,
+    "managedUidGid": [
+      65534,
+      65534
+    ],
+    "hostUidGid": [
+      0,
+      0
+    ],
+    "sameModeMtimeCtime": true
+  },
+  "grantDisposition": "Expired without startup phase; will not be renewed or overwritten. Fresh intended-environment inventory/version required.",
+  "limits": "Observed ownership namespace mapping difference, not source-byte drift or successful ptrace. No original guard/stat assertion weakened."
+}

@@ -1,0 +1,46 @@
+{
+  "reviewer": "/root/android_health_security",
+  "role": "security",
+  "decision": "REJECT_CURRENT_DIAGNOSTIC_RUNTIME_READINESS",
+  "attribution": "Coordinator transcription of actual independent read-only source report.",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r1/subject.json",
+    "bytes": 6807,
+    "sha256": "4318f233597473372bb27906044007d2af692b87ca1a116bc5f04141bf2f76a7"
+  },
+  "configuration": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-android-health-preparation-r1/proposed-run-config.json",
+    "bytes": 3124,
+    "sha256": "54438947978a2f79dfc4f41ea0fc03f767b7cc2969b7f890dce3c31eef1f1e74"
+  },
+  "findings": [
+    {
+      "id": "HEALTH_SETUP_ADB_TIMEOUT_DEFAULT",
+      "severity": "MEDIUM",
+      "blocking": true,
+      "evidence": [
+        "guardadb_timeout10sforgetprop/UI; Runtime.adb default30; bootgetprop/fingerprintcallswithouttimeout deterministicallyrefuse beforedispatch."
+      ],
+      "evidenceType": "SOURCE_INSPECTION_NOT_RUNTIME_REPRODUCED",
+      "requiredFix": "Correctdefault/setupcalltimeoutswithoutincreasingceilings; meaningfulactualRuntime.adb/setupcallregression; freshpins/reviews."
+    },
+    {
+      "id": "HEALTH_PRIVATE_CGROUP_COVERAGE",
+      "severity": "LOW",
+      "blocking": false,
+      "evidenceType": "TEST_COVERAGE_GAP_NOT_DEMONSTRATED_VULNERABILITY",
+      "finding": "Newhealth_cgroup success/refusal mount/self/pathcoverage is limited.",
+      "requiredFix": "Addrealfunctionmockedproc/cgroupcontrols: validprivateROcgroup2root; nonrootself/writable/wrongroot/noncgroup2/duplicate mounts refusebeforemetricreads; fixedpaths/stickylease."
+    }
+  ],
+  "verified": [
+    "Exactsource/config/archivejoinsmatch; alloriginal21R11sourcesunchanged; archived9matchlivebaseline.",
+    "OriginalLease/sample/issue/cleanup/CONFIG/EMULATOR/LIMITSASTunchanged.",
+    "Distinctdiagnosticscope/privatecgroup/exactreadonlycommands/optionalUNKNOWN/noidentity-login-publish/helper/oneintent/finitephase semanticallybounded."
+  ],
+  "limits": [
+    "No imports/tests/experiment/services/files/Gitbyreviewer; noactualruntimevulnerabilityclaim.",
+    "Notexecutionreadiness; requirenewsourcefreeze/reviews/actualpurecontrols/newrootdiagnosticrelease.",
+    "NoE02PASS/ordinaryclientcompatibility/blocker/SDKauthority."
+  ]
+}

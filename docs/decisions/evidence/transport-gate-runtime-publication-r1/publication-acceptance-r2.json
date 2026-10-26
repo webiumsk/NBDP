@@ -1,0 +1,72 @@
+{
+  "schema": "nbdp-publication-acceptance-v1",
+  "transcribedBy": "/root",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/transport-gate-runtime-publication-r1/publication-subject-r2.json",
+    "bytes": 86983,
+    "sha256": "a30db925f97631d4e2162f5f8dfe299613b35b0cce4200ad360bb56a3be387df"
+  },
+  "decision": "ACCEPT_REVIEWED_CHECKPOINT_FOR_DRAFT_PR",
+  "actualReviews": [
+    {
+      "session": "/root/transport_evidence_qa",
+      "role": "qa",
+      "decision": "ACCEPT_REVIEWED_CHECKPOINT_FOR_DRAFT_PR",
+      "subject": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/transport-gate-runtime-publication-r1/publication-subject-r2.json",
+        "bytes": 86983,
+        "sha256": "a30db925f97631d4e2162f5f8dfe299613b35b0cce4200ad360bb56a3be387df"
+      },
+      "findings": [],
+      "resolved": [
+        "QA-PUB-001",
+        "QA-PUB-002",
+        "QA-PUB-003",
+        "R2_MANIFEST_COUNT_AND_EXCLUSION_MISMATCH"
+      ],
+      "verified": [
+        "266 staged/live/core files match (23360464 bytes);257 unchanged; only3 current documents plus publication README changed;5 history records added.",
+        "175 JSON files duplicate-key checked;102 active links resolve including reviewed manifest; staged whitespace exit0.",
+        "Initial HOLD subject and3 superseded bodies retained exactly; prior archive/canonical116/source/operator checks carried forward for unchanged artifacts."
+      ]
+    },
+    {
+      "session": "/root/attachment_profile_security",
+      "role": "security",
+      "decision": "ACCEPT_REVIEWED_CHECKPOINT_FOR_DRAFT_PR",
+      "subject": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/transport-gate-runtime-publication-r1/publication-subject-r2.json",
+        "bytes": 86983,
+        "sha256": "a30db925f97631d4e2162f5f8dfe299613b35b0cce4200ad360bb56a3be387df"
+      },
+      "findings": [],
+      "resolved": [
+        "SEC-PUBLICATION-CURRENT-STATE-001"
+      ],
+      "verified": [
+        "All266 live/staged/core pins match;257 previously reviewed artifacts unchanged.",
+        "Current table, dependency paragraph, action board and findings acknowledge primitive-only R3 positive and primary/QA76 while retaining full LOCAL/native/custody/TARGET gaps.",
+        "Original held subject and three old document bodies preserved; corrected count/exclusions consistent."
+      ]
+    }
+  ],
+  "history": {
+    "initialReview": "publication-initial-review.json",
+    "manifestOnlyCorrection": {
+      "previousSha256": "dfadfb9dae1effaffc134f0cb82a7ac1d80ed1753208548854264e5117dd5759",
+      "finding": "266 core rows retained count261 and conflicting acceptance exclusion name.",
+      "remediation": "Changed only count and exclusion fields before both final actual acceptances; no core artifact changed.",
+      "previousBytesPreservedLocally": "/tmp/nbdp-publication-subject-r2-before-count-fix.json"
+    }
+  },
+  "conditions": [
+    "Publish exact266 core files plus this exact subject and this acceptance only.",
+    "Keep PR3 draft and unmerged; coordinator must verify actual postpush HEAD."
+  ],
+  "limits": [
+    "No canonical PASS, experiment activation, profile adoption, architectural blocker closure, production, SDK or merge approval.",
+    "E02 PARTIAL22; E06 NOT_EXECUTED0; five architectural blockers unchanged.",
+    "69 external originals not distributed; archives are not portable full replay.",
+    "Actual independent read-only delta reviews; no project imports, tests or experiments repeated. Future LOCAL monitor and boot-trace preparation excluded."
+  ]
+}

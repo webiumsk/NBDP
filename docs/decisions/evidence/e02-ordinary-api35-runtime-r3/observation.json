@@ -1,0 +1,372 @@
+{
+  "schema": "ordinary-api35-v3-runtime-data-observation-v1",
+  "actor": "/root/android_health_implementer, DATA archiver not operator or independent reviewer",
+  "rootFinalState": "FAILED_UNQUALIFIED",
+  "supervisorError": "ValueError('Expected control absent after bounded scroll: System')",
+  "secondaryErrors": [],
+  "commandCount": 290,
+  "abnormalCommands": [],
+  "firstStickyReason": "First-cell stopped: ValueError('Expected control absent after bounded scroll: System')\n",
+  "actualGuestGetprops": {
+    "ro.build.fingerprint.txt": {
+      "raw": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/evidence/ro.build.fingerprint.txt",
+        "bytes": 82,
+        "sha256": "e07fd7d414c3b262449a1a48ec96db76edc31b2273ac896fc04f4f44870e7426"
+      },
+      "actualText": "Android/sdk_phone64_x86_64/emu64x:15/AE3A.240806.019/12368160:userdebug/test-keys"
+    },
+    "ro.build.version.sdk.txt": {
+      "raw": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/evidence/ro.build.version.sdk.txt",
+        "bytes": 3,
+        "sha256": "90d7ec0f0acef104d8b6252794295f661a0149634868d02a1ae0c358099638f5"
+      },
+      "actualText": "35"
+    }
+  },
+  "configuredProfilesOnly": [
+    {
+      "raw": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/android-state/avd/ordinary.ini",
+        "bytes": 96,
+        "sha256": "5877a9744cf809b87746a2a2db16701973c6784dbe3c633b9a025658844deeae"
+      },
+      "configurationOnly": {
+        "target": "android-35"
+      }
+    },
+    {
+      "raw": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/android-state/avd/ordinary.avd/config.ini",
+        "bytes": 564,
+        "sha256": "ba431436dcf65fba34625774ec583528218f8601d881eecce813d213821e44ec"
+      },
+      "configurationOnly": {
+        "hw.cpu.ncore": "4",
+        "hw.ramSize": "4096",
+        "hw.gpu.mode": "lavapipe",
+        "disk.dataPartition.size": "6442450944",
+        "image.sysdir.1": "system-images/android-35/default/x86_64/"
+      }
+    },
+    {
+      "raw": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/android-state/avd/ordinary.avd/hardware-qemu.ini",
+        "bytes": 3972,
+        "sha256": "a77f541fe9c251361d244b82044c0e32fe196571abbdf797a6ec9c70f28a4880"
+      },
+      "configurationOnly": {
+        "hw.cpu.ncore": "4",
+        "hw.ramSize": "4096",
+        "hw.gpu.mode": "lavapipe",
+        "disk.dataPartition.size": "6g"
+      }
+    },
+    {
+      "raw": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/android-state/avd/ordinary.avd/emu-launch-params.txt",
+        "bytes": 271,
+        "sha256": "a15cc9dd98b193159e01f4e24952d677dcc744aa2fc7695a9025e812eb0d706e"
+      },
+      "configurationOnly": {}
+    },
+    {
+      "raw": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/android-state/avd/ordinary.avd/qemu-version.txt",
+        "bytes": 1,
+        "sha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35"
+      },
+      "configurationOnly": {}
+    }
+  ],
+  "rawUiXmlCount": 26,
+  "uiXmlObservations": [
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-001-login-start.xml",
+        "bytes": 10438,
+        "sha256": "05ee5f4e7fb6675258bac165f3c284d08a2808a9641ac204e25b8066af552b14"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-002-privacy-options.xml",
+        "bytes": 23575,
+        "sha256": "5d3e78086d4519349e4b25a1a2fe888e33ef15dbf419f0286a83a2748f46084a"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-003-tor-engine-menu.xml",
+        "bytes": 6909,
+        "sha256": "f1223d10ae88afd84a7869e715e00aeef14e9c31a07b3f9262b6ffc43b1852fa"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-004-tor-off-selected.xml",
+        "bytes": 7256,
+        "sha256": "0214d707ef61e3605abbb40aaefb5a92efe6d4b7cf944af1e9908c19290212f7"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-005-login-tor-saved.xml",
+        "bytes": 10438,
+        "sha256": "05ee5f4e7fb6675258bac165f3c284d08a2808a9641ac204e25b8066af552b14"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-006-tor-saved-state-reopened.xml",
+        "bytes": 7256,
+        "sha256": "0214d707ef61e3605abbb40aaefb5a92efe6d4b7cf944af1e9908c19290212f7"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-007-tor-saved-state-closed.xml",
+        "bytes": 10438,
+        "sha256": "05ee5f4e7fb6675258bac165f3c284d08a2808a9641ac204e25b8066af552b14"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-008-public-identity-visible.xml",
+        "bytes": 10438,
+        "sha256": "7e7fca5cad0cf63376c7b9c5d5fbe38fef08f2921042a342ec56d58f8b558203"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-009-login-field-focused.xml",
+        "bytes": 9408,
+        "sha256": "26b1930850b8b33f6ca943f630c51d57d868f8cb30a923580c168614e04f1508"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-010-whole-disposable-identity.xml",
+        "bytes": 8754,
+        "sha256": "f1cb4d5d803cbcc56ab18009c7795e0d6c3266b968ee8cac321a6f3799372989"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-011-login-submitted.xml",
+        "bytes": 9095,
+        "sha256": "be5e92a4ccaec9251ce7bb6ba34c29d595354055f8adc58aeedb6771cafd6f1f"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-012-login-await-home.xml",
+        "bytes": 23158,
+        "sha256": "b7aa92b116debebec02f34d5cfadfa2afbc8e0dbdcce3df6a8db9529fd6e7a83"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-013-account-drawer.xml",
+        "bytes": 17244,
+        "sha256": "e2c052ed7b89cc023248a2b7afe92068231a4a74cbfee7dd78c4cff664618b99"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-014-own-profile.xml",
+        "bytes": 29970,
+        "sha256": "0ccd5d7ecf562eccb2a85a8d8dcf84d206ad006550fff57720a5f38593de6fb3"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-015-own-profile-actions.xml",
+        "bytes": 5568,
+        "sha256": "a23ce7552fc27cb40c879c195e4193a426ef1730b0cdb455b4f97a4c86d22183"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-016-own-public-share.xml",
+        "bytes": 17331,
+        "sha256": "4592e48a6f63cee98f7f6b1f8247624b0eb26544bc4c7d212c5821e5c9ccb33e"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-017-share-closed.xml",
+        "bytes": 29970,
+        "sha256": "0ccd5d7ecf562eccb2a85a8d8dcf84d206ad006550fff57720a5f38593de6fb3"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-018-profile-closed.xml",
+        "bytes": 23158,
+        "sha256": "b7aa92b116debebec02f34d5cfadfa2afbc8e0dbdcce3df6a8db9529fd6e7a83"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-019-relay-drawer.xml",
+        "bytes": 17244,
+        "sha256": "e2c052ed7b89cc023248a2b7afe92068231a4a74cbfee7dd78c4cff664618b99"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-020-known-scroll.xml",
+        "bytes": 19627,
+        "sha256": "3ee42fb2d029ea3f05c5fb4eac409d0ca3734ad31c5d87ca911004511777dbc3"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-021-known-scroll.xml",
+        "bytes": 20255,
+        "sha256": "aab4ad0191d885b2bfe021060792b5bf8e1c8922574c6c52a475a6aa2c0ba795"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-022-known-scroll.xml",
+        "bytes": 20185,
+        "sha256": "9fc4e8e13e3976b69ba05c61889d186ddc4daee75ca6d6a77960fc8f0da9e3a5"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-023-known-scroll.xml",
+        "bytes": 19855,
+        "sha256": "effa48668dca65cdc6662272eef7589378be33982de3b54ff937946ffc340fa7"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-024-known-scroll.xml",
+        "bytes": 19561,
+        "sha256": "e5720fe2f0c0920bbf91e0abc8edd3490aabcf8fc7b096f93135c1024dd709db"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-025-known-scroll.xml",
+        "bytes": 19263,
+        "sha256": "8ee097bd59e9ff41b6589e29c65cf1ae8c20dc9d623618ba7125f8ba2605fd29"
+      },
+      "anrTitleTexts": []
+    },
+    {
+      "xml": {
+        "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/ui/ui-026-known-scroll.xml",
+        "bytes": 19625,
+        "sha256": "c1a54283c2263a0ad81854f8dd9d0281b3880dd48a3bd6d4a108a89ca5f43d54"
+      },
+      "anrTitleTexts": []
+    }
+  ],
+  "actualRawExport": "NOT_ACQUIRED",
+  "driverResultPresent": false,
+  "driverReportedState": "NOT_ACQUIRED",
+  "driverReportedObservationRows": [],
+  "cleanup": {
+    "ok": true,
+    "rows": [
+      {
+        "role": "android",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "6a0c3573884f603eb9423a8858d689fac50b4b7a24da9e348ab2e5f211e9af20",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "fixture",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "f56c6ad7a6685f67ac4ddb674149b789b449325b29364086994cc5a087020902",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "rs-relay",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "8646f1203485fc68ac482086ac3051b8e933a0ff0e28725a6af23a0aa308e764",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "anchor",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "54b01019b0734173fe00a3da75669bea20a775c0a53b448a0141dfe7d42d4b13",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      }
+    ],
+    "errors": [],
+    "evidence": {
+      "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/cleanup/result.json",
+      "bytes": 1393,
+      "sha256": "79fa9ae1111f6ea2817607cf8c46da19598fd5b5cfd99b080eb37d67e99ba5a2"
+    }
+  },
+  "missing": [
+    "diagnostics",
+    "driver-result.json",
+    "driver-partial.json"
+  ],
+  "ordinaryCellIndependentQualification": "PENDING_ACTUAL_INDEPENDENT_QA_SECURITY",
+  "canonicalE02Changed": false,
+  "SDKSourceConfigurationOrTimerChanged": false,
+  "experimentRerun": false,
+  "limits": [
+    "Configured API35/Lavapipe/resources are separate from actual getprop/render/export/cleanup observations.",
+    "Presence of raw export/driver result is not independent acceptance or full ordinary matrix/canonical PASS.",
+    "No healthy baseline, ANR-cause/renderer causality or business-dispatch/approval capability claim.",
+    "Public disposable scalar2 test inputs are retained as synthetic evidence; actual key-file bodies are excluded."
+  ]
+}

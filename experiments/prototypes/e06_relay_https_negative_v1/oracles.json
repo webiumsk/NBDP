@@ -1,0 +1,3517 @@
+{
+  "schema": "e06-n02316-whole-oracles-v1",
+  "state": "INERT_SOURCE_DATA_FREEZE",
+  "runtimeReadiness": "NOT_RUNTIME_READY",
+  "executionReleased": false,
+  "normativeAdoption": false,
+  "evidenceType": "SOURCE_EXPECTATIONS_NOT_OBSERVED",
+  "lane": "LAB-N-02-03-16",
+  "scope": "INVOICE_ONLY_N02_N03_N16_TEN_CELLS",
+  "orderedCells": [
+    "N02-SF-JS",
+    "N02-SF-RUST",
+    "N02-RS-JS",
+    "N02-RS-RUST",
+    "N03-SF",
+    "N03-RS",
+    "N16-SF-JS",
+    "N16-SF-RUST",
+    "N16-RS-JS",
+    "N16-RS-RUST"
+  ],
+  "closedStepKeys": [
+    "stepId",
+    "phase",
+    "eventProvenance",
+    "metadataRecord",
+    "associationState",
+    "generation",
+    "eligibility",
+    "invalidation",
+    "decision",
+    "status",
+    "stage",
+    "reason",
+    "counts",
+    "snapshot",
+    "nativeConsumerRecord",
+    "originalHex",
+    "originalReleased",
+    "receiptsEmitted",
+    "businessEffects",
+    "lifecycle",
+    "cleanup",
+    "integrity",
+    "limitations"
+  ],
+  "counterKeys": [
+    "publications",
+    "queries",
+    "events",
+    "metadataRequests",
+    "metadataReplies",
+    "dValidations",
+    "fValidations",
+    "attemptReservations",
+    "acquisitionConnections",
+    "httpGets",
+    "receivedEntityBytes",
+    "consumerAttempts",
+    "attachmentEncryptions",
+    "publicReleases"
+  ],
+  "namedDataFiles": [
+    "contract.json",
+    "selection-map.json",
+    "profile.json",
+    "interfaces.md",
+    "native-oracles.json",
+    "bridge-schemas.json",
+    "worker-schemas.json"
+  ],
+  "nativeOracles": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/native-oracles.json",
+    "bytes": 27629,
+    "sha256": "12a508cc4060ad920ebcba0aeb0c23f5b7de7c311aaeec575cb4bf5f0ad28a2a"
+  },
+  "bindingSyntax": "Closed checker-only {bind:NAME}; resolve via admitted same-cell private ownership/actual raw artifact joins. Never caller-provided binding dictionary or generic eval; absent artifact refuses, never resolves null.",
+  "bindingNames": [
+    "RECEIVED_D",
+    "RECEIVED_F",
+    "NATIVE_CALL",
+    "LOCAL_POLICY",
+    "SEAL_REFUSAL",
+    "WIRE_D_RECEIPT",
+    "WIRE_F_RECEIPT",
+    "NATIVE_TERMINAL",
+    "TERMINAL_RECORD",
+    "CASE_PID",
+    "STEP_RECORDS",
+    "FINAL_STEP_RECORD"
+  ],
+  "cases": [
+    {
+      "cellId": "N02-SF-JS",
+      "windowId": "W-N02-SF-JS",
+      "subprofileId": "N02",
+      "metadataBackend": "JS",
+      "expectedStepIds": [
+        "N02-S01",
+        "N02-S02"
+      ],
+      "expectedNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N02/expectedByBackend/JS",
+        "meaning": "SOURCE_CANDIDATE_PENDING_ACTUAL_QUALIFICATION"
+      },
+      "expectedLocalPolicy": null,
+      "expectedSealRefusal": null,
+      "expectedCaseReply": {
+        "schema": "n02316-case-cli-reply-v1",
+        "cellId": "N02-SF-JS",
+        "windowId": "W-N02-SF-JS",
+        "qualified": true,
+        "stepRecords": {
+          "bind": "STEP_RECORDS"
+        },
+        "notExecuted": [],
+        "finalObservation": {
+          "bind": "FINAL_STEP_RECORD"
+        },
+        "metadataTerminal": {
+          "bind": "NATIVE_TERMINAL"
+        },
+        "terminal": {
+          "bind": "TERMINAL_RECORD"
+        },
+        "caseCleanupQualified": true,
+        "finalIntegrity": true,
+        "error": null
+      }
+    },
+    {
+      "cellId": "N02-SF-RUST",
+      "windowId": "W-N02-SF-RUST",
+      "subprofileId": "N02",
+      "metadataBackend": "RUST",
+      "expectedStepIds": [
+        "N02-S01",
+        "N02-S02"
+      ],
+      "expectedNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N02/expectedByBackend/RUST",
+        "meaning": "SOURCE_CANDIDATE_PENDING_ACTUAL_QUALIFICATION"
+      },
+      "expectedLocalPolicy": null,
+      "expectedSealRefusal": null,
+      "expectedCaseReply": {
+        "schema": "n02316-case-cli-reply-v1",
+        "cellId": "N02-SF-RUST",
+        "windowId": "W-N02-SF-RUST",
+        "qualified": true,
+        "stepRecords": {
+          "bind": "STEP_RECORDS"
+        },
+        "notExecuted": [],
+        "finalObservation": {
+          "bind": "FINAL_STEP_RECORD"
+        },
+        "metadataTerminal": {
+          "bind": "NATIVE_TERMINAL"
+        },
+        "terminal": {
+          "bind": "TERMINAL_RECORD"
+        },
+        "caseCleanupQualified": true,
+        "finalIntegrity": true,
+        "error": null
+      }
+    },
+    {
+      "cellId": "N02-RS-JS",
+      "windowId": "W-N02-RS-JS",
+      "subprofileId": "N02",
+      "metadataBackend": "JS",
+      "expectedStepIds": [
+        "N02-S01",
+        "N02-S02"
+      ],
+      "expectedNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N02/expectedByBackend/JS",
+        "meaning": "SOURCE_CANDIDATE_PENDING_ACTUAL_QUALIFICATION"
+      },
+      "expectedLocalPolicy": null,
+      "expectedSealRefusal": null,
+      "expectedCaseReply": {
+        "schema": "n02316-case-cli-reply-v1",
+        "cellId": "N02-RS-JS",
+        "windowId": "W-N02-RS-JS",
+        "qualified": true,
+        "stepRecords": {
+          "bind": "STEP_RECORDS"
+        },
+        "notExecuted": [],
+        "finalObservation": {
+          "bind": "FINAL_STEP_RECORD"
+        },
+        "metadataTerminal": {
+          "bind": "NATIVE_TERMINAL"
+        },
+        "terminal": {
+          "bind": "TERMINAL_RECORD"
+        },
+        "caseCleanupQualified": true,
+        "finalIntegrity": true,
+        "error": null
+      }
+    },
+    {
+      "cellId": "N02-RS-RUST",
+      "windowId": "W-N02-RS-RUST",
+      "subprofileId": "N02",
+      "metadataBackend": "RUST",
+      "expectedStepIds": [
+        "N02-S01",
+        "N02-S02"
+      ],
+      "expectedNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N02/expectedByBackend/RUST",
+        "meaning": "SOURCE_CANDIDATE_PENDING_ACTUAL_QUALIFICATION"
+      },
+      "expectedLocalPolicy": null,
+      "expectedSealRefusal": null,
+      "expectedCaseReply": {
+        "schema": "n02316-case-cli-reply-v1",
+        "cellId": "N02-RS-RUST",
+        "windowId": "W-N02-RS-RUST",
+        "qualified": true,
+        "stepRecords": {
+          "bind": "STEP_RECORDS"
+        },
+        "notExecuted": [],
+        "finalObservation": {
+          "bind": "FINAL_STEP_RECORD"
+        },
+        "metadataTerminal": {
+          "bind": "NATIVE_TERMINAL"
+        },
+        "terminal": {
+          "bind": "TERMINAL_RECORD"
+        },
+        "caseCleanupQualified": true,
+        "finalIntegrity": true,
+        "error": null
+      }
+    },
+    {
+      "cellId": "N03-SF",
+      "windowId": "W-N03-SF",
+      "subprofileId": "N03",
+      "metadataBackend": null,
+      "expectedStepIds": [
+        "N03-S01",
+        "N03-S02"
+      ],
+      "expectedNative": null,
+      "expectedLocalPolicy": null,
+      "expectedSealRefusal": null,
+      "expectedCaseReply": {
+        "schema": "n02316-case-cli-reply-v1",
+        "cellId": "N03-SF",
+        "windowId": "W-N03-SF",
+        "qualified": true,
+        "stepRecords": {
+          "bind": "STEP_RECORDS"
+        },
+        "notExecuted": [],
+        "finalObservation": {
+          "bind": "FINAL_STEP_RECORD"
+        },
+        "metadataTerminal": null,
+        "terminal": {
+          "bind": "TERMINAL_RECORD"
+        },
+        "caseCleanupQualified": true,
+        "finalIntegrity": true,
+        "error": null
+      }
+    },
+    {
+      "cellId": "N03-RS",
+      "windowId": "W-N03-RS",
+      "subprofileId": "N03",
+      "metadataBackend": null,
+      "expectedStepIds": [
+        "N03-S01",
+        "N03-S02"
+      ],
+      "expectedNative": null,
+      "expectedLocalPolicy": null,
+      "expectedSealRefusal": null,
+      "expectedCaseReply": {
+        "schema": "n02316-case-cli-reply-v1",
+        "cellId": "N03-RS",
+        "windowId": "W-N03-RS",
+        "qualified": true,
+        "stepRecords": {
+          "bind": "STEP_RECORDS"
+        },
+        "notExecuted": [],
+        "finalObservation": {
+          "bind": "FINAL_STEP_RECORD"
+        },
+        "metadataTerminal": null,
+        "terminal": {
+          "bind": "TERMINAL_RECORD"
+        },
+        "caseCleanupQualified": true,
+        "finalIntegrity": true,
+        "error": null
+      }
+    },
+    {
+      "cellId": "N16-SF-JS",
+      "windowId": "W-N16-SF-JS",
+      "subprofileId": "N16",
+      "metadataBackend": "JS",
+      "expectedStepIds": [
+        "N16-S01",
+        "N16-S02",
+        "N16-S03",
+        "N16-S04"
+      ],
+      "expectedNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/JS",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "expectedLocalPolicy": {
+        "schema": "n02316-local-policy-v1",
+        "cellId": "N16-SF-JS",
+        "windowId": "W-N16-SF-JS",
+        "stepId": "N16-S02",
+        "nativeCall": {
+          "bind": "NATIVE_CALL"
+        },
+        "dRumorId": "c4f3f2a08ad09ef7f9be6a0e82efaa5b136b54016fd1a4db2d4d92bf4cb704e7",
+        "fRumorId": "66221fc9dd752034847a48d68a8904d528a8b8a26cc333bc317614a437c9aaeb",
+        "scope": "ATTACHMENT_ACQUISITION_ONLY",
+        "decision": "DENY",
+        "permitted": false,
+        "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+        "boundary": "AFTER_PAIRED_NATIVE_AUTH"
+      },
+      "expectedSealRefusal": {
+        "schema": "n02316-seal-refusal-v1",
+        "cellId": "N16-SF-JS",
+        "windowId": "W-N16-SF-JS",
+        "stepId": "N16-S03",
+        "nativeCall": {
+          "bind": "NATIVE_CALL"
+        },
+        "localPolicy": {
+          "bind": "LOCAL_POLICY"
+        },
+        "outcome": "REFUSED",
+        "stage": "policy",
+        "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+        "generation": null,
+        "attemptReservation": null
+      },
+      "expectedCaseReply": {
+        "schema": "n02316-case-cli-reply-v1",
+        "cellId": "N16-SF-JS",
+        "windowId": "W-N16-SF-JS",
+        "qualified": true,
+        "stepRecords": {
+          "bind": "STEP_RECORDS"
+        },
+        "notExecuted": [],
+        "finalObservation": {
+          "bind": "FINAL_STEP_RECORD"
+        },
+        "metadataTerminal": {
+          "bind": "NATIVE_TERMINAL"
+        },
+        "terminal": {
+          "bind": "TERMINAL_RECORD"
+        },
+        "caseCleanupQualified": true,
+        "finalIntegrity": true,
+        "error": null
+      }
+    },
+    {
+      "cellId": "N16-SF-RUST",
+      "windowId": "W-N16-SF-RUST",
+      "subprofileId": "N16",
+      "metadataBackend": "RUST",
+      "expectedStepIds": [
+        "N16-S01",
+        "N16-S02",
+        "N16-S03",
+        "N16-S04"
+      ],
+      "expectedNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/RUST",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "expectedLocalPolicy": {
+        "schema": "n02316-local-policy-v1",
+        "cellId": "N16-SF-RUST",
+        "windowId": "W-N16-SF-RUST",
+        "stepId": "N16-S02",
+        "nativeCall": {
+          "bind": "NATIVE_CALL"
+        },
+        "dRumorId": "c4f3f2a08ad09ef7f9be6a0e82efaa5b136b54016fd1a4db2d4d92bf4cb704e7",
+        "fRumorId": "66221fc9dd752034847a48d68a8904d528a8b8a26cc333bc317614a437c9aaeb",
+        "scope": "ATTACHMENT_ACQUISITION_ONLY",
+        "decision": "DENY",
+        "permitted": false,
+        "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+        "boundary": "AFTER_PAIRED_NATIVE_AUTH"
+      },
+      "expectedSealRefusal": {
+        "schema": "n02316-seal-refusal-v1",
+        "cellId": "N16-SF-RUST",
+        "windowId": "W-N16-SF-RUST",
+        "stepId": "N16-S03",
+        "nativeCall": {
+          "bind": "NATIVE_CALL"
+        },
+        "localPolicy": {
+          "bind": "LOCAL_POLICY"
+        },
+        "outcome": "REFUSED",
+        "stage": "policy",
+        "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+        "generation": null,
+        "attemptReservation": null
+      },
+      "expectedCaseReply": {
+        "schema": "n02316-case-cli-reply-v1",
+        "cellId": "N16-SF-RUST",
+        "windowId": "W-N16-SF-RUST",
+        "qualified": true,
+        "stepRecords": {
+          "bind": "STEP_RECORDS"
+        },
+        "notExecuted": [],
+        "finalObservation": {
+          "bind": "FINAL_STEP_RECORD"
+        },
+        "metadataTerminal": {
+          "bind": "NATIVE_TERMINAL"
+        },
+        "terminal": {
+          "bind": "TERMINAL_RECORD"
+        },
+        "caseCleanupQualified": true,
+        "finalIntegrity": true,
+        "error": null
+      }
+    },
+    {
+      "cellId": "N16-RS-JS",
+      "windowId": "W-N16-RS-JS",
+      "subprofileId": "N16",
+      "metadataBackend": "JS",
+      "expectedStepIds": [
+        "N16-S01",
+        "N16-S02",
+        "N16-S03",
+        "N16-S04"
+      ],
+      "expectedNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/JS",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "expectedLocalPolicy": {
+        "schema": "n02316-local-policy-v1",
+        "cellId": "N16-RS-JS",
+        "windowId": "W-N16-RS-JS",
+        "stepId": "N16-S02",
+        "nativeCall": {
+          "bind": "NATIVE_CALL"
+        },
+        "dRumorId": "c4f3f2a08ad09ef7f9be6a0e82efaa5b136b54016fd1a4db2d4d92bf4cb704e7",
+        "fRumorId": "66221fc9dd752034847a48d68a8904d528a8b8a26cc333bc317614a437c9aaeb",
+        "scope": "ATTACHMENT_ACQUISITION_ONLY",
+        "decision": "DENY",
+        "permitted": false,
+        "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+        "boundary": "AFTER_PAIRED_NATIVE_AUTH"
+      },
+      "expectedSealRefusal": {
+        "schema": "n02316-seal-refusal-v1",
+        "cellId": "N16-RS-JS",
+        "windowId": "W-N16-RS-JS",
+        "stepId": "N16-S03",
+        "nativeCall": {
+          "bind": "NATIVE_CALL"
+        },
+        "localPolicy": {
+          "bind": "LOCAL_POLICY"
+        },
+        "outcome": "REFUSED",
+        "stage": "policy",
+        "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+        "generation": null,
+        "attemptReservation": null
+      },
+      "expectedCaseReply": {
+        "schema": "n02316-case-cli-reply-v1",
+        "cellId": "N16-RS-JS",
+        "windowId": "W-N16-RS-JS",
+        "qualified": true,
+        "stepRecords": {
+          "bind": "STEP_RECORDS"
+        },
+        "notExecuted": [],
+        "finalObservation": {
+          "bind": "FINAL_STEP_RECORD"
+        },
+        "metadataTerminal": {
+          "bind": "NATIVE_TERMINAL"
+        },
+        "terminal": {
+          "bind": "TERMINAL_RECORD"
+        },
+        "caseCleanupQualified": true,
+        "finalIntegrity": true,
+        "error": null
+      }
+    },
+    {
+      "cellId": "N16-RS-RUST",
+      "windowId": "W-N16-RS-RUST",
+      "subprofileId": "N16",
+      "metadataBackend": "RUST",
+      "expectedStepIds": [
+        "N16-S01",
+        "N16-S02",
+        "N16-S03",
+        "N16-S04"
+      ],
+      "expectedNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/RUST",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "expectedLocalPolicy": {
+        "schema": "n02316-local-policy-v1",
+        "cellId": "N16-RS-RUST",
+        "windowId": "W-N16-RS-RUST",
+        "stepId": "N16-S02",
+        "nativeCall": {
+          "bind": "NATIVE_CALL"
+        },
+        "dRumorId": "c4f3f2a08ad09ef7f9be6a0e82efaa5b136b54016fd1a4db2d4d92bf4cb704e7",
+        "fRumorId": "66221fc9dd752034847a48d68a8904d528a8b8a26cc333bc317614a437c9aaeb",
+        "scope": "ATTACHMENT_ACQUISITION_ONLY",
+        "decision": "DENY",
+        "permitted": false,
+        "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+        "boundary": "AFTER_PAIRED_NATIVE_AUTH"
+      },
+      "expectedSealRefusal": {
+        "schema": "n02316-seal-refusal-v1",
+        "cellId": "N16-RS-RUST",
+        "windowId": "W-N16-RS-RUST",
+        "stepId": "N16-S03",
+        "nativeCall": {
+          "bind": "NATIVE_CALL"
+        },
+        "localPolicy": {
+          "bind": "LOCAL_POLICY"
+        },
+        "outcome": "REFUSED",
+        "stage": "policy",
+        "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+        "generation": null,
+        "attemptReservation": null
+      },
+      "expectedCaseReply": {
+        "schema": "n02316-case-cli-reply-v1",
+        "cellId": "N16-RS-RUST",
+        "windowId": "W-N16-RS-RUST",
+        "qualified": true,
+        "stepRecords": {
+          "bind": "STEP_RECORDS"
+        },
+        "notExecuted": [],
+        "finalObservation": {
+          "bind": "FINAL_STEP_RECORD"
+        },
+        "metadataTerminal": {
+          "bind": "NATIVE_TERMINAL"
+        },
+        "terminal": {
+          "bind": "TERMINAL_RECORD"
+        },
+        "caseCleanupQualified": true,
+        "finalIntegrity": true,
+        "error": null
+      }
+    }
+  ],
+  "steps": [
+    {
+      "cellId": "N02-SF-JS",
+      "windowId": "W-N02-SF-JS",
+      "canonicalStepId": "N02-S01",
+      "expectedWhole": {
+        "stepId": "N02-S01",
+        "phase": "COLLECT",
+        "eventProvenance": {
+          "D": null,
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ORPHAN_F",
+        "generation": null,
+        "eligibility": {
+          "state": "INCOMPLETE_ORPHAN",
+          "localPolicy": null,
+          "sealRefusal": null
+        },
+        "invalidation": null,
+        "decision": "F_ONLY_AUTH",
+        "status": "ORPHAN_PENDING",
+        "stage": "metadata",
+        "reason": "F_AUTHENTICATED_D_MISSING",
+        "counts": {
+          "publications": 1,
+          "queries": 1,
+          "events": 1,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 0,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": null,
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "ALIVE_QUIESCENT",
+          "metadataTerminal": null,
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "ALIVE_QUIESCENT",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N02/expectedByBackend/JS",
+        "meaning": "SOURCE_CANDIDATE_PENDING_ACTUAL_QUALIFICATION"
+      },
+      "terminalRequired": false,
+      "expectedTerminal": null
+    },
+    {
+      "cellId": "N02-SF-JS",
+      "windowId": "W-N02-SF-JS",
+      "canonicalStepId": "N02-S02",
+      "expectedWhole": {
+        "stepId": "N02-S02",
+        "phase": "TERMINAL",
+        "eventProvenance": {
+          "D": null,
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ORPHAN_F",
+        "generation": null,
+        "eligibility": {
+          "state": "INCOMPLETE_ORPHAN",
+          "localPolicy": null,
+          "sealRefusal": null
+        },
+        "invalidation": null,
+        "decision": "CLOSEOUT_NO_SEAL",
+        "status": "NO_ACQUISITION",
+        "stage": "association",
+        "reason": "MISSING_D",
+        "counts": {
+          "publications": 1,
+          "queries": 1,
+          "events": 1,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 0,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": null,
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "TERMINAL_QUALIFIED",
+          "metadataTerminal": {
+            "bind": "NATIVE_TERMINAL"
+          },
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "QUALIFIED",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N02/expectedByBackend/JS",
+        "meaning": "SOURCE_CANDIDATE_PENDING_ACTUAL_QUALIFICATION"
+      },
+      "terminalRequired": true,
+      "expectedTerminal": {
+        "schema": "n02316-terminal-v1",
+        "cellId": "N02-SF-JS",
+        "windowId": "W-N02-SF-JS",
+        "stepId": "N02-S02",
+        "wireTerminals": {
+          "D": null,
+          "F": {
+            "bind": "WIRE_F_RECEIPT"
+          }
+        },
+        "metadataTerminal": {
+          "bind": "NATIVE_TERMINAL"
+        },
+        "localPolicy": null,
+        "sealRefusal": null,
+        "noCall": {
+          "generations": 0,
+          "reservations": 0,
+          "httpsListeners": 0,
+          "httpsServers": 0,
+          "acquisitionClients": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerCalls": 0,
+          "browserLaunches": 0,
+          "originalReleases": 0
+        },
+        "cleanupQualified": true,
+        "sourceCurrent": true,
+        "inputsCurrent": true,
+        "evidenceComplete": true
+      }
+    },
+    {
+      "cellId": "N02-SF-RUST",
+      "windowId": "W-N02-SF-RUST",
+      "canonicalStepId": "N02-S01",
+      "expectedWhole": {
+        "stepId": "N02-S01",
+        "phase": "COLLECT",
+        "eventProvenance": {
+          "D": null,
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ORPHAN_F",
+        "generation": null,
+        "eligibility": {
+          "state": "INCOMPLETE_ORPHAN",
+          "localPolicy": null,
+          "sealRefusal": null
+        },
+        "invalidation": null,
+        "decision": "F_ONLY_AUTH",
+        "status": "ORPHAN_PENDING",
+        "stage": "metadata",
+        "reason": "F_AUTHENTICATED_D_MISSING",
+        "counts": {
+          "publications": 1,
+          "queries": 1,
+          "events": 1,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 0,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": null,
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "ALIVE_QUIESCENT",
+          "metadataTerminal": null,
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "ALIVE_QUIESCENT",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N02/expectedByBackend/RUST",
+        "meaning": "SOURCE_CANDIDATE_PENDING_ACTUAL_QUALIFICATION"
+      },
+      "terminalRequired": false,
+      "expectedTerminal": null
+    },
+    {
+      "cellId": "N02-SF-RUST",
+      "windowId": "W-N02-SF-RUST",
+      "canonicalStepId": "N02-S02",
+      "expectedWhole": {
+        "stepId": "N02-S02",
+        "phase": "TERMINAL",
+        "eventProvenance": {
+          "D": null,
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ORPHAN_F",
+        "generation": null,
+        "eligibility": {
+          "state": "INCOMPLETE_ORPHAN",
+          "localPolicy": null,
+          "sealRefusal": null
+        },
+        "invalidation": null,
+        "decision": "CLOSEOUT_NO_SEAL",
+        "status": "NO_ACQUISITION",
+        "stage": "association",
+        "reason": "MISSING_D",
+        "counts": {
+          "publications": 1,
+          "queries": 1,
+          "events": 1,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 0,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": null,
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "TERMINAL_QUALIFIED",
+          "metadataTerminal": {
+            "bind": "NATIVE_TERMINAL"
+          },
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "QUALIFIED",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N02/expectedByBackend/RUST",
+        "meaning": "SOURCE_CANDIDATE_PENDING_ACTUAL_QUALIFICATION"
+      },
+      "terminalRequired": true,
+      "expectedTerminal": {
+        "schema": "n02316-terminal-v1",
+        "cellId": "N02-SF-RUST",
+        "windowId": "W-N02-SF-RUST",
+        "stepId": "N02-S02",
+        "wireTerminals": {
+          "D": null,
+          "F": {
+            "bind": "WIRE_F_RECEIPT"
+          }
+        },
+        "metadataTerminal": {
+          "bind": "NATIVE_TERMINAL"
+        },
+        "localPolicy": null,
+        "sealRefusal": null,
+        "noCall": {
+          "generations": 0,
+          "reservations": 0,
+          "httpsListeners": 0,
+          "httpsServers": 0,
+          "acquisitionClients": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerCalls": 0,
+          "browserLaunches": 0,
+          "originalReleases": 0
+        },
+        "cleanupQualified": true,
+        "sourceCurrent": true,
+        "inputsCurrent": true,
+        "evidenceComplete": true
+      }
+    },
+    {
+      "cellId": "N02-RS-JS",
+      "windowId": "W-N02-RS-JS",
+      "canonicalStepId": "N02-S01",
+      "expectedWhole": {
+        "stepId": "N02-S01",
+        "phase": "COLLECT",
+        "eventProvenance": {
+          "D": null,
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ORPHAN_F",
+        "generation": null,
+        "eligibility": {
+          "state": "INCOMPLETE_ORPHAN",
+          "localPolicy": null,
+          "sealRefusal": null
+        },
+        "invalidation": null,
+        "decision": "F_ONLY_AUTH",
+        "status": "ORPHAN_PENDING",
+        "stage": "metadata",
+        "reason": "F_AUTHENTICATED_D_MISSING",
+        "counts": {
+          "publications": 1,
+          "queries": 1,
+          "events": 1,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 0,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": null,
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "ALIVE_QUIESCENT",
+          "metadataTerminal": null,
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "ALIVE_QUIESCENT",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N02/expectedByBackend/JS",
+        "meaning": "SOURCE_CANDIDATE_PENDING_ACTUAL_QUALIFICATION"
+      },
+      "terminalRequired": false,
+      "expectedTerminal": null
+    },
+    {
+      "cellId": "N02-RS-JS",
+      "windowId": "W-N02-RS-JS",
+      "canonicalStepId": "N02-S02",
+      "expectedWhole": {
+        "stepId": "N02-S02",
+        "phase": "TERMINAL",
+        "eventProvenance": {
+          "D": null,
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ORPHAN_F",
+        "generation": null,
+        "eligibility": {
+          "state": "INCOMPLETE_ORPHAN",
+          "localPolicy": null,
+          "sealRefusal": null
+        },
+        "invalidation": null,
+        "decision": "CLOSEOUT_NO_SEAL",
+        "status": "NO_ACQUISITION",
+        "stage": "association",
+        "reason": "MISSING_D",
+        "counts": {
+          "publications": 1,
+          "queries": 1,
+          "events": 1,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 0,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": null,
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "TERMINAL_QUALIFIED",
+          "metadataTerminal": {
+            "bind": "NATIVE_TERMINAL"
+          },
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "QUALIFIED",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N02/expectedByBackend/JS",
+        "meaning": "SOURCE_CANDIDATE_PENDING_ACTUAL_QUALIFICATION"
+      },
+      "terminalRequired": true,
+      "expectedTerminal": {
+        "schema": "n02316-terminal-v1",
+        "cellId": "N02-RS-JS",
+        "windowId": "W-N02-RS-JS",
+        "stepId": "N02-S02",
+        "wireTerminals": {
+          "D": null,
+          "F": {
+            "bind": "WIRE_F_RECEIPT"
+          }
+        },
+        "metadataTerminal": {
+          "bind": "NATIVE_TERMINAL"
+        },
+        "localPolicy": null,
+        "sealRefusal": null,
+        "noCall": {
+          "generations": 0,
+          "reservations": 0,
+          "httpsListeners": 0,
+          "httpsServers": 0,
+          "acquisitionClients": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerCalls": 0,
+          "browserLaunches": 0,
+          "originalReleases": 0
+        },
+        "cleanupQualified": true,
+        "sourceCurrent": true,
+        "inputsCurrent": true,
+        "evidenceComplete": true
+      }
+    },
+    {
+      "cellId": "N02-RS-RUST",
+      "windowId": "W-N02-RS-RUST",
+      "canonicalStepId": "N02-S01",
+      "expectedWhole": {
+        "stepId": "N02-S01",
+        "phase": "COLLECT",
+        "eventProvenance": {
+          "D": null,
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ORPHAN_F",
+        "generation": null,
+        "eligibility": {
+          "state": "INCOMPLETE_ORPHAN",
+          "localPolicy": null,
+          "sealRefusal": null
+        },
+        "invalidation": null,
+        "decision": "F_ONLY_AUTH",
+        "status": "ORPHAN_PENDING",
+        "stage": "metadata",
+        "reason": "F_AUTHENTICATED_D_MISSING",
+        "counts": {
+          "publications": 1,
+          "queries": 1,
+          "events": 1,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 0,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": null,
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "ALIVE_QUIESCENT",
+          "metadataTerminal": null,
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "ALIVE_QUIESCENT",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N02/expectedByBackend/RUST",
+        "meaning": "SOURCE_CANDIDATE_PENDING_ACTUAL_QUALIFICATION"
+      },
+      "terminalRequired": false,
+      "expectedTerminal": null
+    },
+    {
+      "cellId": "N02-RS-RUST",
+      "windowId": "W-N02-RS-RUST",
+      "canonicalStepId": "N02-S02",
+      "expectedWhole": {
+        "stepId": "N02-S02",
+        "phase": "TERMINAL",
+        "eventProvenance": {
+          "D": null,
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ORPHAN_F",
+        "generation": null,
+        "eligibility": {
+          "state": "INCOMPLETE_ORPHAN",
+          "localPolicy": null,
+          "sealRefusal": null
+        },
+        "invalidation": null,
+        "decision": "CLOSEOUT_NO_SEAL",
+        "status": "NO_ACQUISITION",
+        "stage": "association",
+        "reason": "MISSING_D",
+        "counts": {
+          "publications": 1,
+          "queries": 1,
+          "events": 1,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 0,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": null,
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "TERMINAL_QUALIFIED",
+          "metadataTerminal": {
+            "bind": "NATIVE_TERMINAL"
+          },
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "QUALIFIED",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N02/expectedByBackend/RUST",
+        "meaning": "SOURCE_CANDIDATE_PENDING_ACTUAL_QUALIFICATION"
+      },
+      "terminalRequired": true,
+      "expectedTerminal": {
+        "schema": "n02316-terminal-v1",
+        "cellId": "N02-RS-RUST",
+        "windowId": "W-N02-RS-RUST",
+        "stepId": "N02-S02",
+        "wireTerminals": {
+          "D": null,
+          "F": {
+            "bind": "WIRE_F_RECEIPT"
+          }
+        },
+        "metadataTerminal": {
+          "bind": "NATIVE_TERMINAL"
+        },
+        "localPolicy": null,
+        "sealRefusal": null,
+        "noCall": {
+          "generations": 0,
+          "reservations": 0,
+          "httpsListeners": 0,
+          "httpsServers": 0,
+          "acquisitionClients": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerCalls": 0,
+          "browserLaunches": 0,
+          "originalReleases": 0
+        },
+        "cleanupQualified": true,
+        "sourceCurrent": true,
+        "inputsCurrent": true,
+        "evidenceComplete": true
+      }
+    },
+    {
+      "cellId": "N03-SF",
+      "windowId": "W-N03-SF",
+      "canonicalStepId": "N03-S01",
+      "expectedWhole": {
+        "stepId": "N03-S01",
+        "phase": "COLLECT",
+        "eventProvenance": {
+          "D": {
+            "bind": "RECEIVED_D"
+          },
+          "F": null
+        },
+        "metadataRecord": null,
+        "associationState": "D_RECEIVED_ONLY",
+        "generation": null,
+        "eligibility": {
+          "state": "INCOMPLETE_NOT_AUTHENTICATED",
+          "localPolicy": null,
+          "sealRefusal": null
+        },
+        "invalidation": null,
+        "decision": "RECEIVE_D",
+        "status": "RECEIVED",
+        "stage": "relay",
+        "reason": "D_RECEIVED_UNAUTHENTICATED",
+        "counts": {
+          "publications": 1,
+          "queries": 1,
+          "events": 1,
+          "metadataRequests": 0,
+          "metadataReplies": 0,
+          "dValidations": 0,
+          "fValidations": 0,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "wireF": null,
+          "metadataChannel": "NOT_STARTED",
+          "metadataTerminal": null,
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "NOT_STARTED",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": null,
+      "terminalRequired": false,
+      "expectedTerminal": null
+    },
+    {
+      "cellId": "N03-SF",
+      "windowId": "W-N03-SF",
+      "canonicalStepId": "N03-S02",
+      "expectedWhole": {
+        "stepId": "N03-S02",
+        "phase": "TERMINAL",
+        "eventProvenance": {
+          "D": {
+            "bind": "RECEIVED_D"
+          },
+          "F": null
+        },
+        "metadataRecord": null,
+        "associationState": "D_RECEIVED_ONLY",
+        "generation": null,
+        "eligibility": {
+          "state": "INCOMPLETE_NOT_AUTHENTICATED",
+          "localPolicy": null,
+          "sealRefusal": null
+        },
+        "invalidation": null,
+        "decision": "CLOSEOUT_NO_METADATA_NO_SEAL",
+        "status": "NO_ACQUISITION",
+        "stage": "association",
+        "reason": "MISSING_F",
+        "counts": {
+          "publications": 1,
+          "queries": 1,
+          "events": 1,
+          "metadataRequests": 0,
+          "metadataReplies": 0,
+          "dValidations": 0,
+          "fValidations": 0,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "wireF": null,
+          "metadataChannel": "NOT_STARTED",
+          "metadataTerminal": null,
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "NOT_STARTED",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": null,
+      "terminalRequired": true,
+      "expectedTerminal": {
+        "schema": "n02316-terminal-v1",
+        "cellId": "N03-SF",
+        "windowId": "W-N03-SF",
+        "stepId": "N03-S02",
+        "wireTerminals": {
+          "D": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "F": null
+        },
+        "metadataTerminal": null,
+        "localPolicy": null,
+        "sealRefusal": null,
+        "noCall": {
+          "generations": 0,
+          "reservations": 0,
+          "httpsListeners": 0,
+          "httpsServers": 0,
+          "acquisitionClients": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerCalls": 0,
+          "browserLaunches": 0,
+          "originalReleases": 0
+        },
+        "cleanupQualified": true,
+        "sourceCurrent": true,
+        "inputsCurrent": true,
+        "evidenceComplete": true
+      }
+    },
+    {
+      "cellId": "N03-RS",
+      "windowId": "W-N03-RS",
+      "canonicalStepId": "N03-S01",
+      "expectedWhole": {
+        "stepId": "N03-S01",
+        "phase": "COLLECT",
+        "eventProvenance": {
+          "D": {
+            "bind": "RECEIVED_D"
+          },
+          "F": null
+        },
+        "metadataRecord": null,
+        "associationState": "D_RECEIVED_ONLY",
+        "generation": null,
+        "eligibility": {
+          "state": "INCOMPLETE_NOT_AUTHENTICATED",
+          "localPolicy": null,
+          "sealRefusal": null
+        },
+        "invalidation": null,
+        "decision": "RECEIVE_D",
+        "status": "RECEIVED",
+        "stage": "relay",
+        "reason": "D_RECEIVED_UNAUTHENTICATED",
+        "counts": {
+          "publications": 1,
+          "queries": 1,
+          "events": 1,
+          "metadataRequests": 0,
+          "metadataReplies": 0,
+          "dValidations": 0,
+          "fValidations": 0,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "wireF": null,
+          "metadataChannel": "NOT_STARTED",
+          "metadataTerminal": null,
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "NOT_STARTED",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": null,
+      "terminalRequired": false,
+      "expectedTerminal": null
+    },
+    {
+      "cellId": "N03-RS",
+      "windowId": "W-N03-RS",
+      "canonicalStepId": "N03-S02",
+      "expectedWhole": {
+        "stepId": "N03-S02",
+        "phase": "TERMINAL",
+        "eventProvenance": {
+          "D": {
+            "bind": "RECEIVED_D"
+          },
+          "F": null
+        },
+        "metadataRecord": null,
+        "associationState": "D_RECEIVED_ONLY",
+        "generation": null,
+        "eligibility": {
+          "state": "INCOMPLETE_NOT_AUTHENTICATED",
+          "localPolicy": null,
+          "sealRefusal": null
+        },
+        "invalidation": null,
+        "decision": "CLOSEOUT_NO_METADATA_NO_SEAL",
+        "status": "NO_ACQUISITION",
+        "stage": "association",
+        "reason": "MISSING_F",
+        "counts": {
+          "publications": 1,
+          "queries": 1,
+          "events": 1,
+          "metadataRequests": 0,
+          "metadataReplies": 0,
+          "dValidations": 0,
+          "fValidations": 0,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "wireF": null,
+          "metadataChannel": "NOT_STARTED",
+          "metadataTerminal": null,
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "NOT_STARTED",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": null,
+      "terminalRequired": true,
+      "expectedTerminal": {
+        "schema": "n02316-terminal-v1",
+        "cellId": "N03-RS",
+        "windowId": "W-N03-RS",
+        "stepId": "N03-S02",
+        "wireTerminals": {
+          "D": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "F": null
+        },
+        "metadataTerminal": null,
+        "localPolicy": null,
+        "sealRefusal": null,
+        "noCall": {
+          "generations": 0,
+          "reservations": 0,
+          "httpsListeners": 0,
+          "httpsServers": 0,
+          "acquisitionClients": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerCalls": 0,
+          "browserLaunches": 0,
+          "originalReleases": 0
+        },
+        "cleanupQualified": true,
+        "sourceCurrent": true,
+        "inputsCurrent": true,
+        "evidenceComplete": true
+      }
+    },
+    {
+      "cellId": "N16-SF-JS",
+      "windowId": "W-N16-SF-JS",
+      "canonicalStepId": "N16-S01",
+      "expectedWhole": {
+        "stepId": "N16-S01",
+        "phase": "COLLECT",
+        "eventProvenance": {
+          "D": {
+            "bind": "RECEIVED_D"
+          },
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ONE_CANONICAL_F",
+        "generation": null,
+        "eligibility": {
+          "state": "AUTHENTICATED_POLICY_UNDECIDED",
+          "localPolicy": null,
+          "sealRefusal": null
+        },
+        "invalidation": null,
+        "decision": "D_F_AUTH",
+        "status": "AUTHENTICATED",
+        "stage": "metadata",
+        "reason": "D_F_AUTHENTICATED",
+        "counts": {
+          "publications": 2,
+          "queries": 2,
+          "events": 2,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 1,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "ALIVE_QUIESCENT",
+          "metadataTerminal": null,
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "ALIVE_QUIESCENT",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/JS",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "terminalRequired": false,
+      "expectedTerminal": null
+    },
+    {
+      "cellId": "N16-SF-JS",
+      "windowId": "W-N16-SF-JS",
+      "canonicalStepId": "N16-S02",
+      "expectedWhole": {
+        "stepId": "N16-S02",
+        "phase": "HELD",
+        "eventProvenance": {
+          "D": {
+            "bind": "RECEIVED_D"
+          },
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ONE_CANONICAL_F",
+        "generation": null,
+        "eligibility": {
+          "state": "DENIED",
+          "localPolicy": {
+            "bind": "LOCAL_POLICY"
+          },
+          "sealRefusal": null
+        },
+        "invalidation": null,
+        "decision": "DENY_PERMISSION",
+        "status": "LOCAL_REFUSAL",
+        "stage": "policy",
+        "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+        "counts": {
+          "publications": 2,
+          "queries": 2,
+          "events": 2,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 1,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "ALIVE_QUIESCENT",
+          "metadataTerminal": null,
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "ALIVE_QUIESCENT",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/JS",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "terminalRequired": false,
+      "expectedTerminal": null
+    },
+    {
+      "cellId": "N16-SF-JS",
+      "windowId": "W-N16-SF-JS",
+      "canonicalStepId": "N16-S03",
+      "expectedWhole": {
+        "stepId": "N16-S03",
+        "phase": "HELD",
+        "eventProvenance": {
+          "D": {
+            "bind": "RECEIVED_D"
+          },
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ONE_CANONICAL_F",
+        "generation": null,
+        "eligibility": {
+          "state": "DENIED",
+          "localPolicy": {
+            "bind": "LOCAL_POLICY"
+          },
+          "sealRefusal": {
+            "bind": "SEAL_REFUSAL"
+          }
+        },
+        "invalidation": null,
+        "decision": "SEAL_REFUSED",
+        "status": "SEAL_REFUSED",
+        "stage": "policy",
+        "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+        "counts": {
+          "publications": 2,
+          "queries": 2,
+          "events": 2,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 1,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "ALIVE_QUIESCENT",
+          "metadataTerminal": null,
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "ALIVE_QUIESCENT",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/JS",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "terminalRequired": false,
+      "expectedTerminal": null
+    },
+    {
+      "cellId": "N16-SF-JS",
+      "windowId": "W-N16-SF-JS",
+      "canonicalStepId": "N16-S04",
+      "expectedWhole": {
+        "stepId": "N16-S04",
+        "phase": "TERMINAL",
+        "eventProvenance": {
+          "D": {
+            "bind": "RECEIVED_D"
+          },
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ONE_CANONICAL_F",
+        "generation": null,
+        "eligibility": {
+          "state": "DENIED",
+          "localPolicy": {
+            "bind": "LOCAL_POLICY"
+          },
+          "sealRefusal": {
+            "bind": "SEAL_REFUSAL"
+          }
+        },
+        "invalidation": null,
+        "decision": "CLOSEOUT",
+        "status": "NO_ACQUISITION",
+        "stage": "policy",
+        "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+        "counts": {
+          "publications": 2,
+          "queries": 2,
+          "events": 2,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 1,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "TERMINAL_QUALIFIED",
+          "metadataTerminal": {
+            "bind": "NATIVE_TERMINAL"
+          },
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "QUALIFIED",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/JS",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "terminalRequired": true,
+      "expectedTerminal": {
+        "schema": "n02316-terminal-v1",
+        "cellId": "N16-SF-JS",
+        "windowId": "W-N16-SF-JS",
+        "stepId": "N16-S04",
+        "wireTerminals": {
+          "D": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "F": {
+            "bind": "WIRE_F_RECEIPT"
+          }
+        },
+        "metadataTerminal": {
+          "bind": "NATIVE_TERMINAL"
+        },
+        "localPolicy": {
+          "bind": "LOCAL_POLICY"
+        },
+        "sealRefusal": {
+          "bind": "SEAL_REFUSAL"
+        },
+        "noCall": {
+          "generations": 0,
+          "reservations": 0,
+          "httpsListeners": 0,
+          "httpsServers": 0,
+          "acquisitionClients": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerCalls": 0,
+          "browserLaunches": 0,
+          "originalReleases": 0
+        },
+        "cleanupQualified": true,
+        "sourceCurrent": true,
+        "inputsCurrent": true,
+        "evidenceComplete": true
+      }
+    },
+    {
+      "cellId": "N16-SF-RUST",
+      "windowId": "W-N16-SF-RUST",
+      "canonicalStepId": "N16-S01",
+      "expectedWhole": {
+        "stepId": "N16-S01",
+        "phase": "COLLECT",
+        "eventProvenance": {
+          "D": {
+            "bind": "RECEIVED_D"
+          },
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ONE_CANONICAL_F",
+        "generation": null,
+        "eligibility": {
+          "state": "AUTHENTICATED_POLICY_UNDECIDED",
+          "localPolicy": null,
+          "sealRefusal": null
+        },
+        "invalidation": null,
+        "decision": "D_F_AUTH",
+        "status": "AUTHENTICATED",
+        "stage": "metadata",
+        "reason": "D_F_AUTHENTICATED",
+        "counts": {
+          "publications": 2,
+          "queries": 2,
+          "events": 2,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 1,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "ALIVE_QUIESCENT",
+          "metadataTerminal": null,
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "ALIVE_QUIESCENT",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/RUST",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "terminalRequired": false,
+      "expectedTerminal": null
+    },
+    {
+      "cellId": "N16-SF-RUST",
+      "windowId": "W-N16-SF-RUST",
+      "canonicalStepId": "N16-S02",
+      "expectedWhole": {
+        "stepId": "N16-S02",
+        "phase": "HELD",
+        "eventProvenance": {
+          "D": {
+            "bind": "RECEIVED_D"
+          },
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ONE_CANONICAL_F",
+        "generation": null,
+        "eligibility": {
+          "state": "DENIED",
+          "localPolicy": {
+            "bind": "LOCAL_POLICY"
+          },
+          "sealRefusal": null
+        },
+        "invalidation": null,
+        "decision": "DENY_PERMISSION",
+        "status": "LOCAL_REFUSAL",
+        "stage": "policy",
+        "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+        "counts": {
+          "publications": 2,
+          "queries": 2,
+          "events": 2,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 1,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "ALIVE_QUIESCENT",
+          "metadataTerminal": null,
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "ALIVE_QUIESCENT",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/RUST",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "terminalRequired": false,
+      "expectedTerminal": null
+    },
+    {
+      "cellId": "N16-SF-RUST",
+      "windowId": "W-N16-SF-RUST",
+      "canonicalStepId": "N16-S03",
+      "expectedWhole": {
+        "stepId": "N16-S03",
+        "phase": "HELD",
+        "eventProvenance": {
+          "D": {
+            "bind": "RECEIVED_D"
+          },
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ONE_CANONICAL_F",
+        "generation": null,
+        "eligibility": {
+          "state": "DENIED",
+          "localPolicy": {
+            "bind": "LOCAL_POLICY"
+          },
+          "sealRefusal": {
+            "bind": "SEAL_REFUSAL"
+          }
+        },
+        "invalidation": null,
+        "decision": "SEAL_REFUSED",
+        "status": "SEAL_REFUSED",
+        "stage": "policy",
+        "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+        "counts": {
+          "publications": 2,
+          "queries": 2,
+          "events": 2,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 1,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "ALIVE_QUIESCENT",
+          "metadataTerminal": null,
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "ALIVE_QUIESCENT",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/RUST",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "terminalRequired": false,
+      "expectedTerminal": null
+    },
+    {
+      "cellId": "N16-SF-RUST",
+      "windowId": "W-N16-SF-RUST",
+      "canonicalStepId": "N16-S04",
+      "expectedWhole": {
+        "stepId": "N16-S04",
+        "phase": "TERMINAL",
+        "eventProvenance": {
+          "D": {
+            "bind": "RECEIVED_D"
+          },
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ONE_CANONICAL_F",
+        "generation": null,
+        "eligibility": {
+          "state": "DENIED",
+          "localPolicy": {
+            "bind": "LOCAL_POLICY"
+          },
+          "sealRefusal": {
+            "bind": "SEAL_REFUSAL"
+          }
+        },
+        "invalidation": null,
+        "decision": "CLOSEOUT",
+        "status": "NO_ACQUISITION",
+        "stage": "policy",
+        "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+        "counts": {
+          "publications": 2,
+          "queries": 2,
+          "events": 2,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 1,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "TERMINAL_QUALIFIED",
+          "metadataTerminal": {
+            "bind": "NATIVE_TERMINAL"
+          },
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "QUALIFIED",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/RUST",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "terminalRequired": true,
+      "expectedTerminal": {
+        "schema": "n02316-terminal-v1",
+        "cellId": "N16-SF-RUST",
+        "windowId": "W-N16-SF-RUST",
+        "stepId": "N16-S04",
+        "wireTerminals": {
+          "D": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "F": {
+            "bind": "WIRE_F_RECEIPT"
+          }
+        },
+        "metadataTerminal": {
+          "bind": "NATIVE_TERMINAL"
+        },
+        "localPolicy": {
+          "bind": "LOCAL_POLICY"
+        },
+        "sealRefusal": {
+          "bind": "SEAL_REFUSAL"
+        },
+        "noCall": {
+          "generations": 0,
+          "reservations": 0,
+          "httpsListeners": 0,
+          "httpsServers": 0,
+          "acquisitionClients": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerCalls": 0,
+          "browserLaunches": 0,
+          "originalReleases": 0
+        },
+        "cleanupQualified": true,
+        "sourceCurrent": true,
+        "inputsCurrent": true,
+        "evidenceComplete": true
+      }
+    },
+    {
+      "cellId": "N16-RS-JS",
+      "windowId": "W-N16-RS-JS",
+      "canonicalStepId": "N16-S01",
+      "expectedWhole": {
+        "stepId": "N16-S01",
+        "phase": "COLLECT",
+        "eventProvenance": {
+          "D": {
+            "bind": "RECEIVED_D"
+          },
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ONE_CANONICAL_F",
+        "generation": null,
+        "eligibility": {
+          "state": "AUTHENTICATED_POLICY_UNDECIDED",
+          "localPolicy": null,
+          "sealRefusal": null
+        },
+        "invalidation": null,
+        "decision": "D_F_AUTH",
+        "status": "AUTHENTICATED",
+        "stage": "metadata",
+        "reason": "D_F_AUTHENTICATED",
+        "counts": {
+          "publications": 2,
+          "queries": 2,
+          "events": 2,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 1,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "ALIVE_QUIESCENT",
+          "metadataTerminal": null,
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "ALIVE_QUIESCENT",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/JS",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "terminalRequired": false,
+      "expectedTerminal": null
+    },
+    {
+      "cellId": "N16-RS-JS",
+      "windowId": "W-N16-RS-JS",
+      "canonicalStepId": "N16-S02",
+      "expectedWhole": {
+        "stepId": "N16-S02",
+        "phase": "HELD",
+        "eventProvenance": {
+          "D": {
+            "bind": "RECEIVED_D"
+          },
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ONE_CANONICAL_F",
+        "generation": null,
+        "eligibility": {
+          "state": "DENIED",
+          "localPolicy": {
+            "bind": "LOCAL_POLICY"
+          },
+          "sealRefusal": null
+        },
+        "invalidation": null,
+        "decision": "DENY_PERMISSION",
+        "status": "LOCAL_REFUSAL",
+        "stage": "policy",
+        "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+        "counts": {
+          "publications": 2,
+          "queries": 2,
+          "events": 2,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 1,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "ALIVE_QUIESCENT",
+          "metadataTerminal": null,
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "ALIVE_QUIESCENT",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/JS",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "terminalRequired": false,
+      "expectedTerminal": null
+    },
+    {
+      "cellId": "N16-RS-JS",
+      "windowId": "W-N16-RS-JS",
+      "canonicalStepId": "N16-S03",
+      "expectedWhole": {
+        "stepId": "N16-S03",
+        "phase": "HELD",
+        "eventProvenance": {
+          "D": {
+            "bind": "RECEIVED_D"
+          },
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ONE_CANONICAL_F",
+        "generation": null,
+        "eligibility": {
+          "state": "DENIED",
+          "localPolicy": {
+            "bind": "LOCAL_POLICY"
+          },
+          "sealRefusal": {
+            "bind": "SEAL_REFUSAL"
+          }
+        },
+        "invalidation": null,
+        "decision": "SEAL_REFUSED",
+        "status": "SEAL_REFUSED",
+        "stage": "policy",
+        "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+        "counts": {
+          "publications": 2,
+          "queries": 2,
+          "events": 2,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 1,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "ALIVE_QUIESCENT",
+          "metadataTerminal": null,
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "ALIVE_QUIESCENT",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/JS",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "terminalRequired": false,
+      "expectedTerminal": null
+    },
+    {
+      "cellId": "N16-RS-JS",
+      "windowId": "W-N16-RS-JS",
+      "canonicalStepId": "N16-S04",
+      "expectedWhole": {
+        "stepId": "N16-S04",
+        "phase": "TERMINAL",
+        "eventProvenance": {
+          "D": {
+            "bind": "RECEIVED_D"
+          },
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ONE_CANONICAL_F",
+        "generation": null,
+        "eligibility": {
+          "state": "DENIED",
+          "localPolicy": {
+            "bind": "LOCAL_POLICY"
+          },
+          "sealRefusal": {
+            "bind": "SEAL_REFUSAL"
+          }
+        },
+        "invalidation": null,
+        "decision": "CLOSEOUT",
+        "status": "NO_ACQUISITION",
+        "stage": "policy",
+        "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+        "counts": {
+          "publications": 2,
+          "queries": 2,
+          "events": 2,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 1,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "TERMINAL_QUALIFIED",
+          "metadataTerminal": {
+            "bind": "NATIVE_TERMINAL"
+          },
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "QUALIFIED",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/JS",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "terminalRequired": true,
+      "expectedTerminal": {
+        "schema": "n02316-terminal-v1",
+        "cellId": "N16-RS-JS",
+        "windowId": "W-N16-RS-JS",
+        "stepId": "N16-S04",
+        "wireTerminals": {
+          "D": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "F": {
+            "bind": "WIRE_F_RECEIPT"
+          }
+        },
+        "metadataTerminal": {
+          "bind": "NATIVE_TERMINAL"
+        },
+        "localPolicy": {
+          "bind": "LOCAL_POLICY"
+        },
+        "sealRefusal": {
+          "bind": "SEAL_REFUSAL"
+        },
+        "noCall": {
+          "generations": 0,
+          "reservations": 0,
+          "httpsListeners": 0,
+          "httpsServers": 0,
+          "acquisitionClients": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerCalls": 0,
+          "browserLaunches": 0,
+          "originalReleases": 0
+        },
+        "cleanupQualified": true,
+        "sourceCurrent": true,
+        "inputsCurrent": true,
+        "evidenceComplete": true
+      }
+    },
+    {
+      "cellId": "N16-RS-RUST",
+      "windowId": "W-N16-RS-RUST",
+      "canonicalStepId": "N16-S01",
+      "expectedWhole": {
+        "stepId": "N16-S01",
+        "phase": "COLLECT",
+        "eventProvenance": {
+          "D": {
+            "bind": "RECEIVED_D"
+          },
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ONE_CANONICAL_F",
+        "generation": null,
+        "eligibility": {
+          "state": "AUTHENTICATED_POLICY_UNDECIDED",
+          "localPolicy": null,
+          "sealRefusal": null
+        },
+        "invalidation": null,
+        "decision": "D_F_AUTH",
+        "status": "AUTHENTICATED",
+        "stage": "metadata",
+        "reason": "D_F_AUTHENTICATED",
+        "counts": {
+          "publications": 2,
+          "queries": 2,
+          "events": 2,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 1,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "ALIVE_QUIESCENT",
+          "metadataTerminal": null,
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "ALIVE_QUIESCENT",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/RUST",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "terminalRequired": false,
+      "expectedTerminal": null
+    },
+    {
+      "cellId": "N16-RS-RUST",
+      "windowId": "W-N16-RS-RUST",
+      "canonicalStepId": "N16-S02",
+      "expectedWhole": {
+        "stepId": "N16-S02",
+        "phase": "HELD",
+        "eventProvenance": {
+          "D": {
+            "bind": "RECEIVED_D"
+          },
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ONE_CANONICAL_F",
+        "generation": null,
+        "eligibility": {
+          "state": "DENIED",
+          "localPolicy": {
+            "bind": "LOCAL_POLICY"
+          },
+          "sealRefusal": null
+        },
+        "invalidation": null,
+        "decision": "DENY_PERMISSION",
+        "status": "LOCAL_REFUSAL",
+        "stage": "policy",
+        "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+        "counts": {
+          "publications": 2,
+          "queries": 2,
+          "events": 2,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 1,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "ALIVE_QUIESCENT",
+          "metadataTerminal": null,
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "ALIVE_QUIESCENT",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/RUST",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "terminalRequired": false,
+      "expectedTerminal": null
+    },
+    {
+      "cellId": "N16-RS-RUST",
+      "windowId": "W-N16-RS-RUST",
+      "canonicalStepId": "N16-S03",
+      "expectedWhole": {
+        "stepId": "N16-S03",
+        "phase": "HELD",
+        "eventProvenance": {
+          "D": {
+            "bind": "RECEIVED_D"
+          },
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ONE_CANONICAL_F",
+        "generation": null,
+        "eligibility": {
+          "state": "DENIED",
+          "localPolicy": {
+            "bind": "LOCAL_POLICY"
+          },
+          "sealRefusal": {
+            "bind": "SEAL_REFUSAL"
+          }
+        },
+        "invalidation": null,
+        "decision": "SEAL_REFUSED",
+        "status": "SEAL_REFUSED",
+        "stage": "policy",
+        "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+        "counts": {
+          "publications": 2,
+          "queries": 2,
+          "events": 2,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 1,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "ALIVE_QUIESCENT",
+          "metadataTerminal": null,
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "ALIVE_QUIESCENT",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/RUST",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "terminalRequired": false,
+      "expectedTerminal": null
+    },
+    {
+      "cellId": "N16-RS-RUST",
+      "windowId": "W-N16-RS-RUST",
+      "canonicalStepId": "N16-S04",
+      "expectedWhole": {
+        "stepId": "N16-S04",
+        "phase": "TERMINAL",
+        "eventProvenance": {
+          "D": {
+            "bind": "RECEIVED_D"
+          },
+          "F": {
+            "bind": "RECEIVED_F"
+          }
+        },
+        "metadataRecord": {
+          "bind": "NATIVE_CALL"
+        },
+        "associationState": "ONE_CANONICAL_F",
+        "generation": null,
+        "eligibility": {
+          "state": "DENIED",
+          "localPolicy": {
+            "bind": "LOCAL_POLICY"
+          },
+          "sealRefusal": {
+            "bind": "SEAL_REFUSAL"
+          }
+        },
+        "invalidation": null,
+        "decision": "CLOSEOUT",
+        "status": "NO_ACQUISITION",
+        "stage": "policy",
+        "reason": "LOCAL_ACQUISITION_PERMISSION_DENIED",
+        "counts": {
+          "publications": 2,
+          "queries": 2,
+          "events": 2,
+          "metadataRequests": 1,
+          "metadataReplies": 1,
+          "dValidations": 1,
+          "fValidations": 1,
+          "attemptReservations": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerAttempts": 0,
+          "attachmentEncryptions": 0,
+          "publicReleases": 0
+        },
+        "snapshot": null,
+        "nativeConsumerRecord": null,
+        "originalHex": null,
+        "originalReleased": false,
+        "receiptsEmitted": false,
+        "businessEffects": 0,
+        "lifecycle": {
+          "wireD": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "wireF": {
+            "bind": "WIRE_F_RECEIPT"
+          },
+          "metadataChannel": "TERMINAL_QUALIFIED",
+          "metadataTerminal": {
+            "bind": "NATIVE_TERMINAL"
+          },
+          "caseHostPID": {
+            "bind": "CASE_PID"
+          },
+          "caseOuterReap": null
+        },
+        "cleanup": {
+          "relayWireChildren": "QUALIFIED",
+          "https": "NOT_STARTED",
+          "consumer": "NOT_STARTED",
+          "metadata": "QUALIFIED",
+          "problems": []
+        },
+        "integrity": {
+          "sourceCurrent": true,
+          "inputsCurrent": true,
+          "evidenceComplete": true
+        },
+        "limitations": "FINITE_NEGATIVE_LAB_NO_ACQUISITION_NO_RECEIPT_NO_BUSINESS_EFFECTS_NO_GLOBAL_FINALITY_NO_WHOLE_E06_CLAIM"
+      },
+      "expectedWholeNative": {
+        "file": "native-oracles.json",
+        "jsonPointer": "/N16/pairedExpected/RUST",
+        "meaning": "IMMUTABLE_ACCEPTED_PAIRED_EXPECTED_DESCRIPTOR"
+      },
+      "terminalRequired": true,
+      "expectedTerminal": {
+        "schema": "n02316-terminal-v1",
+        "cellId": "N16-RS-RUST",
+        "windowId": "W-N16-RS-RUST",
+        "stepId": "N16-S04",
+        "wireTerminals": {
+          "D": {
+            "bind": "WIRE_D_RECEIPT"
+          },
+          "F": {
+            "bind": "WIRE_F_RECEIPT"
+          }
+        },
+        "metadataTerminal": {
+          "bind": "NATIVE_TERMINAL"
+        },
+        "localPolicy": {
+          "bind": "LOCAL_POLICY"
+        },
+        "sealRefusal": {
+          "bind": "SEAL_REFUSAL"
+        },
+        "noCall": {
+          "generations": 0,
+          "reservations": 0,
+          "httpsListeners": 0,
+          "httpsServers": 0,
+          "acquisitionClients": 0,
+          "acquisitionConnections": 0,
+          "httpGets": 0,
+          "receivedEntityBytes": 0,
+          "consumerCalls": 0,
+          "browserLaunches": 0,
+          "originalReleases": 0
+        },
+        "cleanupQualified": true,
+        "sourceCurrent": true,
+        "inputsCurrent": true,
+        "evidenceComplete": true
+      }
+    }
+  ],
+  "denominator": {
+    "windows": 10,
+    "wholeSteps": 28,
+    "wireJobs": 14,
+    "nativeRequests": 8,
+    "nativeReplies": 8,
+    "dValidations": 4,
+    "fValidations": 8
+  },
+  "failureRules": {
+    "boundaryVocabulary": {
+      "phase": "UNQUALIFIED",
+      "status": "UNQUALIFIED",
+      "eligibilityState": "UNKNOWN",
+      "stageReasonPairs": [
+        {
+          "stage": "admission",
+          "reason": "ADMISSION_REFUSED"
+        },
+        {
+          "stage": "relay",
+          "reason": "RELAY_CAPTURE_UNQUALIFIED"
+        },
+        {
+          "stage": "metadata",
+          "reason": "NATIVE_CAPTURE_OR_AUTH_UNQUALIFIED"
+        },
+        {
+          "stage": "policy",
+          "reason": "POLICY_OR_SEAL_RECORD_UNQUALIFIED"
+        },
+        {
+          "stage": "lifecycle",
+          "reason": "OWNED_LIFECYCLE_UNQUALIFIED"
+        },
+        {
+          "stage": "cleanup",
+          "reason": "OWNED_CLEANUP_UNQUALIFIED"
+        },
+        {
+          "stage": "integrity",
+          "reason": "SOURCE_OR_INPUT_DRIFT"
+        },
+        {
+          "stage": "budget",
+          "reason": "DEADLINE_OR_BUDGET"
+        }
+      ],
+      "rule": "Exact earliest observed boundary retained with raw primary error; secondary cleanup/capture errors separate. No generic error/nonzero exit is an expected qualified refusal. Later steps NOT_EXECUTED/EARLIER_FAILURE, never synthetic completion."
+    },
+    "knownAbsentVersusUnknown": "Literal zero applies only to observed verified no-entry paths. Attempted/partially observed work remains null; preserve prior measured facts. Unknown cannot match a qualified negative.",
+    "preservation": "Retain earliest primary error, raw partial outputs, earlier step records and separate bounded secondary cleanup/capture errors. Remaining steps NOT_EXECUTED/EARLIER_FAILURE. No arbitrary nonzero exit or substring matches a qualified negative.",
+    "disclosure": "No selected branch releases original bytes; all captured public original fields stay null/false. If a forbidden effect nevertheless occurs, retain actual counters/evidence, mark UNQUALIFIED and never overwrite it with oracle zero."
+  },
+  "mandatoryJoins": [
+    "ExactNlane/cell/window/order/source/input/configuration/release/role/session; positivepair prerequisite and later realFonlyoraclequalification before any dependenttargetimports.",
+    "All14wirejobs own full sixframe publication/ACK/REQ/EVENT/EOSE/CLOSE sequence, Close1000/emptyreason and retained EVENT object byte span. Whole signed event equals fixed selected wire; native request fields use actual spans, never reserialized fixture substitutes.",
+    "N02 has literal nullD and one actualF-only native request/reply: full13keys and every nested value match selected SOURCEexpected only after separateactualnativequalification. N03 has NO native child/request/reply/handle/authfact; receivedD is not authenticatedD.",
+    "N16 first genuine pairednativeCORRELATED full13key object and canonicalD/F/scope/parentjoins, then samecase localDENY, then exact ownedserialsealrefusal specificallybythatDENY; no generation or reservation minted.",
+    "Each applicable case retains one actualpersistent child, one request/reply, no extra pendingoutput, rawreply retainedbeforelaterparse/auth/currentintegrityfailure; same tool/argv/env/ownedPID join acrosslaunch/response/terminal.",
+    "Each descriptor binding resolves a current canonical regular owned artifact with exactbytes/hash and declared closedrecord, same admittedcontext/cell/window/slot. Stable bindings retain one exactdescriptor throughlatersteps; no caller authority from JSON or forged handles.",
+    "CASE_PID positive actual ownprocessPID equals independentparent ownedcase childPID. Null is UNKNOWN and cannot satisfy qualifiednegative; toolhostouterPID/reap remain separatelyunknown.",
+    "Atfinal step close nativeinputonce naturally exit0/reap/bothEOF/unforced/noerrors/empty stderr/exactfull request/reply/noextraoutput (N03nativeNOT_STARTED). Wirechildren alreadyterminal; explicitnosealterminal no-call ledger and all currentintegrity/cleanupjoins before finalpublication.",
+    "Allcase replies have exactly12keys. STEP_RECORDS resolves the complete actual own scheduled step descriptor array, exactcell-selected length/order; FINAL_STEP_RECORD resolves exactly its last member and each record fullymatches its23keyoracle. terminal resolves actualclosedterminalrecord. No summary keys, fabricated descriptors or caller-bindingdictionary are runtime payloads.",
+    "No HTTPS listener/server/client, native attachmentdecrypt/consumer/browser/generation/reservation/originalrelease effects; actual samecontext entryledger/sourcechecks required for allno-call zeros, not globalhost attestations."
+  ],
+  "limits": [
+    "Data-only checker expectations, not actualnative evidence, implementation, helper execution, or experiment release.",
+    "Canonicalstep IDs repeat acrossrelay/backend cells; implicitcell identity is mandatory in everyoracle/binding/recordpath, so crosscell substitution refuses.",
+    "Current I4 remains immutable. No nativeRC row/other16LABN/wholeE06/Q/G1/SDK/businessapproval/payment/durability/globalfinality/FS claim."
+  ],
+  "nativeReferenceSemantics": {
+    "N02": "Exact selected native-oracles.json JSON pointer resolves complete13-key candidateobject; actual independent qualification of samecandidatehash required beforetargetrelease.",
+    "N16": "Exact selected native-oracles.json JSON pointer resolves descriptor of unchangedpairedexpected; checked bytes parsed as complete13-key expectedobject. No heuristic/arbitrary recursive dereferencing.",
+    "N03": "Explicit null. No nativeexpected/request/child/metadatarecord is manufactured."
+  },
+  "dataBindings": {
+    "contract.json": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/contract.json",
+      "bytes": 22787,
+      "sha256": "5208c3bbfd1dea75577c90c0bdea49b9410ac4163e09ca5d09af8d7702196d13"
+    },
+    "selection-map.json": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/selection-map.json",
+      "bytes": 32883,
+      "sha256": "d66ec8cf79b9d572eb0268a307ed782047a9cb897a65de83b6b00f430fa6cf09"
+    },
+    "profile.json": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/profile.json",
+      "bytes": 4442,
+      "sha256": "c7167a764d562e6878b8ba35535c8938c4c04a836bd25cea1aeb396f9e8d9bae"
+    },
+    "interfaces.md": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/interfaces.md",
+      "bytes": 14702,
+      "sha256": "c04ae8e852b096403c865a6daf22c45eed071dc5248035cea0954762da925af7"
+    },
+    "native-oracles.json": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/native-oracles.json",
+      "bytes": 27629,
+      "sha256": "12a508cc4060ad920ebcba0aeb0c23f5b7de7c311aaeec575cb4bf5f0ad28a2a"
+    },
+    "bridge-schemas.json": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/bridge-schemas.json",
+      "bytes": 158719,
+      "sha256": "89173066418eddd16f1d2a14ecee4b04470072385c1883aab48a01dd6e41281a"
+    },
+    "worker-schemas.json": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/worker-schemas.json",
+      "bytes": 101686,
+      "sha256": "f6578bba812f4859e853c34c95ce1f4dad6f2363af6bf6b899b4d5684fbe74f5"
+    }
+  }
+}

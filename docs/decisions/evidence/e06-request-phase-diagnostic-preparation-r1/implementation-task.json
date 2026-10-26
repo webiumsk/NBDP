@@ -1,0 +1,99 @@
+{
+  "schema": "e06-request-phase-observation-implementation-task-v1",
+  "state": "PLAN_ONLY_NOT_IMPLEMENTED_NOT_EXECUTED_NOT_RELEASED",
+  "scope": "DIAGNOSTIC_REAL_REQUEST_PHASE_ONLY",
+  "ownerRole": "implementer",
+  "authorsForFutureCore": [
+    "/root",
+    "/root/e06_local_configuration",
+    "/root/local_monitor_controls",
+    "future material source author if assigned"
+  ],
+  "allowedPreparationFiles": [
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-preparation-r1/worker-config.json",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-preparation-r1/configuration-core.json",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-preparation-r1/materialization-diff.json",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-preparation-r1/whole-core-subject.json"
+  ],
+  "allowedExecutionFiles": [
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-execution-r1/configuration-qa-review.json",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-execution-r1/configuration-security-review.json",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-execution-r1/configuration-approval.json",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-execution-r1/qualification-config.json",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-execution-r1/workflow-prerequisites.json",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-execution-r1/monitor.py",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-execution-r1/monitor-subject.json",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-execution-r1/observer.py",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-execution-r1/observer-configuration.json",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-execution-r1/test_observer.py",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-execution-r1/observer-subject.json",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-execution-r1/exact-root-local-release.json",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-execution-r1/exact-root-observation-release.json"
+  ],
+  "rootOwnedFutureRecords": [
+    "actual review transcriptions",
+    "configuration approval",
+    "fresh LOCAL release",
+    "fresh observation release",
+    "project state/roadmap/Git"
+  ],
+  "proposedRunId": "0f7c2a38d95b",
+  "proposedRole": "primary",
+  "proposedExecutionSession": "/root",
+  "proposedNativeOutput": "/tmp/e6n-fonly-primary-0f7c2a38d95b",
+  "futureOutputAbsentAtPlanning": true,
+  "futureExecutionDirectoryAbsentAtPlanning": true,
+  "freshBindingProducer": "Unchanged admitted qualification.py run_local(), runtime only; no prepared binding.",
+  "workerSemanticDelta": [
+    "runId",
+    "outputRoot",
+    "jobs[0].output",
+    "jobs[1].output"
+  ],
+  "wholeCoreDelta": [
+    "runId",
+    "workerConfig descriptor"
+  ],
+  "protocolSource449ChangesAllowed": false,
+  "fixedNativeSchedule": [
+    "Q-JS",
+    "Q-RUST"
+  ],
+  "request": {
+    "bytes": 6276,
+    "sha256": "dc586e609758fb6656c76ab5698985b9620d91e1852c8abfb85b2aaf9da636b0"
+  },
+  "expectedWholeReplyFields": 13,
+  "existingAdmissionAndCustodyMandatory": true,
+  "HOSTContextMandatory": true,
+  "unchangedBudgetsSeconds": {
+    "combinedRequestWriteReply": 15,
+    "nativeJob": 240,
+    "LOCAL": 1500,
+    "outer": 1800,
+    "outerCleanupReserve": 30
+  },
+  "observerCaps": {
+    "trace": 16777216,
+    "stdout": 65536,
+    "stderr": 262144
+  },
+  "observerFreshAuthorizationSeparateFromLocalRelease": true,
+  "implementationReason": "External tracer and third stream change ownership/capture boundaries; cannot claim unchanged lifecycle reuse before new source review.",
+  "requiredMeaningfulControls": [
+    "Natural owned-descendant completion and whole bounded capture",
+    "Trace/stdout/stderr overflow with retained cap and first error",
+    "Partial positive write and persisted-prefix exception with poisoned stream and exact final raw counts",
+    "Timeout/interrupt cleanup under held WNOWAIT, no postreap signal",
+    "Tracee separate-session/uncertain cleanup stays unqualified",
+    "Fresh config/grant/owned600 and HOST namespace mismatch refusals without workload bypass"
+  ],
+  "stopOnFirstFailedInvocation": true,
+  "noAutomaticRetry": true,
+  "noDeadlineOrClockOriginChange": true,
+  "noPrewarmingOrSourceOptimization": true,
+  "workloadsExecuted": 0,
+  "sourceCodeCreated": false,
+  "grantsCreated": false,
+  "approvalsCreated": false
+}

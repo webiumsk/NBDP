@@ -1,0 +1,70 @@
+{
+  "schema": "n02316-local-configuration-approval-v1",
+  "decision": "ACCEPT_CONFIGURATION_ONLY",
+  "configuration": {
+    "candidate": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e06_relay_https_negative_v1/native-oracles.json",
+      "bytes": 27629,
+      "sha256": "12a508cc4060ad920ebcba0aeb0c23f5b7de7c311aaeec575cb4bf5f0ad28a2a"
+    },
+    "expectedReplies": {
+      "JS": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/JS.expected.json",
+        "bytes": 1477,
+        "sha256": "70d6b37cefa44a237a4ba94cdff6745db57222dc79bdbced0979e64c360f363d"
+      },
+      "RUST": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/invoice-authenticated-carrier/e06-https-acquisition-preparation-r1/composition-negative-native-inputs-r2/RUST.expected.json",
+        "bytes": 1499,
+        "sha256": "2c3812c2097bdbb7db69dfc1575a0400f64ef67c47ecc2de46177cc8acfdac3a"
+      }
+    },
+    "runId": "0f7c2a38d95b",
+    "runRole": "primary",
+    "executionSession": "/root",
+    "schema": "n02316-local-qualification-config-v1",
+    "workerConfig": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-preparation-r3/worker-config.json",
+      "bytes": 114239,
+      "sha256": "7982491670f2ee6041620edb94a3bbec7c672cc85287bad863974a9ac58b0b58"
+    },
+    "sourceApproval": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-approval.json",
+      "bytes": 107717,
+      "sha256": "e3e41bb6bae55d80702f9002cc99c72ad3a6345405a5043d3123dcafcbea685e"
+    },
+    "controlAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/control-approval.json",
+      "bytes": 1488,
+      "sha256": "c2c6d2b97ba4f25dbbb9074c079cd3ad29cbf9fa23aac709b31a97a273c0f5ee"
+    },
+    "primaryAcceptance": null
+  },
+  "authors": [
+    "/root",
+    "/root/e06_local_configuration",
+    "/root/local_monitor_controls"
+  ],
+  "reviews": [
+    {
+      "role": "qa",
+      "session": "/root/transport_evidence_qa",
+      "decision": "ACCEPT_CONFIGURATION_ONLY",
+      "subject": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-preparation-r3/configuration-core.json",
+        "bytes": 1864,
+        "sha256": "9aa6c08e2ac57986537e612b134a1225e6d2a4ecfdda589309ad7ce375be5707"
+      }
+    },
+    {
+      "role": "security",
+      "session": "/root/attachment_profile_security",
+      "decision": "ACCEPT_CONFIGURATION_ONLY",
+      "subject": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-local-fonly-primary-preparation-r3/configuration-core.json",
+        "bytes": 1864,
+        "sha256": "9aa6c08e2ac57986537e612b134a1225e6d2a4ecfdda589309ad7ce375be5707"
+      }
+    }
+  ]
+}

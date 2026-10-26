@@ -1,0 +1,37 @@
+{
+  "schema": "e06-source3-remediation-delta-v1",
+  "oldWholeSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-request-phase-diagnostic-source-r2/subject.json",
+    "bytes": 15159,
+    "sha256": "cad7f6db25726a6c258f7c79aae90a7329e51d9746fc3eecb6fbb9ef80712d1e"
+  },
+  "oldContainmentSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-strace-containment-controls-r1/subject.json",
+    "bytes": 3135,
+    "sha256": "6889586a9925eaa6ce15a15794a840da3b7cd1842bae5caeccff59afd73b0c4d"
+  },
+  "changedPriorObserverFunctions": [
+    "admission",
+    "require_containment_acceptance"
+  ],
+  "newObserverFunctions": [
+    "require_whole_pure_receipts",
+    "validate_guard_regression_acceptance"
+  ],
+  "captureAstUnchanged": true,
+  "snapshotPathsAstUnchanged": true,
+  "test13BytesUnchanged": true,
+  "test3BytesUnchanged": true,
+  "wholeCurrentObserverHelperSourceRequired": true,
+  "newGuardModelsDefined": 11,
+  "newAdmissionDataDefined": 14,
+  "scope": "SOURCE_ONLY_NO_EXECUTION",
+  "productionTimersUnchanged": {
+    "outer": 1800,
+    "active": 1770,
+    "cleanup": 30,
+    "nativeCombinedWriteReply": 15,
+    "nativeJob": 240,
+    "LOCAL": 1500
+  }
+}

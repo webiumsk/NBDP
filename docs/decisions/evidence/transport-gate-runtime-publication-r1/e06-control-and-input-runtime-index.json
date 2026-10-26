@@ -1,0 +1,2805 @@
+{
+  "schema": "nbdp-bounded-supplement-publication-v1",
+  "scope": "e06-control-and-input-runtime",
+  "archive": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/transport-gate-runtime-publication-r1/e06-control-and-input-runtime.tar.gz",
+    "bytes": 833975,
+    "sha256": "3ac42a91c129b27369168ebb55eb58f5e71634a8c15613194220998905e886ed"
+  },
+  "roots": [
+    "docs/decisions/evidence/e06-policy-marker-remediation-r1",
+    "docs/decisions/evidence/e06-qualification-inventory-refresh-r1",
+    "docs/decisions/evidence/e06-qualification-current-source-r1",
+    "docs/decisions/evidence/e06-qualification-current-source-r2",
+    "docs/decisions/evidence/e06-qualification-current-source-r3",
+    "docs/decisions/evidence/e06-current-controls-r1",
+    "docs/decisions/evidence/e06-current-controls-r2",
+    "docs/decisions/evidence/e06-current-marker-controls-r1",
+    "docs/decisions/evidence/e06-current-marker-controls-r2",
+    "docs/decisions/evidence/e06-inventory-enforcement-r1",
+    "docs/decisions/evidence/e06-inventory-enforcement-r2",
+    "docs/decisions/evidence/e06-inventory-enforcement-r3",
+    "docs/decisions/evidence/e06-opaque-inventory-remediation-r1",
+    "docs/decisions/evidence/e06-opaque-inventory-controls-r1",
+    "docs/decisions/evidence/e06-inventory-enforcement-matrix-r1"
+  ],
+  "members": [
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/actual-qa-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/actual-qa-review.json",
+        "bytes": 1499,
+        "sha256": "b86ef46dab8ef4b3964a798ee2bf5bba263f136746d5c761e6b25f12c1876f8f"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/actual-run/actual-control-evidence.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/actual-run/actual-control-evidence.json",
+        "bytes": 93982,
+        "sha256": "c7f9e8f58788c91df0573e4a05ffd4009778495880873eca89b3edd867ae6ca5"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/actual-run/artifact-manifest.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/actual-run/artifact-manifest.json",
+        "bytes": 1260,
+        "sha256": "7c8ea0a7b7b7a906a56b38942aea3b9b212fa0d95ed12bf70a5d0d26a9e7b489"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/actual-run/bootstrap-capture.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/actual-run/bootstrap-capture.json",
+        "bytes": 6069,
+        "sha256": "a6fe6d33b9f0525cccc0e12d7021c87734107b6b8e5735ad598303acd4f6d48c"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/actual-run/pin-control.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/actual-run/pin-control.bin",
+        "bytes": 7,
+        "sha256": "d67e2e944994496c8d8ec76eed0cf9f09679448d584b532bebf941852a37f5ed"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/actual-run/receipt.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/actual-run/receipt.json",
+        "bytes": 1913,
+        "sha256": "2c088de98377a3f08b77409d5295309bcd1c9b474127250b0cab58306b137d66"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/actual-run/source-closure.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/actual-run/source-closure.json",
+        "bytes": 102080,
+        "sha256": "63b749f5930c1d08fa7ac83dc02be447189eb7d2f9b80cc98fdbe81bd18e94e4"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/actual-run/stderr.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/actual-run/stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/actual-run/stdin.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/actual-run/stdin.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/actual-run/stdout.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/actual-run/stdout.bin",
+        "bytes": 92442,
+        "sha256": "986e9af792f4284db1d32b841738a561bd7f54ccae56b88a9cfc49afad67a874"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/actual-security-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/actual-security-review.json",
+        "bytes": 1517,
+        "sha256": "77f9b9dc3f5d2f2fd4383988a767da66afeaa7916bbad9798a97b10d026d7c67"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/bootstrap.patch",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/bootstrap.patch",
+        "bytes": 5540,
+        "sha256": "543d254259caabb95a6dcddef17ba7dd4c8cf6f670b328f7d910884dcf8d4991"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/bootstrap.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/bootstrap.py",
+        "bytes": 17802,
+        "sha256": "d8a12724545466c3754008022967cef8f85c8257b3f23e6f1adddabb98d6b9e0"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/config.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/config.json",
+        "bytes": 107459,
+        "sha256": "eafa97087e6e0a082c52440b85178537f9a8008a47db444c9bdfc88d7ce69a20"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/control-acceptance.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/control-acceptance.json",
+        "bytes": 1777,
+        "sha256": "65196b478b62f1d3f8664a9d7778bac6a109385973c67379517cb9512ee11352"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/control-approval.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/control-approval.json",
+        "bytes": 1488,
+        "sha256": "27ea5cff91d4e2ddd90de394831e4f6509e2d4244808ac20d15359b920767516"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/independent-qa-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/independent-qa-review.json",
+        "bytes": 1675,
+        "sha256": "605fb61ecf60709e758f7e2b57139f69f233e35c5214f6f69d022250dc41ffa5"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/independent-security-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/independent-security-review.json",
+        "bytes": 1693,
+        "sha256": "863b7b1283feafdfcf37870aebff3559f904bf16e04dfc557cf83e1559174e34"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/originals/bootstrap.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/originals/bootstrap.py",
+        "bytes": 18101,
+        "sha256": "0fb8c39431751571c39b7bfc6301a66bf8d02fdffd424a9119c32f920bbb6b2a"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/originals/config.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/originals/config.json",
+        "bytes": 105601,
+        "sha256": "251cf83f36a655a8f950117a7196e6362113ce04f6ae7463a3d4ac9077c476c7"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/originals/plan.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/originals/plan.json",
+        "bytes": 10918,
+        "sha256": "40359f710187d56df4244d8eaf038f22d71f48cf40bbdbbb0292d693e83e2785"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/originals/subject.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/originals/subject.json",
+        "bytes": 2932,
+        "sha256": "cf95950665c34cc1950d408b81e155147741391d6ed8157f77cdaa0e666b0800"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/outer-actual/execution.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/outer-actual/execution.json",
+        "bytes": 2178,
+        "sha256": "7917e0f592ca9eae44a007cc600c098f56fb180e6b53963dee34af4a684952f0"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/outer-actual/stderr.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/outer-actual/stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/outer-actual/stdout.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/outer-actual/stdout.bin",
+        "bytes": 203,
+        "sha256": "9e359c2f3e0369d0887166b9405378d7ae59914797b3aae73366f60974273926"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/plan.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/plan.json",
+        "bytes": 12530,
+        "sha256": "68bfade6be60236b22866a2cced151f1e8083779c842ae30a181c4dfb66cd86a"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/readiness-acceptance.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/readiness-acceptance.json",
+        "bytes": 1063,
+        "sha256": "587bf4084942585e6d5cd7f0ee4849efcc313b1b59cd780d10c81df8ce4e899a"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/release.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/release.json",
+        "bytes": 656,
+        "sha256": "f4f0923b1c29f4d894b1cc18834df3c190783b13f70ad73db10920fdefd45af5"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/static-checks.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/static-checks.json",
+        "bytes": 6904,
+        "sha256": "5a408b231659fc54afa19bcd3decf137cb3f40d42048321efde7e729777aca24"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r1/subject.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r1/subject.json",
+        "bytes": 3415,
+        "sha256": "585e3ade79cfa1046beb76cc6cf7f35e02b0e1fe3980ca9f5fd82dd5c8741a14"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/actual-qa-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/actual-qa-review.json",
+        "bytes": 1862,
+        "sha256": "30008b389459962c728041377c7bc3388e26a813f3ab7175780093d99373a0d4"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/actual-run/actual-control-evidence.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/actual-run/actual-control-evidence.json",
+        "bytes": 93982,
+        "sha256": "548482449d9bd1145f0e51faa58b3ac181dbff898ae80b41831fd30689195fca"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/actual-run/artifact-manifest.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/actual-run/artifact-manifest.json",
+        "bytes": 1260,
+        "sha256": "aae4b810c49bdd6e3494512cb9df8423fdf7b18376f0eb39780bc9b4be6ad8ed"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/actual-run/bootstrap-capture.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/actual-run/bootstrap-capture.json",
+        "bytes": 6069,
+        "sha256": "01ffe9a043a860566a40da6b2bc2bd17d0a702c60ccc2694ea7078bba7c58b2a"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/actual-run/pin-control.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/actual-run/pin-control.bin",
+        "bytes": 7,
+        "sha256": "d67e2e944994496c8d8ec76eed0cf9f09679448d584b532bebf941852a37f5ed"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/actual-run/receipt.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/actual-run/receipt.json",
+        "bytes": 1913,
+        "sha256": "7b7b5278b7b0f9a068026b3f18821aae143c39d2e6189407c740dba58d6ddaa6"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/actual-run/source-closure.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/actual-run/source-closure.json",
+        "bytes": 102080,
+        "sha256": "76cfc1d55602c4c18f7adabde2b67679f3d828517a4cf4abefdf13d57029b100"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/actual-run/stderr.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/actual-run/stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/actual-run/stdin.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/actual-run/stdin.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/actual-run/stdout.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/actual-run/stdout.bin",
+        "bytes": 92442,
+        "sha256": "1d29a8d2b7f9f430a4c9e2687b9dfc2b03c85cad6e0b6c0b2984973fe01d1336"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/actual-security-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/actual-security-review.json",
+        "bytes": 1874,
+        "sha256": "4203ed88c9495abeb80a91a3db8928bdf664c4f3cf3bc2eb80166920243f0fec"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/bootstrap.patch",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/bootstrap.patch",
+        "bytes": 3826,
+        "sha256": "3dcb6fc575f4158e9deabd23169515adeac22021f39dfb6c26f6ee90e73da2c3"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/bootstrap.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/bootstrap.py",
+        "bytes": 17802,
+        "sha256": "7fb0a2fc1a14b0b72444fd1eadf7f3664ad5b15608c08cad1a999ae339d69f51"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/config.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/config.json",
+        "bytes": 107459,
+        "sha256": "426808ff053e36145b27a18ad91719f823f1bb43e9bab3b1c905e8a8037a6635"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/control-acceptance.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/control-acceptance.json",
+        "bytes": 1683,
+        "sha256": "96fb74a47dc5693bd45271142fc81a0d8e14c35814b9a77e26c73b15448f4ca9"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/control-approval.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/control-approval.json",
+        "bytes": 1488,
+        "sha256": "c2c6d2b97ba4f25dbbb9074c079cd3ad29cbf9fa23aac709b31a97a273c0f5ee"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/independent-qa-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/independent-qa-review.json",
+        "bytes": 1763,
+        "sha256": "a5a36320296830966ed02874ded8f9e20add0b536ca5c831189450ea33990557"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/independent-security-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/independent-security-review.json",
+        "bytes": 1772,
+        "sha256": "0533ae9838173d15c514f6c91751eb3372513542e1ec5019ec4e76f5c39b842c"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/mirror-manifest.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/mirror-manifest.json",
+        "bytes": 2946,
+        "sha256": "2cfa4625eec2ddac301eab870452bac07c035dd19cc0c16c2537093780f08292"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/originals/bootstrap.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/originals/bootstrap.py",
+        "bytes": 17802,
+        "sha256": "d8a12724545466c3754008022967cef8f85c8257b3f23e6f1adddabb98d6b9e0"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/originals/config.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/originals/config.json",
+        "bytes": 107459,
+        "sha256": "eafa97087e6e0a082c52440b85178537f9a8008a47db444c9bdfc88d7ce69a20"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/originals/plan.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/originals/plan.json",
+        "bytes": 12530,
+        "sha256": "68bfade6be60236b22866a2cced151f1e8083779c842ae30a181c4dfb66cd86a"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/originals/subject.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/originals/subject.json",
+        "bytes": 3415,
+        "sha256": "585e3ade79cfa1046beb76cc6cf7f35e02b0e1fe3980ca9f5fd82dd5c8741a14"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/outer-actual/execution.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/outer-actual/execution.json",
+        "bytes": 2021,
+        "sha256": "bd5ad6d35784184c2f86aacbf5392f4c99ed43867f29429cfe8f661acb69d445"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/outer-actual/root-monitor.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/outer-actual/root-monitor.py",
+        "bytes": 3046,
+        "sha256": "d9d5cec79024d3ba09b19dced34d1d653761a118606b75c519af4006181c47b5"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/outer-actual/stderr.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/outer-actual/stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/outer-actual/stdout.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/outer-actual/stdout.bin",
+        "bytes": 203,
+        "sha256": "cf6d70456dd520d2c4ebbab413de0d86ec8dd2a1c9e0eebae8b03e9d1a4b7573"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/outer-actual/tool-completion.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/outer-actual/tool-completion.json",
+        "bytes": 261,
+        "sha256": "a1c2e25c430dd4dd42e9ea0a5aeeef512933b940faa0a7565d4955d0851046de"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/plan.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/plan.json",
+        "bytes": 9853,
+        "sha256": "2830e1c4bccd6ec5d15fee4fdb0b40e4e6b9bf519cfceea01d1caf3b5aae9d6d"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/readiness-acceptance.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/readiness-acceptance.json",
+        "bytes": 1028,
+        "sha256": "5c515b4d85d40fb540c6861c6878a373174d16c4f8fa9d3d173670edf328f06d"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/release.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/release.json",
+        "bytes": 656,
+        "sha256": "ef04a8278c6e7eadd40b6935b42d95396958e98b7f946b0dabd320b817b6a6b9"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/static-checks.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/static-checks.json",
+        "bytes": 2365,
+        "sha256": "fd77af31d129cf828adbd80c00617245ebe236b32ceca6454ffc597f098e983e"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-controls-r2/subject.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-controls-r2/subject.json",
+        "bytes": 2879,
+        "sha256": "ecb216416a6fbee43d41fd116151ba60d980e8d6bc15b834a7f47ff3ff1afe95"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r1/acceptance.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r1/acceptance.json",
+        "bytes": 1035,
+        "sha256": "92e30c29bc96e49c5a3644a8fa593928a62e07bb607cecdc0a56eea081173585"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r1/actual/execution.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r1/actual/execution.json",
+        "bytes": 2087,
+        "sha256": "5e676307804e716e07588b11189dff9a20ad3146a915b00c39f100e7787a319f"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r1/actual/stderr.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r1/actual/stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r1/actual/stdout.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r1/actual/stdout.bin",
+        "bytes": 1668,
+        "sha256": "e0c4bd2a93e7d79abc1e5b079701fc1cb57242dea8690c9d04a9e320c71abe0f"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r1/actual-qa-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r1/actual-qa-review.json",
+        "bytes": 1569,
+        "sha256": "a9ab248c404511a867ae274a4928ba1d4ea5c47e6075a486dff348170574799c"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r1/actual-security-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r1/actual-security-review.json",
+        "bytes": 1587,
+        "sha256": "8b3db5bd2723a7257deffda5106b4ebfa1b9a922fee7b3c5cc706f9f4ca9d258"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r1/config.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r1/config.json",
+        "bytes": 3173,
+        "sha256": "ec44e6d91d0920dd1f109e85cef8ebbc945cce3b2639ffe07a2e93a0a0823789"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r1/independent-qa-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r1/independent-qa-review.json",
+        "bytes": 1672,
+        "sha256": "2c53bd28c1f03ac780e90d5b9b663492f9449ce8a68d432677b6c7d89d62ba10"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r1/independent-security-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r1/independent-security-review.json",
+        "bytes": 1690,
+        "sha256": "4cd1160fd7f4ef56e0ef38d3422179f8c0ecebf1934dd294c1512c593e946291"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r1/release.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r1/release.json",
+        "bytes": 1339,
+        "sha256": "09deeb98cf49e725944444303b504e83f77915b8ecfcaa1be3b90058dd431e60"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r2/acceptance.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r2/acceptance.json",
+        "bytes": 1036,
+        "sha256": "ccc1126ec82ad51a52b33905e5b7863b103e628d53f4945f3f3cb3d678462314"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r2/actual/execution.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r2/actual/execution.json",
+        "bytes": 1698,
+        "sha256": "c447a86bd8b25a0fd4d8d44be4854bd7e255d0138036d7cf867f5093ace0080a"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r2/actual/root-monitor.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r2/actual/root-monitor.py",
+        "bytes": 3046,
+        "sha256": "d9d5cec79024d3ba09b19dced34d1d653761a118606b75c519af4006181c47b5"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r2/actual/stderr.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r2/actual/stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r2/actual/stdout.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r2/actual/stdout.bin",
+        "bytes": 1669,
+        "sha256": "cad26aa2dc38e5ac00c4f5cfdf64263d2c606685460cd6b5e66b3daf8f34d6a4"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r2/actual/tool-completion.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r2/actual/tool-completion.json",
+        "bytes": 261,
+        "sha256": "ece3fd41819b50481a71476d0c8d8e3d68486a4774d3e1aa0f6ae7b752849fef"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r2/actual-qa-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r2/actual-qa-review.json",
+        "bytes": 1053,
+        "sha256": "c4aeab4e3cef32a1edbcf7acd74ec057a8a09d5953b17524f776d74cae3325ba"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r2/actual-security-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r2/actual-security-review.json",
+        "bytes": 1065,
+        "sha256": "c16105d45e17d5225efc6984e5c0b85e41bce49e097180ab99ef3864f0631b79"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r2/config.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r2/config.json",
+        "bytes": 3173,
+        "sha256": "9ee21267fc752b51c25909deeedd37a008c0d327dc63c54912b23c1197bfa600"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r2/independent-qa-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r2/independent-qa-review.json",
+        "bytes": 1755,
+        "sha256": "a923827c087a3c7deff104388b0f62533c4695e7c6d0bc85544ae60dff848609"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r2/independent-security-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r2/independent-security-review.json",
+        "bytes": 1771,
+        "sha256": "c521e0e827aeb4af0d3388fba6bca434b71d41cca0af16fcc4ebb4b0442d1d71"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r2/originals/config.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r2/originals/config.json",
+        "bytes": 3173,
+        "sha256": "ec44e6d91d0920dd1f109e85cef8ebbc945cce3b2639ffe07a2e93a0a0823789"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r2/release.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r2/release.json",
+        "bytes": 1338,
+        "sha256": "c093f5d365228b93ace36c3a3690a47612b6cd89e51dd73860fb1933548fd7a0"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r2/static-checks.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r2/static-checks.json",
+        "bytes": 3178,
+        "sha256": "00a49995a89ec9d92a8a5bb476638a4309471fd52ff8bef80a7b6207a0b1b1b5"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-current-marker-controls-r2/subject.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-current-marker-controls-r2/subject.json",
+        "bytes": 1304,
+        "sha256": "c7805620fa02ae51d5cecb3911ca8307f29c4145e1f371801a7913ae6b715844"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/PLAN.md",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/PLAN.md",
+        "bytes": 10740,
+        "sha256": "ce10b2cbabd4c2bfee14d32f638086751865628c234663d68f323c1b20be590e"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/acceptance.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/acceptance.json",
+        "bytes": 1416,
+        "sha256": "834526802dce0ab821d6d6447511f707b7086a810f2c21a1fe3ae29534d7ccc1"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-qa-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-qa-review.json",
+        "bytes": 2232,
+        "sha256": "19c959885edefb268589470ed0ecea2ca9ff6c1d0254c171a6d9526c05cf962a"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/gate-arguments.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/gate-arguments.json",
+        "bytes": 8503,
+        "sha256": "7409de200a12d8dfdd048a822aa03a938e090503538b7ef074a2e513fb58a222"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/observation.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/observation.json",
+        "bytes": 34613,
+        "sha256": "c444c779bd0de22036c5e43f285eac213863908b847f5f76691b83f262c541b9"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-000.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-000.json",
+        "bytes": 18215,
+        "sha256": "723c12dfa682ad499967c2b812e892a1419f4c2278cb196e143985a1d5344970"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-001.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-001.json",
+        "bytes": 6004,
+        "sha256": "e12f4f0cc8e1ead126acf2ffe22c92a7c53d1f141fa8124908eeeaf5dcc279e5"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-002.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-002.json",
+        "bytes": 5999,
+        "sha256": "085e2fe8587fe88e8fa3891d5acbbe1d7fc4982ed79f73afdb971b703618d6c3"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-003.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-003.json",
+        "bytes": 6333,
+        "sha256": "eb6772ebe42a7375abdd9894c5c82758728935344de004b662eb4e766f65338b"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-004.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-004.json",
+        "bytes": 6915,
+        "sha256": "a73936ee7388659cc01b8accd1f0966e14b0aa2cbe9d2f35b170eb6294969c3b"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-005.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-005.json",
+        "bytes": 6964,
+        "sha256": "dd5b2958322cebdd617d8c7a2e894907d60d5f2eb9762a368742ecb1733f01ef"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-006.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-006.json",
+        "bytes": 6986,
+        "sha256": "bd2b36cbf4712ec77e692b924022efa1db415e3718bb75ae76bb2164f18cc3ef"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-007.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-007.json",
+        "bytes": 7239,
+        "sha256": "1ff5e801a36edefd8fd3ac7978180deb0ab3e9e9a307cef8b36bcb558a814942"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-008.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-008.json",
+        "bytes": 7239,
+        "sha256": "cc8644a0ed7e514650d4c721b2a2e5e568b463644660a17fa8beb9eaa2178f02"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-009.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-009.json",
+        "bytes": 7470,
+        "sha256": "f5c56acf571757a4731d38ab6151a7de273eca99728f26c7cb05abde9e750a8c"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-010.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-010.json",
+        "bytes": 7737,
+        "sha256": "31665c79b7888a32946ce4e3848783bb152c058f1c8466e5197383638bde6247"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-011.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-011.json",
+        "bytes": 7742,
+        "sha256": "9de1031683fd5d8123627673eddc531272323f1973d11f3cb4aeb42a7bcc9fbe"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-012.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-012.json",
+        "bytes": 7732,
+        "sha256": "134bbb9769a47981028e1484edeabfb916b12883192efa6872f29be8688422dd"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-013.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-013.json",
+        "bytes": 7984,
+        "sha256": "dd3338624f470c7920fac7bff179333bbe8194d18c19661aad6050e219c24ac7"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-014.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-014.json",
+        "bytes": 7984,
+        "sha256": "32de8734d653918ab976d63563b66522230ec21e8258226563f36089e10ab289"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-015.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-015.json",
+        "bytes": 8193,
+        "sha256": "69d5ad30c160170827b0fc5addf2c9e4a0b2c8980b7cadafcb7e3570f2415faf"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-016.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-016.json",
+        "bytes": 8474,
+        "sha256": "de1597348e7839b6e6d4251e80b9f6c1d7453e824ee3428583f0ce04747f9579"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-017.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-017.json",
+        "bytes": 8659,
+        "sha256": "8510e7ac2b3e3e296240d4d467df2b402f3f128d06c008e63570ea212d189d92"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-018.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-018.json",
+        "bytes": 9132,
+        "sha256": "aca6b1b9741f62327e0a52da37256f4c51f5867119fa80e866b4529574d1849b"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-019.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-019.json",
+        "bytes": 9468,
+        "sha256": "44211bccfd7a024920f9ceffb824b819b0d67716989a68f140c548620635fea1"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-020.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-020.json",
+        "bytes": 2277,
+        "sha256": "f4074419397aadcaae6dafaf2bc6d71d44162ec48fe3228cead937b25698a26e"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-021.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-021.json",
+        "bytes": 9731,
+        "sha256": "2ab2b9f68adc76409a19208c6894f86cda853637f12d0ba942fa102e50331e6c"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-022.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-022.json",
+        "bytes": 10102,
+        "sha256": "4d781810c62da8bd5995ab2bc12e65a70923a78e5e10929d40a3bd67dd440f05"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-023.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-023.json",
+        "bytes": 10430,
+        "sha256": "1a973462ea679ade3686042005de9c999180f4988678cf9e8db1c3f30e5b47bb"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-024.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-024.json",
+        "bytes": 10398,
+        "sha256": "118a4b9ccafb7dc5fb2b3c2524daf04397c1546292c0239cefc5c7e890ca8ed0"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-025.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-025.json",
+        "bytes": 10559,
+        "sha256": "35f45ae3d6bafbfb423de812fc2d92ed6adedc9231efa00d333ac150ae8ccbed"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-026.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-026.json",
+        "bytes": 10777,
+        "sha256": "6cb28975cb1c7ea5a88e8c336c48dd9cdd1e0af79c84ef79923dcf32452a94c9"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-027.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-027.json",
+        "bytes": 5867,
+        "sha256": "4e23a3eb96c183f683865031fd9a8e193275ef419013aefc659383c5ca0d0e4f"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-028.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-028.json",
+        "bytes": 11318,
+        "sha256": "3b105b8e611f348cafc0f892e981a2843babbb53a3de98ccaad0dfbaf7dd377a"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-029.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-029.json",
+        "bytes": 11578,
+        "sha256": "078293ed408de60d6e7f103aed18ad745955145604a796b2988022c4ca5b7d92"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-030.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-030.json",
+        "bytes": 11814,
+        "sha256": "4c1958b29f725c036404f1a551c48579ffccd4c6f17f11e3d7dd80c037342c43"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-031.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-031.json",
+        "bytes": 12059,
+        "sha256": "302ad835aa161a593244bbcb7e5754ff0185aa4ee1c5c84041d7a687459c4a9a"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-032.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-032.json",
+        "bytes": 12137,
+        "sha256": "0654f9f1d4724d03b6c6e279a39171dff2c7d1c9bf138cd7c506a5d8eadd45f0"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-033.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-033.json",
+        "bytes": 12301,
+        "sha256": "4b0cc1f2601a55d085b9d1210e922e4463d0e55d64089978e9a97714a035c29a"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-034.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-034.json",
+        "bytes": 12512,
+        "sha256": "3a396cb00b0230593d8465b56685a46ac64bba1712fcfc15490b74693bd46b93"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-035.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-035.json",
+        "bytes": 12689,
+        "sha256": "fa88d9e34752b4e35e8927af5e51d0a7f4998a0a53a650ca57a328998183bdd6"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-036.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-036.json",
+        "bytes": 2935,
+        "sha256": "ac7dc5fe0b4c34ddcf1aaa13541ee8d471abcbf8efa46ff7c5bf64fb235202f2"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-037.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-037.json",
+        "bytes": 3190,
+        "sha256": "739216d69ff85f11976ae38973258aa1ce77ba68b97afa6736efe6fd441dca71"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-038.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-038.json",
+        "bytes": 12928,
+        "sha256": "2bf4200ab9605a7f802a5604f4fb521f29043222b0f13e98e1ee9aa420e43986"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-039.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-039.json",
+        "bytes": 13135,
+        "sha256": "0b8e5a210ef8d42685f6569e6fd029ee0e0ca434bd026246d7a3fcf80533d395"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-040.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-040.json",
+        "bytes": 13322,
+        "sha256": "ee8bae817ac41ee9a64c574db5c3a813855cd81b1f7ca8dd2be04576a6623051"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-041.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-041.json",
+        "bytes": 13514,
+        "sha256": "e555dbe0c24b724ffd9e29810c7d3eb4de06f152fbd07154aa587fc16ec35c6f"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-042.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-042.json",
+        "bytes": 13707,
+        "sha256": "371c8cb091e77c9ad08ac81519d9ca55cad147e33f819eeba07cb19edc89c71d"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-043.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-043.json",
+        "bytes": 13899,
+        "sha256": "969771c0935498b8b64cbcee3f4d659551973235b606e026bfcecc8754e27183"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-044.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-044.json",
+        "bytes": 14411,
+        "sha256": "5f2652ed70b44ceee742a089304d2f7839bd94133e5e70ba657ba8ae5c1a8cf0"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-045.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-045.json",
+        "bytes": 5723,
+        "sha256": "e4b27094f81d74675ad133a523df6ada5d19e45448befb707a3019a4d892f955"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-046.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-046.json",
+        "bytes": 5695,
+        "sha256": "8d90e3996307fc9814fc6ae54a0d6322500ab09d29968ccc174d589ef1fb75c6"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-047.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-047.json",
+        "bytes": 5755,
+        "sha256": "452026f7f4bf7ba577117553bcaaa4990a586556a8891dc7e6b73b33fc18be51"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-048.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-048.json",
+        "bytes": 15124,
+        "sha256": "1accbf1c68f1e26fd337a4d0a2db662f93790694627192ed5398835de2714e17"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-049.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-049.json",
+        "bytes": 15315,
+        "sha256": "980f23609bb98f85b39395db8f41557b70d31a93ce2e2ad4463299392b66850d"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-050.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-050.json",
+        "bytes": 15570,
+        "sha256": "7883fa28c5e4928e1552e478858f9badee0c55a1732f2288964c3db10bc96e64"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-051.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-051.json",
+        "bytes": 15613,
+        "sha256": "35bd9dd7377e1ea19a616ba357459228e2c2e02eebd8a5392c45867c8fbc0504"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-052.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-052.json",
+        "bytes": 15822,
+        "sha256": "f16d70f1998497f1a73dddae896c942edba8d872a40a4e29d963d3e2bc5745f2"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-053.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-053.json",
+        "bytes": 16029,
+        "sha256": "16a00ae997e3920e3ae3886034d7b53c8ca3cf196d2ab2e32b71d54a6b1983bf"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-054.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-054.json",
+        "bytes": 16194,
+        "sha256": "77030f36d0cba8223c49f952205aee53278f55cabeea5cd459b6f525b0b05c5e"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-055.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-055.json",
+        "bytes": 16401,
+        "sha256": "445e4e63b4190c060aacbfa8bb3175527a6ef697965b1aaa39c67577013ac6a0"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-056.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-056.json",
+        "bytes": 16497,
+        "sha256": "6d9a0ccb242702ab5c4a18aeefec344ff46db91cdc234aaeffc701b5ee621f1e"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-057.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-057.json",
+        "bytes": 16700,
+        "sha256": "035d78987a25b291afb5c3643306225c6f0656d02cd2df05316ea499212c7a6f"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-058.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-058.json",
+        "bytes": 16902,
+        "sha256": "9be8f51695b9a06eb5acda3fc06fa7898b450a942f130174d71bdd271fd84c6c"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-059.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-059.json",
+        "bytes": 17061,
+        "sha256": "32990afd0a0b4d722ae44f40ae89f7044577d81378a806d94698f5d344b04859"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-060.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-060.json",
+        "bytes": 17263,
+        "sha256": "cbc9691cc329357ea20bfa47dda081c95ee45c281ee6368f29a94ffe8f5205e2"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-061.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-061.json",
+        "bytes": 10756,
+        "sha256": "1d523a5d9e62556534505b268a4a0b0609c565248435ed1e5ee7d8fe34e1449f"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-062.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-062.json",
+        "bytes": 17785,
+        "sha256": "ac909b0b4753ff61c301d6cfdc03fc51ebb50c3bf65416c14d0284fe57af08ae"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-063.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-063.json",
+        "bytes": 18112,
+        "sha256": "f337011c8cdf4cdc3a71cacde2fd1b5ea4622267b2eb12238a6d5aa673da7359"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-064.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-064.json",
+        "bytes": 18438,
+        "sha256": "5335fd15a2f763a0ed088cd5d7907fbbd1da217774053f3b9fe8411b43dc3035"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-065.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-065.json",
+        "bytes": 18763,
+        "sha256": "6ebd259a255a63de8dbd54c3457a853f97345e2f0003ae4bf7e0a94ec34ee741"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-066.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-066.json",
+        "bytes": 18716,
+        "sha256": "a7d592fae4fdb8aa2d2f88acbefc1f3a527799bb74451899bcfaa7c6d866623a"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-067.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-067.json",
+        "bytes": 18372,
+        "sha256": "ba93947ab1dc7aca8a749ca2c368e64fd49dbbb4ae9887e39f49e67100a64cb3"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-068.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-068.json",
+        "bytes": 5653,
+        "sha256": "135e0abb44f6af7bebe7557b3c5245cee6df718c1dc0d6687d60e8a451da110e"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-069.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-069.json",
+        "bytes": 5259,
+        "sha256": "8a19a57aa29640e27f4969a9409b8e359827dc852bc890639b85c5f6d1398fb0"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-070.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-070.json",
+        "bytes": 18401,
+        "sha256": "ac62ab4ed47836b95840b9db603a024ab9312ec43b23959836fdceec10ed8522"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-071.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-071.json",
+        "bytes": 18444,
+        "sha256": "a84269f36f8b14eb9ca179ffebb32c062d9a30056a6dfeb4ceb55b54c5093f7a"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-072.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-072.json",
+        "bytes": 18395,
+        "sha256": "e8cf9c73b1edbbd526ffaa6422b12198fc86160ebac3ccffd0203f12d35461f7"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-073.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-073.json",
+        "bytes": 18419,
+        "sha256": "3b6ace4f8e57d976d41c8260c4115a1b6b14c1e75544bb9e518c7575c569cce3"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-074.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-074.json",
+        "bytes": 18415,
+        "sha256": "86fbf10fca7983b3aba4d3275a15b3caf7a387fd668cc4a787b4fbd5c16255a7"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-075.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-run/row-075.json",
+        "bytes": 18415,
+        "sha256": "4a604cfd1c2414eb8ba376796f100f2e003201a98371fd3c2563d36e8ce27615"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-security-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/actual-security-review.json",
+        "bytes": 2260,
+        "sha256": "1709fbfe777b12903fec4d795de0c1e585bfcffd638c2556d696c10871ae0ae6"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/config.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/config.json",
+        "bytes": 12481,
+        "sha256": "c0665fdd17af7518845507d9ad3a9aa6c9ebd1cfee479cff402d0bd3c85b7098"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/independent-qa-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/independent-qa-review.json",
+        "bytes": 2139,
+        "sha256": "9707fb7d4d5f15587ec81a1b9dfab8ff4022fc4fd73fe1c64885d65698d70c99"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/independent-security-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/independent-security-review.json",
+        "bytes": 2152,
+        "sha256": "c7b4bc0eb187c6da4bdd994cc398f935f6df99c85a8fa124c5f1747354679547"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/matrix.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/matrix.json",
+        "bytes": 59107,
+        "sha256": "9b3ad58b74470fff7c73e3a0d0b65645b8c4a69dec3ae092edaa40be71c99e55"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/matrix.patch",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/matrix.patch",
+        "bytes": 22787,
+        "sha256": "b5f17ad3bf73762276373ef3e7c00aed21ed3fd0e6f22e3ffd33f433d69501d9"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/matrix.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/matrix.py",
+        "bytes": 30358,
+        "sha256": "bf4fdedf43066059e158bdb4471f93698143f8643015253221a640ddc10c0519"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/mirror-manifest.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/mirror-manifest.json",
+        "bytes": 26142,
+        "sha256": "ecb97f60581f03daf548c59bf01f5c5a9f8f832a1fec4f0d3a8f7292585f6fc4"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/originals/PLAN.md",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/originals/PLAN.md",
+        "bytes": 6167,
+        "sha256": "6da82cb3f968fe06a75ef81df94e897d14ac5821616f967c453857ae66a020d7"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/originals/actual-qa-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/originals/actual-qa-review.json",
+        "bytes": 1934,
+        "sha256": "ffe4545f8b6486f3da15c44a7eef2802ea7894c0f1a3149500e941748b25ad3c"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/originals/actual-security-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/originals/actual-security-review.json",
+        "bytes": 1948,
+        "sha256": "cf73ede81dfc29b91ddd2a3bdbab8034129ded4324144e4df6b72daa23bf63cc"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/originals/config.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/originals/config.json",
+        "bytes": 11393,
+        "sha256": "0ffd70dae1444616607122249f2f265faca0ea831ea574b8b674e89eedb89dae"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/originals/positive-baseline-acceptance.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/originals/positive-baseline-acceptance.json",
+        "bytes": 1201,
+        "sha256": "335181094d00987325263e8731b8f8c43854113b9f30d333f5f3ae97d87f3bd6"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/originals/probe.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/originals/probe.py",
+        "bytes": 20271,
+        "sha256": "6e8e2cf8b86bf7deab068b515a5e7f0d7ff1204647e04392c472e0c8106448d7"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/originals/subject.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/originals/subject.json",
+        "bytes": 4853,
+        "sha256": "4dc7ccb7dacc8422edb9c7d98274e16fabe43708d426b468dc4d71b71b0a484e"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/outer-actual/execution.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/outer-actual/execution.json",
+        "bytes": 2150,
+        "sha256": "091d31f529756671aeb6b89d5acd470113fa233ed6fe81edce29283a84a13b45"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/outer-actual/root-monitor.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/outer-actual/root-monitor.py",
+        "bytes": 2698,
+        "sha256": "bb152edbcee5ede5689e813766850a926bd98ef0b8ecca64902e4aa76325b6a3"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/outer-actual/stderr.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/outer-actual/stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/outer-actual/stdout.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/outer-actual/stdout.bin",
+        "bytes": 214,
+        "sha256": "d1652f8d4aa8c661d4feef569aeafd771dd4f6954fb75cdb1fc1a75fe60fcbef"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/preparation-error.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/preparation-error.json",
+        "bytes": 571,
+        "sha256": "5421ffab2e26a01a383ad97e9d1711d5e82d5b6c47b730bd2376d94a009d9e45"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/preparation-inputs.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/preparation-inputs.json",
+        "bytes": 2938,
+        "sha256": "f23229eec791544bbf4ded11b0ca98d89cca55b9e2a2265b119cf4aaa4ed6b1c"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/readiness-acceptance.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/readiness-acceptance.json",
+        "bytes": 914,
+        "sha256": "77cc4d5efa9d9ae4109200d3a512c39b2b6b06cc44663b578f6fb2483f0151b7"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/release-shape-NOT-A-RELEASE.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/release-shape-NOT-A-RELEASE.json",
+        "bytes": 2268,
+        "sha256": "970114fa065da48cc4c452334c3fd9594ce57ae786b787b5c803342fc6b6a4f7"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/release.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/release.json",
+        "bytes": 1994,
+        "sha256": "ca364b8c507c1760fa160e42c419ef6939a9feee5e0c915f3fd528678ae75ae9"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/static-checks.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/static-checks.json",
+        "bytes": 9824,
+        "sha256": "065f5fccda69af82a61408786c243228979b42efdd8c539200a36928bf27b9c9"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/subject.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-matrix-r1/subject.json",
+        "bytes": 5832,
+        "sha256": "120004856fb97467e44f4bcf95d0b715eaf38b8f169a25f4ee42d5ff25d8e4fe"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r1/PLAN.md",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r1/PLAN.md",
+        "bytes": 8618,
+        "sha256": "6b327a9da315da5b32349551a19068a9c708550e467a05b0aa683e92ac1dfb61"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r1/config.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r1/config.json",
+        "bytes": 11393,
+        "sha256": "c8a1284465f8fc9b74741132c4050def13aed69cfc336e0f69ec2fa9e6b61398"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r1/independent-qa-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r1/independent-qa-review.json",
+        "bytes": 1996,
+        "sha256": "f1138316f177f9d759817f7f15906cf77a976e9444f3b1d10d47421764fee95b"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r1/independent-security-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r1/independent-security-review.json",
+        "bytes": 2014,
+        "sha256": "82e71fa3730cfbfd77365eac24d6efbd44240cbc0477026fbc503c9d226cbb8d"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r1/outer-actual/execution.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r1/outer-actual/execution.json",
+        "bytes": 2243,
+        "sha256": "2247c2bc4df10753b0515055fb05635a37848017b38af136b193cb96da60e3e5"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r1/outer-actual/stderr.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r1/outer-actual/stderr.bin",
+        "bytes": 22,
+        "sha256": "d905e8d30c8e2134639ac71354303ce68744ca047f1765c086f1e2b19750ca21"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r1/outer-actual/stdout.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r1/outer-actual/stdout.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r1/probe.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r1/probe.py",
+        "bytes": 20255,
+        "sha256": "a1deda66b3394a0bd589e939ec6d3b4c118619b6ad6c45fcd08ed54bfac740da"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r1/release-shape-NOT-A-RELEASE.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r1/release-shape-NOT-A-RELEASE.json",
+        "bytes": 1438,
+        "sha256": "a717588edf992086b43b108ee79a4115ab5d859cf654cc92231df533ac217b76"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r1/release.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r1/release.json",
+        "bytes": 1220,
+        "sha256": "be78f9110e66d644b49cc7ec576d76909582b9e46e47bd9b08d964026d063846"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r1/static-checks.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r1/static-checks.json",
+        "bytes": 3302,
+        "sha256": "57fc3149ec8c672d49ea99e5a17e11c229116db25d00ad88881c9aecc9519f5d"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r1/subject.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r1/subject.json",
+        "bytes": 3440,
+        "sha256": "77ddd6fdc92f270ff7d4d567dc6cdccbce304bb5e95d0164d866ad94d6ab60c8"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/PLAN.md",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/PLAN.md",
+        "bytes": 10320,
+        "sha256": "b85b3f4a7398cbf32c2595b7ddb51c3e59e972790bccae2254315d0fdd804ab7"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/actual-run/gate-arguments.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/actual-run/gate-arguments.json",
+        "bytes": 8503,
+        "sha256": "ad749bee8e57d69fe0d60ab24a815affd444c717e55f99ec2e3ba412226e64d9"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/actual-run/observation.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/actual-run/observation.json",
+        "bytes": 17080,
+        "sha256": "5d70028c828fca93bfb6f057dbc21340808599f8b67df76a2f47ed7c3ab2edb6"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/config.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/config.json",
+        "bytes": 11393,
+        "sha256": "92cbc6493423c7cdac9d7f327198a8e87aa0eda2892b82c05b6ff2dbdd043f30"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/independent-qa-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/independent-qa-review.json",
+        "bytes": 1410,
+        "sha256": "7e94b59e48b90032dd4b4fa2d43b4b49fba590dfa8b4bee498cd98ef2511cb83"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/independent-security-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/independent-security-review.json",
+        "bytes": 1428,
+        "sha256": "4428cde5a9443188f2f5abf4f120bbc66133611db65ba0cf829e8b5ac35d6b14"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/originals/PLAN.md",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/originals/PLAN.md",
+        "bytes": 8618,
+        "sha256": "6b327a9da315da5b32349551a19068a9c708550e467a05b0aa683e92ac1dfb61"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/originals/config.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/originals/config.json",
+        "bytes": 11393,
+        "sha256": "c8a1284465f8fc9b74741132c4050def13aed69cfc336e0f69ec2fa9e6b61398"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/originals/outer-actual/execution.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/originals/outer-actual/execution.json",
+        "bytes": 2243,
+        "sha256": "2247c2bc4df10753b0515055fb05635a37848017b38af136b193cb96da60e3e5"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/originals/outer-actual/stderr.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/originals/outer-actual/stderr.bin",
+        "bytes": 22,
+        "sha256": "d905e8d30c8e2134639ac71354303ce68744ca047f1765c086f1e2b19750ca21"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/originals/outer-actual/stdout.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/originals/outer-actual/stdout.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/originals/probe.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/originals/probe.py",
+        "bytes": 20255,
+        "sha256": "a1deda66b3394a0bd589e939ec6d3b4c118619b6ad6c45fcd08ed54bfac740da"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/originals/release-shape-NOT-A-RELEASE.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/originals/release-shape-NOT-A-RELEASE.json",
+        "bytes": 1438,
+        "sha256": "a717588edf992086b43b108ee79a4115ab5d859cf654cc92231df533ac217b76"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/originals/release.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/originals/release.json",
+        "bytes": 1220,
+        "sha256": "be78f9110e66d644b49cc7ec576d76909582b9e46e47bd9b08d964026d063846"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/originals/static-checks.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/originals/static-checks.json",
+        "bytes": 3302,
+        "sha256": "57fc3149ec8c672d49ea99e5a17e11c229116db25d00ad88881c9aecc9519f5d"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/originals/subject.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/originals/subject.json",
+        "bytes": 3440,
+        "sha256": "77ddd6fdc92f270ff7d4d567dc6cdccbce304bb5e95d0164d866ad94d6ab60c8"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/outer-actual/execution.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/outer-actual/execution.json",
+        "bytes": 2231,
+        "sha256": "95c81e1bd5279094625feb29c4bcc95a0139d214f55bdc40fff0d270dca1b80b"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/outer-actual/stderr.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/outer-actual/stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/outer-actual/stdout.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/outer-actual/stdout.bin",
+        "bytes": 214,
+        "sha256": "a064179186802f97c74b88cf31bd43561a9a0c89bbbc5efa7d7af6e1a641ca32"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/probe.patch",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/probe.patch",
+        "bytes": 2918,
+        "sha256": "9905fa768f2f230bb00fed8eaadcdb2817f20cf5f52a6eb91ec3639bfbed38b4"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/probe.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/probe.py",
+        "bytes": 20271,
+        "sha256": "d1601ba4fbe02c4555c305788c26767b015d724ac8b45168759552c7c6792463"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/release-shape-NOT-A-RELEASE.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/release-shape-NOT-A-RELEASE.json",
+        "bytes": 1448,
+        "sha256": "a7854749091ce1969855ed5378dff1464df36d39d73bac9ace22ede933d85a67"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/release.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/release.json",
+        "bytes": 1214,
+        "sha256": "750504963758c522b4d26c206585d66e4e79f62588bc50632c3f51c4cecfb9aa"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/static-checks.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/static-checks.json",
+        "bytes": 6733,
+        "sha256": "368414c82fbf0195dd64b469b4063e326955fa83b0662fd319ffba0a335a0b87"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r2/subject.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r2/subject.json",
+        "bytes": 4202,
+        "sha256": "621d021f77c834adb6926cfeaa7f8e73b7175360731a0cf36b73854c4dd23f9e"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/PLAN.md",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/PLAN.md",
+        "bytes": 6167,
+        "sha256": "6da82cb3f968fe06a75ef81df94e897d14ac5821616f967c453857ae66a020d7"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/actual-qa-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/actual-qa-review.json",
+        "bytes": 1934,
+        "sha256": "ffe4545f8b6486f3da15c44a7eef2802ea7894c0f1a3149500e941748b25ad3c"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/actual-run/gate-arguments.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/actual-run/gate-arguments.json",
+        "bytes": 8503,
+        "sha256": "46f2be16f2230b73d69fb452380bf6a12b49c44edecfeac033a0781c957bd68f"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/actual-run/observation.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/actual-run/observation.json",
+        "bytes": 20973,
+        "sha256": "2b797c0f86029e579402ad7bea92db806ca03180cb7825600fcbf77d30115854"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/actual-security-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/actual-security-review.json",
+        "bytes": 1948,
+        "sha256": "cf73ede81dfc29b91ddd2a3bdbab8034129ded4324144e4df6b72daa23bf63cc"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/config.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/config.json",
+        "bytes": 11393,
+        "sha256": "0ffd70dae1444616607122249f2f265faca0ea831ea574b8b674e89eedb89dae"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/independent-qa-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/independent-qa-review.json",
+        "bytes": 1839,
+        "sha256": "135be45cf3423e217f1d3c66e6c6bba4a187141408531c27590b1f19be7487c3"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/independent-security-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/independent-security-review.json",
+        "bytes": 1851,
+        "sha256": "b179cff055e958f29242dfb912a15eaf0d4393909264f6fb82d8d78890a96f59"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/mirror-manifest.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/mirror-manifest.json",
+        "bytes": 683,
+        "sha256": "9f2a484d85a6c492977f20220060bed51638b8f2dc65d40cb6fa36236606e15f"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/originals/history-0-execution.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/originals/history-0-execution.json",
+        "bytes": 2243,
+        "sha256": "2247c2bc4df10753b0515055fb05635a37848017b38af136b193cb96da60e3e5"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/originals/history-1-observation.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/originals/history-1-observation.json",
+        "bytes": 17080,
+        "sha256": "5d70028c828fca93bfb6f057dbc21340808599f8b67df76a2f47ed7c3ab2edb6"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/originals/history-2-gate-arguments.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/originals/history-2-gate-arguments.json",
+        "bytes": 8503,
+        "sha256": "ad749bee8e57d69fe0d60ab24a815affd444c717e55f99ec2e3ba412226e64d9"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/originals/history-3-execution.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/originals/history-3-execution.json",
+        "bytes": 2231,
+        "sha256": "95c81e1bd5279094625feb29c4bcc95a0139d214f55bdc40fff0d270dca1b80b"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/originals/r2-PLAN.md",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/originals/r2-PLAN.md",
+        "bytes": 10320,
+        "sha256": "b85b3f4a7398cbf32c2595b7ddb51c3e59e972790bccae2254315d0fdd804ab7"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/originals/r2-config.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/originals/r2-config.json",
+        "bytes": 11393,
+        "sha256": "92cbc6493423c7cdac9d7f327198a8e87aa0eda2892b82c05b6ff2dbdd043f30"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/originals/r2-independent-qa-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/originals/r2-independent-qa-review.json",
+        "bytes": 1410,
+        "sha256": "7e94b59e48b90032dd4b4fa2d43b4b49fba590dfa8b4bee498cd98ef2511cb83"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/originals/r2-independent-security-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/originals/r2-independent-security-review.json",
+        "bytes": 1428,
+        "sha256": "4428cde5a9443188f2f5abf4f120bbc66133611db65ba0cf829e8b5ac35d6b14"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/originals/r2-probe.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/originals/r2-probe.py",
+        "bytes": 20271,
+        "sha256": "d1601ba4fbe02c4555c305788c26767b015d724ac8b45168759552c7c6792463"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/originals/r2-static-checks.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/originals/r2-static-checks.json",
+        "bytes": 6733,
+        "sha256": "368414c82fbf0195dd64b469b4063e326955fa83b0662fd319ffba0a335a0b87"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/originals/r2-subject.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/originals/r2-subject.json",
+        "bytes": 4202,
+        "sha256": "621d021f77c834adb6926cfeaa7f8e73b7175360731a0cf36b73854c4dd23f9e"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/outer-actual/execution.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/outer-actual/execution.json",
+        "bytes": 2090,
+        "sha256": "a05aefbc662bc81cafd64dea8d53e996d63c7580757bacf079a15160227edd30"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/outer-actual/root-monitor.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/outer-actual/root-monitor.py",
+        "bytes": 2622,
+        "sha256": "7e85cd1cfe944b11132fec12122b8d6fd1977c50c7ef677e63521ab2c09bb2bc"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/outer-actual/stderr.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/outer-actual/stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/outer-actual/stdout.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/outer-actual/stdout.bin",
+        "bytes": 213,
+        "sha256": "8c24fdb75b5367e3a5b8a1cc08d5b811355af3add71d22c7efce0d3efd69efc3"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/positive-baseline-acceptance.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/positive-baseline-acceptance.json",
+        "bytes": 1201,
+        "sha256": "335181094d00987325263e8731b8f8c43854113b9f30d333f5f3ae97d87f3bd6"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/probe.patch",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/probe.patch",
+        "bytes": 3904,
+        "sha256": "755d8390fb967667a36102321235a994e9dd6a987a1c93a6840b2f944744d3ed"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/probe.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/probe.py",
+        "bytes": 20271,
+        "sha256": "6e8e2cf8b86bf7deab068b515a5e7f0d7ff1204647e04392c472e0c8106448d7"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/readiness-acceptance.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/readiness-acceptance.json",
+        "bytes": 1148,
+        "sha256": "ec18a3f8cdb7ae0b26375355edffcf632bb94aeed2a499a3ea5238be556cf5dd"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/release-shape-NOT-A-RELEASE.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/release-shape-NOT-A-RELEASE.json",
+        "bytes": 1460,
+        "sha256": "b6349684a46a9d5856f15052b2968153bd9580b473621c36ca79b053db2cb427"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/release.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/release.json",
+        "bytes": 1214,
+        "sha256": "946d6818917e63530894a52159799d0fead35234ad4c580ef12ab759af4f887d"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/static-checks.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/static-checks.json",
+        "bytes": 15923,
+        "sha256": "ade9032bff9581109449bd9039333531549fa2e62a47e7904631bcc7e80b235d"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-inventory-enforcement-r3/subject.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-inventory-enforcement-r3/subject.json",
+        "bytes": 4853,
+        "sha256": "4dc7ccb7dacc8422edb9c7d98274e16fabe43708d426b468dc4d71b71b0a484e"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-controls-r1/README.md",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/README.md",
+        "bytes": 2900,
+        "sha256": "b1c4df5d18468faa63a73d4f74004afb88f4196584cf204ecd03a3066d2d23a7"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-controls-r1/acceptance.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/acceptance.json",
+        "bytes": 1210,
+        "sha256": "8e55d89c5ee7e8173012818c5b8f5e902f6d2c7f16b818c3ca200bf292ea5af0"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-controls-r1/actual-qa-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/actual-qa-review.json",
+        "bytes": 2067,
+        "sha256": "6569c8508e6a679ca6722f80398da7c2876f983abb88f506789013d1fcb644d7"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-controls-r1/actual-run/capture.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/actual-run/capture.json",
+        "bytes": 11314,
+        "sha256": "16a397534f5781f40589819d96908565140a52eafc60ffcdb9a0e5bddeea7fbe"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-controls-r1/actual-run/raw-read-boundary.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/actual-run/raw-read-boundary.bin",
+        "bytes": 33554433,
+        "sha256": "bdf7fbb54387c24608fd757a1b31c32cabcd7b6bee8ff3345c897139fffc072a"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-controls-r1/actual-run/suite-result.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/actual-run/suite-result.json",
+        "bytes": 8353,
+        "sha256": "00728a56f0ec16103d74458019e23271867b7ddccefc9f359a6dc2d7a335cf52"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-controls-r1/actual-security-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/actual-security-review.json",
+        "bytes": 2079,
+        "sha256": "62c1b8cd4b1e67b08dd3b6c8a03909369174d926bbea9ccdc8a0a93f8ce3b89b"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-controls-r1/config.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/config.json",
+        "bytes": 2982,
+        "sha256": "265c005523b2fbb8a79ef0ed0561f1ab2e02b416c763275a48f89a10a7b8e37c"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-controls-r1/independent-qa-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/independent-qa-review.json",
+        "bytes": 1942,
+        "sha256": "cc14b2eb607cd656bb9ee3ab3b14426068ef62b102bcf8da351d0ab00371edab"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-controls-r1/independent-security-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/independent-security-review.json",
+        "bytes": 1947,
+        "sha256": "c43513ea63080d75ec8246c7433f74507c2457db6d50514d10bb37455f93542c"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-controls-r1/mirror-manifest.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/mirror-manifest.json",
+        "bytes": 1095,
+        "sha256": "e9e7a3513d3e303ebc669dba873d2360ea374ccf791e4ad1731a2beb903f68e4"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-controls-r1/outer-actual/execution.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/outer-actual/execution.json",
+        "bytes": 2111,
+        "sha256": "b8c79258fe4ae6f8c26a4a85804056cae42dba6d244d5abdf99703e9afbbffd7"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-controls-r1/outer-actual/root-monitor.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/outer-actual/root-monitor.py",
+        "bytes": 2610,
+        "sha256": "f8ebb34f1d2a2f02df4d36aa1c9344c5f97d60a44a24f91f7683161b2cfee23e"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-controls-r1/outer-actual/stderr.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/outer-actual/stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-controls-r1/outer-actual/stdout.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/outer-actual/stdout.bin",
+        "bytes": 195,
+        "sha256": "85f6edfdff122afbcf06909e338057e8c9795d987495ad1a118d88b3f31f3cb6"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-controls-r1/outer.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/outer.py",
+        "bytes": 20399,
+        "sha256": "22322f98bacf39583cef669f3ea191ea2c5a15f0efc4f1b25d5436df5af062dd"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-controls-r1/plan.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/plan.json",
+        "bytes": 6984,
+        "sha256": "c4438fb21d6bc71d780b50c58d72591ee8fb30fd9c6805042f97209d78fd005a"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-controls-r1/readiness-acceptance.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/readiness-acceptance.json",
+        "bytes": 898,
+        "sha256": "279964054aa9645ba3f42ce085bd11d525e63538808576ea5d10c72345772dc4"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-controls-r1/release.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/release.json",
+        "bytes": 1224,
+        "sha256": "60f9cb4da5b9776cdd486be4ebeafa2e3e968c872311fd39c72bcaf783d870e7"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-controls-r1/static-checks.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/static-checks.json",
+        "bytes": 2602,
+        "sha256": "a478e29d6636c8a2b32772cf3f5c62e0565515bef06f04d86e5b2f9071e7f049"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-controls-r1/subject.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-controls-r1/subject.json",
+        "bytes": 2895,
+        "sha256": "0abb5f00b2c3e21b4eea1accf4d11990addb45638b7ab10925201ccea774c7eb"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/README.md",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/README.md",
+        "bytes": 5408,
+        "sha256": "9eca013f2f53c77d3af8bd249f84df36e23ad94215fcd0d825632c4feef77bb1"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/change-manifest-before.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/change-manifest-before.json",
+        "bytes": 2547,
+        "sha256": "c761029bafd271425837c3e6f921769d78133fe3c30e39a7747c334fa2b4a0ff"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/findings-before.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/findings-before.json",
+        "bytes": 3974,
+        "sha256": "c3750bd636834f21e21a71a2429e1d73508b1249c71718e579b509e7b805af3b"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/grammar-control-config-PENDING.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/grammar-control-config-PENDING.json",
+        "bytes": 1439,
+        "sha256": "6ad9f8596b79b1f18b995056d46a5b6b9edbb4454f4d5576289c146cb782b8c1"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/grammar_controls.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/grammar_controls.py",
+        "bytes": 8326,
+        "sha256": "77fb47deff4657ebcd4717f0f8992d350468923aa22c4ee7551588e5acc317ce"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/negative-witnesses/actual-run/gate-arguments.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/negative-witnesses/actual-run/gate-arguments.json",
+        "bytes": 8503,
+        "sha256": "ad749bee8e57d69fe0d60ab24a815affd444c717e55f99ec2e3ba412226e64d9"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/negative-witnesses/actual-run/observation.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/negative-witnesses/actual-run/observation.json",
+        "bytes": 17080,
+        "sha256": "5d70028c828fca93bfb6f057dbc21340808599f8b67df76a2f47ed7c3ab2edb6"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/negative-witnesses/config.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/negative-witnesses/config.json",
+        "bytes": 11393,
+        "sha256": "92cbc6493423c7cdac9d7f327198a8e87aa0eda2892b82c05b6ff2dbdd043f30"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/negative-witnesses/outer-actual/execution.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/negative-witnesses/outer-actual/execution.json",
+        "bytes": 2231,
+        "sha256": "95c81e1bd5279094625feb29c4bcc95a0139d214f55bdc40fff0d270dca1b80b"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/negative-witnesses/outer-actual/stderr.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/negative-witnesses/outer-actual/stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/negative-witnesses/outer-actual/stdout.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/negative-witnesses/outer-actual/stdout.bin",
+        "bytes": 214,
+        "sha256": "a064179186802f97c74b88cf31bd43561a9a0c89bbbc5efa7d7af6e1a641ca32"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/negative-witnesses/probe.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/negative-witnesses/probe.py",
+        "bytes": 20271,
+        "sha256": "d1601ba4fbe02c4555c305788c26767b015d724ac8b45168759552c7c6792463"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/negative-witnesses/release.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/negative-witnesses/release.json",
+        "bytes": 1214,
+        "sha256": "750504963758c522b4d26c206585d66e4e79f62588bc50632c3f51c4cecfb9aa"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/originals/admission.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/originals/admission.py",
+        "bytes": 52988,
+        "sha256": "253aa826a8c0a250a3c8bd895207f2552cd45cb5c18295f9dedade383d3ac686"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/originals/controls.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/originals/controls.py",
+        "bytes": 9591,
+        "sha256": "377ff80f7e4e729470f364bb667a22fafb4ae2349f71f35c3b04c7aa1de60b8b"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/originals/qualification.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/originals/qualification.py",
+        "bytes": 31089,
+        "sha256": "658e1fba6173d35f18b96316da0de246db442f0691fe375b59f9800fe0e62fbd"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/originals/runner.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/originals/runner.py",
+        "bytes": 27072,
+        "sha256": "a239e2e4e72c222994f9a39c1890930a1cbaf55bae16c287bdcf3e625d2be3a3"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/preparation-error.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/preparation-error.json",
+        "bytes": 467,
+        "sha256": "034fb496d01314bebaa2160a320adc5a196fc0e2122af131531f99bca95daeaf"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/source.patch",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/source.patch",
+        "bytes": 3426,
+        "sha256": "7a6144c94e4272f2ecb66df298707ceb42b0fb3f31d4409743a46cb4b72b490c"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/static-checks.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-opaque-inventory-remediation-r1/static-checks.json",
+        "bytes": 3281,
+        "sha256": "d9b777ef4ae8a2a1a85235ee36026da2c105ad88b6f15dfda6550b15ae95ba85"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-policy-marker-remediation-r1/README.md",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-policy-marker-remediation-r1/README.md",
+        "bytes": 2949,
+        "sha256": "3d50733fcfaf279d55bca720215604032a4a8c9d38dbba6878b5b0459314c520"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-policy-marker-remediation-r1/findings-before.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-policy-marker-remediation-r1/findings-before.json",
+        "bytes": 1282,
+        "sha256": "2ca0e774127ed8d1fce0d677a35a17bbcd2654d9667cc25c9e797df150d4468b"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-policy-marker-remediation-r1/independent-qa-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-policy-marker-remediation-r1/independent-qa-review.json",
+        "bytes": 2017,
+        "sha256": "8e5746d29e7b8595952dbd722ada7f2cc212ee717ea69d435755b2b269005ad9"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-policy-marker-remediation-r1/independent-security-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-policy-marker-remediation-r1/independent-security-review.json",
+        "bytes": 2029,
+        "sha256": "433e25cf16e915dd1357dbde68e4c32ce211277e740504d96d091b56344fd758"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-policy-marker-remediation-r1/local-policy-controls/execution.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-policy-marker-remediation-r1/local-policy-controls/execution.json",
+        "bytes": 1613,
+        "sha256": "63618f1f7f3db8d9c6bec60ca6833e11ede33341381d6408f5d1218c80d4f2d1"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-policy-marker-remediation-r1/local-policy-controls/prior-launch-error.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-policy-marker-remediation-r1/local-policy-controls/prior-launch-error.json",
+        "bytes": 285,
+        "sha256": "b017fdfa617c0236519d5fb8fbd512139e7c6e9dd311654667b17324f08a9ed6"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-policy-marker-remediation-r1/local-policy-controls/stderr.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-policy-marker-remediation-r1/local-policy-controls/stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-policy-marker-remediation-r1/local-policy-controls/stdout.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-policy-marker-remediation-r1/local-policy-controls/stdout.bin",
+        "bytes": 412,
+        "sha256": "b0084a6dc3e54c4e27cff3d4f6fb6fc72dcc2b3f20804c6d60eb206717b035a6"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-policy-marker-remediation-r1/local-policy-controls-no-isolation/execution.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-policy-marker-remediation-r1/local-policy-controls-no-isolation/execution.json",
+        "bytes": 1591,
+        "sha256": "dc1ce678121f71bfa6884dd2c976f968c40e2c1a4344a69f982c5f80d1239126"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-policy-marker-remediation-r1/local-policy-controls-no-isolation/stderr.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-policy-marker-remediation-r1/local-policy-controls-no-isolation/stderr.bin",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-policy-marker-remediation-r1/local-policy-controls-no-isolation/stdout.bin",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-policy-marker-remediation-r1/local-policy-controls-no-isolation/stdout.bin",
+        "bytes": 1669,
+        "sha256": "06b622b4d7b395f51a92d3340bacdd0d4747c10bffbff61f614188b00de3dd91"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-policy-marker-remediation-r1/prepared-source.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-policy-marker-remediation-r1/prepared-source.json",
+        "bytes": 2014,
+        "sha256": "c642024f8dbae19d309f3ff901e45217c3e718225931a5003902c5f358ff7119"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-policy-marker-remediation-r1/protocol-before.mjs",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-policy-marker-remediation-r1/protocol-before.mjs",
+        "bytes": 73471,
+        "sha256": "71b03a1bc8953d256a9efcf7ffff1e253f440d4ccb7a395c8ef3fda6e071cc98"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-policy-marker-remediation-r1/source.patch",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-policy-marker-remediation-r1/source.patch",
+        "bytes": 1746,
+        "sha256": "0aae91489206819f8ff9f5436d097ab2adb18453e4e6b0c39b8fafedf563017d"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-current-source-r1/freezer-before.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r1/freezer-before.py",
+        "bytes": 6203,
+        "sha256": "20a97c3f6e0e8bd599d34cce3096d810425950f8289848b5cd2684833e52d25b"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-current-source-r1/preparation-failure.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r1/preparation-failure.json",
+        "bytes": 555,
+        "sha256": "328f19894640cfbd190c44df75a335ad6e5a458393a325991289a9b50953272c"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-current-source-r2/acceptance.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r2/acceptance.json",
+        "bytes": 2699,
+        "sha256": "c51a8c4589c73f4d98e01f46ca239b4788d40d280e80b245de48283dec2bd420"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-current-source-r2/freezer.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r2/freezer.py",
+        "bytes": 6703,
+        "sha256": "50105848d4e38fbef2df734a9608db286f836ab84e088ce3f33c267546aa69bf"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-current-source-r2/independent-qa-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r2/independent-qa-review.json",
+        "bytes": 2424,
+        "sha256": "9a5714f8b96deef1c78dde56cfba44824863cad745dad788c5ce97e8506c3cb1"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-current-source-r2/independent-security-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r2/independent-security-review.json",
+        "bytes": 2442,
+        "sha256": "e6aaa62146b672358122a0193285c6674f0a26b5ecfd817dd0ee0728963f6d9f"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-current-source-r2/root-manifest.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r2/root-manifest.json",
+        "bytes": 97963,
+        "sha256": "48d757117245ed71ba78e4b9c0b4c499b561fa050c6eba7496fdca341c5ed0f2"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-current-source-r2/source-approval.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r2/source-approval.json",
+        "bytes": 107717,
+        "sha256": "97ded2e1607037ee5490c3a27802b7401290e1f4481b4de67a03e590b12b397d"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-current-source-r2/source-closure.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r2/source-closure.json",
+        "bytes": 102080,
+        "sha256": "63b749f5930c1d08fa7ac83dc02be447189eb7d2f9b80cc98fdbe81bd18e94e4"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-current-source-r3/acceptance.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/acceptance.json",
+        "bytes": 2485,
+        "sha256": "cd32f47b3e7aa5e178ad82d84175115d87dab6e19c2bd5e99b0f341d668e964e"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-current-source-r3/freezer.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/freezer.py",
+        "bytes": 6703,
+        "sha256": "478e0bead7e5a78ae9e966560c3a573e3aa1ddee921d32b89aff77691884ba0f"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-current-source-r3/independent-qa-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/independent-qa-review.json",
+        "bytes": 2929,
+        "sha256": "4dc7bf5fb85b71515284d20ae913b2ca052f9090f0a92eb02aec82b24b35b756"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-current-source-r3/independent-security-review.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/independent-security-review.json",
+        "bytes": 2947,
+        "sha256": "ad6277aea774b45bc9d5fd0c2b599f4e39c40ff73647fbc4d78aff74562e7af1"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-current-source-r3/root-manifest.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/root-manifest.json",
+        "bytes": 97963,
+        "sha256": "78a9280275d931f1c90761eb09139b7c5a8e9839f4f69811855f6469e464a072"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-current-source-r3/source-approval.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-approval.json",
+        "bytes": 107717,
+        "sha256": "e3e41bb6bae55d80702f9002cc99c72ad3a6345405a5043d3123dcafcbea685e"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-current-source-r3/source-closure.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-current-source-r3/source-closure.json",
+        "bytes": 102080,
+        "sha256": "76cfc1d55602c4c18f7adabde2b67679f3d828517a4cf4abefdf13d57029b100"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-inventory-refresh-r1/README.md",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-inventory-refresh-r1/README.md",
+        "bytes": 2770,
+        "sha256": "0b2cc4050c43cdc692bea122cfaec047fb33ddbf227de72fd8455badbabecad3"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-inventory-refresh-r1/change-manifest-before.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-inventory-refresh-r1/change-manifest-before.json",
+        "bytes": 6140,
+        "sha256": "1f8240a8a801f4f7d5bb3897632f13be3f0cdcafebc163cc938893f4895fe0be"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-inventory-refresh-r1/originals/admission.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-inventory-refresh-r1/originals/admission.py",
+        "bytes": 52988,
+        "sha256": "20f34a01adef30d9516edb521fc96e6ffe12e28190c381545fe82a02dad86038"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-inventory-refresh-r1/originals/controls.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-inventory-refresh-r1/originals/controls.py",
+        "bytes": 9591,
+        "sha256": "72a2815581ef3334eb48db0378d842c5d1558a381043afb14264c30e1dcbdbd1"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-inventory-refresh-r1/originals/protocol.mjs",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-inventory-refresh-r1/originals/protocol.mjs",
+        "bytes": 73552,
+        "sha256": "c57f428d83d87b134db77f263a2d1bee16e5179c41f33b8374ce26abfbba82ce"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-inventory-refresh-r1/originals/qualification-schemas.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-inventory-refresh-r1/originals/qualification-schemas.json",
+        "bytes": 133680,
+        "sha256": "e895593e3f35f76808b7902bc50c96ad379b006872f13592d4c8c7e3a9931c23"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-inventory-refresh-r1/originals/qualification.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-inventory-refresh-r1/originals/qualification.py",
+        "bytes": 31089,
+        "sha256": "90a85857cec6ec0513bbd26b0e7f4de0657fbfbf433a55cac26c8240875f201e"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-inventory-refresh-r1/originals/runner.py",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-inventory-refresh-r1/originals/runner.py",
+        "bytes": 27072,
+        "sha256": "f03fe6e19e15560f30e8747edb8ca3c68e6ddf70aba0af7fbe7669d9da6a0908"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-inventory-refresh-r1/proposed-closure-roots.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-inventory-refresh-r1/proposed-closure-roots.json",
+        "bytes": 27736,
+        "sha256": "ff67903c45bb43ddfc44976e96e831b9ad5bd2137ba5dad63787e863e10a9d91"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-inventory-refresh-r1/source.patch",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-inventory-refresh-r1/source.patch",
+        "bytes": 7295,
+        "sha256": "8c24c6315c06e27f5e18f89cdda8eed9d59d49c8a518d0fa2f8f6f64fe2e3be7"
+      }
+    },
+    {
+      "archivePath": "repository/docs/decisions/evidence/e06-qualification-inventory-refresh-r1/static-checks.json",
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e06-qualification-inventory-refresh-r1/static-checks.json",
+        "bytes": 3589,
+        "sha256": "f75ef57dc4d265d6b545291ed1c01bbcc0a89c9c7b3ebf75c38686708f01982e"
+      }
+    }
+  ],
+  "counts": {
+    "files": 346,
+    "logicalBytes": 37792141
+  },
+  "limits": [
+    "Originalscope/findings/failuresandactualsource-specificacceptancespreserved; publicationisnotfreshapproval.",
+    "NoSDK/APK/AVDdisk/tool/TLSkeys/credentials; source/runtimegraphsretainexternaloriginalrequirements.",
+    "Archivecontainsrepositorymirrors, nottrustedrelocation; currentexactreviewedconfig/releaserequiredfornewruns."
+  ]
+}
