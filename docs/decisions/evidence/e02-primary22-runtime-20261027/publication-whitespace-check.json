@@ -1,0 +1,21 @@
+{
+  "check": [
+    "git",
+    "diff",
+    "--cached",
+    "--check"
+  ],
+  "worktree": "/tmp/nbdp-review-20261027",
+  "result": "FAIL_PRESERVED_ARCHIVED_DIFF_CONTEXT_WHITESPACE",
+  "checkExitCode": 2,
+  "originalToolChunk": "46e3fc",
+  "outerPackagingScriptExitCode": 1,
+  "affectedPath": "docs/decisions/evidence/e02-primary-replay-preparation-20261027/source-archive/e01-to-e02-launcher.diff",
+  "lines": [
+    18,
+    70,
+    118
+  ],
+  "reason": "Three literal space-only unified-diff context lines in the byte-identical retained source diff. Archive is evidence, not edited to make the whitespace checker green.",
+  "newRuntimeExecuted": false
+}

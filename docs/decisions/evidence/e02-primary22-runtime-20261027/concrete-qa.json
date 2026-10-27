@@ -1,0 +1,25 @@
+{
+  "recordedBy": "/root",
+  "reviewer": "/root/status_evidence",
+  "decision": "READY_FOR_ROOT_AUTHORIZATION_ONE_FIXED_PRIMARY22_ATTEMPT",
+  "caller": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-primary22-runtime-20261027/dispatch.py",
+    "bytes": 3207,
+    "sha256": "ebe40a38904979dcdc073850ee2db6a57309c12096a0a09693b91628fd4bc565"
+  },
+  "template": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-primary22-runtime-20261027/release-template.json",
+    "bytes": 1685,
+    "sha256": "c901b6c068735fdd3f60dc8852279783aacb962e35a6282bf81da297ed480461"
+  },
+  "recursiveDescriptorsVerified": 90,
+  "findings": [],
+  "limitations": [
+    "600s UTC admission lease and outer597+3 have different start brackets; no exact end-to-end600 guarantee",
+    "Hard interruption, wait605 timeout or caller error means UNKNOWN until exact-owned reconciliation",
+    "4MiB per-file is not aggregate disk/peak-memory bound",
+    "Actual report/wires/source closure and lifecycle require independent DATA review"
+  ],
+  "runtimeAuthorizedByReviewer": false,
+  "provenance": "Faithful coordinator record of actual independent mailbox decision"
+}

@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=2s",
+    "15s",
+    "/usr/bin/docker",
+    "network",
+    "create",
+    "--internal",
+    "--driver",
+    "bridge",
+    "--label",
+    "nbdp.owner=e02-primary-replay-20261027",
+    "--label",
+    "nbdp.scope=primary22-only",
+    "--label",
+    "nbdp.run=2ea6fa3d1e75ae1b947611e0cd390b9f",
+    "nbdp-e02-primary-20261027-2ea6fa3d1e75ae1b947611e0cd390b9f"
+  ],
+  "maximumSeconds": 15,
+  "cleanup": false,
+  "startedUtcNs": 1793113213239565013
+}

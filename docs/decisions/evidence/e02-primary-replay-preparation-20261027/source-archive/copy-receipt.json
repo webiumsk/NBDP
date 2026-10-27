@@ -1,0 +1,37 @@
+{
+  "schema": "nbdp-primary22-data-copy-receipt-v1",
+  "actor": "/root/consumer3_preparation",
+  "copySourceLab": "/tmp/nbdp-e01-replay-20261026-preparation/lab",
+  "copyDestination": "/tmp/nbdp-e02-primary-replay-20261027-preparation/lab",
+  "inventory": {
+    "path": "/tmp/nbdp-e02-primary-replay-20261027-preparation/input-inventory.json",
+    "bytes": 421407,
+    "sha256": "6c4a61178bbda86f3b9a331b961f661c460c250b42617076b2800e36fd02940c"
+  },
+  "binding": {
+    "path": "/tmp/nbdp-e02-primary-replay-20261027-preparation/native-e01-binding.json",
+    "bytes": 3473,
+    "sha256": "d2fe21f58a005a1d3303382cce7cd6d792b9fca12678b5c37cfca3def821e9d0"
+  },
+  "actualPreparationCommand": "Inline stdlib Python via tools.exec_command; copytree/copy2 and before/after bytes/modes/membership/link equality; exit0",
+  "actualApiTranscriptOrigin": "Conversation tools.exec_command receipt; coordinator must retain original API response before runtime acceptance. This worker report is not portable process attestation.",
+  "copiedLabRows": 926,
+  "currentE01SourcePins": 19,
+  "addedFiles": [
+    {
+      "path": "/tmp/nbdp-e02-primary-replay-20261027-preparation/lab/experiments/e02-validation/test.mjs",
+      "bytes": 4654,
+      "sha256": "a14d17faa40ebe7d27a5761ca837d0d9f8064fcc1d0a5e35c6782ea75638ae6b"
+    },
+    {
+      "path": "/tmp/nbdp-e02-primary-replay-20261027-preparation/lab/experiments/docker/proxy.mjs",
+      "bytes": 1079,
+      "sha256": "4116d67880e34b5963dcc4c6559ea19009462353b37d19e2cb1f3b3d5bb7df65"
+    }
+  ],
+  "programsImportedOrExecuted": false,
+  "modelsExecuted": 0,
+  "toolsExecuted": false,
+  "networkAccess": false,
+  "independentAcceptance": false
+}

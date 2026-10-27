@@ -1,0 +1,28 @@
+{
+  "request": {
+    "argv": [
+      "/usr/bin/timeout",
+      "--signal=TERM",
+      "--kill-after=2s",
+      "15s",
+      "/usr/bin/docker",
+      "network",
+      "inspect",
+      "9b653dde8593525d63c26257525a4bccb4c44248a3cf03c89652a50a70db6fc3"
+    ],
+    "maximumSeconds": 15,
+    "cleanup": true,
+    "startedUtcNs": 1793113222244063215
+  },
+  "exitCode": 1,
+  "stdout": {
+    "path": "/tmp/nbdp-e02-primary-replay-20261027-preparation/attempt-2ea6fa3d1e75ae1b947611e0cd390b9f/045-network-absence.stdout",
+    "bytes": 3,
+    "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+  },
+  "stderr": {
+    "path": "/tmp/nbdp-e02-primary-replay-20261027-preparation/attempt-2ea6fa3d1e75ae1b947611e0cd390b9f/045-network-absence.stderr",
+    "bytes": 111,
+    "sha256": "7e4aea17cdbda8017beea5659181152c70bf49d6ad79b5ccfa24a9bf3af141b2"
+  }
+}
