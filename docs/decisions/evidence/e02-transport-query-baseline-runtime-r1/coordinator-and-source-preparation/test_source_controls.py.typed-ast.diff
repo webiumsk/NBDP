@@ -1,0 +1,909 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/test_source_controls.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/test_source_controls.py
+@@ -1356,6 +1356,906 @@
+                           ctx=Load()),
+                         slice=Constant(value='absenceConfirmed'),
+                         ctx=Load())]))])])]),
++    ClassDef(
++      name='ClosedDependencyControls',
++      bases=[
++        Attribute(
++          value=Name(id='unittest', ctx=Load()),
++          attr='TestCase',
++          ctx=Load())],
++      body=[
++        FunctionDef(
++          name='setUp',
++          args=arguments(
++            args=[
++              arg(arg='self')]),
++          body=[
++            Assign(
++              targets=[
++                Attribute(
++                  value=Name(id='self', ctx=Load()),
++                  attr='temp',
++                  ctx=Store())],
++              value=Call(
++                func=Attribute(
++                  value=Name(id='tempfile', ctx=Load()),
++                  attr='TemporaryDirectory',
++                  ctx=Load()))),
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=Name(id='self', ctx=Load()),
++                  attr='addCleanup',
++                  ctx=Load()),
++                args=[
++                  Attribute(
++                    value=Attribute(
++                      value=Name(id='self', ctx=Load()),
++                      attr='temp',
++                      ctx=Load()),
++                    attr='cleanup',
++                    ctx=Load())])),
++            Assign(
++              targets=[
++                Attribute(
++                  value=Name(id='self', ctx=Load()),
++                  attr='base',
++                  ctx=Store())],
++              value=Call(
++                func=Name(id='Path', ctx=Load()),
++                args=[
++                  Attribute(
++                    value=Attribute(
++                      value=Name(id='self', ctx=Load()),
++                      attr='temp',
++                      ctx=Load()),
++                    attr='name',
++                    ctx=Load())])),
++            Assign(
++              targets=[
++                Attribute(
++                  value=Name(id='self', ctx=Load()),
++                  attr='root',
++                  ctx=Store())],
++              value=BinOp(
++                left=Attribute(
++                  value=Name(id='self', ctx=Load()),
++                  attr='base',
++                  ctx=Load()),
++                op=Div(),
++                right=Constant(value='node_modules'))),
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=BinOp(
++                    left=Attribute(
++                      value=Name(id='self', ctx=Load()),
++                      attr='root',
++                      ctx=Load()),
++                    op=Div(),
++                    right=Constant(value='ws')),
++                  attr='mkdir',
++                  ctx=Load()),
++                keywords=[
++                  keyword(
++                    arg='parents',
++                    value=Constant(value=True))])),
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=BinOp(
++                    left=Attribute(
++                      value=Name(id='self', ctx=Load()),
++                      attr='root',
++                      ctx=Load()),
++                    op=Div(),
++                    right=Constant(value='ws/index.js')),
++                  attr='write_text',
++                  ctx=Load()),
++                args=[
++                  Constant(value='SYNTHETIC_DATA_NEVER_IMPORTED')])),
++            Assign(
++              targets=[
++                Attribute(
++                  value=Name(id='self', ctx=Load()),
++                  attr='tree',
++                  ctx=Store())],
++              value=Dict(
++                keys=[
++                  Constant(value='schema'),
++                  Constant(value='sourceRoot'),
++                  Constant(value='runtimeRoot'),
++                  None],
++                values=[
++                  Constant(value='e02-transport-dependency-tree-v2'),
++                  Call(
++                    func=Name(id='str', ctx=Load()),
++                    args=[
++                      Attribute(
++                        value=Name(id='self', ctx=Load()),
++                        attr='root',
++                        ctx=Load())]),
++                  Constant(value='/input/node_modules'),
++                  Call(
++                    func=Attribute(
++                      value=Name(id='subject', ctx=Load()),
++                      attr='dependency_snapshot',
++                      ctx=Load()),
++                    args=[
++                      Attribute(
++                        value=Name(id='self', ctx=Load()),
++                        attr='root',
++                        ctx=Load())])])),
++            Assign(
++              targets=[
++                Name(id='p', ctx=Store())],
++              value=BinOp(
++                left=Attribute(
++                  value=Name(id='self', ctx=Load()),
++                  attr='root',
++                  ctx=Load()),
++                op=Div(),
++                right=Constant(value='ws/index.js'))),
++            Assign(
++              targets=[
++                Attribute(
++                  value=Name(id='self', ctx=Load()),
++                  attr='fixture',
++                  ctx=Store())],
++              value=Dict(
++                keys=[
++                  Constant(value='dependencyFiles')],
++                values=[
++                  List(
++                    elts=[
++                      Dict(
++                        keys=[
++                          Constant(value='source'),
++                          Constant(value='path'),
++                          Constant(value='bytes'),
++                          Constant(value='sha256')],
++                        values=[
++                          Call(
++                            func=Name(id='str', ctx=Load()),
++                            args=[
++                              Name(id='p', ctx=Load())]),
++                          Constant(value='/input/node_modules/ws/index.js'),
++                          Attribute(
++                            value=Call(
++                              func=Attribute(
++                                value=Name(id='p', ctx=Load()),
++                                attr='stat',
++                                ctx=Load())),
++                            attr='st_size',
++                            ctx=Load()),
++                          Call(
++                            func=Attribute(
++                              value=Call(
++                                func=Attribute(
++                                  value=Name(id='hashlib', ctx=Load()),
++                                  attr='sha256',
++                                  ctx=Load()),
++                                args=[
++                                  Call(
++                                    func=Attribute(
++                                      value=Name(id='p', ctx=Load()),
++                                      attr='read_bytes',
++                                      ctx=Load()))]),
++                              attr='hexdigest',
++                              ctx=Load()))])],
++                    ctx=Load())]))]),
++        FunctionDef(
++          name='verify',
++          args=arguments(
++            args=[
++              arg(arg='self')]),
++          body=[
++            Return(
++              value=Call(
++                func=Attribute(
++                  value=Name(id='subject', ctx=Load()),
++                  attr='verify_dependency_inventory',
++                  ctx=Load()),
++                args=[
++                  Attribute(
++                    value=Name(id='self', ctx=Load()),
++                    attr='fixture',
++                    ctx=Load()),
++                  Attribute(
++                    value=Name(id='self', ctx=Load()),
++                    attr='tree',
++                    ctx=Load()),
++                  Attribute(
++                    value=Name(id='self', ctx=Load()),
++                    attr='root',
++                    ctx=Load())]))]),
++        FunctionDef(
++          name='test_unchanged_complete_tree_accepted',
++          args=arguments(
++            args=[
++              arg(arg='self')]),
++          body=[
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=Name(id='self', ctx=Load()),
++                  attr='assertTrue',
++                  ctx=Load()),
++                args=[
++                  Subscript(
++                    value=Call(
++                      func=Attribute(
++                        value=Name(id='self', ctx=Load()),
++                        attr='verify',
++                        ctx=Load())),
++                    slice=Constant(value='exact'),
++                    ctx=Load())]))]),
++        FunctionDef(
++          name='test_extra_regular_and_nested_optional_bufferutil_refused',
++          args=arguments(
++            args=[
++              arg(arg='self')]),
++          body=[
++            For(
++              target=Name(id='name', ctx=Store()),
++              iter=Tuple(
++                elts=[
++                  Constant(value='extra.js'),
++                  Constant(value='ws/node_modules/bufferutil/index.js')],
++                ctx=Load()),
++              body=[
++                With(
++                  items=[
++                    withitem(
++                      context_expr=Call(
++                        func=Attribute(
++                          value=Name(id='self', ctx=Load()),
++                          attr='subTest',
++                          ctx=Load()),
++                        keywords=[
++                          keyword(
++                            arg='name',
++                            value=Name(id='name', ctx=Load()))]))],
++                  body=[
++                    Assign(
++                      targets=[
++                        Name(id='p', ctx=Store())],
++                      value=BinOp(
++                        left=Attribute(
++                          value=Name(id='self', ctx=Load()),
++                          attr='root',
++                          ctx=Load()),
++                        op=Div(),
++                        right=Name(id='name', ctx=Load()))),
++                    Expr(
++                      value=Call(
++                        func=Attribute(
++                          value=Attribute(
++                            value=Name(id='p', ctx=Load()),
++                            attr='parent',
++                            ctx=Load()),
++                          attr='mkdir',
++                          ctx=Load()),
++                        keywords=[
++                          keyword(
++                            arg='parents',
++                            value=Constant(value=True)),
++                          keyword(
++                            arg='exist_ok',
++                            value=Constant(value=True))])),
++                    Expr(
++                      value=Call(
++                        func=Attribute(
++                          value=Name(id='p', ctx=Load()),
++                          attr='write_text',
++                          ctx=Load()),
++                        args=[
++                          Constant(value='DO_NOT_IMPORT')])),
++                    With(
++                      items=[
++                        withitem(
++                          context_expr=Call(
++                            func=Attribute(
++                              value=Name(id='self', ctx=Load()),
++                              attr='assertRaisesRegex',
++                              ctx=Load()),
++                            args=[
++                              Name(id='RuntimeError', ctx=Load()),
++                              Constant(value='exact membership')]))],
++                      body=[
++                        Expr(
++                          value=Call(
++                            func=Attribute(
++                              value=Name(id='self', ctx=Load()),
++                              attr='verify',
++                              ctx=Load())))]),
++                    Expr(
++                      value=Call(
++                        func=Attribute(
++                          value=Name(id='p', ctx=Load()),
++                          attr='unlink',
++                          ctx=Load()))),
++                    For(
++                      target=Name(id='folder', ctx=Store()),
++                      iter=Tuple(
++                        elts=[
++                          BinOp(
++                            left=Attribute(
++                              value=Name(id='self', ctx=Load()),
++                              attr='root',
++                              ctx=Load()),
++                            op=Div(),
++                            right=Constant(value='ws/node_modules/bufferutil')),
++                          BinOp(
++                            left=Attribute(
++                              value=Name(id='self', ctx=Load()),
++                              attr='root',
++                              ctx=Load()),
++                            op=Div(),
++                            right=Constant(value='ws/node_modules'))],
++                        ctx=Load()),
++                      body=[
++                        If(
++                          test=Call(
++                            func=Attribute(
++                              value=Name(id='folder', ctx=Load()),
++                              attr='exists',
++                              ctx=Load())),
++                          body=[
++                            Expr(
++                              value=Call(
++                                func=Attribute(
++                                  value=Name(id='folder', ctx=Load()),
++                                  attr='rmdir',
++                                  ctx=Load())))])])])])]),
++        FunctionDef(
++          name='test_missing_and_changed_regular_member_refused',
++          args=arguments(
++            args=[
++              arg(arg='self')]),
++          body=[
++            Assign(
++              targets=[
++                Name(id='p', ctx=Store())],
++              value=BinOp(
++                left=Attribute(
++                  value=Name(id='self', ctx=Load()),
++                  attr='root',
++                  ctx=Load()),
++                op=Div(),
++                right=Constant(value='ws/index.js'))),
++            Assign(
++              targets=[
++                Name(id='raw', ctx=Store())],
++              value=Call(
++                func=Attribute(
++                  value=Name(id='p', ctx=Load()),
++                  attr='read_bytes',
++                  ctx=Load()))),
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=Name(id='p', ctx=Load()),
++                  attr='unlink',
++                  ctx=Load()))),
++            With(
++              items=[
++                withitem(
++                  context_expr=Call(
++                    func=Attribute(
++                      value=Name(id='self', ctx=Load()),
++                      attr='assertRaises',
++                      ctx=Load()),
++                    args=[
++                      Name(id='RuntimeError', ctx=Load())]))],
++              body=[
++                Expr(
++                  value=Call(
++                    func=Attribute(
++                      value=Name(id='self', ctx=Load()),
++                      attr='verify',
++                      ctx=Load())))]),
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=Name(id='p', ctx=Load()),
++                  attr='write_bytes',
++                  ctx=Load()),
++                args=[
++                  BinOp(
++                    left=Name(id='raw', ctx=Load()),
++                    op=Add(),
++                    right=Constant(value=b'changed'))])),
++            With(
++              items=[
++                withitem(
++                  context_expr=Call(
++                    func=Attribute(
++                      value=Name(id='self', ctx=Load()),
++                      attr='assertRaises',
++                      ctx=Load()),
++                    args=[
++                      Name(id='RuntimeError', ctx=Load())]))],
++              body=[
++                Expr(
++                  value=Call(
++                    func=Attribute(
++                      value=Name(id='self', ctx=Load()),
++                      attr='verify',
++                      ctx=Load())))])]),
++        FunctionDef(
++          name='test_new_safe_escape_and_dangling_symlinks_refused',
++          args=arguments(
++            args=[
++              arg(arg='self')]),
++          body=[
++            For(
++              target=Name(id='target', ctx=Store()),
++              iter=Tuple(
++                elts=[
++                  Constant(value='ws/index.js'),
++                  Constant(value='../external'),
++                  Constant(value='missing')],
++                ctx=Load()),
++              body=[
++                With(
++                  items=[
++                    withitem(
++                      context_expr=Call(
++                        func=Attribute(
++                          value=Name(id='self', ctx=Load()),
++                          attr='subTest',
++                          ctx=Load()),
++                        keywords=[
++                          keyword(
++                            arg='target',
++                            value=Name(id='target', ctx=Load()))]))],
++                  body=[
++                    Expr(
++                      value=Call(
++                        func=Attribute(
++                          value=BinOp(
++                            left=Attribute(
++                              value=Name(id='self', ctx=Load()),
++                              attr='base',
++                              ctx=Load()),
++                            op=Div(),
++                            right=Constant(value='external')),
++                          attr='write_text',
++                          ctx=Load()),
++                        args=[
++                          Constant(value='OUTSIDE_NEVER_READ')])),
++                    Assign(
++                      targets=[
++                        Name(id='p', ctx=Store())],
++                      value=BinOp(
++                        left=Attribute(
++                          value=Name(id='self', ctx=Load()),
++                          attr='root',
++                          ctx=Load()),
++                        op=Div(),
++                        right=Constant(value='added-link'))),
++                    Expr(
++                      value=Call(
++                        func=Attribute(
++                          value=Name(id='p', ctx=Load()),
++                          attr='symlink_to',
++                          ctx=Load()),
++                        args=[
++                          Name(id='target', ctx=Load())])),
++                    With(
++                      items=[
++                        withitem(
++                          context_expr=Call(
++                            func=Attribute(
++                              value=Name(id='self', ctx=Load()),
++                              attr='assertRaises',
++                              ctx=Load()),
++                            args=[
++                              Tuple(
++                                elts=[
++                                  Name(id='RuntimeError', ctx=Load()),
++                                  Name(id='OSError', ctx=Load())],
++                                ctx=Load())]))],
++                      body=[
++                        Expr(
++                          value=Call(
++                            func=Attribute(
++                              value=Name(id='self', ctx=Load()),
++                              attr='verify',
++                              ctx=Load())))]),
++                    Expr(
++                      value=Call(
++                        func=Attribute(
++                          value=Name(id='p', ctx=Load()),
++                          attr='unlink',
++                          ctx=Load())))])])]),
++        FunctionDef(
++          name='test_special_fifo_refused_without_read',
++          args=arguments(
++            args=[
++              arg(arg='self')]),
++          body=[
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=Attribute(
++                    value=Name(id='subject', ctx=Load()),
++                    attr='os',
++                    ctx=Load()),
++                  attr='mkfifo',
++                  ctx=Load()),
++                args=[
++                  BinOp(
++                    left=Attribute(
++                      value=Name(id='self', ctx=Load()),
++                      attr='root',
++                      ctx=Load()),
++                    op=Div(),
++                    right=Constant(value='special'))])),
++            With(
++              items=[
++                withitem(
++                  context_expr=Call(
++                    func=Attribute(
++                      value=Name(id='self', ctx=Load()),
++                      attr='assertRaisesRegex',
++                      ctx=Load()),
++                    args=[
++                      Name(id='RuntimeError', ctx=Load()),
++                      Constant(value='special file')]))],
++              body=[
++                Expr(
++                  value=Call(
++                    func=Attribute(
++                      value=Name(id='self', ctx=Load()),
++                      attr='verify',
++                      ctx=Load())))])]),
++        FunctionDef(
++          name='test_source_runtime_canonical_mapping_and_unknown_fields_refused',
++          args=arguments(
++            args=[
++              arg(arg='self')]),
++          body=[
++            Assign(
++              targets=[
++                Name(id='original', ctx=Store())],
++              value=Call(
++                func=Name(id='dict', ctx=Load()),
++                args=[
++                  Subscript(
++                    value=Subscript(
++                      value=Attribute(
++                        value=Name(id='self', ctx=Load()),
++                        attr='fixture',
++                        ctx=Load()),
++                      slice=Constant(value='dependencyFiles'),
++                      ctx=Load()),
++                    slice=Constant(value=0),
++                    ctx=Load())])),
++            For(
++              target=Name(id='patcher', ctx=Store()),
++              iter=Tuple(
++                elts=[
++                  Dict(
++                    keys=[
++                      Constant(value='source')],
++                    values=[
++                      Call(
++                        func=Name(id='str', ctx=Load()),
++                        args=[
++                          BinOp(
++                            left=Attribute(
++                              value=Name(id='self', ctx=Load()),
++                              attr='root',
++                              ctx=Load()),
++                            op=Div(),
++                            right=Constant(value='wrong'))])]),
++                  Dict(
++                    keys=[
++                      Constant(value='path')],
++                    values=[
++                      Constant(value='/input/node_modules/../ws/index.js')]),
++                  Dict(
++                    keys=[
++                      Constant(value='path')],
++                    values=[
++                      Constant(value='/other/ws/index.js')]),
++                  Dict(
++                    keys=[
++                      Constant(value='extra')],
++                    values=[
++                      Constant(value=True)])],
++                ctx=Load()),
++              body=[
++                With(
++                  items=[
++                    withitem(
++                      context_expr=Call(
++                        func=Attribute(
++                          value=Name(id='self', ctx=Load()),
++                          attr='subTest',
++                          ctx=Load()),
++                        keywords=[
++                          keyword(
++                            arg='patcher',
++                            value=Name(id='patcher', ctx=Load()))]))],
++                  body=[
++                    Assign(
++                      targets=[
++                        Subscript(
++                          value=Subscript(
++                            value=Attribute(
++                              value=Name(id='self', ctx=Load()),
++                              attr='fixture',
++                              ctx=Load()),
++                            slice=Constant(value='dependencyFiles'),
++                            ctx=Load()),
++                          slice=Constant(value=0),
++                          ctx=Store())],
++                      value=Dict(
++                        keys=[
++                          None,
++                          None],
++                        values=[
++                          Name(id='original', ctx=Load()),
++                          Name(id='patcher', ctx=Load())])),
++                    With(
++                      items=[
++                        withitem(
++                          context_expr=Call(
++                            func=Attribute(
++                              value=Name(id='self', ctx=Load()),
++                              attr='assertRaises',
++                              ctx=Load()),
++                            args=[
++                              Name(id='RuntimeError', ctx=Load())]))],
++                      body=[
++                        Expr(
++                          value=Call(
++                            func=Attribute(
++                              value=Name(id='self', ctx=Load()),
++                              attr='verify',
++                              ctx=Load())))])])]),
++            Assign(
++              targets=[
++                Subscript(
++                  value=Subscript(
++                    value=Attribute(
++                      value=Name(id='self', ctx=Load()),
++                      attr='fixture',
++                      ctx=Load()),
++                    slice=Constant(value='dependencyFiles'),
++                    ctx=Load()),
++                  slice=Constant(value=0),
++                  ctx=Store())],
++              value=Name(id='original', ctx=Load()))]),
++        FunctionDef(
++          name='test_actual_inventory_gate_refuses_before_host_import_or_container',
++          args=arguments(
++            args=[
++              arg(arg='self')]),
++          body=[
++            Assign(
++              targets=[
++                Name(id='p', ctx=Store())],
++              value=BinOp(
++                left=Attribute(
++                  value=Name(id='self', ctx=Load()),
++                  attr='root',
++                  ctx=Load()),
++                op=Div(),
++                right=Constant(value='ws/node_modules/bufferutil/index.js'))),
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=Attribute(
++                    value=Name(id='p', ctx=Load()),
++                    attr='parent',
++                    ctx=Load()),
++                  attr='mkdir',
++                  ctx=Load()),
++                keywords=[
++                  keyword(
++                    arg='parents',
++                    value=Constant(value=True))])),
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=Name(id='p', ctx=Load()),
++                  attr='write_text',
++                  ctx=Load()),
++                args=[
++                  Constant(value='NEVER_IMPORT')])),
++            Assign(
++              targets=[
++                Name(id='config', ctx=Store())],
++              value=BinOp(
++                left=Attribute(
++                  value=Name(id='self', ctx=Load()),
++                  attr='base',
++                  ctx=Load()),
++                op=Div(),
++                right=Constant(value='config.json'))),
++            Assign(
++              targets=[
++                Name(id='release', ctx=Store())],
++              value=BinOp(
++                left=Attribute(
++                  value=Name(id='self', ctx=Load()),
++                  attr='base',
++                  ctx=Load()),
++                op=Div(),
++                right=Constant(value='release.json'))),
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=Name(id='config', ctx=Load()),
++                  attr='write_text',
++                  ctx=Load()),
++                args=[
++                  Constant(value='{}')])),
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=Name(id='release', ctx=Load()),
++                  attr='write_text',
++                  ctx=Load()),
++                args=[
++                  Constant(value='{}')])),
++            With(
++              items=[
++                withitem(
++                  context_expr=Call(
++                    func=Attribute(
++                      value=Name(id='patch', ctx=Load()),
++                      attr='object',
++                      ctx=Load()),
++                    args=[
++                      Name(id='subject', ctx=Load()),
++                      Constant(value='verify_config')],
++                    keywords=[
++                      keyword(
++                        arg='side_effect',
++                        value=Lambda(
++                          args=arguments(
++                            args=[
++                              arg(arg='_value')]),
++                          body=Call(
++                            func=Attribute(
++                              value=Name(id='self', ctx=Load()),
++                              attr='verify',
++                              ctx=Load()))))])),
++                withitem(
++                  context_expr=Call(
++                    func=Attribute(
++                      value=Name(id='patch', ctx=Load()),
++                      attr='object',
++                      ctx=Load()),
++                    args=[
++                      Name(id='subject', ctx=Load()),
++                      Constant(value='load_module')]),
++                  optional_vars=Name(id='imports', ctx=Store())),
++                withitem(
++                  context_expr=Call(
++                    func=Attribute(
++                      value=Name(id='patch', ctx=Load()),
++                      attr='object',
++                      ctx=Load()),
++                    args=[
++                      Attribute(
++                        value=Name(id='subject', ctx=Load()),
++                        attr='Runtime',
++                        ctx=Load()),
++                      Constant(value='start')]),
++                  optional_vars=Name(id='starts', ctx=Store()))],
++              body=[
++                With(
++                  items=[
++                    withitem(
++                      context_expr=Call(
++                        func=Attribute(
++                          value=Name(id='self', ctx=Load()),
++                          attr='assertRaises',
++                          ctx=Load()),
++                        args=[
++                          Name(id='RuntimeError', ctx=Load())]))],
++                  body=[
++                    Expr(
++                      value=Call(
++                        func=Attribute(
++                          value=Name(id='subject', ctx=Load()),
++                          attr='execute',
++                          ctx=Load()),
++                        args=[
++                          Name(id='config', ctx=Load()),
++                          Call(
++                            func=Attribute(
++                              value=Name(id='subject', ctx=Load()),
++                              attr='digest',
++                              ctx=Load()),
++                            args=[
++                              Name(id='config', ctx=Load())]),
++                          Name(id='release', ctx=Load()),
++                          Call(
++                            func=Attribute(
++                              value=Name(id='subject', ctx=Load()),
++                              attr='digest',
++                              ctx=Load()),
++                            args=[
++                              Name(id='release', ctx=Load())]),
++                          BinOp(
++                            left=Attribute(
++                              value=Name(id='self', ctx=Load()),
++                              attr='base',
++                              ctx=Load()),
++                            op=Div(),
++                            right=Constant(value='out'))]))]),
++                Expr(
++                  value=Call(
++                    func=Attribute(
++                      value=Name(id='imports', ctx=Load()),
++                      attr='assert_not_called',
++                      ctx=Load()))),
++                Expr(
++                  value=Call(
++                    func=Attribute(
++                      value=Name(id='starts', ctx=Load()),
++                      attr='assert_not_called',
++                      ctx=Load())))])]),
++        FunctionDef(
++          name='test_end_boundary_rechecks_current_membership_not_cached_success',
++          args=arguments(
++            args=[
++              arg(arg='self')]),
++          body=[
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=Name(id='self', ctx=Load()),
++                  attr='assertTrue',
++                  ctx=Load()),
++                args=[
++                  Subscript(
++                    value=Call(
++                      func=Attribute(
++                        value=Name(id='self', ctx=Load()),
++                        attr='verify',
++                        ctx=Load())),
++                    slice=Constant(value='exact'),
++                    ctx=Load())])),
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=BinOp(
++                    left=Attribute(
++                      value=Name(id='self', ctx=Load()),
++                      attr='root',
++                      ctx=Load()),
++                    op=Div(),
++                    right=Constant(value='new.js')),
++                  attr='write_text',
++                  ctx=Load()),
++                args=[
++                  Constant(value='LATE_ADDITION')])),
++            With(
++              items=[
++                withitem(
++                  context_expr=Call(
++                    func=Attribute(
++                      value=Name(id='self', ctx=Load()),
++                      attr='assertRaisesRegex',
++                      ctx=Load()),
++                    args=[
++                      Name(id='RuntimeError', ctx=Load()),
++                      Constant(value='exact membership')]))],
++              body=[
++                Expr(
++                  value=Call(
++                    func=Attribute(
++                      value=Name(id='self', ctx=Load()),
++                      attr='verify',
++                      ctx=Load())))])])]),
+     If(
+       test=Compare(
+         left=Name(id='__name__', ctx=Load()),

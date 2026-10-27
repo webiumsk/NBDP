@@ -1,0 +1,49 @@
+{
+  "schema": "nbdp-consumer3-source-disposition-v1",
+  "actor": "/root",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r3/subject.json",
+    "bytes": 6669,
+    "sha256": "0d0500322dfdc016bf3465ee722d60c03907a503d4429bd8187344b2c3177aa0"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r3/actual-source-qa-review.json",
+      "bytes": 2367,
+      "sha256": "451955d0c5695003216c38a789b154d4e4f1bbb3f86198826c4dd8baf3152192"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r3/actual-source-security-review.json",
+      "bytes": 1434,
+      "sha256": "1efd5685593e941070c447d8ccb03594aae791ea5ac57ac62b9c697b68ff5231"
+    }
+  ],
+  "decision": "HOLD_PRESERVE_CONSUMER3_PREPARE_VERSIONED_SOURCE4",
+  "controlsExecuted": 0,
+  "runtimeAuthorized": false,
+  "findings": [
+    {
+      "id": "C3-GUARD-LABEL",
+      "severity": "MEDIUM",
+      "evidence": "Frozen producer2 fixture.mjs191 emits proxy:app-before-upstream-send. Consumer3 observer.py allows proxy:before-upstream-send; test_observer.py79 repeats nonexistent label.",
+      "impact": "Healthy actual producer forwarding trace refused; synthetic positive masks DTO drift.",
+      "requiredRegression": "Accept actual literal, reject invented shorter label, derive closed proxy guard vocabulary from frozen producer source including pending/upstream-open paths."
+    },
+    {
+      "id": "QA-C3-002",
+      "severity": "MEDIUM",
+      "evidence": "consumer.py353 requires E02_ORDINARY_MINIMUM_RS_TWO_ROLE_WINDOW_ONLY while both frozen producer2 configs require E02_ORDINARY_MINIMUM_RS_TWO_ROLE_V2_WINDOW_ONLY.",
+      "impact": "Both genuine producer2 role configs refused.",
+      "requiredRegression": "Source-bound incoming/archive window positives; old-scope negative."
+    },
+    {
+      "id": "QA-C3-003",
+      "severity": "MEDIUM",
+      "evidence": "observer.py243-247 only requires send phases after intent, allowing callback/guard before invocation entry.",
+      "impact": "Impossible source phase ordering can satisfy new DATA phase checks. No runtime occurrence observed.",
+      "requiredRegression": "Require INVOKE_ENTRY before CALLBACK_ENTRY before CALLBACK_GUARD_PASSED; refuse callback-before-invocation and passed-before-callback. Preserve source-permitted callback-before-return interleaving."
+    }
+  ],
+  "next": "Consumer4 source correction with source-derived DTO controls and complete synthetic window graphs; independent new SOURCE reviews before controls.",
+  "canonicalE02": "PARTIAL22_UNCHANGED"
+}

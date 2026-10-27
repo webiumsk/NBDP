@@ -1,0 +1,17 @@
+{
+  "tool": "exec_command",
+  "arguments": {
+    "cmd": "/home/peterhorvath/.miniforge3/bin/python3.13 -I -B /tmp/nbdp-verify-minimum-android-inputs.py incoming",
+    "sandbox_permissions": "require_escalated",
+    "justification": "Overiť pripnutých 434 SDK súborov, APK, lokálne obrazy a aktuálne zdroje pred autorizovaným izolovaným Android testom; bez spustenia klienta alebo vytvorenia VM.",
+    "yield_time_ms": 1000,
+    "max_output_tokens": 1200
+  },
+  "response": {
+    "chunk_id": "71f4f9",
+    "wall_time_seconds": 1.000948212,
+    "session_id": 77049,
+    "original_token_count": 0,
+    "output": ""
+  }
+}

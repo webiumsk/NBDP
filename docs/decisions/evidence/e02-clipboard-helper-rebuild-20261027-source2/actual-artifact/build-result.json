@@ -1,0 +1,491 @@
+{
+  "schema": "e02-clipboard-helper-rebuild-result-v2",
+  "plan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v3/helper-build-plan-effective-r2.json",
+    "bytes": 4022,
+    "sha256": "92f3fd858a6efd88d262b812fb5eb53a8ee1e32097cc946f0866d3ae4905081d"
+  },
+  "status": "BUILT_REBUILT_HELPER_ARTIFACT_ONLY",
+  "commands": [
+    {
+      "argv": [
+        "/tmp/nbdp-amethyst-rebuild-20261026/tools/jdk/bin/javac",
+        "-encoding",
+        "UTF-8",
+        "-source",
+        "8",
+        "-target",
+        "8",
+        "-bootclasspath",
+        "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/platforms/android-37.0/android.jar",
+        "-d",
+        "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/classes",
+        "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v3/clipboard-helper/src/org/nbdp/clipboard/capture/CaptureActivity.java"
+      ],
+      "exit": 0,
+      "stdout": {
+        "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/command-01.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/command-01.stderr",
+        "bytes": 471,
+        "sha256": "c01ac5ca59361dac15d66e06153c351ac2f44697feb1fa59114427152ffcf5dc"
+      }
+    },
+    {
+      "argv": [
+        "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/d8",
+        "--min-api",
+        "26",
+        "--lib",
+        "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/platforms/android-37.0/android.jar",
+        "--output",
+        "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/dex",
+        "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/classes/org/nbdp/clipboard/capture/CaptureActivity.class"
+      ],
+      "exit": 0,
+      "stdout": {
+        "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/command-02.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/command-02.stderr",
+        "bytes": 203,
+        "sha256": "aeab469be9f023e059b8006bd7df1d7c7043d2e74ba0736d1ff7d9e4b4f685ff"
+      }
+    },
+    {
+      "argv": [
+        "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/aapt2",
+        "link",
+        "--manifest",
+        "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v3/clipboard-helper/AndroidManifest.xml",
+        "-I",
+        "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/platforms/android-37.0/android.jar",
+        "--min-sdk-version",
+        "26",
+        "--target-sdk-version",
+        "36",
+        "--version-code",
+        "1",
+        "--version-name",
+        "0.1",
+        "-o",
+        "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/unsigned.apk"
+      ],
+      "exit": 0,
+      "stdout": {
+        "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/command-03.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/command-03.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "argv": [
+        "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/zipalign",
+        "-p",
+        "4",
+        "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/unsigned.apk",
+        "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/aligned.apk"
+      ],
+      "exit": 0,
+      "stdout": {
+        "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/command-04.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/command-04.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "argv": [
+        "/tmp/nbdp-amethyst-rebuild-20261026/tools/jdk/bin/keytool",
+        "-genkeypair",
+        "-keystore",
+        "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/debug.keystore",
+        "-storepass",
+        "android",
+        "-keypass",
+        "android",
+        "-alias",
+        "nbdp-lab-debug",
+        "-dname",
+        "CN=NBDP Disposable Clipboard Lab",
+        "-keyalg",
+        "RSA",
+        "-keysize",
+        "2048",
+        "-validity",
+        "2"
+      ],
+      "exit": 0,
+      "stdout": {
+        "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/command-05.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/command-05.stderr",
+        "bytes": 346,
+        "sha256": "89b0b7b557093db53d8ba78ac474f9f46dc35f460a21dedb23da2f61ecfa4240"
+      }
+    },
+    {
+      "argv": [
+        "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/apksigner",
+        "sign",
+        "--ks",
+        "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/debug.keystore",
+        "--ks-pass",
+        "pass:android",
+        "--key-pass",
+        "pass:android",
+        "--ks-key-alias",
+        "nbdp-lab-debug",
+        "--out",
+        "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/clipboard-capture.apk",
+        "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/aligned.apk"
+      ],
+      "exit": 0,
+      "stdout": {
+        "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/command-06.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/command-06.stderr",
+        "bytes": 203,
+        "sha256": "aeab469be9f023e059b8006bd7df1d7c7043d2e74ba0736d1ff7d9e4b4f685ff"
+      }
+    },
+    {
+      "argv": [
+        "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/apksigner",
+        "verify",
+        "--print-certs",
+        "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/clipboard-capture.apk"
+      ],
+      "exit": 0,
+      "stdout": {
+        "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/command-07.stdout",
+        "bytes": 306,
+        "sha256": "548ee5810dea7717430f47a3b58049b78287944cbbcc4bbf7da39308f586453f"
+      },
+      "stderr": {
+        "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/command-07.stderr",
+        "bytes": 203,
+        "sha256": "aeab469be9f023e059b8006bd7df1d7c7043d2e74ba0736d1ff7d9e4b4f685ff"
+      }
+    },
+    {
+      "argv": [
+        "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/aapt2",
+        "dump",
+        "badging",
+        "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/clipboard-capture.apk"
+      ],
+      "exit": 0,
+      "stdout": {
+        "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/command-08.stdout",
+        "bytes": 620,
+        "sha256": "11e21e7b99c7e7567fa2a30d2aeabc0886e504dd78b8780afa2acbc7c785eb16"
+      },
+      "stderr": {
+        "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/command-08.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "apk": {
+    "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/clipboard-capture.apk",
+    "bytes": 16787,
+    "sha256": "589031766a4be1cbd4e6a93b1b8d8af5db616d8dc51bcc7dd408a7f0a954b73e"
+  },
+  "error": null,
+  "controlExecuted": false,
+  "artifactIdentity": "REBUILT_NEW_DEBUG_IDENTITY_NO_OLD_APK_HASH_TRANSFER",
+  "configuredJavaToolOptions": "-Duser.home=/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/user -Xmx512m -XX:MaxMetaspaceSize=256m -XX:CompressedClassSpaceSize=128m -XX:ReservedCodeCacheSize=128m",
+  "wrapperHeapSourceObservation": {
+    "schema": "e02-helper-wrapper-heap-source-observation-v1",
+    "state": "PENDING_INDEPENDENT_REVIEW",
+    "readiness": "NOT_READY",
+    "scope": "READ_ONLY_ACTUAL_TOOL_BYTES_AND_SOURCE_ARGUMENT_ORDER_NO_TOOL_ACTIVATION",
+    "wrappers": {
+      "d8": {
+        "tool": {
+          "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/d8",
+          "bytes": 2678,
+          "sha256": "b773a721be3d4988dea9660815a9e441b76100e5b0f5c72b5893cfadadc76c6f"
+        },
+        "flagsUnchanged": true,
+        "effectiveHeapMiBFromSource": 2048,
+        "notRuntimeMeasured": true,
+        "heapClassification": "INCOMPATIBLE_WITH_FROZEN_BUILDER_512_OR_1024_ALLOWLIST",
+        "exactUnchangedFirstArgument": "--min-api",
+        "branchReason": "No leading -J argument; defaultMx remains enabled and is added to explicit java argv.",
+        "resolvedJar": {
+          "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/lib/d8.jar",
+          "bytes": 17998582,
+          "sha256": "4097ff9c46c185c6e7214da7fe9b1befb5adeea5cc9ca349270e0249904f9240"
+        },
+        "localJarSelection": {
+          "siblingJarExists": false,
+          "sdkLibJarExists": true,
+          "selected": "SDK lib directory; source search sibling absent, lib present"
+        },
+        "rawWrapperSnippets": [
+          {
+            "firstLine": 37,
+            "lastLine": 57,
+            "raw": "jarfile=d8.jar\nlibdir=\"$progdir\"\nmainClass=\"com.android.tools.r8.D8\"\n\nif [ ! -r \"$libdir/$jarfile\" ]; then\n    # set d8.jar location for the SDK case\n    libdir=\"$libdir/lib\"\nfi\n\n\nif [ ! -r \"$libdir/$jarfile\" ]; then\n    # set d8.jar location for the Android tree case\n    libdir=`dirname \"$progdir\"`/framework\n    mainClass=\"com.android.tools.r8wrappers.D8Wrapper\"\nfi\n\nif [ ! -r \"$libdir/$jarfile\" ]; then\n    echo `basename \"$prog\"`\": can't find $jarfile\"\n    exit 1\nfi\n\n"
+          },
+          {
+            "firstLine": 58,
+            "lastLine": 91,
+            "raw": "# By default, give d8 a max heap size of 2 gigs. This can be overridden\n# by using a \"-J\" option (see below).\ndefaultMx=\"-Xmx2G\"\n\n# The following will extract any initial parameters of the form\n# \"-J<stuff>\" from the command line and pass them to the Java\n# invocation (instead of to d8). This makes it possible for you to add\n# a command-line parameter such as \"-JXmx256M\" in your scripts, for\n# example. \"java\" (with no args) and \"java -X\" give a summary of\n# available options.\n\ndeclare -a javaOpts=()\n\nwhile expr \"x$1\" : 'x-J' >/dev/null; do\n    opt=`expr \"x$1\" : 'x-J\\(.*\\)'`\n    javaOpts+=(\"-${opt}\")\n    if expr \"x${opt}\" : \"xXmx[0-9]\" >/dev/null; then\n        defaultMx=\"no\"\n    fi\n    shift\ndone\n\nif [ \"${defaultMx}\" != \"no\" ]; then\n    javaOpts+=(\"${defaultMx}\")\nfi\n\nif [ \"$OSTYPE\" = \"cygwin\" ]; then\n    # For Cygwin, convert the jarfile path into native Windows style.\n    jarpath=`cygpath -w \"$libdir/$jarfile\"`\nelse\n    jarpath=\"$libdir/$jarfile\"\nfi\n\nexec java \"${javaOpts[@]}\" -cp \"$jarpath\" \"$mainClass\" \"$@\"\n"
+          }
+        ]
+      },
+      "apksigner": {
+        "tool": {
+          "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/apksigner",
+          "bytes": 2959,
+          "sha256": "b47549e373b895ce6ca620d0c7887e674d9615ffa837a86ac601dcfd04adb0f0"
+        },
+        "flagsUnchanged": true,
+        "effectiveHeapMiBFromSource": 1024,
+        "notRuntimeMeasured": true,
+        "heapClassification": "WITHIN_FROZEN_BUILDER_HEAP_ALLOWLIST_ONLY",
+        "exactUnchangedFirstArgument": [
+          "sign",
+          "verify"
+        ],
+        "branchReason": "No leading -J argument; defaultMx remains enabled and is added to explicit java argv.",
+        "resolvedJar": {
+          "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/lib/apksigner.jar",
+          "bytes": 1100545,
+          "sha256": "3716d9311e55d2b0918a2fd9d54ba9e406c5f6abeea700b287f11259bc163dec"
+        },
+        "localJarSelection": {
+          "siblingJarExists": false,
+          "sdkLibJarExists": true,
+          "selected": "SDK lib directory; source search sibling absent, lib present"
+        },
+        "rawWrapperSnippets": [
+          {
+            "firstLine": 37,
+            "lastLine": 57,
+            "raw": "jarfile=apksigner.jar\nlibdir=\"$progdir\"\n\nif [ ! -r \"$libdir/$jarfile\" ]; then\n    # set apksigner.jar location for the SDK case\n    libdir=\"$libdir/lib\"\nfi\n\n\nif [ ! -r \"$libdir/$jarfile\" ]; then\n    # set apksigner.jar location for the Android tree case\n    libdir=`dirname \"$progdir\"`/framework\n    # also include the library directory for any provider native libraries\n    providerLibdir=`dirname \"$progdir\"`/lib64\nfi\n\nif [ ! -r \"$libdir/$jarfile\" ]; then\n    echo `basename \"$prog\"`\": can't find $jarfile\"\n    exit 1\nfi\n\n"
+          },
+          {
+            "firstLine": 58,
+            "lastLine": 97,
+            "raw": "# By default, give apksigner a max heap size of 1 gig. This can be overridden\n# by using a \"-J\" option (see below).\ndefaultMx=\"-Xmx1024M\"\n\n# The following will extract any initial parameters of the form\n# \"-J<stuff>\" from the command line and pass them to the Java\n# invocation (instead of to apksigner). This makes it possible for you to add\n# a command-line parameter such as \"-JXmx256M\" in your scripts, for\n# example. \"java\" (with no args) and \"java -X\" give a summary of\n# available options.\n\njavaOpts=\"\"\n\nwhile expr \"x$1\" : 'x-J' >/dev/null; do\n    opt=`expr \"x$1\" : 'x-J\\(.*\\)'`\n    javaOpts=\"${javaOpts} -${opt}\"\n    if expr \"x${opt}\" : \"xXmx[0-9]\" >/dev/null; then\n        defaultMx=\"no\"\n    elif expr \"x${opt}\" : \"xDjava.library.path=\" >/dev/null; then\n        defaultLibdir=\"no\"\n    fi\n    shift\ndone\n\nif [ \"${defaultMx}\" != \"no\" ]; then\n    javaOpts=\"${javaOpts} ${defaultMx}\"\nfi\n\nif [ \"${defaultLibdir}\" != \"no\" ] && [ -n $providerLibdir ]; then\n    javaOpts=\"${javaOpts} -Djava.library.path=$providerLibdir\"\nfi\n\nif [ \"$OSTYPE\" = \"cygwin\" ]; then\n    # For Cygwin, convert the jarfile path into native Windows style.\n    jarpath=`cygpath -w \"$libdir/$jarfile\"`\nelse\n    jarpath=\"$libdir/$jarfile\"\nfi\n\nexec java $javaOpts -jar \"$jarpath\" \"$@\"\n"
+          }
+        ]
+      }
+    },
+    "tools": [
+      {
+        "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/jdk/bin/java",
+        "bytes": 12328,
+        "sha256": "9cad3f2620d3ef2ed10b26f922af7e773d54fdaa05f615d6d6df014f3fec4155"
+      },
+      {
+        "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/jdk/bin/javac",
+        "bytes": 12424,
+        "sha256": "2cc288a26beebc50ca7cd924847dffbfb38ef3314e105bba6d4ebce03a0bcb6b"
+      },
+      {
+        "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/jdk/bin/keytool",
+        "bytes": 12392,
+        "sha256": "e0e1db441b22bcc85e3402a6640a099dd56de2b38eb52b255107e5eebdd88d5e"
+      },
+      {
+        "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/aapt2",
+        "bytes": 5735384,
+        "sha256": "1a6a396b9cd071f7040071fdd108718cb98c3c9f4960044f373b288993d19eb7"
+      },
+      {
+        "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/apksigner",
+        "bytes": 2959,
+        "sha256": "b47549e373b895ce6ca620d0c7887e674d9615ffa837a86ac601dcfd04adb0f0"
+      },
+      {
+        "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/d8",
+        "bytes": 2678,
+        "sha256": "b773a721be3d4988dea9660815a9e441b76100e5b0f5c72b5893cfadadc76c6f"
+      },
+      {
+        "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/lib/apksigner.jar",
+        "bytes": 1100545,
+        "sha256": "3716d9311e55d2b0918a2fd9d54ba9e406c5f6abeea700b287f11259bc163dec"
+      },
+      {
+        "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/lib/d8.jar",
+        "bytes": 17998582,
+        "sha256": "4097ff9c46c185c6e7214da7fe9b1befb5adeea5cc9ca349270e0249904f9240"
+      },
+      {
+        "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/zipalign",
+        "bytes": 227696,
+        "sha256": "c5f559e946de5a9e7d58792181db20383b228877812136bc469d97ae00a43b0a"
+      },
+      {
+        "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/platforms/android-37.0/android.jar",
+        "bytes": 43044472,
+        "sha256": "bf1b4387cc7ca94fc6ef684f040d9d16fbf16248e181819f020736ea2053f177"
+      }
+    ],
+    "metadata": {
+      "jdkRelease": {
+        "descriptor": {
+          "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/jdk/release",
+          "bytes": 1616,
+          "sha256": "f83f6dcc966043c93cd498ac8e7ee7c310852074970d62c702e4ad2710002898"
+        },
+        "raw": "IMPLEMENTOR=\"Eclipse Adoptium\"\nIMPLEMENTOR_VERSION=\"Temurin-21.0.13+9\"\nJAVA_RUNTIME_VERSION=\"21.0.13+9-LTS\"\nJAVA_VERSION=\"21.0.13\"\nJAVA_VERSION_DATE=\"2026-10-20\"\nLIBC=\"gnu\"\nMODULES=\"java.base java.compiler java.datatransfer java.xml java.prefs java.desktop java.instrument java.logging java.management java.security.sasl java.naming java.rmi java.management.rmi java.net.http java.scripting java.security.jgss java.transaction.xa java.sql java.sql.rowset java.xml.crypto java.se java.smartcardio jdk.accessibility jdk.internal.jvmstat jdk.attach jdk.charsets jdk.internal.opt jdk.zipfs jdk.compiler jdk.crypto.ec jdk.crypto.cryptoki jdk.dynalink jdk.internal.ed jdk.editpad jdk.hotspot.agent jdk.httpserver jdk.incubator.vector jdk.internal.le jdk.internal.vm.ci jdk.internal.vm.compiler jdk.internal.vm.compiler.management jdk.jartool jdk.javadoc jdk.jcmd jdk.management jdk.management.agent jdk.jconsole jdk.jdeps jdk.jdwp.agent jdk.jdi jdk.jfr jdk.jlink jdk.jpackage jdk.jshell jdk.jsobject jdk.jstatd jdk.localedata jdk.management.jfr jdk.naming.dns jdk.naming.rmi jdk.net jdk.nio.mapmode jdk.random jdk.sctp jdk.security.auth jdk.security.jgss jdk.unsupported jdk.unsupported.desktop jdk.xml.dom\"\nOS_ARCH=\"x86_64\"\nOS_NAME=\"Linux\"\nSOURCE=\".:git:2ab10ca20c19\"\nBUILD_SOURCE=\"git:1cf43d7a3e77886bfea7d550a902e151a87d724d\"\nBUILD_SOURCE_REPO=\"https://github.com/adoptium/temurin-build.git\"\nSOURCE_REPO=\"https://github.com/adoptium/jdk21u.git\"\nFULL_VERSION=\"21.0.13+9-LTS\"\nSEMANTIC_VERSION=\"21.0.13+9\"\nBUILD_INFO=\"OS: Linux Version: 6.8.0-1070-azure\"\nJVM_VARIANT=\"Hotspot\"\nJVM_VERSION=\"21.0.13+9-LTS\"\nIMAGE_TYPE=\"JDK\"\n"
+      },
+      "buildToolsSourceProperties": {
+        "descriptor": {
+          "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/source.properties",
+          "bytes": 62,
+          "sha256": "7dee6632e9ad6cb111da2bb99d747211e27927061b1276d040bb1d71fded5ebb"
+        },
+        "raw": "Pkg.UserSrc=false\nPkg.Revision=36.0.0\n#Pkg.Revision=36.0.0 rc5"
+      },
+      "platformSourceProperties": {
+        "descriptor": {
+          "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/platforms/android-37.0/source.properties",
+          "bytes": 343,
+          "sha256": "fa89029fc0cee414cb5e44a37cd3033771217eeecb5086577bb6d9b1b03b5b5f"
+        },
+        "raw": "Pkg.Desc=Android SDK Platform 17\nPkg.UserSrc=false\nPlatform.Version=17\nPlatform.CodeName=\nPkg.Revision=2\nAndroidVersion.ApiLevel=37.0\nAndroidVersion.CodeName=\nAndroidVersion.ExtensionLevel=22\nAndroidVersion.IsBaseSdk=true\nAndroidVersion.PreviewSdkInt=0\nAndroidVersion.BetaVersion=\nLayoutlib.Api=15\nLayoutlib.Revision=1\nPlatform.MinToolsRev=22\n"
+      }
+    },
+    "unchangedCommandSource": {
+      "descriptor": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v2/build_helper.py",
+        "bytes": 11004,
+        "sha256": "95aaf8199d47d6cdadf7baa35d390fb2b6c10cdd62858b11067b2518ed06b6f8"
+      },
+      "raw": "def command_plan(out):\n    \"\"\"Original CLI/order/flags; only fixed tool/source/output paths changed.\"\"\"\n    java=HERE/'clipboard-helper/src/org/nbdp/clipboard/capture/CaptureActivity.java'\n    unsigned=out/'unsigned.apk';apk=out/'clipboard-capture.apk'\n    return [\n        [JDK/'bin/javac','-encoding','UTF-8','-source','8','-target','8','-bootclasspath',ANDROID_JAR,'-d',out/'classes',java],\n        [TOOLS/'d8','--min-api','26','--lib',ANDROID_JAR,'--output',out/'dex',out/'classes/org/nbdp/clipboard/capture/CaptureActivity.class'],\n        [TOOLS/'aapt2','link','--manifest',HERE/'clipboard-helper/AndroidManifest.xml','-I',ANDROID_JAR,'--min-sdk-version','26','--target-sdk-version','36','--version-code','1','--version-name','0.1','-o',unsigned],\n        [TOOLS/'zipalign','-p','4',unsigned,out/'aligned.apk'],\n        [JDK/'bin/keytool','-genkeypair','-keystore',out/'debug.keystore','-storepass','android','-keypass','android','-alias','nbdp-lab-debug','-dname','CN=NBDP Disposable Clipboard Lab','-keyalg','RSA','-keysize','2048','-validity','2'],\n        [TOOLS/'apksigner','sign','--ks',out/'debug.keystore','--ks-pass','pass:android','--key-pass','pass:android','--ks-key-alias','nbdp-lab-debug','--out',apk,out/'aligned.apk'],\n        [TOOLS/'apksigner','verify','--print-certs',apk],\n        [TOOLS/'aapt2','dump','badging',apk]]"
+    },
+    "configuredEnvironmentSource": {
+      "descriptor": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v2/build_helper.py",
+        "bytes": 11004,
+        "sha256": "95aaf8199d47d6cdadf7baa35d390fb2b6c10cdd62858b11067b2518ed06b6f8"
+      },
+      "raw": "env={'PATH':str(JDK/'bin')+':/usr/bin:/bin','LANG':'C.UTF-8','LC_ALL':'C.UTF-8','JAVA_HOME':str(JDK),\n        'TMPDIR':str(OUT/'tmp'),'JAVA_TOOL_OPTIONS':'-Duser.home='+str(OUT/'user')+' '+JVM_FLAGS}"
+    },
+    "interpretation": {
+      "observed": "Actual d8 source explicitly adds -Xmx2G and apksigner source adds -Xmx1024M to java command argv when original flags are used.",
+      "inferred": "Under HotSpot JAVA_TOOL_OPTIONS-before-command-line option processing, explicit wrapper java argv determines final max heap: d8 2048MiB, apksigner 1024MiB, despite environment -Xmx512m.",
+      "inferenceBoundary": "Wrapper bytes and argument branches were inspected. Acquired JVM was not executed and HotSpot option-parser source was not inspected here; final heap is source-derived expected behavior, not a measured result.",
+      "resourceDecision": "Frozen validate_inputs only accepts 512 or1024MiB. d8 2048MiB must refuse. No effective plan is produced; no claim that 2048MiB or any other heap succeeds under proposed4GiB address-space cap.",
+      "noSilentChange": "Original eight CLI flags/order remain unchanged. No -J argument added and no frozen source/subject/template modified.",
+      "prerequisite": "Actual acquisition DATA acceptance, independent review, then separately authorized versioned resolution of d8 heap policy/CLI before any compile release."
+    },
+    "execution": {
+      "acquiredProgramsExecuted": 0,
+      "projectModulesImported": 0,
+      "testsExecuted": 0,
+      "compilations": 0,
+      "keyGenerations": 0,
+      "networkRequests": 0,
+      "sdkmanagerOrLicenseConsent": false,
+      "effectivePlanProduced": false,
+      "compileAuthorityGranted": false
+    },
+    "frozenInputsBefore": [
+      {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-clipboard-helper-rebuild-20261027/subject.json",
+        "bytes": 6335,
+        "sha256": "9fa23bcfd8bac2934248aa2628a5d83604e6df5dd154a8d49b59bfb837606fe9"
+      },
+      {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v2/build_helper.py",
+        "bytes": 11004,
+        "sha256": "95aaf8199d47d6cdadf7baa35d390fb2b6c10cdd62858b11067b2518ed06b6f8"
+      },
+      {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v2/helper-build-plan.template.json",
+        "bytes": 2985,
+        "sha256": "ca9114bff28fa8fa57cf2b19c0e4196cb237422470c5e3f3e3c88a05fe2fef47"
+      },
+      {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v2/test_plan_models.py",
+        "bytes": 4281,
+        "sha256": "79d793a77caadba0eb84b6a3972ad26dd86370e02a27a06645456b6cdb0b268c"
+      },
+      {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-clipboard-helper-rebuild-20261027/model-plan.json",
+        "bytes": 1459,
+        "sha256": "1e94781fa448d54807770f47612faad07c2651d31d5cfbae79053f4aee17747d"
+      }
+    ],
+    "frozenInputsAfter": [
+      {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-clipboard-helper-rebuild-20261027/subject.json",
+        "bytes": 6335,
+        "sha256": "9fa23bcfd8bac2934248aa2628a5d83604e6df5dd154a8d49b59bfb837606fe9"
+      },
+      {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v2/build_helper.py",
+        "bytes": 11004,
+        "sha256": "95aaf8199d47d6cdadf7baa35d390fb2b6c10cdd62858b11067b2518ed06b6f8"
+      },
+      {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v2/helper-build-plan.template.json",
+        "bytes": 2985,
+        "sha256": "ca9114bff28fa8fa57cf2b19c0e4196cb237422470c5e3f3e3c88a05fe2fef47"
+      },
+      {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v2/test_plan_models.py",
+        "bytes": 4281,
+        "sha256": "79d793a77caadba0eb84b6a3972ad26dd86370e02a27a06645456b6cdb0b268c"
+      },
+      {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-clipboard-helper-rebuild-20261027/model-plan.json",
+        "bytes": 1459,
+        "sha256": "1e94781fa448d54807770f47612faad07c2651d31d5cfbae79053f4aee17747d"
+      }
+    ]
+  },
+  "effectiveJvmHeapRuntimeMeasured": false,
+  "sdkmanagerOrLicenseConsent": false,
+  "networkRequired": false,
+  "privateKeystoreDescriptor": {
+    "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/debug.keystore",
+    "bytes": 2632,
+    "sha256": "a44d139c7d2874a48d8ef52c6268081a0071e78834b95e53e46a9a62eaddd6fb"
+  },
+  "privateKeystoreExported": false,
+  "signingCertificateReport": {
+    "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/command-07.stdout",
+    "bytes": 306,
+    "sha256": "548ee5810dea7717430f47a3b58049b78287944cbbcc4bbf7da39308f586453f"
+  },
+  "packageVersionReport": {
+    "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/command-08.stdout",
+    "bytes": 620,
+    "sha256": "11e21e7b99c7e7567fa2a30d2aeabc0886e504dd78b8780afa2acbc7c785eb16"
+  },
+  "actualPackage": "org.nbdp.clipboard.capture",
+  "actualVersionCode": 1,
+  "actualVersionName": "0.1",
+  "elapsedMilliseconds": 14279
+}

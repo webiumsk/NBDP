@@ -1,0 +1,15 @@
+{
+  "schema": "e02-consumer4-preparation-failures-v1",
+  "actor": "/root/consumer3_preparation",
+  "failures": [
+    {
+      "tool": "tools.apply_patch",
+      "phase": "SOURCE-only callback-order edit",
+      "failure": "Initial patch named experiments/protocols/... instead of prototypes/... and failed to read target; no file changed",
+      "correction": "Same scoped patch applied to owned new prototypes/e02_ordinary_minimum_consumer_v4/observer.py",
+      "controlsExecuted": 0,
+      "runtimeExecuted": false
+    }
+  ],
+  "priorV3GeneratorFailure": "Preserved in original r3/preparation-failures.json; not rerun or relabelled"
+}

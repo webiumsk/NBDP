@@ -1,0 +1,79 @@
+{
+  "schema": "e02-transport-source2-remediation-map-v1",
+  "originalSourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r1/subject.json",
+    "bytes": 11531,
+    "sha256": "173b2fa59459b9e1fac04e21a56e84b6fb8ccaa35971c96d011648c0852d76b0"
+  },
+  "actualPriorQa": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r1/actual-source-qa-review.json",
+    "bytes": 986,
+    "sha256": "1326a9db93a0a01b328608b8ab4d3e3b5be489a79a24b0eed53f613aa6d274a1"
+  },
+  "actualPriorSecurity": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r1/actual-source-security-review.json",
+    "bytes": 1011,
+    "sha256": "3c87b498a65c332d38c5cac08a1e096b066aeff6180e49c9170e6cbcccb37794"
+  },
+  "actualHoldDisposition": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r1/source-review-disposition.json",
+    "bytes": 1835,
+    "sha256": "3dcb27f735c76d87b4ed6c3aaa872f32bdd91bf25fe3ed999f82369407c6e3d0"
+  },
+  "originalFindings": [
+    {
+      "id": "QA-E02-QUERY-TERMINAL-EVIDENCE-001",
+      "severity": "MEDIUM",
+      "evidence": "exchange.mjs:12-24,65-66; fixture.mjs:65-68",
+      "summary": "Observation write failures can bypass exact-socket cleanup and Promise settlement after timer clear, replacing first failure with later outer timeout."
+    },
+    {
+      "id": "QA-E02-QUERY-PHASE-WRITE-002",
+      "severity": "MEDIUM",
+      "evidence": "fixture.mjs:39-43; current20 fake models",
+      "summary": "Phase writer ignores partial write count and lacks sticky poisoned state, allowing sends/success after incomplete required evidence."
+    },
+    {
+      "id": "SEC-E02-TRANSPORT-DIAG-DEPENDENCY-CLOSURE-001",
+      "severity": "MEDIUM",
+      "evidence": "supervisor.py:431-432,287-289; ws/lib/buffer-util.js:115-117",
+      "summary": "Hashing listed816 does not reject additions in mounted node_modules. Added nested bufferutil may execute without being pinned; no occurrence observed."
+    },
+    {
+      "id": "SEC-E02-TRANSPORT-DIAG-TERMINAL-WRITE-002",
+      "severity": "MEDIUM",
+      "evidence": "exchange.mjs:15,20-24,65-66",
+      "summary": "Terminal writes after setting settled can prevent socket termination/Promise rejection; no runtime occurrence established."
+    }
+  ],
+  "sourceCorrections": [
+    {
+      "family": "DEPENDENCY_CLOSURE",
+      "files": [
+        "supervisor.py",
+        "dependency-tree.mjs",
+        "dependency-tree.json",
+        "fixture.mjs"
+      ],
+      "evidence": "Exact host/source-relative816 regular65dirs2knownsymlinks; before activation/guest dynamic import and guest/host end-boundaries; extras/missing/escape/special/mapping/changed controls."
+    },
+    {
+      "family": "TERMINAL_RETENTION",
+      "files": [
+        "exchange.mjs",
+        "fixture.mjs"
+      ],
+      "evidence": "One terminal claim; incoming first fault preserved, retention secondary; independent finally terminate/reject; active callback sink boundaries; inert late callbacks; no outside timeout settlement."
+    },
+    {
+      "family": "PHASE_SHORT_WRITE",
+      "files": [
+        "phase-writer.mjs",
+        "fixture.mjs"
+      ],
+      "evidence": "One checked writeSync; poison on partial/invalid/throw/overflow; acknowledged prefix/count distinct from physical UNKNOWN; no repair/retry/send/query/success after poison."
+    }
+  ],
+  "authorResolutionClaim": "NONE_SOURCE_PREPARED_ONLY_REQUIRES_ACTUAL_INDEPENDENT_REVIEW",
+  "runtimeOccurrenceOrVulnerabilityClaimed": false
+}

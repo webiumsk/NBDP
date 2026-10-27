@@ -1,0 +1,83 @@
+{
+  "schema": "e02-transport-source2-current-control-execution-v1",
+  "actor": "/root/ordinary_api35_source",
+  "state": "WRITES_STOPPED",
+  "result": "ALL_THREE_DATA_SCOPES_MATCHED_PENDING_REVIEW",
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/subject.json",
+    "bytes": 18185,
+    "sha256": "aece375c76f20d8c738d34e57feb19e50c2ccfc28cb09ffc9347481d2f526b85"
+  },
+  "runnerSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/runner-subject.json",
+    "bytes": 4032,
+    "sha256": "d9d00b1e10a2715608fdb7fe3ca71a9db11b799a7d6ab66cf4f64bcffc4c1be0"
+  },
+  "runner": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/capture-controls.py",
+    "bytes": 18537,
+    "sha256": "e7107878945b3a0881ce409bbe5dd0318f92070c8f7dd73ebea41971b6e4736d"
+  },
+  "controlPlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/control-plan.json",
+    "bytes": 8441,
+    "sha256": "890cba6c84c8f99f6e58bbffd1f77dead980a673151787eb991d42b728434036"
+  },
+  "rootAcknowledgement": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/coordinator-acknowledgement.json",
+    "bytes": 3129,
+    "sha256": "ca09e526bbc6dc4727c6a22092dbd9ebc8336c9cc4ad94336f037270e9d465de"
+  },
+  "scopes": [
+    {
+      "scope": "source-custody-and-host-inventory",
+      "expected": 18,
+      "observed": 18,
+      "partitions": {
+        "SourceCustodyControls": 10,
+        "ClosedDependencyControls": 8
+      },
+      "captureMatched": true,
+      "execution": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/scopes/source-custody-and-host-inventory/execution.json",
+        "bytes": 2578,
+        "sha256": "2600ace2076e6d016fd64e212458cfca745ab182363774a0a726212099f5641e"
+      }
+    },
+    {
+      "scope": "fake-socket-and-physical-prefix-model",
+      "expected": 27,
+      "observed": 27,
+      "partitions": {
+        "priorScopeCasesIncludingVersionedLateBehavior": 20,
+        "newFaultFamilies": 7
+      },
+      "captureMatched": true,
+      "execution": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/scopes/fake-socket-and-physical-prefix-model/execution.json",
+        "bytes": 2596,
+        "sha256": "0f398d3b213caee52d98a183f21d057abdb4e9d7086a6ebde5240258a4a3d3ec"
+      }
+    },
+    {
+      "scope": "guest-dependency-inventory-data",
+      "expected": 6,
+      "observed": 6,
+      "partitions": {
+        "guestInventoryFamilies": 6
+      },
+      "captureMatched": true,
+      "execution": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/scopes/guest-dependency-inventory-data/execution.json",
+        "bytes": 2525,
+        "sha256": "1d6aa037f3e89d99545f343c89312a46fca96eda17257bc566622f803d487b40"
+      }
+    }
+  ],
+  "remainingNotExecuted": [],
+  "sourceUnchanged": true,
+  "noRetry": true,
+  "controlResultAcceptedByAuthor": false,
+  "independentResultReview": "PENDING_ACTUAL_NONAUTHOR_NONOPERATOR_QA_SECURITY",
+  "noDiagnosticRuntimePrimaryConsumerGuardNetworkSdkServices": true
+}

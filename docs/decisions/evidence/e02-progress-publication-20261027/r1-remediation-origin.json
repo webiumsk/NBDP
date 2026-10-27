@@ -1,0 +1,28 @@
+{
+  "schema": "nbdp-publication-r1-preserved-link-readiness-hold-v1",
+  "manifestSha256": "ea37600780c03cee3db53bc355fc0d69c32c4686f65515415c56ed073c1a8290",
+  "qaDecision": "HOLD",
+  "qaFinding": "MEDIUM:2currentSTATElinks reference localunselectedE06targets absentHEAD/payload. LOW:current-next-action progressstale.",
+  "securityDecision": "ACCEPT_R1_SECURITY_PRIVACY_SCOPE_ONLY_WITH_WORKFLOW_FAIL_DISCLOSED",
+  "snapshots": [
+    {
+      "path": "docs/PROJECT_STATE.md",
+      "retainedSnapshot": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-progress-publication-20261027/r1-before-link-remediation/docs/PROJECT_STATE.md",
+      "bytes": 42520,
+      "sha256": "957c196e6bcfbdac08845843132ef8b4b4b382c648951f42812eebc8caceee22"
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "retainedSnapshot": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-progress-publication-20261027/r1-before-link-remediation/docs/ROADMAP.md",
+      "bytes": 10307,
+      "sha256": "50adb9eb97aaa6cce9dedcd27adbc7bcb64033f565a8d23daf86513c08e2f49a"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-resume-20261027/current-next-action.json",
+      "retainedSnapshot": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-progress-publication-20261027/r1-before-link-remediation/docs/decisions/evidence/e02-resume-20261027/current-next-action.json",
+      "bytes": 1262,
+      "sha256": "743f021ecb72a23b14fcbcab778b3e4031cff8ca53f8b332bcb85a137a610a86"
+    }
+  ],
+  "remediation": "Qualify2localunpublishedlinks; update3coordinatorownedmetadata/docfiles only; noE06selectionexpansion, no runtime/code/criterion changes. NewR2manifest/reviews required."
+}

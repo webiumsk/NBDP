@@ -1,0 +1,36 @@
+{
+  "schema": "nbdp-root-one-artifact-attempt-release-v1",
+  "actor": "/root",
+  "decision": "AUTHORIZE_ONE_FIXED_ARTIFACT_ATTEMPT",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v3/helper-build-plan-effective-r2.json",
+    "bytes": 4022,
+    "sha256": "92f3fd858a6efd88d262b812fb5eb53a8ee1e32097cc946f0866d3ae4905081d"
+  },
+  "command": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-clipboard-helper-rebuild-20261027-source2/concrete-artifact-command.json",
+    "bytes": 2938,
+    "sha256": "085d018144d119837ef61551c69c9bb7eac5dadf4d16e4c7614e4cfc66ae1c39"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-clipboard-helper-rebuild-20261027-source2/actual-concrete-qa-review.json",
+      "bytes": 1526,
+      "sha256": "b1261876ddd2f2403fa04f21e42001533f9f22f3a6e9034f17afb78a73b22e37"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-clipboard-helper-rebuild-20261027-source2/actual-concrete-security-review.json",
+      "bytes": 1536,
+      "sha256": "6404090be21ab6c642d6e698e696fd75c10f19658c040c9457f775b5021f806e"
+    }
+  ],
+  "prerequisiteDataAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/acceptance.json",
+    "bytes": 1369,
+    "sha256": "e33c4fb753622d1195b21db5f5eb45b28216ad10e9d8657da38fcd118957b143"
+  },
+  "rerunsAuthorized": 0,
+  "scope": "Exact reviewed synthetic artifactbuild only; original resources/deadlines/firstfailure retention/privatekey handling unchanged.",
+  "clientExecutionAuthorized": false,
+  "canonicalE02Changed": false
+}

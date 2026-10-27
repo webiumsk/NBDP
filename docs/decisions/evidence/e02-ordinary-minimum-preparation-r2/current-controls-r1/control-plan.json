@@ -1,0 +1,133 @@
+{
+  "schema": "e02-producer2-fixed-control-capture-plan-v1",
+  "state": "FROZEN_CAPTURE_SOURCE_ONLY_PENDING_ACTUAL_INDEPENDENT_CAPTURE_REVIEW_AND_ROOT_RELEASE",
+  "actor": "/root/ordinary_api35_source",
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/subject.json",
+    "bytes": 12000,
+    "sha256": "ef91dc64189d7c47a4b4539c4dacd93a4c5c760da8f98bf1b203040bba6eeffd"
+  },
+  "frozenSourcePlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/execution-control-plan.json",
+    "bytes": 6582,
+    "sha256": "58c4ec1a81f723ff5657cadce489b07dc9c62ace2f185752b5d2a81b313678eb"
+  },
+  "runner": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/capture-controls.py",
+    "bytes": 18876,
+    "sha256": "70d5b7992c6e4317a0d47a585e400fa0c51240f85b0a74a7075bc1675bd3e85a"
+  },
+  "separateScopes": [
+    {
+      "name": "observation-model",
+      "argv": [
+        "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+        "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/test_observation_model.mjs"
+      ],
+      "count": 20,
+      "expectedCases": [
+        "one-shared-cap-across-two-streams",
+        "exact-boundary-two-streams-acknowledged-not-physical",
+        "short-prefix-once-poisons-both-streams",
+        "zero-prefix-known-zero-throw-prefix-unknown",
+        "invalid-count-family-poison-no-second-write",
+        "closed-stream-fds-and-original-upper-bound",
+        "accepted-phase-writer-preserves-known-short-prefix",
+        "phase-then-proxy-consumes-same-budget",
+        "guard-once-entry-exit-and-no-action-on-refusal",
+        "guard-refusal-preserved-over-retention-failure",
+        "entry-and-success-retention-failure-prevent-action",
+        "callback-first-fault-and-closed-late-inert",
+        "upstream-send-exact-buffer-callback-and-no-extra-guard",
+        "proxy-send-error-kept-if-observation-sink-fails",
+        "proxy-intent-write-failure-never-sends",
+        "proxy-mutated-buffer-refuses-callback-completion",
+        "adapter-query-preserves-exact112-byte-operands-and-raw-join",
+        "adapter-raw-is-after-original-guard-before-parse",
+        "adapter-denied-backend-guard-context-no-raw-or-parse",
+        "adapter-raw-sink-fault-before-send-or-before-parse-refuses"
+      ],
+      "timeoutSeconds": 60
+    },
+    {
+      "name": "public-identity-metadata",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/test_public_identity_metadata.py"
+      ],
+      "count": 8,
+      "expectedCases": [
+        "test_whole_checksum_payload_both_public_scalars",
+        "test_four_metadata_operands_equal_unchanged_driver",
+        "test_historical_65_character_operand_refused_preserved",
+        "test_checksum_corruption_refused",
+        "test_valid_other_payload_refused",
+        "test_whitespace_case_truncation_never_normalized",
+        "test_non_bech32_glyph_refused",
+        "test_new_plan_keeps_scalar_roles_and_whole_value"
+      ],
+      "timeoutSeconds": 60
+    },
+    {
+      "name": "producer2-source-wiring",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/test_producer2_source.py"
+      ],
+      "count": 7,
+      "expectedCases": [
+        "test_all_three_accepted_modules_byte_identical",
+        "test_host_full_inventory_functions_identical",
+        "test_preimport_and_end_dependency_boundaries_wired",
+        "test_complete_staged_modules_and_tree_pin",
+        "test_same_original_guard_invocation_body",
+        "test_frozen_oracles_and_exact_query_no_baseline_payload",
+        "test_original_android_and_transport_limits"
+      ],
+      "timeoutSeconds": 60
+    }
+  ],
+  "rawRetentionBytes": {
+    "stdout": 1048576,
+    "stderr": 262144
+  },
+  "retentionMeaning": "POST_CAPTURE_FILE_PREFIX_LIMIT_NOT_STREAMING_MEMORY_CAP",
+  "scopeMeaning": "20 fake fs/socket/guard observer models,8 fixed public NIP19 format DATA,7 source AST/hash wiring; no real protocol crypto/native/network/guard/SDK/services",
+  "stopFirstFailure": true,
+  "noRetry": true,
+  "originalApiResponses": "Caller persists exact actual toolName/actualArguments/unmodifiedResponse immediately and separately; no invented outer lifecycle fields.",
+  "unmodifiedMainSourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/subject.json",
+    "bytes": 12000,
+    "sha256": "ef91dc64189d7c47a4b4539c4dacd93a4c5c760da8f98bf1b203040bba6eeffd"
+  },
+  "onceCommandPrefix": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/capture-controls.py",
+    "--execute-once",
+    "--root-ack-sha"
+  ],
+  "rootAckArgument": {
+    "type": "SHA256_OF_ACTUAL_FUTURE_COORDINATOR_ACKNOWLEDGEMENT",
+    "authority": "Must be supplied by coordinator only after actual main and capture QA/security decisions, never a placeholder approval."
+  },
+  "actualMainSourceReviews": {
+    "qa": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/actual-source-qa-review.json",
+      "bytes": 383,
+      "sha256": "a374e317469fb4cc3d5919b29526658852c620c9f8b841641f0da413838f38f1"
+    },
+    "security": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/actual-source-security-review.json",
+      "bytes": 390,
+      "sha256": "c1a0641cc108b4afbffb73eb69e7c699690b5e56e727ae9b23d9298385e48d32"
+    }
+  },
+  "fixedInputCount": 957
+}

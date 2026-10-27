@@ -1,0 +1,63 @@
+{
+  "schema": "e02-producer2-controls-root-ack-v1",
+  "actor": "/root",
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/subject.json",
+    "bytes": 12000,
+    "sha256": "ef91dc64189d7c47a4b4539c4dacd93a4c5c760da8f98bf1b203040bba6eeffd"
+  },
+  "runnerSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/runner-subject.json",
+    "bytes": 6955,
+    "sha256": "34fa45fe53912776ce2fb8da1712e926f6b23a348702f07cdc9a7699d65e78e0"
+  },
+  "runner": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/capture-controls.py",
+    "bytes": 18876,
+    "sha256": "70d5b7992c6e4317a0d47a585e400fa0c51240f85b0a74a7075bc1675bd3e85a"
+  },
+  "controlPlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/control-plan.json",
+    "bytes": 6037,
+    "sha256": "e45bd25a15772a4cc3c2d1709a420d7aa095985c3abf17eee69d7ba050ef9416"
+  },
+  "sourceQaReview": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/actual-source-qa-review.json",
+    "bytes": 383,
+    "sha256": "a374e317469fb4cc3d5919b29526658852c620c9f8b841641f0da413838f38f1"
+  },
+  "sourceSecurityReview": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/actual-source-security-review.json",
+    "bytes": 390,
+    "sha256": "c1a0641cc108b4afbffb73eb69e7c699690b5e56e727ae9b23d9298385e48d32"
+  },
+  "sourceQaDecision": "ACCEPT_MINIMUM_PRODUCER_SOURCE_FOR_CHANGED_CONTROLS_ONLY",
+  "sourceSecurityDecision": "ACCEPT_MINIMUM_PRODUCER_SOURCE_FOR_CHANGED_CONTROLS_ONLY",
+  "captureQaReview": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/capture-qa-review.json",
+    "bytes": 421,
+    "sha256": "c1547b2219561c8d1476d1672ed34daa06ea46d06c933e0e499d77a4ce4462c1"
+  },
+  "captureSecurityReview": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/capture-security-review.json",
+    "bytes": 428,
+    "sha256": "55e4b6cde0eab9c77c8c8f349878432c9c3580e7f2255ae8de93b3ec4b7f746d"
+  },
+  "captureQaDecision": "ACCEPT_PRODUCER2_FIXED_CAPTURE_SOURCE_FOR_CURRENT_DATA_CONTROLS_ONLY",
+  "captureSecurityDecision": "ACCEPT_PRODUCER2_FIXED_CAPTURE_SOURCE_FOR_CURRENT_DATA_CONTROLS_ONLY",
+  "pureControlsAuthorized": true,
+  "allowedScopes": {
+    "observation-model": 20,
+    "public-identity-metadata": 8,
+    "producer2-source-wiring": 7
+  },
+  "stopFirstFailure": true,
+  "noRetry": true,
+  "ordinaryRuntimeAuthorized": false,
+  "primaryAuthorized": false,
+  "consumerAuthorized": false,
+  "androidAuthorized": false,
+  "servicesAuthorized": false,
+  "protocolCryptoOrNativeAuthorized": false,
+  "sdkAuthorized": false
+}

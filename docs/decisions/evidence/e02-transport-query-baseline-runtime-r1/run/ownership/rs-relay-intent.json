@@ -1,0 +1,54 @@
+{
+  "name": "nbdp-e02-f3d0ea386d2b4aac838bc0d46f6c4053-rs-relay",
+  "image": "sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82",
+  "labels": {
+    "nbdp.run": "f3d0ea386d2b4aac838bc0d46f6c4053",
+    "nbdp.role": "rs-relay",
+    "nbdp.creation": "c87e2b68212a42fda6e1fdaaf5728f0d"
+  },
+  "mounts": [
+    [
+      "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/input",
+      "/input",
+      false
+    ],
+    [
+      "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/session/lease.json",
+      "/session/lease.json",
+      false
+    ],
+    [
+      "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/session/control",
+      "/session/control",
+      true
+    ],
+    [
+      "/tmp/nbdp-e02-minimal-rs-v7/guard-python",
+      "/guard-python",
+      false
+    ],
+    [
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/docker/rs-relay.toml",
+      "/src/config.toml",
+      false
+    ],
+    [
+      "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/relay-data",
+      "/data",
+      true
+    ]
+  ],
+  "command": [
+    "--inhibit-cache",
+    "--library-path",
+    "/guard-python/lib",
+    "/guard-python/bin/python3.11",
+    "-B",
+    "-P",
+    "-S",
+    "-s",
+    "/input/supervisor.py",
+    "--guest",
+    "rs-relay"
+  ]
+}

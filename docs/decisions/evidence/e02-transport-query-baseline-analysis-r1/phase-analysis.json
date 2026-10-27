@@ -1,0 +1,580 @@
+{
+  "schema": "e02-transport-baseline-readonly-phase-analysis-v1",
+  "rawTrace": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-baseline-runtime-r1/run/session/fixtures/phase-trace.jsonl",
+    "bytes": 24144,
+    "sha256": "ddc85c3c8d04d212f12d6fe1f14d795bfb0e97b2f5b4d509e24c2e315da7fa9a"
+  },
+  "phaseRows": 84,
+  "phaseTypeCounts": {
+    "GUARD_ENTRY": 30,
+    "GUARD_EXIT_OK": 30,
+    "EXCHANGE_START": 2,
+    "TIMER_ARMED": 2,
+    "SOCKET_OPEN_CALLBACK_ENTRY": 2,
+    "SEND_INTENT": 2,
+    "SEND_INVOKE_ENTRY": 2,
+    "SEND_INVOKE_RETURNED": 2,
+    "SEND_CALLBACK_ENTRY": 2,
+    "SEND_CALLBACK_GUARD_PASSED": 2,
+    "RAW_BACKEND_CALLBACK_ENTRY": 3,
+    "BACKEND_MESSAGE_GUARD_PASSED": 3,
+    "EXCHANGE_RESOLVED": 2
+  },
+  "traceSpanNanoseconds": 14494443248,
+  "guardSpans": [
+    {
+      "label": "control-listen-before",
+      "entrySequence": 1,
+      "exitSequence": 2,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 326769425
+    },
+    {
+      "label": "original-watchdog",
+      "entrySequence": 3,
+      "exitSequence": 4,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 684139937
+    },
+    {
+      "label": "original-watchdog",
+      "entrySequence": 5,
+      "exitSequence": 6,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 792710958
+    },
+    {
+      "label": "control-entry",
+      "entrySequence": 7,
+      "exitSequence": 8,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 422718433
+    },
+    {
+      "label": "control-success",
+      "entrySequence": 9,
+      "exitSequence": 10,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 273467641
+    },
+    {
+      "label": "original-watchdog",
+      "entrySequence": 11,
+      "exitSequence": 12,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 617737456
+    },
+    {
+      "label": "original-watchdog",
+      "entrySequence": 13,
+      "exitSequence": 14,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 608878729
+    },
+    {
+      "label": "original-watchdog",
+      "entrySequence": 15,
+      "exitSequence": 16,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 898100464
+    },
+    {
+      "label": "original-watchdog",
+      "entrySequence": 17,
+      "exitSequence": 18,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 276872823
+    },
+    {
+      "label": "control-entry",
+      "entrySequence": 19,
+      "exitSequence": 20,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 563378277
+    },
+    {
+      "label": "baseline-entry",
+      "entrySequence": 21,
+      "exitSequence": 22,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 198483166
+    },
+    {
+      "label": "exchange-entry",
+      "entrySequence": 23,
+      "exitSequence": 24,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 423844199
+    },
+    {
+      "label": "original-watchdog",
+      "entrySequence": 27,
+      "exitSequence": 28,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 349304764
+    },
+    {
+      "label": "socket-open",
+      "entrySequence": 30,
+      "exitSequence": 31,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 327027048
+    },
+    {
+      "label": "send-before",
+      "entrySequence": 32,
+      "exitSequence": 33,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 556657294
+    },
+    {
+      "label": "send-callback",
+      "entrySequence": 38,
+      "exitSequence": 39,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 300796331
+    },
+    {
+      "label": "original-watchdog",
+      "entrySequence": 41,
+      "exitSequence": 42,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 316013433
+    },
+    {
+      "label": "backend-message",
+      "entrySequence": 44,
+      "exitSequence": 45,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 340705590
+    },
+    {
+      "label": "after-publication",
+      "entrySequence": 48,
+      "exitSequence": 49,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 412579472
+    },
+    {
+      "label": "exchange-entry",
+      "entrySequence": 50,
+      "exitSequence": 51,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 319697760
+    },
+    {
+      "label": "original-watchdog",
+      "entrySequence": 54,
+      "exitSequence": 55,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 195248855
+    },
+    {
+      "label": "socket-open",
+      "entrySequence": 57,
+      "exitSequence": 58,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 258090102
+    },
+    {
+      "label": "send-before",
+      "entrySequence": 59,
+      "exitSequence": 60,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 413230645
+    },
+    {
+      "label": "send-callback",
+      "entrySequence": 65,
+      "exitSequence": 66,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 318952369
+    },
+    {
+      "label": "original-watchdog",
+      "entrySequence": 68,
+      "exitSequence": 69,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 310050109
+    },
+    {
+      "label": "backend-message",
+      "entrySequence": 71,
+      "exitSequence": 72,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 295318973
+    },
+    {
+      "label": "backend-message",
+      "entrySequence": 75,
+      "exitSequence": 76,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 262056416
+    },
+    {
+      "label": "after-query",
+      "entrySequence": 79,
+      "exitSequence": 80,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 396956594
+    },
+    {
+      "label": "control-success",
+      "entrySequence": 81,
+      "exitSequence": 82,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 373291278
+    },
+    {
+      "label": "original-watchdog",
+      "entrySequence": 83,
+      "exitSequence": 84,
+      "status": "GUARD_EXIT_OK",
+      "wallNanoseconds": 387421371
+    }
+  ],
+  "guardSummaryByLabel": {
+    "after-publication": {
+      "count": 1,
+      "sumWallNanoseconds": 412579472,
+      "minWallNanoseconds": 412579472,
+      "maxWallNanoseconds": 412579472
+    },
+    "after-query": {
+      "count": 1,
+      "sumWallNanoseconds": 396956594,
+      "minWallNanoseconds": 396956594,
+      "maxWallNanoseconds": 396956594
+    },
+    "backend-message": {
+      "count": 3,
+      "sumWallNanoseconds": 898080979,
+      "minWallNanoseconds": 262056416,
+      "maxWallNanoseconds": 340705590
+    },
+    "baseline-entry": {
+      "count": 1,
+      "sumWallNanoseconds": 198483166,
+      "minWallNanoseconds": 198483166,
+      "maxWallNanoseconds": 198483166
+    },
+    "control-entry": {
+      "count": 2,
+      "sumWallNanoseconds": 986096710,
+      "minWallNanoseconds": 422718433,
+      "maxWallNanoseconds": 563378277
+    },
+    "control-listen-before": {
+      "count": 1,
+      "sumWallNanoseconds": 326769425,
+      "minWallNanoseconds": 326769425,
+      "maxWallNanoseconds": 326769425
+    },
+    "control-success": {
+      "count": 2,
+      "sumWallNanoseconds": 646758919,
+      "minWallNanoseconds": 273467641,
+      "maxWallNanoseconds": 373291278
+    },
+    "exchange-entry": {
+      "count": 2,
+      "sumWallNanoseconds": 743541959,
+      "minWallNanoseconds": 319697760,
+      "maxWallNanoseconds": 423844199
+    },
+    "original-watchdog": {
+      "count": 11,
+      "sumWallNanoseconds": 5436478899,
+      "minWallNanoseconds": 195248855,
+      "maxWallNanoseconds": 898100464
+    },
+    "send-before": {
+      "count": 2,
+      "sumWallNanoseconds": 969887939,
+      "minWallNanoseconds": 413230645,
+      "maxWallNanoseconds": 556657294
+    },
+    "send-callback": {
+      "count": 2,
+      "sumWallNanoseconds": 619748700,
+      "minWallNanoseconds": 300796331,
+      "maxWallNanoseconds": 318952369
+    },
+    "socket-open": {
+      "count": 2,
+      "sumWallNanoseconds": 585117150,
+      "minWallNanoseconds": 258090102,
+      "maxWallNanoseconds": 327027048
+    }
+  },
+  "guardSpanCount": 30,
+  "sumGuardWallNanoseconds": 12220499912,
+  "exchanges": [
+    {
+      "label": "baseline-publish",
+      "outcome": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-baseline-runtime-r1/run/session/fixtures/baseline-publish-outcome.json",
+        "bytes": 1851,
+        "sha256": "3a6e0fd337af305782d5cf00017d3134fd7fb426b71fbe834ba278de8382cfe4"
+      },
+      "elapsedNanoseconds": 2205955484,
+      "entrySequence": 25,
+      "terminalSequence": 47,
+      "actualSendInvoked": true,
+      "actualSendCallbackCompleted": true,
+      "actualSameBufferCallbackHash": "844e64e2790a9833880aedc3016e9da82130a29d9e415858d0d46fdcb8946494",
+      "actualSerializedBufferBytes": 2907,
+      "actualMatchesOriginalInput": true,
+      "rawBackendCallbackEntries": [
+        {
+          "sequence": 43,
+          "messageType": "OK",
+          "frame": [
+            "OK",
+            "1203eaed1d1c6fd2d3fe9600209c3bc2036e68e9a7b79bb8b720989d06b844da",
+            true,
+            ""
+          ],
+          "monotonicNanoseconds": "1117127683795006"
+        }
+      ],
+      "phasePoints": {
+        "EXCHANGE_START": {
+          "schema": "e02-transport-query-phase-v2",
+          "sequence": 25,
+          "utc": "2026-10-24T07:08:48.318Z",
+          "monotonicNanoseconds": "1117125819338746",
+          "phase": "EXCHANGE_START",
+          "label": "baseline-publish"
+        },
+        "TIMER_ARMED": {
+          "schema": "e02-transport-query-phase-v2",
+          "sequence": 26,
+          "utc": "2026-10-24T07:08:48.324Z",
+          "monotonicNanoseconds": "1117125824466883",
+          "phase": "TIMER_ARMED",
+          "label": "baseline-publish",
+          "timeoutMilliseconds": 10000
+        },
+        "SOCKET_OPEN_CALLBACK_ENTRY": {
+          "schema": "e02-transport-query-phase-v2",
+          "sequence": 29,
+          "utc": "2026-10-24T07:08:48.678Z",
+          "monotonicNanoseconds": "1117126179014208",
+          "phase": "SOCKET_OPEN_CALLBACK_ENTRY",
+          "label": "baseline-publish"
+        },
+        "SEND_INTENT": {
+          "schema": "e02-transport-query-phase-v2",
+          "sequence": 34,
+          "utc": "2026-10-24T07:08:49.563Z",
+          "monotonicNanoseconds": "1117127063532174",
+          "phase": "SEND_INTENT",
+          "label": "baseline-publish",
+          "eventId": "1203eaed1d1c6fd2d3fe9600209c3bc2036e68e9a7b79bb8b720989d06b844da",
+          "rawBase64": "WyJFVkVOVCIseyJraW5kIjoxMDU5LCJjb250ZW50IjoiQXVuL0kzbjB2eTcvam8vcE1henUyYUZsUzJWWXhrL05MWmpETC85ZHZQd1J3Zng1eUw1Z0Z3aHlBRmVJNlNma05LNmRYZWt3eTlrUWcrRWxLcmlaYjczdlY3NFNjN3hNRnJkcVFsbXBXTDI4OFp3RnVQSDlURnJnWHgxNC9TWS9LTm16bmJKM2RsSUJoWm52SGQxWEdiZGd1S1BiejZFZTVmVnBWT3I4OTIyUno1cGFuTURnZjRhQ2o2ajh5UEdzM1FvSGdQREFBcXlNVkdQZ2wvV1ljUXlQcXQ3dk93MHRmRHJrV0xWUWdzK1M2ZS8zWHlhZitnZlZsWHUwcFpOZTRqczUyNFZaNEEzOHlVVGNCeXp3VHVpZkp1TGVRYzJKS3l2VGpySitrcFpJV0RoYXdzWmdzUXJFRnVxOGRRZ2x6VFU3SUwwb0MrOUpYeXVJMTExQXJNZ0tPdDI1ajNyN2ZpaVpIdDZxNTVpMzA1Wmw1TUhJM2YwNEF1MUdYTi9ZREZhcW9ycHNQY1BVeTc1OEtUTjNTODlUTkQ4UHRsM2Y5Z3o1NFFKRFJGczg0WkswaHJFeENGTDJuSDNmaStRL21naGI0RU53YUgvRU5WUHRRS0J2WUVoejNaWFRzYUN1OGlCcWVROENsWUV6SXhDdm9ZbEYrVUFrUFowWHlEa3Z1bWlmamxvY2tUWFU0ZmV0YUIrd0RESTZKVzhiRGFCQ0tPcmhCWjI1WW5NR2NueCs0YjRVcUFhUG9EOXYvckZtbXF2enN6akF0dDdFbDB6SkNsc0d4SHIraHJqM1F0OXpMdnA0NkJzUFhPdGNMTFl1UXNQNFF2OTdJOTl1bURmZFNUSURzVXVUNkVjRFU3NElybVNKS2N4WUdjK2RsdXdCRGVkNVM2SHVWV2NyUkdMMG9laXJKWlEydkJZUzJCNEVkdEVHT3NjUmhDQTV6aU9xK2dSdjZWYzhqMmpTWHN4UkhzVkJPTkV3OVZ6VlZGOHhPQ3U3R2VBN283UGJhajY1b2pCOEl6cE1mdDJrLzBrMC92UGQ1NUNHcEtMSDFsVk9jeHBVVmFXRFozUVp5T1l0M3l5MzR5dFNjdjFUMzBYZVJHcjVUVVdvYWpLQzlIVFZJNFNNMmF0blgzZkc3ck5wbDIrNlZqZlhxZXE5ZWlCdEZqb2pMcGcrY2JtU00wTTdORjJuZUtqblRhaDdVSlNncnhNTlA0UjUybnVDaFBOSTFaS3J4RDVFZkw5eGlwSkI2RXBkaSt2dUQzWUwrWFRRS2EzQTB0ekUyS2RTSGRuNjBDUVRQdi90b3FoN2N0RzNtUHZFWjcwYTcvL1p5dVorOGYvQW1DcVNmVnAxSmJoR0dycG1ncDhaM1Q2YUl4TkpLdEY4eDhZVnBlSzhCVUFadGJxTmlubG9WaXIwbmhIZEtkM0hMQ2NoUE02eHVEelJaTU54cWVNUHJHSlNUTmFyZVVtZzhkTmdKRTVNeGpLdGdCZzAzK0pGazNHYWw1YkpKTm1EZlB4dGlydnlid09PS1c2bHVVZWNPM2hjcDZ1NGNPcWczU1JNSjZsQTh3RXplNXY3UzVId3dSTlVhTGtTWUJPcThuTHA3NFZCdkdTdkg4SnZKNU5PQ2R5ZE5TaVE3RTlIdXN5U2laeHhtMm4vWXpFUzVTWkdHVnUzYmhZYUNsUmtXWHd1QTVvWG1qNVEwdkJHWkRDeHBMeTFGdUVnVXFqK25NUlg2a2lQUzJGSUFBUzc3M3R5dWlpdnZSV0JhUk9EamdmR3R4ZFVia05xNG81Z2oxczh2UXRPN0oyYnQ3QWp2QlhJWmNQS3dZWWZMTG1vSWFnRjlSUmFMR3lQTTRyMVQzSWhiSEVUb3JlR09Zb0FoejUvcVFmdGVsLytGS3dPYnhRL0kwSzIyQVMzYmYxS3BDWmJCYmttVTBzNXFXNzIyUnRkejVqSjZLZWFSOUJ0Z2N2UEdIYVZmQnJQWXNzLzRKY1pWckErNExQUnI1bDR5dU5kV0pOL1ZuOFJCQzFjMGg0VVp5YlpqdGtYMmc1a0NwVTlKMVprY3EyeHpSRGZDSHp3MWtlbmVnRHdvWWdtaGEzajZPRGxsbVdJdUdNMS95bkszL3NybjJaSG8wdjVWaTVUaVFoR0NXWUNjWkZwMzRISUh5eWUvdnFDdTMvTHRrTWxhOUdFQ1lLZ3VSZlBFdGZnLzA3TExaVUMxc0w4R0phejlqZWdFNi9VSVEzemtnTy8wSW80S1RBMjJDSTgwRXhxK0RGaVBoSXMxN294dlpGREYyNHpMdDlUQXUwMldIVzZUT3NHcE1Qd3RmSXV5V0lrVDRLdUFuRWMzbWdMVDI3TnBBalhxNEZENnZaK3Q0c0laanVLVXpWUWI1KzY4YkwvdUVwcnZyMGJwelNzd3pod1FmS2VZZkIxczFiTXZCRFhKTXlkZTZ0RnBPNXVDK2srYnRDSGZLT3NabnhhSnVyOGlWWk9ydXhiMnJidDJKRjlWQS9kbmp2azZlV20vaUNKUEwzRis1UGd5d3dsbWRiVEdvNnlYV1pxWXoxdHdFbTJGaTFxSS9vRkVJZUtDVmRMaDZtMDVSUVg4Y0hUeXZhY096OXVsZFJWbjIvYXZyN0FkTXl4aDhSa3RXZVRRZ2xWTVEwZUVQMTROU3pheFJCSko2QmFJZis0YVUxV0ZrNE5NNUcrZzZMc2JjL1pTRTVIK3A0ZCtkcHNPWk94RXFUR1F6TUdnNlE1aU1NRjRYSVNvcjI1cnI2UitUMVhSUFMzbzdLMzBFVE90Z1RDV3h1RVdDajNaMmV3STBBcGhEdlhWOTZXbWw0R1FpZmg5aEVHSkZDR3VzWmt5NlR0Zmc1N2JRL1lJQVp4dXFnc2lTOE5RYVhiZWJJdXhVTVhlT0FjNm0zZXQzVU1raFpDTFVIcmFxYWNJckRsT3FyUGJzOC85VFFIWVg0Qmt1UGwvaWRPQ01kYTdZNUVVMk9QckNpRmhkTGpGbmp3VzRTc2EycHcyRTRkczhtcHJYd1Nyam52Q2w5UElKd25QdXZhelJYUCtBVzhLdGJ1UTVJbHdWR2k1cXZZMzFMMTQveW9NUkRBVENocGFITXBqZ0VhUWJBVlFsSWxBcEh5WmlBZFFab1U2eUcvMm5MaENtQWg0YXQ4SXVFKzkwSDRMUG4rZWhXelRwY3BDVFZuVnRiS0g5YjNvZDEwUVl0bXIvZzgwWGVQNFNIbWhHSU53SVlaWGs4ZGpmWDg1NHZaRmpDaWN3SWxIZVZldk1xbExadUJXaE51cEl0Y2czND0iLCJjcmVhdGVkX2F0IjoxNzkyNjY5MzI2LCJ0YWdzIjpbWyJwIiwiYzYwNDdmOTQ0MWVkN2Q2ZDMwNDU0MDZlOTVjMDdjZDg1Yzc3OGU0YjhjZWYzY2E3YWJhYzA5Yjk1YzcwOWVlNSJdXSwicHVia2V5IjoiNzhhYTgzNWI1NjU2YWU4MDU4NTBkNWEzOTQ5ZjczYzY3NjY4NTE0NWIxNjgwYzgxZjIzOWY4NTUxNTIxNDQ0NiIsImlkIjoiMTIwM2VhZWQxZDFjNmZkMmQzZmU5NjAwMjA5YzNiYzIwMzZlNjhlOWE3Yjc5YmI4YjcyMDk4OWQwNmI4NDRkYSIsInNpZyI6ImZmMTE3ZDFjZTFkODBmOGE0ZGMzMTAwZTVlNTVmY2ZjYmQxYmU1OGEwN2M0YTI5MDJkMTJkMTZlOWM3MjY3ZjA5MDU1MDQ4N2U4ZDQyNTI3Zjg5N2UyZGEyYzVlNjZjY2ZjMjZjNDU1YmIxNmQ2Y2EyY2Q0Y2RhNzUwOWZlNmVhIn1d"
+        },
+        "SEND_INVOKE_ENTRY": {
+          "schema": "e02-transport-query-phase-v2",
+          "sequence": 35,
+          "utc": "2026-10-24T07:08:49.563Z",
+          "monotonicNanoseconds": "1117127063604229",
+          "phase": "SEND_INVOKE_ENTRY",
+          "label": "baseline-publish",
+          "eventId": "1203eaed1d1c6fd2d3fe9600209c3bc2036e68e9a7b79bb8b720989d06b844da"
+        },
+        "SEND_INVOKE_RETURNED": {
+          "schema": "e02-transport-query-phase-v2",
+          "sequence": 36,
+          "utc": "2026-10-24T07:08:49.564Z",
+          "monotonicNanoseconds": "1117127064432068",
+          "phase": "SEND_INVOKE_RETURNED",
+          "label": "baseline-publish",
+          "eventId": "1203eaed1d1c6fd2d3fe9600209c3bc2036e68e9a7b79bb8b720989d06b844da"
+        },
+        "SEND_CALLBACK_ENTRY": {
+          "schema": "e02-transport-query-phase-v2",
+          "sequence": 37,
+          "utc": "2026-10-24T07:08:49.564Z",
+          "monotonicNanoseconds": "1117127064655057",
+          "phase": "SEND_CALLBACK_ENTRY",
+          "label": "baseline-publish",
+          "eventId": "1203eaed1d1c6fd2d3fe9600209c3bc2036e68e9a7b79bb8b720989d06b844da",
+          "error": null
+        },
+        "SEND_CALLBACK_GUARD_PASSED": {
+          "schema": "e02-transport-query-phase-v2",
+          "sequence": 40,
+          "utc": "2026-10-24T07:08:49.865Z",
+          "monotonicNanoseconds": "1117127365616367",
+          "phase": "SEND_CALLBACK_GUARD_PASSED",
+          "label": "baseline-publish",
+          "eventId": "1203eaed1d1c6fd2d3fe9600209c3bc2036e68e9a7b79bb8b720989d06b844da"
+        },
+        "EXCHANGE_RESOLVED": {
+          "schema": "e02-transport-query-phase-v2",
+          "sequence": 47,
+          "utc": "2026-10-24T07:08:50.525Z",
+          "monotonicNanoseconds": "1117128025396469",
+          "phase": "EXCHANGE_RESOLVED",
+          "label": "baseline-publish",
+          "elapsedNanoseconds": 2205955484,
+          "error": null
+        }
+      },
+      "containedGuardSpanCount": 6,
+      "containedGuardWallNanoseconds": 2190504460,
+      "observerPoisoned": false,
+      "observerReportedPhysicalBytes": null,
+      "laterDataReadPrefixBytes": 13061,
+      "prefixMatchesRecordedAcknowledgedTotal": true,
+      "sourceTimerMilliseconds": 10000,
+      "timerFiredRows": 0
+    },
+    {
+      "label": "baseline-query",
+      "outcome": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-baseline-runtime-r1/run/session/fixtures/baseline-query-outcome.json",
+        "bytes": 8686,
+        "sha256": "5fd001ceb1aada8ef9c6480bdefe1b4cc127e7ce2a9f2df6c40c564d93efbd14"
+      },
+      "elapsedNanoseconds": 2065842584,
+      "entrySequence": 52,
+      "terminalSequence": 78,
+      "actualSendInvoked": true,
+      "actualSendCallbackCompleted": true,
+      "actualSameBufferCallbackHash": "ae042185e892c9a385b7add6442e478834817d8ed310f8967e7dc3d4bd689389",
+      "actualSerializedBufferBytes": 112,
+      "actualMatchesOriginalInput": true,
+      "rawBackendCallbackEntries": [
+        {
+          "sequence": 70,
+          "messageType": "EVENT",
+          "frame": [
+            "EVENT",
+            "e02-owned-query",
+            {
+              "id": "1203eaed1d1c6fd2d3fe9600209c3bc2036e68e9a7b79bb8b720989d06b844da",
+              "pubkey": "78aa835b5656ae805850d5a3949f73c676685145b1680c81f239f85515214446",
+              "created_at": 1792669326,
+              "kind": 1059,
+              "tags": [
+                [
+                  "p",
+                  "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5"
+                ]
+              ],
+              "content": "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",
+              "sig": "ff117d1ce1d80f8a4dc3100e5e55fcfcbd1be58a07c4a2902d12d16e9c7267f090550487e8d42527f897e2da2c5e66ccfc26c455bb16d6ca2cd4cda7509fe6ea"
+            }
+          ],
+          "monotonicNanoseconds": "1117130263316397"
+        },
+        {
+          "sequence": 74,
+          "messageType": "EOSE",
+          "frame": [
+            "EOSE",
+            "e02-owned-query"
+          ],
+          "monotonicNanoseconds": "1117130561804652"
+        }
+      ],
+      "phasePoints": {
+        "EXCHANGE_START": {
+          "schema": "e02-transport-query-phase-v2",
+          "sequence": 52,
+          "utc": "2026-10-24T07:08:51.258Z",
+          "monotonicNanoseconds": "1117128758707483",
+          "phase": "EXCHANGE_START",
+          "label": "baseline-query"
+        },
+        "TIMER_ARMED": {
+          "schema": "e02-transport-query-phase-v2",
+          "sequence": 53,
+          "utc": "2026-10-24T07:08:51.259Z",
+          "monotonicNanoseconds": "1117128760081110",
+          "phase": "TIMER_ARMED",
+          "label": "baseline-query",
+          "timeoutMilliseconds": 10000
+        },
+        "SOCKET_OPEN_CALLBACK_ENTRY": {
+          "schema": "e02-transport-query-phase-v2",
+          "sequence": 56,
+          "utc": "2026-10-24T07:08:51.457Z",
+          "monotonicNanoseconds": "1117128957505793",
+          "phase": "SOCKET_OPEN_CALLBACK_ENTRY",
+          "label": "baseline-query"
+        },
+        "SEND_INTENT": {
+          "schema": "e02-transport-query-phase-v2",
+          "sequence": 61,
+          "utc": "2026-10-24T07:08:52.128Z",
+          "monotonicNanoseconds": "1117129629357128",
+          "phase": "SEND_INTENT",
+          "label": "baseline-query",
+          "eventId": null,
+          "rawBase64": "WyJSRVEiLCJlMDItb3duZWQtcXVlcnkiLHsiaWRzIjpbIjEyMDNlYWVkMWQxYzZmZDJkM2ZlOTYwMDIwOWMzYmMyMDM2ZTY4ZTlhN2I3OWJiOGI3MjA5ODlkMDZiODQ0ZGEiXSwibGltaXQiOjF9XQ=="
+        },
+        "SEND_INVOKE_ENTRY": {
+          "schema": "e02-transport-query-phase-v2",
+          "sequence": 62,
+          "utc": "2026-10-24T07:08:52.129Z",
+          "monotonicNanoseconds": "1117129629388966",
+          "phase": "SEND_INVOKE_ENTRY",
+          "label": "baseline-query",
+          "eventId": null
+        },
+        "SEND_INVOKE_RETURNED": {
+          "schema": "e02-transport-query-phase-v2",
+          "sequence": 63,
+          "utc": "2026-10-24T07:08:52.129Z",
+          "monotonicNanoseconds": "1117129629612417",
+          "phase": "SEND_INVOKE_RETURNED",
+          "label": "baseline-query",
+          "eventId": null
+        },
+        "SEND_CALLBACK_ENTRY": {
+          "schema": "e02-transport-query-phase-v2",
+          "sequence": 64,
+          "utc": "2026-10-24T07:08:52.129Z",
+          "monotonicNanoseconds": "1117129629733846",
+          "phase": "SEND_CALLBACK_ENTRY",
+          "label": "baseline-query",
+          "eventId": null,
+          "error": null
+        },
+        "SEND_CALLBACK_GUARD_PASSED": {
+          "schema": "e02-transport-query-phase-v2",
+          "sequence": 67,
+          "utc": "2026-10-24T07:08:52.448Z",
+          "monotonicNanoseconds": "1117129948909250",
+          "phase": "SEND_CALLBACK_GUARD_PASSED",
+          "label": "baseline-query",
+          "eventId": null
+        },
+        "EXCHANGE_RESOLVED": {
+          "schema": "e02-transport-query-phase-v2",
+          "sequence": 78,
+          "utc": "2026-10-24T07:08:53.324Z",
+          "monotonicNanoseconds": "1117130824712798",
+          "phase": "EXCHANGE_RESOLVED",
+          "label": "baseline-query",
+          "elapsedNanoseconds": 2065842584,
+          "error": null
+        }
+      },
+      "containedGuardSpanCount": 7,
+      "containedGuardWallNanoseconds": 2052947469,
+      "observerPoisoned": false,
+      "observerReportedPhysicalBytes": null,
+      "laterDataReadPrefixBytes": 23068,
+      "prefixMatchesRecordedAcknowledgedTotal": true,
+      "sourceTimerMilliseconds": 10000,
+      "timerFiredRows": 0
+    }
+  ],
+  "meaning": "Process-local recorded wall intervals including guarded spawn/wait and observer overhead. Not CPU/network RTT/kernel arrival/DB queue or original-failure causal measurement.",
+  "acknowledgedVsPhysical": "Raw observer physicalBytes remains null. Later artifact-prefix byte lengths were read separately and match recorded acknowledged totals; raw original fields are not rewritten as a physical-write attestation."
+}

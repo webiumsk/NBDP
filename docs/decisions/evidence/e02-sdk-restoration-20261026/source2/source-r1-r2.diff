@@ -1,0 +1,98 @@
+--- /tmp/nbdp-sdk-restoration-20261026/restore_sdk.py
++++ /tmp/nbdp-sdk-restoration-20261026-r2/restore_sdk.py
+@@ -6,6 +6,7 @@
+ """
+ import argparse
+ import ctypes
++import errno
+ import hashlib
+ import json
+ import os
+@@ -18,7 +19,7 @@
+ import urllib.request
+ import zipfile
+ 
+-WORK = Path('/tmp/nbdp-sdk-restoration-20261026')
++WORK = Path('/tmp/nbdp-sdk-restoration-20261026-r2')
+ DEST = Path('/tmp/nbdp-e02-api35-fixture-r2/sdk')
+ INVENTORY = Path('/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-api35-fixture-preparation-r2/sdk-tree.json')
+ INVENTORY_SHA = '5c996f67fd8aba0ea618adc7f7f9e6a2c27c641cc95910deb07bdfa8a10562a8'
+@@ -106,6 +107,8 @@
+         self.remaining = plan['totals']['archiveBytes'] + plan['totals']['selectedBytes']
+         self.disk_samples = 0; self.lowest_free = None; self.events = []
+         self.stage_fd = self.attempt_fd = self.parent_fd = None
++        self.placement_state = 'NOT_ATTEMPTED'
++        self.rename_return = self.rename_errno = None
+ 
+     def check(self):
+         self.deadline.check()
+@@ -331,8 +334,25 @@
+         rename=libc.renameat2
+         rename.argtypes=[ctypes.c_int,ctypes.c_char_p,ctypes.c_int,ctypes.c_char_p,ctypes.c_uint]
+         rename.restype=ctypes.c_int
+-        need(rename(self.attempt_fd,b'stage-sdk',self.parent_fd,b'sdk',1)==0,
+-             'ATOMIC_NOREPLACE_SDK_PLACEMENT_FAILED:'+str(ctypes.get_errno()))
++        # The C call can complete before Python observes an interrupt. Until a
++        # definite return is observed, neither absence nor placement is known.
++        self.placement_state='UNKNOWN'
++        result=rename(self.attempt_fd,b'stage-sdk',self.parent_fd,b'sdk',1)
++        if result==0:
++            # Record success before ANY post-rename operation can fail.
++            self.placement_state='PLACED'
++        elif result==-1:
++            code=ctypes.get_errno()
++            # These refusal results establish only that this invocation did not
++            # place the stage. They never establish destination absence. I/O,
++            # interruption and unrecognized results remain conservatively UNKNOWN.
++            if code in (errno.EEXIST,errno.ENOTEMPTY,errno.ENOENT,errno.EXDEV,
++                        errno.EACCES,errno.EPERM,errno.ENOTDIR,errno.ELOOP,
++                        errno.EROFS,errno.ENOSYS,errno.EINVAL):
++                self.placement_state='NOT_PLACED'
++            self.rename_errno=code
++        self.rename_return=result
++        need(result==0,'ATOMIC_NOREPLACE_SDK_PLACEMENT_FAILED:'+str(self.rename_errno))
+         finalfd=os.open('sdk',os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW,dir_fd=self.parent_fd)
+         try:
+             a,b=os.fstat(self.stage_fd),os.fstat(finalfd)
+@@ -340,8 +360,15 @@
+         finally:os.close(finalfd)
+         os.fsync(self.parent_fd);self.check()
+ 
++    def placement(self):
++        placed=True if self.placement_state=='PLACED' else (
++            False if self.placement_state in ('NOT_ATTEMPTED','NOT_PLACED') else None)
++        return dict(placed=placed,placementState=self.placement_state,
++            renameReportedReturn=self.rename_return,renameReportedErrno=self.rename_errno,
++            placementMeaning='This attempt only; false never means destination absent. UNKNOWN/null preserves interrupted or ambiguous rename boundaries. No foreign destination is removed or overwritten.')
++
+     def run(self, original):
+-        error=None; placed=False
++        error=None
+         try:
+             self.initialize()
+             for artifact in self.plan['archives']:
+@@ -360,13 +387,13 @@
+             aggregate=hashlib.sha256(json.dumps(actual,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+             need(aggregate==original['sha256'],'ORIGINAL_SDK_AGGREGATE_MISMATCH')
+             self.receipt('staged-tree.json',dict(root=str(self.stage),sha256=aggregate,files=actual))
+-            self.publish();placed=True
++            self.publish()
+             # stage_fd still identifies the same directory after atomic rename.
+             need(self.inventory()==observed,'POST_PLACEMENT_SDK_TREE_MISMATCH')
+             need(hash_file(INVENTORY)['sha256']==INVENTORY_SHA,'ORIGINAL_INDEX_CHANGED')
+             self.receipt('result.json',dict(state='EXACT_BYTE_DATA_RESTORED_PENDING_INDEPENDENT_REVIEW',
+                 destination=str(DEST),fileCount=len(actual),bytes=sum(row['size'] for row in actual),aggregate=aggregate,
+-                placed=True,sdkToolsExecuted=False,sdkmanagerOrLicenseConsent=False,serviceOrExperimentExecuted=False,
++                **self.placement(),sdkToolsExecuted=False,sdkmanagerOrLicenseConsent=False,serviceOrExperimentExecuted=False,
+                 diskSamples=self.disk_samples,minimumSampledFree=self.lowest_free,modeMeaning='Original public file modes only; directory modes are private restoration directories.'))
+         except BaseException as exc:
+             error=type(exc).__name__+':'+str(exc)[:2048]
+@@ -375,7 +402,7 @@
+             if self.attempt_fd is not None:
+                 try:
+                     self.deadline.failure_receipt()
+-                    self.receipt('failure.json',dict(error=error,placed=placed,remainingPlannedBytes=self.remaining,
++                    self.receipt('failure.json',dict(error=error,**self.placement(),remainingPlannedBytes=self.remaining,
+                         partialDataPreserved=True,sdkToolsExecuted=False,minimumSampledFree=self.lowest_free))
+                 except BaseException as secondary:print(json.dumps(dict(firstError=error,receiptError=str(secondary)[:2048])),flush=True)
+             raise

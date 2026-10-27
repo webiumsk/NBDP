@@ -1,0 +1,41 @@
+{
+  "request": {
+    "schema": "nbdp-amethyst-actual-cli-request-v1",
+    "argv": [
+      "/usr/bin/docker",
+      "start",
+      "--attach",
+      "1d594fc974573693a7487980155ae7f48bf904e2c1b91d43b27a01df7aeda625"
+    ],
+    "wrappedArgv": [
+      "/usr/bin/timeout",
+      "--signal=TERM",
+      "--kill-after=5s",
+      "1845s",
+      "/usr/bin/docker",
+      "start",
+      "--attach",
+      "1d594fc974573693a7487980155ae7f48bf904e2c1b91d43b27a01df7aeda625"
+    ],
+    "startedUtcNs": 1793101599465904100,
+    "maximumSeconds": 1845,
+    "capturePerFileLimitBytes": 67108864,
+    "limitMeaning": "RLIMIT_FSIZE on CLI/attach capture files only; inner job file limit is512MiB."
+  },
+  "exitCode": 1,
+  "error": null,
+  "elapsedWallSeconds": 1.0402535820030607,
+  "classification": "NONZERO_1",
+  "stdout": {
+    "path": "/tmp/nbdp-amethyst-build-supervisor-20261026-r2/attempt-a9d568c5b8d37b42c16cc58aecd4ba57/005-start-attached.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "path": "/tmp/nbdp-amethyst-build-supervisor-20261026-r2/attempt-a9d568c5b8d37b42c16cc58aecd4ba57/005-start-attached.stderr",
+    "bytes": 609,
+    "sha256": "4c3787280519c6cb577b362204d9efd62336dab294dc022efecfe2be0f65b614"
+  },
+  "attachedBuild": true,
+  "resourceClaim": "Configured limits; no measured CPU/RSS/aggregate disk peak or hostile process closure."
+}

@@ -1,0 +1,32 @@
+{
+  "schema": "nbdp-root-one-artifact-attempt-release-v1",
+  "actor": "/root",
+  "decision": "AUTHORIZE_ONE_FIXED_ARTIFACT_ATTEMPT",
+  "subject": {
+    "path": "/tmp/nbdp-amethyst-build-release-materializer-20261027/root-authorized-template.json",
+    "bytes": 5381,
+    "sha256": "be20abd20a73433002e02366fa95bbc93f40d598ca24201bbd0269b5f3946f97"
+  },
+  "command": null,
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-build-release-materializer-20261027/actual-concrete-qa-review.json",
+      "bytes": 1306,
+      "sha256": "d047952da8d55faba08a774cd57b3068d0a6516af28c02efd56192546d00987c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-build-release-materializer-20261027/actual-concrete-security-review.json",
+      "bytes": 1316,
+      "sha256": "a40cd7036732da20c5bf0580c1ef58b0fccb4e40d7954fe3e56c82977ace4586"
+    }
+  ],
+  "prerequisiteDataAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/acceptance.json",
+    "bytes": 1369,
+    "sha256": "e33c4fb753622d1195b21db5f5eb45b28216ad10e9d8657da38fcd118957b143"
+  },
+  "rerunsAuthorized": 0,
+  "scope": "Exact reviewed synthetic artifactbuild only; original resources/deadlines/firstfailure retention/privatekey handling unchanged.",
+  "clientExecutionAuthorized": false,
+  "canonicalE02Changed": false
+}

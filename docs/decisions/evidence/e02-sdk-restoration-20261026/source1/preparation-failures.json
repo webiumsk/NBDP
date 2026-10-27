@@ -1,0 +1,11 @@
+{
+  "schema": "nbdp-sdk-restoration-source-preparation-negative-evidence-v1",
+  "failures": [
+    {
+      "scope": "SOURCE_PLAN_GENERATION_ONLY",
+      "error": "AssertionError on assumption that preserved original inventory path strings were lexicographically sorted.",
+      "downloadsOrExtractionExecuted": false,
+      "correction": "Preserve original pathlib row ordering for aggregate; compare observed exact path sets and rows before reconstructing original order. Original index unchanged."
+    }
+  ]
+}

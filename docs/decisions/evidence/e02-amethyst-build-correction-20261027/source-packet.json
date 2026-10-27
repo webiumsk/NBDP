@@ -1,0 +1,36 @@
+{
+  "schema": "nbdp-amethyst-working-directory-correction-source-packet-v1",
+  "author": "/root/consumer3_preparation",
+  "state": "SOURCE_ONLY_NOT_READY_PENDING_INDEPENDENT_QA_SECURITY",
+  "actualFailure": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-build-actual-20261027/subject.json",
+    "bytes": 28212,
+    "sha256": "b4499f9f78b40b918f3ba0b4c678e06e2555177b8a348dbfd0edd66b53a35ea2"
+  },
+  "preparationSubject": {
+    "path": "/tmp/nbdp-amethyst-build-preparation-20261027-r2/subject.json",
+    "bytes": 2035,
+    "sha256": "6779631c40c643a8aed4e7931dbae94442a7490ebb6937c086c32c13e6b472a1"
+  },
+  "supervisorSubject": {
+    "path": "/tmp/nbdp-amethyst-build-supervisor-20261027-r3/subject.json",
+    "bytes": 3926,
+    "sha256": "4acf99f8fddc703719d0d2ff5bcb3777700de1c4f6409142315572475d806ac7"
+  },
+  "materializerSubject": {
+    "path": "/tmp/nbdp-amethyst-build-release-materializer-20261027-r2/subject.json",
+    "bytes": 3464,
+    "sha256": "4db6769bb23fc059b43be61e6bcf63dead68fcba9eabcf6a140861630e9535dc"
+  },
+  "modelsDefined": {
+    "supervisor": 52,
+    "materializer": 16
+  },
+  "modelsExecuted": 0,
+  "toolsExecuted": false,
+  "buildExecuted": false,
+  "grantCreated": false,
+  "oldAttemptPreserved": true,
+  "readOnlyToolsAndSourceUnchanged": true,
+  "limitations": "Compilation would establish only a rebuilt source-linked candidate, never runtime interoperability or E02 qualification. No execution authority is granted by this packet."
+}

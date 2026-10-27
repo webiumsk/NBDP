@@ -1,0 +1,27 @@
+{
+  "schema": "nbdp-root-one-corrected-artifact-attempt-release-v1",
+  "actor": "/root",
+  "decision": "AUTHORIZE_ONE_EXACT_CORRECTED_ARTIFACT_ATTEMPT",
+  "subject": {
+    "path": "/tmp/nbdp-amethyst-build-release-materializer-20261027-r2/root-authorized-template.json",
+    "bytes": 5869,
+    "sha256": "5016094604820244e51616df211c5f84bcb93829e80ec88f338c47ee6c8aa140"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-build-correction-20261027/actual-concrete-qa-review.json",
+      "bytes": 1483,
+      "sha256": "e2ec0fbcaaf295a8c3493997acfb72a508a482f8d4604b151b7e3fe62a0f4ec5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-build-correction-20261027/actual-concrete-security-review.json",
+      "bytes": 1493,
+      "sha256": "b2bee4c80fa4e26c047e2a0f47c2ec3022f0aa11533dfab8c46c2a7199c3cb3b"
+    }
+  ],
+  "scope": "ExactcorrectedSOURCE3/PREP/Materializer2 artifactbuildonly, originalresources/budgets/firstfailure/privatekey/cleanup unchanged; priorfailedattemptimmutable.",
+  "rerunsAuthorized": 0,
+  "freshClocks": "OnlymaterializerissuedAtUtcNs/notAfterUtcNs now/+2400atactualapprovedexecution; no renewal.",
+  "clientExecutionAuthorized": false,
+  "canonicalE02Changed": false
+}
