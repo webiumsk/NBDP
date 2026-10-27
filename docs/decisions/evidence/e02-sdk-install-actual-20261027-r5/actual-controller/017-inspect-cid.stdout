@@ -1,0 +1,380 @@
+[
+    {
+        "Id": "f482ff679e63c49922a39eb10d3b09f867dff22c812284441f992435e5fc710b",
+        "Created": "2026-10-27T19:54:41.067302836Z",
+        "Path": "/usr/bin/env",
+        "Args": [
+            "-i",
+            "PATH=/jdk/bin:/usr/bin:/bin",
+            "JAVA_HOME=/jdk",
+            "JAVA_TOOL_OPTIONS=-Xmx768m -XX:MaxMetaspaceSize=256m -XX:ActiveProcessorCount=2 -Duser.home=/user/home -Djava.io.tmpdir=/user/tmp",
+            "HOME=/user/home",
+            "ANDROID_USER_HOME=/user/android",
+            "XDG_CACHE_HOME=/user/cache",
+            "XDG_CONFIG_HOME=/user/config",
+            "TMPDIR=/user/tmp",
+            "ANDROID_HOME=/sdk",
+            "ANDROID_SDK_ROOT=/sdk",
+            "LANG=C.UTF-8",
+            "LC_ALL=C.UTF-8",
+            "TZ=UTC",
+            "/usr/bin/timeout",
+            "--signal=TERM",
+            "--kill-after=5s",
+            "1050s",
+            "/usr/bin/python3",
+            "-I",
+            "-B",
+            "/prep/install.py",
+            "--plan",
+            "/prep/install-plan.json",
+            "--plan-sha",
+            "979e8700219c64a3b050371c9a993ca44fec45a1c60442171e1534bd5e20f165"
+        ],
+        "State": {
+            "Status": "exited",
+            "Running": false,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 0,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-27T19:54:41.633683556Z",
+            "FinishedAt": "2026-10-27T19:57:43.346591493Z"
+        },
+        "Image": "sha256:32bb6c4c58ee5fe85f1e7229fb15008accb137990093941d2f8e768efd91cf8c",
+        "ResolvConfPath": "/var/lib/docker/containers/f482ff679e63c49922a39eb10d3b09f867dff22c812284441f992435e5fc710b/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/f482ff679e63c49922a39eb10d3b09f867dff22c812284441f992435e5fc710b/hostname",
+        "HostsPath": "/var/lib/docker/containers/f482ff679e63c49922a39eb10d3b09f867dff22c812284441f992435e5fc710b/hosts",
+        "LogPath": "",
+        "Name": "/nbdp-sdk-install-20261027",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "/Data/nbdp-e02-tooling-20261027/controller-r6/attempt-2b5f323d920c1868006fb44afb036c98/cidfile",
+            "LogConfig": {
+                "Type": "none",
+                "Config": {}
+            },
+            "NetworkMode": "acf4c0e2d847dedb7841a18c0713ba9b58ad680d686c2d43d95612f54ff6ff9b",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": [
+                "ALL"
+            ],
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": true,
+            "SecurityOpt": [
+                "no-new-privileges"
+            ],
+            "Tmpfs": {
+                "/tmp": "rw,nosuid,nodev,size=134217728"
+            },
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 2147483648,
+            "NanoCpus": 2000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 2147483648,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": 256,
+            "Ulimits": [
+                {
+                    "Name": "fsize",
+                    "Hard": 2147483648,
+                    "Soft": 2147483648
+                }
+            ],
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "/tmp/nbdp-amethyst-rebuild-20261026/tools/jdk",
+                    "Target": "/jdk",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/bootstrap/cmdline-tools/22.0",
+                    "Target": "/bootstrap/cmdline-tools/22.0",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r6",
+                    "Target": "/prep",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/tmp/nbdp-e02-sdk-install-controller-20261027/input-bundle-r1",
+                    "Target": "/inputs",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/Data/nbdp-e02-tooling-20261027/controller-r6/writable-r1/sdk",
+                    "Target": "/sdk"
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/Data/nbdp-e02-tooling-20261027/controller-r6/writable-r1/user",
+                    "Target": "/user"
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/Data/nbdp-e02-tooling-20261027/controller-r6/writable-r1/output",
+                    "Target": "/output"
+                }
+            ],
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware",
+                "/sys/devices/system/cpu/cpu0/thermal_throttle",
+                "/sys/devices/system/cpu/cpu1/thermal_throttle",
+                "/sys/devices/system/cpu/cpu2/thermal_throttle",
+                "/sys/devices/system/cpu/cpu3/thermal_throttle",
+                "/sys/devices/system/cpu/cpu4/thermal_throttle",
+                "/sys/devices/system/cpu/cpu5/thermal_throttle",
+                "/sys/devices/system/cpu/cpu6/thermal_throttle",
+                "/sys/devices/system/cpu/cpu7/thermal_throttle",
+                "/sys/devices/system/cpu/cpu8/thermal_throttle",
+                "/sys/devices/system/cpu/cpu9/thermal_throttle",
+                "/sys/devices/system/cpu/cpu10/thermal_throttle",
+                "/sys/devices/system/cpu/cpu11/thermal_throttle",
+                "/sys/devices/system/cpu/cpu12/thermal_throttle",
+                "/sys/devices/system/cpu/cpu13/thermal_throttle",
+                "/sys/devices/system/cpu/cpu14/thermal_throttle",
+                "/sys/devices/system/cpu/cpu15/thermal_throttle",
+                "/sys/devices/system/cpu/cpu16/thermal_throttle",
+                "/sys/devices/system/cpu/cpu17/thermal_throttle",
+                "/sys/devices/system/cpu/cpu18/thermal_throttle",
+                "/sys/devices/system/cpu/cpu19/thermal_throttle",
+                "/sys/devices/system/cpu/cpu20/thermal_throttle",
+                "/sys/devices/system/cpu/cpu21/thermal_throttle"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ],
+            "Init": true
+        },
+        "GraphDriver": {
+            "Data": {
+                "ID": "f482ff679e63c49922a39eb10d3b09f867dff22c812284441f992435e5fc710b",
+                "LowerDir": "/var/lib/docker/overlay2/03b180b0ccda7e6ec93878a1855e292e1b00310f328da6885c888b728e27d6c8-init/diff:/var/lib/docker/overlay2/rnt7uaq77pk3xors8entxyd5x/diff:/var/lib/docker/overlay2/drsfgu4b2zuqnbja8p52o8gmk/diff:/var/lib/docker/overlay2/t6eh1pagtumqlc6x05jdali6z/diff:/var/lib/docker/overlay2/8ae5e3499817e9d8b6578e9958c7f4b5a730aeb75160a2061aa74a6e8aef271b/diff",
+                "MergedDir": "/var/lib/docker/overlay2/03b180b0ccda7e6ec93878a1855e292e1b00310f328da6885c888b728e27d6c8/merged",
+                "UpperDir": "/var/lib/docker/overlay2/03b180b0ccda7e6ec93878a1855e292e1b00310f328da6885c888b728e27d6c8/diff",
+                "WorkDir": "/var/lib/docker/overlay2/03b180b0ccda7e6ec93878a1855e292e1b00310f328da6885c888b728e27d6c8/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/tmp/nbdp-e02-sdk-install-controller-20261027/input-bundle-r1",
+                "Destination": "/inputs",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/tmp/nbdp-amethyst-rebuild-20261026/tools/jdk",
+                "Destination": "/jdk",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/Data/nbdp-e02-tooling-20261027/controller-r6/writable-r1/output",
+                "Destination": "/output",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r6",
+                "Destination": "/prep",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/Data/nbdp-e02-tooling-20261027/controller-r6/writable-r1/sdk",
+                "Destination": "/sdk",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/Data/nbdp-e02-tooling-20261027/controller-r6/writable-r1/user",
+                "Destination": "/user",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/bootstrap/cmdline-tools/22.0",
+                "Destination": "/bootstrap/cmdline-tools/22.0",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "f482ff679e63",
+            "Domainname": "",
+            "User": "1000:1000",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "-i",
+                "PATH=/jdk/bin:/usr/bin:/bin",
+                "JAVA_HOME=/jdk",
+                "JAVA_TOOL_OPTIONS=-Xmx768m -XX:MaxMetaspaceSize=256m -XX:ActiveProcessorCount=2 -Duser.home=/user/home -Djava.io.tmpdir=/user/tmp",
+                "HOME=/user/home",
+                "ANDROID_USER_HOME=/user/android",
+                "XDG_CACHE_HOME=/user/cache",
+                "XDG_CONFIG_HOME=/user/config",
+                "TMPDIR=/user/tmp",
+                "ANDROID_HOME=/sdk",
+                "ANDROID_SDK_ROOT=/sdk",
+                "LANG=C.UTF-8",
+                "LC_ALL=C.UTF-8",
+                "TZ=UTC",
+                "/usr/bin/timeout",
+                "--signal=TERM",
+                "--kill-after=5s",
+                "1050s",
+                "/usr/bin/python3",
+                "-I",
+                "-B",
+                "/prep/install.py",
+                "--plan",
+                "/prep/install-plan.json",
+                "--plan-sha",
+                "979e8700219c64a3b050371c9a993ca44fec45a1c60442171e1534bd5e20f165"
+            ],
+            "Image": "sha256:32bb6c4c58ee5fe85f1e7229fb15008accb137990093941d2f8e768efd91cf8c",
+            "Volumes": null,
+            "WorkingDir": "/user",
+            "Entrypoint": [
+                "/usr/bin/env"
+            ],
+            "Labels": {
+                "nbdp.installRun": "2b5f323d920c1868006fb44afb036c98",
+                "nbdp.owner": "e02-sdk-install-20261027",
+                "nbdp.role": "sdkmanager-scoped-install",
+                "nbdp.scope": "exact-three-package-install"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "",
+            "SandboxKey": "",
+            "Ports": {},
+            "Networks": {
+                "nbdp-amethyst-build-20261026": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "acf4c0e2d847dedb7841a18c0713ba9b58ad680d686c2d43d95612f54ff6ff9b",
+                    "EndpointID": "",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "MacAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "nbdp-sdk-install-20261027",
+                        "f482ff679e63"
+                    ]
+                }
+            }
+        }
+    }
+]

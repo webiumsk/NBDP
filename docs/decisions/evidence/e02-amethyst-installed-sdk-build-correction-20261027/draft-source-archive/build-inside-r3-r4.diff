@@ -1,0 +1,12 @@
+--- /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/preparation/build_inside.py
++++ /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/preparation/build_inside.py
+@@ -91,7 +91,8 @@
+     argv=['/bin/sh',str(SOURCE/'gradlew'),':amethyst:assembleFdroidDebug','-PdisableAbiSplits=true',
+         '--no-daemon','--max-workers=3',
+         '-Dorg.gradle.jvmargs=-Xmx3g -XX:MaxMetaspaceSize=768m -Dfile.encoding=UTF-8 -Duser.home=/work/user',
+-        '-Dkotlin.daemon.jvmargs=-Xmx1536m -XX:MaxMetaspaceSize=512m']
++        '-Dkotlin.daemon.jvmargs=-Xmx1536m -XX:MaxMetaspaceSize=512m',
++        '-x','spotlessApply','-x',':installGitHook']
+     write('build-command.json',dict(argv=argv,sourceCommit='e6f464a1179def75274512b3c5bab921de3bf3d8',
+         signing='Fresh isolated debug identity only; no old APK hash/release signature claim'))
+     started=time.monotonic();error=None;code=None

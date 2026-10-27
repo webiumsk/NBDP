@@ -1,0 +1,39 @@
+--- /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r2/host-bindings.json
++++ /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r3/host-bindings.json
+@@ -1,6 +1,6 @@
+ {
+   "schema": "nbdp-sdkmanager22-inner-to-outer-binding-v1",
+-  "sourceRoot": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r2",
++  "sourceRoot": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r3",
+   "sourceContainerMount": "/prep",
+   "inputBundle": "/tmp/nbdp-e02-sdk-install-controller-20261027/input-bundle-r1",
+   "inputBundleInventory": {
+@@ -94,7 +94,7 @@
+     "/user",
+     "/output"
+   ],
+-  "hostWritableRoot": "/tmp/nbdp-e02-sdk-install-controller-20261027/source-r2/writable-r1",
++  "hostWritableRoot": "/Data/nbdp-e02-tooling-20261027/controller-r3/writable-r1",
+   "innerArgv": [
+     "/usr/bin/python3",
+     "-I",
+--- /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r2/model-plan.json
++++ /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r3/model-plan.json
+@@ -1,7 +1,7 @@
+ {
+   "schema": "nbdp-sdkmanager22-prompt-model-plan-v1",
+   "source": {
+-    "path": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r2/test_prompt_models.py",
++    "path": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r3/test_prompt_models.py",
+     "bytes": 6426,
+     "sha256": "cb7b634cc66beaee792e66ddff3afb8849093865307314ca4428938b091d8c5f"
+   },
+@@ -26,7 +26,7 @@
+     "/usr/bin/python3.12",
+     "-I",
+     "-B",
+-    "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r2/test_prompt_models.py"
++    "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r3/test_prompt_models.py"
+   ],
+   "limits": {
+     "seconds": 15,

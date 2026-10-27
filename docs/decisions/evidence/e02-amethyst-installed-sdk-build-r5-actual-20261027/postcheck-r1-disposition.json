@@ -1,0 +1,13 @@
+{
+  "recordedBy": "/root",
+  "decision": "HOLD_POSTCHECK_R1_KEY_SCAN_ONLY",
+  "severity": "MEDIUM",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/post-checks-r1.py",
+    "bytes": 4319,
+    "sha256": "72fcb060dd1943cce30758e4066f3013a6f5d1218abad48edd0c5045c9a7cbb9"
+  },
+  "reviewer": "/root/r4_security",
+  "finding": "Carried keyscan follows matching symlinks and uses unbounded read_bytes, potentially outside owneduser tree/availability; no exploitobserved; proposedr1 notexecuted",
+  "remediation": "Separate preserved r2 source-only correction accepted independently; build/source/controller untouched; no tests executed on scanner"
+}

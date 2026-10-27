@@ -1,0 +1,99 @@
+{
+  "schema": "nbdp-fixed-installed-sdk-readonly-data-plan-v1",
+  "state": "SOURCE_ONLY_NOT_EXECUTION_AUTHORITY",
+  "collector": {
+    "path": "/Data/nbdp-e02-tooling-20261027/sdk-data-preparation-r1/collect.py",
+    "bytes": 16168,
+    "sha256": "5c373ce27cf4e63ed3e445922e678bd3b3e13ac71aae7375ce49ea5772d1fa9b"
+  },
+  "sdkRoot": "/Data/nbdp-e02-tooling-20261027/controller-r6/writable-r1/sdk",
+  "archives": [
+    {
+      "archive": {
+        "path": "/tmp/nbdp-amethyst-rebuild-20261026/cache/platform.archive",
+        "bytes": 67281901,
+        "sha256": "840b23e827f96e64aea4c89a1194aac3dc5f6bad37edb231c5c795d890330e8d"
+      },
+      "archiveRoot": "android-37.0",
+      "installedRelativeRoot": "platforms/android-37.0"
+    },
+    {
+      "archive": {
+        "path": "/tmp/nbdp-amethyst-rebuild-20261026/cache/build-tools.archive",
+        "bytes": 63737259,
+        "sha256": "5d9ac77fb6ff43d9da518a337b4fcf8f9097113df531d99ccefe80ef7ce8250b"
+      },
+      "archiveRoot": "android-16",
+      "installedRelativeRoot": "build-tools/36.0.0"
+    },
+    {
+      "archive": {
+        "path": "/tmp/nbdp-amethyst-rebuild-20261026/cache/ndk.archive",
+        "bytes": 738633529,
+        "sha256": "753611f410d002cfcd3f3dc2ef49aad532089d3180b436c060a90bf0fcb64df2"
+      },
+      "archiveRoot": "android-ndk-r30",
+      "installedRelativeRoot": "ndk/30.0.16248370"
+    }
+  ],
+  "proofs": {
+    "caller": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-install-actual-20261027-r5/result.json",
+      "bytes": 837,
+      "sha256": "7e04a7760df6ec2b60be1af849147164c001a70efbc2037a930842fb66c9937f"
+    },
+    "outer": {
+      "path": "/Data/nbdp-e02-tooling-20261027/controller-r6/attempt-2b5f323d920c1868006fb44afb036c98/result.json",
+      "bytes": 2160,
+      "sha256": "464dec7fb16efb26a4502662ad1e3c5f209e437d49aa7cca8468f1a834256a8d"
+    },
+    "inner": {
+      "path": "/Data/nbdp-e02-tooling-20261027/controller-r6/writable-r1/output/installation-result.json",
+      "bytes": 9792,
+      "sha256": "b7dbf6217aad8538304482d5065b3cd274fb8e875b18e2089425d1f90eaa533f"
+    },
+    "request": {
+      "path": "/Data/nbdp-e02-tooling-20261027/controller-r6/writable-r1/output/installation-request.json",
+      "bytes": 2611,
+      "sha256": "98a7622cb1e1de5ea1ce9509506aa16a4836088cee2cf122198998c74dce880a"
+    },
+    "consent": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-install-actual-20261027-r5/sdk-consent.json",
+      "bytes": 2294,
+      "sha256": "afafd5bfb5054aa129458a35ab0352348a4980f1936d41c2f1c624ce093d8342"
+    },
+    "lifecycleAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-install-actual-20261027-r5/lifecycle-acceptance.json",
+      "bytes": 2372,
+      "sha256": "359c131df5767b8deee6dc630fc3864cb62485417aefe5ab0a7b05f121bd1733"
+    }
+  },
+  "limits": {
+    "parentSeconds": 180,
+    "readWorkSeconds": 150,
+    "finalizationReserveSeconds": 30,
+    "totalOutputBytes": 16777216,
+    "treeRegularBytes": 8589934592,
+    "treeMembers": 200000,
+    "singleFileBytes": 2147483648
+  },
+  "proposedArgv": [
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=3s",
+    "177s",
+    "/usr/bin/python3.12",
+    "-I",
+    "-B",
+    "/Data/nbdp-e02-tooling-20261027/sdk-data-preparation-r1/collect.py",
+    "--plan-sha",
+    "EXACT_PLAN_SHA",
+    "--release",
+    "EXACT_ROOT_DATA_RELEASE_PATH",
+    "--release-sha",
+    "EXACT_RELEASE_SHA"
+  ],
+  "operations": "Only host filesystem reads/hash/ZIP stream verification, and new evidence writes under fixedattempt-r1. No SDK/Docker/Java/Gradle/network/subprocess.",
+  "newModelsDefined": 0,
+  "actualDataCaptureExecuted": false
+}

@@ -1,0 +1,32 @@
+{
+  "scope": "ONE_FIXED_ISOLATED_AMETHYST_BUILD_ONLY",
+  "reviewedTemplate": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/review-template.json",
+    "bytes": 7201,
+    "sha256": "764b0aab9be00c595cbbeed76239b39c5f15e20cf06020d3f6537e3b90971f45"
+  },
+  "materializerTemplate": "/Data/nbdp-e02-tooling-20261027/amethyst-build-r5/materializer/root-authorized-template.json",
+  "argv": [
+    "/usr/bin/env",
+    "-i",
+    "PATH=/usr/bin:/bin",
+    "LANG=C.UTF-8",
+    "LC_ALL=C.UTF-8",
+    "TZ=UTC",
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=3s",
+    "2397s",
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r5/materializer-source/materialize.py",
+    "--template-sha",
+    "764b0aab9be00c595cbbeed76239b39c5f15e20cf06020d3f6537e3b90971f45"
+  ],
+  "copyPolicy": "After concrete independent QA/security ACCEPT only, root exact bytes O_EXCL0600 + file/directory fsync; separate coordinator authorization",
+  "clockPolicy": "Materializer fills only two UTC fields now/+2400; outer2397+3 has different spawn bracket",
+  "interruption": "UNKNOWN until exact owned CID/journals reconciliation, never automatic retry",
+  "rootAuthorized": false,
+  "qualification": "Actual APK/source/input immutability/private key exclusion/cleanup independent DATA required; ordinary rows remain0"
+}

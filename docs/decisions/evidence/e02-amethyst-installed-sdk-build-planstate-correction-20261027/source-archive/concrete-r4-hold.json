@@ -1,0 +1,34 @@
+{
+  "schema": "nbdp-amethyst-planstate-negative-source-v1",
+  "observedBy": "/root/r5_plan_fix",
+  "priorConcreteTemplate": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-corrected-actual-20261027/review-template.json",
+    "bytes": 6698,
+    "sha256": "89900d0760a5b329eac0e5a5fb278a90a668304d32877f80eb7239b6e89a445b"
+  },
+  "priorRequest": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-corrected-actual-20261027/request.json",
+    "bytes": 1474,
+    "sha256": "19965e2913b52c56eb280a7a423a736613cf8ca46ce771f6033f99ef2e18895a"
+  },
+  "priorPlan": {
+    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/supervisor-source/plan.json",
+    "bytes": 8902,
+    "sha256": "1f8da03c67408154979b017b208caf9547804bf5a6940c44b1d43cfb94c3dd70"
+  },
+  "priorSupervisor": {
+    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/supervisor-source/supervise_build.py",
+    "bytes": 31753,
+    "sha256": "65cc14b76eeb3585371e239b9e5985f56a149d1b33d69987a2499271e39fc094"
+  },
+  "actualPlanState": "SOURCE_ONLY_PENDING_INDEPENDENT_QA_SECURITY_MODELS_AND_ROOT_RELEASE",
+  "requiredPlanState": "SOURCE_ONLY_REQUIRES_INDEPENDENT_REVIEW_AND_ROOT_RELEASE",
+  "finding": {
+    "severity": "MEDIUM",
+    "classification": "STATIC_DETERMINISTIC_ADMISSION_REFUSAL",
+    "message": "Unchanged supervisor main would refuse INSTALLED_SDK_BINDING_NOT_READY after materializer consumes one-use marker, before Supervisor.run. No runtime failure is claimed."
+  },
+  "disposition": "Do not dispatch prior concrete89900 template; preserve it and its independent HOLD. New version requires independent source/model/concrete review and fresh root grant.",
+  "actualNewGrantCreated": false,
+  "actualBuildExecuted": false
+}

@@ -1,0 +1,28 @@
+{
+  "scope": "ONE_FIXED_ISOLATED_AMETHYST_BUILD_ONLY",
+  "reviewedTemplate": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-actual-20261027/review-template.json",
+  "materializerTemplate": "/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/materializer/root-authorized-template.json",
+  "copyPolicy": "Onlyafterindependentconcretereviews, rootcopiesexactreviewedbytes O_EXCL/private0600/fsync; rootrecordsactualtemplatehash/toolargs beforeoneexec",
+  "argv": [
+    "/usr/bin/env",
+    "-i",
+    "PATH=/usr/bin:/bin",
+    "LANG=C.UTF-8",
+    "LC_ALL=C.UTF-8",
+    "TZ=UTC",
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=3s",
+    "2397s",
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/materializer-source/materialize.py",
+    "--template-sha",
+    "d04dd7300709d72e7423baea4d0df52b464a533730898f7d71cb77292ef0b492"
+  ],
+  "clockPolicy": "ExistingmaterializerfillsonlytwoUTCfields now/+2400 thenexecspinnedsupervisor; outer2397+3starts atdifferentbracket,noclaimexact2400sendtoend",
+  "interruption": "Hardinterrupt/missingresultUNKNOWN until exactownedCID/journalsreconciliation,noretry",
+  "grants": "No currentgrant/live-release/dispatch-marker/attempt/buildleaves. Reviewtemplate is staged; actualcopy/onecallonlyafterconcreteQA/security+rootauthorization.",
+  "qualification": "ActualAPK/lifecycle/sourcebeforeafter/inputimmutability/privatekeyexclusion independentDATA required; noclient/canonicalSDKrelease"
+}

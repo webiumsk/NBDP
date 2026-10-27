@@ -1,0 +1,38 @@
+{
+  "schema": "nbdp-sdkmanager22-prompt-model-plan-v1",
+  "source": {
+    "path": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r2/test_prompt_models.py",
+    "bytes": 6426,
+    "sha256": "cb7b634cc66beaee792e66ddff3afb8849093865307314ca4428938b091d8c5f"
+  },
+  "definitions": [
+    "test_expected_only_java_ascii_mapping",
+    "test_fragmented_utf8_and_crlf_wait_for_complete_exact_question",
+    "test_changed_observed_whitespace_or_body_is_never_normalized",
+    "test_other_license_and_question_without_frame_refused",
+    "test_incomplete_frame_or_utf8_at_eof_refused",
+    "test_repeated_and_stderr_prompts_refused",
+    "test_one_fixed_yes_after_durable_intent_and_flush",
+    "test_failed_intent_journal_never_calls_stdin",
+    "test_partial_write_preserves_attempt_and_unknown_consumption",
+    "test_failed_flush_never_reports_sent_or_allows_retry",
+    "test_failed_sent_journal_keeps_actual_flush_fact_separate",
+    "test_reserved_prefix_coalesced_or_split_refuses_before_any_write",
+    "test_legitimate_progress_prefix_keeps_fragmented_prompt_positive"
+  ],
+  "definedCount": 13,
+  "executed": 0,
+  "command": [
+    "/usr/bin/python3.12",
+    "-I",
+    "-B",
+    "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r2/test_prompt_models.py"
+  ],
+  "limits": {
+    "seconds": 15,
+    "stdoutBytes": 65536,
+    "stderrBytes": 262144
+  },
+  "scope": "Synthetic prompt UTF8/framing/mutation/refusal and fake journal/write/flush callbacks only; no files/network/SDKmanager/realconsent/installer imports",
+  "rootReleaseRequired": true
+}

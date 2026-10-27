@@ -1,0 +1,126 @@
+--- /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r3/prompt.py
++++ /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r4/prompt.py
+@@ -53,7 +53,8 @@
+         need(len(self.text.encode())<=16777216,'PROMPT_OUTPUT_BOUND')
+         text=self.text.replace('\r\n','\n')
+         if not final and text.endswith('\r'):text=text[:-1] # Wait for split CRLF.
+-        headers=list(re.finditer(r'(?:\A|(?<=\n))License ([^:\r\n]{1,128}):\n',text))
++        # Bare CR is a progress-record boundary before a header, not a license-body rewrite.
++        headers=list(re.finditer(r'(?:\A|(?<=[\r\n]))License ([^:\r\n]{1,128}):\n',text))
+         need(len(headers)<=1,'REPEATED_LICENSE_HEADER')
+         if not headers:
+             need('Accept?' not in text,'QUESTION_WITHOUT_EXACT_LICENSE_FRAME')
+@@ -61,15 +62,15 @@
+             return False
+         header=headers[0];need(header.group(1)==LICENSE,'OTHER_LICENSE')
+         prefix=text[:header.start()]
+-        need('Accept?' not in prefix and not re.search(r'(?:\A|\n)License ',prefix), 'RESERVED_PROMPT_MATERIAL_BEFORE_APPROVED_HEADER')
++        need('Accept?' not in prefix and not re.search(r'(?:\A|[\r\n])License ',prefix), 'RESERVED_PROMPT_MATERIAL_BEFORE_APPROVED_HEADER')
+         observed=text[header.start():]
+         need(observed[:len(self.frame)]==self.frame[:len(observed[:len(self.frame)])],'CHANGED_LICENSE_BODY_OR_FRAMING')
+         tail=observed[len(self.frame):] if len(observed)>=len(self.frame) else ''
+-        need('Accept?' not in tail and not re.search(r'(?:\A|\n)License ',tail),'REPEATED_OR_OTHER_PROMPT')
++        need('Accept?' not in tail and not re.search(r'(?:\A|[\r\n])License ',tail),'REPEATED_OR_OTHER_PROMPT')
+         if len(observed)>=len(self.frame):self.ready=True
+         if final:
+             need(self.ready and self.attempted,'INCOMPLETE_OR_UNANSWERED_PROMPT')
+-            last=tail.rsplit('\n',1)[-1]
++            last=re.split(r'[\r\n]',tail)[-1]
+             need(not last or not any(token.startswith(last) for token in ('License ',QUESTION)), 'INCOMPLETE_REPEATED_PROMPT')
+         return self.ready and not self.attempted
+ 
+@@ -82,7 +83,7 @@
+ 
+ 
+ def reject_stderr_prompt(text):
+-    need('Accept?' not in text and not re.search(r'(?:\A|\n)License [^:\n]{1,128}:',text),'UNEXPECTED_STDERR_PROMPT')
++    need('Accept?' not in text and not re.search(r'(?:\A|[\r\n])License [^:\r\n]{1,128}:',text),'UNEXPECTED_STDERR_PROMPT')
+ 
+ 
+ def initial_consent():
+--- /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r3/test_prompt_models.py
++++ /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r4/test_prompt_models.py
+@@ -1,6 +1,7 @@
+ """DEFINED ONLY: synthetic prompt and single-write failure models; no real consent."""
+ from pathlib import Path
+ import sys
++import hashlib
+ import unittest
+ sys.path.insert(0,str(Path(__file__).resolve().parent))
+ import prompt as p
+@@ -102,5 +103,43 @@
+         p.dispatch_once(value,state,lambda *a:None,lambda data:(writes.append(data) or len(data)),lambda:None,lambda:None)
+         self.assertEqual(writes,[b'y\n']);self.assertTrue(state['sentJournalCommitted'])
+ 
++    def test_actual_sdkmanager_cr_progress_frame_at_critical_splits(self):
++        raw=Path(__file__).with_name('actual-sdkmanager-prompt.stdout').read_bytes()
++        self.assertEqual((len(raw),hashlib.sha256(raw).hexdigest()),(18138,'e495bf2922648f84575498e921868128e5a624ae7dd779a32736bddea487c342'))
++        approved=Path('/tmp/nbdp-e02-sdk-install-controller-20261027/input-bundle-r1/approved-license.txt').read_bytes()
++        self.assertEqual((len(approved),hashlib.sha256(approved).hexdigest()),(p.RAW_BYTES,p.RAW_SHA))
++        expected=p.expected_only_java_mapping(approved.decode('utf-8'))
++        self.assertEqual((len(expected.encode()),hashlib.sha256(expected.encode()).hexdigest()),
++            (16960,'aaf80cd0aee7e569ffa8a4be1b61189c0fefccf23068e38dfafe336289b8c723'))
++        header=raw.index(b'License android-sdk-license:');self.assertEqual(raw[header-1],13)
++        question=raw.index(p.QUESTION.encode());self.assertEqual(question+len(p.QUESTION.encode()),len(raw))
++        cuts={0,1,header-1,header,header+1,raw.index(b'\n',header)+1,question-1,question,question+1,len(raw)-1,len(raw)}
++        for i,byte in enumerate(raw):
++            if byte>=128:cuts.add(i+1);break
++        for split in sorted(cuts):
++            with self.subTest(split=split):
++                value=p.Prompt(expected);state=p.initial_consent();writes=[];seen=0
++                for chunk in (raw[:split],raw[split:]):
++                    seen+=len(chunk);ready_to_write=value.feed(chunk)
++                    if seen<len(raw):self.assertFalse(ready_to_write)
++                    if ready_to_write:p.dispatch_once(value,state,lambda *a:None,lambda data:(writes.append(data) or len(data)),lambda:None,lambda:None)
++                self.assertEqual(writes,[b'y\n']);self.assertTrue(state['sentJournalCommitted']);value.feed(b'',final=True)
++
++    def test_cr_reserved_prefixes_refuse_before_write_and_body_cr_is_literal(self):
++        for prefix in (b'Accept? (y/N): \r',b'License other-license malformed\r'):
++            raw=prefix+gate().frame.encode()
++            for split in range(len(raw)+1):
++                value=gate();state=p.initial_consent();writes=[]
++                def consume():
++                    for chunk in (raw[:split],raw[split:]):
++                        if value.feed(chunk):p.dispatch_once(value,state,lambda *a:None,lambda data:(writes.append(data) or len(data)),lambda:None,lambda:None)
++                with self.subTest(prefix=prefix,split=split),self.assertRaises(ValueError):consume()
++                self.assertEqual(writes,[]);self.assertFalse(state['stdinWriteInvoked'])
++        value=gate()
++        with self.assertRaises(ValueError):value.feed(value.frame.replace(BODY,BODY.replace('approved','ap\rproved')).encode())
++        value=gate()
++        with self.assertRaises(ValueError):value.feed((value.frame+'\rLicense other-license malformed').encode())
++        with self.assertRaises(ValueError):p.reject_stderr_prompt('progress\rLicense other-license:')
++
+ 
+ if __name__=='__main__':unittest.main(verbosity=2)
+--- /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r3/install-plan.json
++++ /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r4/install-plan.json
+@@ -75,8 +75,8 @@
+     },
+     {
+       "path": "/prep/prompt.py",
+-      "bytes": 5168,
+-      "sha256": "73abf41ca3c4cc86340aa965a1f87c4690f49e7f5661d5d33eff43a5efc07995"
++      "bytes": 5284,
++      "sha256": "c06b743991f36280a166cf429eec31a4e89996f22ee0b15fe06aa9c597912624"
+     }
+   ],
+   "toolFiles": [
+--- /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r3/host-bindings.json
++++ /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r4/host-bindings.json
+@@ -1,6 +1,6 @@
+ {
+   "schema": "nbdp-sdkmanager22-inner-to-outer-binding-v1",
+-  "sourceRoot": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r3",
++  "sourceRoot": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r4",
+   "sourceContainerMount": "/prep",
+   "inputBundle": "/tmp/nbdp-e02-sdk-install-controller-20261027/input-bundle-r1",
+   "inputBundleInventory": {
+@@ -94,7 +94,7 @@
+     "/user",
+     "/output"
+   ],
+-  "hostWritableRoot": "/Data/nbdp-e02-tooling-20261027/controller-r3/writable-r1",
++  "hostWritableRoot": "/Data/nbdp-e02-tooling-20261027/controller-r4/writable-r1",
+   "innerArgv": [
+     "/usr/bin/python3",
+     "-I",

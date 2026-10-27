@@ -1,0 +1,19 @@
+--- /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/supervisor-source/supervise_build.py
++++ /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/supervisor-source/supervise_build.py
+@@ -18,12 +18,12 @@
+ import subprocess
+ import time
+ 
+-SOURCE=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/supervisor-source')
+-WORK=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/controller')
+-ROOT=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r3')
++SOURCE=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/supervisor-source')
++WORK=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r4/controller')
++ROOT=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r4')
+ INPUT=Path('/tmp/nbdp-amethyst-rebuild-20261026')
+ SDK=Path('/Data/nbdp-e02-tooling-20261027/controller-r6/writable-r1/sdk')
+-PREP=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/preparation')
++PREP=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/preparation')
+ DOCKER='/usr/bin/docker';TIMEOUT='/usr/bin/timeout'
+ IMAGE='sha256:32bb6c4c58ee5fe85f1e7229fb15008accb137990093941d2f8e768efd91cf8c'
+ NAME='nbdp-amethyst-build-20261026'

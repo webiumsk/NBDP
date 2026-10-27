@@ -1,0 +1,163 @@
+{
+  "schema": "nbdp-fixed-sdkmanager22-inner-install-source-plan-v1",
+  "state": "SOURCE_ONLY_REQUIRES_OUTER_ROOT_RELEASE",
+  "argv": [
+    "/bootstrap/cmdline-tools/22.0/bin/sdkmanager",
+    "--sdk_root=/sdk",
+    "--channel=0",
+    "--install",
+    "platforms;android-37.0",
+    "build-tools;36.0.0",
+    "ndk;30.0.16248370"
+  ],
+  "environment": {
+    "PATH": "/jdk/bin:/usr/bin:/bin",
+    "JAVA_HOME": "/jdk",
+    "HOME": "/user/home",
+    "ANDROID_USER_HOME": "/user/android",
+    "XDG_CACHE_HOME": "/user/cache",
+    "XDG_CONFIG_HOME": "/user/config",
+    "TMPDIR": "/user/tmp",
+    "ANDROID_HOME": "/sdk",
+    "ANDROID_SDK_ROOT": "/sdk",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "TZ": "UTC",
+    "JAVA_TOOL_OPTIONS": "-Xmx768m -XX:MaxMetaspaceSize=256m -XX:ActiveProcessorCount=2 -Duser.home=/user/home -Djava.io.tmpdir=/user/tmp"
+  },
+  "inputs": {
+    "repositoryXml": {
+      "path": "/inputs/repository2-3.xml",
+      "bytes": 426356,
+      "sha256": "d3678697ece7b7c3df6e3eed8363bf3944176931728af251268268a2d0d7d900"
+    },
+    "approvedRawLicense": {
+      "path": "/inputs/approved-license.txt",
+      "bytes": 16962,
+      "sha256": "1f8729233617b193fd619213792ae16a41b95d2bbbf525dfe66998252ba68b16"
+    },
+    "userDecision": {
+      "path": "/inputs/user-decision.json",
+      "bytes": 1975,
+      "sha256": "4a360a60b0b7bee5b2abc2db7f50cd69e86f4d8bcb5d4d96068707204c874e0f"
+    },
+    "archiveDataAcceptance": {
+      "path": "/inputs/archive-acceptance.json",
+      "bytes": 1326,
+      "sha256": "eb1ac3c474c4d764823901f5e2375a0a654518b48a9cbd6f0d48c0bc6566a352"
+    },
+    "promptMappingAcceptance": {
+      "path": "/inputs/probe-acceptance.json",
+      "bytes": 1531,
+      "sha256": "9986c86ca1f47559b57b23c1e21ad1ced7a6810fa0ba817b990eef4285b2e009"
+    },
+    "versionProbeAcceptance": {
+      "path": "/inputs/probe-acceptance.json",
+      "bytes": 1531,
+      "sha256": "9986c86ca1f47559b57b23c1e21ad1ced7a6810fa0ba817b990eef4285b2e009"
+    },
+    "normalizerSource": {
+      "path": "/inputs/TrimStringAdapter.java",
+      "bytes": 2232,
+      "sha256": "5fc4684d8afdd7e68f57adfcf71d90ef6981d78c8f0a64d366a66d0515efc5d1"
+    },
+    "promptSource": {
+      "path": "/inputs/SdkManagerCli.java",
+      "bytes": 8762,
+      "sha256": "a7b53fc2ee4de9b2268d019e3e104ee5d3ffb2be9108484f9c1940aeb85a8d1b"
+    }
+  },
+  "sourceFiles": [
+    {
+      "path": "/prep/install.py",
+      "bytes": 14948,
+      "sha256": "093434fa2a93cdbf8384149d37afe3a8e8a749173a220b53cc999ad9f712c034"
+    },
+    {
+      "path": "/prep/prompt.py",
+      "bytes": 5284,
+      "sha256": "c06b743991f36280a166cf429eec31a4e89996f22ee0b15fe06aa9c597912624"
+    }
+  ],
+  "toolFiles": [
+    {
+      "path": "/jdk/bin/java",
+      "bytes": 12328,
+      "sha256": "9cad3f2620d3ef2ed10b26f922af7e773d54fdaa05f615d6d6df014f3fec4155"
+    },
+    {
+      "path": "/jdk/release",
+      "bytes": 1616,
+      "sha256": "f83f6dcc966043c93cd498ac8e7ee7c310852074970d62c702e4ad2710002898"
+    },
+    {
+      "path": "/bootstrap/cmdline-tools/22.0/bin/sdkmanager",
+      "bytes": 5767,
+      "sha256": "491de5bc4fe332d879e304e4d2acdf9901f5de7872be57ac1ccfb94489f5e846"
+    },
+    {
+      "path": "/bootstrap/cmdline-tools/22.0/lib/sdklib/libsdkmanager_lib.jar",
+      "bytes": 42238,
+      "sha256": "48777d4d027742bea80733af45269e9e245c41bda85a076fce334edb83e40a25"
+    },
+    {
+      "path": "/bootstrap/cmdline-tools/22.0/lib/repository/repository-core.jar",
+      "bytes": 193559,
+      "sha256": "daa77d571a856ec28d47f20a1f26453f71f2681a18ec6d37fd84241c85a016ad"
+    }
+  ],
+  "approvedRawLicenseSha256": "1f8729233617b193fd619213792ae16a41b95d2bbbf525dfe66998252ba68b16",
+  "outerAuthority": "Only independently reviewed exact-owned outercontroller plus externally pinned one-use root release may dispatch; source state is not execution permission.",
+  "bounds": {
+    "innerSeconds": 1050,
+    "bodySeconds": 1020,
+    "groupTermSeconds": 5,
+    "groupKillSeconds": 5,
+    "reapSeconds": 10,
+    "outerWholeSeconds": 1200,
+    "outerCleanupSeconds": 90,
+    "stdoutBytes": 16777216,
+    "stderrBytes": 4194304,
+    "freshFreeDiskBytes": 17179869184,
+    "writableTreeRegularBytes": 8589934592,
+    "writableTreeMembers": 200000,
+    "containerMemoryBytes": 2147483648,
+    "containerCpus": 2,
+    "containerPids": 256,
+    "jobPerFileUlimitBytes": 2147483648
+  },
+  "rawDisplayBoundary": "AOSP expected-only ASCIIregex+Java trim is lossy; observed output comparison is literal except CRLF. Raw XML/raw approved text remain separately pinned; observed display equality is not remote raw-byte attestation.",
+  "outerReadOnlyPrerequisites": [
+    {
+      "root": "/jdk",
+      "receipt": {
+        "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/acquisition/jdk-extraction.json",
+        "bytes": 178456,
+        "sha256": "a2547e5989af52335e1a03d853797e0e1efa57b55d782214620ee56ca80b0db2"
+      }
+    },
+    {
+      "root": "/bootstrap/cmdline-tools/22.0",
+      "receipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-cmdline22-acquisition-actual-20261027/cmdline-tools-extraction.json",
+        "bytes": 135901,
+        "sha256": "452da3844b43ce9d8dddc11e33cac50b53d5b143646cc92e8789f66cde638173"
+      }
+    }
+  ],
+  "hostInputBundleInventory": {
+    "path": "/tmp/nbdp-e02-sdk-install-controller-20261027/input-bundle-inventory-r1.json",
+    "bytes": 1508,
+    "sha256": "a935c1bd95aeb34019fd09124d30224669bb1dc453df01aa086e3a738872fbb9"
+  },
+  "hostInputBundleOrigin": {
+    "path": "/tmp/nbdp-e02-sdk-install-controller-20261027/input-bundle-origin-r1.json",
+    "bytes": 2505,
+    "sha256": "da72419ad65359c386df8af2977497b8b40af48522415aabd183c1f5922c9fe5"
+  },
+  "expectedResult": "SDKMANAGER_FINISHED_PENDING_INDEPENDENT_INSTALLED_DATA_REVIEW",
+  "ordinaryRows": 0,
+  "buildAuthorized": false,
+  "clientAuthorized": false,
+  "actualRootReleaseCreated": false
+}

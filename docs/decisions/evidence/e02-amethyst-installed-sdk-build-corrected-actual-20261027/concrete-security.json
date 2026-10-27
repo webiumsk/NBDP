@@ -1,0 +1,21 @@
+{
+  "recordedBy": "/root",
+  "reviewer": "/root/r4_security",
+  "decision": "HOLD",
+  "template": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-corrected-actual-20261027/review-template.json",
+    "bytes": 6698,
+    "sha256": "89900d0760a5b329eac0e5a5fb278a90a668304d32877f80eb7239b6e89a445b"
+  },
+  "findings": [
+    {
+      "severity": "MEDIUM",
+      "code": "SUPERVISOR_PLAN_STATE_JOIN_MISMATCH",
+      "evidence": "supervise_build.py:473 expects SOURCE_ONLY_REQUIRES_INDEPENDENT_REVIEW_AND_ROOT_RELEASE; pinned r4 plan has SOURCE_ONLY_PENDING_INDEPENDENT_QA_SECURITY_MODELS_AND_ROOT_RELEASE",
+      "effect": "One-use grant would be consumed then supervisor refuses before lifecycle; no actual grant/job/build occurred"
+    }
+  ],
+  "verified": "All current template pins exact; fresh private UID1000 parent skeleton, SDK24590/JDK541 unchanged; pinned network empty and image available",
+  "required": "Versioned data-only planstate correction and full graph repin, targeted state-join regression; unchanged runtime guard. Preserve r4 source/modelDATA and concrete proposal.",
+  "provenance": "Faithful coordinator transcription of actual independent mailbox decision; read-only review only"
+}

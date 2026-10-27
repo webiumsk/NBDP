@@ -1,0 +1,78 @@
+{
+  "argv": [
+    "/bootstrap/cmdline-tools/22.0/bin/sdkmanager",
+    "--sdk_root=/sdk",
+    "--channel=0",
+    "--install",
+    "platforms;android-37.0",
+    "build-tools;36.0.0",
+    "ndk;30.0.16248370"
+  ],
+  "environment": {
+    "PATH": "/jdk/bin:/usr/bin:/bin",
+    "JAVA_HOME": "/jdk",
+    "HOME": "/user/home",
+    "ANDROID_USER_HOME": "/user/android",
+    "XDG_CACHE_HOME": "/user/cache",
+    "XDG_CONFIG_HOME": "/user/config",
+    "TMPDIR": "/user/tmp",
+    "ANDROID_HOME": "/sdk",
+    "ANDROID_SDK_ROOT": "/sdk",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "TZ": "UTC",
+    "JAVA_TOOL_OPTIONS": "-Xmx768m -XX:MaxMetaspaceSize=256m -XX:ActiveProcessorCount=2 -Duser.home=/user/home -Djava.io.tmpdir=/user/tmp"
+  },
+  "inputs": {
+    "repositoryXml": {
+      "path": "/inputs/repository2-3.xml",
+      "bytes": 426356,
+      "sha256": "d3678697ece7b7c3df6e3eed8363bf3944176931728af251268268a2d0d7d900"
+    },
+    "approvedRawLicense": {
+      "path": "/inputs/approved-license.txt",
+      "bytes": 16962,
+      "sha256": "1f8729233617b193fd619213792ae16a41b95d2bbbf525dfe66998252ba68b16"
+    },
+    "userDecision": {
+      "path": "/inputs/user-decision.json",
+      "bytes": 1975,
+      "sha256": "4a360a60b0b7bee5b2abc2db7f50cd69e86f4d8bcb5d4d96068707204c874e0f"
+    },
+    "archiveDataAcceptance": {
+      "path": "/inputs/archive-acceptance.json",
+      "bytes": 1326,
+      "sha256": "eb1ac3c474c4d764823901f5e2375a0a654518b48a9cbd6f0d48c0bc6566a352"
+    },
+    "promptMappingAcceptance": {
+      "path": "/inputs/probe-acceptance.json",
+      "bytes": 1531,
+      "sha256": "9986c86ca1f47559b57b23c1e21ad1ced7a6810fa0ba817b990eef4285b2e009"
+    },
+    "versionProbeAcceptance": {
+      "path": "/inputs/probe-acceptance.json",
+      "bytes": 1531,
+      "sha256": "9986c86ca1f47559b57b23c1e21ad1ced7a6810fa0ba817b990eef4285b2e009"
+    },
+    "normalizerSource": {
+      "path": "/inputs/TrimStringAdapter.java",
+      "bytes": 2232,
+      "sha256": "5fc4684d8afdd7e68f57adfcf71d90ef6981d78c8f0a64d366a66d0515efc5d1"
+    },
+    "promptSource": {
+      "path": "/inputs/SdkManagerCli.java",
+      "bytes": 8762,
+      "sha256": "a7b53fc2ee4de9b2268d019e3e104ee5d3ffb2be9108484f9c1940aeb85a8d1b"
+    }
+  },
+  "bodySeconds": 1020,
+  "totalInnerSeconds": 1050,
+  "rawCaps": {
+    "stdout": 16777216,
+    "stderr": 4194304
+  },
+  "licenseExpectedDisplayBytes": 16960,
+  "licenseExpectedDisplaySha256": "aaf80cd0aee7e569ffa8a4be1b61189c0fefccf23068e38dfafe336289b8c723",
+  "expectedMappingIsLossy": true,
+  "rawLicenseSha256": "1f8729233617b193fd619213792ae16a41b95d2bbbf525dfe66998252ba68b16"
+}

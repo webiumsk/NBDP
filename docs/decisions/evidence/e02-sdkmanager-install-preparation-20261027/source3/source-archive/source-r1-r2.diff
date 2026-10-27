@@ -1,0 +1,72 @@
+--- /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r1/prompt.py
++++ /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r2/prompt.py
+@@ -60,6 +60,8 @@
+             if final:raise ValueError('NO_COMPLETE_APPROVED_PROMPT')
+             return False
+         header=headers[0];need(header.group(1)==LICENSE,'OTHER_LICENSE')
++        prefix=text[:header.start()]
++        need('Accept?' not in prefix and not re.search(r'(?:\A|\n)License ',prefix), 'RESERVED_PROMPT_MATERIAL_BEFORE_APPROVED_HEADER')
+         observed=text[header.start():]
+         need(observed[:len(self.frame)]==self.frame[:len(observed[:len(self.frame)])],'CHANGED_LICENSE_BODY_OR_FRAMING')
+         tail=observed[len(self.frame):] if len(observed)>=len(self.frame) else ''
+--- /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r1/test_prompt_models.py
++++ /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r2/test_prompt_models.py
+@@ -81,5 +81,26 @@
+         with self.assertRaises(OSError):p.dispatch_once(value,state,journal,lambda raw:2,lambda:None,lambda:None)
+         self.assertTrue(state['flushReturned']);self.assertTrue(state['sent']);self.assertFalse(state['sentJournalCommitted'])
+ 
++    def test_reserved_prefix_coalesced_or_split_refuses_before_any_write(self):
++        # Same logical bytes must refuse regardless of transport chunk boundaries.
++        for prefix in (b'Accept? (y/N): \n',b'License other-license without-colon\n'):
++            raw=prefix+gate().frame.encode()
++            for split in range(len(raw)+1):
++                value=gate();state=p.initial_consent();writes=[]
++                def consume():
++                    for chunk in (raw[:split],raw[split:]):
++                        if value.feed(chunk):
++                            p.dispatch_once(value,state,lambda *a:None,lambda data:(writes.append(data) or len(data)),lambda:None,lambda:None)
++                with self.subTest(prefix=prefix,split=split),self.assertRaises(ValueError):consume()
++                self.assertEqual(writes,[]);self.assertFalse(state['stdinWriteInvoked'])
++                self.assertFalse(value.attempted)
++
++    def test_legitimate_progress_prefix_keeps_fragmented_prompt_positive(self):
++        value=gate();raw=b'Loading local repository...\rLoading remote repository...\nPreparing packages...\n'+value.frame.encode()
++        for byte in raw[:-1]:self.assertFalse(value.feed(bytes([byte])))
++        self.assertTrue(value.feed(raw[-1:]));writes=[];state=p.initial_consent()
++        p.dispatch_once(value,state,lambda *a:None,lambda data:(writes.append(data) or len(data)),lambda:None,lambda:None)
++        self.assertEqual(writes,[b'y\n']);self.assertTrue(state['sentJournalCommitted'])
++
+ 
+ if __name__=='__main__':unittest.main(verbosity=2)
+--- /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r1/install-plan.json
++++ /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r2/install-plan.json
+@@ -75,8 +75,8 @@
+     },
+     {
+       "path": "/prep/prompt.py",
+-      "bytes": 4995,
+-      "sha256": "3d315771753985f03403d605de566b4121ec8c06463aa651e67179707f7c8bc5"
++      "bytes": 5168,
++      "sha256": "73abf41ca3c4cc86340aa965a1f87c4690f49e7f5661d5d33eff43a5efc07995"
+     }
+   ],
+   "toolFiles": [
+--- /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r1/host-bindings.json
++++ /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r2/host-bindings.json
+@@ -1,6 +1,6 @@
+ {
+   "schema": "nbdp-sdkmanager22-inner-to-outer-binding-v1",
+-  "sourceRoot": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r1",
++  "sourceRoot": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r2",
+   "sourceContainerMount": "/prep",
+   "inputBundle": "/tmp/nbdp-e02-sdk-install-controller-20261027/input-bundle-r1",
+   "inputBundleInventory": {
+@@ -94,7 +94,7 @@
+     "/user",
+     "/output"
+   ],
+-  "hostWritableRoot": "/tmp/nbdp-e02-sdk-install-controller-20261027/writable-r1",
++  "hostWritableRoot": "/tmp/nbdp-e02-sdk-install-controller-20261027/source-r2/writable-r1",
+   "innerArgv": [
+     "/usr/bin/python3",
+     "-I",
