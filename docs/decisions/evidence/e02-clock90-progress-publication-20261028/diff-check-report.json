@@ -1,0 +1,43 @@
+{
+  "actor": "/root",
+  "command": [
+    "git",
+    "-C",
+    "/tmp/nbdp-review-20261027",
+    "diff",
+    "--cached",
+    "--check",
+    "<141 explicit selected paths>"
+  ],
+  "exitCode": 2,
+  "scopeFiles": 141,
+  "diagnostics": 37,
+  "affectedPaths": {
+    "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/materializer-source-r7-r8.diff": 6,
+    "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/supervisor-source-r7-r8.diff": 3,
+    "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-build/build.stderr": 1,
+    "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-build/build.stdout": 27
+  },
+  "classCounts": {
+    "frozenDiffContext": 9,
+    "retainedRawStream": 28
+  },
+  "publicationTranscript": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-clock90-progress-publication-20261028/diff-check.stdout.b64",
+    "bytes": 37382,
+    "sha256": "55975a4fc11c38e536cb23c71d01c207d52cb8ac954c25ceac98a624d62b3887"
+  },
+  "decodedStdout": {
+    "path": "/tmp/nbdp-clock90-progress-publication-20261028/diff-check.stdout",
+    "bytes": 27672,
+    "sha256": "c702da8fefca07d024e69ed3565293cc1ec985406bd22c0f8f971b48565ca432"
+  },
+  "stderr": {
+    "path": "/tmp/nbdp-clock90-progress-publication-20261028/diff-check.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "encoding": "Reversible base64 of exact diagnostic bytes",
+  "scopeAtRun": "Selected payload+initial README/manifest. This report/transcript is generated after the check, not included in inputs.",
+  "disposition": "Preserve exact frozen diff contexts/raw evidence. Previous22/142/99 and historicalworkflow4/fixture1/archiveddiff3 remain separately disclosed. No all-green claim."
+}
