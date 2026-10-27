@@ -1,0 +1,21 @@
+{
+  "actor": "/root",
+  "scope": "Separate readonly single-point Dockerstats observation; no job mutations/peak claim/causal OOM diagnosis",
+  "argv": [
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=3s",
+    "12s",
+    "/usr/bin/docker",
+    "--config",
+    "/Data/nbdp-e02-tooling-20261027/amethyst-build-r5/controller/attempt-fee598385f736512839257471eb43a02/docker-config",
+    "stats",
+    "--no-stream",
+    "--format",
+    "{{json .}}",
+    "cbab508d851ce656edb2bdb2df03946aaef1bd0cad0dc8fd540e0c1e97064394"
+  ],
+  "exitCode": 0,
+  "wallSeconds": 1.2750132190412842,
+  "recordedUtcNs": 1793136592135153052
+}
