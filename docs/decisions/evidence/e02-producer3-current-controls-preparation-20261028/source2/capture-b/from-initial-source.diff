@@ -1,0 +1,233 @@
+--- docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/capture-b/capture-controls.py	2026-10-28 02:12:25.298865085 +0100
++++ docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source2/capture-b/capture-controls.py	2026-10-28 02:24:49.738485159 +0100
+@@ -18,37 +18,56 @@
+ ROOT = Path('/home/peterhorvath/apps/bitcoin/NBDP')
+ HERE = Path(__file__).resolve().parent
+ CAPTURE = HERE
+-PREP = ROOT / 'docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028'
++PREP = ROOT / 'docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/source2'
+ SOURCE = Path('/Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3')
+ NODE = Path('/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node')
+ PYTHON = Path('/home/peterhorvath/.miniforge3/bin/python3.13')
+ ACTOR = '/root/producer3_capture'
+ MODE = 'capture-b'
+-SOURCE_SHA = None
+-MANIFEST_SHA = None
+-FROZEN_PLAN_SHA = None
++SOURCE_SHA = '553d513b4625b8d40e95f475246acc2a4520e1a90b35ee88290c9ddbc617def6'
++MANIFEST_SHA = 'bd2e2e330984fe739045f2259e38b66a64fe6074d222b6dcd1d8d244c9b3fe46'
++FROZEN_PLAN_SHA = 'cf0351831f88dff7685bc53cd8977962526529b65bf13aeb740ef7c7ba0487d6'
+ ACCEPTED_REVIEW_DECISIONS = None  # Actual independent decisions required before source freeze.
+ LIMITS = {'stdout':1048576,'stderr':262144}
++READ_TREE_ROOTS = [
++    {'root':'/tmp/nbdp-e02-api35-fixture-r2/sdk','count':434},
++    {'root':'/tmp/nbdp-e02-minimal-rs-v7/guard-python','count':522}]
+ COUNTS = {'capture-a':[20,8,7], 'capture-b':[3]}
+ NAMES = {'capture-a':['observation-model','public-identity-metadata','producer2-source-wiring'],
+-         'capture-b':['producer3-bindings']}
++         'capture-b':['rebuilt-artifact-bindings']}
++NODE_CASES = [
++    'one-shared-cap-across-two-streams','exact-boundary-two-streams-acknowledged-not-physical',
++    'short-prefix-once-poisons-both-streams','zero-prefix-known-zero-throw-prefix-unknown',
++    'invalid-count-family-poison-no-second-write','closed-stream-fds-and-original-upper-bound',
++    'accepted-phase-writer-preserves-known-short-prefix','phase-then-proxy-consumes-same-budget',
++    'guard-once-entry-exit-and-no-action-on-refusal','guard-refusal-preserved-over-retention-failure',
++    'entry-and-success-retention-failure-prevent-action','callback-first-fault-and-closed-late-inert',
++    'upstream-send-exact-buffer-callback-and-no-extra-guard','proxy-send-error-kept-if-observation-sink-fails',
++    'proxy-intent-write-failure-never-sends','proxy-mutated-buffer-refuses-callback-completion',
++    'adapter-query-preserves-exact112-byte-operands-and-raw-join','adapter-raw-is-after-original-guard-before-parse',
++    'adapter-denied-backend-guard-context-no-raw-or-parse','adapter-raw-sink-fault-before-send-or-before-parse-refuses']
+ def utc():
+     return datetime.datetime.now(datetime.timezone.utc).isoformat()
+ 
+ 
+ def pin(path):
+-    assert path.is_absolute() and path.resolve(strict=True) == path and not path.is_symlink(), 'Canonical regular source path required'
+-    with path.open('rb') as stream:
+-        a = os.fstat(stream.fileno())
+-        assert stat.S_ISREG(a.st_mode) and 0 <= a.st_size <= 8589934592, 'Bounded regular SOURCE/DATA only'
+-        digest=hashlib.sha256();size=0
+-        while True:
+-            block=stream.read(1048576)
+-            if not block:break
+-            size+=len(block);assert size<=8589934592
+-            digest.update(block)
+-        b = os.fstat(stream.fileno())
+     identity = lambda s: (s.st_dev, s.st_ino, s.st_size, s.st_mtime_ns, s.st_ctime_ns)
++    before=path.lstat()
++    assert stat.S_ISREG(before.st_mode) and not stat.S_ISLNK(before.st_mode) and 0<=before.st_size<=8589934592
++    assert path.is_absolute() and path.resolve(strict=True)==path, 'Canonical regular source path required'
++    fd=os.open(path,os.O_RDONLY|os.O_NOFOLLOW|os.O_NONBLOCK)
++    try:
++        a=os.fstat(fd)
++        assert stat.S_ISREG(a.st_mode) and 0<=a.st_size<=8589934592 and identity(before)==identity(a)
++        digest=hashlib.sha256();size=0
++        with os.fdopen(fd,'rb',closefd=False) as stream:
++            while True:
++                block=stream.read(1048576)
++                if not block:break
++                size+=len(block);assert size<=8589934592
++                digest.update(block)
++        b=os.fstat(fd)
++    finally:os.close(fd)
+     assert identity(a) == identity(b) and size == a.st_size, 'Input identity drift'
+     return {'path': str(path), 'bytes': size, 'sha256': digest.hexdigest()}
+ 
+@@ -101,6 +120,23 @@
+     return actual
+ 
+ 
++def admit_read_trees(trees,indexed):
++    assert type(trees) is list and len(trees)==len(READ_TREE_ROOTS)
++    seen=set()
++    for spec,required_root in zip(trees,READ_TREE_ROOTS):
++        assert type(spec) is dict and set(spec)=={'root','count','files'}
++        assert type(spec['root']) is str and type(spec['count']) is int
++        assert {'root':spec['root'],'count':spec['count']}==required_root, 'Wrong ordered read-tree root/count'
++        assert type(spec['files']) is list and len(spec['files'])==spec['count']
++        for row in spec['files']:
++            assert type(row) is dict and set(row)=={'path','bytes','sha256','relativePath','mode'}
++            rel=Path(row['relativePath'])
++            assert not rel.is_absolute() and '..' not in rel.parts and str(Path(spec['root'])/rel)==row['path']
++            assert row['path'] not in seen;seen.add(row['path'])
++            descriptor={k:row[k] for k in ('path','bytes','sha256')}
++            assert indexed.get(row['path'])==descriptor, 'Read-tree row absent from exact frozen file closure'
++
++
+ def read_tree(spec):
+     """Hash actual SDK/guard regular-file bytes, not inventory JSON alone."""
+     root=Path(spec['root'])
+@@ -124,37 +160,91 @@
+         (SOURCE_SHA,MANIFEST_SHA,FROZEN_PLAN_SHA)), 'Pending final source pins; no execution'
+     assert isinstance(ACCEPTED_REVIEW_DECISIONS,dict), 'Pending independent SOURCE decisions'
+     source=pin(PREP/'subject.json');assert source['sha256']==SOURCE_SHA
+-    manifest=pin(PREP/'artifact-manifest.json');assert manifest['sha256']==MANIFEST_SHA
++    manifest=pin(PREP/'source-packet.json');assert manifest['sha256']==MANIFEST_SHA
+     source_plan=pin(PREP/'control-plan.json');assert source_plan['sha256']==FROZEN_PLAN_SHA
+     plan=doc(CAPTURE/'control-plan.json');original_plan=doc(PREP/'control-plan.json')
+     assert plan['schema']=='e02-producer3-fixed-control-capture-plan-v1' and plan['captureId']==MODE
++    assert plan['rawRetentionBytes']==LIMITS and plan['timeoutSeconds']==60 and plan['cleanupReapSeconds']==3
++    assert plan['stopFirstFailure'] is True and plan['noRetry'] is True
+     scopes=plan['separateScopes']
+     assert [s['name'] for s in scopes]==NAMES[MODE] and [s['count'] for s in scopes]==COUNTS[MODE]
+-    original={s['name']:s for s in original_plan['separateScopes']}
++    assert original_plan['schema']=='e02-producer3-final-source-control-plan-v1'
++    assert original_plan['sourceRoot']==str(SOURCE)
++    assert original_plan['limits']=={'commandSeconds':60,'directChildReapSeconds':3,
++        'stdoutRetentionBytes':LIMITS['stdout'],'stderrRetentionBytes':LIMITS['stderr']}
++    original={s['scope']:s for s in original_plan['scopes']}
++    assert list(original)==NAMES['capture-a']+NAMES['capture-b']
+     for s in scopes:
+         o=original[s['name']]
+-        assert (o['name'],o['argv'],o['plannedChecks'],o['namedCases'])==(s['name'],s['argv'],s['count'],s['expectedCases'])
+-        assert s['timeoutSeconds']==o['timeoutSeconds']==60
+-        assert o['stdoutRetentionBytes']==LIMITS['stdout'] and o['stderrRetentionBytes']==LIMITS['stderr']
++        argv=[str(NODE),o['source']['path']] if s['name']=='observation-model' else [str(PYTHON),'-I','-B',o['source']['path']]
++        assert s['argv']==argv and s['count']==o['count'] and s['timeoutSeconds']==60
++        assert pin(Path(o['source']['path']))==o['source']
++        assert s['expectedCases']==(NODE_CASES if s['name']=='observation-model' else o['exactDefinedPythonNames'])
+     inputs=doc(CAPTURE/'frozen-inputs.json');assert inputs['schema']=='e02-producer3-control-frozen-inputs-v1'
++    assert inputs['sourceManifest']==manifest and inputs['sourceControlPlan']==source_plan
++    assert plan['sourceSubject']==source and plan['sourceManifest']==manifest and plan['frozenSourcePlan']==source_plan
+     expected=inputs['files'];assert 1<=len(expected)<=4096 and len({d['path'] for d in expected})==len(expected)
++    indexed={d['path']:d for d in expected};trees=inputs['fullReadTrees'];admit_read_trees(trees,indexed)
+     assert inputs['actualInputCount']==len(expected) and inputs['sourceSubject']==source
+     actual=[pin(Path(d['path'])) for d in expected];assert actual==expected
+     required=inputs['requiredCoverage']
+     assert set(required)=={'finalSubjectManifestPlan','all16Workers','all4Tests','runtimeFixtureBindings',
+         'bothConfigurations','acceptedApkHelperNativeE01','provenanceAcceptances','original19',
+         'diagnosticV2','oldV1ReadOperands','interpreters','baselineScalarAndOracle'}
+-    indexed={d['path']:d for d in expected}
+     for group,descriptors in required.items():
+         assert descriptors and all(indexed.get(d['path'])==d for d in descriptors), 'Missing closure category:'+group
+     assert len(required['all16Workers'])==16 and len(required['all4Tests'])==4 and len(required['bothConfigurations'])==2
+     assert pin(NODE)==inputs['node'] and pin(PYTHON)==inputs['python']
+-    trees=inputs['fullReadTrees'];assert [s['count'] for s in trees]==[434,522]
++    assert original_plan['node']==inputs['node'] and original_plan['python']==inputs['python']
++    subject_doc=doc(PREP/'subject.json');packet=doc(PREP/'source-packet.json')
++    assert subject_doc['schema']=='e02-ordinary-minimum-producer3-source-subject-v1'
++    assert packet['subject']==source and packet['sourceRoot']==str(SOURCE) and packet['sources']==subject_doc['sources']
++    assert subject_doc['controlPlan']==source_plan and subject_doc['runtimeSourceCount']==16
++    assert required['finalSubjectManifestPlan']==[source,manifest,source_plan]
++    assert required['bothConfigurations']==subject_doc['configurations']
++    source_pins={d['path']:d for d in subject_doc['sources']};assert len(source_pins)==len(subject_doc['sources'])
++    for d in subject_doc['sources']:assert indexed.get(d['path'])==d
++    configs=[doc(Path(d['path'])) for d in subject_doc['configurations']]
++    assert all(pin(Path(d['path']))==d for d in subject_doc['configurations'])
++    workers=configs[0]['sourceAndDependencyPins']
++    assert workers==configs[1]['sourceAndDependencyPins']==required['all16Workers'] and len(workers)==16
++    assert all(source_pins.get(d['path'])==d for d in workers)
++    test_pins=[s['source'] for s in original_plan['scopes']]
++    assert required['all4Tests']==test_pins and all(source_pins.get(d['path'])==d for d in test_pins)
++    assert [Path(d['path']).name for d in test_pins]==['test_observation_model.mjs','test_public_identity_metadata.py','test_producer2_source.py','test_producer3_bindings.py']
++    assert all(Path(d['path']).parent==SOURCE for d in workers+test_pins)
++    assert required['interpreters']==[inputs['node'],inputs['python']]
++    declared=subject_doc['sourceDataInputClosure'];assert pin(Path(declared['path']))==declared and indexed.get(declared['path'])==declared
++    for row in doc(Path(declared['path']))['files']:
++        d={k:row[k] for k in ('path','bytes','sha256')}
++        assert indexed.get(d['path'])==d, 'Missing producer-declared actual read operand'
++    for name in ('E01.json','E02.json'):
++        record=ROOT/'experiments/results'/name
++        assert indexed.get(str(record))==pin(record)
++        canonical_sources=[]
++        for relative,expected_sha in doc(record)['source_sha256'].items():
++            rel=Path(relative);assert not rel.is_absolute() and '..' not in rel.parts
++            operand=ROOT/'experiments'/rel;d=pin(operand)
++            assert d['sha256']==expected_sha and indexed.get(str(operand))==d, 'Missing canonical source operand'
++            canonical_sources.append(d)
++        if name=='E01.json':assert required['original19']==canonical_sources and len(canonical_sources)==19
++    assert required['baselineScalarAndOracle']==[pin(ROOT/'docs/decisions/evidence/e02-ordinary-minimum-preparation-r2'/name)
++        for name in ('public-scalar-format-data.json','oracle-provenance.json')]
+     actual_trees=[read_tree(s) for s in trees]
++    for tree in actual_trees:
++        for row in tree['files']:
++            descriptor={k:row[k] for k in ('path','bytes','sha256')}
++            assert indexed.get(row['path'])==descriptor, 'Read-tree row absent from exact frozen file closure'
+     membership=installed_membership()
+     ack_path=CAPTURE/'coordinator-acknowledgement.json';ack_pin=pin(ack_path)
+     assert ack_pin['sha256']==ack_sha and stat.S_IMODE(ack_path.stat().st_mode)==0o600
+     ack=doc(ack_path)
++    assert set(ack)=={'schema','actor','captureId','sourceSubject','runnerSubject','runner','controlPlan',
++        'frozenInputs','sourceQaReview','sourceSecurityReview','sourceQaDecision','sourceSecurityDecision',
++        'captureQaReview','captureSecurityReview','captureQaDecision','captureSecurityDecision',
++        'pureControlsAuthorized','allowedScopes','stopFirstFailure','noRetry',
++        'ordinaryRuntimeAuthorized','primaryAuthorized','consumerAuthorized','androidAuthorized',
++        'servicesAuthorized','protocolCryptoOrNativeAuthorized','sdkAuthorized','roleMaterializationAuthorized'}
+     assert ack['schema']=='e02-producer3-controls-root-ack-v1' and ack['actor']=='/root'
+     assert ack['captureId']==MODE and ack['sourceSubject']==source and ack['allowedScopes']==dict(zip(NAMES[MODE],COUNTS[MODE]))
+     assert ack['runner']==pin(Path(__file__).resolve()) and ack['controlPlan']==pin(CAPTURE/'control-plan.json')
+@@ -171,6 +261,7 @@
+             d=ack[prefix+title+'Review'];assert pin(Path(d['path']))==d
+             if prefix=='source':assert d==inputs['actualSourceReviews'][role]
+             r=doc(Path(d['path']))
++            assert set(r)=={'role','session','decision','subject'}, 'Closed independent review record required'
+             assert r['role']==role and r['subject']==subject and r['decision']==ack[prefix+title+'Decision']
+             assert type(r['session']) is str and r['session'].startswith('/root/') and r['session'] not in (ACTOR,'/root','/root/r5_plan_fix')
+             assert r['decision'] in ACCEPTED_REVIEW_DECISIONS[prefix][role]
+@@ -186,7 +277,7 @@
+ 
+ 
+ def output_shape(scope,raw):
+-    if scope['name'] in ('public-identity-metadata','producer2-source-wiring','producer3-bindings'):
++    if scope['name'] in ('public-identity-metadata','producer2-source-wiring','rebuilt-artifact-bindings'):
+         assert raw['stdout']==b''
+         # Fixed original argv has default unittest verbosity. Exact dots/count/
+         # OK, no skip/failure/error/extra output is permitted.
+@@ -216,6 +307,8 @@
+     raw = {'stdout': b'', 'stderr': b''}
+     receipt = dict(schema='e02-producer3-pure-scope-execution-v1', actor=ACTOR,
+         parentCoordinator='/root', argv=ARGV, cwd=str(ROOT), expectedCount=scope['count'], startedUtc=utc(),
++        startedUtcMeaning='SCOPE_START_BEFORE_INPUT_SNAPSHOT',childStartedUtc=None,
++        elapsedMeaning='CHILD_LAUNCH_BRACKET_THROUGH_COMMUNICATE_OR_OWNED_REAP_EXCLUDES_BEFORE_SNAPSHOT',
+         timeoutSeconds=60, retentionBytes=LIMITS, retentionMeaning='POST_CAPTURE_FILE_PREFIX_LIMIT_NOT_STREAMING_MEMORY_CAP',
+         pid=None, exitCode=None, signal=None, reaped=False, naturalExit=False, stdoutEOF=False, stderrEOF=False,
+         forceRequested=False, forceReason=None, firstError=None, secondaryErrors=[], sourceUnchanged=False,
+@@ -232,7 +325,7 @@
+         (HERE / 'tmp').mkdir(mode=0o700)
+         env = {'PATH':'/usr/bin:/bin','LANG':'C.UTF-8','LC_ALL':'C.UTF-8','TMPDIR':str(HERE / 'tmp')}
+         receipt['environment'] = env
+-        start = time.monotonic_ns()
++        receipt['childStartedUtc']=utc();start = time.monotonic_ns()
+         child = subprocess.Popen(ARGV, cwd=ROOT, env=env, stdin=subprocess.DEVNULL,
+                                  stdout=subprocess.PIPE, stderr=subprocess.PIPE, close_fds=True)
+         receipt['pid'] = child.pid

@@ -1,0 +1,39 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 TZ=UTC /usr/bin/timeout --signal=TERM --kill-after=3s 297s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-b/capture-controls.py --execute-once --root-ack-sha 3318df1e04e2cc265ec0ad2d89c60c07bcd9529b46c9113b115a2252941e31ed",
+      "workdir": "/home/peterhorvath/apps/bitcoin/NBDP",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 10000
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "b9da78",
+      "wall_time_seconds": 1.001010856,
+      "session_id": 22256,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "polls": [
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 22256,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 10000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "1f02a4",
+        "wall_time_seconds": 1.2205e-05,
+        "exit_code": 0,
+        "original_token_count": 199,
+        "output": "{\"state\": \"WRITES_STOPPED\", \"captureId\": \"capture-b\", \"captureMatched\": true, \"execution\": {\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-b/execution.json\", \"bytes\": 3939, \"sha256\": \"c3d0a79991a15456f9c71eb5bd2cf176eac073834254e97a1b2b09cbf2cc0731\"}, \"scopes\": [{\"scope\": \"rebuilt-artifact-bindings\", \"expected\": 3, \"observed\": 3, \"partitions\": {\"rebuilt-artifact-bindings\": 3}, \"captureMatched\": true, \"execution\": {\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-b/scopes/rebuilt-artifact-bindings/execution.json\", \"bytes\": 2826, \"sha256\": \"774460e309c754a5e7516a375fab3f250bf9dd98975adb2f8d1a5e4833ce8b90\"}}]}\n"
+      }
+    }
+  ]
+}

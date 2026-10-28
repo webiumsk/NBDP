@@ -1,0 +1,26 @@
+{
+  "schema": "e02-wrapper-source-preparation-validation-v2",
+  "commands": [
+    {
+      "command": "pwd && git status --short && ...",
+      "exitCode": 128,
+      "result": "pwd correct; shared .git empty; no Git state claim"
+    },
+    {
+      "command": "read-only cat/sed/rg and Python source-copy/build/JSON/AST parsing",
+      "exitCode": 0,
+      "result": "five Python modules AST parsed; JSON source decoded; no target imports or execution"
+    }
+  ],
+  "pythonModulesParsed": 5,
+  "modelDefinitionsCounted": 19,
+  "modelExecutions": 0,
+  "targetImports": 0,
+  "childExecutions": 0,
+  "serviceExecutions": 0,
+  "grantMaterializations": 0,
+  "fixtureMaterializations": 0,
+  "originFabrications": 0,
+  "r1FiveFilePinsPreserved": true,
+  "jsRuntimeOrParserExecuted": false
+}

@@ -1,0 +1,75 @@
+{
+  "schema": "e02-producer3-controls-root-ack-v2",
+  "actor": "/root",
+  "captureId": "capture-a",
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/source2/subject.json",
+    "bytes": 12116,
+    "sha256": "553d513b4625b8d40e95f475246acc2a4520e1a90b35ee88290c9ddbc617def6"
+  },
+  "runnerSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-a/runner-subject.json",
+    "bytes": 3187,
+    "sha256": "65cafffce7955118964acbd16ef8a636461d9ab62a8651303f6c5a379fe9b582"
+  },
+  "runner": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-a/capture-controls.py",
+    "bytes": 30966,
+    "sha256": "513374a6fbadb1bcf7d75aafd024c271573a6b9f040a27a39ebceb7a66abdcc5"
+  },
+  "controlPlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-a/control-plan.json",
+    "bytes": 7100,
+    "sha256": "9ac32b48c2f8d95d5508d76f01451b820993e58ad84b59148543c53a681208f7"
+  },
+  "frozenInputs": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-a/frozen-inputs.json",
+    "bytes": 755058,
+    "sha256": "3d3b9f2e9446a40036e4fc3999c504f7b39bdc0de390bf572fb1ffa3a03a7aed"
+  },
+  "sourceQaReview": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/source2/source-qa.json",
+    "bytes": 406,
+    "sha256": "ac9c2f0bd675304b5389aeacbf848443f74798b80242aeb27fb54a54d110b48f"
+  },
+  "sourceSecurityReview": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/source2/source-security.json",
+    "bytes": 413,
+    "sha256": "012b965adf27a8079e4c54d8c1fec0c6d48b889442886cfb69d2d624745896fa"
+  },
+  "sourceQaDecision": "ACCEPT_PRODUCER3_SOURCE_FOR_FRESH35_AND_SEPARATE3_CONTROLS_ONLY",
+  "sourceSecurityDecision": "ACCEPT_FINAL_PRODUCER3_SOURCE_AND_CONTROL_DEFINITIONS_ONLY",
+  "captureQaReview": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-a/capture-qa-review.json",
+    "bytes": 411,
+    "sha256": "c0b743de001eb57da8547a102f0fd59c709842fc89be96a64cd5a50c62c97294"
+  },
+  "captureSecurityReview": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-a/capture-security-review.json",
+    "bytes": 423,
+    "sha256": "e9890f3f1d74b1105ffb6b325098c6bac27d9c490ed0a5dcab7f0832b4465dfc"
+  },
+  "captureQaDecision": "ACCEPT_PRODUCER3_CAPTURE_SOURCE_FOR_FIXED_DATA_CONTROLS_ONLY",
+  "captureSecurityDecision": "ACCEPT_PRODUCER3_CAPTURE_SOURCE_FOR_FIXED_DATA_CONTROLS_ONLY",
+  "pureControlsAuthorized": true,
+  "allowedScopes": {
+    "observation-model": 20,
+    "public-identity-metadata": 8,
+    "producer2-source-wiring": 7
+  },
+  "stopFirstFailure": true,
+  "noRetry": true,
+  "ordinaryRuntimeAuthorized": false,
+  "primaryAuthorized": false,
+  "consumerAuthorized": false,
+  "androidAuthorized": false,
+  "servicesAuthorized": false,
+  "protocolCryptoOrNativeAuthorized": false,
+  "sdkAuthorized": false,
+  "roleMaterializationAuthorized": false,
+  "admissionModelAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-capture-admission9-actual-20261028/acceptance.json",
+    "bytes": 1314,
+    "sha256": "98ab691b83f189765a541f0123ce5a5549022ad2c6e122b1d0e82f07aac044bf"
+  }
+}

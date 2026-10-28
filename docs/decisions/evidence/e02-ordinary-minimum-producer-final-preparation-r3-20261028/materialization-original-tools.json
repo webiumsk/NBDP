@@ -1,0 +1,32 @@
+{
+  "schema": "e02-producer3-config-materialization-original-tools-v1",
+  "scope": "Actual DATA-only configuration materializations; no role lease, worker, model or runtime execution",
+  "incoming": {
+    "args": {
+      "cmd": "/home/peterhorvath/.miniforge3/bin/python3.13 -I -B /Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/supervisor.py --materialize /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/incoming-run-config.json --ordinary-role incoming --run-id 9d8bad6df86fc113f87e14e2974f9019 --seconds 1800",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 1500
+    },
+    "result": {
+      "chunk_id": "2377b8",
+      "wall_time_seconds": 0.663961996,
+      "exit_code": 0,
+      "original_token_count": 63,
+      "output": "{\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/incoming-run-config.json\", \"bytes\": 5596, \"sha256\": \"cec7ee4aa2701eb8430434345454526bbcdfd35d2fe500e8b766db52939f3023\"}\n"
+    }
+  },
+  "archive": {
+    "args": {
+      "cmd": "/home/peterhorvath/.miniforge3/bin/python3.13 -I -B /Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/supervisor.py --materialize /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/archive-run-config.json --ordinary-role archive --run-id 1f45958c9bc2c7394cb3df00276a3abb --seconds 1800",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 1500
+    },
+    "result": {
+      "chunk_id": "326680",
+      "wall_time_seconds": 0.573720698,
+      "exit_code": 0,
+      "original_token_count": 63,
+      "output": "{\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/archive-run-config.json\", \"bytes\": 5594, \"sha256\": \"171e59d0b76050e8e4cde0ab1252dcdae93763d2aaf880e875025eb126131052\"}\n"
+    }
+  }
+}

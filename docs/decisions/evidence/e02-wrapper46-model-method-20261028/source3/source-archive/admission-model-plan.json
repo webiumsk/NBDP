@@ -1,0 +1,86 @@
+{
+  "schema": "e02-wrapper46-direct-capture-admission-plan-v1",
+  "state": "SOURCE_ONLY_REQUIRES_INDEPENDENT_REVIEW_AND_EXTERNAL_ROOT_RELEASE",
+  "scope": "NINE_SYNTHETIC_CAPTURE_LIFECYCLE_MODELS_ONLY_NOT_TARGET46",
+  "modelsDefined": 9,
+  "modelsExecuted": 0,
+  "target46ModelsExecuted": 0,
+  "source": {
+    "path": "/Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r3/test_capture_lifecycle_models.py",
+    "bytes": 7235,
+    "sha256": "c28fa0a009ab8c0dae920700bc54d1a54e910f888e19f32463b15159977cafbd"
+  },
+  "captureSource": {
+    "path": "/Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r3/capture46.py",
+    "bytes": 17066,
+    "sha256": "9465dbfee3ce335df7d011b778eed960032cc1e8a37f9fd60e925f1d10c4b5d8"
+  },
+  "definitions": {
+    "path": "/Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r3/capture-admission-definitions.json",
+    "bytes": 1368,
+    "sha256": "61df02c2896d46ed58564276e39ca69c2b330b1d60124f0b34d59bf8b4fc3de1"
+  },
+  "python": {
+    "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "bytes": 32959480,
+    "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+  },
+  "argv": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r3/test_capture_lifecycle_models.py"
+  ],
+  "outerRequest": {
+    "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 297s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r3/test_capture_lifecycle_models.py",
+    "workdir": "/Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r3",
+    "yield_time_ms": 1000,
+    "max_output_tokens": 4000,
+    "login": false
+  },
+  "outerRequestTemplate": {
+    "path": "/Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r3/admission-outer-request-template.json",
+    "bytes": 427,
+    "sha256": "961c952ac1aa4bbd6e93b27ed24ebdbcc1178c3b82c7d9fc8b566786050511b5"
+  },
+  "expectedVerboseNames": [
+    "CaptureLifecycleAdmission.test_actual_absent_owned_group_is_recorded_still_negative",
+    "CaptureLifecycleAdmission.test_actual_cap_exited_unreaped_leader_held_pipe_group_killed_first",
+    "CaptureLifecycleAdmission.test_actual_capture_fault_stops_before_any_later_scope",
+    "CaptureLifecycleAdmission.test_actual_fault_wait_retry_never_gets_a_second_three_seconds",
+    "CaptureLifecycleAdmission.test_actual_full_pipe_eof_is_required_even_with_natural_zero",
+    "CaptureLifecycleAdmission.test_actual_multiple_waits_share_one_absolute_three_second_deadline",
+    "CaptureLifecycleAdmission.test_actual_reaped_or_foreign_identity_never_signals_arbitrary_group",
+    "CaptureLifecycleAdmission.test_actual_selector_constructor_failure_precedes_popen",
+    "CaptureLifecycleAdmission.test_actual_timeout_exited_unreaped_leader_held_pipe_group_killed_first"
+  ],
+  "expectedToolExitCode": 0,
+  "expectedSummary": "Ran9tests/OK with all exact names; full genuine API output must be retained unmodified",
+  "timeoutSeconds": 297,
+  "timeoutSignal": "KILL",
+  "login": false,
+  "codeManifestPath": "/Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r3/admission-code-manifest.json",
+  "rootActualRecordRoot": "/Data/nbdp-e02-tooling-20261027/wrapper46-capture-admission9-actual-r1",
+  "rootProcedure": [
+    "Verify frozen SOURCE3 packet and actual independent narrow QA/security review",
+    "Create external actual root-only admission9 release; no RootAck hashes in pre-model manifests",
+    "Before direct tool call, root hashes/modes every exact admission-code-manifest input, retaining actual before snapshot",
+    "Load and pass THIS WHOLE five-key outerRequest object unchanged to tools.exec_command once",
+    "Retain actual arguments and direct response OR every same-session yielded poll/terminal response unmodified",
+    "After terminal observation, root independently captures the same known-code inputs and requires unchanged bytes/modes",
+    "Require actual API natural0 and complete exact nine verbose model names/summary, then independent DATA review"
+  ],
+  "custodyLimit": "DIRECT_ACTUAL_OUTER_API_ONLY; no inner capture harness, PID/reap, pipe EOF or separate stream attestations invented",
+  "outputLimit": "API output retention as actually returned; any truncation/incomplete names remains unqualified",
+  "actualReleaseCreated": false,
+  "rootSnapshotSpec": {
+    "algorithm": "SHA256_AND_POSIX_MODE",
+    "inputs": "Every exact admission-code-manifest.inputs descriptor; optionally add frozen manifest/source-packet descriptors separately after freeze",
+    "beforeFile": "known-code-before.json",
+    "afterFile": "known-code-after.json",
+    "rootOwned": true,
+    "regularNoSymlinkComponents": true,
+    "actualSnapshotsCreated": false,
+    "requiresUnchanged": true
+  }
+}

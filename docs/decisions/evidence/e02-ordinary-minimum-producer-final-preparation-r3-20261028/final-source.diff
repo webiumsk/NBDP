@@ -1,0 +1,314 @@
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r3-corrected-r1/supervisor.py
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/supervisor.py
+@@ -282,16 +282,16 @@
+         checked(bindings[key])
+     apk_origin = strict(checked(bindings['amethystProvenance']).read_bytes())
+     apk_acceptance = strict(checked(bindings['amethystAcceptance']).read_bytes())
+-    need(apk_origin['apk'] == bindings['amethystApk'] and apk_acceptance['subject'] == bindings['amethystProvenance']
++    need(apk_origin.get('apk') == bindings['amethystApk'] and apk_acceptance.get('subject') == bindings['amethystProvenance']
+          and bindings['amethystAcceptanceDecision'] == 'ACCEPT_REBUILT_AMETHYST_ARTIFACT_ONLY'
+-         and apk_acceptance['decision'] == 'ACCEPT_REBUILT_AMETHYST_ARTIFACT_ONLY'
+-         and apk_acceptance['schema'] == 'nbdp-actual-rebuilt-amethyst-artifact-acceptance-v1'
++         and apk_acceptance.get('decision') == 'ACCEPT_REBUILT_AMETHYST_ARTIFACT_ONLY'
++         and apk_acceptance.get('schema') == 'nbdp-actual-rebuilt-amethyst-artifact-acceptance-v1'
+          and apk_acceptance.get('artifactQualified') is True, 'Actual accepted rebuilt APK provenance join')
+     helper_origin = strict(checked(bindings['helperProvenance']).read_bytes())
+     helper_acceptance = strict(checked(bindings['helperAcceptance']).read_bytes())
+-    need(helper_origin['apk'] == bindings['helperApk'] and helper_acceptance['subject'] == bindings['helperProvenance']
+-         and helper_acceptance['decision'] == 'ACCEPT_REBUILT_HELPER_ARTIFACT_ONLY'
+-         and helper_acceptance['schema'] == 'nbdp-actual-artifact-data-acceptance-v1'
++    need(helper_origin.get('apk') == bindings['helperApk'] and helper_acceptance.get('subject') == bindings['helperProvenance']
++         and helper_acceptance.get('decision') == 'ACCEPT_REBUILT_HELPER_ARTIFACT_ONLY'
++         and helper_acceptance.get('schema') == 'nbdp-actual-artifact-data-acceptance-v1'
+          and helper_acceptance.get('artifactQualified') is True, 'Actual accepted rebuilt helper join')
+     e01 = strict(checked(bindings['acceptedE01']).read_bytes())
+     original = strict(checked(bindings['originalCanonicalE01']).read_bytes())
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r3-corrected-r1/test_producer3_bindings.py
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/test_producer3_bindings.py
+@@ -1,4 +1,4 @@
+-"""Three DRAFT source/DATA binding methods; no execution until accepted APK.
++"""Three current SOURCE/DATA binding methods; separate reviewed capture required.
+ 
+ Counterfactual acceptance records and alternate genuine-helper APK/config
+ copies live only in owned temporary negative fixtures. They are not approvals.
+@@ -39,14 +39,36 @@
+         self.assertEqual(value['amethystApk'],bindings['amethystApk']);self.assertEqual(value['helperApk'],bindings['helperApk'])
+         return value
+ 
++    def actual_inventory_tail(self,config):
++        # Execute only the unchanged actual SDK/guard validation statements on
++        # owned miniature trees. This is not caller admission or real SDK use.
++        tree=ast.parse((HERE/'supervisor.py').read_bytes())
++        fn=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='verify_config')
++        start=next(i for i,n in enumerate(fn.body) if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='inventory' for t in n.targets))
++        stop=next(i for i,n in enumerate(fn.body) if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='fixture' for t in n.targets))
++        statements=ast.Module(body=copy.deepcopy(fn.body[start:stop]),type_ignores=[])
++        scope=dict(config=config,Path=Path,strict=producer.strict,checked=producer.checked,digest=producer.digest,need=producer.need)
++        exec(compile(ast.fix_missing_locations(statements),'<actual-owned-inventory-tail>','exec'),scope)
++
++    def miniature_trees(self,directory):
++        sdk=directory/'sdk';guard=directory/'guard';sdk.mkdir(mode=0o700);guard.mkdir(mode=0o700)
++        tool=sdk/'tool.bin';tool.write_bytes(b'good');os.chmod(tool,0o600)
++        interpreter=guard/'guard.py';interpreter.write_bytes(b'safe');os.chmod(interpreter,0o600)
++        inventory={'files':[{'path':'tool.bin','size':4,'mode':'0o600','sha256':producer.digest(tool)}]}
++        bundle={'files':{'guard.py':{'bytes':4,'sha256':producer.digest(interpreter)}}}
++        config=dict(sdkRoot=str(sdk),guardBundleRoot=str(guard),sdkInventory=self.metadata_copy(directory,'sdk-index',inventory),guardBundleInventory=self.metadata_copy(directory,'guard-index',bundle))
++        return config,tool,interpreter
++
+     def test_current_accepted_rebuilt_artifacts_and_exact_e01_native(self):
+-        # Entire scope remains deferred while the four real APK fields are NULL.
++        # Real accepted APK bindings are present; this test requires separate execution release.
+         value=producer.verify_rebuilt_artifacts()
+         self.assertEqual(value['runtimeSourceCount'],16)
+         self.assertEqual(value['amethystAcceptanceDecision'],'ACCEPT_REBUILT_AMETHYST_ARTIFACT_ONLY')
+         for key,schema in [('amethystAcceptance','nbdp-actual-rebuilt-amethyst-artifact-acceptance-v1'),('helperAcceptance','nbdp-actual-artifact-data-acceptance-v1')]:
+             accepted=json.loads(producer.checked(value[key]).read_bytes())
+             self.assertEqual(accepted['schema'],schema);self.assertIs(accepted['artifactQualified'],True)
++        for role in ('incoming','archive'):
++            with self.subTest(validRole=role):producer.verify_config(self.role_config(role,value))
+ 
+     def test_missing_apk_wrong_native_e01_and_build_sdk_substitution_refused(self):
+         for mutation in ('missing-apk','wrong-native','wrong-e01','build-sdk'):
+@@ -59,7 +81,7 @@
+         with tempfile.TemporaryDirectory(prefix='nbdp-producer3-acceptance-negatives-') as temporary:
+             directory=Path(temporary);original=self.bindings()
+             # Matching non-acceptance strings must never become artifact acceptance.
+-            for decision in (None,'HOLD','FAIL','PARTIAL'):
++            for decision in (None,'HOLD','FAIL','PARTIAL','UNKNOWN_DECISION'):
+                 value=copy.deepcopy(original);record=json.loads(producer.checked(value['amethystAcceptance']).read_bytes())
+                 value['amethystAcceptanceDecision']=decision;record['decision']=decision
+                 value['amethystAcceptance']=self.metadata_copy(directory,'amethyst-decision-'+str(decision),record)
+@@ -74,6 +96,34 @@
+                 value=copy.deepcopy(original);record=json.loads(producer.checked(value[key]).read_bytes());record[field]=changed
+                 value[key]=self.metadata_copy(directory,tag,record)
+                 with self.subTest(mutation=tag),self.assertRaisesRegex(RuntimeError,message):producer.verify_rebuilt_artifacts(value)
++
++            for key,provenance,message in [
++                ('amethystAcceptance','amethystProvenance','Actual accepted rebuilt APK provenance join'),
++                ('helperAcceptance','helperProvenance','Actual accepted rebuilt helper join')]:
++                for field in ('schema','decision','artifactQualified','subject'):
++                    value=copy.deepcopy(original);record=json.loads(producer.checked(value[key]).read_bytes());record.pop(field,None)
++                    value[key]=self.metadata_copy(directory,key+'-absent-'+field,record)
++                    with self.subTest(artifact=key,absent=field),self.assertRaisesRegex(RuntimeError,message):producer.verify_rebuilt_artifacts(value)
++                for field,changed,tag in [('schema','UNKNOWN_SCHEMA','unknown-schema'),('decision','UNKNOWN_DECISION','unknown-decision'),('artifactQualified',None,'qualification-null'),('artifactQualified','true','qualification-string')]:
++                    value=copy.deepcopy(original);record=json.loads(producer.checked(value[key]).read_bytes());record[field]=changed
++                    value[key]=self.metadata_copy(directory,key+'-'+tag,record)
++                    with self.subTest(artifact=key,mutation=tag),self.assertRaisesRegex(RuntimeError,message):producer.verify_rebuilt_artifacts(value)
++                value=copy.deepcopy(original);record=json.loads(producer.checked(value[key]).read_bytes())
++                record['subject']=original['helperProvenance' if key=='amethystAcceptance' else 'amethystProvenance']
++                value[key]=self.metadata_copy(directory,key+'-wrong-subject',record)
++                with self.subTest(artifact=key,wrongSubject=True),self.assertRaisesRegex(RuntimeError,message):producer.verify_rebuilt_artifacts(value)
++                for missing in (False,True):
++                    value=copy.deepcopy(original);origin=json.loads(producer.checked(value[provenance]).read_bytes())
++                    if missing:origin.pop('apk',None)
++                    else:origin['apk']=original['helperApk' if key=='amethystAcceptance' else 'amethystApk']
++                    value[provenance]=self.metadata_copy(directory,provenance+'-'+str(missing),origin)
++                    record=json.loads(producer.checked(value[key]).read_bytes());record['subject']=value[provenance]
++                    value[key]=self.metadata_copy(directory,key+'-wrong-provenance-apk-'+str(missing),record)
++                    with self.subTest(artifact=key,provenanceApkMissing=missing),self.assertRaisesRegex(RuntimeError,message):producer.verify_rebuilt_artifacts(value)
++            for decision in (None,'HOLD','FAIL','PARTIAL'):
++                value=copy.deepcopy(original);record=json.loads(producer.checked(value['helperAcceptance']).read_bytes());record['decision']=decision
++                value['helperAcceptance']=self.metadata_copy(directory,'helper-decision-'+str(decision),record)
++                with self.subTest(helperDecision=decision),self.assertRaisesRegex(RuntimeError,'Actual accepted rebuilt helper join'):producer.verify_rebuilt_artifacts(value)
+ 
+     def test_preflight_before_materialize_and_verify_and_original16_worker_files(self):
+         tree=ast.parse((HERE/'supervisor.py').read_bytes());functions={n.name:n for n in tree.body if isinstance(n,ast.FunctionDef)}
+@@ -113,4 +163,21 @@
+                     with self.subTest(role=role,metadata=key,alternative=wrong['path']),self.assertRaisesRegex(RuntimeError,'Role configuration metadata differs from immutable reviewed blueprint'):producer.verify_config(value)
+ 
+ 
+-if __name__=='__main__':unittest.main(verbosity=2)
++        with tempfile.TemporaryDirectory(prefix='nbdp-producer3-inventory-negatives-') as temporary:
++            directory=Path(temporary);context,tool,guard=self.miniature_trees(directory)
++            self.actual_inventory_tail(context)
++            # The same expected descriptor must reject current byte changes.
++            descriptor=context['sdkInventory'];path=Path(descriptor['path']);raw=path.read_bytes();path.write_bytes(b'{}')
++            with self.assertRaises(RuntimeError):producer.checked(descriptor)
++            path.write_bytes(raw)
++            tool.write_bytes(b'evil')
++            with self.assertRaisesRegex(RuntimeError,'SDK installed inventory changed'):self.actual_inventory_tail(context)
++            tool.write_bytes(b'good');extra=tool.parent/'unlisted.bin';extra.write_bytes(b'extra');os.chmod(extra,0o600)
++            with self.assertRaisesRegex(RuntimeError,'SDK installed inventory changed'):self.actual_inventory_tail(context)
++            extra.unlink();guard.write_bytes(b'evil')
++            with self.assertRaisesRegex(RuntimeError,'Guard interpreter bundle changed'):self.actual_inventory_tail(context)
++            guard.unlink()
++            with self.assertRaises((RuntimeError,FileNotFoundError)):self.actual_inventory_tail(context)
++
++
++if __name__=='__main__':unittest.main(verbosity=1)
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r3-corrected-r1/fixture-plan.json
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/fixture-plan.json
+@@ -1,6 +1,6 @@
+ {
+   "schema": "e02-ordinary-minimum-fixture-plan-v2",
+-  "state": "DRAFT_NULL_NOT_READY_NEW_ACCEPTED_APK_REQUIRED",
++  "state": "SOURCE_BOUND_REQUIRES_SEPARATE_REVIEW_AND_ROLE_RELEASE",
+   "caseId": "minimum-two-role-rs",
+   "direction": "JS_TO_RUST",
+   "role": "FROM_HASH_BOUND_ROLE_CONFIG",
+@@ -46,10 +46,10 @@
+       "sha256": "aa46222ca2556570a342d8fe3c574bd96b8c630b9ec0b814f9e4bd7525231508"
+     },
+     "rebuiltBindings": {
+-      "source": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r3-corrected-r1/rebuilt-artifact-bindings.json",
++      "source": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/rebuilt-artifact-bindings.json",
+       "path": "/input/rebuilt-artifact-bindings.json",
+-      "bytes": 4349,
+-      "sha256": "24d1951ab43298546fc245a647c90dce9860d477343b9cbfac9d3faefb17de42"
++      "bytes": 5086,
++      "sha256": "778a136c5eaf6ca15fc61d1b3c3ff1368648faa40761506762c0d901f4ba1071"
+     }
+   },
+   "limits": {
+@@ -4989,13 +4989,13 @@
+   },
+   "oracles": {
+     "business": {
+-      "source": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r3-corrected-r1/business-rumor.json",
++      "source": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/business-rumor.json",
+       "path": "/input/business-rumor.json",
+       "bytes": 910,
+       "sha256": "8bb0efcf8cc5a503e8f653885503958520f1a069066e549cd60dec7128d25291"
+     },
+     "chat": {
+-      "source": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r3-corrected-r1/chat-rumor.json",
++      "source": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/chat-rumor.json",
+       "path": "/input/chat-rumor.json",
+       "bytes": 384,
+       "sha256": "f796df4b3ad76f832248fb60bdfb0d134a830257e95c0559b44d4fce0a900dc5"
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r3-corrected-r1/runtime-plan.json
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/runtime-plan.json
+@@ -2,14 +2,18 @@
+   "runtimeImage": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+   "relayImage": "sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82",
+   "sdkRoot": "/tmp/nbdp-e02-api35-fixture-r2/sdk",
+-  "amethystApk": null,
++  "amethystApk": {
++    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-r8/output/build/rebuilt-fdroid-debug-0.apk",
++    "bytes": 165860063,
++    "sha256": "368255b938e8fc72bf603a3f08dee29938e6c73e43ca6471a13ee1bc9ee0b4be"
++  },
+   "helperApk": {
+     "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/clipboard-capture.apk",
+     "bytes": 16787,
+     "sha256": "589031766a4be1cbd4e6a93b1b8d8af5db616d8dc51bcc7dd408a7f0a954b73e"
+   },
+   "schema": "e02-ordinary-minimum-role-runtime-plan-v2",
+-  "state": "DRAFT_NULL_NOT_READY_NEW_ACCEPTED_APK_REQUIRED",
++  "state": "SOURCE_BOUND_REQUIRES_SEPARATE_REVIEW_AND_ROLE_RELEASE",
+   "scope": "E02_ORDINARY_MINIMUM_RS_TWO_ROLE_V2_WINDOW_ONLY",
+   "profileId": "e02-ordinary-minimum-rs-two-role-v2",
+   "maximumOriginalLeaseSeconds": 1800,
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r3-corrected-r1/rebuilt-artifact-bindings.json
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/rebuilt-artifact-bindings.json
+@@ -1,12 +1,24 @@
+ {
+   "schema": "e02-ordinary-rebuilt-artifact-bindings-v1",
+-  "state": "DRAFT_NULL_NOT_READY",
++  "state": "SOURCE_BOUND_REQUIRES_REVIEW_AND_ROLE_RELEASE",
+   "producerGeneration": 3,
+   "runtimeSourceCount": 16,
+-  "amethystApk": null,
+-  "amethystProvenance": null,
+-  "amethystAcceptance": null,
+-  "amethystAcceptanceDecision": null,
++  "amethystApk": {
++    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-r8/output/build/rebuilt-fdroid-debug-0.apk",
++    "bytes": 165860063,
++    "sha256": "368255b938e8fc72bf603a3f08dee29938e6c73e43ca6471a13ee1bc9ee0b4be"
++  },
++  "amethystProvenance": {
++    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-clock90-r8-actual-20261028/artifact-subject.json",
++    "bytes": 5389,
++    "sha256": "29268829a85e62c229121bf2e5a61b0ddd15806c3015ae57932f9be05977f517"
++  },
++  "amethystAcceptance": {
++    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-clock90-r8-actual-20261028/acceptance.json",
++    "bytes": 1539,
++    "sha256": "5368b4002fda03995a6737db71da429cc997fd7ab2d8b4c42bbbb6cafab72f3d"
++  },
++  "amethystAcceptanceDecision": "ACCEPT_REBUILT_AMETHYST_ARTIFACT_ONLY",
+   "helperApk": {
+     "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/clipboard-capture.apk",
+     "bytes": 16787,
+@@ -66,7 +78,7 @@
+   "runtimeSdk": "/tmp/nbdp-e02-api35-fixture-r2/sdk",
+   "runtimeImage": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+   "buildSdkIsNotRuntimeSdk": true,
+-  "meaning": "UNFROZEN successor binding, no execution authority. New APK and independently accepted provenance required; no fallback historical5165APK orECDbinary. E01 nativepath retained in original report.",
++  "meaning": "Current independently accepted rebuilt artifacts and E01/native bindings for finalproducer3 SOURCE; separate review/control/runtime grants remain required; no historical artifact fallback.",
+   "canonicalE02": "PARTIAL22_UNCHANGED",
+   "ordinaryRowsQualified": 0
+ }
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r3-corrected-r1/README.md
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/README.md
+@@ -1,64 +1,9 @@
+-# Versioned minimum ordinary-client producer2 SOURCE
++# Final producer3 SOURCE candidate
+ 
+-Profile `e02-ordinary-minimum-rs-two-role-v2` preserves the adopted minimum
+-method: two fresh sequential isolated account windows, two incoming stages and
+-three archive stages, five real selected-note exports, three note contexts and
+-two frozen inner rumor IDs. Only the existing JS adapter produces fresh wraps;
+-both independent primary implementations/directions/relays remain mandatory
+-separate evidence. Original v1 failed whole-window evidence donates zero rows.
+-No experiment, test, imported prepared module, SDK operation or activation is
+-authorized by this directory. The coordinator separately granted SOURCE work.
++This immutable successor binds the actual independently accepted Amethyst APK368255, helper589031, native4ce385 and fresh E01 PASS140/original19 source equality. It preserves both pre-APK drafts and their QA/security findings. Source-bound artifacts do not qualify any client window or issue a role grant.
+ 
+-The accepted transport-query diagnostic v2 contributes byte-identical
+-`exchange.mjs`, `phase-writer.mjs`, `dependency-tree.mjs` and tree inventory. Its
+-successful synthetic no-Android PUB/REQ is supporting observer evidence only.
+-The cause of the earlier client query timeout remains UNKNOWN. No original
+-guard is removed, cached, shortened or optimized; 10s exchange/3s handshake,
+-45s control/55s fixture command and original1800s role lease remain unchanged.
+-New phases record callback entry, original guard entry/exit, send invocation and
+-same-buffer callbacks. They do not measure kernel arrival, CPU, relay DB timing
+-or network RTT. Late callbacks after terminal/fatal state perform no new action.
++Sixteen staged workers and supplemental artifact-binding DATA preserve the V2 runtime profile. Caller APK/helper/SDK/image and immutable reviewed relay/SDK-inventory/guard-metadata descriptors are joined before dependent checks. Full original SDK/member/source/guard/lease/resource/GUI/wire/replay/cleanup criteria remain.
+ 
+-`capture-budget.mjs` supplies ONE shared16777216-byte ceiling for original
+-`capture.jsonl` rows plus new `phase-trace.jsonl`. Every write is checked once;
+-short/invalid/throw/overflow poisons both streams. It never retries or repairs a
+-partial record. Acknowledged prefix/hash is recorded separately from UNKNOWN
+-physical persistence. A poisoned observer cannot authorize another send/query
+-or a success. First protocol/guard/socket fault remains primary when retention
+-also fails. Exact owned socket cleanup is attempted independently of retention.
+-Complete original tool receipts and child journals remain distinct evidence.
++Three binding test methods include valid incoming/archive verify_config positives and all retained acceptance/caller/metadata/byte/tree refusal vectors. Owned miniature-tree tests run the unchanged actual inventory statements, not real SDK commands or modified reviewed inputs. This generation explicitly selects unittest verbosity1 quiet dots, enabling the existing exact quiet parser parametrized3; original verbose pre-APK SOURCE remains preserved. No tests or runtime have run.
+ 
+-Host activation, guest pre-import, completed guest command/controller reply,
+-failure/signal when delivered and host post-cleanup boundaries validate the full
+-installed dependency tree, exact source/runtime mapping, directories, regular
+-bytes and in-tree symlinks. Added nested optional modules, escapes and special
+-files refuse before package evaluation. No optional `bufferutil` is imported by
+-DATA controls. Forced container removal need not deliver a Node signal; the
+-normal-operation end checks and host end check are mandatory independent bounds.
+-
+-The four unused documentary scalar2 NSEC operands were newly encoded from the
+-fixed public scalar, using stdlib format materialization with pinned primary
+-encoding sources. They now equal the operative unchanged63-character driver
+-operand. Scalar1 is also encoded and compared. The malformed65-character old
+-literal/history remain untouched. This format work is not signing/encryption or
+-runtime interoperability. Prepared checksum/payload/whole-value regressions and
+-actual independent review remain required.
+-
+-Identity entry, exact whole shown public NSEC, Tor saved/reopened Off, local
+-relay configuration, one known Feeds collapse, Known/New Requests attribution,
+-selected-note GUI/helper export, six original fields/ordered tags and all ANR/
+-action/capture/scroll/resource constraints retain their original UI logic.
+-Archive outer p=A preserves original inner authorA/pB. Exact replay can honestly
+-have no new APP frame when the relay deduplicates, but requires exact sent-byte
+-query/interval/history and post-replay export. Fresh wrap requires a new actual
+-APP frame in the current EOSE generation. Neither dispatch eligibility nor UI
+-text-node counts measures actual business effects.
+-
+-See [EXPORT-CONTRACT.md](EXPORT-CONTRACT.md), [SUPERVISOR.md](SUPERVISOR.md) and
+-new preparation evidence for source/control/carry boundaries. Current changed
+-20 observation-model,8 public-format and7 source-wiring controls are definitions
+-only, NOT RUN. Prior byte-identical component results are explicitly scoped
+-carry, not new tests or real client evidence. Syntax-only Node `--check` and
+-Python AST parsing are separately recorded. Consumer3/completion2 are subsequent
+-root-owned versioned work, not implemented or approved here. E02 stays PARTIAL22;
+-Q01/Q08/Q13/Q15/Q27 remain BLOCKER. No SDK/kind/NIP/deployment/merge follows.
++Fresh current20/8/7 and separate3 capture SOURCE/release/DATA/independent review are still required. Historical results remain history with no transferred counts. Both role configs are DATA-only materializations with separate fresh IDs/1800 maximum; actual resource admission, new role releases, two genuine windows/five exports/whole consumption/current primary/completion follow independent SOURCE/DATA gates.

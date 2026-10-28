@@ -1,0 +1,55 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 TZ=UTC /usr/bin/timeout --signal=TERM --kill-after=3s 297s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-a/capture-controls.py --execute-once --root-ack-sha 9caa234c2eea7c6bdf1ecda2838cdde799bc0fbe8036a7ed65469c422fd3b34f",
+      "workdir": "/home/peterhorvath/apps/bitcoin/NBDP",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 10000
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "9d8753",
+      "wall_time_seconds": 1.001085688,
+      "session_id": 56888,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "polls": [
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 56888,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 10000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "b7d791",
+        "wall_time_seconds": 5.00206428,
+        "session_id": 56888,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 56888,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 10000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "6ab7e4",
+        "wall_time_seconds": 2.7474932709999997,
+        "exit_code": 0,
+        "original_token_count": 421,
+        "output": "{\"state\": \"WRITES_STOPPED\", \"captureId\": \"capture-a\", \"captureMatched\": true, \"execution\": {\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-a/execution.json\", \"bytes\": 5013, \"sha256\": \"ffb68343bc92f2706997c46c8b97d47037cf69621c86e0c4934751a3f1de9564\"}, \"scopes\": [{\"scope\": \"observation-model\", \"expected\": 20, \"observed\": 20, \"partitions\": {\"shared-budget-guard-proxy-and-exchange-adapter-models\": 20}, \"captureMatched\": true, \"execution\": {\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-a/scopes/observation-model/execution.json\", \"bytes\": 2823, \"sha256\": \"ad5fca1ab96f1d63e0bd53f67974446f32ac94aa5336cd1a066b52d4847c70ca\"}}, {\"scope\": \"public-identity-metadata\", \"expected\": 8, \"observed\": 8, \"partitions\": {\"public-identity-metadata\": 8}, \"captureMatched\": true, \"execution\": {\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-a/scopes/public-identity-metadata/execution.json\", \"bytes\": 2826, \"sha256\": \"558ae6c29c42a768b2022fd9f8907d83657aca45b4afb6619944d7556bd1b66f\"}}, {\"scope\": \"producer2-source-wiring\", \"expected\": 7, \"observed\": 7, \"partitions\": {\"producer2-source-wiring\": 7}, \"captureMatched\": true, \"execution\": {\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-a/scopes/producer2-source-wiring/execution.json\", \"bytes\": 2814, \"sha256\": \"809db23b7b862998a96302e12d1b714a165201d32c29cddb059d21a8f0b8e141\"}}]}\n"
+      }
+    }
+  ]
+}

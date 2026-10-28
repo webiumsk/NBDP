@@ -1,0 +1,52 @@
+--- /Data/nbdp-e02-tooling-20261027/producer-controls-preparation-r3-source3/finalize-source-packet.py	2026-10-28 02:54:51.086275649 +0100
++++ /Data/nbdp-e02-tooling-20261027/producer-controls-preparation-r3-source4/finalize-source-packet.py	2026-10-28 03:41:24.709717679 +0100
+@@ -5,8 +5,8 @@
+ import shlex
+ 
+ ROOT=Path('/home/peterhorvath/apps/bitcoin/NBDP')
+-DATA=Path('/Data/nbdp-e02-tooling-20261027/producer-controls-preparation-r3-source3')
+-OUT=ROOT/'docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3'
++DATA=Path('/Data/nbdp-e02-tooling-20261027/producer-controls-preparation-r3-source4')
++OUT=ROOT/'docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source4'
+ PREP=ROOT/'docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/source2'
+ 
+ 
+@@ -18,7 +18,9 @@
+     captures={};scopes={}
+     leaves=[pin(OUT/name) for name in ('capture-template.py','assemble-source-only.py','test_admission_models.py','prepare-final-source.py')]
+     leaves.extend([pin(DATA/'finalize-source-packet.py'),pin(OUT/'freeze-input-spec.json'),contract,
+-        pin(PREP/'source-acceptance.json')])
++        pin(PREP/'source-acceptance.json'),pin(OUT/'request-from-plan.py'),
++        pin(ROOT/'docs/decisions/evidence/e02-producer3-data-contract-20261028/summary-types.json'),
++        pin(ROOT/'docs/decisions/evidence/e02-producer3-data-contract-20261028/model-subject-contract.json')])
+     for mode in ('capture-a','capture-b'):
+         base=OUT/mode;plan=load(base/'control-plan.json')
+         # Plans are source-construction outputs and are frozen by the subjects
+@@ -27,6 +29,9 @@
+         argv=['/usr/bin/env','-i','PATH=/usr/bin:/bin','LANG=C.UTF-8','LC_ALL=C.UTF-8',
+             '/usr/bin/timeout','--signal=KILL','297',*prefix,'__ACTUAL_ROOT_ACK_SHA256__']
+         plan['onceCommandPrefix']=prefix
++        plan['sourceGeneration']='SOURCE4'
++        plan['freshCaptureRootId']='e02-producer3-source4-'+mode+'-20261028'
++        plan['requestDerivationSource']=pin(OUT/'request-from-plan.py')
+         plan['rootAckArgument']={'meaning':'DERIVE_HEX_SHA256_FROM_ACTUAL_EXTERNAL_ACK_FILE','placeholder':'__ACTUAL_ROOT_ACK_SHA256__'}
+         plan['outerArgvTemplate']=argv
+         plan['outerRequestTemplate']={'cmd':shlex.join(argv),'workdir':str(ROOT),'login':False,'yield_time_ms':1000,'max_output_tokens':10000}
+@@ -47,11 +52,17 @@
+         'inputScopes':scopes,'actualExecutions':0,'rootModelRelease':None,'modelDataAcceptance':None}
+     save(OUT/'admission9-method.json',modelmethod)
+     subject={'schema':'e02-producer3-bound-capture-source-subject-v1','actor':'/root/producer3_capture',
++        'sourceGeneration':'SOURCE4',
+         'state':'WRITES_STOPPED_SOURCE_MODEL_READINESS_PENDING_INDEPENDENT_CAPTURE_QA_SECURITY',
+         'producerSource':pin(PREP/'subject.json'),'producerContract':pin(PREP/'source-packet.json'),
+         'producerSourceAcceptance':pin(PREP/'source-acceptance.json'),
+         'sourceReviews':{role:pin(PREP/('source-'+role+'.json')) for role in ('qa','security')},
+         'normativeDataContract':contract,'modelSource':pin(OUT/'test_admission_models.py'),
++        'normativeModelSubjectContract':pin(ROOT/'docs/decisions/evidence/e02-producer3-data-contract-20261028/model-subject-contract.json'),
++        'normativeSummaryTypesContract':pin(ROOT/'docs/decisions/evidence/e02-producer3-data-contract-20261028/summary-types.json'),
++        'requestDerivationSource':pin(OUT/'request-from-plan.py'),
++        'negativeInvocationDisposition':pin(OUT/'negative-invocation-disposition.json'),
++        'sourceEquivalence':pin(OUT/'source-equivalence.json'),
+         'modelMethod':pin(OUT/'admission9-method.json'),'modelDefinitions':9,'modelExecutions':0,
+         'captures':captures,'bothInputScopes':scopes,'fixedInputCount':load(OUT/'capture-a/frozen-inputs.json')['actualInputCount'],
+         'externalAuthorityEdges':{'captureQaReviews':None,'captureSecurityReviews':None,'admissionModelAcceptance':None,'rootAcknowledgements':None},

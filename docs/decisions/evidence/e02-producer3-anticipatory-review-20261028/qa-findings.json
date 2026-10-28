@@ -1,0 +1,32 @@
+{
+  "recorder": "/root",
+  "reviewer": "/root/r4_qa",
+  "evidenceType": "ACTUAL_INDEPENDENT_READ_ONLY_ANTICIPATORY_QA_MAILBOX",
+  "decision": "TWO_MEDIUM_FINDINGS_NOT_SOURCE_ACCEPTANCE",
+  "subjectRoot": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r3",
+  "findings": [
+    {
+      "severity": "MEDIUM",
+      "location": "supervisor.py:336-354 and Runtime.start:554-555",
+      "finding": "verify_config discards verify_rebuilt_artifacts return and validates supplied APK/helper hashes without joining them to accepted rebuilt descriptors. A separately valid descriptor can diverge before Runtime.start mounts supplied configuration.",
+      "required": "Retain returned bindings; exact config APK/helper equality before dependent worker imports/start; both incoming/archive valid-but-different descriptor negative cases."
+    },
+    {
+      "severity": "MEDIUM",
+      "location": "supervisor.py:271-284",
+      "finding": "Amethyst acceptance currently requires only non-null matching decision. Matching HOLD/FAIL string can satisfy semantic join.",
+      "required": "Exact artifact acceptance decision/schema and qualified artifact scope; wrong decision/schema/qualification negative cases."
+    }
+  ],
+  "currentExploitOrRelease": false,
+  "fourAmethystNullsStillRefuse": true,
+  "otherCheckedScopes": [
+    "Exact16workerfiles",
+    "Bothdraftconfig16pins",
+    "SupplementalfixtureDATA not17thworker",
+    "API35SDK434/image/guard522 preserved",
+    "E01/native PASS140/source19 binding",
+    "Onlynewverify_rebuilt_artifacts/materialize/verify_config definitions differ fromproducer2; otherfunctions/RuntimeAST andJS bytes unchanged"
+  ],
+  "actions": "Read-only; no tests/import side effects/runtime/materialization/finalsubject/Git writes; not a final SOURCE acceptance."
+}

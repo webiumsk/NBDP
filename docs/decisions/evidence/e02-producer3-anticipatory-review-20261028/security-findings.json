@@ -1,0 +1,64 @@
+{
+  "recorder": "/root",
+  "reviewer": "/root/r4_security",
+  "evidenceType": "ACTUAL_INDEPENDENT_READ_ONLY_ANTICIPATORY_SECURITY_MAILBOX",
+  "decision": "THREE_MEDIUM_FINDINGS_NOT_SOURCE_ACCEPTANCE",
+  "inputs": [
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r3/supervisor.py",
+      "bytes": 48662,
+      "sha256": "51c3aadbc90feda6c7595d5344dbf31a05b3ec16ca3caa2f461e7209fd8eea23"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r3/rebuilt-artifact-bindings.json",
+      "bytes": 4349,
+      "sha256": "24d1951ab43298546fc245a647c90dce9860d477343b9cbfac9d3faefb17de42"
+    }
+  ],
+  "findings": [
+    {
+      "severity": "MEDIUM",
+      "finding": "Supplied APK/helper descriptors are not joined to accepted artifact bindings before mounts.",
+      "remediation": "Retain returned bindings and require exact configuration APK/helper equality."
+    },
+    {
+      "severity": "MEDIUM",
+      "finding": "Matching arbitrary Amethyst decisions, and missing acceptance schema/qualification checks for both artifacts.",
+      "remediation": "Require exact Amethyst/helper schemas, fixed accepted decisions, artifactQualified is True, exact subject/provenance/APK joins."
+    },
+    {
+      "severity": "MEDIUM",
+      "finding": "Supplied relayConfig, sdkInventory and guardBundleInventory descriptors self-certify; empty guard files membership can bypass check.",
+      "remediation": "Immutable reviewed SOURCE blueprint descriptor equality before retaining existing actual-byte/tree/membership checks."
+    }
+  ],
+  "amethystContract": {
+    "schema": "nbdp-actual-rebuilt-amethyst-artifact-acceptance-v1",
+    "decision": "ACCEPT_REBUILT_AMETHYST_ARTIFACT_ONLY",
+    "artifactQualified": true
+  },
+  "helperContract": {
+    "schema": "nbdp-actual-artifact-data-acceptance-v1",
+    "decision": "ACCEPT_REBUILT_HELPER_ARTIFACT_ONLY",
+    "artifactQualified": true
+  },
+  "requiredNegativeCases": [
+    "Both roles alternate valid APK/helper",
+    "HOLD/FAIL/PARTIAL/unknown decisions",
+    "Absent/foreign schema",
+    "false/NULL/1/string qualification",
+    "Wrong acceptance subject/provenance APK",
+    "Helper rejection analogues",
+    "Alternate relay/SDK and empty guard inventories",
+    "Expected descriptors with changed actual bytes/tree"
+  ],
+  "requiredPositive": "Both valid current roles; retain NULL-first refusal/no fallback",
+  "noFurtherMaterialFindingsIn": [
+    "Native/E01 original19",
+    "Fixed runtimeSDK/image",
+    "Supplemental fixtureDATA join",
+    "Role/window chain"
+  ],
+  "limits": "Latent in preserved NULL draft; no exploitation/runtime or prior DATA reclassification. Design feedback only; final frozen successor SOURCE and actual controls remain required.",
+  "actions": "No imports/tests/runtime/edits/Git/R8 interaction by reviewer."
+}

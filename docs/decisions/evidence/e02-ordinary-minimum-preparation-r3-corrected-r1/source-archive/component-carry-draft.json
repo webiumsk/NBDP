@@ -1,0 +1,69 @@
+{
+  "schema": "e02-producer3-component-carry-draft-v1",
+  "state": "DRAFT_ONLY_NO_EXECUTION_OR_CARRY_APPROVAL",
+  "priorSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/subject.json",
+    "bytes": 12000,
+    "sha256": "ef91dc64189d7c47a4b4539c4dacd93a4c5c760da8f98bf1b203040bba6eeffd"
+  },
+  "priorSourceDisposition": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/source-review-disposition.json",
+    "bytes": 2222,
+    "sha256": "98aa663ba48268cd551e4dd5e26a2aac5756c4aa8b49e4931000f9d40b3335bc"
+  },
+  "priorActual35Acceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/results-r1/acceptance.json",
+    "bytes": 2395,
+    "sha256": "3da2a6e79d67804196fc3fb17279161eae2ab41a9590e015eb576b9d5c1cd17a"
+  },
+  "sourceOnlyByteEqualModules": [
+    "EXPORT-CONTRACT.md",
+    "SUPERVISOR.md",
+    "proxy-observer.mjs",
+    "test_android_driver.py",
+    "exchange.mjs",
+    "test_minimum_driver.py",
+    "capture-budget.mjs",
+    "business-rumor.json",
+    "test_observation_model.mjs",
+    "phase-writer.mjs",
+    "README.md",
+    "lease_guard.py",
+    "chat-rumor.json",
+    "test_lease_guard.py",
+    "fixture.mjs",
+    "test_cleanup.py",
+    "minimum-plan.json",
+    "exchange-adapter.mjs",
+    "test_fixture.mjs",
+    "dependency-tree.json",
+    "test_minimum_fixture.mjs",
+    "dependency-tree.mjs",
+    "android_driver.py",
+    "ui-plan.json"
+  ],
+  "requiredLegacyScopes": [
+    {
+      "scope": "observation-model",
+      "count": 20,
+      "module": "test_observation_model.mjs"
+    },
+    {
+      "scope": "public-identity-metadata",
+      "count": 8,
+      "module": "test_public_identity_metadata.py"
+    },
+    {
+      "scope": "producer2-source-wiring",
+      "count": 7,
+      "module": "test_producer2_source.py"
+    }
+  ],
+  "newRebindScope": {
+    "count": 3,
+    "module": "test_producer3_bindings.py",
+    "positiveDeferredUntilAcceptedAPK": true
+  },
+  "modelsExecuted": 0,
+  "carryMeaning": "Historical35 and guardcarry remain their original evidence. Adopted next step is fresh exact35 plus new3 after final accepted APK/source freeze; no execution or transferred current qualification in this remediation."
+}

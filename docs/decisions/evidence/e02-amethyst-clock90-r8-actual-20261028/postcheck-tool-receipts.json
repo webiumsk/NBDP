@@ -1,0 +1,52 @@
+{
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 TZ=UTC /usr/bin/timeout --signal=TERM --kill-after=3s 177s /usr/bin/python3.12 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-clock90-r8-actual-20261028/post-checks-r1.py",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2500
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "30df56",
+      "wall_time_seconds": 1.001054473,
+      "session_id": 48470,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "polls": [
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 48470,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "cc07e9",
+        "wall_time_seconds": 5.000884222,
+        "session_id": 48470,
+        "original_token_count": 0,
+        "output": ""
+      },
+      "recording": "Transcribed exact structured result already returned in this turn."
+    },
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 48470,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2500
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "002422",
+        "wall_time_seconds": 3.436245429,
+        "exit_code": 0,
+        "original_token_count": 236,
+        "output": "{\"actor\": \"/root\", \"state\": \"POST_BUILD_DATA_CAPTURED_PENDING_INDEPENDENT_REVIEW\", \"sourceEquality\": {\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-clock90-r8-actual-20261028/post-checks-r1/external-source-equality.json\", \"bytes\": 593, \"sha256\": \"b32271bed01dd090c459b34619d1f024885e2e0c44d68427ddcde3a76a09ff6a\"}, \"sdkCompleteInventoryBytesModesLinksAndUidsUnchanged\": true, \"sdkMembers\": 24590, \"jdkCompleteInventoryUnchanged\": true, \"sourceArchiveAndReceiptUnchanged\": true, \"acceptedSdkEvidenceUnchanged\": true, \"privateDebugKeyDescriptors\": [{\"relativePath\": \"work/user/.android/debug.keystore\", \"bytes\": 2618, \"sha256\": \"6d6337a8c53aa81958cf4b93c9cfac412dd76af27f2384ee1657ae68d2b7d357\", \"mode\": \"0o600\"}], \"privateKeysCopied\": false, \"elapsedSeconds\": 66.97156856197398, \"qualification\": \"Pure root read-only source/input reconciliation; actual artifact and terminal lifecycle reviewed separately\"}\n"
+      }
+    }
+  ]
+}

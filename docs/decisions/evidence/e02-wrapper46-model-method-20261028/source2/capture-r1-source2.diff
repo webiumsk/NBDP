@@ -1,0 +1,130 @@
+--- r1/capture46.py
++++ source2/capture46.py
+@@ -2,13 +2,13 @@
+ Selector/Popen/PIPE custody derives from accepted capture-r2.py; never executes on import.
+ """
+ import hashlib,json,os,pathlib,re,selectors,signal,stat,subprocess,sys,time
+-HERE=pathlib.Path('/Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r1')
++HERE=pathlib.Path('/Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r2')
+ R3=pathlib.Path('/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r3')
+ SCOPE='E02_WRAPPER_R3_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN'
+ ENV={'PATH':'/usr/bin:/bin','LANG':'C.UTF-8','LC_ALL':'C.UTF-8'}
+ PYTHON='/home/peterhorvath/.miniforge3/bin/python3.13'
+ NODE='/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node'
+-OUTPUT=pathlib.Path('/Data/nbdp-e02-tooling-20261027/wrapper46-model-actual-r1/capture')
++OUTPUT=pathlib.Path('/Data/nbdp-e02-tooling-20261027/wrapper46-model-actual-r2/capture')
+ GRANT=OUTPUT.parent/'root-release.json'
+ 
+ def need(v,m):
+@@ -49,12 +49,13 @@
+ def admission():
+     need(sys.flags.isolated and sys.dont_write_bytecode and str(pathlib.Path(sys.executable).resolve())==PYTHON and sys.argv==[str(HERE/'capture46.py')],'EXACT_ISOLATED_HARNESS')
+     plan_pin=descriptor(HERE/'plan.json');plan=load(plan_pin['path']);subject_pin=descriptor(HERE/'method-source.json');subject=load(subject_pin['path']);manifest_pin=descriptor(HERE/'code-manifest.json');manifest=load(manifest_pin['path'])
+-    need(plan['schema']=='e02-wrapper46-pure-model-capture-plan-v1' and plan['scopeVersion']==SCOPE and plan['scopeCounts']==[6,13,16,11] and plan['modelsDefined']==46,'EXACT46_SCOPE')
++    need(plan['schema']=='e02-wrapper46-pure-model-capture-plan-v2' and plan['scopeVersion']==SCOPE and plan['scopeCounts']==[6,13,16,11] and plan['modelsDefined']==46,'EXACT46_SCOPE')
+     need(plan['environment']==ENV and plan['limits']==dict(childSeconds=60,childReapSeconds=3,stdoutBytes=1048576,stderrBytes=262144,outerSeconds=297,outerSignal='KILL'),'EXACT_CAPTURE_LIMITS_ENV')
++    need(set(plan['outerRequest'])=={'cmd','workdir','yield_time_ms','max_output_tokens','login'} and plan['outerRequest']['login'] is False,'COMPLETE_FIVE_KEY_REQUEST_LOGIN_FALSE')
+     need(plan['outerRequestTemplate']==descriptor(HERE/'outer-request-template.json') and plan['outerRequest']==load(HERE/'outer-request-template.json'),'EXACT_FROZEN_ROOT_OUTER_REQUEST')
+     need(plan['rootReleasePath']==str(GRANT) and plan['outputRoot']==str(OUTPUT) and plan['r3Root']==str(R3),'FIXED_OUTPUT_AND_SOURCE')
+     need(plan['tools']['python']['path']==PYTHON and plan['tools']['node']['path']==NODE,'EXACT_TOOLS')
+-    need(subject['schema']=='e02-wrapper46-model-method-source-v1' and subject['plan']==plan_pin and subject['codeManifest']==manifest_pin,'EXACT_METHOD_SOURCE')
++    need(subject['schema']=='e02-wrapper46-model-method-source-v2' and subject['plan']==plan_pin and subject['codeManifest']==manifest_pin,'EXACT_METHOD_SOURCE')
+     for d in subject['sources']:checked(d)
+     need(descriptor(HERE/'capture46.py') in subject['sources'] and descriptor(HERE/'invoke-origin11.mjs') in subject['sources'],'REVIEWED_HARNESS_BOOTSTRAP')
+     need(manifest['schema']=='e02-wrapper46-known-code-inputs-v1' and manifest['scope']=='KNOWN_CODE_ONLY_NOT_RECURSIVE_RUNTIME_SDK_CLIENT_CLOSURE','KNOWN_CODE_CLOSURE')
+@@ -81,38 +82,74 @@
+     need(not OUTPUT.exists() and not OUTPUT.is_symlink(),'ONE_USE_FRESH_OUTPUT_REQUIRED')
+     return plan,paths,grant,grant_pin
+ 
++def signal_owned_group(p,ownership):
++    # The retained Popen leader has not been poll()/wait()-reaped before fault
++    # signalling. Even an exited zombie leader reserves its PID/PGID, preventing
++    # reuse while descendants may keep the group's PIPE descriptors open.
++    need(ownership['ownedPopenHandle'] is True and ownership['startNewSession'] is True and ownership['pid']==p.pid==ownership['groupId']==ownership['sessionId'] and p.returncode is None,'UNREAPED_OWNED_GROUP_REQUIRED')
++    try:
++        os.killpg(ownership['groupId'],signal.SIGKILL)
++        return dict(groupId=ownership['groupId'],signal='SIGKILL',status='SIGNALLED_BEFORE_LEADER_REAP',leaderReapedBeforeSignal=False)
++    except ProcessLookupError:
++        return dict(groupId=ownership['groupId'],signal='SIGKILL',status='OWNED_GROUP_ABSENT',leaderReapedBeforeSignal=False)
++
++
++def finish_owned(p,ownership,fault,job_deadline_ns):
++    # ONE absolute reap deadline, initialized once. Every wait, including an
++    # immediate retry after KILL, uses only its remaining time, never a new3s.
++    reap_deadline_ns=min(job_deadline_ns+3000000000,time.monotonic_ns()+3000000000)
++    closure=None;closure_fault=None;code=None;reaped=False
++    def close_group():
++        nonlocal closure,closure_fault
++        try:closure=signal_owned_group(p,ownership)
++        except BaseException as error:closure_fault=type(error).__name__+':'+str(error)
++    def wait_remaining():return p.wait(timeout=max(0,(reap_deadline_ns-time.monotonic_ns())/1e9))
++    if fault is not None:close_group() # Independent of leader liveness; no poll().
++    try:code=wait_remaining();reaped=True
++    except subprocess.TimeoutExpired:
++        fault=fault or 'REAP_TIMEOUT'
++        if closure is None and closure_fault is None:close_group()
++        try:code=wait_remaining();reaped=True
++        except subprocess.TimeoutExpired:fault=fault or 'OWNED_CHILD_NOT_REAPED'
++        except BaseException as error:closure_fault=closure_fault or type(error).__name__+':'+str(error)
++    except BaseException as error:
++        fault=fault or type(error).__name__+':'+str(error)
++        if closure is None and closure_fault is None:close_group()
++        try:code=wait_remaining();reaped=True
++        except subprocess.TimeoutExpired:pass
++        except BaseException as error:closure_fault=closure_fault or type(error).__name__+':'+str(error)
++    if not reaped:fault=fault or 'OWNED_CHILD_NOT_REAPED'
++    if closure_fault:fault=fault or 'OWNED_GROUP_CLOSURE_ERROR'
++    return dict(exitCode=code,reaped=reaped,fault=fault,reapDeadlineMonotonicNs=reap_deadline_ns,groupClosure=closure,groupClosureFault=closure_fault)
++
++
+ def capture_scope(root,scope,index):
+     stem='%02d-'%index+scope['scope'];put(root,stem+'-request.json',dict(argv=scope['argv'],cwd=scope['cwd'],environment=ENV,stdin='DEVNULL',transport='CHILD_PIPES_OUTER_API_SEPARATE',seconds=60,reapSeconds=3))
+-    start=time.monotonic_ns();p=subprocess.Popen(scope['argv'],cwd=scope['cwd'],stdin=subprocess.DEVNULL,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True,env=ENV)
+-    put(root,stem+'-owned-child.json',dict(pid=p.pid,ownedPopenHandle=True))
+-    sel=selectors.DefaultSelector();buffers={};eof={};fault=None;code=None;reaped=False
+-    for name,pipe,cap in [('stdout',p.stdout,1048576),('stderr',p.stderr,262144)]:
+-        os.set_blocking(pipe.fileno(),False);sel.register(pipe,selectors.EVENT_READ,(name,cap));buffers[name]=bytearray();eof[name]=False
++    start=time.monotonic_ns();job_deadline_ns=start+60000000000
++    p=subprocess.Popen(scope['argv'],cwd=scope['cwd'],stdin=subprocess.DEVNULL,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True,env=ENV)
++    ownership=dict(pid=p.pid,groupId=p.pid,sessionId=p.pid,startNewSession=True,ownedPopenHandle=True,leaderOwnership='RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL')
++    sel=selectors.DefaultSelector();buffers={'stdout':bytearray(),'stderr':bytearray()};eof={'stdout':False,'stderr':False};fault=None
+     try:
++        ownership['observedGroupId']=os.getpgid(p.pid);ownership['observedSessionId']=os.getsid(p.pid)
++        need(ownership['observedGroupId']==ownership['observedSessionId']==p.pid,'ACTUAL_OWNED_SESSION_GROUP_IDENTITY')
++        put(root,stem+'-owned-child.json',ownership)
++        for name,pipe,cap in [('stdout',p.stdout,1048576),('stderr',p.stderr,262144)]:
++            os.set_blocking(pipe.fileno(),False);sel.register(pipe,selectors.EVENT_READ,(name,cap))
+         while sel.get_map():
+-            if time.monotonic_ns()-start>60000000000:fault='TIMEOUT';break
++            if time.monotonic_ns()>job_deadline_ns:fault='TIMEOUT';break
+             for key,_ in sel.select(.05):
+                 name,cap=key.data;block=os.read(key.fd,8192)
+                 if not block:sel.unregister(key.fileobj);eof[name]=True;continue
+                 if len(buffers[name])+len(block)>cap:fault='CAPTURE_LIMIT';break
+                 buffers[name].extend(block)
+             if fault:break
+-        if fault and p.poll() is None:os.killpg(p.pid,signal.SIGKILL)
+-        try:code=p.wait(timeout=min(3,max(0,(start+60000000000-time.monotonic_ns())/1e9))) if not fault else p.wait(timeout=3);reaped=True
+-        except subprocess.TimeoutExpired:
+-            fault=fault or 'REAP_TIMEOUT'
+-            if p.poll() is None:os.killpg(p.pid,signal.SIGKILL)
+-            try:code=p.wait(timeout=3);reaped=True
+-            except subprocess.TimeoutExpired:fault='OWNED_CHILD_NOT_REAPED'
+-    except BaseException as error:
+-        fault=fault or type(error).__name__+':'+str(error)
+-        if p.poll() is None:os.killpg(p.pid,signal.SIGKILL)
+-        try:code=p.wait(timeout=3);reaped=True
+-        except subprocess.TimeoutExpired:fault='OWNED_CHILD_NOT_REAPED'
+-    finally:
+-        finished=time.monotonic_ns();sel.close();p.stdout.close();p.stderr.close()
++    except BaseException as error:fault=fault or type(error).__name__+':'+str(error)
++    # No poll()/wait() occurs before fault closure. An exited leader cannot hide
++    # descendants that still hold stdout/stderr open. No EOF is synthesized.
++    custody=finish_owned(p,ownership,fault,job_deadline_ns)
++    finished=time.monotonic_ns();sel.close();p.stdout.close();p.stderr.close()
+     put(root,stem+'.stdout.raw',bytes(buffers['stdout']));put(root,stem+'.stderr.raw',bytes(buffers['stderr']))
+-    result=dict(scope=scope['scope'],argv=scope['argv'],exitCode=code,reaped=reaped,eof=eof,fault=fault,elapsedNs=finished-start,stdout=pin(root/(stem+'.stdout.raw')),stderr=pin(root/(stem+'.stderr.raw')),pipeEofScope='ACTUAL_OWNED_CHILD_PIPES_ONLY_NOT_OUTER_API')
++    result=dict(scope=scope['scope'],argv=scope['argv'],eof=eof,elapsedNs=finished-start,stdout=pin(root/(stem+'.stdout.raw')),stderr=pin(root/(stem+'.stderr.raw')),pipeEofScope='ACTUAL_OWNED_CHILD_PIPES_ONLY_NOT_OUTER_API',ownership=ownership,**custody)
+     put(root,stem+'-result.json',result)
+     return result,bytes(buffers['stdout']),bytes(buffers['stderr'])
+ 

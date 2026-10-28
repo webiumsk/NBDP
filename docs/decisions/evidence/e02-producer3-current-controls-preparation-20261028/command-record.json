@@ -1,0 +1,19 @@
+{
+  "schema": "e02-producer3-capture-source-preparation-commands-v1",
+  "actor": "/root/producer3_capture",
+  "authority": "Assigned source preparation only",
+  "commands": [
+    {"command": "pwd && git status --short && cat AGENTS.md ...", "exitCode": 128, "result": "pwd succeeded; Git repository absent; subsequent && reads did not execute and were separately read"},
+    {"command": "cat AGENTS.md skills state roadmap ADR risk register; sed/rg/cat baseline and canonical E02", "exitCode": 0, "result": "Read-only context; initial combined context output truncated, assigned E02/control operands separately read"},
+    {"command": "ls -ld both new assigned roots", "exitCode": 2, "result": "Both absent before creation; no pre-existing files overwritten"},
+    {"command": "sha256sum and wc -c accepted baseline capture-controls.py", "exitCode": 0, "result": "18876 bytes SHA70d5b7992c6e4317a0d47a585e400fa0c51240f85b0a74a7075bc1675bd3e85a matches accepted manifest"},
+    {"command": "mkdir assigned roots; source writes via heredoc, sed, perl, apply_patch; cp owned sources", "exitCode": 0, "result": "Only assigned source scaffold paths created/updated; no source imported/evaluated"},
+    {"command": "diff -u accepted capture to capture-a/b", "exitCode": 1, "result": "Expected textual differences retained in separate full-source.diff files"},
+    {"command": "sha256sum; wc -c; rg --files assigned roots", "exitCode": 0, "result": "Actual source pins and owned file listing; no tests"}
+  ],
+  "prohibitedActionsExecuted": 0,
+  "astParsingExecuted": false,
+  "sourceModelsTestsExecuted": 0,
+  "gitMutationsOrPublication": 0,
+  "runtimeOrGrants": 0
+}

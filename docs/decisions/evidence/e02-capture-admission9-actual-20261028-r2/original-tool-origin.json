@@ -1,0 +1,22 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 297 /usr/bin/python3.12 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-capture-admission9-method-20261028/capture-source4.py",
+      "workdir": "/home/peterhorvath/apps/bitcoin/NBDP",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 10000
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "35cc10",
+      "wall_time_seconds": 0.940009175,
+      "exit_code": 0,
+      "original_token_count": 38,
+      "output": "{\"exitCode\": 0, \"reaped\": true, \"eof\": {\"stdout\": true, \"stderr\": true}, \"fault\": null, \"durationSeconds\": 0.8097096519777551, \"inputsUnchanged\": true}\n"
+    }
+  },
+  "polls": []
+}
