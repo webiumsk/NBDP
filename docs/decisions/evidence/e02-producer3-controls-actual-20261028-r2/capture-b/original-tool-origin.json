@@ -1,0 +1,55 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 297 /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source4/capture-b/capture-controls.py --execute-once --root-ack-sha 00dae924f36858477102c7856656fcb0228955df5c79619f7b4dc12b176fc5f4",
+      "workdir": "/home/peterhorvath/apps/bitcoin/NBDP",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 10000
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "c78498",
+      "wall_time_seconds": 1.00174719,
+      "session_id": 17019,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "polls": [
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 17019,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 10000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "679a4d",
+        "wall_time_seconds": 5.000373574,
+        "session_id": 17019,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 17019,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 10000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "070976",
+        "wall_time_seconds": 0.355519026,
+        "exit_code": 0,
+        "original_token_count": 199,
+        "output": "{\"state\": \"WRITES_STOPPED\", \"captureId\": \"capture-b\", \"captureMatched\": true, \"execution\": {\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source4/capture-b/execution.json\", \"bytes\": 3942, \"sha256\": \"4ba86f840a14eb7745d0a265b1ee1a79e88e47b5447e878bc3a072c2e43a4b20\"}, \"scopes\": [{\"scope\": \"rebuilt-artifact-bindings\", \"expected\": 3, \"observed\": 3, \"partitions\": {\"rebuilt-artifact-bindings\": 3}, \"captureMatched\": true, \"execution\": {\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source4/capture-b/scopes/rebuilt-artifact-bindings/execution.json\", \"bytes\": 2826, \"sha256\": \"534f908228da2f324e6f7f936d5a71d53725d50e612212a6aec5da3f3925e053\"}}]}\n"
+      }
+    }
+  ]
+}

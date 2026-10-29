@@ -1,0 +1,70 @@
+{
+  "schema": "nbdp-amethyst-command-correction-model-plan-v1",
+  "state": "DRAFT_NOT_AUTHORIZED",
+  "source": {
+    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/test_command_correction.py",
+    "bytes": 2075,
+    "sha256": "9043862a34476fc75bbf639a210e6dfcf3561598099ddf908e4893e2198bd25d"
+  },
+  "definitions": [
+    "test_exact_task_exclusions_are_the_only_argv_addition",
+    "test_entire_original_build_and_source_guards_are_unchanged",
+    "test_sdk_and_lifecycle_functions_and_prior_seven_models_are_unchanged"
+  ],
+  "definedCount": 3,
+  "executed": 0,
+  "command": [
+    "/usr/bin/python3.12",
+    "-I",
+    "-B",
+    "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/test_command_correction.py"
+  ],
+  "limits": {
+    "seconds": 15,
+    "stdoutBytes": 65536,
+    "stderrBytes": 262144
+  },
+  "directFileOperands": [
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/preparation/build_inside.py",
+      "bytes": 8176,
+      "sha256": "2ecf91a0f9959931075d4b8ac3e4f7e2337054fbcb9b9b58f53707cd1375d405"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/supervisor-source/supervise_build.py",
+      "bytes": 31753,
+      "sha256": "41d8951bae82784fcd90716bdbcbc84956072186eb3e1bd9ff280d437768572c"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/materializer-source/materialize.py",
+      "bytes": 8071,
+      "sha256": "374c15d239e78c3fb448943f0d58a58c9fdaba0c1e2eff7fb19f656067e56035"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/supervisor-source/test_installed_sdk_bindings.py",
+      "bytes": 4917,
+      "sha256": "ae8416b4b6b8a26433ce5d62d1b8ed3b40951a1a455f99dc7e576c7b2525ea7e"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/preparation/build_inside.py",
+      "bytes": 8229,
+      "sha256": "38e1678435fb4ed5912f032e1b25e486cc44e4075a4d2cb2bd59fa540a751705"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/supervisor-source/supervise_build.py",
+      "bytes": 31753,
+      "sha256": "65cc14b76eeb3585371e239b9e5985f56a149d1b33d69987a2499271e39fc094"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/materializer-source/materialize.py",
+      "bytes": 7398,
+      "sha256": "110feb86bdba3f5df1e5ac68fda9fdbfdea47ff72fe174ce30903deb3fe27b10"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/supervisor-source/test_installed_sdk_bindings.py",
+      "bytes": 4917,
+      "sha256": "ae8416b4b6b8a26433ce5d62d1b8ed3b40951a1a455f99dc7e576c7b2525ea7e"
+    }
+  ],
+  "scope": "Three source-read/AST-only regressions. No build/controller/materializer imports, Gradle/Docker, keys, network or SDK operations. Seven prior SDK models byte-identical carry only; old52+16 and prior7 are not rerun."
+}

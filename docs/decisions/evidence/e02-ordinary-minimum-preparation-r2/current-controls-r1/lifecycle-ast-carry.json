@@ -1,0 +1,46 @@
+{
+  "schema": "e02-producer2-capture-lifecycle-ast-carry-v1",
+  "method": "stdlib AST parse only, no import or execution",
+  "functions": [
+    {
+      "function": "utc",
+      "astIdentical": true,
+      "lifecycleAstIdenticalAfterDeclaredReceiptLiteralsOnly": true
+    },
+    {
+      "function": "pin",
+      "astIdentical": true,
+      "lifecycleAstIdenticalAfterDeclaredReceiptLiteralsOnly": true
+    },
+    {
+      "function": "strict",
+      "astIdentical": true,
+      "lifecycleAstIdenticalAfterDeclaredReceiptLiteralsOnly": true
+    },
+    {
+      "function": "doc",
+      "astIdentical": true,
+      "lifecycleAstIdenticalAfterDeclaredReceiptLiteralsOnly": true
+    },
+    {
+      "function": "save",
+      "astIdentical": true,
+      "lifecycleAstIdenticalAfterDeclaredReceiptLiteralsOnly": true
+    },
+    {
+      "function": "installed_membership",
+      "astIdentical": true,
+      "lifecycleAstIdenticalAfterDeclaredReceiptLiteralsOnly": true
+    },
+    {
+      "function": "one_scope",
+      "astIdentical": false,
+      "lifecycleAstIdenticalAfterDeclaredReceiptLiteralsOnly": true
+    }
+  ],
+  "literalChanges": [
+    "scope execution schema version",
+    "receipt meaning explicitly permits fixed-public format/hash DATA and excludes real protocol crypto/native"
+  ],
+  "popenCommunicateCleanupRawRetentionAltered": false
+}

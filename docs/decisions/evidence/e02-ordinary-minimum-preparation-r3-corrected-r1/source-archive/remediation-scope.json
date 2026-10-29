@@ -1,0 +1,41 @@
+{
+  "schema": "e02-producer3-pre-apk-remediation-scope-v1",
+  "initialFindings": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r3-corrected-r1/preserved-initial-findings.json",
+    "bytes": 985,
+    "sha256": "6dff94550c5c5011d084bea8226caea6aeb255d999e99847291255b6b4f6b0e6"
+  },
+  "acceptanceContract": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r3-corrected-r1/acceptance-contract-proposal.json",
+    "bytes": 1287,
+    "sha256": "b01707298e8c5601a35ea58a826816ba80ea14ef5373bb8422d6261eb8c4d10d"
+  },
+  "runtimeBlueprint": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r3-corrected-r1/runtime-input-blueprint.json",
+    "bytes": 1863,
+    "sha256": "cbbd5e035561666268dd02ed33dc79ff94df2122d8afad7f83c4880ef616ac92"
+  },
+  "changedFunctions": [
+    "verify_rebuilt_artifacts",
+    "verify_config"
+  ],
+  "newModuleConstant": "REVIEWED_RUNTIME_INPUTS",
+  "unchangedRuntimeClassAndAllOtherFunctions": true,
+  "unchangedWorkerCount": 16,
+  "sdkRoot": "/tmp/nbdp-e02-api35-fixture-r2/sdk",
+  "guardMembers": 522,
+  "ordinaryLeaseUnchanged": 1800,
+  "futureRuntimeLab": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3",
+  "fourAmethystNulls": [
+    "amethystApk",
+    "amethystProvenance",
+    "amethystAcceptance",
+    "amethystAcceptanceDecision"
+  ],
+  "modelsDefined": 3,
+  "modelsExecuted": 0,
+  "finalProducerSubjectCreated": false,
+  "materializationExecuted": false,
+  "actualRuntimeCreated": false,
+  "artifactOrOrdinaryQualification": false
+}

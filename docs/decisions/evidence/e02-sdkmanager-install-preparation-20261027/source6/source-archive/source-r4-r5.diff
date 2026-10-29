@@ -1,0 +1,230 @@
+--- /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r4/install.py
++++ /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r5/install.py
+@@ -5,6 +5,7 @@
+ """
+ import argparse
+ import codecs
++import errno
+ import hashlib
+ import json
+ import os
+@@ -27,6 +28,8 @@
+     'XDG_CACHE_HOME':'/user/cache','XDG_CONFIG_HOME':'/user/config','TMPDIR':'/user/tmp','ANDROID_HOME':'/sdk','ANDROID_SDK_ROOT':'/sdk',
+     'LANG':'C.UTF-8','LC_ALL':'C.UTF-8','TZ':'UTC','JAVA_TOOL_OPTIONS':'-Xmx768m -XX:MaxMetaspaceSize=256m -XX:ActiveProcessorCount=2 -Duser.home=/user/home -Djava.io.tmpdir=/user/tmp'}
+ CAPS={'stdout':16777216,'stderr':4194304}
++TREE_MEMBER_CAP=200000
++TREE_BYTE_CAP=8589934592
+ 
+ 
+ def need(ok,why):
+@@ -67,16 +70,51 @@
+     fd=os.open(OUTPUT,os.O_RDONLY|os.O_DIRECTORY);os.fsync(fd);os.close(fd)
+ 
+ 
+-def usage():
+-    count=0;total=0
++def sampling_observations():
++    return dict(vanishedCount=0,vanishedCountSaturated=False,examples=[],samplingIncomplete=False)
++
++
++def usage(live=False,observations=None):
++    count=0;total=0;vanished=0
++    observations=sampling_observations() if observations is None else observations
+     for root in (SDK,USER,OUTPUT):
+-        for base,dirs,files in os.walk(root,followlinks=False):
++        enumerated_dirs=set()
++        def vanished_entry(error,path,operation):
++            nonlocal vanished
++            if not (live and isinstance(error,FileNotFoundError) and error.errno==errno.ENOENT
++                    and path is not None and path.is_absolute() and '..' not in path.parts
++                    and path!=root and path.is_relative_to(root)
++                    and (operation=='lstat' or path in enumerated_dirs)):
++                return False
++            vanished+=1;observations['samplingIncomplete']=True
++            if observations['vanishedCount']<200000:observations['vanishedCount']+=1
++            else:observations['vanishedCountSaturated']=True
++            if len(observations['examples'])<16:
++                relative=str(path.relative_to(root));observations['examples'].append(dict(root=str(root),path=relative[:512],pathTruncated=len(relative)>512,operation=operation))
++            return True
++        def traversal_error(error):
++            filename=error.filename
++            path=Path(filename) if type(filename) is str and filename and '\x00' not in filename else None
++            canonical=path is not None and str(path)==filename
++            if canonical and vanished_entry(error,path,'scandir'):return
++            raise error
++        for base,dirs,files in os.walk(root,followlinks=False,onerror=traversal_error):
+             for name in dirs+files:
+-                path=Path(base)/name;st=path.lstat();count+=1;need(count<=200000,'WRITABLE_TREE_MEMBER_CAP')
+-                if stat.S_ISLNK(st.st_mode):need(path.resolve(strict=True).is_relative_to(root),'WRITABLE_LINK_ESCAPE')
++                path=Path(base)/name;need(path.is_absolute() and '..' not in path.parts and path!=root and path.is_relative_to(root),'WRITABLE_ENUMERATED_PATH_ESCAPE')
++                if name in dirs:enumerated_dirs.add(path)
++                count+=1;need(count<=TREE_MEMBER_CAP,'WRITABLE_TREE_MEMBER_CAP')
++                try:st=path.lstat()
++                except FileNotFoundError as error:
++                    if vanished_entry(error,path,'lstat'):continue
++                    raise
++                if stat.S_ISLNK(st.st_mode):
++                    target=path.readlink();lexical=Path(os.path.normpath(str(path.parent/target)))
++                    need(lexical.is_relative_to(root),'WRITABLE_LINK_ESCAPE')
++                    need(path.resolve(strict=True).is_relative_to(root),'WRITABLE_LINK_ESCAPE')
+                 else:need(stat.S_ISDIR(st.st_mode) or stat.S_ISREG(st.st_mode),'WRITABLE_SPECIAL_FILE')
+-                if stat.S_ISREG(st.st_mode):total+=st.st_size;need(total<=8589934592,'WRITABLE_TREE_BYTE_CAP')
+-    return dict(members=count,regularBytes=total,meaning='Cooperative sampled tree budget, not an atomic aggregate quota or resource peak.')
++                if stat.S_ISREG(st.st_mode):total+=st.st_size;need(total<=TREE_BYTE_CAP,'WRITABLE_TREE_BYTE_CAP')
++    return dict(phase='LIVE' if live else 'QUIESCENT',members=count,regularBytes=total,vanishedInThisSample=vanished,samplingIncomplete=vanished>0,
++        meaning='Cooperative sampled tree budget; recorded LIVE descendant namespace races are not a complete snapshot, atomic quota, resource peak or PID/absence evidence.')
+ 
+ 
+ def leader_exited(child):
+@@ -137,7 +175,7 @@
+ def run(p,started):
+     deadline=started+1050;body_end=started+1020
+     first=None;secondary=[];child=None;selector=None;outputs={};counts={k:0 for k in CAPS};eofs={k:False for k in CAPS}
+-    consent=initial_consent();cleanup=None;metadata=None;last_usage=None;capture_overrun=None
++    consent=initial_consent();cleanup=None;metadata=None;last_usage=None;capture_overrun=None;live_sampling=sampling_observations()
+     def fault(why):
+         nonlocal first
+         if first is None:first=why
+@@ -172,7 +210,7 @@
+         next_scan=0
+         while True:
+             now=time.monotonic();need(now<body_end,'INSTALL_BODY_TIMEOUT')
+-            if now>=next_scan:last_usage=usage();next_scan=now+1
++            if now>=next_scan:last_usage=usage(live=True,observations=live_sampling);next_scan=now+1
+             for key,_ in selector.select(timeout=min(0.1,body_end-now)):
+                 stream=key.data;raw=os.read(key.fileobj.fileno(),65536)
+                 if not raw:
+@@ -208,12 +246,12 @@
+             try:
+                 need(cleanup['returnCode']==0 and all(eofs.values()),'NATURAL_ZERO_AND_BOTH_RAW_EOF_REQUIRED')
+                 need(time.monotonic()+5<deadline,'INSTALLED_METADATA_BUDGET')
+-                metadata=local_metadata();last_usage=usage();need(time.monotonic()<deadline,'INNER_TOTAL_BUDGET')
++                metadata=local_metadata();last_usage=usage(live=False);need(time.monotonic()<deadline,'INNER_TOTAL_BUDGET')
+             except BaseException as e:fault('INSTALLED_METADATA:'+type(e).__name__+':'+str(e)[:2048])
+         result=dict(state='SDKMANAGER_FINISHED_PENDING_INDEPENDENT_INSTALLED_DATA_REVIEW' if first is None else 'FAILED_OR_UNQUALIFIED_NO_RETRY',firstFault=first,secondary=secondary,
+             packages=PACKAGES,consent=dict(consent,flushAndSentRecorded=consent['flushReturned'] and consent['sentJournalCommitted'],
+                 consumption='UNKNOWN' if consent['stdinWriteInvoked'] else 'NO_STDIN_WRITE_INVOKED',installationSuccessIndependent=True),cleanup=cleanup,rawBytes=counts,rawEOF=eofs,captureOverrun=capture_overrun,
+-            raw={k:pin(OUTPUT/('sdkmanager.'+k)) for k in outputs},installedMetadata=metadata,lastSampledUsage=last_usage,
++            raw={k:pin(OUTPUT/('sdkmanager.'+k)) for k in outputs},installedMetadata=metadata,lastSampledUsage=last_usage,liveSamplingObservations=live_sampling,
+             oldSdkJdkModified=False,privateKeysUsed=False,androidClientExecuted=False,canonicalE02Changed=False,hostileAtomicClosureClaimed=False,
+             qualification='Installation candidate only; independent full actual DATA acceptance and versioned build binding remain mandatory.')
+         record('installation-result.json',result);print(json.dumps(result),flush=True)
+--- /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r4/test_prompt_models.py
++++ /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r5/test_prompt_models.py
+@@ -2,9 +2,15 @@
+ from pathlib import Path
+ import sys
+ import hashlib
++import errno
++import tempfile
++import stat
++from types import SimpleNamespace
++from unittest.mock import patch
+ import unittest
+ sys.path.insert(0,str(Path(__file__).resolve().parent))
+ import prompt as p
++import install as installer
+ 
+ BODY='SYNTHETIC approved body \u20ac\n\nSecond paragraph.'
+ 
+@@ -141,5 +147,68 @@
+         with self.assertRaises(ValueError):value.feed((value.frame+'\rLicense other-license malformed').encode())
+         with self.assertRaises(ValueError):p.reject_stderr_prompt('progress\rLicense other-license:')
+ 
++    def test_live_enumerated_rename_races_are_recorded_for_lstat_and_scandir(self):
++        for operation in ('lstat','scandir'):
++            with self.subTest(operation=operation),tempfile.TemporaryDirectory(prefix='nbdp-sdk-live-sample-') as folder:
++                roots=[Path(folder)/name for name in ('sdk','user','output')]
++                for root in roots:root.mkdir()
++                victim=roots[0]/'moving'
++                if operation=='lstat':victim.write_bytes(b'SYNTHETIC')
++                else:victim.mkdir()
++                def walk(root,followlinks=False,onerror=None):
++                    if root==roots[0]:
++                        if operation=='lstat':
++                            names=['moving'];victim.rename(roots[0]/'moved');yield str(root),[],names
++                        else:
++                            yield str(root),['moving'],[]
++                            victim.rename(roots[0]/'moved')
++                            onerror(FileNotFoundError(errno.ENOENT,'SYNTHETIC_RENAME',str(victim)))
++                    else:yield str(root),[],[]
++                observed=installer.sampling_observations()
++                with patch.object(installer,'SDK',roots[0]),patch.object(installer,'USER',roots[1]),patch.object(installer,'OUTPUT',roots[2]),patch.object(installer.os,'walk',walk):
++                    result=installer.usage(live=True,observations=observed)
++                self.assertEqual(result['vanishedInThisSample'],1);self.assertTrue(result['samplingIncomplete'])
++                self.assertEqual(observed['vanishedCount'],1);self.assertEqual(observed['examples'][0]['operation'],operation)
++                self.assertEqual(observed['examples'][0]['path'],'moving');self.assertTrue(observed['samplingIncomplete'])
++
++    def test_quiescent_races_and_live_non_enoent_or_root_errors_remain_fatal(self):
++        for operation,error_number,live in (('lstat',errno.ENOENT,False),('scandir',errno.ENOENT,False),
++                ('lstat',errno.EACCES,True),('lstat',errno.EIO,True),('scandir',errno.EACCES,True),('scandir',errno.EIO,True),('root',errno.ENOENT,True)):
++            with self.subTest(operation=operation,error=error_number,live=live),tempfile.TemporaryDirectory(prefix='nbdp-sdk-strict-sample-') as folder:
++                roots=[Path(folder)/name for name in ('sdk','user','output')]
++                for root in roots:root.mkdir()
++                victim=roots[0]/'moving'
++                if operation=='lstat':victim.write_bytes(b'SYNTHETIC')
++                else:victim.mkdir()
++                original_lstat=Path.lstat
++                def stat_path(path,*args,**kwargs):
++                    if path==victim and operation=='lstat':
++                        if error_number==errno.ENOENT:victim.rename(roots[0]/'moved')
++                        raise OSError(error_number,'SYNTHETIC_STAT_FAILURE',str(path))
++                    return original_lstat(path,*args,**kwargs)
++                def walk(root,followlinks=False,onerror=None):
++                    if root==roots[0]:
++                        if operation=='root':onerror(FileNotFoundError(errno.ENOENT,'SYNTHETIC_ROOT_ERROR',str(root)))
++                        yield str(root),([] if operation=='lstat' else ['moving']),(['moving'] if operation=='lstat' else [])
++                        if operation=='scandir':
++                            if error_number==errno.ENOENT:victim.rename(roots[0]/'moved')
++                            onerror(OSError(error_number,'SYNTHETIC_TRAVERSAL_FAILURE',str(victim)))
++                    else:yield str(root),[],[]
++                observed=installer.sampling_observations()
++                with patch.object(installer,'SDK',roots[0]),patch.object(installer,'USER',roots[1]),patch.object(installer,'OUTPUT',roots[2]),patch.object(installer.os,'walk',walk),patch.object(Path,'lstat',stat_path),self.assertRaises(OSError):
++                    installer.usage(live=live,observations=observed)
++                self.assertEqual(observed['vanishedCount'],0);self.assertFalse(observed['samplingIncomplete'])
++
++        # Bounded synthetic stat rows exercise unchanged8GiB/200000 checks using
++        # tiny patched thresholds; no large tree, archive or resource workload.
++        for guard in ('members','bytes'):
++            with self.subTest(guard=guard),tempfile.TemporaryDirectory(prefix='nbdp-sdk-sampling-cap-') as folder:
++                roots=[Path(folder)/name for name in ('sdk','user','output')]
++                for root in roots:root.mkdir()
++                def walk(root,followlinks=False,onerror=None):yield str(root),[],(['a','b','c'] if root==roots[0] else [])
++                def row(path,*args,**kwargs):return SimpleNamespace(st_mode=stat.S_IFREG|0o600,st_size=9 if guard=='bytes' else 0)
++                with patch.object(installer,'SDK',roots[0]),patch.object(installer,'USER',roots[1]),patch.object(installer,'OUTPUT',roots[2]),patch.object(installer.os,'walk',walk),patch.object(Path,'lstat',row),patch.object(installer,'TREE_MEMBER_CAP',2 if guard=='members' else 200000),patch.object(installer,'TREE_BYTE_CAP',8 if guard=='bytes' else 8589934592),self.assertRaises(ValueError):
++                    installer.usage(live=True,observations=installer.sampling_observations())
++
+ 
+ if __name__=='__main__':unittest.main(verbosity=2)
+--- /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r4/install-plan.json
++++ /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r5/install-plan.json
+@@ -70,8 +70,8 @@
+   "sourceFiles": [
+     {
+       "path": "/prep/install.py",
+-      "bytes": 14948,
+-      "sha256": "093434fa2a93cdbf8384149d37afe3a8e8a749173a220b53cc999ad9f712c034"
++      "bytes": 17434,
++      "sha256": "64475bc0d2bfc9b2c59eacb74586dfff83bb88b2d2055c9e821740a92aceaa31"
+     },
+     {
+       "path": "/prep/prompt.py",
+--- /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r4/host-bindings.json
++++ /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r5/host-bindings.json
+@@ -1,6 +1,6 @@
+ {
+   "schema": "nbdp-sdkmanager22-inner-to-outer-binding-v1",
+-  "sourceRoot": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r4",
++  "sourceRoot": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r5",
+   "sourceContainerMount": "/prep",
+   "inputBundle": "/tmp/nbdp-e02-sdk-install-controller-20261027/input-bundle-r1",
+   "inputBundleInventory": {
+@@ -94,7 +94,7 @@
+     "/user",
+     "/output"
+   ],
+-  "hostWritableRoot": "/Data/nbdp-e02-tooling-20261027/controller-r4/writable-r1",
++  "hostWritableRoot": "/Data/nbdp-e02-tooling-20261027/controller-r5/writable-r1",
+   "innerArgv": [
+     "/usr/bin/python3",
+     "-I",

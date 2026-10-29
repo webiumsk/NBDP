@@ -1,0 +1,112 @@
+{
+  "schema": "nbdp-sdkmanager22-inner-to-outer-binding-v1",
+  "sourceRoot": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r5",
+  "sourceContainerMount": "/prep",
+  "inputBundle": "/tmp/nbdp-e02-sdk-install-controller-20261027/input-bundle-r1",
+  "inputBundleInventory": {
+    "path": "/tmp/nbdp-e02-sdk-install-controller-20261027/input-bundle-inventory-r1.json",
+    "bytes": 1508,
+    "sha256": "a935c1bd95aeb34019fd09124d30224669bb1dc453df01aa086e3a738872fbb9"
+  },
+  "inputBundleOrigin": {
+    "path": "/tmp/nbdp-e02-sdk-install-controller-20261027/input-bundle-origin-r1.json",
+    "bytes": 2505,
+    "sha256": "da72419ad65359c386df8af2977497b8b40af48522415aabd183c1f5922c9fe5"
+  },
+  "inputFiles": [
+    {
+      "source": {
+        "path": "/tmp/nbdp-e02-sdk-install-controller-20261027/input-bundle-r1/SdkManagerCli.java",
+        "bytes": 8762,
+        "sha256": "a7b53fc2ee4de9b2268d019e3e104ee5d3ffb2be9108484f9c1940aeb85a8d1b"
+      },
+      "containerPath": "/inputs/SdkManagerCli.java"
+    },
+    {
+      "source": {
+        "path": "/tmp/nbdp-e02-sdk-install-controller-20261027/input-bundle-r1/TrimStringAdapter.java",
+        "bytes": 2232,
+        "sha256": "5fc4684d8afdd7e68f57adfcf71d90ef6981d78c8f0a64d366a66d0515efc5d1"
+      },
+      "containerPath": "/inputs/TrimStringAdapter.java"
+    },
+    {
+      "source": {
+        "path": "/tmp/nbdp-e02-sdk-install-controller-20261027/input-bundle-r1/approved-license.txt",
+        "bytes": 16962,
+        "sha256": "1f8729233617b193fd619213792ae16a41b95d2bbbf525dfe66998252ba68b16"
+      },
+      "containerPath": "/inputs/approved-license.txt"
+    },
+    {
+      "source": {
+        "path": "/tmp/nbdp-e02-sdk-install-controller-20261027/input-bundle-r1/archive-acceptance.json",
+        "bytes": 1326,
+        "sha256": "eb1ac3c474c4d764823901f5e2375a0a654518b48a9cbd6f0d48c0bc6566a352"
+      },
+      "containerPath": "/inputs/archive-acceptance.json"
+    },
+    {
+      "source": {
+        "path": "/tmp/nbdp-e02-sdk-install-controller-20261027/input-bundle-r1/probe-acceptance.json",
+        "bytes": 1531,
+        "sha256": "9986c86ca1f47559b57b23c1e21ad1ced7a6810fa0ba817b990eef4285b2e009"
+      },
+      "containerPath": "/inputs/probe-acceptance.json"
+    },
+    {
+      "source": {
+        "path": "/tmp/nbdp-e02-sdk-install-controller-20261027/input-bundle-r1/repository2-3.xml",
+        "bytes": 426356,
+        "sha256": "d3678697ece7b7c3df6e3eed8363bf3944176931728af251268268a2d0d7d900"
+      },
+      "containerPath": "/inputs/repository2-3.xml"
+    },
+    {
+      "source": {
+        "path": "/tmp/nbdp-e02-sdk-install-controller-20261027/input-bundle-r1/user-decision.json",
+        "bytes": 1975,
+        "sha256": "4a360a60b0b7bee5b2abc2db7f50cd69e86f4d8bcb5d4d96068707204c874e0f"
+      },
+      "containerPath": "/inputs/user-decision.json"
+    }
+  ],
+  "readonlyTrees": [
+    {
+      "root": "/jdk",
+      "receipt": {
+        "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/acquisition/jdk-extraction.json",
+        "bytes": 178456,
+        "sha256": "a2547e5989af52335e1a03d853797e0e1efa57b55d782214620ee56ca80b0db2"
+      }
+    },
+    {
+      "root": "/bootstrap/cmdline-tools/22.0",
+      "receipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-cmdline22-acquisition-actual-20261027/cmdline-tools-extraction.json",
+        "bytes": 135901,
+        "sha256": "452da3844b43ce9d8dddc11e33cac50b53d5b143646cc92e8789f66cde638173"
+      }
+    }
+  ],
+  "writableContainerPaths": [
+    "/sdk",
+    "/user",
+    "/output"
+  ],
+  "hostWritableRoot": "/Data/nbdp-e02-tooling-20261027/controller-r5/writable-r1",
+  "innerArgv": [
+    "/usr/bin/python3",
+    "-I",
+    "-B",
+    "/prep/install.py",
+    "--plan",
+    "/prep/install-plan.json",
+    "--plan-sha",
+    "FINAL_PLAN_SHA"
+  ],
+  "resultPath": "/output/installation-result.json",
+  "successState": "SDKMANAGER_FINISHED_PENDING_INDEPENDENT_INSTALLED_DATA_REVIEW",
+  "outerControllerSourceFinalization": "Owned by separate implementer; must independently bind exact inner source/plan/subject and closed flat membership before actualrelease",
+  "executionAuthorized": false
+}

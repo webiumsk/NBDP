@@ -1,0 +1,268 @@
+{
+  "schema": "e02-producer4-helper-probe-preparation-plan-v1",
+  "author": "/root/r5_plan_fix",
+  "coordinator": "/root",
+  "state": "SOURCE_PLANNING_ONLY_NO_IMPLEMENTATION_OR_EXECUTION_AUTHORITY",
+  "scope": "One owned isolated guard-helper latency/timer-dispatch probe only; no ordinary client or relay-cause qualification.",
+  "readiness": false,
+  "executionAuthorized": false,
+  "pendingBindings": {
+    "finalProducerSource": null,
+    "finalProducerConfig": null,
+    "finalProducerControlPlan": null,
+    "finalProducerPureDataAcceptance": null,
+    "probeConfiguration": null,
+    "finalControllerSource": null,
+    "finalExecutionPlan": null,
+    "finalSourceQa": null,
+    "finalSourceSecurity": null,
+    "finalControlDataAcceptance": null,
+    "concreteInputAcceptance": null,
+    "rootRelease": null,
+    "runId": null,
+    "creationNonce": null,
+    "containerName": null,
+    "cid": null,
+    "hostUidGid": null,
+    "privateInputRoot": null,
+    "privateControlRoot": null,
+    "privateOutputRoot": null,
+    "privateDockerConfig": null,
+    "lease": null,
+    "leaseSha256": null,
+    "probeConfigurationSha256": null,
+    "expectedImageConfiguration": null,
+    "actualInitialInspection": null,
+    "actualTerminalInspection": null,
+    "actualCleanup": null,
+    "originalToolOrigin": null
+  },
+  "observedWipInputs": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-helper-probe-preparation-20261028/observed-source-inputs.json",
+    "bytes": 6329,
+    "sha256": "368d79552268257081d205d7512b39e717203724dafd750e8cba3cd6d0efd59e"
+  },
+  "commandTemplates": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-helper-probe-preparation-20261028/command-templates.json",
+    "bytes": 5038,
+    "sha256": "c8cdc8a11e935617df71d5a9e662ae17cb1686908b23840e3f3a295b160bb927"
+  },
+  "recipe": {
+    "guestNode": "/usr/local/bin/node",
+    "guestProbe": "/input/probe-guard-helper.mjs",
+    "helper": "/input/guard-helper.py",
+    "originalGuard": "/input/lease_guard.py",
+    "restoredPython": "/guard-python/bin/python3.11",
+    "loader": "/guard-python/lib/ld-linux-x86-64.so.2",
+    "loaderArgv": [
+      "--inhibit-cache",
+      "--library-path",
+      "/guard-python/lib",
+      "/guard-python/bin/python3.11",
+      "-B",
+      "-P",
+      "-S",
+      "-s",
+      "/input/guard-helper.py",
+      null,
+      null,
+      null,
+      null
+    ],
+    "freshChecks": 64,
+    "labels": "probe:warm-0 through probe:warm-63",
+    "contextBytes": "UTF8 decimal index",
+    "timerMilliseconds": 10,
+    "postCheckObservationMilliseconds": 100,
+    "jobSeconds": 55,
+    "helperCleanupReserveInsideJobSeconds": 2,
+    "effectDeadlineBeforeCleanupSeconds": 53,
+    "decisionSecondsIncludingEnqueueAndStartup": 5,
+    "expectedClose": {
+      "operation": "CLOSE",
+      "label": "owner-close",
+      "requestSequence": "65",
+      "clocks": null,
+      "zeroPendingFutureEffects": true
+    },
+    "metrics": "Retain all64 duration decimal strings and actual timer gap decimal strings;10ms is requested cadence, not guaranteed dispatch precision or backend-cause proof."
+  },
+  "originalLease": {
+    "seconds": 1800,
+    "issuedBeforeStaging": true,
+    "renewalAllowed": false,
+    "retryAllowed": false,
+    "clockDomains": [
+      "Utc",
+      "Mono",
+      "Boot"
+    ],
+    "bootIdentityRequired": true,
+    "preLaunchRemainingSecondsAtLeast": 183,
+    "leaseFile": null,
+    "source": "Exact unchanged original Lease core and readonly9-key original lease; no fresh permit cache."
+  },
+  "operationalBudgetProposal": {
+    "state": "SOURCE_PROPOSAL_REQUIRES_ROOT_ADOPTION_AND_INDEPENDENT_REVIEW",
+    "controllerSeconds": 180,
+    "outerSeconds": 183,
+    "ledger": [
+      {
+        "phase": "input staging/current expected-source/tree admission/create/initial inspection",
+        "seconds": 30
+      },
+      {
+        "phase": "attached target55 +one absolute3 reap",
+        "seconds": 58
+      },
+      {
+        "phase": "bounded exact-CID cleanup/absence including child reap",
+        "seconds": 48
+      },
+      {
+        "phase": "postread custody/final evidence",
+        "seconds": 20
+      },
+      {
+        "phase": "admission/safety/flush reserve",
+        "seconds": 24
+      }
+    ],
+    "singleAbsoluteControllerDeadline": true,
+    "target55Unchanged": true,
+    "meaning": "No stage starts without its full remaining reserved budget. Docker startup is inside attached55; slow startup shrinks usable Node time. Inner recipe55 never grants an extension beyond host attached55. Exhaustion is negative/UNKNOWN with bounded owned cleanup, no retry."
+  },
+  "resources": {
+    "image": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+    "cpu": 1,
+    "memoryBytes": 1073741824,
+    "memorySwapBytes": 1073741824,
+    "pids": 128,
+    "network": "none",
+    "containerCount": 1,
+    "readOnlyRoot": true,
+    "capabilitiesDropped": "ALL",
+    "noNewPrivileges": true,
+    "init": true,
+    "hostUidGid": null,
+    "devices": [],
+    "hostGuiBridge": false,
+    "forbidden": [
+      "SDK",
+      "KVM",
+      "Android/AVD",
+      "APK",
+      "relay",
+      "native Rust",
+      "real data/keys",
+      "Docker socket mount",
+      "node_modules",
+      "pull/network fetch"
+    ]
+  },
+  "mounts": [
+    {
+      "guest": "/input",
+      "host": null,
+      "readonly": true,
+      "members": [
+        "probe-guard-helper.mjs",
+        "guard-client.mjs",
+        "guard-client-core.mjs",
+        "guard-wire.mjs",
+        "guard-helper.py",
+        "lease_guard.py",
+        "capture-allocation.mjs",
+        "guard-transport-boundaries.mjs"
+      ],
+      "authority": "Final exact8-file expected descriptor closure; all regular/no aliases, byte/mode/member checks before import/spawn."
+    },
+    {
+      "guest": "/guard-python",
+      "host": "/tmp/nbdp-e02-minimal-rs-v7/guard-python",
+      "readonly": true,
+      "authority": {
+        "path": "/tmp/nbdp-e02-minimal-rs-v7/records/guard-bundle-manifest.json",
+        "bytes": 332736,
+        "sha256": "9de311222ef78e20fbe05bfef32898976d80737d5d932166d23431a04a73a454"
+      },
+      "currentObservationRequired": "Verify all522 expected regular files/modes/memberships before+after; source declaration/postrunR2 are context only, not future current admission."
+    },
+    {
+      "guest": "/session/lease.json",
+      "host": null,
+      "readonly": true
+    },
+    {
+      "guest": "/session/control",
+      "host": null,
+      "readonly": false,
+      "meaning": "Fresh owned sticky revocation only; no shared runtime/role tree."
+    }
+  ],
+  "ownedWritableOutput": {
+    "hostRoot": null,
+    "guestGenericOutputMount": false,
+    "writer": "Future finite Root-owned host collector only, O_EXCL0600 regular files/private0700 dirs.",
+    "maximumPhysicalProofBytes": 16777216,
+    "perOwnerMaximumBytes": 8388608,
+    "stdoutMaximumBytes": 8384512,
+    "stderrMaximumBytes": 4096,
+    "remainingBytes": "8MiB reserved jointly for input copies/config/lease/intents/CLI identity/cleanup receipts/metadata. All new regular proof files count once; no second raw/log copy.",
+    "sourceProofAccountBytes": 8380416,
+    "sourceDiagnosticsBytes": 4096,
+    "sourceHeaderReservationBytes": 1024,
+    "physicalMeaning": "Require bounded precharge/write accounting and actual retained-file lengths; intended/acknowledged bytes are not unconditionally atomic physical-write attestations. Unknown/short/failed writes poison and refuse success."
+  },
+  "sourceCustody": {
+    "expectedBeforeEveryInvocation": true,
+    "afterExpectedSame": true,
+    "source8": [
+      "probe-guard-helper.mjs",
+      "guard-client.mjs",
+      "guard-client-core.mjs",
+      "guard-wire.mjs",
+      "guard-helper.py",
+      "lease_guard.py",
+      "capture-allocation.mjs",
+      "guard-transport-boundaries.mjs"
+    ],
+    "guard522": true,
+    "images": "Exact cached image ID/config before create and actualCID.Image; no archive/image bytes copied.",
+    "noPrivateState": true,
+    "unknownCreatedCid": "UNKNOWN_ROOT_RECONCILIATION_REQUIRED; no name-only kill/rm, silent retry or grant reuse."
+  },
+  "acceptanceCriteria": [
+    "Independent method/SOURCE/control/concrete review and exact Root one-use grant precede execution; planning artifact is not a grant.",
+    "All final expected source/runtime/import/mode/membership pins match before and after; no observed-baseline substitution.",
+    "Exactlyone current ownedCID and exact4mount allowlist/networknone/1CPU1024MiB128PID/UID/flags; no foreign membership/devices/host bridge.",
+    "Actual Docker CLI child natural0/reaped/both pipeEOF/no forced closure and container terminalexit0; outerAPI directterminal or genuine same-session allpolls retained separately.",
+    "Exactly64 CHECKs, label/context/requestSHA/response/instance/run/lease/guardSequence one-use joins, then CLOSE65 with nullclocks; no restart or reused success.",
+    "Guard controller exact final frozen DTO/lifecycle/audit, original core/runtime/helper source pins, fresh5s/three-domain/boot checks, no terminal/stderr/unsolicited data, both helperEOF+naturally observedexit0+close; actual Nodechild evidence is not Popen/innerAPI attestation.",
+    "All timer/duration rows retained within55 including2cleanup, nominal10ms reported honestly; no new timerprecision threshold or claim that relay backend/client interoperability is fixed.",
+    "ExactCID owner reinspection precedes any removal; confirm absence even if retention/logging/removal had an error. Cleanup uncertainty/failure is UNKNOWN/unqualified, no automaticretry.",
+    "One-use output/nooverwrite, physicalproof<=16MiB andowner<=8MiB; stdout/stderr sourceencoding precharged; no truncation/partialwrite/skip/unknownfield acceptance.",
+    "Independent DATA QA/security authenticate actual actors/receipts; author/operator union from final Source/runtime/controls excludes planner/root/producer4/allocator and all declared lineage before accepting reviews."
+  ],
+  "requiredSourceAndControlGates": [
+    "Final P4 source/config/22worker import closure and probe embedded pins frozen by owner; probe-specific8-file closure exact.",
+    "Root selects finalP4 CODE+acceptedfresh pureDATA; then selects/adopts minimaloneCID controller SOURCE proposal180/183 and log/physicalbudget scope.",
+    "Source author extracts/reuses finite primitives without invoking ordinary-role Runtime.main/start/cleanup loops; exactlyoneCID adaptation independently reviewed.",
+    "Fresh focused controls: wrong expectedbytes/hash/mode/import/member/image/mount/CID/label/UID, shortlease/55boundary, selector/spawnfailure, helper DENY/death/lateOK/suspend/revocation, stderr/EOF/close ordering, capture/physicalcap/partialwrite, duplicate/shared output and interruptedcreation/cleanup deadline. Actual scope/count mustbe frozen before running, no historic9/29 transfer.",
+    "Concrete exact current sources/guard522/image/hosttools/fresh paths/clocks and one-use release independently reviewed; no containerIDs/grants now."
+  ],
+  "evidenceLimits": [
+    "Historical lifecycle9 acceptance covers selected generic child-control primitives only, not this helper/container or8MiB/55 adaptation.",
+    "Historical guard29/cleanup24 and negative14/postrunR2 are limited accepted scopes, not new probe readiness.",
+    "Restored guard bundle manifest is offline522-file byte provenance; its own scope explicitly does not establish runtime/container compatibility.",
+    "All14 ordinary attempts remain unqualified/0rows, canonicalE02 PARTIAL22; ordinary1800/query10s/handshake3s/command55/control45/15s guard gap and all blocker/SDK gates unchanged."
+  ],
+  "modelsDefined": 0,
+  "modelsExecuted": 0,
+  "checksExecuted": 0,
+  "probeExecutions": 0,
+  "containersStarted": 0,
+  "runtimeExecutions": 0,
+  "ordinaryRowsQualified": 0,
+  "canonicalE02": "PARTIAL22_UNCHANGED"
+}

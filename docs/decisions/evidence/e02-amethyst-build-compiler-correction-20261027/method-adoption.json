@@ -1,0 +1,47 @@
+{
+  "actor": "/root",
+  "decision": "ADOPT_NEW_COMPILER_CONFIGURATION_AND_FINITE_ARTIFACT_BUDGET_FOR_SOURCE_PREPARATION_ONLY",
+  "authority": "Persistent user-authorized isolated artifact fixes; separately reviewed fresh method only. No current build execution authority.",
+  "priorFailedController": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/actual-controller/result.json",
+    "bytes": 1263,
+    "sha256": "92f3c9818349e519f8305219c04f7937002aab01dbdd621b3a0d2ab2c44a9600"
+  },
+  "priorPostcheck": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/post-checks-r2/result.json",
+    "bytes": 1036,
+    "sha256": "e0d081f4da9819b793f13a64233ea1b6e8b334dbda2245e0f62fee27d1fd666f"
+  },
+  "compilerSourceFinding": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/kotlin-configuration-source-finding.json",
+    "bytes": 4493,
+    "sha256": "a6353ee4b6b1971a3691d82b3e129e83997b0972a396d8dc7abd2a26e9d2b755"
+  },
+  "architect": {
+    "reviewer": "/root/artifact_budget_boundary",
+    "conclusion": "The cold artifact-build time budget is operational tooling scope. Canonical E02 specifies no compilation-duration criterion. No new Product Owner architectural decision is required solely for a separately versioned finite artifact budget within existing isolated-fix authority.",
+    "evidence": "Canonical required-experiments.md E02:86-110; exact SDK decision includes isolated Amethyst building; ordinary producer3 maximumOriginalLeaseSeconds1800 remains independent."
+  },
+  "proposedArgvChanges": [
+    "--max-workers=3 to --max-workers=1",
+    "Gradle JVM heap3g to4g within unchanged Docker6GiB hard cap; metaspace768m retained",
+    "-Dkotlin.daemon.jvmargs to -Pkotlin.daemon.jvmargs with same1536m/512m value",
+    "Add -Pkotlin.compiler.execution.strategy=in-process",
+    "Add --info to retain actual compiler strategy/configuration evidence"
+  ],
+  "artifactOnlySeconds": {
+    "job": 3600,
+    "attachedCli": 3645,
+    "supervisor": 3900,
+    "cleanupReserve": 120,
+    "rootLease": 4200,
+    "outer": 4197,
+    "outerKillGrace": 3,
+    "jobKillGrace": 5
+  },
+  "reason": "r5 ended with actual timeout124/OOMKilledtrue after daemon disappearance and incomplete artifact stage. Pinned source establishes wrong property namespace; one worker/in-process avoids separate8g compiler-daemon configuration. Same hard container cap;4g shared heap leaves bounded headroom and is not a sufficiency guarantee. A fresh60-minute whole-artifact job allows cold extraction/compilation/source/signature validation; not a guaranteed3600-second Gradle window.",
+  "unchanged": "Docker6GiB/4CPU/512PID, UID1000, read-only SDK/JDK/archive, workdir/work, fresh work/cache/keys, exact-owned CID/network guards, no host numeric-PID signals, complete source equality/output allowlist and APK/signature checks,12GiB disk floor, all ordinary-client1800 lease/timing/UI/wire/role/export/replay/consume criteria and architecture blockers.",
+  "required": "Preserve failed r5 and all raw/post/consent evidence; no grant reuse. Independently accept negative DATA. New frozen SOURCE and targeted command/clock/guard models with independent DATA acceptance; current concrete two-review method and root one-use grant before any new build.",
+  "executionAuthorized": false,
+  "provenance": "Actual architect mailbox assessment faithfully transcribed; it does not authorize execution. Coordinator selects this bounded SOURCE proposal under current user scope."
+}

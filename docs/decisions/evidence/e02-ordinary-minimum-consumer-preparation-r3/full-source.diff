@@ -1,0 +1,1108 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v2/CONTRACT.md
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v3/CONTRACT.md
+@@ -1,8 +1,8 @@
+-# Minimum ordinary evidence consumer v1 schemas — SOURCE revision2
++# Minimum ordinary evidence consumer v3 — producer2 DATA contract
+ 
+ SOURCE preparation only. This standalone DATA consumer is bound to producer
+-subject `296acf346bb034bcb8becc22562494e5f37e78c3f78537d061e83455135315b4`
+-and export contract `69ad2717aeeb23ebdfcc326e79de7a3b1f9f8819a02157c97f6c91926f617943`.
++subject `ef91dc64189d7c47a4b4539c4dacd93a4c5c760da8f98bf1b203040bba6eeffd`
++and export contract `7fd7b71898584b4b9f90fbe9ae4601df0d1b9f3dfdc995012dfd63824fba9bfc`.
+ It cannot retarget a repaired producer or the old eight-cell consumer. Preserve
+ this freeze and prepare a new reviewed version when those operands change.
+ 
+@@ -49,7 +49,7 @@
+ | e02-minimum-selection-v1 | capturedMonotonicNs |
+ | e02-clipboard-capture-v1 | elapsedRealtimeNanos |
+ | e02-single-cell-lease-v1 | issuedUtcNs, deadlineUtcNs, issuedMonoNs, deadlineMonoNs, issuedBootNs, deadlineBootNs |
+-| e02-ordinary-minimum-role-release-v1 | issuedAtUtcNs, notAfterUtcNs |
++| e02-ordinary-minimum-role-release-v2 | issuedAtUtcNs, notAfterUtcNs |
+ | nbdp-e02-acceptance-method-refinement-decision-v1 | decidedAtUtcNs |
+ | e02-minimum-outer-witness-v1 | startedUtcNs, finishedUtcNs |
+ | e02-minimum-resource-witness-v1 | measuredAtUtcNs |
+@@ -120,7 +120,7 @@
+  windowId,runId,outputRoot,authors:[actor],operators:[actor],sourceSubject:Pin,
+  supervisorSource:Pin,runConfig:Pin,runRelease:Pin,resource:Pin,
+  sourceControls:Pin,outer:Pin,lease:Pin,driver:Pin,supervisor:Pin,
+- commands:[Pin],ui:[{png:Pin,xml:Pin}],proxy:Pin,
++ commands:[Pin],ui:[{png:Pin,xml:Pin}],proxy:Pin,phase:Pin,
+  readOnlyMountBindings:[{guest:Pin,host:Pin}],graphFiles:[Pin],
+  excludedFiles:[{path,reason}],sourcePolicyObservations:PolicyObservation}
+ PolicyObservation = {
+@@ -137,12 +137,12 @@
+ Public fixture scalar/NSEC/requests are retained as public synthetic DATA.
+ 
+ Only the two exact configurations pinned in the frozen producer subject qualify
+-this version. All nine staged source/config inputs must remain identical. New
++this version. All sixteen staged source/config inputs must remain identical. New
+ attempt run IDs/configurations require a separately preserved, independently
+ reviewed version/subject; no historical failed rows migrate to it.
+ 
+ ```text
+-RoleRelease = {schema:"e02-ordinary-minimum-role-release-v1",
++RoleRelease = {schema:"e02-ordinary-minimum-role-release-v2",
+  executionAuthorized:true,rootSession,executionSession,runId,scope,profileId,
+  ordinaryRole,windowId,runConfig:Pin,sourceSubject:Pin,issuedAtUtcNs,
+  notAfterUtcNs,qaReview:Pin,securityReview:Pin,guardRegressionEvidence:Pin,
+@@ -217,10 +217,10 @@
+ invented acceptance. The checker does not authenticate that correspondence itself.
+ 
+ ```text
+-ControlsSubject = {schema:"e02-minimum-controls-subject-v1",profileId,
++ControlsSubject = {schema:"e02-minimum-controls-subject-v2",profileId,
+  authors:[actor],operators:[actor],producerSubject:Pin,
+  executedScopes:[ExecutedScope],unchangedScopes:[CarryScope],
+- consumerSource:Pin,consumerControls:Pin}
++ componentCarry:Pin,producerActual35:Pin,consumerSource:Pin,consumerControls:Pin}
+ ExecutedScope = {name,count,skips:0,result:Pin,sourceBefore:[Pin],
+  sourceAfter:[Pin],stdout:Pin,stderr:Pin}
+ CarryScope = {name:"guard",count:29,oldSource:Pin,currentSource:Pin,
+@@ -228,8 +228,9 @@
+  meaning:"BYTE_IDENTICAL_CARRY_NOT_NEW_EXECUTION"}
+ ```
+ 
+-The frozen producer plan requires cleanup29, ui-regression49, minimum-ui21,
+-fixture-regression27, minimum-fixture43. Counts alone never establish acceptance:
++The current executed scopes, in order, are observation-model20,
++public-identity-metadata8 and producer2-source-wiring7. Older169/guard29
++scopes remain separately named reviewed component carry, never new executions. Counts alone never establish acceptance:
+ same-source raw outcomes/streams and actual independent CONTROL reviews remain
+ mandatory. SourceBefore/After are equal pinned reviewed source lists; the raw
+ capture result retains its genuine interpreter/argv/timing/lifecycle operands.
+@@ -333,3 +334,90 @@
+ and candidate injection operands change. Full positive whole `consume()` coverage
+ remains absent and explicit. Later genuine complete evidence may exercise that
+ path; no new normative gate or positive runtime acceptance is introduced here.
++
++
++## Producer2 observer binding
++
++The producer subject schema is `e02-ordinary-minimum-producer2-source-subject-v1`.
++Current profile is `e02-ordinary-minimum-rs-two-role-v2`. The producer-owned runtime
++configuration, release, driver/supervisor result, prepared, publication/intent/
++window, transport, validated-wire, producer-validation and fixture-command DTOs
++use their producer2 `-v2` schemas. Unchanged clipboard/selection/lease/fixture-call/
++raw-proxy and consumer-owned witness DTOs retain their original schema names.
++The strict schema-specific ns registration adds only the exact v2 role-release
++fields; arbitrary nested schemas still cannot widen integer domains.
++
++WindowSubject additionally requires `phase:Pin`, exactly the final whole-window
++`outputRoot/session/fixtures/phase-trace.jsonl` member. Both it and the final proxy
++stream must be0600, complete newline-terminated JSONL, fully retained in graphFiles,
++and together fit one16777216-byte ceiling. These are DATA admission checks, not
++proof of peak memory or physical persistence. Each stage contains the exact
++producer2 observation object from the frozen export contract; no mutable per-stage
++stream Pin may substitute for final stream membership.
++
++`observer.py` validates every retained phase's closed fields, profile/window/role,
++sequence, process-monotonic decimal string, optional actual callback context and
++original fixed guard label. Synchronous guard ENTRY/EXIT pairs must be healthy.
++All raw backend and app/proxy callbacks join the complete original raw streams in
++order; backend raw callback precedes the original guard pair and parse observation.
++APP send completion joins the original source/send raw sequences and buffer hash.
++Proxy send invocation/return/callback chains retain their own original observations.
++No error, rejection or timeout in late history is discarded to qualify an early
++stage. Callback-time observedAttempt never replaces original generation/attempt
++lineage, which remains checked by the preserved wire validator.
++
++Each successful exchange needs its exact immutable `label-N-sent-frame.json`
++files and `label-outcome.json` whole-window member, one source-defined timer/open/
++resolved span, matching callbacks, result bytes and healthy observer snapshot.
++Preparation requires its own two-inbox outcome; stages bind their publish/query
++spans inside fresh nonoverlapping stage phase ranges. Healthy budget and phase
++writer states are checked separately against exact acknowledged retained-prefix
++bytes/count/hash. They may have different failure strings in rejected evidence;
++no rejected state can contribute. Neither acknowledged prefixes nor file hashes
++claim independent physical-write attestation.
++
++An actual observer-final-state.json, when present, must be healthy and bind final
++whole streams. Absence is permitted because Docker force-removal need not deliver
++a signal; no fictional final state, Popen lifecycle or signal receipt is required.
++The original host/operation/controller source boundaries remain pinned reviewed
++behavior; a successful source inspection does not invent their runtime receipts.
++
++The current controls wrapper requires exact producerActual35, its separately
++preserved20/8/7 execution/stream records and actual independent CONTROL origins,
++plus the producer's exact componentCarry/function proofs. Its result subject may
++still retain its original pre-review state; actual independent acceptance is a
++separate externally authenticated original, never an author rewrite. Guard29 and
++older169/diagnostic51 are named historical scopes only. Full wrapper acceptance,
++consumer3 source/control pins and external origins remain separately required.
++
++Successful result schema is `e02-minimum-consumption-result-v2`; fixed counts stay
++2whole windows/5exports/3contexts/2rumors. Its metadata finding is
++`PRODUCER2_PUBLIC_SCALAR_METADATA_CORRECTED_OLD_FINDING_PRESERVED`: producer2 corrects
++unused documentary operands from the known public scalars; old malformed records
++and their actual dispositions remain preserved history. No live wrong-account
++or secret-input incident is inferred. Existing legacy LOW-finding source-origin
++handling remains available only with its original narrow disposition; it does
++not waive an active unresolved finding.
++
++## Defined controls and readiness limits
++
++The original86 targeted definitions remain in test_data_controls.py, with only
++explicit producer2 profile/DTO fixture adaptation and an empty observation marker.
++Those layered wire tests deliberately do not invoke observer.Trace. New controls
++in test_observer.py define positive complete observer+publication DATA graphs and
++field mutation negatives. They use owned temporary public synthetic files only;
++no cryptographic validation, real reviewer origin or real client is simulated as
++actual evidence. All control execution counts are initially zero.
++
++There is still no complete positive synthetic graph traversing consumer.consume's
++entire two-window ownership/UI/tool/review path. The new positive coverage is the
++integrated observer+wire subgraph. This remains an explicit coverage gap before
++any activation decision; targeted controls alone cannot qualify actual windows.
++
++External runtime prerequisites are NOT_READY when absent. In the current session
++the historical Rust binary `/tmp/nbdp-005-rust-target/debug/nbdp-experiment-rust`
++and guard-bundle manifest referenced by the frozen role configurations are absent.
++Historical accepted DATA does not create current tool bytes, runtime grants,
++qualified client windows, current primary22, canonical PASS or SDK authorization.
++Consumer3 SOURCE acceptance may release bounded DATA controls only; activation
++requires those genuine external operands and separate reviews/grants.
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v2/README.md
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v3/README.md
+@@ -1,55 +1,31 @@
+-# E02 minimum ordinary evidence consumer — SOURCE revision2 only
++# E02 producer2 minimum evidence consumer — SOURCE revision3
+ 
+-Standalone DATA consumer for the separately adopted two-role JS/rs-relay method.
+-See [CONTRACT.md](CONTRACT.md) for exact schemas, external origin trust boundary,
+-closed typed integers, actual wire/native/clipboard/GUI lineage and remaining gaps.
++Versioned DATA-only consumer bound to frozen producer2. See [CONTRACT.md](CONTRACT.md)
++for exact schemas, observer stream/state/outcome joins, external origin trust and
++readiness limits. The old consumer2/completion1/producer2 files remain unchanged.
+ 
+-This directory changes neither the frozen producer nor the strict old eight-cell
+-consumer. It grants no runtime, SDK, architecture, dependency or canonical E02 PASS.
+-No source-only success, planned assertion count or compiled code is a client result.
++This packet defines source and controls. No controls, real producer, Android,
++network, relay, native validation or completion run is authorized by these files.
++The current external runtime closure is NOT_READY: the historical Rust binary
++and guard-bundle manifest are absent. No historical PASS transfers to runtime.
+ 
+-Files:
++After exact SOURCE QA/security and a separate root release, planned DATA commands:
+ 
+-- `strict.py`: bounded nofollow readers, raw UTF8/duplicate-key JSON and exact ns paths.
+-- `witness.py`: actual externally authenticated review/tool origins, lease, command,
+-  four-owned-container/isolation/mount/resource and cleanup/absence DATA joins.
+-- `wire.py`: raw proxy/REQ/EOSE/epoch/publication/query/native validation and exact rumor.
+-- `gui.py`: actual nprofile decoder, selected XML/PNG and helper CLEAR/copy/CAPTURE custody.
+-- `consumer.py`: whole source/control/attempt history/window gate before contribution.
+-- `test_data_controls.py`:86 prepared pure DATA controls; **NOT EXECUTED**.
+-
+-After actual same-frozen-subject independent SOURCE QA and security acceptance
+-and a separate root instruction, the proposed pure-control command is:
+-
+-```sh
+-/home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v2/test_data_controls.py
++```text
++python3.13 -I -B test_data_controls.py
++python3.13 -I -B test_observer.py
+ ```
+ 
+-Capture finite foreground output under a trusted monitor,60s, stdout<=1MiB,
+-stderr<=256KiB; preserve real API fields and first failure, no silent fix/retry.
+-Only owned Python/tempfile DATA is allowed. No producer, Android, Node, crypto,
+-SDK, Docker, relay, protocol runtime or network runs in these controls.
++Use the pinned actual interpreter, finite foreground captures,60s per command,
++stdout<=1MiB/stderr<=256KiB retained streams and actual launch/completion receipts.
++No silent fix/retry. The tests create only owned temporary synthetic DATA.
+ 
+-The future evidence-only CLI requires actual manifest/origin SHA256 pins and
+-explicit read roots; there is no permissive fixture/default path or legacy mode:
++The old86 definitions are retained with versioned fixtures. Additional positives
++cover complete integrated observer+publication graphs; a complete positive whole
++consumer two-window graph remains missing and must be considered before activation.
++Source syntax parsing is not test execution or runtime interoperability.
+ 
+-```text
+-python3.13 -I -B consumer.py --manifest ABS --manifest-sha SHA256
+-  --origin ABS --origin-sha SHA256 --read-root ABS [--read-root ABS ...]
+-```
+-
+-This is command syntax, not an issued execution grant or a fabricated future pin.
+-No complete actual minimum window exists in this source preparation. The86
+-targeted controls do not yet build a full positive whole-consumer graph; independent
+-review must consider that coverage gap before later activation. Current canonical
+-E02 remains PARTIAL22 and all five architectural blockers remain unchanged.
+-
+-Revision2 preserves the rejected v1 source and both actual HOLD reports. It fixes
+-only three MEDIUM consumer defects: Message TextView must have one owned enabled
+-empty EditText ancestor; the second raw native reply is exactly the successful
+-RPC envelope around the normalized validator result; and a selected connection/
+-subscription EVENT with the same ID counts as a candidate even if its payload
+-changed. Qualified delivery still requires the exact whole event. Late frames
+-outside the sealed absence interval remain retained history, not an automatic
+-failure. Existing54 test bodies remain unchanged, the synthetic RPC fixture now
+-matches the real native API, and32 targeted new DATA definitions remain unrun.
++The evidence CLI still requires actual pinned manifest/origin and explicit read
++roots. Successful DATA consistency remains supplemental, with stock E02 PARTIAL22,
++all five architectural blockers and E04/E06/SDK gates unchanged. Completion2 is a
++subsequent separately versioned task after this source freezes and is reviewed.
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v2/consumer.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v3/consumer.py
+@@ -16,13 +16,15 @@
+ from strict import Files, I64, Refusal, closed, equal, hx, integer, json_bytes, need, pin_shape, same, text
+ import gui
+ import wire
++import observer
+ from witness import Origin, actors, cleanup_check, commands, lease_check, ownership
+ 
+-PRODUCER_SHA = '296acf346bb034bcb8becc22562494e5f37e78c3f78537d061e83455135315b4'
+-CONTRACT_SHA = '69ad2717aeeb23ebdfcc326e79de7a3b1f9f8819a02157c97f6c91926f617943'
++PRODUCER_SHA = 'ef91dc64189d7c47a4b4539c4dacd93a4c5c760da8f98bf1b203040bba6eeffd'
++CONTRACT_SHA = '7fd7b71898584b4b9f90fbe9ae4601df0d1b9f3dfdc995012dfd63824fba9bfc'
+ ADOPTION_SHA = '2675f6906c3ab234f4d460960f4cc950eb8847b051b3e0d8cedaebdf38a75287'
++ACTUAL35_SHA = 'aedd45eb01e6120856a8d97e8fa9811e750531ea5c3f23df8b65d302b8a8bd6c'
+ CONFIG_KEYS = 'runtimeImage relayImage sdkRoot amethystApk helperApk schema scope profileId ordinaryRole windowId account peer runId originalLeaseSeconds sourceAndDependencyPins sdkInventory guardBundleInventory guardBundleRoot relayConfig state canonicalE02'
+-WINDOW_KEYS = 'schema profileId ordinaryRole windowId runId outputRoot authors operators sourceSubject supervisorSource runConfig runRelease resource sourceControls outer lease driver supervisor commands ui proxy readOnlyMountBindings graphFiles excludedFiles sourcePolicyObservations'
++WINDOW_KEYS = 'schema profileId ordinaryRole windowId runId outputRoot authors operators sourceSubject supervisorSource runConfig runRelease resource sourceControls outer lease driver supervisor commands ui proxy phase readOnlyMountBindings graphFiles excludedFiles sourcePolicyObservations'
+ DRIVER_KEYS = 'schema profileId windowId ordinaryRole runId runConfig runRelease executionState accountIdentityGUI expectedAccountPubkey accountIdentityQualification torConfigurationGUI environmentAnrEvidence allUICaptures fixtureCalls observations limits canonicalE02Changed'
+ OBS_KEYS = 'id state selection uiPng uiXml rawClientRumor clipboardClear visibleMatchingTextNodeCount duplicateObservation expectedRumor publication actualNewAppFrameObserved originalGuestToHostBindings subscriptionStatus subscriptionStatusReply subscriptionStatusCall subscriptionStatusCommand custodySegment'
+ 
+@@ -71,10 +73,10 @@
+ 
+ def control_evidence(files, descriptor, origin):
+     value = files.doc(descriptor)
+-    closed(value, 'schema profileId authors operators producerSubject executedScopes unchangedScopes consumerSource consumerControls')
+-    equal(value['schema'], 'e02-minimum-controls-subject-v1'); equal(value['profileId'], wire.PROFILE)
++    closed(value, 'schema profileId authors operators producerSubject executedScopes unchangedScopes componentCarry producerActual35 consumerSource consumerControls')
++    equal(value['schema'], 'e02-minimum-controls-subject-v2'); equal(value['profileId'], wire.PROFILE)
+     equal(value['producerSubject']['sha256'], PRODUCER_SHA)
+-    names = {'cleanup': 29, 'ui-regression': 49, 'minimum-ui': 21, 'fixture-regression': 27, 'minimum-fixture': 43}
++    names = {'observation-model': 20, 'public-identity-metadata': 8, 'producer2-source-wiring': 7}
+     need(type(value['executedScopes']) is list and {r['name'] for r in value['executedScopes']} == set(names)
+          and len(value['executedScopes']) == len(names), 'EXACT_CHANGED_CONTROLS')
+     for row in value['executedScopes']:
+@@ -91,6 +93,39 @@
+     equal(carry['meaning'], 'BYTE_IDENTICAL_CARRY_NOT_NEW_EXECUTION')
+     equal((carry['oldSource']['bytes'], carry['oldSource']['sha256']), (carry['currentSource']['bytes'], carry['currentSource']['sha256']))
+     for key in ('oldSource', 'currentSource', 'actualResult', 'acceptance'): files.read(carry[key])
++    producer = files.doc(value['producerSubject'])
++    equal(value['componentCarry'], producer['componentCarry'], 'EXACT_PRODUCER_COMPONENT_CARRY')
++    component = files.doc(value['componentCarry'])
++    for pair in component['modules']:
++        equal(pair['classification'], 'BYTE_IDENTICAL')
++        equal(files.read(pair['original']), files.read(pair['current']), 'UNCHANGED_CARRIED_COMPONENT')
++    for key in ('source', 'actualControls', 'actualAcceptance', 'bridgeAcceptance'):
++        if key in component['ordinaryBaseline']: files.read(component['ordinaryBaseline'][key])
++    for key in ('source', 'actualControls', 'actualAcceptance', 'runtimeAcceptance'):
++        if key in component['diagnosticBaseline']: files.read(component['diagnosticBaseline'][key])
++    for descriptor in component['functionProofs']: files.read(descriptor)
++    equal(value['producerActual35']['sha256'], ACTUAL35_SHA, 'FROZEN_ACCEPTED_ACTUAL35_RESULT')
++    actual = files.doc(value['producerActual35'])
++    equal(actual['schema'], 'e02-producer2-actual35-data-result-subject-v1')
++    equal(actual['producerSource'], value['producerSubject'])
++    equal(actual['actualCountsSeparate'], [20, 8, 7])
++    equal(actual['allNatural0NoForceNoErrorNoTruncation'], True)
++    equal(actual['sourceUnchangedBeforeAfterEveryScopeAndOverall'], True)
++    equal(actual['ordinaryClientRows'], 0)
++    separate = files.doc(actual['separateScopes'])['scopes']
++    equal([r['scope'] for r in separate], list(names), 'ACTUAL35_SEPARATE_SCOPE_MEMBERSHIP')
++    for row, scoped in zip(value['executedScopes'], separate):
++        equal(row['name'], scoped['scope']); equal(row['count'], scoped['count'])
++        equal(row['result'], scoped['execution']); equal(row['stdout'], scoped['stdout']); equal(row['stderr'], scoped['stderr'])
++        execution = files.doc(row['result'])
++        equal(execution['expectedCount'], row['count']); equal(execution['observedCount'], row['count'])
++        equal(execution['exitCode'], 0); equal(execution['signal'], None)
++        for key in ('naturalExit', 'reaped', 'stdoutEOF', 'stderrEOF', 'sourceUnchanged'): equal(execution[key], True)
++        equal(execution['forceRequested'], False); equal(execution['firstError'], None); equal(execution['secondaryErrors'], [])
++        equal(execution['truncated'], {'stdout': False, 'stderr': False})
++    # The result subject preserves its original pre-review state. Independent
++    # acceptance comes from actual external origins, not rewriting that state.
++    origin.reviews(value['producerActual35'], 'CONTROL')
+     files.read(value['consumerSource']); files.read(value['consumerControls'])
+     origin.reviews(descriptor, 'CONTROL')
+     return value
+@@ -134,7 +169,7 @@
+         equal(files.read(c['reply']), files.read(command_rows[seq - 1]['stdout']))
+         reply = files.doc(c['reply'])
+         closed(reply, 'schema profileId windowId operation caseId ok result')
+-        equal(reply['schema'], 'e02-minimum-fixture-command-v1'); equal(reply['profileId'], wire.PROFILE)
++        equal(reply['schema'], 'e02-minimum-fixture-command-v2'); equal(reply['profileId'], wire.PROFILE)
+         equal(reply['windowId'], driver['windowId']); equal(reply['operation'], c['operation'])
+         equal(reply['caseId'], 'minimum-two-role-rs'); equal(reply['ok'], True)
+         result = reply['result']
+@@ -169,7 +204,7 @@
+     prepared_result = files.doc(first['reply'])['result']
+     p = files.doc(prepared_result['prepared'])
+     closed(p, 'schema profileId windowId role rumors events expected')
+-    equal(p['schema'], 'e02-minimum-prepared-v1'); equal(p['profileId'], wire.PROFILE)
++    equal(p['schema'], 'e02-minimum-prepared-v2'); equal(p['profileId'], wire.PROFILE)
+     equal(p['windowId'], wire.WINDOWS[role]); equal(p['role'], role)
+     closed(p['rumors'], 'business chat')
+     for name in ('business', 'chat'): equal(p['rumors'][name], files.doc(candidate['oracles'][name]))
+@@ -284,6 +319,8 @@
+     paths = graph(files, s)
+     # Exact /input mounts must derive from frozen producer fixture-plan pins.
+     fixture = files.doc(next(p for p in producer['sources'] if Path(p['path']).name == 'fixture-plan.json'))
++    equal(fixture['schema'], 'e02-ordinary-minimum-fixture-plan-v2')
++    equal(fixture['profileId'], wire.PROFILE)
+     expected_mounts = {p['path']: p for p in fixture['pins'].values()}
+     equal(len(s['readOnlyMountBindings']), len(expected_mounts))
+     equal({b['guest']['path'] for b in s['readOnlyMountBindings']}, set(expected_mounts))
+@@ -294,13 +331,15 @@
+         files.binding(b['guest'], b['host'], root)
+     config = files.doc(s['runConfig']); closed(config, CONFIG_KEYS)
+     need(any(same(s['runConfig'], p) for p in producer['configurations']), 'FROZEN_REVIEWED_ROLE_CONFIGURATION')
+-    equal(config['schema'], 'e02-ordinary-minimum-role-runtime-plan-v1')
++    equal(config['schema'], 'e02-ordinary-minimum-role-runtime-plan-v2')
+     for key in ('profileId', 'ordinaryRole', 'windowId', 'runId'): equal(config[key], s[key])
+     equal(config['account'], wire.ACCOUNTS[role]); equal(config['peer'], wire.A if role == 'incoming' else wire.B)
+     integer(config['originalLeaseSeconds'], 60, 1800)
+     source_by_name = {Path(p['path']).name: p for p in producer['sources']}
+     expected_sources = [source_by_name[name] for name in ('supervisor.py', 'lease_guard.py', 'android_driver.py', 'ui-plan.json',
+-                       'fixture.mjs', 'fixture-plan.json', 'minimum-plan.json', 'business-rumor.json', 'chat-rumor.json')]
++                       'fixture.mjs', 'fixture-plan.json', 'minimum-plan.json', 'business-rumor.json', 'chat-rumor.json',
++                       'exchange.mjs', 'phase-writer.mjs', 'dependency-tree.mjs', 'dependency-tree.json',
++                       'capture-budget.mjs', 'exchange-adapter.mjs', 'proxy-observer.mjs')]
+     equal(config['sourceAndDependencyPins'], expected_sources, 'CURRENT_SOURCE_CONFIG_PROVENANCE')
+     equal(s['supervisorSource'], source_by_name['supervisor.py'])
+     for pin in expected_sources:
+@@ -321,7 +360,7 @@
+     files.read(config['sdkInventory']); files.read(config['guardBundleInventory']); files.read(config['relayConfig'])
+     release = files.doc(s['runRelease'])
+     closed(release, 'schema executionAuthorized rootSession executionSession runId scope profileId ordinaryRole windowId runConfig sourceSubject issuedAtUtcNs notAfterUtcNs qaReview securityReview guardRegressionEvidence freshResourceAdmission resourcePrerequisite limits')
+-    equal(release['schema'], 'e02-ordinary-minimum-role-release-v1')
++    equal(release['schema'], 'e02-ordinary-minimum-role-release-v2')
+     equal(release['executionAuthorized'], True); equal(release['runConfig'], s['runConfig'])
+     equal(release['sourceSubject'], candidate['producerSubject']); equal(release['scope'], config['scope'])
+     need(release['rootSession'] in origin.forbidden and release['executionSession'] in origin.forbidden, 'DECLARED_ACTUAL_GRANT_OPERATOR')
+@@ -357,7 +396,7 @@
+                   and gui.adb_tail(c) is not None and gui.adb_tail(c) not in snapshot_tails]
+     need(len(ui_actions) <= 120, 'ORIGINAL_WHOLE_UI_ACTION_CAP')
+     driver = files.doc(s['driver']); closed(driver, DRIVER_KEYS)
+-    equal(driver['schema'], 'e02-minimum-role-driver-result-v1')
++    equal(driver['schema'], 'e02-minimum-role-driver-result-v2')
+     for key in ('profileId', 'ordinaryRole', 'windowId', 'runId', 'runConfig', 'runRelease'): equal(driver[key], s[key])
+     equal(driver['executionState'], 'PARTIAL'); equal(driver['canonicalE02Changed'], False)
+     equal(driver['expectedAccountPubkey'], wire.ACCOUNTS[role])
+@@ -376,7 +415,7 @@
+         files.doc(row['decision']); files.doc(row['afterWaitObservation'])
+     supervisor = files.doc(s['supervisor'])
+     closed(supervisor, 'schema runId profileId ordinaryRole windowId runConfig runRelease lease canonicalE02Changed limits executionState error secondaryErrors cleanup')
+-    equal(supervisor['schema'], 'e02-ordinary-minimum-role-supervisor-result-v1')
++    equal(supervisor['schema'], 'e02-ordinary-minimum-role-supervisor-result-v2')
+     for key in ('runId', 'profileId', 'ordinaryRole', 'windowId', 'runConfig', 'runRelease', 'lease'): equal(supervisor[key], s[key])
+     equal(supervisor['executionState'], 'PARTIAL'); equal(supervisor['error'], None); equal(supervisor['secondaryErrors'], [])
+     equal(supervisor['canonicalE02Changed'], False)
+@@ -385,17 +424,21 @@
+     # No early observation contributes until whole lifecycle has qualified.
+     calls = fixture_calls(files, driver, command_rows)
+     proxy = wire.Proxy(files, s['proxy'])
++    trace = observer.Trace(files, s, proxy)
+     need(not any(r['direction'] == 'PUBLICATION_GENERATION_INVALIDATED' for r in proxy.rows), 'RETAINED_STICKY_GENERATION_FAILURE')
+     labels = {'prepare-inboxes', *(sid + suffix for sid in wire.STAGES[role] for suffix in ('-publish', '-query'))}
+     need(all(r.get('exchangeLabel') in labels for r in proxy.rows if 'exchangeLabel' in r), 'CLOSED_WHOLE_BACKEND_HISTORY')
+     need(not any(Path(p).name.startswith(('serve-error', 'command-error')) for p in paths
+                  if Path(p).is_relative_to(Path(root) / 'session/fixtures')), 'RETAINED_FIXTURE_FAILURE')
+     prepared = preparation_join(files, calls, candidate, role, proxy)
++    inboxes = files.doc(files.doc(next(iter(calls.values()))[1]['reply'])['result']['inboxes'])
++    trace.exchange('prepare-inboxes', {k: v for k, v in inboxes.items() if k != 'events'})
+     observations = driver['observations']
+     need(type(observations) is list, 'OBSERVATION_ARRAY')
+     equal([o['id'] for o in observations], list(wire.STAGES[role]), 'EXACT_ORDERED_ROLE_STAGES')
+     previous_command, previous_ui, previous_time = 0, 0, -1
+     events, sent = [], []
++    previous_phase = 0
+     for index, obs in enumerate(observations):
+         closed(obs, OBS_KEYS); spec = wire.stage(role, index)
+         equal(obs['state'], 'EXPORTED_PENDING_INDEPENDENT_WHOLE_RUN_REVIEW')
+@@ -413,6 +456,9 @@
+         need(len(published_calls) == 1 and obs['custodySegment']['commandSequenceFirst'] <= published_calls[0]['commandSequence']
+              <= obs['custodySegment']['commandSequenceLast'], 'ACTUAL_PUBLISH_IN_STAGE_CUSTODY')
+         event, send = wire.publication(files, proxy, publication, expected, spec, role)
++        phase_first, phase_last = trace.stage(publication)
++        need(phase_first > previous_phase, 'FRESH_NONOVERLAPPING_STAGE_PHASES')
++        previous_phase = phase_last
+         native_record = files.doc(publication['validation']['validation'])
+         for key in ('rustBinary', 'rustSource'):
+             actual_input = fixture['pins'][key]
+@@ -446,7 +492,7 @@
+             elif not stat.S_ISDIR(mode):
+                 need(stat.S_ISSOCK(mode) and p == Path(root) / 'session/fixtures/control.sock', 'UNPLANNED_PROOF_SPECIAL_FILE')
+     need(not (Path(root) / 'session/control/REVOKED').exists(), 'STICKY_REVOKED_WINDOW')
+-    for pin in (s['driver'], s['supervisor'], s['lease'], s['proxy'], *s['commands']):
++    for pin in (s['driver'], s['supervisor'], s['lease'], s['proxy'], s['phase'], *s['commands']):
+         need(pin['path'] in paths, 'OPERAND_NOT_IN_WINDOW_GRAPH')
+     equal(s['sourcePolicyObservations'], {'clockPolicy': 'SOURCE_ENFORCED_THREE_DOMAINS_ORIGINAL_LEASE',
+           'perCommandClockChronology': 'UNKNOWN_NOT_RECORDED', 'sdkAssetsBundled': False,
+@@ -468,7 +514,7 @@
+     equal(candidate['producerContract']['sha256'], CONTRACT_SHA)
+     equal(candidate['adoption']['sha256'], ADOPTION_SHA)
+     producer = files.doc(candidate['producerSubject'])
+-    equal(producer['schema'], 'e02-minimum-source-config-subject-v1')
++    equal(producer['schema'], 'e02-ordinary-minimum-producer2-source-subject-v1')
+     for p in producer['sources']: files.read(p)
+     files.read(candidate['producerContract'])
+     adoption = files.doc(candidate['adoption'])
+@@ -486,7 +532,7 @@
+     equal(history['declaredScope'], 'ALL_MINIMUM_ATTEMPTS_AND_RELEVANT_LEGACY_NEGATIVE_CONTEXTS_THROUGH_THIS_INVENTORY')
+     origin_value = files.doc(origin_pin)
+     forbidden, attempts = provenance(files, candidate, history, origin_value)
+-    forbidden |= {'/root/android_health_implementer', producer['author'], producer['coordinator']}
++    forbidden |= {'/root/android_health_implementer', '/root/consumer3_preparation', producer['author'], producer['coordinator']}
+     forbidden |= actors(history['authors']) | actors(history['operators'])
+     for p in manifest['windows']:
+         s = files.doc(p); forbidden |= actors(s['authors']) | actors(s['operators'])
+@@ -515,11 +561,11 @@
+     need(results[0]['finished'] <= results[1]['started'], 'SEQUENTIAL_CLEANUP_BARRIER')
+     need(not results[0]['cids'] & results[1]['cids'], 'REUSED_CONTAINER_STATE')
+     files.recheck()
+-    return dict(schema='e02-minimum-consumption-result-v1', state='SUPPLEMENTAL_DATA_CONSISTENT_WITH_EXTERNALLY_AUTHENTICATED_ORIGINS',
++    return dict(schema='e02-minimum-consumption-result-v2', state='SUPPLEMENTAL_DATA_CONSISTENT_WITH_EXTERNALLY_AUTHENTICATED_ORIGINS',
+                 profileId=wire.PROFILE, wholeWindows=2, selectedExports=5, selectedNoteContexts=3, uniqueRumorIds=2,
+                 canonicalE02Changed=False, canonicalE02='PARTIAL22_UNCHANGED', primaryMatrixQualified=False,
+                 businessEffectsMeasured=False, sdkRuntimeAdmission=False, portableProcessAttestation=False,
+-                nonoperativeMetadataFinding='KNOWN_UNUSED_INCOMING_PLAN_NSEC_65_CHARS_NOT_NORMALIZED_NOT_RUNTIME_INPUT',
++                nonoperativeMetadataFinding='PRODUCER2_PUBLIC_SCALAR_METADATA_CORRECTED_OLD_FINDING_PRESERVED',
+                 perCommandClockChronology='UNKNOWN_NOT_RECORDED', evidenceFiles=len(files.pins), evidenceBytes=files.total)
+ 
+ 
+@@ -535,7 +581,7 @@
+         origin_pin = external(files, args.origin, args.origin_sha)
+         result = consume(files, manifest_pin, origin_pin)
+     except (ValueError, KeyError, TypeError, OSError, StopIteration) as error:
+-        result = dict(schema='e02-minimum-consumption-result-v1', state='REFUSED_NO_CONTRIBUTION',
++        result = dict(schema='e02-minimum-consumption-result-v2', state='REFUSED_NO_CONTRIBUTION',
+                       reason=type(error).__name__ + ':' + str(error)[:2048], canonicalE02Changed=False,
+                       contributingWholeWindows=0, contributingExports=0)
+         print(json_bytes(result).decode()); return 2
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v3/observer.py
+@@ -0,0 +1,274 @@
++"""Producer2 observation DATA joins. No clocks, sockets, subprocess or writes.
++
++The two retained streams are final whole-window files. A stage/state only binds
++a prefix; callback-time context never replaces the original wire generations.
++Acknowledged write counts are checked DATA, not physical-write attestation.
++"""
++from datetime import datetime
++import hashlib
++from pathlib import Path
++import re
++
++from strict import closed, equal, hx, integer, need, same, text
++import wire
++
++LIMIT = 16777216
++COMMON = 'schema sequence utc monotonicNanoseconds phase profileId windowId ordinaryRole observedAttempt'
++FIELDS = {
++    'GUARD_ENTRY': 'label', 'GUARD_EXIT': 'label ok error',
++    'EXCHANGE_START': 'label', 'TIMER_ARMED': 'label timeoutMilliseconds',
++    'SEND_INTENT': 'label eventId rawBase64',
++    'SEND_INVOKE_ENTRY': 'label eventId', 'SEND_INVOKE_RETURNED': 'label eventId',
++    'SEND_CALLBACK_ENTRY': 'label eventId error', 'SEND_CALLBACK_GUARD_PASSED': 'label eventId',
++    'SOCKET_OPEN_CALLBACK_ENTRY': 'label', 'RAW_BACKEND_CALLBACK_ENTRY': 'label rawBase64',
++    'BACKEND_MESSAGE_GUARD_PASSED': 'label messageType',
++    'SOCKET_ERROR_CALLBACK_ENTRY': 'label error', 'SOCKET_CLOSE_CALLBACK_ENTRY': 'label',
++    'TIMER_FIRED': 'label', 'EXCHANGE_RESOLVED': 'label elapsedNanoseconds error',
++    'EXCHANGE_REJECTED': 'label elapsedNanoseconds error',
++    'PROXY_CONNECTION_CALLBACK_ENTRY': 'nextConnection',
++    'PROXY_SOCKET_OPEN_CALLBACK_ENTRY': 'connection origin',
++    'PROXY_RAW_CALLBACK_ENTRY': 'connection origin rawBase64 binary',
++    'PROXY_SEND_INVOKE_ENTRY': 'connection target bufferHash',
++    'PROXY_SEND_INVOKE_RETURNED': 'connection target bufferHash',
++    'PROXY_SEND_CALLBACK_ENTRY': 'connection target bufferHash error',
++    'PROXY_SEND_CALLBACK_COMPLETE': 'connection target bufferHash',
++    'PROXY_SOCKET_ERROR_CALLBACK_ENTRY': 'connection origin error',
++    'PROXY_SOCKET_CLOSE_CALLBACK_ENTRY': 'connection origin',
++}
++
++
++def raw_lines(files, pin):
++    raw = files.read(pin, LIMIT)
++    actual = files.resolved(pin)
++    equal(Path(actual['path']).stat().st_mode & 0o777, 0o600, 'PRIVATE_RAW_OBSERVER_STREAM')
++    need(raw and raw.endswith(b'\n'), 'COMPLETE_OBSERVER_STREAM')
++    chunks = raw.splitlines(keepends=True)
++    need(len(chunks) <= 262144 and all(c.endswith(b'\n') for c in chunks), 'OBSERVER_ROWS_BOUND')
++    return raw, chunks
++
++
++def healthy_state(value, phase_lines, proxy_lines, phase_end, proxy_end, last_phase=True):
++    """Check a healthy emitted prefix snapshot against exact retained line bytes."""
++    closed(value, 'schema budget phase'); equal(value['schema'], 'e02-minimum-observer-state-v2')
++    integer(phase_end, 1, len(phase_lines)); integer(proxy_end, 0, len(proxy_lines))
++    phase_raw = b''.join(phase_lines[:phase_end]); proxy_raw = b''.join(proxy_lines[:proxy_end])
++    p, b = value['phase'], value['budget']
++    closed(p, 'sequence intendedTotalBytes acknowledgedTotalBytes physicalBytes physicalMeaning poisoned firstError lastAttempt')
++    closed(b, 'schema limit intendedTotalBytes acknowledgedTotalBytes streams poisoned firstError physicalBytes physicalMeaning lastAttempt')
++    equal(b['schema'], 'e02-minimum-aggregate-capture-budget-v2'); equal(b['limit'], LIMIT)
++    for state in (p, b):
++        equal(state['poisoned'], False); equal(state['firstError'], None); equal(state['physicalBytes'], None)
++        integer(state['intendedTotalBytes'], 0, LIMIT); integer(state['acknowledgedTotalBytes'], 0, LIMIT)
++        equal(state['intendedTotalBytes'], state['acknowledgedTotalBytes'])
++    equal(p['physicalMeaning'], 'NOT_INDEPENDENTLY_MEASURED_ACKNOWLEDGED_PREFIX_IS_NOT_PHYSICAL_ATTESTATION')
++    equal(b['physicalMeaning'], 'ACKNOWLEDGED_PREFIX_IS_NOT_INDEPENDENT_PHYSICAL_ATTESTATION')
++    equal(p['sequence'], phase_end); equal(p['acknowledgedTotalBytes'], len(phase_raw))
++    equal(b['acknowledgedTotalBytes'], len(phase_raw) + len(proxy_raw))
++    equal(b['streams'], {'phase': {'intended': len(phase_raw), 'acknowledged': len(phase_raw)},
++                         'proxy': {'intended': len(proxy_raw), 'acknowledged': len(proxy_raw)}})
++    a = p['lastAttempt']
++    closed(a, 'sequence phase intendedBytes writeInvoked reportedCount acknowledgedBytes acknowledgedPrefixBase64 physicalBytes error')
++    equal(a['sequence'], phase_end)
++    from strict import loads
++    equal(a['phase'], loads(phase_lines[phase_end - 1])['phase'])
++    for key in ('intendedBytes', 'reportedCount', 'acknowledgedBytes'): equal(a[key], len(phase_lines[phase_end - 1]))
++    equal(wire.decode64(a['acknowledgedPrefixBase64']), phase_lines[phase_end - 1])
++    equal(a['writeInvoked'], True); equal(a['physicalBytes'], None); equal(a['error'], None)
++    a = b['lastAttempt']
++    closed(a, 'stream intendedBytes writeInvoked reportedCount acknowledgedBytes acknowledgedPrefixSha256 physicalBytes error')
++    need(a['stream'] in ('phase', 'proxy'), 'CLOSED_LAST_CAPTURE_STREAM')
++    if last_phase: equal(a['stream'], 'phase')
++    lines = phase_lines[:phase_end] if a['stream'] == 'phase' else proxy_lines[:proxy_end]
++    need(lines, 'LAST_CAPTURE_ROW_EXISTS')
++    for key in ('intendedBytes', 'reportedCount', 'acknowledgedBytes'): equal(a[key], len(lines[-1]))
++    equal(a['acknowledgedPrefixSha256'], hashlib.sha256(lines[-1]).hexdigest())
++    equal(a['writeInvoked'], True); equal(a['physicalBytes'], None); equal(a['error'], None)
++
++
++class Trace:
++    def __init__(self, files, window, proxy):
++        self.files, self.window, self.proxy = files, window, proxy
++        root = Path(window['outputRoot'])
++        required = str(root / 'session/fixtures/phase-trace.jsonl')
++        members = {p['path']: p for p in window['graphFiles']}
++        need(required in members, 'FINAL_PHASE_MEMBER_REQUIRED')
++        equal(window['phase'], members[required], 'FINAL_PHASE_MEMBER_PIN')
++        equal(window['proxy']['path'], str(root / 'session/fixtures/capture.jsonl'), 'FINAL_PROXY_MEMBER_PATH')
++        equal(window['proxy'], members[window['proxy']['path']], 'FINAL_PROXY_MEMBER_PIN')
++        raw, self.phase_lines = raw_lines(files, window['phase'])
++        proxy_raw, self.proxy_lines = raw_lines(files, window['proxy'])
++        need(len(raw) + len(proxy_raw) <= LIMIT, 'ONE_AGGREGATE_STREAM_BOUND')
++        self.rows = files.jsonl(window['phase'])
++        equal(len(self.rows), len(self.phase_lines)); equal(len(proxy.rows), len(self.proxy_lines))
++        labels = {'prepare-inboxes', *(s + suffix for s in wire.STAGES[window['ordinaryRole']] for suffix in ('-publish', '-query'))}
++        previous = -1
++        for i, row in enumerate(self.rows, 1):
++            name = row.get('phase'); need(name in FIELDS, 'CLOSED_PHASE_NAME')
++            keys = COMMON + ' ' + FIELDS[name]
++            if name.startswith('PROXY_SEND_'):
++                if row.get('target') == 'APP': keys += ' sourceSequence'
++                if name == 'PROXY_SEND_INVOKE_ENTRY': keys += ' bytes'
++                if name == 'PROXY_SEND_CALLBACK_COMPLETE' and row.get('target') == 'APP': keys += ' sentSequence'
++            closed(row, keys)
++            equal(row['schema'], 'e02-transport-query-phase-v2'); equal(row['sequence'], i)
++            equal(row['profileId'], wire.PROFILE); equal(row['windowId'], window['windowId'])
++            equal(row['ordinaryRole'], window['ordinaryRole'])
++            need(re.fullmatch(r'(?:0|[1-9][0-9]{0,24})', row['monotonicNanoseconds']), 'PHASE_MONOTONIC_STRING')
++            now = int(row['monotonicNanoseconds']); need(now >= previous, 'PHASE_MONOTONIC_ORDER'); previous = now
++            need(type(row['utc']) is str and row['utc'].endswith('Z'), 'PHASE_UTC')
++            datetime.fromisoformat(row['utc'].replace('Z', '+00:00'))
++            context = row['observedAttempt']
++            if context is not None:
++                closed(context, 'epoch stageId'); need(context['stageId'] in wire.STAGES[window['ordinaryRole']], 'PHASE_CONTEXT_STAGE')
++                equal(context['epoch'], wire.STAGES[window['ordinaryRole']].index(context['stageId']) + 1)
++            if 'label' in row:
++                text(row['label'], 128)
++                if name not in ('GUARD_ENTRY', 'GUARD_EXIT'): need(row['label'] in labels, 'CLOSED_EXCHANGE_PHASE_LABEL')
++                else:
++                    guard_labels = {'original-unlabeled', *(f'proxy:{x}' for x in ('connection', 'app-message',
++                        'before-upstream-send', 'upstream-open', 'pending-before-upstream-send', 'upstream-message',
++                        'before-app-send', 'app-send-callback')),
++                        *(f'exchange:{label}:{x}' for label in labels for x in
++                          ('exchange-entry', 'socket-open', 'send-before', 'send-callback', 'backend-message'))}
++                    need(row['label'] in guard_labels, 'CLOSED_ORIGINAL_GUARD_LABEL')
++            if 'connection' in row: integer(row['connection'], 1, 64)
++            if 'nextConnection' in row: integer(row['nextConnection'], 1, 64)
++            if 'rawBase64' in row: wire.decode64(row['rawBase64'])
++            if 'bufferHash' in row: hx(row['bufferHash'])
++            if 'eventId' in row and row['eventId'] is not None: hx(row['eventId'])
++            if 'bytes' in row: integer(row['bytes'], 0, 262144)
++            if 'target' in row: need(row['target'] in ('APP', 'RELAY'), 'PROXY_TARGET')
++            if 'origin' in row: need(row['origin'] in ('APP', 'RELAY'), 'PROXY_ORIGIN')
++            if 'binary' in row: equal(row['binary'], False)
++            if 'error' in row: equal(row['error'], None, 'WHOLE_PHASE_FAILURE')
++            need(name not in ('TIMER_FIRED', 'EXCHANGE_REJECTED', 'SOCKET_ERROR_CALLBACK_ENTRY',
++                 'SOCKET_CLOSE_CALLBACK_ENTRY', 'PROXY_SOCKET_ERROR_CALLBACK_ENTRY'), 'WHOLE_PHASE_FAILURE')
++            if name == 'GUARD_ENTRY':
++                need(i < len(self.rows), 'GUARD_EXIT_REQUIRED')
++                end = self.rows[i]
++                equal(end.get('phase'), 'GUARD_EXIT'); equal(end.get('label'), row['label'])
++                equal(end.get('observedAttempt'), row['observedAttempt'])
++                equal(end.get('ok'), True); equal(end.get('error'), None)
++            if name == 'GUARD_EXIT':
++                need(i > 1 and self.rows[i - 2]['phase'] == 'GUARD_ENTRY', 'ORPHAN_GUARD_EXIT')
++                equal(row['ok'], True)
++            if name == 'TIMER_ARMED': equal(row['timeoutMilliseconds'], 10000)
++            if name in ('EXCHANGE_RESOLVED', 'EXCHANGE_REJECTED'): integer(row['elapsedNanoseconds'], 0, 1800000000000)
++        self.labels = labels
++        self._whole_wire_join()
++        self._proxy_send_chains()
++        final = root / 'session/fixtures/observer-final-state.json'
++        if str(final) in members:
++            value = files.doc(members[str(final)]); closed(value, 'observer error secondaryErrors')
++            equal(value['error'], None); equal(value['secondaryErrors'], [])
++            healthy_state(value['observer'], self.phase_lines, self.proxy_lines, len(self.rows), len(proxy.rows), False)
++
++    def _whole_wire_join(self):
++        """Each retained raw callback must join the corresponding original raw row."""
++        backend = [(r['label'], r['rawBase64']) for r in self.rows if r['phase'] == 'RAW_BACKEND_CALLBACK_ENTRY']
++        equal(backend, [(r['exchangeLabel'], r['rawBase64']) for r in self.proxy.rows if r['direction'] == 'RELAY_TO_PRODUCER'], 'WHOLE_BACKEND_RAW_PHASE_JOIN')
++        sends = [(r['label'], r['rawBase64']) for r in self.rows if r['phase'] == 'SEND_INTENT']
++        equal(sends, [(r['exchangeLabel'], r['rawBase64']) for r in self.proxy.rows if r['direction'] == 'PRODUCER_TO_RELAY'], 'WHOLE_SENT_PHASE_JOIN')
++        for origin, direction, guard in (('APP', 'APP_TO_RELAY', 'proxy:app-message'), ('RELAY', 'RELAY_TO_APP', 'proxy:upstream-message')):
++            rows = [r for r in self.rows if r['phase'] == 'PROXY_RAW_CALLBACK_ENTRY' and r['origin'] == origin]
++            equal([(r['connection'], r['rawBase64']) for r in rows],
++                  [(r['connection'], r['rawBase64']) for r in self.proxy.rows if r['direction'] == direction], 'WHOLE_PROXY_RAW_PHASE_JOIN')
++            for row in rows: self.guard_after(row['sequence'], guard)
++        for row in (r for r in self.rows if r['phase'] == 'RAW_BACKEND_CALLBACK_ENTRY'):
++            self.guard_after(row['sequence'], 'exchange:' + row['label'] + ':backend-message')
++            need(row['sequence'] + 3 <= len(self.rows), 'RAW_PARSE_PHASE_REQUIRED')
++            passed = self.rows[row['sequence'] + 2]
++            equal(passed['phase'], 'BACKEND_MESSAGE_GUARD_PASSED'); equal(passed['label'], row['label'])
++            equal(passed['messageType'], wire.frame(wire.decode64(row['rawBase64']))[0], 'RAW_GUARD_PARSE_ORDER')
++        completions = [r for r in self.rows if r['phase'] == 'PROXY_SEND_CALLBACK_COMPLETE' and r['target'] == 'APP']
++        equal([(r['connection'], r['sourceSequence'], r['sentSequence']) for r in completions],
++              [(r['connection'], r['sourceSequence'], r['sequence']) for r in self.proxy.rows if r['direction'] == 'APP_SOCKET_SEND_COMPLETE'], 'WHOLE_APP_CALLBACK_PHASE_JOIN')
++        for row in completions:
++            source = self.proxy.row(row['sourceSequence'], 'RELAY_TO_APP')
++            equal(row['bufferHash'], hashlib.sha256(wire.decode64(source['rawBase64'])).hexdigest())
++
++    def guard_after(self, sequence, label):
++        need(sequence + 2 <= len(self.rows), 'RAW_GUARD_PAIR_REQUIRED')
++        a, b = self.rows[sequence:sequence + 2]
++        equal([a['phase'], b['phase']], ['GUARD_ENTRY', 'GUARD_EXIT'])
++        equal(a['label'], label); equal(b['label'], label)
++
++    def _proxy_send_chains(self):
++        pending = {}
++        for row in self.rows:
++            if not row['phase'].startswith('PROXY_SEND_'): continue
++            key = (row['connection'], row['target'], row['bufferHash'], row.get('sourceSequence'))
++            queue = pending.setdefault(key, [])
++            if row['phase'] == 'PROXY_SEND_INVOKE_ENTRY':
++                if row['target'] == 'APP':
++                    source = self.proxy.row(row['sourceSequence'], 'RELAY_TO_APP')
++                    raw = wire.decode64(source['rawBase64'])
++                    equal(row['connection'], source['connection'])
++                    equal(row['bytes'], len(raw)); equal(row['bufferHash'], hashlib.sha256(raw).hexdigest())
++                queue.append({'entry': row, 'returned': False, 'callback': False, 'complete': False})
++                continue
++            field = {'PROXY_SEND_INVOKE_RETURNED': 'returned', 'PROXY_SEND_CALLBACK_ENTRY': 'callback',
++                     'PROXY_SEND_CALLBACK_COMPLETE': 'complete'}[row['phase']]
++            choices = [q for q in queue if not q[field]]
++            need(choices, 'PROXY_SEND_WITHOUT_MATCHING_INVOCATION')
++            item = choices[0]; item[field] = True
++            if field == 'callback' and row['target'] == 'APP': self.guard_after(row['sequence'], 'proxy:app-send-callback')
++            if field == 'complete': need(item['callback'], 'PROXY_COMPLETION_REQUIRES_SUCCESS_CALLBACK')
++        need(all(q['returned'] for queue in pending.values() for q in queue), 'PROXY_SEND_RETURN_REQUIRED')
++
++    def state(self, value, proxy_end=None):
++        phase_end = value['phase']['sequence']
++        if proxy_end is None:
++            acknowledged = value['budget']['streams']['proxy']['acknowledged']
++            total, proxy_end = 0, 0
++            for line in self.proxy_lines:
++                if total >= acknowledged: break
++                total += len(line); proxy_end += 1
++            equal(total, acknowledged, 'PROXY_PREFIX_EXACT_ROW_BOUNDARY')
++        healthy_state(value, self.phase_lines, self.proxy_lines, phase_end, proxy_end)
++
++    def exchange(self, label, result):
++        start = [r for r in self.rows if r['phase'] == 'EXCHANGE_START' and r['label'] == label]
++        terminal = [r for r in self.rows if r['phase'] == 'EXCHANGE_RESOLVED' and r['label'] == label]
++        need(len(start) == len(terminal) == 1, 'EXACT_EXCHANGE_PHASE_SPAN')
++        first, last = start[0]['sequence'], terminal[0]['sequence']; need(first < last, 'EXCHANGE_PHASE_ORDER')
++        rows = [r for r in self.rows[first - 1:last] if r.get('label') == label]
++        equal(sum(r['phase'] == 'TIMER_ARMED' for r in rows), 1)
++        equal(sum(r['phase'] == 'SOCKET_OPEN_CALLBACK_ENTRY' for r in rows), 1)
++        for sent in result['sentFrames']:
++            raw = self.files.read(sent['frame']); event_id = sent['eventId']
++            intent = [r for r in rows if r['phase'] == 'SEND_INTENT' and r['eventId'] == event_id]
++            need(len(intent) == 1, 'EXACT_SENT_PHASE_INTENT'); equal(wire.decode64(intent[0]['rawBase64']), raw)
++            equal(Path(sent['frame']['path']).name, label + '-' + str(result['sentFrames'].index(sent)) + '-sent-frame.json', 'IMMUTABLE_SENT_FRAME_PATH')
++            for name in ('SEND_INVOKE_ENTRY', 'SEND_INVOKE_RETURNED', 'SEND_CALLBACK_ENTRY', 'SEND_CALLBACK_GUARD_PASSED'):
++                selected = [r for r in rows if r['phase'] == name and r['eventId'] == event_id]
++                need(len(selected) == 1 and intent[0]['sequence'] < selected[0]['sequence'], 'SEND_PHASE_CALLBACK_JOIN')
++            callback = next(r for r in rows if r['phase'] == 'SEND_CALLBACK_ENTRY' and r['eventId'] == event_id)
++            self.guard_after(callback['sequence'], 'exchange:' + label + ':send-callback')
++        outcome_path = str(Path(self.window['outputRoot']) / 'session/fixtures' / (label + '-outcome.json'))
++        members = {p['path']: p for p in self.window['graphFiles']}; need(outcome_path in members, 'IMMUTABLE_OUTCOME_MEMBER_REQUIRED')
++        outcome = self.files.doc(members[outcome_path])
++        closed(outcome, 'label elapsedNanoseconds ack received eose sentFrames error secondaryRetentionErrors observer')
++        equal(outcome['label'], label); equal(outcome['error'], None); equal(outcome['secondaryRetentionErrors'], [])
++        for key in ('elapsedNanoseconds', 'ack', 'received', 'eose', 'sentFrames'): equal(outcome[key], result[key], 'ACTUAL_OUTCOME_RESULT_JOIN')
++        equal(terminal[0]['elapsedNanoseconds'], result['elapsedNanoseconds'])
++        equal(outcome['observer']['phase']['sequence'], last); self.state(outcome['observer'])
++        return first, last
++
++    def stage(self, record):
++        value = record['observation']
++        closed(value, 'schema phaseStartSequence phaseEndSequence proxyEndSequence observer phaseTracePath proxyCapturePath streamPins')
++        equal(value['schema'], 'e02-minimum-stage-observation-range-v2')
++        equal(value['phaseTracePath'], '/session/fixtures/phase-trace.jsonl')
++        equal(value['proxyCapturePath'], '/session/fixtures/capture.jsonl')
++        equal(value['streamPins'], 'FINAL_WHOLE_WINDOW_MEMBER_PINS_REQUIRED_NOT_MUTABLE_STAGE_PINS')
++        first, last = value['phaseStartSequence'], value['phaseEndSequence']
++        integer(first, 1, len(self.rows)); integer(last, first, len(self.rows))
++        equal(value['observer']['phase']['sequence'], last); self.state(value['observer'], value['proxyEndSequence'])
++        ranges = [self.exchange(record['stage']['id'] + suffix, record[key]) for suffix, key in (('-publish', 'publication'), ('-query', 'query'))]
++        need(first <= ranges[0][0] < ranges[0][1] < ranges[1][0] < ranges[1][1] <= last, 'STAGE_EXCHANGE_PHASE_RANGES')
++        need(value['proxyEndSequence'] >= self.files.doc(record['publicationWindow'])['closeSequence'], 'STAGE_PROXY_PREFIX_CLOSED')
++        attempt = record['attempt']
++        for start, end in ranges:
++            equal([r['observedAttempt'] for r in self.rows[start - 1:end]], [attempt] * (end - start + 1), 'STAGE_CALLBACK_CONTEXT_JOIN')
++        return first, last
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v2/strict.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v3/strict.py
+@@ -94,7 +94,7 @@
+     'e02-clipboard-capture-v1': {('elapsedRealtimeNanos',)},
+     'e02-single-cell-lease-v1': {(prefix + clock + 'Ns',)
+         for prefix in ('issued', 'deadline') for clock in ('Utc', 'Mono', 'Boot')},
+-    'e02-ordinary-minimum-role-release-v1': {('issuedAtUtcNs',), ('notAfterUtcNs',)},
++    'e02-ordinary-minimum-role-release-v2': {('issuedAtUtcNs',), ('notAfterUtcNs',)},
+     'nbdp-e02-acceptance-method-refinement-decision-v1': {('decidedAtUtcNs',)},
+     # Consumer-owned witnesses are explicit typed wrappers, not raw tool rewrites.
+     'e02-minimum-outer-witness-v1': {('startedUtcNs',), ('finishedUtcNs',)},
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v2/test_data_controls.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v3/test_data_controls.py
+@@ -91,10 +91,10 @@
+     publication = dict(ack=[ack], received=[], eose=None, sentFrames=[sentrow(sent, 'EVENT')], elapsedNanoseconds=100)
+     query = dict(ack=[], received=[qr], eose=qe, sentFrames=[sentrow(querysent, 'REQ')], elapsedNanoseconds=100)
+     prepared = put('prepared.json', dict(rumors={spec['oracle']: expected}, events=[event] * (index + 1)))
+-    intent = put('intent.json', dict(schema='e02-minimum-publish-intent-v1', profileId=wire.PROFILE,
++    intent = put('intent.json', dict(schema='e02-minimum-publish-intent-v2', profileId=wire.PROFILE,
+                  windowId=wire.WINDOWS[role], stage=spec, attempt=attempt, intentSequence=intentseq, prepared=prepared, gate=gate, issuedUTC='2026-10-24T00:00:00.000Z'))
+     origin = wire.APP if observed else wire.QUERY
+-    window = put('window.json', dict(schema='e02-minimum-publication-window-v1', profileId=wire.PROFILE,
++    window = put('window.json', dict(schema='e02-minimum-publication-window-v2', profileId=wire.PROFILE,
+                  windowId=wire.WINDOWS[role], stageId=spec['id'], eventId=event['id'], attempt=attempt,
+                  intentSequence=intentseq, closeSequence=close['sequence'], actualNewAppFrameObserved=observed,
+                  candidateAppFrameSeen=observed, elapsedNanoseconds=100, clock='NODE_PROCESS_HRTIME_MONOTONIC', origin=origin))
+@@ -107,20 +107,20 @@
+     normalized = dict(ok=True, value=value, decrypts=[1, 1])
+     jsr = put('js-request.json', request); rr = put('rust-request.json', request)
+     js = put('js-result.json', normalized); rust = put('rust-result.json', normalized)
+-    transport = put('transport.json', dict(schema='e02-minimum-transport-v1', frame=framepin, wire=wirepin, jsRequest=jsr, rustRequest=rr, jsResult=js, rustResult=rust))
++    transport = put('transport.json', dict(schema='e02-minimum-transport-v2', frame=framepin, wire=wirepin, jsRequest=jsr, rustRequest=rr, jsResult=js, rustResult=rust))
+     src = put('rust-source.rs', b'SYNTHETIC_DATA_NOT_A_PRODUCER', True)
+     binary = put('rust-binary', b'SYNTHETIC_NOT_EXECUTED', True)
+     stdin = put('stdin.jsonl', strict.json_bytes({'op': 'source'}) + b'\n' + strict.json_bytes(request) + b'\n', True)
+     stdout = put('stdout.jsonl', strict.json_bytes({'ok': True, 'value': files.read(src).decode()}) + b'\n' + strict.json_bytes({'ok': True, 'value': normalized}) + b'\n', True)
+     stderr = put('stderr.bin', b'', True)
+-    validation = put('validation.json', dict(schema='e02-minimum-validated-wire-record-v1', profileId=wire.PROFILE,
++    validation = put('validation.json', dict(schema='e02-minimum-validated-wire-record-v2', profileId=wire.PROFILE,
+         windowId=wire.WINDOWS[role], stageId=spec['id'], origin=origin, clientReceiptEstablished=observed,
+         transport=transport, rustBinary=binary, rustSource=src, rustInput=stdin, rustStdout=stdout, rustStderr=stderr,
+         rustExit=0, rustSignal=None, actualQueriedEvent=event, js=normalized, rust=normalized,
+         clientRetention='NOT_ESTABLISHED_BY_TRANSPORT_VALIDATION'))
+-    producer = put('producer.json', dict(schema='e02-minimum-producer-validation-v1', stageId=spec['id'], actualPublishedEvent=event,
++    producer = put('producer.json', dict(schema='e02-minimum-producer-validation-v2', stageId=spec['id'], actualPublishedEvent=event,
+         result=normalized, meaning='SYNTHETIC_DATA_ONLY'))
+-    record = dict(schema='e02-minimum-stage-publication-v1', profileId=wire.PROFILE, windowId=wire.WINDOWS[role], stage=spec,
++    record = dict(observation={}, schema='e02-minimum-stage-publication-v2', profileId=wire.PROFILE, windowId=wire.WINDOWS[role], stage=spec,
+         attempt=attempt, intent=intent, publicationWindow=window, gate=gate, publication=publication, query=query, event=event,
+         actualNewAppFrameObserved=observed, delivery=delivery, validation=dict(transport=transport, validation=validation),
+         producerValidation=producer, clientRetention='UNVERIFIED_REQUIRES_FRESH_CLIENT_SELECTION_EXPORT', validationOrigin=origin,
+@@ -388,7 +388,7 @@
+     def test_failed_window_no_partial_export_contribution(self):
+         # A producer-shaped early export is never accepted in place of a whole
+         # consumer manifest/history/window graph.
+-        p = pin(self.root / 'failed-window.json', strict.json_bytes(dict(schema='e02-minimum-role-driver-result-v1',
++        p = pin(self.root / 'failed-window.json', strict.json_bytes(dict(schema='e02-minimum-role-driver-result-v2',
+                 executionState='FAILED_UNQUALIFIED', observations=[dict(id='incoming-business')])) )
+         with self.assertRaises(strict.Refusal): consumer.consume(self.files, p, p)
+ 
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v3/test_observer.py
+@@ -0,0 +1,227 @@
++"""PREPARED NOT EXECUTED: synthetic integrated observer/wire DATA controls.
++
++No producer, cryptographic library, Docker, SDK, socket or real approval runs.
++This positive is a complete observer+publication graph; it deliberately does
++not claim coverage of consumer.consume's whole two-window GUI/tool graph.
++"""
++import base64
++import copy
++import hashlib
++from pathlib import Path
++import sys
++import tempfile
++import unittest
++
++sys.path.insert(0, str(Path(__file__).resolve().parent))
++import strict
++import wire
++import observer
++from test_data_controls import publication_data, pin
++
++
++def graph(root, role='incoming', index=0, observed=True, late=False):
++    files, old_proxy, record, expected, spec, role = publication_data(root, role, index, observed, late_candidate=late)
++    output = root / 'session' / 'fixtures'; output.mkdir(parents=True)
++    def put(name, value, raw=False):
++        return pin(output / name, value if raw else strict.json_bytes(value))
++    proxy_rows = copy.deepcopy(old_proxy.rows)
++    for key, suffix in (('publication', '-publish'), ('query', '-query')):
++        old = record[key]['sentFrames'][0]['frame']
++        new = put(spec['id'] + suffix + '-0-sent-frame.json', files.read(old), True)
++        record[key]['sentFrames'][0]['frame'] = new
++        for row in proxy_rows:
++            if row['direction'] == 'PRODUCER_TO_RELAY' and row['exchangeLabel'] == spec['id'] + suffix:
++                row['frame'] = new
++    lines, phases, context = [], [], None
++    outcomes = {}
++    proxy_prefix = 0
++    def phase(name, **fields):
++        row = dict(schema='e02-transport-query-phase-v2', sequence=len(phases) + 1,
++            utc='2026-10-26T00:00:00.000Z', monotonicNanoseconds=str(len(phases) + 1), phase=name,
++            profileId=wire.PROFILE, windowId=wire.WINDOWS[role], ordinaryRole=role,
++            observedAttempt=copy.deepcopy(context), **fields)
++        phases.append(row); lines.append(strict.json_bytes(row) + b'\n'); return row
++    def guard(label):
++        phase('GUARD_ENTRY', label=label); phase('GUARD_EXIT', label=label, ok=True, error=None)
++    def state():
++        phase_raw = b''.join(lines)
++        raw_proxy = b''.join(strict.json_bytes(r) + b'\n' for r in proxy_rows[:proxy_prefix])
++        last = lines[-1]; pcount, rcount = len(phase_raw), len(raw_proxy)
++        return dict(schema='e02-minimum-observer-state-v2',
++            budget=dict(schema='e02-minimum-aggregate-capture-budget-v2', limit=observer.LIMIT,
++                intendedTotalBytes=pcount + rcount, acknowledgedTotalBytes=pcount + rcount,
++                streams=dict(phase=dict(intended=pcount, acknowledged=pcount), proxy=dict(intended=rcount, acknowledged=rcount)),
++                poisoned=False, firstError=None, physicalBytes=None,
++                physicalMeaning='ACKNOWLEDGED_PREFIX_IS_NOT_INDEPENDENT_PHYSICAL_ATTESTATION',
++                lastAttempt=dict(stream='phase', intendedBytes=len(last), writeInvoked=True, reportedCount=len(last),
++                    acknowledgedBytes=len(last), acknowledgedPrefixSha256=hashlib.sha256(last).hexdigest(), physicalBytes=None, error=None)),
++            phase=dict(sequence=len(phases), intendedTotalBytes=pcount, acknowledgedTotalBytes=pcount,
++                physicalBytes=None, physicalMeaning='NOT_INDEPENDENTLY_MEASURED_ACKNOWLEDGED_PREFIX_IS_NOT_PHYSICAL_ATTESTATION',
++                poisoned=False, firstError=None, lastAttempt=dict(sequence=len(phases), phase=phases[-1]['phase'],
++                    intendedBytes=len(last), writeInvoked=True, reportedCount=len(last), acknowledgedBytes=len(last),
++                    acknowledgedPrefixBase64=base64.b64encode(last).decode(), physicalBytes=None, error=None)))
++    first = None
++    for row in proxy_rows:
++        direction = row['direction']
++        if direction == 'PUBLICATION_INTENT':
++            first = len(phases) + 1; guard('original-unlabeled'); context = record['attempt']
++        if direction == 'OPEN':
++            phase('PROXY_CONNECTION_CALLBACK_ENTRY', nextConnection=row['connection']); guard('proxy:connection')
++        if direction in ('APP_TO_RELAY', 'RELAY_TO_APP'):
++            origin = 'APP' if direction == 'APP_TO_RELAY' else 'RELAY'
++            phase('PROXY_RAW_CALLBACK_ENTRY', connection=row['connection'], origin=origin, rawBase64=row['rawBase64'], binary=False)
++            guard('proxy:app-message' if origin == 'APP' else 'proxy:upstream-message')
++            proxy_prefix = row['sequence']
++            target = 'RELAY' if origin == 'APP' else 'APP'
++            fields = dict(connection=row['connection'], target=target,
++                bufferHash=hashlib.sha256(wire.decode64(row['rawBase64'])).hexdigest())
++            if target == 'APP': fields['sourceSequence'] = row['sequence']
++            guard('proxy:before-upstream-send' if target == 'RELAY' else 'proxy:before-app-send')
++            phase('PROXY_SEND_INVOKE_ENTRY', **fields, bytes=len(wire.decode64(row['rawBase64'])))
++            phase('PROXY_SEND_INVOKE_RETURNED', **fields)
++            if target == 'RELAY':
++                phase('PROXY_SEND_CALLBACK_ENTRY', **fields, error=None)
++                phase('PROXY_SEND_CALLBACK_COMPLETE', **fields)
++        if direction == 'PRODUCER_TO_RELAY':
++            label = row['exchangeLabel']; raw = wire.decode64(row['rawBase64']); event_id = wire.frame(raw)[1].get('id') if wire.frame(raw)[0] == 'EVENT' else None
++            guard('exchange:' + label + ':exchange-entry'); phase('EXCHANGE_START', label=label)
++            phase('TIMER_ARMED', label=label, timeoutMilliseconds=10000)
++            phase('SOCKET_OPEN_CALLBACK_ENTRY', label=label); guard('exchange:' + label + ':socket-open')
++            guard('exchange:' + label + ':send-before'); phase('SEND_INTENT', label=label, eventId=event_id, rawBase64=row['rawBase64'])
++            proxy_prefix = row['sequence']
++            phase('SEND_INVOKE_ENTRY', label=label, eventId=event_id)
++            phase('SEND_INVOKE_RETURNED', label=label, eventId=event_id)
++            phase('SEND_CALLBACK_ENTRY', label=label, eventId=event_id, error=None)
++            guard('exchange:' + label + ':send-callback'); phase('SEND_CALLBACK_GUARD_PASSED', label=label, eventId=event_id)
++        elif direction == 'RELAY_TO_PRODUCER':
++            label = row['exchangeLabel']
++            phase('RAW_BACKEND_CALLBACK_ENTRY', label=label, rawBase64=row['rawBase64']); guard('exchange:' + label + ':backend-message')
++            proxy_prefix = row['sequence']
++            phase('BACKEND_MESSAGE_GUARD_PASSED', label=label, messageType=wire.frame(wire.decode64(row['rawBase64']))[0])
++            key = 'query' if label.endswith('-query') else 'publication'
++            if key == 'publication' or wire.frame(wire.decode64(row['rawBase64']))[0] == 'EOSE':
++                result = record[key]
++                phase('EXCHANGE_RESOLVED', label=label, elapsedNanoseconds=result['elapsedNanoseconds'], error=None)
++                outcomes[label] = dict(label=label, **copy.deepcopy(result), error=None, secondaryRetentionErrors=[], observer=state())
++        elif direction == 'APP_SOCKET_SEND_COMPLETE':
++            source = proxy_rows[row['sourceSequence'] - 1]
++            phase('PROXY_SEND_CALLBACK_ENTRY', connection=row['connection'], target='APP',
++                bufferHash=hashlib.sha256(wire.decode64(source['rawBase64'])).hexdigest(),
++                sourceSequence=row['sourceSequence'], error=None)
++            guard('proxy:app-send-callback'); proxy_prefix = row['sequence']
++            phase('PROXY_SEND_CALLBACK_COMPLETE', connection=row['connection'], target='APP',
++                bufferHash=hashlib.sha256(wire.decode64(source['rawBase64'])).hexdigest(),
++                sourceSequence=row['sourceSequence'], sentSequence=row['sequence'])
++        proxy_prefix = row['sequence']
++    guard('original-unlabeled')
++    record['observation'] = dict(schema='e02-minimum-stage-observation-range-v2', phaseStartSequence=first,
++        phaseEndSequence=len(phases), proxyEndSequence=len(proxy_rows), observer=state(),
++        phaseTracePath='/session/fixtures/phase-trace.jsonl', proxyCapturePath='/session/fixtures/capture.jsonl',
++        streamPins='FINAL_WHOLE_WINDOW_MEMBER_PINS_REQUIRED_NOT_MUTABLE_STAGE_PINS')
++    proxy_pin = put('capture.jsonl', b''.join(strict.json_bytes(r) + b'\n' for r in proxy_rows), True)
++    phase_pin = put('phase-trace.jsonl', b''.join(lines), True)
++    for label, outcome in outcomes.items(): put(label + '-outcome.json', outcome)
++    def members():
++        return [dict(path=str(p), bytes=p.stat().st_size, sha256=hashlib.sha256(p.read_bytes()).hexdigest()) for p in sorted(output.iterdir())]
++    window = dict(outputRoot=str(root), profileId=wire.PROFILE, windowId=wire.WINDOWS[role], ordinaryRole=role,
++        proxy=proxy_pin, phase=phase_pin, graphFiles=members())
++    return files, window, wire.Proxy(files, proxy_pin), record, expected, spec, role
++
++
++class ObserverControls(unittest.TestCase):
++    def setUp(self):
++        self.temp = tempfile.TemporaryDirectory(prefix='nbdp-consumer3-observer-model-')
++        self.root = Path(self.temp.name)
++
++    def tearDown(self): self.temp.cleanup()
++
++    def inspect(self, data):
++        files, window, proxy, record, expected, spec, role = data
++        wire.publication(files, proxy, record, expected, spec, role)
++        trace = observer.Trace(files, window, proxy); trace.stage(record)
++        return trace
++
++    def test_positive_integrated_publication_observer_whole_streams(self):
++        self.inspect(graph(self.root))
++
++    def test_positive_archive_identical_query_observer(self):
++        self.inspect(graph(self.root, 'archive', 1, False))
++
++    def test_positive_archive_fresh_wrap_delivery_observer(self):
++        self.inspect(graph(self.root, 'archive', 2, True))
++
++    def test_positive_late_raw_callback_history_is_kept(self):
++        self.inspect(graph(self.root, 'archive', 1, False, True))
++
++    def mutate_stage(self, mutate):
++        data = graph(self.root); mutate(data[3]['observation'])
++        with self.assertRaises((strict.Refusal, KeyError, TypeError)): self.inspect(data)
++
++    def test_poisoned_budget_refused(self): self.mutate_stage(lambda v: v['observer']['budget'].update(poisoned=True))
++    def test_poisoned_phase_refused(self): self.mutate_stage(lambda v: v['observer']['phase'].update(poisoned=True))
++    def test_first_shared_fault_refused(self): self.mutate_stage(lambda v: v['observer']['budget'].update(firstError='SHORT_CAPTURE_WRITE'))
++    def test_first_phase_fault_refused(self): self.mutate_stage(lambda v: v['observer']['phase'].update(firstError='SHORT_PHASE_WRITE'))
++    def test_two_separate_capture_limits_refused(self): self.mutate_stage(lambda v: v['observer']['budget'].update(limit=observer.LIMIT * 2))
++    def test_partial_reported_write_count_refused(self): self.mutate_stage(lambda v: v['observer']['phase']['lastAttempt'].update(reportedCount=1))
++    def test_unknown_write_count_refused(self): self.mutate_stage(lambda v: v['observer']['budget']['lastAttempt'].update(reportedCount=None))
++    def test_physical_attestation_invention_refused(self): self.mutate_stage(lambda v: v['observer']['budget'].update(physicalBytes=1))
++    def test_mutable_stage_stream_pins_refused(self): self.mutate_stage(lambda v: v.update(streamPins='STAGE_COPY'))
++    def test_cross_window_phase_path_refused(self): self.mutate_stage(lambda v: v.update(phaseTracePath='/session/other/phase-trace.jsonl'))
++    def test_stage_phase_prefix_drift_refused(self): self.mutate_stage(lambda v: v.update(phaseEndSequence=v['phaseEndSequence'] - 1))
++    def test_proxy_prefix_drift_refused(self): self.mutate_stage(lambda v: v.update(proxyEndSequence=v['proxyEndSequence'] - 1))
++    def test_stage_start_after_exchange_refused(self): self.mutate_stage(lambda v: v.update(phaseStartSequence=v['phaseEndSequence']))
++    def test_extra_stage_field_refused(self): self.mutate_stage(lambda v: v.update(untrusted=True))
++    def test_shared_stream_sum_drift_refused(self): self.mutate_stage(lambda v: v['observer']['budget']['streams']['proxy'].update(acknowledged=0))
++    def test_wrong_prefix_hash_refused(self): self.mutate_stage(lambda v: v['observer']['budget']['lastAttempt'].update(acknowledgedPrefixSha256='0' * 64))
++
++    def rewrite(self, data, path, value, jsonl=False):
++        raw = b''.join(strict.json_bytes(r) + b'\n' for r in value) if jsonl else strict.json_bytes(value)
++        path.write_bytes(raw)
++        descriptor = dict(path=str(path), bytes=len(raw), sha256=hashlib.sha256(raw).hexdigest())
++        window = data[1]
++        window['graphFiles'] = [descriptor if p['path'] == str(path) else p for p in window['graphFiles']]
++        if window['phase']['path'] == str(path): window['phase'] = descriptor
++
++    def change_phases(self, mutate):
++        data = graph(self.root); path = Path(data[1]['phase']['path'])
++        rows = [strict.loads(line) for line in path.read_bytes().splitlines()]; mutate(rows)
++        for i, row in enumerate(rows, 1): row['sequence'] = i
++        self.rewrite(data, path, rows, True)
++        with self.assertRaises(strict.Refusal): self.inspect(data)
++
++    def test_old_profile_phase_refused(self): self.change_phases(lambda rows: rows[0].update(profileId='e02-ordinary-minimum-rs-two-role-v1'))
++    def test_unknown_phase_refused(self): self.change_phases(lambda rows: rows[-1].update(phase='UNREVIEWED_PHASE'))
++    def test_monotonic_backwards_refused(self): self.change_phases(lambda rows: rows[-1].update(monotonicNanoseconds='0'))
++    def test_unqualified_late_guard_failure_refused(self): self.change_phases(lambda rows: rows[-1].update(ok=False, error='EXPIRED_LEASE'))
++    def test_missing_app_callback_phase_refused(self): self.change_phases(lambda rows: rows.__setitem__(slice(None), [r for r in rows if r['phase'] != 'PROXY_SEND_CALLBACK_COMPLETE' or r['target'] != 'APP']))
++    def test_proxy_complete_without_invoke_refused(self): self.change_phases(lambda rows: rows.__setitem__(slice(None), [r for r in rows if r['phase'] != 'PROXY_SEND_INVOKE_ENTRY']))
++
++    def test_omitted_outcome_member_refused(self):
++        data = graph(self.root)
++        data[1]['graphFiles'] = [p for p in data[1]['graphFiles'] if not p['path'].endswith('-query-outcome.json')]
++        with self.assertRaises(strict.Refusal): self.inspect(data)
++
++    def test_outcome_retention_failure_refused(self):
++        data = graph(self.root); path = self.root / 'session/fixtures/incoming-business-query-outcome.json'
++        value = strict.loads(path.read_bytes()); value['secondaryRetentionErrors'] = [{'stage': 'write', 'error': 'SINK_FAILED'}]
++        self.rewrite(data, path, value)
++        with self.assertRaises(strict.Refusal): self.inspect(data)
++
++    def test_outcome_poisoned_state_refused(self):
++        data = graph(self.root); path = self.root / 'session/fixtures/incoming-business-query-outcome.json'
++        value = strict.loads(path.read_bytes()); value['observer']['budget']['poisoned'] = True
++        self.rewrite(data, path, value)
++        with self.assertRaises(strict.Refusal): self.inspect(data)
++
++    def test_unhealthy_final_state_refused(self):
++        data = graph(self.root); path = self.root / 'session/fixtures/observer-final-state.json'
++        descriptor = pin(path, strict.json_bytes(dict(observer=data[3]['observation']['observer'], error='FIRST_FAULT', secondaryErrors=[])))
++        data[1]['graphFiles'].append(descriptor)
++        with self.assertRaises(strict.Refusal): self.inspect(data)
++
++    def test_world_readable_observer_stream_refused(self):
++        data = graph(self.root); Path(data[1]['phase']['path']).chmod(0o644)
++        with self.assertRaises(strict.Refusal): self.inspect(data)
++
++
++if __name__ == '__main__': unittest.main(verbosity=2)
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v2/wire.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v3/wire.py
+@@ -3,7 +3,7 @@
+ import hashlib
+ from strict import closed, equal, hx, integer, json_bytes, loads, need, same, text, validate_numbers
+ 
+-PROFILE = 'e02-ordinary-minimum-rs-two-role-v1'
++PROFILE = 'e02-ordinary-minimum-rs-two-role-v2'
+ A = '79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798'
+ B = 'c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5'
+ BUSINESS = 'e2b4accf597c65d5a3749f44551545f2be430a0ac3ddfb4cf694c9d12ae6df14'
+@@ -240,7 +240,7 @@
+ 
+ def validation(files, record, event, expected, spec, origin, actual_raw, role):
+     closed(record, 'schema profileId windowId stageId origin clientReceiptEstablished transport rustBinary rustSource rustInput rustStdout rustStderr rustExit rustSignal actualQueriedEvent js rust clientRetention')
+-    equal(record['schema'], 'e02-minimum-validated-wire-record-v1')
++    equal(record['schema'], 'e02-minimum-validated-wire-record-v2')
+     equal(record['profileId'], PROFILE); equal(record['windowId'], WINDOWS[role]); equal(record['stageId'], spec['id'])
+     equal(record['origin'], origin); equal(record['clientReceiptEstablished'], origin == APP)
+     equal(record['rustExit'], 0); equal(record['rustSignal'], None)
+@@ -248,7 +248,7 @@
+     equal(record['clientRetention'], 'NOT_ESTABLISHED_BY_TRANSPORT_VALIDATION')
+     transport = files.doc(record['transport'])
+     closed(transport, 'schema frame wire jsRequest rustRequest jsResult rustResult')
+-    equal(transport['schema'], 'e02-minimum-transport-v1')
++    equal(transport['schema'], 'e02-minimum-transport-v2')
+     equal(files.read(transport['frame']), actual_raw, 'VALIDATED_ACTUAL_FRAME')
+     wire = files.read(transport['wire']); equal(frame(actual_raw)[2], validate_numbers(loads(wire)))
+     request = dict(op='validate', wire=wire.decode('utf-8', 'strict'), secret=('2' if role == 'incoming' else '1').zfill(64), role=role, expectedSender=A)
+@@ -268,8 +268,9 @@
+ 
+ 
+ def publication(files, proxy, record, expected, spec, role):
+-    closed(record, 'schema profileId windowId stage attempt intent publicationWindow gate publication query event actualNewAppFrameObserved delivery validation producerValidation clientRetention validationOrigin replayLimit')
+-    equal(record['schema'], 'e02-minimum-stage-publication-v1'); equal(record['profileId'], PROFILE)
++    closed(record, 'schema profileId windowId stage attempt intent publicationWindow gate publication query event actualNewAppFrameObserved delivery validation producerValidation clientRetention validationOrigin replayLimit observation')
++    need(type(record['observation']) is dict, 'OBSERVATION_RANGE_REQUIRED')
++    equal(record['schema'], 'e02-minimum-stage-publication-v2'); equal(record['profileId'], PROFILE)
+     equal(record['windowId'], WINDOWS[role]); equal(record['stage'], spec)
+     attempt = {'epoch': spec['index'] + 1, 'stageId': spec['id']}
+     equal(record['attempt'], attempt)
+@@ -279,7 +280,7 @@
+     origin = APP if observed else QUERY; equal(record['validationOrigin'], origin)
+     window = files.doc(record['publicationWindow'])
+     closed(window, 'schema profileId windowId stageId eventId attempt intentSequence closeSequence actualNewAppFrameObserved candidateAppFrameSeen elapsedNanoseconds clock origin')
+-    equal(window['schema'], 'e02-minimum-publication-window-v1'); equal(window['profileId'], PROFILE)
++    equal(window['schema'], 'e02-minimum-publication-window-v2'); equal(window['profileId'], PROFILE)
+     equal(window['windowId'], WINDOWS[role]); equal(window['stageId'], spec['id']); equal(window['eventId'], event['id'])
+     equal(window['attempt'], attempt); equal(window['origin'], origin); equal(window['actualNewAppFrameObserved'], observed)
+     equal(window['candidateAppFrameSeen'], observed); integer(window['elapsedNanoseconds'], 0, 1800000000000)
+@@ -293,7 +294,7 @@
+         equal(end[key], window[key])
+     intent = files.doc(record['intent'])
+     closed(intent, 'schema profileId windowId stage attempt intentSequence prepared gate issuedUTC')
+-    equal(intent['schema'], 'e02-minimum-publish-intent-v1'); equal(intent['profileId'], PROFILE)
++    equal(intent['schema'], 'e02-minimum-publish-intent-v2'); equal(intent['profileId'], PROFILE)
+     equal(intent['windowId'], WINDOWS[role]); equal(intent['stage'], spec); equal(intent['attempt'], attempt)
+     equal(intent['intentSequence'], first); equal(intent['gate'], record['gate'])
+     prepared = files.doc(intent['prepared'])
+@@ -330,7 +331,7 @@
+     validation(files, v, event, expected, spec, origin, actual_raw, role)
+     producer = files.doc(record['producerValidation'])
+     closed(producer, 'schema stageId actualPublishedEvent result meaning')
+-    equal(producer['schema'], 'e02-minimum-producer-validation-v1'); equal(producer['stageId'], spec['id'])
++    equal(producer['schema'], 'e02-minimum-producer-validation-v2'); equal(producer['stageId'], spec['id'])
+     equal(producer['actualPublishedEvent'], event); normalized(producer['result'], expected, spec)
+     equal(record['clientRetention'], 'UNVERIFIED_REQUIRES_FRESH_CLIENT_SELECTION_EXPORT')
+     return event, sent

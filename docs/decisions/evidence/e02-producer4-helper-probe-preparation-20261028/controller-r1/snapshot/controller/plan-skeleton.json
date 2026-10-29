@@ -1,0 +1,75 @@
+{
+  "schema": "e02-one-cid-helper-probe-plan-v1",
+  "scope": "ONE_OWNED_HELPER_PROBE_ONLY",
+  "runId": null,
+  "creationNonce": null,
+  "name": null,
+  "uidGid": null,
+  "inputRoot": null,
+  "controlRoot": null,
+  "outputRoot": null,
+  "dockerConfig": null,
+  "lease": null,
+  "source8": [
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/probe-guard-helper.mjs",
+      "bytes": 3008,
+      "sha256": "396efe615ec3a099c149da6725d629576176799dda6ef7300fc3df5e9a5e2546"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-client.mjs",
+      "bytes": 9176,
+      "sha256": "1d4e99056ec8c16f9222cfebc060d171ee5e723748ac303d4d525dd7b43b5fc5"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-client-core.mjs",
+      "bytes": 8072,
+      "sha256": "14be5abb1ff953d2336e841e1364acdfd8275874ffed3aef88f9a9489fac1083"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-wire.mjs",
+      "bytes": 1921,
+      "sha256": "8cf473b741d631f80ef785c86acf5caa9899d03206696a8f740db08878c02d8e"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-helper.py",
+      "bytes": 6219,
+      "sha256": "743e0ed269445a4d59407336e399d1c7bd46c5337408b157e9ef85773e2157cf"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/lease_guard.py",
+      "bytes": 14846,
+      "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/capture-allocation.mjs",
+      "bytes": 7437,
+      "sha256": "a86180100f6f4fee691bd177f557fbc3a4573ccc9d0f3f15ee66a32c1b8e57a7"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-transport-boundaries.mjs",
+      "bytes": 4978,
+      "sha256": "c4c5cda6107cdead8715da8bdba917a31ebabadc0249d8fba0b343a718f98068"
+    }
+  ],
+  "guardManifest": {
+    "path": "/tmp/nbdp-e02-minimal-rs-v7/records/guard-bundle-manifest.json",
+    "bytes": 332736,
+    "sha256": "9de311222ef78e20fbe05bfef32898976d80737d5d932166d23431a04a73a454"
+  },
+  "guardRoot": "/tmp/nbdp-e02-minimal-rs-v7/guard-python",
+  "tools": {
+    "python": null,
+    "docker": null
+  },
+  "expectedImageConfigSha256": null,
+  "gates": {
+    "producerSource": null,
+    "producerData": null,
+    "controllerSource": null,
+    "sourceQa": null,
+    "sourceSecurity": null,
+    "controlData": null,
+    "concreteInput": null
+  }
+}

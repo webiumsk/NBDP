@@ -1,0 +1,161 @@
+{
+  "schema": "e02-anticipatory-independent-source-findings-retention-v1",
+  "transcribedBy": "/root",
+  "scope": "Actual independent reviewer mailbox findings on evolving SOURCE, not final acceptance or runtime evidence.",
+  "reviewers": {
+    "qa": "/root/r5s3_fresh_qa_633357df4a935397d8757b93be9d8be0e",
+    "security": "/root/r5s3_fresh_security_633357df4a935397d8757b93be9d8be0e"
+  },
+  "reportedSourceVersions": [
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/guard-helper.py",
+      "bytes": 5942,
+      "sha256": "c0e35ddebf77f20fed2bf473520221b8c70cd7c0700262cf547c03dd45e65dd2"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/guard-wire.mjs",
+      "bytes": 1367,
+      "sha256": "ef015992114f3cc191caba95ccaa92b3516aa4795ead782150344e0a3f73cae9"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/guard-client-core.mjs",
+      "bytes": 6500,
+      "sha256": "445fb382e53d9e00bc546cb8e99ba141cdeea5784078b486f3d7fa0cc059b039"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/guard-client.mjs",
+      "bytes": 7703,
+      "sha256": "51874afdd3b3d43661413c2892f1dfae4888f56586193c9b4c9d3e6cad9c65d2"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/fixture.mjs",
+      "bytes": 24782,
+      "sha256": "c4955c38122f1b87dbd61b95378f4870bb240b41a016e6d0e96e1d1d1a3dbd7c"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/fixture.mjs",
+      "bytes": 38542,
+      "sha256": "7ce5c53f6e3eaf9199cae5a7c6dec36a8cf8d4e648f0a84422a6f9986252d6f4"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/fixture.mjs",
+      "bytes": 40777,
+      "sha256": "dcac9a65c8576bea793456947d2d9cd6d793798adc3a6acbfe93d83ff9011042"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/guard-client.mjs",
+      "bytes": 8610,
+      "sha256": "6252ca42301a49fdc843f640975754bb5abc8daabf2cf022c44a30c387793267"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/capture-allocation.mjs",
+      "bytes": 6732,
+      "sha256": "60255580f8f16c5286d0cbe10c19b500c518e20cd568d6cf3ffa59adc8cc0ebe"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/test_capture_allocation.mjs",
+      "bytes": 16742,
+      "sha256": "bb7f3386d7790935e777fb87ccf7d648eed61585c61bab6e60ebabff355a122d"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/capture-budget.mjs",
+      "bytes": 4634,
+      "sha256": "a56425726fff318eb3fc8bf3e521f131223ca9ea379f3a8c1968c6a6e263a19e"
+    }
+  ],
+  "findings": [
+    {
+      "id": "P4-WIP-01",
+      "severity": "HIGH",
+      "role": "qa",
+      "issue": "Deadline checks precede valid(); synchronous validation can cross deadline before effect.",
+      "requiredRemediation": "Fresh clocks/terminal checks after validation; no timer-only authorization.",
+      "status": "OPEN_PENDING_FINAL_INDEPENDENT_SOURCE_AND_DATA_REVIEW"
+    },
+    {
+      "id": "P4-WIP-02",
+      "severity": "MEDIUM",
+      "role": "security",
+      "issue": "Held OK crosses suspend while MONOTONIC pauses and BOOT/UTC lease not expired.",
+      "requiredRemediation": "Enqueue-inclusive5s across conservative UTC/BOOT too; heldOK suspend controls.",
+      "status": "OPEN_PENDING_FINAL_INDEPENDENT_SOURCE_AND_DATA_REVIEW"
+    },
+    {
+      "id": "P4-WIP-03",
+      "severity": "MEDIUM",
+      "role": "security",
+      "issue": "Fixed1s SIGKILL escalation can exceed owner deadline.",
+      "requiredRemediation": "Reserve and clamp whole owned cleanup to original remaining budget.",
+      "status": "OPEN_PENDING_FINAL_INDEPENDENT_SOURCE_AND_DATA_REVIEW"
+    },
+    {
+      "id": "P4-WIP-04",
+      "severity": "MEDIUM",
+      "role": "security",
+      "issue": "stderr observer error escapes callback despite finally bad().",
+      "requiredRemediation": "Catch and retain first fault; cleanup continues.",
+      "status": "OPEN_PENDING_FINAL_INDEPENDENT_SOURCE_AND_DATA_REVIEW"
+    },
+    {
+      "id": "P4-WIP-05",
+      "severity": "LOW",
+      "role": "security",
+      "issue": "Synchronous effect cancellation may be followed by GUARD_EXIT ok:true.",
+      "requiredRemediation": "Revalidate epoch/fault before success retention.",
+      "status": "OPEN_PENDING_FINAL_INDEPENDENT_SOURCE_AND_DATA_REVIEW"
+    },
+    {
+      "id": "P4-WIP-06",
+      "severity": "MEDIUM",
+      "role": "qa",
+      "issue": "Controller response lacks original45s deadline after delayed end callback.",
+      "requiredRemediation": "Direct response deadline fence and heldOK-after45 test.",
+      "status": "OPEN_PENDING_FINAL_INDEPENDENT_SOURCE_AND_DATA_REVIEW"
+    },
+    {
+      "id": "P4-WIP-07",
+      "severity": "MEDIUM",
+      "role": "qa",
+      "issue": "REQ/CLOSE invalidation waits in guarded queue; stale send can commit first.",
+      "requiredRemediation": "Immediate generation/publication fences and actual proxy continuation tests.",
+      "status": "OPEN_PENDING_FINAL_INDEPENDENT_SOURCE_AND_DATA_REVIEW"
+    },
+    {
+      "id": "P4-WIP-08",
+      "severity": "MEDIUM",
+      "role": "qa",
+      "issue": "Malformed controller JSON/import failure can bypass helper cancellation/drain.",
+      "requiredRemediation": "Immediate terminal path and bounded owned cleanup.",
+      "status": "OPEN_PENDING_FINAL_INDEPENDENT_SOURCE_AND_DATA_REVIEW"
+    },
+    {
+      "id": "P4-WIP-09",
+      "severity": "MEDIUM",
+      "role": "security",
+      "issue": "Controller RPC proof has independent1MiB allowance outside shared16MiB.",
+      "requiredRemediation": "Exact adopted8MiB+64x128KiB pre-reservation implementation and producer/consumer controls.",
+      "status": "OPEN_PENDING_FINAL_INDEPENDENT_SOURCE_AND_DATA_REVIEW"
+    },
+    {
+      "id": "P4-WIP-10",
+      "severity": "LOW",
+      "role": "security",
+      "issue": "Custom/inherited array toJSON executes during encoding before rejection.",
+      "requiredRemediation": "Reject hooks/prototypes without invocation; preserve bounded pre-write encoding.",
+      "status": "OPEN_PENDING_FINAL_INDEPENDENT_SOURCE_AND_DATA_REVIEW"
+    },
+    {
+      "id": "P4-WIP-11",
+      "severity": "LOW",
+      "role": "security",
+      "issue": "Invalid/oversize Buffer validation outside poison leaves account healthy.",
+      "requiredRemediation": "Sticky first-fault validation; zero fs calls; poisoned account.",
+      "status": "OPEN_PENDING_FINAL_INDEPENDENT_SOURCE_AND_DATA_REVIEW"
+    }
+  ],
+  "preservation": "Four original helper/core/transport files retained in anticipatory-baseline; exact budget finding versions retained in anticipatory-budget-baseline. For other old fixture versions this record preserves reported pins/findings, not a reconstructed full-byte snapshot claim.",
+  "targetedAllocationReview": "No material arithmetic/one-use-credit/handoff gap found in targeted module; actual whole integration still requires final review.",
+  "modelsExecuted": 0,
+  "helperStarted": false,
+  "runtimeQualified": false
+}

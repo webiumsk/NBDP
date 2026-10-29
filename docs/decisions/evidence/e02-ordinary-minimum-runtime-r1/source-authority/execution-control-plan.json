@@ -1,0 +1,108 @@
+{
+  "schema": "e02-minimum-changed-control-plan-v1",
+  "state": "PREPARED_NOT_EXECUTED_NOT_AUTHORIZED_BY_THIS_FILE",
+  "actor": "/root/ordinary_api35_source",
+  "sourceReviewPrerequisite": "Actual same-frozen-subject independent QA and security decisions plus explicit root instruction; no self-authored approval.",
+  "configuration": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/proposed-incoming-run-config.json",
+      "bytes": 4138,
+      "sha256": "9403036b52608929f4be45a5998b6b134dfbdc9454887dcac9be0646848cce5e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/proposed-archive-run-config.json",
+      "bytes": 4136,
+      "sha256": "331a98d3fe0b386715e4c9a11c1abf335e03848eeaf7803eb71deb63a426141d"
+    }
+  ],
+  "interpreters": {
+    "python": {
+      "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "bytes": 32959480,
+      "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+    },
+    "node": {
+      "path": "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+      "bytes": 121613584,
+      "sha256": "ccacb2d6d87ba6d118b2bffc1ae33747a05cc5fc6b1f1ec4fc1d420b687e952d"
+    }
+  },
+  "data": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/control-inputs.json",
+    "bytes": 4163,
+    "sha256": "16c7dff85697f0a485cd8f99ad70039d23c641e9dcde4c7281845d8a5e07bdea"
+  },
+  "separateScopes": [
+    {
+      "name": "cleanup",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/test_cleanup.py"
+      ],
+      "plannedChecks": 29,
+      "meaning": "PYTHON_MOCK_ONLY",
+      "timeoutSeconds": 60,
+      "executed": false
+    },
+    {
+      "name": "ui-regression",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/test_android_driver.py"
+      ],
+      "plannedChecks": 49,
+      "meaning": "PYTHON_XML_MOCK_ONLY",
+      "timeoutSeconds": 60,
+      "executed": false
+    },
+    {
+      "name": "minimum-ui",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/test_minimum_driver.py"
+      ],
+      "plannedChecks": 21,
+      "meaning": "PYTHON_ROLE_NAV_EXPORT_MOCK_ONLY",
+      "timeoutSeconds": 60,
+      "executed": false
+    },
+    {
+      "name": "fixture-regression",
+      "argv": [
+        "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+        "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/test_fixture.mjs"
+      ],
+      "plannedChecks": 27,
+      "meaning": "NODE_METADATA_ONLY",
+      "timeoutSeconds": 60,
+      "executed": false
+    },
+    {
+      "name": "minimum-fixture",
+      "argv": [
+        "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+        "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/test_minimum_fixture.mjs"
+      ],
+      "plannedChecks": 43,
+      "meaning": "NODE_ROLE_REPLAY_ORIGIN_METADATA_ONLY",
+      "timeoutSeconds": 60,
+      "executed": false
+    }
+  ],
+  "captureRequirements": [
+    "Finite trusted foreground subprocess capture; original tool response saved separately with actual API fields, not fabricated portable attestation.",
+    "Exclusive one attempt per scope, stop first failure, preserve raw stdout/stderr0600, no retry.",
+    "Record actual child status/signal/error/force/elapsed/EOF/reap from capture API, without claiming unavailable fields.",
+    "Pin complete current source/config/interpreter/actually-read archived inputs before and after each scope and overall; retain raw first failure.",
+    "No Node crypto module main/sign/encrypt/native/network/services/Android/SDK invoked by metadata suites; dynamic imports only within never-called guarded main.",
+    "Do not rerun unchanged29guard or old14consumer; prior guard scope byte-bound only.",
+    "No experimentPASS or client runtime evidence follows from pure controls."
+  ],
+  "runtimeNext": "Root-owned strict minimum consumer/canonical integration SOURCE + independent review/control acceptance; fresh resource/grant per role, no activation here."
+}

@@ -1,0 +1,110 @@
+{
+  "schema": "nbdp-e01-isolated-replay-source-plan-v1",
+  "state": "SOURCE_PREPARED_PENDING_INDEPENDENT_REVIEW_AND_ROOT_RELEASE",
+  "scope": "SOURCE_AND_DATA_PREPARATION_ONLY_NO_TEST_OR_NATIVE_EXECUTION",
+  "lab": "/tmp/nbdp-e01-replay-20261026-preparation/lab",
+  "cwd": "/tmp/nbdp-e01-replay-20261026-preparation/lab/experiments",
+  "inputInventory": {
+    "path": "/tmp/nbdp-e01-replay-20261026-preparation/input-inventory.json",
+    "bytes": 209794,
+    "sha256": "9d6d9d8334563c5c4952bab4d7939e7c434522a99e1f56af5b10df9f4d574fd2"
+  },
+  "historicalComparison": {
+    "path": "/tmp/nbdp-e01-replay-20261026-preparation/historical-comparison.json",
+    "bytes": 8334,
+    "sha256": "fdda7bc5d6bbc0b5ea64826d5b4a7b61fb1db428b2b2a4e5ccaf7e89bf5ab819"
+  },
+  "launcher": {
+    "path": "/tmp/nbdp-e01-replay-20261026-preparation/launch.py",
+    "bytes": 4971,
+    "sha256": "1f054557e0cafd46bfd1453cedd9b223192d25bfccc8d8a73b4a6f68b4a2c5b6"
+  },
+  "preparationSource": {
+    "path": "/tmp/nbdp-e01-replay-20261026-preparation/prepare.py",
+    "bytes": 8259,
+    "sha256": "73aee2f0cfda909b7a82e654972f32fbfc172ec511b912b996084ed8b71ec855"
+  },
+  "tools": {
+    "node": {
+      "path": "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+      "bytes": 121613584,
+      "sha256": "ccacb2d6d87ba6d118b2bffc1ae33747a05cc5fc6b1f1ec4fc1d420b687e952d"
+    },
+    "timeout": {
+      "path": "/usr/bin/timeout",
+      "bytes": 39880,
+      "sha256": "12690a043dfd555a6c14ccc1564f5649c18f1762c0d6ff66729948130898ec52"
+    },
+    "chromeProbeDisabled": {
+      "path": "/usr/bin/false",
+      "bytes": 26936,
+      "sha256": "e51fc98d1215569a555c03c991835c234d6f05ded01a23ae99a33b8854270e86"
+    },
+    "python": {
+      "path": "/usr/bin/python3.12",
+      "bytes": 8020928,
+      "sha256": "e50d468e8b0adfb05733f5b87b3cff34829c4a8c1aea50c865aa8bdfe4bb150f"
+    }
+  },
+  "native": {
+    "path": "/tmp/nbdp-e01-replay-20261026-preparation/lab/native/nbdp-experiment-rust",
+    "bytes": 24100272,
+    "sha256": "4ce385c5b1a713b35d58d787d94fbc298d139aa2e813daec15b2e99289cefd86"
+  },
+  "nativeSourceDeclaration": {
+    "operation": "source",
+    "expectedReplyValueEqualsExactFile": {
+      "path": "/tmp/nbdp-e01-replay-20261026-preparation/lab/experiments/shared/rust/src/main.rs",
+      "bytes": 12938,
+      "sha256": "95e05dde513e57d5e32830e8639632f34627bb34239c7e5916096fd3686edcba"
+    },
+    "implementation": "include_str!(\"main.rs\")",
+    "sourceReplyObserved": false,
+    "buildAcceptanceRequired": true
+  },
+  "maximumTestSeconds": 240,
+  "terminationGraceSeconds": 2,
+  "argv": [
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=2s",
+    "240s",
+    "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+    "shared/run.mjs",
+    "E01"
+  ],
+  "environment": {
+    "PATH": "/usr/bin:/bin",
+    "HOME": "/tmp/nbdp-e01-replay-20261026-preparation/lab/home",
+    "TMPDIR": "/tmp/nbdp-e01-replay-20261026-preparation/lab/tmp",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "TZ": "UTC",
+    "NBDP_CHROME": "/usr/bin/false",
+    "NBDP_RUST_BIN": "/tmp/nbdp-e01-replay-20261026-preparation/lab/native/nbdp-experiment-rust"
+  },
+  "missing": [],
+  "outcomeRequired": {
+    "status": "PASS",
+    "tests": 140,
+    "failures": 0,
+    "mandatorySkips": 0,
+    "nativeSha256": "4ce385c5b1a713b35d58d787d94fbc298d139aa2e813daec15b2e99289cefd86",
+    "all19HistoricalSourcePinsEqual": true
+  },
+  "isolation": {
+    "workingCopyOnly": true,
+    "originalCanonicalRunnerAndTestBytesUnchanged": true,
+    "writes": "Only fresh lab results/, fixtures/generated/, home/ and tmp/",
+    "noNetworkCallsInE01Scope": true,
+    "kernelNetworkIsolationEstablished": false,
+    "noRelaysAndroidServicesOrBrowser": true,
+    "chromeMetadata": "Original version probe intentionally receives /usr/bin/false; result is unavailable, no browser launched."
+  },
+  "runtimeEvidenceLimitations": [
+    "GNU timeout is an external wall bound, not portable descendant-lifecycle attestation.",
+    "Root must preserve actual foreground tool responses and inspect final outcome/cleanup; no lifecycle facts are fabricated by this launcher.",
+    "New native build acceptance, independent exact SOURCE QA/security and fresh externally pinned root release are mandatory before launch.",
+    "No current E01 PASS, SDK permission or canonical record replacement follows from preparation."
+  ]
+}

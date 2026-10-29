@@ -1,0 +1,24 @@
+{
+  "schema": "nbdp-consumer3-source-review-v1",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r3/subject.json",
+    "bytes": 6669,
+    "sha256": "0d0500322dfdc016bf3465ee722d60c03907a503d4429bd8187344b2c3177aa0"
+  },
+  "reviewedAt": "2026-10-26T21:40:53.556313+00:00",
+  "testsExecuted": 0,
+  "scope": "SOURCE_ONLY_FOR_DATA_CONTROLS",
+  "origin": "Coordinator structured transcription of actual independent specialist mailbox decision; not authenticated provider logs.",
+  "reviewer": "/root/producer2_result_security",
+  "decision": "HOLD_CONSUMER3_SOURCE_FOR_CONTROLS",
+  "findings": [
+    {
+      "id": "C3-GUARD-LABEL",
+      "severity": "MEDIUM",
+      "evidence": "Frozen producer2 fixture.mjs191 emits proxy:app-before-upstream-send. Consumer3 observer.py allows proxy:before-upstream-send; test_observer.py79 repeats nonexistent label.",
+      "impact": "Healthy actual producer forwarding trace refused; synthetic positive masks DTO drift.",
+      "requiredRegression": "Accept actual literal, reject invented shorter label, derive closed proxy guard vocabulary from frozen producer source including pending/upstream-open paths."
+    }
+  ],
+  "verified": "73 referenced pins match;86+31 controls unexecuted; scoped pin/path/whole stream/budget/state/outcome joins present; full consume graph/runtime external prerequisites remain gaps."
+}

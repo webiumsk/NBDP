@@ -1,0 +1,14 @@
+{
+  "args": {
+    "cmd": "python3 scripts/validate-workflow.py",
+    "yield_time_ms": 1000,
+    "max_output_tokens": 4000
+  },
+  "result": {
+    "chunk_id": "6e49e3",
+    "wall_time_seconds": 0.268062008,
+    "exit_code": 1,
+    "original_token_count": 175,
+    "output": "{\n  \"status\": \"FAIL\",\n  \"roles\": {\n    \"architect\": \"architect.toml\",\n    \"implementer\": \"implementer.toml\",\n    \"qa\": \"qa.toml\",\n    \"researcher\": \"researcher.toml\",\n    \"security\": \"security.toml\"\n  },\n  \"skills\": [\n    \"experiment-gates\",\n    \"project-resume\",\n    \"protocol-review\",\n    \"research-evidence\",\n    \"review-handoff\"\n  ],\n  \"preserved_evidence_files\": 85,\n  \"preserved_original_prefixes\": 5,\n  \"markdown_files\": 10,\n  \"errors\": [\n    \"protocol evidence changed docs/research/experimental-validation-summary.md\",\n    \"protocol evidence changed experiments/README.md\",\n    \"original content overwritten docs/PROJECT_STATE.md\",\n    \"original content overwritten docs/ROADMAP.md\"\n  ]\n}\n"
+  }
+}

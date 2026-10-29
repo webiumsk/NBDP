@@ -1,0 +1,92 @@
+{
+  "schema": "nbdp-query-source2-fresh-runtime-admission-v1",
+  "actor": "/root",
+  "observedAtUtcNs": 1792825670715549138,
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/subject.json",
+    "bytes": 18185,
+    "sha256": "aece375c76f20d8c738d34e57feb19e50c2ccfc28cb09ffc9347481d2f526b85"
+  },
+  "configuration": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/proposed-run-config.json",
+    "bytes": 3618,
+    "sha256": "8b91d376814e192b765aba2549f42d185594b8785ecbfac54589f2fc2422dca5"
+  },
+  "controlAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/results-r1/acceptance.json",
+    "bytes": 2696,
+    "sha256": "6ec805cf3752a9988cf8b19cb062c67cdc1aef917acc8ccd4ce9fd723d34e565"
+  },
+  "frozenInputs": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/frozen-inputs.json",
+    "bytes": 215068,
+    "sha256": "28288e2a220d625c15c8bc3e98a2a2b0c2fe70b8cb9c1195afb372ae460cd9bf"
+  },
+  "verifiedFrozenInputs": 920,
+  "guardBundleManifest": {
+    "path": "/tmp/nbdp-e02-minimal-rs-v7/records/guard-bundle-manifest.json",
+    "bytes": 332736,
+    "sha256": "9de311222ef78e20fbe05bfef32898976d80737d5d932166d23431a04a73a454"
+  },
+  "guardBundleFiles": 522,
+  "guardBundleExactRegularMembership": true,
+  "installedTree": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/dependency-tree.json",
+    "bytes": 35599,
+    "sha256": "0536b9b0f6a127e3e43fd19bf5df0e3110b5c437e1a2c22c76e1a3e8dcc4f07f"
+  },
+  "installedCounts": {
+    "files": 816,
+    "directories": 65,
+    "symlinks": 2
+  },
+  "images": [
+    {
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "--format",
+        "{{.Id}}",
+        "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f"
+      ],
+      "exit": 0,
+      "stdout": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "--format",
+        "{{.Id}}",
+        "sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82"
+      ],
+      "exit": 0,
+      "stdout": "sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82\n",
+      "stderr": ""
+    }
+  ],
+  "dockerVersion": {
+    "exit": 0,
+    "stdout": "29.9.0 29.9.0\n",
+    "stderr": ""
+  },
+  "resources": {
+    "outputFilesystem": "/tmp",
+    "freeBytes": 8914321408,
+    "memAvailableBytes": 12803170304,
+    "affinityCpuCount": 22,
+    "coordinatorConservativeFloors": {
+      "freeBytes": 8589934592,
+      "memAvailableBytes": 2818572288,
+      "affinityCpuCount": 8
+    }
+  },
+  "freshOutput": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053",
+  "diagnosticExecuted": false,
+  "containersCreated": false,
+  "leaseCreated": false,
+  "scope": "Read-only source/tree/bundle/image/resource verification. No project imports, protocol/native/Android execution or runtime grant; not resource minima/peaks/health proof."
+}

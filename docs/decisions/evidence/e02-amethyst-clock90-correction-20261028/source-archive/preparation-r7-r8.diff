@@ -1,0 +1,11 @@
+--- /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r7/preparation/build_inside.py
++++ /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r8/preparation/build_inside.py
+@@ -99,7 +99,7 @@
+     started=time.monotonic();error=None;code=None
+     try:
+         with (OUT/'build.stdout').open('xb') as stdout,(OUT/'build.stderr').open('xb') as stderr:
+-            child=subprocess.run(argv,cwd=SOURCE,env=dict(os.environ),input=b'',stdout=stdout,stderr=stderr,timeout=3600)
++            child=subprocess.run(argv,cwd=SOURCE,env=dict(os.environ),input=b'',stdout=stdout,stderr=stderr,timeout=5400)
+             code=child.returncode
+     except Exception as exc:error=type(exc).__name__+':'+str(exc)[:1024]
+     after=snapshot();write('workcopy-after.json',after)

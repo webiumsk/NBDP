@@ -1,0 +1,18 @@
+{
+  "schema": "e02-producer3-bound-capture-source-assembly-record-v1",
+  "actor": "/root/producer3_capture",
+  "scope": "Authorized source/meta hashing and writes only",
+  "commands": [
+    {"command": "/home/peterhorvath/.miniforge3/bin/python3.13 -I -B /Data/nbdp-e02-tooling-20261027/producer-controls-preparation-r3-source3/prepare-final-source.py", "exitCode": 0, "outputState": "COMPLETE_SOURCE_SPEC_WRITTEN_NO_CONTROLS"},
+    {"command": "/home/peterhorvath/.miniforge3/bin/python3.13 -I -B /Data/nbdp-e02-tooling-20261027/producer-controls-preparation-r3-source3/assemble-source-only.py --assemble-source-only /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/freeze-input-spec.json", "sessionId": 88995, "terminalPoll": true, "exitCode": 0, "outputState": "SOURCE_ASSEMBLED_PENDING_REVIEWS_NO_GRANT", "actualInputCount": 1882},
+    {"command": "/home/peterhorvath/.miniforge3/bin/python3.13 -I -B /Data/nbdp-e02-tooling-20261027/producer-controls-preparation-r3-source3/finalize-source-packet.py", "exitCode": 0, "outputState": "FROZEN_CODE_MODEL_READINESS_SOURCE_PENDING_REVIEW"},
+    {"command": "sha256sum -c preserved-source2.sha256", "exitCode": 0, "meaning": "All previously captured SOURCE2/Data source files unchanged"}
+  ],
+  "targetImports": 0,
+  "modelsTestsControlsExecuted": 0,
+  "nativeSdkServicesRuntimeGrants": 0,
+  "independentCaptureQaReview": null,
+  "independentCaptureSecurityReview": null,
+  "modelAcceptance": null,
+  "rootAcknowledgements": null
+}

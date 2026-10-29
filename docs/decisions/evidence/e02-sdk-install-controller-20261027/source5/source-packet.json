@@ -1,0 +1,72 @@
+{
+  "schema": "nbdp-scoped-sdk-install-controller-source5-packet-v1",
+  "actor": "/root/sdk_install_controller",
+  "state": "NOT_READY_PENDING_INDEPENDENT_QA_SECURITY",
+  "subject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/controller-r5/subject.json",
+    "bytes": 6828,
+    "sha256": "0110a609caa5d709462a23e7c4eb7db62feae3b0a0089fa85131f8a33bacb8f2"
+  },
+  "controller": {
+    "path": "/Data/nbdp-e02-tooling-20261027/controller-r5/controller.py",
+    "bytes": 33553,
+    "sha256": "0824a99507a81d5f00f29f82930bec21ec1a99e5c139356c32be00bbb496de82"
+  },
+  "plan": {
+    "path": "/Data/nbdp-e02-tooling-20261027/controller-r5/plan.json",
+    "bytes": 3302,
+    "sha256": "d157b3ee14f8e3fa27502afa89255874890cc67456ba49c36150c07df2a11f68"
+  },
+  "modelPlan": {
+    "path": "/Data/nbdp-e02-tooling-20261027/controller-r5/model-plan.json",
+    "bytes": 1253,
+    "sha256": "8a0625c93e11b73e6d2a129d2c2f0867d8b25d5b73d269e594efdd211e6becca"
+  },
+  "innerSubject": {
+    "path": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r5/subject.json",
+    "bytes": 5346,
+    "sha256": "5c83032aa6889be62e2df1581da69c3330a62d423bb72594f452c439059d6e78"
+  },
+  "innerPlan": {
+    "path": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r5/install-plan.json",
+    "bytes": 5907,
+    "sha256": "3fec4f8bcf1e0e3beb47996e0db3a1a9ea1d35ef32e10e7d11abd53e2c9657c1"
+  },
+  "priorActualControllerResult": {
+    "path": "/Data/nbdp-e02-tooling-20261027/controller-r4/attempt-d5b699c06f7fe8a79e0e66d0e97f9f08/result.json",
+    "bytes": 2202,
+    "sha256": "e9d2f5b07b4a61ba0384e39184254918050f78b11b79dda6d4268da162f5e658"
+  },
+  "priorActualInnerResult": {
+    "path": "/Data/nbdp-e02-tooling-20261027/controller-r4/writable-r1/output/installation-result.json",
+    "bytes": 1912,
+    "sha256": "9be3a3ab17a7e6e3ec56ce890253384a0180aaf4bcab678859eff7868bfe51b8"
+  },
+  "priorActualConsent": {
+    "consentAttemptedJournal": {
+      "path": "/Data/nbdp-e02-tooling-20261027/controller-r4/writable-r1/output/consent-attempted.json",
+      "bytes": 271,
+      "sha256": "d6e43cc5a5267ce8ee2e2d491a8febab276d2532b578d421d75616dbec941ed5"
+    },
+    "consentSentJournal": {
+      "path": "/Data/nbdp-e02-tooling-20261027/controller-r4/writable-r1/output/consent-sent.json",
+      "bytes": 330,
+      "sha256": "d0d1d5f9f3ee3fbe968f7b456f726e0da36366d124811e7436b0761197a03ae9"
+    },
+    "generatedLicenseFile": {
+      "path": "/Data/nbdp-e02-tooling-20261027/controller-r4/writable-r1/sdk/licenses/android-sdk-license",
+      "bytes": 41,
+      "sha256": "c43fa37686457c3f18caa3607945f4ec52a9d1beaaad8117e50dc4e863270c85"
+    },
+    "affirmativeAttempted": true,
+    "stdinWriteReturnedBytes": 2,
+    "flushReturned": true,
+    "consumption": "UNKNOWN",
+    "meaning": "Prior attempted/sent write and generated-file observations are retained; they are separate from package installation qualification. No new answer/write occurs in SOURCE preparation."
+  },
+  "modelsDefined": 8,
+  "modelsExecutedThisPreparation": 0,
+  "modelSourceUnchanged": true,
+  "actualNewRootReleaseCreated": false,
+  "actualNewInstallRequested": false
+}

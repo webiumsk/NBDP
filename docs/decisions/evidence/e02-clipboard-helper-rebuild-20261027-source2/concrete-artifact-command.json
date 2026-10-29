@@ -1,0 +1,56 @@
+{
+  "schema": "nbdp-helper-v3-artifact-command-proposal-v1",
+  "state": "CONCRETE_PROPOSED_COMMAND_PENDING_INDEPENDENT_REVIEW_AND_ROOT_RELEASE",
+  "requiresExactEffectivePlanDescriptor": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v3/helper-build-plan-effective-r2.json",
+    "bytes": 4022,
+    "sha256": "92f3fd858a6efd88d262b812fb5eb53a8ee1e32097cc946f0866d3ae4905081d"
+  },
+  "argv": [
+    "/usr/bin/env",
+    "-i",
+    "PATH=/usr/bin:/bin",
+    "LANG=C.UTF-8",
+    "LC_ALL=C.UTF-8",
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=5s",
+    "180s",
+    "/usr/bin/prlimit",
+    "--as=4294967296:4294967296",
+    "--",
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v3/build_helper.py",
+    "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v3/helper-build-plan-effective-r2.json",
+    "92f3fd858a6efd88d262b812fb5eb53a8ee1e32097cc946f0866d3ae4905081d"
+  ],
+  "argumentPlaceholder": "No placeholder remains; actual dispatch still requires same-byte independent plan/command review and root release.",
+  "parentAddressSpaceBytes": 4294967296,
+  "addressSpaceMeaning": "Inherited per-process address-space limit, not aggregate memory/peak measurement; no success guarantee.",
+  "outerTimeoutSeconds": 180,
+  "outerKillAfterSeconds": 5,
+  "builderPhaseSeconds": 180,
+  "builderEachCommandMaximumSeconds": 60,
+  "deadlineMeaning": "Outer180s includes interpreter/input validation; it can expire earlier than inner phase180s. Natural0 and accepted complete artifact receipts are required; timeout/startup/resource/nonzero/error remains failure.",
+  "sourceDerivedHeapMiB": {
+    "d8": 2048,
+    "apksigner": 1024
+  },
+  "configuredEnvironmentHeapRequestMiB": 512,
+  "heapMeasured": false,
+  "processScopeLimitation": "Finite standard timeout/process-tree behavior only; no hostile-process containment, cgroup/E06, atomic cleanup or runtime interoperability claim.",
+  "receiptRequirements": [
+    "Retain exact actual invocation, tool launch response/session and natural/timeout completion.",
+    "Retain raw stdout/stderr and partial artifacts privately on failure; no automatic retry.",
+    "Require actual build-result status BUILT_REBUILT_HELPER_ARTIFACT_ONLY,all8naturalzero,pinned APK,signing report and actual package/version.",
+    "Record input/source/tool/evidence pins before and after; no claim racefree custody.",
+    "Never archive debug.keystore bytes; descriptor/public certificate only."
+  ],
+  "rootMustReview": [
+    "Exact acquisition/source/wrapper/model acceptance joins and effective plan hash.",
+    "Actual host timeout/prlimit/Python availability and behavior; proposal did not execute them.",
+    "Fresh owned output and private bounded outer logs/receipts before release."
+  ]
+}

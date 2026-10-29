@@ -1,0 +1,60 @@
+        # Explicitly SYNTHETIC helper inputs, not actual API/evidence receipts.
+        # This checks the custody predicate only, never current_capture admission.
+        from types import SimpleNamespace
+        plan_pin = consumer.CURRENT_CAPTURE_BINDINGS['capture-b']['plan']
+        plan = strict.loads(Path(plan_pin['path']).read_bytes())
+        ack = pin(self.root / 'SYNTHETIC-model-ack.json', b'{"SYNTHETIC":"NOT_AN_ACTUAL_ROOT_ACK"}')
+        execution = pin(self.root / 'SYNTHETIC-model-execution.json', strict.json_bytes({'scopes':[]}))
+        data = dict(captureId='capture-b', captureScript=plan['runner'], execution=execution)
+        request = dict(plan['outerRequestTemplate'], cmd=plan['outerRequestTemplate']['cmd'].replace('__ACTUAL_ROOT_ACK_SHA256__', ack['sha256']))
+        summary = strict.json_bytes(dict(state='WRITES_STOPPED', captureId='capture-b', captureMatched=True, execution=execution, scopes=[])).decode() + '\n'
+        terminal = dict(output=summary, wall_time_seconds=0.125, exit_code=0)
+        direct = dict(schema='e02-actual-tool-custody-v1', operator='/root',
+            launch=dict(toolName='tools.exec_command', actualArguments=request, unmodifiedResponse=terminal), polls=[])
+        yielded = copy.deepcopy(direct)
+        yielded['launch']['unmodifiedResponse'] = dict(output='', wall_time_seconds=0.001, session_id=501)
+        yielded['polls'] = [dict(toolName='tools.write_stdin',
+            actualArguments=dict(session_id=501, chars='', yield_time_ms=1000, max_output_tokens=10000), unmodifiedResponse=terminal)]
+        mutations = []
+        def variant(label, value, change, good=False):
+            item=copy.deepcopy(value); change(item); mutations.append((label,item,good))
+        variant('direct-terminal',direct,lambda v:None,True)
+        variant('same-session-terminal-poll',yielded,lambda v:None,True)
+        variant('missing-polls',yielded,lambda v:v.update(polls=[]))
+        variant('wrong-session',yielded,lambda v:v['polls'][0]['actualArguments'].update(session_id=502))
+        variant('nonempty-poll-input',yielded,lambda v:v['polls'][0]['actualArguments'].update(chars='x'))
+        variant('nonzero-terminal',direct,lambda v:v['launch']['unmodifiedResponse'].update(exit_code=2))
+        variant('fake-inner-api-EOF',direct,lambda v:v['launch']['unmodifiedResponse'].update(stdoutEOF=True))
+        variant('command-substitution',direct,lambda v:v['launch']['actualArguments'].update(cmd='/usr/bin/true'))
+        variant('observed-parent-TZ-insertion',direct,lambda v:v['launch']['actualArguments'].update(
+            cmd=v['launch']['actualArguments']['cmd'].replace('LC_ALL=C.UTF-8 ','LC_ALL=C.UTF-8 TZ=UTC ')))
+        variant('observed-parent-TERM-kill-after',direct,lambda v:v['launch']['actualArguments'].update(
+            cmd=v['launch']['actualArguments']['cmd'].replace('--signal=KILL 297 ','--signal=TERM --kill-after=3s 297s ')))
+        variant('observed-parent-combined-mutation',direct,lambda v:v['launch']['actualArguments'].update(
+            cmd=v['launch']['actualArguments']['cmd'].replace('LC_ALL=C.UTF-8 ','LC_ALL=C.UTF-8 TZ=UTC ').replace(
+                '--signal=KILL 297 ','--signal=TERM --kill-after=3s 297s ')))
+        variant('workdir-substitution',direct,lambda v:v['launch']['actualArguments'].update(workdir='/tmp'))
+        variant('duplicate-poll-after-terminal',yielded,lambda v:v['polls'].append(copy.deepcopy(v['polls'][0])))
+        variant('fraction-outside-wall-time',direct,lambda v:v['launch']['unmodifiedResponse'].update(exit_code=0.0))
+        for index,(label,value,good) in enumerate(mutations):
+            with self.subTest(SYNTHETIC_custody_predicate=label):
+                descriptor=pin(self.root / ('SYNTHETIC-custody-%d.json' % index), strict.json_bytes(value))
+                nodes=dict(plan=plan_pin, release=ack, originalToolResponses=descriptor)
+                files=strict.Files([str(self.root), str(Path(plan_pin['path']).parent), str(Path(consumer.CURRENT_SOURCE_PLAN['path']).parent)])
+                if good: consumer.capture_original_tool(files,nodes,data,SimpleNamespace(forbidden={'/root'}))
+                else:
+                    with self.assertRaises(strict.Refusal): consumer.capture_original_tool(files,nodes,data,SimpleNamespace(forbidden={'/root'}))
+        # Narrow legacy metadata exception: only root durationSeconds admits a
+        # decimal; protocol DATA and every other execution field stay integral.
+        model=dict(argv=[],exitCode=0,reaped=True,eof=dict(stdout=True,stderr=True),fault=None,
+            durationSeconds=0.25,inputsBefore=[],inputsAfter=[],inputsUnchanged=True,
+            stdout={},stderr={},scope='SYNTHETIC_DECODER_ONLY',snapshotNotRaceFree=True)
+        for index,(changes,good) in enumerate([
+            ({},True),({'durationSeconds':True},False),({'durationSeconds':64.0},False),
+            ({'exitCode':0.0},False),({'eof':{'stdout':0.5,'stderr':True}},False)]):
+            with self.subTest(SYNTHETIC_model_duration_decoder=index):
+                value=dict(model,**changes)
+                descriptor=pin(self.root/('SYNTHETIC-model-duration-%d.json'%index),strict.json_bytes(value))
+                if good:consumer.model_execution_record(self.files,descriptor)
+                else:
+                    with self.assertRaises(strict.Refusal):consumer.model_execution_record(self.files,descriptor)

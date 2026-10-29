@@ -1,0 +1,159 @@
+{
+  "schema": "e02-producer3-fixed-control-capture-plan-v1",
+  "captureId": "capture-a",
+  "state": "FROZEN_SOURCE_PENDING_INDEPENDENT_CAPTURE_REVIEW_AND_ROOT_RELEASE",
+  "actor": "/root/producer3_capture",
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/source2/subject.json",
+    "bytes": 12116,
+    "sha256": "553d513b4625b8d40e95f475246acc2a4520e1a90b35ee88290c9ddbc617def6"
+  },
+  "sourceManifest": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/source2/source-packet.json",
+    "bytes": 15807,
+    "sha256": "bd2e2e330984fe739045f2259e38b66a64fe6074d222b6dcd1d8d244c9b3fe46"
+  },
+  "frozenSourcePlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/source2/control-plan.json",
+    "bytes": 5183,
+    "sha256": "cf0351831f88dff7685bc53cd8977962526529b65bf13aeb740ef7c7ba0487d6"
+  },
+  "runner": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-a/capture-controls.py",
+    "bytes": 30966,
+    "sha256": "513374a6fbadb1bcf7d75aafd024c271573a6b9f040a27a39ebceb7a66abdcc5"
+  },
+  "separateScopes": [
+    {
+      "name": "observation-model",
+      "argv": [
+        "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+        "/Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/test_observation_model.mjs"
+      ],
+      "count": 20,
+      "expectedCases": [
+        "one-shared-cap-across-two-streams",
+        "exact-boundary-two-streams-acknowledged-not-physical",
+        "short-prefix-once-poisons-both-streams",
+        "zero-prefix-known-zero-throw-prefix-unknown",
+        "invalid-count-family-poison-no-second-write",
+        "closed-stream-fds-and-original-upper-bound",
+        "accepted-phase-writer-preserves-known-short-prefix",
+        "phase-then-proxy-consumes-same-budget",
+        "guard-once-entry-exit-and-no-action-on-refusal",
+        "guard-refusal-preserved-over-retention-failure",
+        "entry-and-success-retention-failure-prevent-action",
+        "callback-first-fault-and-closed-late-inert",
+        "upstream-send-exact-buffer-callback-and-no-extra-guard",
+        "proxy-send-error-kept-if-observation-sink-fails",
+        "proxy-intent-write-failure-never-sends",
+        "proxy-mutated-buffer-refuses-callback-completion",
+        "adapter-query-preserves-exact112-byte-operands-and-raw-join",
+        "adapter-raw-is-after-original-guard-before-parse",
+        "adapter-denied-backend-guard-context-no-raw-or-parse",
+        "adapter-raw-sink-fault-before-send-or-before-parse-refuses"
+      ],
+      "timeoutSeconds": 60
+    },
+    {
+      "name": "public-identity-metadata",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/test_public_identity_metadata.py"
+      ],
+      "count": 8,
+      "expectedCases": [
+        "PublicIdentityMetadata.test_whole_checksum_payload_both_public_scalars",
+        "PublicIdentityMetadata.test_four_metadata_operands_equal_unchanged_driver",
+        "PublicIdentityMetadata.test_historical_65_character_operand_refused_preserved",
+        "PublicIdentityMetadata.test_checksum_corruption_refused",
+        "PublicIdentityMetadata.test_valid_other_payload_refused",
+        "PublicIdentityMetadata.test_whitespace_case_truncation_never_normalized",
+        "PublicIdentityMetadata.test_non_bech32_glyph_refused",
+        "PublicIdentityMetadata.test_new_plan_keeps_scalar_roles_and_whole_value"
+      ],
+      "timeoutSeconds": 60
+    },
+    {
+      "name": "producer2-source-wiring",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/test_producer2_source.py"
+      ],
+      "count": 7,
+      "expectedCases": [
+        "Producer2SourceBindings.test_all_three_accepted_modules_byte_identical",
+        "Producer2SourceBindings.test_host_full_inventory_functions_identical",
+        "Producer2SourceBindings.test_preimport_and_end_dependency_boundaries_wired",
+        "Producer2SourceBindings.test_complete_staged_modules_and_tree_pin",
+        "Producer2SourceBindings.test_same_original_guard_invocation_body",
+        "Producer2SourceBindings.test_frozen_oracles_and_exact_query_no_baseline_payload",
+        "Producer2SourceBindings.test_original_android_and_transport_limits"
+      ],
+      "timeoutSeconds": 60
+    }
+  ],
+  "rawRetentionBytes": {
+    "stdout": 1048576,
+    "stderr": 262144
+  },
+  "retentionMeaning": "POST_CAPTURE_FILE_PREFIX_LIMIT_NOT_STREAMING_MEMORY_CAP",
+  "timeoutSeconds": 60,
+  "cleanupReapSeconds": 3,
+  "stopFirstFailure": true,
+  "noRetry": true,
+  "actualInputCount": 1882,
+  "maximumInputCount": 4096,
+  "originalApiResponses": "ACTUAL_DIRECT_TERMINAL_OR_GENUINE_SAME_SESSION_ALL_POLLS_REQUIRED",
+  "actualExecutions": 0,
+  "rootAcknowledgement": null,
+  "captureQaReview": null,
+  "captureSecurityReview": null,
+  "onceCommandPrefix": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-a/capture-controls.py",
+    "--execute-once",
+    "--root-ack-sha"
+  ],
+  "rootAckArgument": {
+    "meaning": "DERIVE_HEX_SHA256_FROM_ACTUAL_EXTERNAL_ACK_FILE",
+    "placeholder": "__ACTUAL_ROOT_ACK_SHA256__"
+  },
+  "outerArgvTemplate": [
+    "/usr/bin/env",
+    "-i",
+    "PATH=/usr/bin:/bin",
+    "LANG=C.UTF-8",
+    "LC_ALL=C.UTF-8",
+    "/usr/bin/timeout",
+    "--signal=KILL",
+    "297",
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-a/capture-controls.py",
+    "--execute-once",
+    "--root-ack-sha",
+    "__ACTUAL_ROOT_ACK_SHA256__"
+  ],
+  "outerRequestTemplate": {
+    "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 297 /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-a/capture-controls.py --execute-once --root-ack-sha __ACTUAL_ROOT_ACK_SHA256__",
+    "workdir": "/home/peterhorvath/apps/bitcoin/NBDP",
+    "login": false,
+    "yield_time_ms": 1000,
+    "max_output_tokens": 10000
+  },
+  "externalAuthorityEdges": {
+    "captureQaReview": null,
+    "captureSecurityReview": null,
+    "admissionModelAcceptance": null,
+    "rootAcknowledgement": null,
+    "meaning": "Future exact pins are supplied/checked through root ACK v2 and independent acceptance; excluded from pre-model input manifest to avoid cycles"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "argv": [
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=2s",
+    "25s",
+    "/tmp/nbdp-amethyst-rebuild-20261026/tools/jdk/bin/javap",
+    "-p",
+    "-c",
+    "-classpath",
+    "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/bootstrap/cmdline-tools/22.0/lib/sdklib/libsdkmanager_lib.jar:/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/bootstrap/cmdline-tools/22.0/lib/repository/repository-core.jar",
+    "com.android.sdklib.tool.sdkmanager.SdkManagerCli",
+    "com.android.repository.impl.meta.TrimStringAdapter",
+    "com.android.repository.api.License"
+  ],
+  "cwd": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-cmdline22-probe-20261027",
+  "environment": {
+    "PATH": "/tmp/nbdp-amethyst-rebuild-20261026/tools/jdk/bin:/usr/bin:/bin",
+    "JAVA_HOME": "/tmp/nbdp-amethyst-rebuild-20261026/tools/jdk",
+    "JAVA_TOOL_OPTIONS": "-Xmx768m -XX:MaxMetaspaceSize=256m -XX:ActiveProcessorCount=2 -Duser.home=/tmp/nbdp-e02-cmdline22-probe-20261027/home -Djava.io.tmpdir=/tmp/nbdp-e02-cmdline22-probe-20261027/tmp",
+    "HOME": "/tmp/nbdp-e02-cmdline22-probe-20261027/home",
+    "ANDROID_USER_HOME": "/tmp/nbdp-e02-cmdline22-probe-20261027/android-user",
+    "XDG_CONFIG_HOME": "/tmp/nbdp-e02-cmdline22-probe-20261027/xdg-config",
+    "XDG_CACHE_HOME": "/tmp/nbdp-e02-cmdline22-probe-20261027/xdg-cache",
+    "TMPDIR": "/tmp/nbdp-e02-cmdline22-probe-20261027/tmp",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "TZ": "UTC"
+  },
+  "startedUtcNs": 1793124801593149803,
+  "stdin": "DEVNULL_NO_RESPONSE"
+}

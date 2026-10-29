@@ -1,0 +1,987 @@
+{
+  "schema": "e02-producer4-required-source-data-gates-v1",
+  "originalRequirements": 32,
+  "budgetRequirements": 16,
+  "requirements": [
+    {
+      "requirement": "fresh_check_one_to_one_no_cached_OK",
+      "criterion": "EveryoriginalcheckrequestsonefreshunchangedLease.check; repeatedeffectsamecontextstillnewRPC; countsandrequestdigestsjoin.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "persistent_previous_clock_history",
+      "criterion": "ONELeaseinstance preserved; validmonotonicsequencepasses; rollback/drift/bootchange/original15sgaprevokesusingoriginalcore.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "original_lease_sha_and_revocation_each_request",
+      "criterion": "Mutateleasebytes/hash,symlink/revokeafterearlierOK; nextfreshcheckdenieswithnoeffect.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "original_1800_expiry",
+      "criterion": "FinalclockssampleatorafteranyoriginalUTC/MONO/BOOTdeadline denies; no reset/reissue/restart.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "warm_guard_burst_with_live_timers",
+      "criterion": "Boundedrealhelperfreshcheckburstwithnetworktimerdispatchalive; retainactualthroughputanddelaysunderoriginal5/10/55caps; timeoutremainsnegative.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "queue_deadline_includes_wait",
+      "criterion": "Requestwaitingbehindotherchecksdoesnotgetnew5swhenwritten; expiryfenceswithoutsend.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "startup_and_first_check_share_five_seconds",
+      "criterion": "Slowimport/READY/checkcannotobtaintwo5sbudgets; READYnotauthorization.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "queue_entry_or_payload_overflow",
+      "criterion": "Atbounded64entries/originalaggregatebytes reject, do notdrop/coalesce/reorder/retrychecks.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "request_response_sequence_binding",
+      "criterion": "Duplicate/decreasing/foreignhelper/run/lease/id/context/hash/unknownextra fields refusedeffects.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "partial_oversize_or_extra_stdio",
+      "criterion": "Fragmentedvalidlinehandledboundedly; missingnewline/multipleunexpectedlines/limit/duplicateJSON/nonfinite/-0/unknownschemarefused.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "helper_stderr_or_child_death",
+      "criterion": "Unexpectedstderr,nonzero/signal/EOF/exitbeforematchingreply immediatelyterminal; noautorestart.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "late_success_after_timeout",
+      "criterion": "HelperOKafter5s/terminal/cancelcannotresolveorappendprotocolsuccess/effects.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "deny_after_previous_ok",
+      "criterion": "ValidearlierRPCcannotauthorizecurrentpointafterdenial/revocation; allqueuedworkcancelled.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "current_generation_changed_during_await",
+      "criterion": "Close/newREQ/subscriptiongeneration/stage/attempt/publicationinvalidationscannotuseoldsnapshotsatcommit.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "send_before_guard_success_forbidden",
+      "criterion": "NoWebSocketconstructor/send orprotectedstate/writeatapplicablepointbeforefreshRPCcompletion.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "no_async_yield_between_ok_and_effect",
+      "criterion": "Matchedreplyconsumedonceinshortcontinuationwithlivecontext/epoch/deadline, noanotherawait/reusedpermit.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "query_timer_not_blocked_by_guard_wait",
+      "criterion": "TIMER_FIRED immediatelyfencesterminaloutsidequeue; no freshguardrequiredtodenyorclose.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "handshake_and_command_deadline_not_extended",
+      "criterion": "Keep3000ms/10000ms/55s/control45s/original1800; queue/helperstartup/cleanupchargedwithinnativebudgets.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "publish_exchange_no_global_lock_deadlock",
+      "criterion": "Publishdoesnotholdexecutorwhilenetworkawaits; replycallbacks canrunthroughfreshguardedsegments.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "app_and_backend_callback_burst_order",
+      "criterion": "FIFOshortsegmentsretainactualrawbytes/subscription/attempt/EOSE/sendcallbackorder; noearlydeliveryclaim.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "incoming_socket_fault_precedence",
+      "criterion": "Socketerrorfirstremainsprimaryoverguard/observation/retentionsecondary; firstfaultclaimedonce.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "capture_poison_cancels_all",
+      "criterion": "Shortwrite/ENOSPC/phaseerror/shared16MiBoverflow preventsfutureeffects; cleanupalwaysattempted.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "late_callback_no_success_mutation",
+      "criterion": "Afterterminalnocallbacksend/stageadvance/proofsuccesswrite; separatelyidentifiedownedcleanupretentiononly.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "watchdog_tick_not_coalesced",
+      "criterion": "Everyactual1stickchecksfreshorqueueboundfails; pendingticknotreusedorignored.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "normal_controller_close_does_not_revoke_service",
+      "criterion": "CLOSEonly0pending/nofuturecontinuation; naturalhelperEOF/exitwhileotherservicehelperseparateleaseinstancecontinues.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "unexpected_eof_sticky_failure_truthful",
+      "criterion": "UnexpectedEOFdoesnotmasqueradeasCLOSE; livehelperusesoriginalrevoke; deadhelperrevocationnotfabricated; hostfaultpropagationretained.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "cancel_owned_child_stdio_and_reap",
+      "criterion": "Rejectpendingfirst; closeownedstdin, boundedterminate/killonlyownhandle; retainactualEOF/exit/close evidence; unknowngroupnevermutated.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "helper_or_guard_source_drift",
+      "criterion": "Pinnedhelper/runtime/originalguardreadonlycodehashdrift rejectsstartup/request; no changedLeaseclassaccepted.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "independent_helpers_no_response_crossuse",
+      "criterion": "serveandCLIhelperIDs/streams/requestdomainsdistinct; noresultbroker/sharedpermits.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "raw_guard_custody_clock_precision",
+      "criterion": "Realrequest/rawresponse/checksamples/timing/cancelIDs/capsretained; nsnotrounded; no fabricatedPopen/pipeEOF/innerAPIproof.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "changed_source_rebind_all_consumers",
+      "criterion": "Producer4/newconfigs/newcontrolsourcecaptures/currentconsumer/completionmustbindexactnewgraph; old14failuresremainNO_CONTRIBUTION.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "synchronous_native_path_limit_honest",
+      "criterion": "Rustvalidationcap8sunchangedandoccursafterquery; nogeneralnonblockingguaranteeorinventedcausalrepair.",
+      "sourceFiles": [
+        "guard-helper.py",
+        "guard-client-core.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "exchange.mjs",
+        "proxy-observer.mjs"
+      ],
+      "definitionFiles": [
+        "test_guard_client.mjs",
+        "test_guard_helper.py",
+        "test_guard_transport_boundaries.mjs",
+        "test_producer2_source.py"
+      ],
+      "definitionScope": "SOURCE definitions; independent completeness review pending",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "below_equal_above_controller_slot",
+      "criterion": "ExactencodedguardControllerbytes+1024prepaidwrapper/commas/newlinerespect120KiB; no extra1MiB.",
+      "sourceFiles": [
+        "capture-allocation.mjs",
+        "capture-budget.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "supervisor.py",
+        "android_driver.py"
+      ],
+      "definitionFiles": [
+        "test_capture_allocation.mjs",
+        "test_capture_parent.py",
+        "test_controller_emission.mjs"
+      ],
+      "definitionScope": "SOURCE definitions include actualproductionfunctions withfakeFS/commands/writer; wholeconsumer6 checks remain separate",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "below_equal_above_service_share",
+      "criterion": "Phase/proxy/earlystartup+RPCdiagnostics+metadata sharetotal8MiBincluding8KiBprepaidheader/diag.",
+      "sourceFiles": [
+        "capture-allocation.mjs",
+        "capture-budget.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "supervisor.py",
+        "android_driver.py"
+      ],
+      "definitionFiles": [
+        "test_capture_allocation.mjs",
+        "test_capture_parent.py",
+        "test_controller_emission.mjs"
+      ],
+      "definitionScope": "SOURCE definitions include actualproductionfunctions withfakeFS/commands/writer; wholeconsumer6 checks remain separate",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "combined_owners_16mib",
+      "criterion": "Service8MiB+64x128KiBslotsat16MiBallowed; oneadditionalbyte/reservationdeniesbeforewrite.",
+      "sourceFiles": [
+        "capture-allocation.mjs",
+        "capture-budget.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "supervisor.py",
+        "android_driver.py"
+      ],
+      "definitionFiles": [
+        "test_capture_allocation.mjs",
+        "test_capture_parent.py",
+        "test_controller_emission.mjs"
+      ],
+      "definitionScope": "SOURCE definitions include actualproductionfunctions withfakeFS/commands/writer; wholeconsumer6 checks remain separate",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "all_attempts_64_65",
+      "criterion": "Failureandcancelconsumeordinals; attempt65deniedbeforeinspect/spawn; nodriver-successcounterreuse.",
+      "sourceFiles": [
+        "capture-allocation.mjs",
+        "capture-budget.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "supervisor.py",
+        "android_driver.py"
+      ],
+      "definitionFiles": [
+        "test_capture_allocation.mjs",
+        "test_capture_parent.py",
+        "test_controller_emission.mjs"
+      ],
+      "definitionScope": "SOURCE definitions include actualproductionfunctions withfakeFS/commands/writer; wholeconsumer6 checks remain separate",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "reservation_before_first_proof",
+      "criterion": "Parentdebit+boundedhostledgerbeforechild/helper/auditappend; missingtokenrejects.",
+      "sourceFiles": [
+        "capture-allocation.mjs",
+        "capture-budget.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "supervisor.py",
+        "android_driver.py"
+      ],
+      "definitionFiles": [
+        "test_capture_allocation.mjs",
+        "test_capture_parent.py",
+        "test_controller_emission.mjs"
+      ],
+      "definitionScope": "SOURCE definitions include actualproductionfunctions withfakeFS/commands/writer; wholeconsumer6 checks remain separate",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "exact_encoded_representation",
+      "criterion": "UTF8nonASCII/base64JSONescaping/propertykeys/arraycommas/brackets/envelopenewlineincluded; rawRPCpayloadsizealoneinsufficient.",
+      "sourceFiles": [
+        "capture-allocation.mjs",
+        "capture-budget.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "supervisor.py",
+        "android_driver.py"
+      ],
+      "definitionFiles": [
+        "test_capture_allocation.mjs",
+        "test_capture_parent.py",
+        "test_controller_emission.mjs"
+      ],
+      "definitionScope": "SOURCE definitions include actualproductionfunctions withfakeFS/commands/writer; wholeconsumer6 checks remain separate",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "immutable_one_use_encoding_credit",
+      "criterion": "Rowsimmutableandfinalclosedheader<=1024; consumeencodingonce; mutation/secondemissionneedsnewdebitordenies.",
+      "sourceFiles": [
+        "capture-allocation.mjs",
+        "capture-budget.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "supervisor.py",
+        "android_driver.py"
+      ],
+      "definitionFiles": [
+        "test_capture_allocation.mjs",
+        "test_capture_parent.py",
+        "test_controller_emission.mjs"
+      ],
+      "definitionScope": "SOURCE definitions include actualproductionfunctions withfakeFS/commands/writer; wholeconsumer6 checks remain separate",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "duplicate_retained_copy",
+      "criterion": "Reuseverifiedcommand.stdoutpinforreply; ifnewretainedcopykept, entireRPCcontributiondebitagain.",
+      "sourceFiles": [
+        "capture-allocation.mjs",
+        "capture-budget.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "supervisor.py",
+        "android_driver.py"
+      ],
+      "definitionFiles": [
+        "test_capture_allocation.mjs",
+        "test_capture_parent.py",
+        "test_controller_emission.mjs"
+      ],
+      "definitionScope": "SOURCE definitions include actualproductionfunctions withfakeFS/commands/writer; wholeconsumer6 checks remain separate",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "serve_pre_budget_startup",
+      "criterion": "Purecounterbeforehelper; earlyauditappendandlaterdifferentphaseflushconservativelycharged; no refund.",
+      "sourceFiles": [
+        "capture-allocation.mjs",
+        "capture-budget.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "supervisor.py",
+        "android_driver.py"
+      ],
+      "definitionFiles": [
+        "test_capture_allocation.mjs",
+        "test_capture_parent.py",
+        "test_controller_emission.mjs"
+      ],
+      "definitionScope": "SOURCE definitions include actualproductionfunctions withfakeFS/commands/writer; wholeconsumer6 checks remain separate",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "parent_ledger_partial_write",
+      "criterion": "Shortwrite/exceptionpoisonsRootrolebeforeprotectedaction; no retry/overwrite/refund; ledgeroutsidefixturemounts.",
+      "sourceFiles": [
+        "capture-allocation.mjs",
+        "capture-budget.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "supervisor.py",
+        "android_driver.py"
+      ],
+      "definitionFiles": [
+        "test_capture_allocation.mjs",
+        "test_capture_parent.py",
+        "test_controller_emission.mjs"
+      ],
+      "definitionScope": "SOURCE definitions include actualproductionfunctions withfakeFS/commands/writer; wholeconsumer6 checks remain separate",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "stdout_partial_or_missing",
+      "criterion": "Booleanbackpressureisnotcount; actualpartial/missing/truncatedauditnegativewithretainedreservationandcleanup.",
+      "sourceFiles": [
+        "capture-allocation.mjs",
+        "capture-budget.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "supervisor.py",
+        "android_driver.py"
+      ],
+      "definitionFiles": [
+        "test_capture_allocation.mjs",
+        "test_capture_parent.py",
+        "test_controller_emission.mjs"
+      ],
+      "definitionScope": "SOURCE definitions include actualproductionfunctions withfakeFS/commands/writer; wholeconsumer6 checks remain separate",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "rpc_diagnostics_overflow",
+      "criterion": "Parent/controller/serviceheaders/errors/tracebacks/cleanupcountswithinallocatedshares; no logescape.",
+      "sourceFiles": [
+        "capture-allocation.mjs",
+        "capture-budget.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "supervisor.py",
+        "android_driver.py"
+      ],
+      "definitionFiles": [
+        "test_capture_allocation.mjs",
+        "test_capture_parent.py",
+        "test_controller_emission.mjs"
+      ],
+      "definitionScope": "SOURCE definitions include actualproductionfunctions withfakeFS/commands/writer; wholeconsumer6 checks remain separate",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "late_cancel_and_success",
+      "criterion": "LateOK/callbackcannotadvanceeffectorproofsuccessafterlocalterminal; cleanupfactsonlywithinprepaidbounds.",
+      "sourceFiles": [
+        "capture-allocation.mjs",
+        "capture-budget.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "supervisor.py",
+        "android_driver.py"
+      ],
+      "definitionFiles": [
+        "test_capture_allocation.mjs",
+        "test_capture_parent.py",
+        "test_controller_emission.mjs"
+      ],
+      "definitionScope": "SOURCE definitions include actualproductionfunctions withfakeFS/commands/writer; wholeconsumer6 checks remain separate",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "global_fault_nonatomic",
+      "criterion": "Parentfaultsticky+cleanup; servebeforeobservingexistingrevocationmaycontinuewithinshare, neverqualifies; noatomicglobalfenceclaim.",
+      "sourceFiles": [
+        "capture-allocation.mjs",
+        "capture-budget.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "supervisor.py",
+        "android_driver.py"
+      ],
+      "definitionFiles": [
+        "test_capture_allocation.mjs",
+        "test_capture_parent.py",
+        "test_controller_emission.mjs"
+      ],
+      "definitionScope": "SOURCE definitions include actualproductionfunctions withfakeFS/commands/writer; wholeconsumer6 checks remain separate",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "first_fault_and_cleanup",
+      "criterion": "Originalfaultpreservediferrorretentionfails; cleanupstillrunswithoutcapacity; no positivefallback.",
+      "sourceFiles": [
+        "capture-allocation.mjs",
+        "capture-budget.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "supervisor.py",
+        "android_driver.py"
+      ],
+      "definitionFiles": [
+        "test_capture_allocation.mjs",
+        "test_capture_parent.py",
+        "test_controller_emission.mjs"
+      ],
+      "definitionScope": "SOURCE definitions include actualproductionfunctions withfakeFS/commands/writer; wholeconsumer6 checks remain separate",
+      "actualDataSatisfied": false
+    },
+    {
+      "requirement": "whole_consumer_missing_audit_or_slot",
+      "criterion": "Allattemptedledger/helper/currentcode/run/config/lease/command/EOFjoinsrequired; omissions/duplicates/caller-selfcapacityreject.",
+      "sourceFiles": [
+        "capture-allocation.mjs",
+        "capture-budget.mjs",
+        "guard-client.mjs",
+        "fixture.mjs",
+        "supervisor.py",
+        "android_driver.py"
+      ],
+      "definitionFiles": [
+        "test_capture_allocation.mjs",
+        "test_capture_parent.py",
+        "test_controller_emission.mjs"
+      ],
+      "definitionScope": "SOURCE definitions include actualproductionfunctions withfakeFS/commands/writer; wholeconsumer6 checks remain separate",
+      "actualDataSatisfied": false
+    }
+  ],
+  "securityAddedRegressions": [
+    "absoluteexpiryaftervalidcallback",
+    "heldOKsuspend/UTCBOOTlowerenqueue",
+    "observedexternalrevocation",
+    "lateOKafterterminal",
+    "effectcancelnosuccess",
+    "control45latecallback",
+    "stage/subscription/APP-epochfences",
+    "LOWcustomarraytoJSONnotinvoked",
+    "LOWinvalidwriterstickyfirstfault"
+  ],
+  "actualHelperProbeRecipe": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/probe-source-recipe.json",
+    "bytes": 2314,
+    "sha256": "3c236054560935bf161fbbe4307a7c0d885753d1bbfa35a742d8a5b1dae592c9"
+  },
+  "noneOfTheseAreAcceptanceRecords": true,
+  "modelsExecuted": 0,
+  "ordinaryRowsQualified": 0,
+  "source2Remediation": [
+    "Actual APP/RELAY sharedsocketerrorboundary claims/fencesoriginalbeforefallibleobservation;6short/ENOSPC/exhausted regressions",
+    "Actual corruptedstdout test exactValueError Evidence drift/no successfulcalls/duplicatewrites",
+    "Actual22worker membership/pin and20/21/substitution/hash-negativeconfig checks",
+    "Current closed commandv3/observerv3/budgetv3/22workers andcurrentartifacts, preservingunchangedUI/business/fiveexports"
+  ],
+  "source3Remediation": [
+    "Known exchange/socket/send/timeout original service/guard fault claims beforefallible terminalretention; sharedproductionservicebridge",
+    "Core.onFatal beforeGUARD_TERMINAL; helperknownSTDERR/EOF/exit/close beforebadretention; controlcancelbeforecleanup",
+    "Actualclosednormal/fatal finalobserverunion, actualemission+extraction regressions; no genericJSONrelaxation"
+  ],
+  "source4Remediation": [
+    "Actualregisteredservicecontrol oversize claimsCONTROL_REQUEST_BOUND/core/globalowner beforeowned destroy; cleanupthrowissecondary and cannotescapeevent",
+    "Replace18same-utilitylabelcases withdistinctactualregisteredhelpercallbacks/coreDENY/controlsocketerror under3sinkfailures",
+    "Actualsecondarycollection asserted and includedfatalobserverwithclosedexistingrows, unchangedpartition",
+    "No newruntimeworkers/groups/methods orbusiness/UI/fiveexportcriteria"
+  ]
+}

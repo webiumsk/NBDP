@@ -1,0 +1,77 @@
+{
+  "schema": "e02-consumer5-source2-read-only-join-observations-v1",
+  "recorder": "/root/r5_plan_fix",
+  "state": "PENDING_ROOT_AND_INDEPENDENT_DISPOSITION_NOT_DATA_ACCEPTANCE",
+  "actualExecutions": 0,
+  "observations": [
+    {
+      "captureId": "capture-a",
+      "subject": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-controls-actual-20261028/capture-a/subject.json",
+        "bytes": 6103,
+        "sha256": "27ced384a8fdf7711946f570dad2e3821bddefc256aadb981250c26ef8546ffb"
+      },
+      "expectedFrozenSource3OuterRequest": {
+        "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 297 /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-a/capture-controls.py --execute-once --root-ack-sha 9caa234c2eea7c6bdf1ecda2838cdde799bc0fbe8036a7ed65469c422fd3b34f",
+        "workdir": "/home/peterhorvath/apps/bitcoin/NBDP",
+        "login": false,
+        "yield_time_ms": 1000,
+        "max_output_tokens": 10000
+      },
+      "actualOuterRequest": {
+        "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 TZ=UTC /usr/bin/timeout --signal=TERM --kill-after=3s 297s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-a/capture-controls.py --execute-once --root-ack-sha 9caa234c2eea7c6bdf1ecda2838cdde799bc0fbe8036a7ed65469c422fd3b34f",
+        "workdir": "/home/peterhorvath/apps/bitcoin/NBDP",
+        "login": false,
+        "yield_time_ms": 1000,
+        "max_output_tokens": 10000
+      },
+      "sourceRequestEqual": false,
+      "actualSummaryFields": {
+        "completeInstalledMembership": "816 regular files/65 directories/2 pinned in-tree symlinks before/after each scope and overall; exactSDK35 434/guard522 byte/mode/membership andflatreadclosure.",
+        "pythonNamesMeaning": "Source-resolved pinned8/7/3 unittest membership; quiet raw counts/dots/OK, not invented verbose runtime names.",
+        "retentionMeaning": "Popen.communicate in-memory capture;1MiB/256KiB post-capture raw retention/refusal, not streaming memory limits."
+      },
+      "currentExpectedMetadata": {
+        "completeInstalledMembership": true,
+        "pythonNamesMeaning": "Source-resolvedfrozen8/7/3membership;quietrawdot/count/OK isnotverbose-runtime-methodnames.",
+        "retentionMeaning": "Popen.communicate in-memory; stdout1MiB/stderr256KiB POSTcapture retention/refusal only."
+      }
+    },
+    {
+      "captureId": "capture-b",
+      "subject": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-controls-actual-20261028/capture-b/subject.json",
+        "bytes": 6033,
+        "sha256": "b8cda5cdc8d7986363101994b5ecd58fedd003fbd4acc5f8ab3c481a5e484d52"
+      },
+      "expectedFrozenSource3OuterRequest": {
+        "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 297 /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-b/capture-controls.py --execute-once --root-ack-sha 3318df1e04e2cc265ec0ad2d89c60c07bcd9529b46c9113b115a2252941e31ed",
+        "workdir": "/home/peterhorvath/apps/bitcoin/NBDP",
+        "login": false,
+        "yield_time_ms": 1000,
+        "max_output_tokens": 10000
+      },
+      "actualOuterRequest": {
+        "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 TZ=UTC /usr/bin/timeout --signal=TERM --kill-after=3s 297s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-b/capture-controls.py --execute-once --root-ack-sha 3318df1e04e2cc265ec0ad2d89c60c07bcd9529b46c9113b115a2252941e31ed",
+        "workdir": "/home/peterhorvath/apps/bitcoin/NBDP",
+        "login": false,
+        "yield_time_ms": 1000,
+        "max_output_tokens": 10000
+      },
+      "sourceRequestEqual": false,
+      "actualSummaryFields": {
+        "completeInstalledMembership": "816 regular files/65 directories/2 pinned in-tree symlinks before/after each scope and overall; exactSDK35 434/guard522 byte/mode/membership andflatreadclosure.",
+        "pythonNamesMeaning": "Source-resolved pinned8/7/3 unittest membership; quiet raw counts/dots/OK, not invented verbose runtime names.",
+        "retentionMeaning": "Popen.communicate in-memory capture;1MiB/256KiB post-capture raw retention/refusal, not streaming memory limits."
+      },
+      "currentExpectedMetadata": {
+        "completeInstalledMembership": true,
+        "pythonNamesMeaning": "Source-resolvedfrozen8/7/3membership;quietrawdot/count/OK isnotverbose-runtime-methodnames.",
+        "retentionMeaning": "Popen.communicate in-memory; stdout1MiB/stderr256KiB POSTcapture retention/refusal only."
+      }
+    }
+  ],
+  "sourceGuardsChanged": false,
+  "rawEvidenceChanged": false,
+  "meaning": "Observed pre-final-render metadata/request mismatches; no severity/self-approval assigned. Keep exact old SOURCE and actual DATA. No silent normalization, alias or claim of pre-execution approval."
+}

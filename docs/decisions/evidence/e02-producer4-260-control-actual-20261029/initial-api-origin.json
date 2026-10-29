@@ -1,0 +1,22 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 1203s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /Data/nbdp-e02-tooling-20261027/producer4-control-capture-preparation-r1/source4/capture.py --execute-once --root-ack-sha 59896c68718e0c341c8c8e7034ff7e8f6870748368deabe197c672375b76dedc",
+      "workdir": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-preparation-r1/source4",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2000
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "67500a",
+      "wall_time_seconds": 1.00078376,
+      "session_id": 34695,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "polls": []
+}

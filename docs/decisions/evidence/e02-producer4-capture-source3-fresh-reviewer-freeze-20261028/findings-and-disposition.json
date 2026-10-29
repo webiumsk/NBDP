@@ -1,0 +1,33 @@
+{
+  "schema": "e02-capture-source3-review-disposition-v1",
+  "actor": "/root",
+  "subject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-preparation-r1/source3/code-subject.json",
+    "bytes": 3968,
+    "sha256": "9766cb7692d1c4989db72a1d6b35d0621603bf9088c5c92632df3d9ee8580fa4"
+  },
+  "decisions": "HOLD_BOTH",
+  "findings": [
+    {
+      "id": "CAP3-QA-01",
+      "severity": "MEDIUM",
+      "evidence": "outputs.py7 expects PRODUCER4_MOCK_GUARD_TRANSPORT_BOUNDARIES_ONLY; exact current test_guard_transport_boundaries133 emits PRODUCER4_ACTUAL_REGISTERED_HELPER_CALLBACKS_AND_OWNED_SIGNAL_MOCKS_ONLY.",
+      "required": "Exact current literal, successful actual schema33 regression and negativewrongscope/count/keys tests for all fiveNodefamilies."
+    },
+    {
+      "id": "CAP3-SEC-01",
+      "severity": "MEDIUM",
+      "evidence": "contracts39-47 runtime union misses six Root-declaredknownhelpers including currentmanifest control-plan /actor ordinary_api35_source. FutureACK duplication notrequired, so knownhelper can pass reviewpair.",
+      "required": "All11 requiredknownactors before allproducer/capture/admission reviewpairs; independentlypinnedacyclicRootdeclaration or fixedconstants, actualknownselectors, rejecteachactor ineachQA/SECslot, missingrequiredrecord/unknownschema failclosed."
+    },
+    {
+      "id": "CAP3-SEC-02",
+      "severity": "LOW",
+      "evidence": "capture207-211 post-snapshot occurs beforeseeding row.fault; TIMEOUT/CAPTURE_LIMIT/RETENTION_ERROR can be masked bysnapshot exception or genericNATURAL_EXACT_OWNED_SCOPE.",
+      "required": "Actualexecute mocked rowfault+bad/goodsnapshot, retainoriginalfirstFault immediately/secondaryerror, no successor scope, preservebothstream/resultreceipts."
+    }
+  ],
+  "admissionModelsExecuted": 0,
+  "targetModelsExecuted": 0,
+  "runtimeReleased": false
+}

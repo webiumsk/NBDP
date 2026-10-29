@@ -1,0 +1,58 @@
+{
+  "schema": "nbdp-sdk434-finite-byte-acquisition-release-v1",
+  "actor": "/root",
+  "decision": "RELEASE_ONE_FINITE_EXACT_SDK434_BYTE_RESTORATION",
+  "sourceSubject": {
+    "path": "/tmp/nbdp-sdk-restoration-20261026-r2/subject.json",
+    "bytes": 3795,
+    "sha256": "14356532c8d7da6ca80891ed704f9f4097f8ba06732c31e06d7a78465c731471"
+  },
+  "script": {
+    "path": "/tmp/nbdp-sdk-restoration-20261026-r2/restore_sdk.py",
+    "bytes": 26289,
+    "sha256": "14c1e632a0aeb5d37c3935cceee825609e7b45c5fef84078084c757a607741e9"
+  },
+  "plan": {
+    "path": "/tmp/nbdp-sdk-restoration-20261026-r2/plan.json",
+    "bytes": 138890,
+    "sha256": "53ca1e32778897b69b85d822253f1324777c51961d77e96d27e295e31bd0f03c"
+  },
+  "interpreter": {
+    "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "bytes": 32959480,
+    "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+  },
+  "modelAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-restoration-20261026/source2/model-acceptance.json",
+    "bytes": 1335,
+    "sha256": "920ed1808ad1f4232d900306dd19af786e227d3c362d52a26107c1c317006804"
+  },
+  "sourceDisposition": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-restoration-20261026/source2/source-review-disposition.json",
+    "bytes": 4857,
+    "sha256": "aec6489be20cce135a82632273b5f3498d7c39a484f2f5f9da410d70a12766be"
+  },
+  "command": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/tmp/nbdp-sdk-restoration-20261026-r2/restore_sdk.py",
+    "--plan",
+    "/tmp/nbdp-sdk-restoration-20261026-r2/plan.json",
+    "--plan-sha",
+    "53ca1e32778897b69b85d822253f1324777c51961d77e96d27e295e31bd0f03c",
+    "--execute-reviewed-data-restoration"
+  ],
+  "bounds": {
+    "globalSeconds": 1200,
+    "workSeconds": 1170,
+    "archiveSeconds": 300,
+    "socketSeconds": 15,
+    "reserveBytes": 8589934592
+  },
+  "attemptRoot": "/tmp/nbdp-sdk-restoration-20261026-r2/attempt-r1",
+  "destination": "/tmp/nbdp-e02-api35-fixture-r2/sdk",
+  "supportedNetworkApprovalRequired": true,
+  "rerunsAuthorized": 0,
+  "scope": "Fixed public archive DATA acquisition/extraction/placement only; no SDKmanager/licenseconsent/sdktool/emulator/services/protocolexperiment/runtime role activation."
+}

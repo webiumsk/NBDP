@@ -1,0 +1,29 @@
+{
+  "schema": "e02-controller-r3-negative-review-findings-v1",
+  "actor": "/root",
+  "qaSession": "/root/probe_r2_fresh_qa_ac77e84a49a1",
+  "securitySession": "/root/probe_r2_fresh_security_ac77e84a49a1",
+  "status": "FAILED_UNQUALIFIED_NEGATIVE_OBSERVATIONS_ONLY",
+  "findings": [
+    {
+      "id": "R3-RAW-TEST-ORACLE",
+      "severity": "LOW",
+      "evidence": "Exactonebytegrowth is correctly rejected when final partial read requests60409B; test wrongly requires a separate1byte read request.",
+      "remediation": "Keep bothdelta cases/assertRaises/ownedclose. Assert actualconsumption expected+1 and eachrequest1..65536; productionCODEunchanged."
+    },
+    {
+      "id": "R3-ROOT-CWD-MISMATCH",
+      "severity": "LOW",
+      "evidence": "Group2 actual request differs from issued exact dictionary only in workdir. Root manually reconstructed actual invocation.",
+      "issuedWorkdir": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2",
+      "actualWorkdir": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r3",
+      "remediation": "Preserve both original records unchanged. Root reads exact prepared request JSON dictionary and passes it directly to tools.exec_command; no manual cwd reconstruction."
+    }
+  ],
+  "modelsObserved": 104,
+  "modelsPassed": 103,
+  "modelsFailed": 1,
+  "inputsUnchanged": 33,
+  "exactInvocationQualified": false,
+  "executionAuthorized": false
+}

@@ -1,0 +1,16 @@
+{
+  "recordedBy": "/root",
+  "reviewer": "/root/r4_security",
+  "decision": "ACCEPT_POSTCHECK_R2_SOURCE_FOR_TERMINAL_READONLY_CAPTURE_ONLY",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/post-checks-r2.py",
+    "bytes": 5867,
+    "sha256": "43f5ed071b4f654c3123636f3c1f442af82c54a328aa5e4139f61f78191df6d3"
+  },
+  "findings": [],
+  "verified": "Onlykeyscan+r2outputchanged; strictcontainedregularUID1000mode600/nonlinks,1MiBsize/streambounds,O_NOFOLLOW,identity+time+sizebefore/open/after,16keys/200kentrycaps; no keybytescopied/chmod",
+  "evidenceType": "SOURCE_ONLY_NO_MODELS_EXECUTED",
+  "limits": "Afterterminalcleanup only177+3/16MiB; cooperative snapshots not hostileatomiccustody; actualkey/source/input/artifact/lifecycleDATA stillrequired",
+  "supersedes": "r1postcheckreadiness only; preserve MEDIUM leafsymlink/unboundedkeyread SOURCE finding, no observedexploit",
+  "provenance": "Faithful coordinator transcription of actual independent mailbox SOURCE decision"
+}

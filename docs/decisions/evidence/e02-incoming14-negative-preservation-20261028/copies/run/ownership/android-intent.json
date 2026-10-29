@@ -1,0 +1,59 @@
+{
+  "name": "nbdp-e02-9d8bad6df86fc113f87e14e2974f9019-android",
+  "image": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+  "labels": {
+    "nbdp.run": "9d8bad6df86fc113f87e14e2974f9019",
+    "nbdp.role": "android",
+    "nbdp.creation": "9b9005caf1514688b9c856a1cb5690b8"
+  },
+  "mounts": [
+    [
+      "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/input",
+      "/input",
+      false
+    ],
+    [
+      "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/session/lease.json",
+      "/session/lease.json",
+      false
+    ],
+    [
+      "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/session/control",
+      "/session/control",
+      true
+    ],
+    [
+      "/tmp/nbdp-e02-api35-fixture-r2/sdk",
+      "/sdk",
+      false
+    ],
+    [
+      "/Data/nbdp-e02-tooling-20261027/amethyst-build-r8/output/build/rebuilt-fdroid-debug-0.apk",
+      "/artifact.apk",
+      false
+    ],
+    [
+      "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/clipboard-capture.apk",
+      "/helper.apk",
+      false
+    ],
+    [
+      "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/android-state",
+      "/state",
+      true
+    ]
+  ],
+  "command": [
+    "--inhibit-cache",
+    "--library-path",
+    "/guard-python/lib",
+    "/guard-python/bin/python3.11",
+    "-B",
+    "-P",
+    "-S",
+    "-s",
+    "/input/supervisor.py",
+    "--guest",
+    "android"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "e02-producer2-capture-source-preparation-failures-v1",
+  "failures": [
+    {
+      "stage": "Initial metadata freeze after actual main SOURCE decisions",
+      "toolChunkId": "f85ab0",
+      "exitCode": 1,
+      "error": "FileNotFoundError: coordinator-source-disposition.json",
+      "cause": "Author used an incorrect coordinator disposition filename; actual existing filename is source-review-disposition.json. No main SOURCE file was changed and no control was executed.",
+      "remediation": "Read-only file discovery; corrected new capture metadata assembly to actual filename. Original tool failure remains preserved in session."
+    }
+  ],
+  "projectTestsExecuted": 0,
+  "runtimeExecuted": false
+}

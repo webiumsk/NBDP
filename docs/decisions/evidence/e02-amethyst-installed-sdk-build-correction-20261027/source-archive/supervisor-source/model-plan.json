@@ -1,0 +1,44 @@
+{
+  "schema": "nbdp-installed-sdk-build-binding-model-plan-v1",
+  "source": {
+    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/supervisor-source/test_installed_sdk_bindings.py",
+    "bytes": 4917,
+    "sha256": "ae8416b4b6b8a26433ce5d62d1b8ed3b40951a1a455f99dc7e576c7b2525ea7e"
+  },
+  "definitions": [
+    "test_exact_whole_sdk_root_and_acceptance_chain",
+    "test_null_wrong_decision_or_old_root_is_refused",
+    "test_cross_subject_descriptor_or_missing_acceptance_refused",
+    "test_package_metadata_install_and_answer_facts_cannot_drift",
+    "test_materializer_exact_new_sdk_fields_are_valid_shapes",
+    "test_materializer_old_extractions_or_null_sdk_is_refused",
+    "test_materializer_requires_distinct_evidence_and_whole_acceptance"
+  ],
+  "definedCount": 7,
+  "executed": 0,
+  "command": [
+    "/usr/bin/python3.12",
+    "-I",
+    "-B",
+    "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/supervisor-source/test_installed_sdk_bindings.py"
+  ],
+  "limits": {
+    "seconds": 15,
+    "stdoutBytes": 65536,
+    "stderrBytes": 262144
+  },
+  "scope": "Only new pure supervisor installed-SDK joins and materializer SDK-release shape. Literal synthetic dictionaries only; no inventories/filesystem/tool/network/Gradle/client calls. Historical52+16 suites are not copied/rerun; unchanged AST coverage remains independently assessable.",
+  "dependencies": [
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/supervisor-source/supervise_build.py",
+      "bytes": 31753,
+      "sha256": "65cc14b76eeb3585371e239b9e5985f56a149d1b33d69987a2499271e39fc094"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/materializer-source/materialize.py",
+      "bytes": 8071,
+      "sha256": "20299b82f5418a34270112413570d000770724389a4ebe441f9c649754c63379"
+    }
+  ],
+  "state": "UNCHANGED_PRIOR_SEVEN_MODEL_CODE_CARRY_ONLY_NOT_AUTHORIZED"
+}

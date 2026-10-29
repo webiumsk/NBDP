@@ -1,0 +1,32 @@
+{
+  "schema": "nbdp-native-provenance-addendum-acceptance-v1",
+  "actor": "/root",
+  "decision": "ACCEPT_ADDITIVE_CONFIGURED_BUILD_PROVENANCE_ONLY",
+  "subject": {
+    "path": "/tmp/nbdp-rust-rebuild-20261026/records/provenance-subject.json",
+    "bytes": 1345,
+    "sha256": "3c27525581b61b29892ea32a4ed26fde420b774f4c834da4caacb39d40a34029"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e01-native-rebuild-replay-20261026/build-provenance-qa-addendum.json",
+      "bytes": 1269,
+      "sha256": "3533d1635695c2914b3cc68a8673ac5b88988665b69e39023a0019c7eb57bda8"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e01-native-rebuild-replay-20261026/build-provenance-security-addendum.json",
+      "bytes": 1246,
+      "sha256": "c443ba4fb280eded73afc0f510663b950adde5955b8ff2a36709075ec75c8088"
+    }
+  ],
+  "preserves": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e01-native-rebuild-replay-20261026/native-build-acceptance.json",
+    "bytes": 1352,
+    "sha256": "89e08ef7b0994a4eb24bdabfa90c51280648836012fd3f8c59e40525fc1ed250"
+  },
+  "limits": [
+    "Configured flags are not measured isolation/resource behavior.",
+    "Dedicated-name absence is not exact-CID/atomic descendant closure; no CID recorded.",
+    "Dependency hashes/HEAD do not constitute dependency security audit. No target-binary execution in this addendum review."
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "schema": "e02-transport-source2-current-definition-provenance-v1",
+  "oldSource1ControlsExecuted": 0,
+  "currentPythonCases": {
+    "SourceCustodyControls": [
+      "test_guard_is_exact_original_unchanged_bytes",
+      "test_original_clock_command_identity_cleanup_methods_unchanged",
+      "test_original_owned_child_lifecycle_forwarding_unchanged",
+      "test_only_three_roles_no_adb_snapshot_or_sdk_route",
+      "test_signed_public_input_and_query_exact_frozen_hashes",
+      "test_no_signing_key_or_nonce_input_in_diagnostic_plan",
+      "test_closed_cid_absence_is_not_generic_exit1",
+      "test_exact_owned_cleanup_remove_and_absence_positive",
+      "test_foreign_creation_identity_never_removed",
+      "test_uncertain_absence_remains_failure"
+    ],
+    "ClosedDependencyControls": [
+      "test_unchanged_complete_tree_accepted",
+      "test_extra_regular_and_nested_optional_bufferutil_refused",
+      "test_missing_and_changed_regular_member_refused",
+      "test_new_safe_escape_and_dangling_symlinks_refused",
+      "test_special_fifo_refused_without_read",
+      "test_source_runtime_canonical_mapping_and_unknown_fields_refused",
+      "test_actual_inventory_gate_refuses_before_host_import_or_container",
+      "test_end_boundary_rechecks_current_membership_not_cached_success"
+    ]
+  },
+  "currentModelCases": [
+    "original10s3s-ack-and-real-send-callback-model",
+    "query-event-and-exact-eose-model",
+    "eose-before-send-callback-does-not-require-packet-order",
+    "no-success-until-actual-model-send-callback",
+    "timeout-retains-partial-send-state-and-rejection",
+    "intent-is-before-send-invoke-not-callback-proof",
+    "raw-backend-callback-precedes-original-guard",
+    "guard-refused-open-sends-nothing",
+    "guard-refused-before-send-sends-nothing",
+    "guard-refused-message-keeps-raw-context-without-success",
+    "guard-refused-send-callback-is-not-completed",
+    "send-error-preserves-error-no-success",
+    "same-buffer-mutation-refuses",
+    "relay-negative-ack-refuses",
+    "wrong-eose-subscription-never-completes",
+    "late-message-after-terminal-has-no-writes-actions",
+    "same-original-query-result-object-key-order-independent",
+    "same-query-result-content-change-refuses",
+    "original-strict-json-duplicate-key-refuses",
+    "unknown-exchange-label-refuses-before-socket",
+    "terminal-phase-and-outcome-failure-success-path-rejects-once",
+    "terminal-retention-failure-preserves-original-protocol-fault",
+    "raw-timer-error-close-callback-write-fault-boundaries",
+    "required-publication-write-failure-prevents-followup-query",
+    "writer-full-write-and-acknowledged-short-prefix-are-distinct",
+    "writer-throw-invalid-count-overflow-poisons-with-no-retry",
+    "poisoned-real-writer-forces-exchange-reject-no-second-send"
+  ],
+  "currentGuestTreeCases": [
+    "complete-unchanged-source-runtime-tree",
+    "extra-member-and-nested-bufferutil-rejected-before-import",
+    "missing-and-changed-file-rejected",
+    "safe-added-escape-and-dangling-symlink-rejected",
+    "source-and-runtime-path-mapping-cannot-diverge",
+    "end-boundary-rechecks-added-directory"
+  ],
+  "originalPythonTestBodiesUnchanged": 10,
+  "originalModelBodiesTextUnchanged": 19,
+  "versionedModelExpectation": "Original late-callback-context test is preserved in v1; v2 requires inert late callbacks, no post-terminal writes/actions.",
+  "oldModelHelpersChanged": "New fault injection and termination counter; all current scopes need new execution, no historical pass transfer.",
+  "priorGuard29OnlyByteBoundCarry": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r1/guard-scope-link.json",
+    "bytes": 1036,
+    "sha256": "ab12b9af0d7bc1435dac906163aa63d486f8cc87f17cb2b9da29c1233af0bbe0"
+  },
+  "actualCurrentControlsExecuted": 0
+}

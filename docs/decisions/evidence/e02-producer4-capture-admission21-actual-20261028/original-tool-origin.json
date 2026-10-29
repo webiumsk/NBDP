@@ -1,0 +1,22 @@
+{
+  "schema": "e02-admission21-actual-api-origin-v1",
+  "actor": "/root",
+  "toolName": "tools.exec_command",
+  "request": {
+    "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 63 /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /Data/nbdp-e02-tooling-20261027/producer4-control-capture-preparation-r1/source4/test_admission.py",
+    "workdir": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-preparation-r1/source4",
+    "login": false,
+    "yield_time_ms": 1000,
+    "max_output_tokens": 20000
+  },
+  "launch": {
+    "chunk_id": "4915f6",
+    "wall_time_seconds": 0.555887723,
+    "exit_code": 0,
+    "original_token_count": 812,
+    "output": "test_each_eleven_known_helpers_rejected_in_each_six_review_slots (__main__.AdmissionDefinitions.test_each_eleven_known_helpers_rejected_in_each_six_review_slots) ... ok\ntest_exact_allocation29_schema_and_mutations (__main__.AdmissionDefinitions.test_exact_allocation29_schema_and_mutations) ... ok\ntest_exact_controller16_schema_and_mutations (__main__.AdmissionDefinitions.test_exact_controller16_schema_and_mutations) ... ok\ntest_exact_decisions_counts_and_source_subject (__main__.AdmissionDefinitions.test_exact_decisions_counts_and_source_subject) ... ok\ntest_exact_five_key_direct_and_same_session_original_api (__main__.AdmissionDefinitions.test_exact_five_key_direct_and_same_session_original_api) ... ok\ntest_exact_guard123_schema_and_mutations (__main__.AdmissionDefinitions.test_exact_guard123_schema_and_mutations) ... ok\ntest_exact_observation20_schema_and_mutations (__main__.AdmissionDefinitions.test_exact_observation20_schema_and_mutations) ... ok\ntest_exact_registered_transport33_schema_and_mutations (__main__.AdmissionDefinitions.test_exact_registered_transport33_schema_and_mutations) ... ok\ntest_execute_retention_first_cause_and_post_snapshot_secondary (__main__.AdmissionDefinitions.test_execute_retention_first_cause_and_post_snapshot_secondary) ... ok\ntest_execute_timeout_first_cause_and_post_snapshot_secondary (__main__.AdmissionDefinitions.test_execute_timeout_first_cause_and_post_snapshot_secondary) ... ok\ntest_expected_hash_before_read_result_not_self_certified_baseline (__main__.AdmissionDefinitions.test_expected_hash_before_read_result_not_self_certified_baseline) ... ok\ntest_full_union_closed_before_first_review_pair (__main__.AdmissionDefinitions.test_full_union_closed_before_first_review_pair) ... ok\ntest_missing_required_actor_authority_schema_and_context_refused (__main__.AdmissionDefinitions.test_missing_required_actor_authority_schema_and_context_refused) ... ok\ntest_mock_complete_contract_and_overlay_model_cwd (__main__.AdmissionDefinitions.test_mock_complete_contract_and_overlay_model_cwd) ... ok\ntest_null_unknown_and_predecessor_source_refused (__main__.AdmissionDefinitions.test_null_unknown_and_predecessor_source_refused) ... ok\ntest_one_absolute_reap_deadline_and_fault_signal_before_reap (__main__.AdmissionDefinitions.test_one_absolute_reap_deadline_and_fault_signal_before_reap) ... ok\ntest_selector_failure_never_spawns_and_shortprefix_never_repairs (__main__.AdmissionDefinitions.test_selector_failure_never_spawns_and_shortprefix_never_repairs) ... ok\ntest_shared_snapshot480_and_full_child60_plus3_admission (__main__.AdmissionDefinitions.test_shared_snapshot480_and_full_child60_plus3_admission) ... ok\ntest_source_parser_extra_keys_wrong_count_skip_and_missing_eof (__main__.AdmissionDefinitions.test_source_parser_extra_keys_wrong_count_skip_and_missing_eof) ... ok\ntest_swapped_scope_file_count_missing_input_and_wrong_clocks (__main__.AdmissionDefinitions.test_swapped_scope_file_count_missing_input_and_wrong_clocks) ... ok\ntest_unbound_entry_refuses_before_any_target_metadata (__main__.AdmissionDefinitions.test_unbound_entry_refuses_before_any_target_metadata) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 0.166s\n\nOK\n"
+  },
+  "polls": [],
+  "terminalExitCode": 0,
+  "evidenceScope": "Actual outer API return only; no inner PID/reap/EOF claimed."
+}

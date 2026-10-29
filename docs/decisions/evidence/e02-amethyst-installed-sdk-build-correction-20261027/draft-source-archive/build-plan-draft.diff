@@ -1,0 +1,42 @@
+--- /tmp/nbdp-amethyst-build-preparation-20261027-r2/build-plan.json
++++ /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/preparation/build-plan.json
+@@ -45,17 +45,17 @@
+     "--mount",
+     "type=bind,src=/tmp/nbdp-amethyst-rebuild-20261026/output/source-archive.json,dst=/input/source-archive.json,readonly",
+     "--mount",
+-    "type=bind,src=/tmp/nbdp-amethyst-build-preparation-20261027-r2,dst=/prep,readonly",
++    "type=bind,src=/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/preparation,dst=/prep,readonly",
+     "--mount",
+     "type=bind,src=/tmp/nbdp-amethyst-rebuild-20261026/tools/jdk,dst=/jdk,readonly",
+     "--mount",
+-    "type=bind,src=/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk,dst=/sdk,readonly",
++    "type=bind,src=/Data/nbdp-e02-tooling-20261027/controller-r6/writable-r1/sdk,dst=/sdk,readonly",
+     "--mount",
+-    "type=bind,src=/tmp/nbdp-amethyst-rebuild-20261026/user/work-r2,dst=/work",
++    "type=bind,src=/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/user/work,dst=/work",
+     "--mount",
+-    "type=bind,src=/tmp/nbdp-amethyst-rebuild-20261026/cache/build-r2,dst=/cache",
++    "type=bind,src=/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/cache/build,dst=/cache",
+     "--mount",
+-    "type=bind,src=/tmp/nbdp-amethyst-rebuild-20261026/output/build-r2,dst=/output",
++    "type=bind,src=/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/output/build,dst=/output",
+     "--entrypoint",
+     "/usr/bin/env",
+     "sha256:32bb6c4c58ee5fe85f1e7229fb15008accb137990093941d2f8e768efd91cf8c",
+@@ -75,11 +75,13 @@
+   ],
+   "rootPrerequisites": [
+     "Independent exact SOURCE reviews; separately released DATA models",
+-    "All acquired tools exact archive hashes/full inventories/properties accepted independently",
++    "Accepted unchanged JDK and independently accepted whole official installed SDK inventory, metadata, consent and actual-to-retained provenance.",
+     "Fresh git archive/source receipt with actual tool provenance and original source unchanged",
+-    "Fresh owned user/work-r2, cache/build-r2, output/build-r2 roots; no prior .m2/.android/debug key or Gradle caches",
++    "Fresh owned /Data/nbdp-e02-tooling-20261027/amethyst-build-r3/{user/work,cache/build,output/build} roots; no prior .m2/.android/debug key or Gradle caches",
+     "Dedicated named bridge created separately by root; no host network or published ports",
+-    "Root finite exact-CID supervisor with original launch/completion/log/container-removal receipts before any build; this JSON is a proposal, not an executable release"
++    "Root finite exact-CID supervisor with original launch/completion/log/container-removal receipts before any build; this JSON is a proposal, not an executable release",
++    "Whole official installed SDK inventory, package metadata, actual consent/install acceptance independently accepted and exactly bound; NULL means NOT_READY.",
++    "Fresh owned runtime parent skeleton/controller/materializer directories on actual /Data filesystem, then unchanged12GiB admission; no SDKmanager/download/consent step during build."
+   ],
+   "limits": {
+     "memoryBytes": 6442450944,

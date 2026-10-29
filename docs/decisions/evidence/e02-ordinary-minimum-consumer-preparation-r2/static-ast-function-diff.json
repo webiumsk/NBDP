@@ -1,0 +1,282 @@
+{
+  "schema": "e02-minimum-consumer-v2-static-ast-v1",
+  "operation": "STDLIB_AST_SOURCE_HASH_ONLY_NO_PROJECT_IMPORT",
+  "files": [
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v2/consumer.py",
+        "bytes": 40019,
+        "sha256": "a80ef1dbf1428c8587efdd143db0983d5ec1d71842736e11efea7d42a572e1f4"
+      },
+      "astParsed": true,
+      "existingFunctionsChanged": [],
+      "addedFunctions": [],
+      "removedFunctions": [],
+      "unaffectedFunctionCount": 11,
+      "byteIdenticalToV1": true,
+      "imports": [
+        "argparse",
+        "gui",
+        "hashlib",
+        "ipaddress",
+        "pathlib",
+        "re",
+        "stat",
+        "strict",
+        "sys",
+        "wire",
+        "witness"
+      ]
+    },
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v2/gui.py",
+        "bytes": 14572,
+        "sha256": "1dc3dc2fffd258c9f9a638f7ccdd21c82becb4a3dab7261efb2459d572c2bad5"
+      },
+      "astParsed": true,
+      "existingFunctionsChanged": [
+        "selection"
+      ],
+      "addedFunctions": [
+        "private_room_footer"
+      ],
+      "removedFunctions": [],
+      "unaffectedFunctionCount": 9,
+      "byteIdenticalToV1": false,
+      "imports": [
+        "hashlib",
+        "re",
+        "strict",
+        "wire",
+        "xml.etree.ElementTree"
+      ]
+    },
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v2/strict.py",
+        "bytes": 8218,
+        "sha256": "8efb94edf747fb8b0f78dcfca6a6396a6d69553ab9c75a503865edf65d161f2d"
+      },
+      "astParsed": true,
+      "existingFunctionsChanged": [],
+      "addedFunctions": [],
+      "removedFunctions": [],
+      "unaffectedFunctionCount": 19,
+      "byteIdenticalToV1": true,
+      "imports": [
+        "hashlib",
+        "json",
+        "os",
+        "pathlib",
+        "re",
+        "stat"
+      ]
+    },
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v2/test_data_controls.py",
+        "bytes": 41929,
+        "sha256": "48e7877b878f1a18e759ae79f3f5835d1b270e642319fdde03182bcc14915fc7"
+      },
+      "astParsed": true,
+      "existingFunctionsChanged": [
+        "publication_data"
+      ],
+      "addedFunctions": [
+        "PureDataControls.native_reply_fixture",
+        "PureDataControls.test_candidate_predicate_selected_id_not_whole_payload",
+        "PureDataControls.test_identical_query_exact_candidate_uncompleted_callback_refused",
+        "PureDataControls.test_identical_query_same_id_altered_payload_candidate_refused",
+        "PureDataControls.test_identical_query_same_id_altered_tags_candidate_refused",
+        "PureDataControls.test_late_same_id_altered_payload_is_retained_not_interval_absence",
+        "PureDataControls.test_native_actual_nested_rpc_envelope_positive",
+        "PureDataControls.test_native_double_rpc_envelope_refused",
+        "PureDataControls.test_native_error_rpc_reply_refused",
+        "PureDataControls.test_native_extra_rpc_envelope_key_refused",
+        "PureDataControls.test_native_extra_rpc_line_refused",
+        "PureDataControls.test_native_missing_rpc_value_refused",
+        "PureDataControls.test_native_missing_second_rpc_line_refused",
+        "PureDataControls.test_native_missing_source_echo_refused",
+        "PureDataControls.test_native_unwrapped_rpc_reply_refused",
+        "PureDataControls.test_native_wrong_rpc_value_refused",
+        "PureDataControls.test_native_zero_rpc_lines_refused",
+        "PureDataControls.test_qualified_delivery_same_id_altered_payload_refused",
+        "PureDataControls.test_selection_ambiguous_edittext_ancestors_refused",
+        "PureDataControls.test_selection_detached_message_label_refused",
+        "PureDataControls.test_selection_disabled_edittext_ancestor_refused",
+        "PureDataControls.test_selection_disabled_message_label_refused",
+        "PureDataControls.test_selection_disabled_warning_refused",
+        "PureDataControls.test_selection_duplicate_warning_refused",
+        "PureDataControls.test_selection_foreign_edittext_ancestor_refused",
+        "PureDataControls.test_selection_foreign_message_label_refused",
+        "PureDataControls.test_selection_foreign_warning_refused",
+        "PureDataControls.test_selection_no_composer_or_warning_refused",
+        "PureDataControls.test_selection_nonempty_edittext_ancestor_refused",
+        "PureDataControls.test_selection_positive_exact_source_dm_warning",
+        "PureDataControls.test_selection_positive_owned_edittext_ancestor",
+        "PureDataControls.test_selection_warning_and_message_label_refused",
+        "PureDataControls.test_selection_warning_without_back_context_refused",
+        "selection_data"
+      ],
+      "removedFunctions": [],
+      "unaffectedFunctionCount": 60,
+      "byteIdenticalToV1": false,
+      "imports": [
+        "base64",
+        "consumer",
+        "copy",
+        "gui",
+        "hashlib",
+        "json",
+        "os",
+        "pathlib",
+        "strict",
+        "sys",
+        "tempfile",
+        "unittest",
+        "wire",
+        "witness",
+        "xml.etree.ElementTree"
+      ]
+    },
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v2/wire.py",
+        "bytes": 20032,
+        "sha256": "cbf5b8a2f8220d959c8be9db267a40e1d0e9d668218d423168f3d61bdf6229e7"
+      },
+      "astParsed": true,
+      "existingFunctionsChanged": [
+        "publication",
+        "validation"
+      ],
+      "addedFunctions": [
+        "candidate_app_frame"
+      ],
+      "removedFunctions": [],
+      "unaffectedFunctionCount": 13,
+      "byteIdenticalToV1": false,
+      "imports": [
+        "base64",
+        "hashlib",
+        "re",
+        "strict"
+      ]
+    },
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v2/witness.py",
+        "bytes": 19710,
+        "sha256": "0a7f956c09314e29a9106c5599f9c0ed0e36945f725385035d131be3086df066"
+      },
+      "astParsed": true,
+      "existingFunctionsChanged": [],
+      "addedFunctions": [],
+      "removedFunctions": [],
+      "unaffectedFunctionCount": 9,
+      "byteIdenticalToV1": true,
+      "imports": [
+        "pathlib",
+        "re",
+        "strict",
+        "wire"
+      ]
+    }
+  ],
+  "original54TestMethodBodiesUnchanged": true,
+  "preparedTestCount": 86,
+  "addedTestCount": 32,
+  "preparedTestMethods": [
+    "PureDataControls.test_positive_exact_six_field_unicode_export",
+    "PureDataControls.test_positive_empty_sig_client_representation_only",
+    "PureDataControls.test_nonempty_sig_refused",
+    "PureDataControls.test_extra_client_field_refused",
+    "PureDataControls.test_changed_content_even_with_recomputed_id_refused",
+    "PureDataControls.test_changed_ordered_tags_refused",
+    "PureDataControls.test_unicode_normalization_is_not_applied",
+    "PureDataControls.test_duplicate_json_keys_refused",
+    "PureDataControls.test_invalid_utf8_refused",
+    "PureDataControls.test_nonfinite_float_and_negative_zero_refused",
+    "PureDataControls.test_boolean_is_not_integer",
+    "PureDataControls.test_selection_i64_positive_exact_path",
+    "PureDataControls.test_lease_all_six_i64_fields_positive",
+    "PureDataControls.test_ns_name_does_not_widen_wire",
+    "PureDataControls.test_nested_schema_cannot_widen_parent",
+    "PureDataControls.test_unrelated_field_in_registered_schema_stays_safe",
+    "PureDataControls.test_i64_overflow_refused",
+    "PureDataControls.test_wire_timestamp_not_widened",
+    "PureDataControls.test_file_positive_then_drift_refused",
+    "PureDataControls.test_duplicate_pin_alias_refused",
+    "PureDataControls.test_symlink_file_and_component_refused",
+    "PureDataControls.test_guest_mapping_positive_and_crosswindow_refusal",
+    "PureDataControls.test_guest_binding_conflict_refused",
+    "PureDataControls.test_unbound_input_and_outside_root_refused",
+    "PureDataControls.test_raw_base64_positive_and_invalid_refused",
+    "PureDataControls.test_proxy_sequence_omission_refused",
+    "PureDataControls.test_proxy_unknown_direction_refused",
+    "PureDataControls.test_role_stage_contract_and_archive_inner_recipient",
+    "PureDataControls.test_actual_public_api35_nprofile_vector",
+    "PureDataControls.test_nprofile_checksum_and_truncation_refused",
+    "PureDataControls.test_fixture_json_text_and_clipboard_inputs_refused",
+    "PureDataControls.test_crossrole_helper_case_refused",
+    "PureDataControls.test_exact_synthetic_identity_allowed_but_wrong_role_refused",
+    "PureDataControls.test_unknown_json_schema_cannot_claim_window",
+    "PureDataControls.test_actor_union_and_same_session_review_refused",
+    "PureDataControls.test_missing_entire_history_witness_refused",
+    "PureDataControls.test_failed_window_no_partial_export_contribution",
+    "PureDataControls.test_positive_app_wire_and_native_data_joins",
+    "PureDataControls.test_positive_identical_query_origin_is_not_client_receipt",
+    "PureDataControls.test_query_origin_for_required_initial_stage_refused",
+    "PureDataControls.test_query_origin_for_required_fresh_wrap_refused",
+    "PureDataControls.test_stale_delivery_attempt_refused",
+    "PureDataControls.test_stale_delivery_eose_generation_refused",
+    "PureDataControls.test_send_callback_buffer_hash_mismatch_refused",
+    "PureDataControls.test_send_callback_not_completed_refused",
+    "PureDataControls.test_copied_forward_frame_without_current_callback_refused",
+    "PureDataControls.test_wrong_archive_outer_recipient_refused",
+    "PureDataControls.test_positive_history_union_includes_failed_and_legacy_operators",
+    "PureDataControls.test_omitted_failed_attempt_rejected_by_external_inventory",
+    "PureDataControls.test_omitted_legacy_context_rejected",
+    "PureDataControls.test_failed_attempt_row_donation_refused",
+    "PureDataControls.test_positive_actual_command_record_data_and_force_failure",
+    "PureDataControls.test_known_nonoperative_low_preserved_with_actual_disposition_operand",
+    "PureDataControls.test_medium_source_finding_cannot_use_nonoperative_exception",
+    "PureDataControls.test_selection_positive_owned_edittext_ancestor",
+    "PureDataControls.test_selection_foreign_edittext_ancestor_refused",
+    "PureDataControls.test_selection_disabled_edittext_ancestor_refused",
+    "PureDataControls.test_selection_nonempty_edittext_ancestor_refused",
+    "PureDataControls.test_selection_detached_message_label_refused",
+    "PureDataControls.test_selection_ambiguous_edittext_ancestors_refused",
+    "PureDataControls.test_selection_foreign_message_label_refused",
+    "PureDataControls.test_selection_disabled_message_label_refused",
+    "PureDataControls.test_selection_positive_exact_source_dm_warning",
+    "PureDataControls.test_selection_foreign_warning_refused",
+    "PureDataControls.test_selection_disabled_warning_refused",
+    "PureDataControls.test_selection_duplicate_warning_refused",
+    "PureDataControls.test_selection_warning_and_message_label_refused",
+    "PureDataControls.test_selection_no_composer_or_warning_refused",
+    "PureDataControls.test_selection_warning_without_back_context_refused",
+    "PureDataControls.test_native_actual_nested_rpc_envelope_positive",
+    "PureDataControls.test_native_unwrapped_rpc_reply_refused",
+    "PureDataControls.test_native_error_rpc_reply_refused",
+    "PureDataControls.test_native_extra_rpc_envelope_key_refused",
+    "PureDataControls.test_native_wrong_rpc_value_refused",
+    "PureDataControls.test_native_double_rpc_envelope_refused",
+    "PureDataControls.test_native_missing_rpc_value_refused",
+    "PureDataControls.test_native_missing_second_rpc_line_refused",
+    "PureDataControls.test_native_extra_rpc_line_refused",
+    "PureDataControls.test_native_zero_rpc_lines_refused",
+    "PureDataControls.test_native_missing_source_echo_refused",
+    "PureDataControls.test_identical_query_same_id_altered_payload_candidate_refused",
+    "PureDataControls.test_identical_query_same_id_altered_tags_candidate_refused",
+    "PureDataControls.test_identical_query_exact_candidate_uncompleted_callback_refused",
+    "PureDataControls.test_qualified_delivery_same_id_altered_payload_refused",
+    "PureDataControls.test_late_same_id_altered_payload_is_retained_not_interval_absence",
+    "PureDataControls.test_candidate_predicate_selected_id_not_whole_payload"
+  ],
+  "executedTestCount": 0,
+  "fullPositiveWholeConsumeGraph": false,
+  "newNormativeGate": false,
+  "caveat": "Source syntax/diff is not runtime correctness, independent approval or an executed control."
+}

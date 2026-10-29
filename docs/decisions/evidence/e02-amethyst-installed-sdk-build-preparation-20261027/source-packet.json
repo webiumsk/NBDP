@@ -1,0 +1,89 @@
+{
+  "schema": "nbdp-installed-sdk-amethyst-build-preparation-packet-v1",
+  "actor": "/root/sdk_install_controller",
+  "state": "NOT_READY_PENDING_INDEPENDENT_SOURCE_MODEL_AND_ROOT_RELEASE",
+  "subject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/subject.json",
+    "bytes": 8770,
+    "sha256": "9b5843c7032e1873848449c88b6274efc0e3329951d3b8f0f0de6b47edc66d80"
+  },
+  "preparationSubject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/preparation/subject.json",
+    "bytes": 2638,
+    "sha256": "c63d31d0a562fd512b61ebcac012aadd336b9e1213b7d7058c8e29ac15f3d169"
+  },
+  "supervisorSubject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/supervisor-source/subject.json",
+    "bytes": 2547,
+    "sha256": "e820646bdf28b6180d6e84a95332674441eae12fad41aa5d749671c86f3524c9"
+  },
+  "supervisor": {
+    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/supervisor-source/supervise_build.py",
+    "bytes": 31753,
+    "sha256": "41d8951bae82784fcd90716bdbcbc84956072186eb3e1bd9ff280d437768572c"
+  },
+  "supervisorPlan": {
+    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/supervisor-source/plan.json",
+    "bytes": 8387,
+    "sha256": "e8af73c1d8dd146a964a3cdcb4f1fbb3af76f19d5cb0aef6edfe4f16593190b4"
+  },
+  "materializerSubject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/materializer-source/subject.json",
+    "bytes": 2154,
+    "sha256": "6db5512bf3efc577e469e5fc6ddb3ef546ec3b1c8f9bed0ceb0df98e59bb1eea"
+  },
+  "materializer": {
+    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/materializer-source/materialize.py",
+    "bytes": 8071,
+    "sha256": "374c15d239e78c3fb448943f0d58a58c9fdaba0c1e2eff7fb19f656067e56035"
+  },
+  "modelPlan": {
+    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/supervisor-source/model-plan.json",
+    "bytes": 1871,
+    "sha256": "2e93e736b8197827852b27e1285d34f8d29c0b5781887291ee6609c8d51dd987"
+  },
+  "installedSdkEvidence": {
+    "installedSdkInventory": {
+      "path": "/Data/nbdp-e02-tooling-20261027/sdk-data-preparation-r1/attempt-r1/sdk-inventory.json",
+      "bytes": 4909049,
+      "sha256": "5ed617a850f06d936a602a0b18cab36adb8438b752c36f892e1526eb177dadf2"
+    },
+    "installedSdkMetadata": {
+      "path": "/Data/nbdp-e02-tooling-20261027/sdk-data-preparation-r1/attempt-r1/metadata.json",
+      "bytes": 7867,
+      "sha256": "bcc7f37128e751d7a0e47705de87e8d1e4d1d5dd6e4972ee8667bbd5c79c4744"
+    },
+    "installedSdkConsent": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-install-actual-20261027-r5/sdk-consent.json",
+      "bytes": 2294,
+      "sha256": "afafd5bfb5054aa129458a35ab0352348a4980f1936d41c2f1c624ce093d8342"
+    },
+    "installedSdkAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-installed-data-actual-20261027/acceptance.json",
+      "bytes": 4224,
+      "sha256": "19458f67876206388d808508c5ac9fdd2af86e1b3c00a174386b1b61be6a529a"
+    },
+    "installedSdkAcceptanceDecision": "ACCEPT_WHOLE_INSTALLED_SDK_FOR_ISOLATED_AMETHYST_BUILD_ONLY"
+  },
+  "modelsDefined": 7,
+  "modelsExecuted": 0,
+  "buildInsideOriginalSha256": "2ecf91a0f9959931075d4b8ac3e4f7e2337054fbcb9b9b58f53707cd1375d405",
+  "actualRootGrantCreated": false,
+  "actualBuildExecuted": false,
+  "runtimeParentSkeleton": {
+    "root": "/Data/nbdp-e02-tooling-20261027/amethyst-build-r3",
+    "createOnlyParents": [
+      "/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/controller",
+      "/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/materializer",
+      "/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/user",
+      "/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/cache",
+      "/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/output"
+    ],
+    "leaveAbsent": [
+      "/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/user/work",
+      "/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/cache/build",
+      "/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/output/build"
+    ],
+    "actualCreatedByPreparation": false
+  }
+}

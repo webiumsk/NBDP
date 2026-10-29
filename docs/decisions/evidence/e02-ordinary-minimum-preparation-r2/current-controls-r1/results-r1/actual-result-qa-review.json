@@ -1,0 +1,61 @@
+{
+  "schema": "nbdp-producer2-actual35-independent-result-review-v1",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/results-r1/subject.json",
+    "bytes": 6505,
+    "sha256": "aedd45eb01e6120856a8d97e8fa9811e750531ea5c3f23df8b65d302b8a8bd6c"
+  },
+  "reviewedAt": "2026-10-26T21:15:43.125717+00:00",
+  "independentNonAuthorNonOperator": true,
+  "testsRerun": false,
+  "findings": [
+    {
+      "severity": "MEDIUM",
+      "scope": "CURRENT_PREREQUISITE_AVAILABILITY_ONLY",
+      "blockingForHistoricalDataAcceptance": false,
+      "evidence": [
+        {
+          "path": "/tmp/nbdp-005-rust-target/debug/nbdp-experiment-rust",
+          "bytes": 24117328,
+          "sha256": "ecd1c1ab446782e263ae9e606117486b25d79b16732de5c4fac97e78b31699d9"
+        },
+        {
+          "path": "/tmp/nbdp-e02-minimal-rs-v7/records/guard-bundle-manifest.json",
+          "bytes": 332736,
+          "sha256": "9de311222ef78e20fbe05bfef32898976d80737d5d932166d23431a04a73a454"
+        }
+      ],
+      "requiredAction": "Re-establish exact inputs or separately reviewed versioned bindings before dependent execution."
+    }
+  ],
+  "missingCurrentInputs": [
+    {
+      "path": "/tmp/nbdp-005-rust-target/debug/nbdp-experiment-rust",
+      "bytes": 24117328,
+      "sha256": "ecd1c1ab446782e263ae9e606117486b25d79b16732de5c4fac97e78b31699d9"
+    },
+    {
+      "path": "/tmp/nbdp-e02-minimal-rs-v7/records/guard-bundle-manifest.json",
+      "bytes": 332736,
+      "sha256": "9de311222ef78e20fbe05bfef32898976d80737d5d932166d23431a04a73a454"
+    }
+  ],
+  "limits": [
+    "Historical once-only 20 observation models, 8 public identity format and 7 source wiring controls only.",
+    "Current complete 957-input closure and replay/runtime readiness are NOT established: two pinned external operands are absent. Restore exact operands or use a separately versioned reviewed binding.",
+    "No Android/client rows, real guard/network/native/sign/encrypt/decrypt execution, current primary22, E02 promotion, runtime release, E04/E06 unlock, SDK or blocker closure.",
+    "Capture retention limits are post-capture file/refusal limits, not streaming memory limits."
+  ],
+  "origin": "Coordinator structured transcription of actual specialist mailbox decision in the current session; not authenticated provider logs or a professional security audit.",
+  "reviewer": "/root/status_evidence",
+  "role": "qa",
+  "decision": "ACCEPT_SCOPED_PRODUCER2_35_DATA_RESULT_ONLY",
+  "verified": [
+    "Exact fixed plan/source/capture/root once-only acknowledgment joins.",
+    "Raw Node20 named membership and Python8/7 counts/AST membership without skips.",
+    "Three natural0/reaped/fullEOF children; no force/error/truncation; original outer session85766 launch/polls/final0.",
+    "All per-scope and overall before/after snapshots equal; actual816 files/65 directories/2 symlinks.",
+    "2100 descriptor references checked;1000 available unique paths hash/mode match; raw0600.",
+    "Meaningful negative budget/write/poison/guard/firstfault/callback/mutation/identity/wiring models."
+  ]
+}

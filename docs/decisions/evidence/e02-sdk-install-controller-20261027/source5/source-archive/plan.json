@@ -1,0 +1,98 @@
+{
+  "schema": "nbdp-scoped-sdk-install-controller-plan-v1",
+  "state": "SOURCE_ONLY_NOT_EXECUTION_AUTHORITY",
+  "packages": [
+    "platforms;android-37.0",
+    "build-tools;36.0.0",
+    "ndk;30.0.16248370"
+  ],
+  "image": "sha256:32bb6c4c58ee5fe85f1e7229fb15008accb137990093941d2f8e768efd91cf8c",
+  "mounts": [
+    {
+      "host": "/tmp/nbdp-amethyst-rebuild-20261026/tools/jdk",
+      "container": "/jdk",
+      "writable": false
+    },
+    {
+      "host": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/bootstrap/cmdline-tools/22.0",
+      "container": "/bootstrap/cmdline-tools/22.0",
+      "writable": false
+    },
+    {
+      "host": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r5",
+      "container": "/prep",
+      "writable": false
+    },
+    {
+      "host": "/tmp/nbdp-e02-sdk-install-controller-20261027/input-bundle-r1",
+      "container": "/inputs",
+      "writable": false
+    },
+    {
+      "host": "/Data/nbdp-e02-tooling-20261027/controller-r5/writable-r1/sdk",
+      "container": "/sdk",
+      "writable": true
+    },
+    {
+      "host": "/Data/nbdp-e02-tooling-20261027/controller-r5/writable-r1/user",
+      "container": "/user",
+      "writable": true
+    },
+    {
+      "host": "/Data/nbdp-e02-tooling-20261027/controller-r5/writable-r1/output",
+      "container": "/output",
+      "writable": true
+    }
+  ],
+  "installSubject": {
+    "path": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r5/subject.json",
+    "bytes": 5346,
+    "sha256": "5c83032aa6889be62e2df1581da69c3330a62d423bb72594f452c439059d6e78"
+  },
+  "installPlan": {
+    "path": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r5/install-plan.json",
+    "bytes": 5907,
+    "sha256": "3fec4f8bcf1e0e3beb47996e0db3a1a9ea1d35ef32e10e7d11abd53e2c9657c1"
+  },
+  "jdkExtraction": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/acquisition/jdk-extraction.json",
+    "bytes": 178456,
+    "sha256": "a2547e5989af52335e1a03d853797e0e1efa57b55d782214620ee56ca80b0db2"
+  },
+  "bootstrapExtraction": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-cmdline22-acquisition-actual-20261027/cmdline-tools-extraction.json",
+    "bytes": 135901,
+    "sha256": "452da3844b43ce9d8dddc11e33cac50b53d5b143646cc92e8789f66cde638173"
+  },
+  "inputBundleInventory": {
+    "path": "/tmp/nbdp-e02-sdk-install-controller-20261027/input-bundle-inventory-r1.json",
+    "bytes": 1508,
+    "sha256": "a935c1bd95aeb34019fd09124d30224669bb1dc453df01aa086e3a738872fbb9"
+  },
+  "limits": {
+    "totalSeconds": 1200,
+    "cleanupReserveSeconds": 90,
+    "innerSeconds": 1050,
+    "innerKillGraceSeconds": 5,
+    "attachSeconds": 1080,
+    "cliSeconds": 30,
+    "memoryBytes": 2147483648,
+    "cpus": 2,
+    "pids": 256,
+    "jobPerFileBytes": 2147483648,
+    "cliPerFileBytes": 4194304,
+    "minimumFreeDiskBytes": 17179869184
+  },
+  "network": {
+    "name": "nbdp-amethyst-build-20261026",
+    "id": "acf4c0e2d847dedb7841a18c0713ba9b58ad680d686c2d43d95612f54ff6ff9b",
+    "labels": {
+      "nbdp.owner": "e02-amethyst-rebuild-20261026",
+      "nbdp.scope": "isolated-build-bootstrap"
+    },
+    "existingNetworkRecheckedNotMutated": true
+  },
+  "sourceOnly": true,
+  "modelsExecuted": 0,
+  "installExecuted": false
+}

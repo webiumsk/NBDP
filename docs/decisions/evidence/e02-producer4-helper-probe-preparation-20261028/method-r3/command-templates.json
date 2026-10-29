@@ -1,0 +1,258 @@
+{
+  "schema": "e02-producer4-helper-probe-command-source-template-v3",
+  "state": "SOURCE_METHOD_CORRECTION_NONEXECUTABLE_NULL_OPERANDS",
+  "dockerCreate": {
+    "argvTemplate": [
+      "/usr/bin/docker",
+      "create",
+      "--pull=never",
+      "--name",
+      null,
+      "--cidfile",
+      null,
+      "--network",
+      "none",
+      "--ipc",
+      "private",
+      "--read-only",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--user",
+      null,
+      "--cpus",
+      "1",
+      "--memory",
+      "1024m",
+      "--memory-swap",
+      "1024m",
+      "--pids-limit",
+      "128",
+      "--init",
+      "--log-driver",
+      "none",
+      "--tmpfs",
+      "/tmp:rw,nosuid,nodev,noexec,size=16m",
+      "--workdir",
+      "/input",
+      "--entrypoint",
+      "/usr/local/bin/node",
+      "--label",
+      null,
+      "--label",
+      null,
+      "--label",
+      null,
+      "--mount",
+      null,
+      "--mount",
+      "type=bind,src=/tmp/nbdp-e02-minimal-rs-v7/guard-python,dst=/guard-python,readonly",
+      "--mount",
+      null,
+      "--mount",
+      null,
+      "--env",
+      "PATH=/usr/local/bin:/usr/bin:/bin",
+      "--env",
+      "HOME=/tmp",
+      "--env",
+      "TMPDIR=/tmp",
+      "--env",
+      "LANG=C.UTF-8",
+      "--env",
+      "LC_ALL=C.UTF-8",
+      "--env",
+      "TZ=UTC",
+      "--env",
+      "PYTHONHOME=/guard-python",
+      "--env",
+      "OPENSSL_CONF=/dev/null",
+      "--env",
+      "OPENSSL_MODULES=/guard-python/lib/openssl-modules-disabled",
+      "--env",
+      null,
+      "--env",
+      null,
+      "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+      "/input/probe-guard-helper.mjs"
+    ],
+    "nullOperands": [
+      {
+        "index": 4,
+        "binding": "privateContainerName"
+      },
+      {
+        "index": 6,
+        "binding": "freshCidFile"
+      },
+      {
+        "index": 17,
+        "binding": "hostUidGid"
+      },
+      {
+        "index": 36,
+        "binding": "labelNbdpRun"
+      },
+      {
+        "index": 38,
+        "binding": "labelNbdpRoleHelperProbe"
+      },
+      {
+        "index": 40,
+        "binding": "labelNbdpCreation"
+      },
+      {
+        "index": 42,
+        "binding": "readonlyExactEightFileInputMount"
+      },
+      {
+        "index": 46,
+        "binding": "readonlyLeaseMount"
+      },
+      {
+        "index": 48,
+        "binding": "writableOwnedControlMount"
+      },
+      {
+        "index": 68,
+        "binding": "NBDP_LEASE_SHA256"
+      },
+      {
+        "index": 70,
+        "binding": "NBDP_MINIMUM_RUN_CONFIG_SHA256"
+      }
+    ],
+    "subprocessShell": false,
+    "timeoutSeconds": 8,
+    "reapAbsoluteSeconds": 3,
+    "firstPhaseClampRequired": true,
+    "nominalTimeoutNotIndependentAllowance": true
+  },
+  "initialInspect": {
+    "argvTemplate": [
+      "/usr/bin/docker",
+      "inspect",
+      null
+    ],
+    "cid": null,
+    "timeoutSeconds": 8,
+    "reapAbsoluteSeconds": 3,
+    "admissionDisposition": "Identity and all original isolation/mount/UID/cgroup/network/flags checks required beforestart/success; any mismatch is fatal/unqualified. Cleanup uses separate fresh immutableidentity predicate only.",
+    "firstPhaseClampRequired": true,
+    "nominalTimeoutNotIndependentAllowance": true
+  },
+  "startAttach": {
+    "argvTemplate": [
+      "/usr/bin/docker",
+      "start",
+      "--attach",
+      null
+    ],
+    "cid": null,
+    "jobSeconds": 55,
+    "reapAbsoluteSeconds": 3,
+    "stdoutBytes": 8384512,
+    "stderrBytes": 4096,
+    "retainedStreams": "Actual owned Docker CLI pipes; no inference that outer API EOF is helper EOF."
+  },
+  "terminalInspect": {
+    "argvTemplate": [
+      "/usr/bin/docker",
+      "inspect",
+      null
+    ],
+    "cid": null,
+    "timeoutSeconds": 8,
+    "reapAbsoluteSeconds": 3
+  },
+  "removeExactOwned": {
+    "argvTemplate": [
+      "/usr/bin/docker",
+      "rm",
+      "--force",
+      null
+    ],
+    "cid": null,
+    "timeoutSeconds": 8,
+    "reapAbsoluteSeconds": 3,
+    "condition": "Fresh complete immutable fullCID+exact generatedname+exact imageID+allthree nonce-purpose ownershiplabels match the precreation intent. This authorizes bounded exact-owned removal even when recorded isolation/mount/UID/cgroup/network predicates FAILED. Unknown/foreign/changed immutable identity never authorizes removal.",
+    "identityOnlyGate": {
+      "required": [
+        "fullReturnedCID",
+        "exactIntentContainerName",
+        "exactImageID",
+        "exactIntentLabelNbdpRun",
+        "exactIntentLabelNbdpRoleHelperProbe",
+        "exactIntentLabelNbdpCreation"
+      ],
+      "notPrerequisites": [
+        "mountAdmissionSuccess",
+        "uidGidAdmissionSuccess",
+        "resourceCgroupAdmissionSuccess",
+        "networkIsolationAdmissionSuccess",
+        "readOnlyOrCapabilityAdmissionSuccess",
+        "successfullyRetainedLogsOrInspectionCopy"
+      ]
+    },
+    "mismatchDisposition": "Identity match plus isolation mismatch: forbidstart/success, keep UNQUALIFIED, still attempt fresh exact-owned rm and absence. Identity uncertain/mismatch: no rm; UNKNOWN_ROOT_RECONCILIATION_REQUIRED."
+  },
+  "confirmAbsence": {
+    "argvTemplate": [
+      "/usr/bin/docker",
+      "inspect",
+      null
+    ],
+    "cid": null,
+    "timeoutSeconds": 8,
+    "reapAbsoluteSeconds": 3,
+    "acceptedNegativeShape": "Original Docker29 exact absence predicate/actual rawstdout+stderr+exit; never exit-code-only"
+  },
+  "outerApiTemplate": {
+    "cmd": null,
+    "workdir": null,
+    "login": false,
+    "yield_time_ms": 1000,
+    "max_output_tokens": 2000
+  },
+  "outerTokensTemplate": [
+    "/usr/bin/env",
+    "-i",
+    "PATH=/usr/bin:/bin",
+    "LANG=C.UTF-8",
+    "LC_ALL=C.UTF-8",
+    "/usr/bin/timeout",
+    "--signal=KILL",
+    "183s",
+    null,
+    "-I",
+    "-B",
+    null,
+    "--plan",
+    null,
+    "--plan-sha",
+    null,
+    "--root-release",
+    null,
+    "--root-release-sha",
+    null
+  ],
+  "outerStatus": "SOURCE-only unchanged180s controller/183s outerproposal; firstphase absolute30 is enforced and cannot consume48s cleanupreserve. No finalcontroller/plan/release or command emitted.",
+  "logDriverProposal": "none: attached raw streams are sole retained child output, avoiding an unbounded duplicate/proof-budget ambiguity; this is an explicit probe-only operational choice requiring SOURCE/concrete review, not a silent alteration of ordinary-role logging.",
+  "phaseTimingRules": {
+    "phase0": "staging +allcurrentinputadmission +anycachedimageinspect +create +initialinspect",
+    "startsAt": "Original controllerT0 before first staging/admission; no stage-specific timer reset",
+    "absoluteSeconds": 30,
+    "nonrenewable": true,
+    "perStep": "Before each file/hash chunk or CLI step recheck first-phase and original lease/controller clocks. R is remaining to earliest applicable first-phase deadline. Refuse when no positive bounded work fits.",
+    "cliClamp": "For every first-phase CLI with nominalrun<=8s and a single absolute reap<=3s: refuse BEFOREspawn if R<=3s; otherwise run<=min(8s,R-3s), and reapend<=min(stepterminal+3s,phaseDeadline). Freshremaining must be recomputed before eachstep.",
+    "stageCompletion": "All admission predicates mustcomplete strictlybefore T0+30; otherwise no startAttach, negative/UNKNOWN and exact-owned cleanup. Three8+3 maxima plusstaging are not assumedtofit.",
+    "forbidden": [
+      "borrow48sCleanupReserveForStaging",
+      "extendTarget55",
+      "extendInsideTarget2Cleanup",
+      "renewPhaseDeadline",
+      "retryCreateAfterUncertainIdentity"
+    ]
+  }
+}

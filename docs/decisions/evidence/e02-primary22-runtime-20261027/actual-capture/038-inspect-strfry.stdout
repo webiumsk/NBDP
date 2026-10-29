@@ -1,0 +1,255 @@
+[
+    {
+        "Id": "7b3e433265a698bbb0e699c6746bf855101a5f7cedbb0a975c8ce15bbe2d2017",
+        "Created": "2026-10-27T15:00:13.663264157Z",
+        "Path": "/src/strfry",
+        "Args": [
+            "relay"
+        ],
+        "State": {
+            "Status": "exited",
+            "Running": false,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 0,
+            "ExitCode": 143,
+            "Error": "",
+            "StartedAt": "2026-10-27T15:00:14.060975654Z",
+            "FinishedAt": "2026-10-27T15:00:21.102196688Z"
+        },
+        "Image": "sha256:d72c7eb4e19562e22c24924ea51bc345ea5d22d03ada1429a46e0bb90ea97d40",
+        "ResolvConfPath": "/var/lib/docker/containers/7b3e433265a698bbb0e699c6746bf855101a5f7cedbb0a975c8ce15bbe2d2017/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/7b3e433265a698bbb0e699c6746bf855101a5f7cedbb0a975c8ce15bbe2d2017/hostname",
+        "HostsPath": "/var/lib/docker/containers/7b3e433265a698bbb0e699c6746bf855101a5f7cedbb0a975c8ce15bbe2d2017/hosts",
+        "LogPath": "",
+        "Name": "/nbdp-e02-primary-20261027-2ea6fa3d1e75ae1b947611e0cd390b9f-strfry",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "/tmp/nbdp-e02-primary-replay-20261027-preparation/attempt-2ea6fa3d1e75ae1b947611e0cd390b9f/strfry.cid",
+            "LogConfig": {
+                "Type": "none",
+                "Config": {}
+            },
+            "NetworkMode": "9b653dde8593525d63c26257525a4bccb4c44248a3cf03c89652a50a70db6fc3",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": [
+                "ALL"
+            ],
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": true,
+            "SecurityOpt": [
+                "no-new-privileges"
+            ],
+            "Tmpfs": {
+                "/tmp": ""
+            },
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 1073741824,
+            "NanoCpus": 2000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 2147483648,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": 128,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "/tmp/nbdp-e02-primary-replay-20261027-preparation/lab/experiments/docker/strfry.conf",
+                    "Target": "/src/strfry.conf",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/tmp/nbdp-e02-primary-replay-20261027-preparation/lab/experiments/.runtime/strfry",
+                    "Target": "/data"
+                }
+            ],
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware",
+                "/sys/devices/system/cpu/cpu0/thermal_throttle",
+                "/sys/devices/system/cpu/cpu1/thermal_throttle",
+                "/sys/devices/system/cpu/cpu2/thermal_throttle",
+                "/sys/devices/system/cpu/cpu3/thermal_throttle",
+                "/sys/devices/system/cpu/cpu4/thermal_throttle",
+                "/sys/devices/system/cpu/cpu5/thermal_throttle",
+                "/sys/devices/system/cpu/cpu6/thermal_throttle",
+                "/sys/devices/system/cpu/cpu7/thermal_throttle",
+                "/sys/devices/system/cpu/cpu8/thermal_throttle",
+                "/sys/devices/system/cpu/cpu9/thermal_throttle",
+                "/sys/devices/system/cpu/cpu10/thermal_throttle",
+                "/sys/devices/system/cpu/cpu11/thermal_throttle",
+                "/sys/devices/system/cpu/cpu12/thermal_throttle",
+                "/sys/devices/system/cpu/cpu13/thermal_throttle",
+                "/sys/devices/system/cpu/cpu14/thermal_throttle",
+                "/sys/devices/system/cpu/cpu15/thermal_throttle",
+                "/sys/devices/system/cpu/cpu16/thermal_throttle",
+                "/sys/devices/system/cpu/cpu17/thermal_throttle",
+                "/sys/devices/system/cpu/cpu18/thermal_throttle",
+                "/sys/devices/system/cpu/cpu19/thermal_throttle",
+                "/sys/devices/system/cpu/cpu20/thermal_throttle",
+                "/sys/devices/system/cpu/cpu21/thermal_throttle"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "ID": "7b3e433265a698bbb0e699c6746bf855101a5f7cedbb0a975c8ce15bbe2d2017",
+                "LowerDir": "/var/lib/docker/overlay2/6138fa461338e6172d5ea94d3388ed0373ddd05d14afa2bd933693432d770b04-init/diff:/var/lib/docker/overlay2/qvw69f77c60mbrrjptl1qpous/diff:/var/lib/docker/overlay2/uh50hvwf2kwnf6tlzdyby8ayq/diff:/var/lib/docker/overlay2/ldne5t1xgps80yido81mfrchk/diff:/var/lib/docker/overlay2/sk2z4ji7i2km3s397brqh9kfc/diff:/var/lib/docker/overlay2/qejts0r56nw3uvwywbtwebyv0/diff:/var/lib/docker/overlay2/4y823viqlejgovts7nleo3oaz/diff:/var/lib/docker/overlay2/8ae5e3499817e9d8b6578e9958c7f4b5a730aeb75160a2061aa74a6e8aef271b/diff",
+                "MergedDir": "/var/lib/docker/overlay2/6138fa461338e6172d5ea94d3388ed0373ddd05d14afa2bd933693432d770b04/merged",
+                "UpperDir": "/var/lib/docker/overlay2/6138fa461338e6172d5ea94d3388ed0373ddd05d14afa2bd933693432d770b04/diff",
+                "WorkDir": "/var/lib/docker/overlay2/6138fa461338e6172d5ea94d3388ed0373ddd05d14afa2bd933693432d770b04/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/tmp/nbdp-e02-primary-replay-20261027-preparation/lab/experiments/.runtime/strfry",
+                "Destination": "/data",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/tmp/nbdp-e02-primary-replay-20261027-preparation/lab/experiments/docker/strfry.conf",
+                "Destination": "/src/strfry.conf",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "7b3e433265a6",
+            "Domainname": "",
+            "User": "1000:1000",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "relay"
+            ],
+            "Image": "sha256:d72c7eb4e19562e22c24924ea51bc345ea5d22d03ada1429a46e0bb90ea97d40",
+            "Volumes": null,
+            "WorkingDir": "/src",
+            "Entrypoint": [
+                "/src/strfry"
+            ],
+            "Labels": {
+                "nbdp.owner": "e02-primary-replay-20261027",
+                "nbdp.role": "strfry",
+                "nbdp.run": "2ea6fa3d1e75ae1b947611e0cd390b9f",
+                "nbdp.scope": "primary22-only"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "",
+            "SandboxKey": "",
+            "Ports": {},
+            "Networks": {
+                "nbdp-e02-primary-20261027-2ea6fa3d1e75ae1b947611e0cd390b9f": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "9b653dde8593525d63c26257525a4bccb4c44248a3cf03c89652a50a70db6fc3",
+                    "EndpointID": "",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "MacAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "nbdp-e02-primary-20261027-2ea6fa3d1e75ae1b947611e0cd390b9f-strfry",
+                        "7b3e433265a6"
+                    ]
+                }
+            }
+        }
+    }
+]

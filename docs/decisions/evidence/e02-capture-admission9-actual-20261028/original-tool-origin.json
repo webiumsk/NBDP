@@ -1,0 +1,39 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 TZ=UTC /usr/bin/timeout --signal=TERM --kill-after=3s 297s /usr/bin/python3.12 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-capture-admission9-method-20261028/capture-r2.py",
+      "workdir": "/home/peterhorvath/apps/bitcoin/NBDP",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 10000
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "2c0adb",
+      "wall_time_seconds": 1.001035576,
+      "session_id": 45240,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "polls": [
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 45240,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 4000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "122784",
+        "wall_time_seconds": 6.2974e-05,
+        "exit_code": 0,
+        "original_token_count": 38,
+        "output": "{\"exitCode\": 0, \"reaped\": true, \"eof\": {\"stdout\": true, \"stderr\": true}, \"fault\": null, \"durationSeconds\": 1.0792346309754066, \"inputsUnchanged\": true}\n"
+      }
+    }
+  ]
+}

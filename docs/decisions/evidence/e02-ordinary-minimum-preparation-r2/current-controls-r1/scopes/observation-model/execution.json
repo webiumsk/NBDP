@@ -1,0 +1,67 @@
+{
+  "schema": "e02-producer2-pure-scope-execution-v1",
+  "actor": "/root/ordinary_api35_source",
+  "parentCoordinator": "/root",
+  "argv": [
+    "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+    "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/test_observation_model.mjs"
+  ],
+  "cwd": "/home/peterhorvath/apps/bitcoin/NBDP",
+  "expectedCount": 20,
+  "startedUtc": "2026-10-24T08:17:20.495411+00:00",
+  "timeoutSeconds": 60,
+  "retentionBytes": {
+    "stdout": 1048576,
+    "stderr": 262144
+  },
+  "retentionMeaning": "POST_CAPTURE_FILE_PREFIX_LIMIT_NOT_STREAMING_MEMORY_CAP",
+  "pid": 3,
+  "exitCode": 0,
+  "signal": null,
+  "reaped": true,
+  "naturalExit": true,
+  "stdoutEOF": true,
+  "stderrEOF": true,
+  "forceRequested": false,
+  "forceReason": null,
+  "firstError": null,
+  "secondaryErrors": [],
+  "sourceUnchanged": true,
+  "observedCount": 20,
+  "countAndOutputShapeMatched": true,
+  "captureMatched": true,
+  "controlResultAcceptedByAuthor": false,
+  "independentResultReview": "PENDING_ACTUAL_OTHER_AGENTS",
+  "environment": {
+    "PATH": "/usr/bin:/bin",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "TMPDIR": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/scopes/observation-model/tmp"
+  },
+  "finishedUtc": "2026-10-24T08:17:22.928773+00:00",
+  "elapsedNanoseconds": 2433348543,
+  "observedStreamBytes": {
+    "stdout": 1132,
+    "stderr": 0
+  },
+  "truncated": {
+    "stdout": false,
+    "stderr": false
+  },
+  "stdout": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/scopes/observation-model/data.stdout",
+    "bytes": 1132,
+    "sha256": "3166b41bcba80e87bd406dd1b4f7d6eee5ba52f1fefa6d533fce42996c4d45a6"
+  },
+  "stderr": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/scopes/observation-model/data.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "observedPartitions": {
+    "shared-budget-guard-proxy-and-exchange-adapter-models": 20
+  },
+  "state": "WRITES_STOPPED",
+  "result": "SCOPED_DATA_CAPTURE_MATCHED_PENDING_INDEPENDENT_REVIEW",
+  "meaning": "Synthetic DATA/model and fixed-public NIP19 encoding/checksum/hash metadata only; no actual guard/network/primary/consumer/runtime/NIP44/sign/encrypt/decrypt/native/client execution or external/canonicalPASS, SDK or experiment authority."
+}

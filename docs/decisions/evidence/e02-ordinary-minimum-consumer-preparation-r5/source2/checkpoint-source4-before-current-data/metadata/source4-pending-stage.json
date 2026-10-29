@@ -1,0 +1,95 @@
+{
+  "schema": "e02-consumer5-source2-source4-pending-stage-v1",
+  "state": "SOURCE4_BOUND_PENDING_FRESH_MODEL9_A_B_DATA_NO_PRIOR_ACCEPTANCE_OR_ACK_REUSE",
+  "entrypoint": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r5/source2/draft-pointer.json",
+    "bytes": 13603,
+    "sha256": "18fc9fa2f4aa965e8bc14ba695e7c5246b5da88f72590a898be8379bd09f4aa1"
+  },
+  "consumer": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-consumer-preparation-r5-source2/consumer.py",
+    "bytes": 92953,
+    "sha256": "bc1ecb08ea84fba0f5dcfa15e903878d852b629c724140ab1a4b304ee8717850"
+  },
+  "captureSource": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source4/subject.json",
+    "bytes": 8568,
+    "sha256": "de130703d0daecd16719fde5ed1a64e5109c4633f1254fc31a0c45001f1e2050"
+  },
+  "summaryTypes": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-data-contract-20261028/summary-types.json",
+    "bytes": 903,
+    "sha256": "f093a5ad1383a28e98f389e6adfc579746145f6194314204653412f3c5b1611d"
+  },
+  "remainingNullByCapture": {
+    "capture-a": [
+      "release",
+      "originalToolResponses",
+      "result",
+      "acceptance",
+      "qaReview",
+      "securityReview",
+      "admissionModelAcceptance",
+      "upstreamRootACK"
+    ],
+    "capture-b": [
+      "release",
+      "originalToolResponses",
+      "result",
+      "acceptance",
+      "qaReview",
+      "securityReview",
+      "admissionModelAcceptance",
+      "upstreamRootACK"
+    ]
+  },
+  "oldSource3Checkpoint": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r5/source2/checkpoint-source3-unqualified-bindings/copies.json",
+    "bytes": 16062,
+    "sha256": "49fe1fdaa0eb3b032436f0b2765a0685b80a653eb70e16996a45a323e9598c6e"
+  },
+  "oldSource3DataQualification": "HOLD_EXACT_INVOCATION_BINDING_NO_POSITIVE_DATA_ACCEPTANCE",
+  "source3Accepted9Meaning": "HISTORICAL_SOURCE3_ONLY_NOT_SOURCE4_ACCEPTANCE",
+  "exactRequestGuard": "Unchanged frozen env-i/KILL297/noTZ +actualACKdigest, no normalization",
+  "summaryMeaning": "Boundednonemptystrings; numerical/source/membership/POST_CAPTURE predicates remain receipts/graph facts",
+  "negativeSubcases": [
+    "observed-parent-TZ-insertion",
+    "observed-parent-TERM-kill-after",
+    "observed-parent-combined-mutation"
+  ],
+  "unchangedPriorConsumerFunctions": [
+    "external",
+    "provenance",
+    "graph",
+    "fixture_calls",
+    "preparation_join",
+    "status_join",
+    "guest_observations",
+    "window",
+    "main"
+  ],
+  "originalDraftPreserved": true,
+  "sourceCount": 14,
+  "durableCopies": 14,
+  "definitions": [
+    86,
+    36,
+    8,
+    9
+  ],
+  "modelsExecuted": 0,
+  "finalSubjectCreated": false,
+  "sourceReadiness": false,
+  "sourcePreparationCommand": {
+    "argv": [
+      "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "-I",
+      "-B",
+      "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r5/source2/prepare-source2.py",
+      "--refresh-draft"
+    ],
+    "chunkId": "bacdb9",
+    "exitCode": 0,
+    "wallTimeSeconds": "0.264953468"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "schema": "e02-producer2-current-control-execution-v1",
+  "actor": "/root/ordinary_api35_source",
+  "state": "WRITES_STOPPED",
+  "result": "ALL_THREE_DATA_SCOPES_MATCHED_PENDING_REVIEW",
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/subject.json",
+    "bytes": 12000,
+    "sha256": "ef91dc64189d7c47a4b4539c4dacd93a4c5c760da8f98bf1b203040bba6eeffd"
+  },
+  "runnerSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/runner-subject.json",
+    "bytes": 6955,
+    "sha256": "34fa45fe53912776ce2fb8da1712e926f6b23a348702f07cdc9a7699d65e78e0"
+  },
+  "runner": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/capture-controls.py",
+    "bytes": 18876,
+    "sha256": "70d5b7992c6e4317a0d47a585e400fa0c51240f85b0a74a7075bc1675bd3e85a"
+  },
+  "controlPlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/control-plan.json",
+    "bytes": 6037,
+    "sha256": "e45bd25a15772a4cc3c2d1709a420d7aa095985c3abf17eee69d7ba050ef9416"
+  },
+  "rootAcknowledgement": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/coordinator-acknowledgement.json",
+    "bytes": 3072,
+    "sha256": "b03f848cb339361c945d803b4b2e3af3cc54f0e5fd5909267708b2aa56ff5212"
+  },
+  "scopes": [
+    {
+      "scope": "observation-model",
+      "expected": 20,
+      "observed": 20,
+      "partitions": {
+        "shared-budget-guard-proxy-and-exchange-adapter-models": 20
+      },
+      "captureMatched": true,
+      "execution": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/scopes/observation-model/execution.json",
+        "bytes": 2574,
+        "sha256": "cdd54414176df83adaf90d4497bfb7537d19dc5e67b42d6c2ca2916e600d2ceb"
+      }
+    },
+    {
+      "scope": "public-identity-metadata",
+      "expected": 8,
+      "observed": 8,
+      "partitions": {
+        "public-identity-metadata": 8
+      },
+      "captureMatched": true,
+      "execution": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/scopes/public-identity-metadata/execution.json",
+        "bytes": 2578,
+        "sha256": "90b819e88d9fa66bebd0a355a8567ff8898b414533c0706cee658ab1750773bb"
+      }
+    },
+    {
+      "scope": "producer2-source-wiring",
+      "expected": 7,
+      "observed": 7,
+      "partitions": {
+        "producer2-source-wiring": 7
+      },
+      "captureMatched": true,
+      "execution": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/scopes/producer2-source-wiring/execution.json",
+        "bytes": 2566,
+        "sha256": "0c42e6009c5b71ac0f074901a127074c4ea470049702a39ac8d7a58edf30e790"
+      }
+    }
+  ],
+  "remainingNotExecuted": [],
+  "sourceUnchanged": true,
+  "noRetry": true,
+  "controlResultAcceptedByAuthor": false,
+  "independentResultReview": "PENDING_ACTUAL_NONAUTHOR_NONOPERATOR_QA_SECURITY",
+  "noOrdinaryRuntimePrimaryConsumerActualGuardNetworkSdkServices": true
+}

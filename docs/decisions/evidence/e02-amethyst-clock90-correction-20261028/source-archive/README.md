@@ -1,0 +1,11 @@
+# Clock-only cold Amethyst artifact successor (SOURCE only)
+
+R7 negative DATA is preserved: all eight full non-incremental IN_PROCESS Kotlin invocations completed without OOM, but the whole60-minute artifact job expired during DEX. This proposal changes only the finite cold artifact ceiling and its corresponding checks, fresh r8 source/runtime locations and descriptor graph. It creates no runtime root or grant.
+
+Whole job5400s+5s, attachedCLI5445s, supervisor5700s with120s cleanup reserve, root lease6000s and proposed outer5997s+3s. Source extraction, Gradle, source-after and APK/signature stages share the whole job; no guaranteed5400-second Gradle window or exact end-to-end atomic deadline is claimed. Actual spawn brackets differ and interrupted results remain UNKNOWN until exact-owned reconciliation.
+
+Compiler argv, one worker/in-process/4g heap, exact output-prefix computation, source byte/mode/member/APK guards, SDK/JDK/archive/read-only mounts, UID1000, Docker6GiB/4CPU/512PID, full CID/network custody,12GiB floor, fresh work/cache/home/key/output and privacy/cleanup remain unchanged. Ordinary-client1800 and all canonical/architecture/production gates remain unchanged. Seed/copy/incremental implementation is deferred, not adopted.
+
+Three targeted AST/source-read/selected-pure-definition models are defined, zero executed. Model-plan lists all11 direct operands: old/new three actual modules, new supervisor subject, actual two plans, materializer example and root adoption. Full-module comparison reverses only exact clocks/locations and verifies the materializer PINNED cascade before normalization. Other models exercise actual owner/lease predicates including old60-minute/short/expired/mismatched values and null clocks/two-field fresh/overflow. No executable build modules or actual clocks/tools are imported/invoked.
+
+Prior R7 six-model DATA is retained only for independently confirmed unchanged non-clock/command/prefix components, never relabelled or rerun. Independent SOURCE review, separate fixed three-model actual DATA/review, current concrete prerequisites/caller QA/security and fresh one-use root release precede any build. Actual complete source/input/APK/signature/keyprivacy/owned cleanup DATA remains mandatory; ordinary qualified rows remain0.

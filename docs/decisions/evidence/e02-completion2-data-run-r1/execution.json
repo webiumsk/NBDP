@@ -1,0 +1,75 @@
+{
+  "schema": "nbdp-completion2-fixed-data-result-v1",
+  "plan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-completion2-data-run-r1/plan.json",
+    "bytes": 7828,
+    "sha256": "675deb7aeada974a34fa49197371b5c3f96d9b520131bf740aae4d99e004f250"
+  },
+  "commands": [
+    {
+      "name": "test_data.mjs",
+      "argv": [
+        "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+        "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_completion_v2/test_data.mjs"
+      ],
+      "expectedCases": 59,
+      "startedUtcNs": 1793052396661827655,
+      "exitCode": 0,
+      "timeout": false,
+      "naturalExit": true,
+      "reaped": true,
+      "stdoutEOF": true,
+      "stderrEOF": true,
+      "stdoutCapturedBytes": 2290,
+      "stderrCapturedBytes": 0,
+      "stdout": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-completion2-data-run-r1/test_data.mjs.stdout",
+        "bytes": 2290,
+        "sha256": "2df13af9ff150841bfb323f3f65766a3623a2cdfc1d6f34c73b15b8cce074a14"
+      },
+      "stderr": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-completion2-data-run-r1/test_data.mjs.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "truncated": false,
+      "elapsedWallNs": 915493995
+    },
+    {
+      "name": "test_controls_adapter.mjs",
+      "argv": [
+        "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+        "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_completion_v2/test_controls_adapter.mjs"
+      ],
+      "expectedCases": 41,
+      "startedUtcNs": 1793052397577366463,
+      "exitCode": 0,
+      "timeout": false,
+      "naturalExit": true,
+      "reaped": true,
+      "stdoutEOF": true,
+      "stderrEOF": true,
+      "stdoutCapturedBytes": 1559,
+      "stderrCapturedBytes": 0,
+      "stdout": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-completion2-data-run-r1/test_controls_adapter.mjs.stdout",
+        "bytes": 1559,
+        "sha256": "90e96484ceb72a5e6ec61729666e0f12961dad07589b7174c1b0d240382ed187"
+      },
+      "stderr": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-completion2-data-run-r1/test_controls_adapter.mjs.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "truncated": false,
+      "elapsedWallNs": 1384760055
+    }
+  ],
+  "failure": null,
+  "remainingScopesExecuted": false,
+  "scope": "SYNTHETIC_DATA_ONLY",
+  "ordinaryRows": 0,
+  "e02": "PARTIAL22_UNCHANGED",
+  "retentionMeaning": "communicate() memory buffering; post-capture ceilings, not streaming memory bounds",
+  "resultAcceptance": "PENDING_INDEPENDENT_QA_SECURITY"
+}

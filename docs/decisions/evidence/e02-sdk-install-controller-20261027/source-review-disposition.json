@@ -1,0 +1,24 @@
+{
+  "schema": "nbdp-sdk-install-controller-source-r1-disposition-v1",
+  "recordedBy": "/root/sdk_install_controller",
+  "decision": "HOLD_DEPENDENT_INNER_SOURCE_R1_NO_EXECUTION",
+  "subject": {
+    "path": "/tmp/nbdp-e02-sdk-install-controller-20261027/subject.json",
+    "bytes": 4968,
+    "sha256": "f2b510ea609babe4cbf093c4bb738413c8259bef1c9e29d578fa2e6fa63c912a"
+  },
+  "sourcePacket": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-install-controller-20261027/source-packet.json",
+    "bytes": 1528,
+    "sha256": "d18400e6322c99b497a289620ef92e7a673bad23343462621557a5fee48da562"
+  },
+  "reason": "Root relayed actual independent QA/security MEDIUM in inner r1: one coalesced stdout chunk could discard an unexpected acceptance question before an otherwise approved frame; split delivery refused. Outer r1 pins that held exact inner subject.",
+  "outerSourceFindingClaimed": false,
+  "rootNotification": "STOP outer freeze r1 binding; preserve r1 and bind versioned corrected inner r2",
+  "r1ModelsExecuted": 0,
+  "r1DockerExecuted": false,
+  "r1ConsentPerformed": false,
+  "r1InstallRequested": false,
+  "next": "Narrow versioned outer source2 rebind only after corrected inner r2 freeze; prior source/metadata remain exact",
+  "recordedAtUtc": "2026-10-27T18:25:43.032950+00:00"
+}

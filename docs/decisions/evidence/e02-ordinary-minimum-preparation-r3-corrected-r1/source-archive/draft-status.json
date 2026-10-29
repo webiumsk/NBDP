@@ -1,0 +1,100 @@
+{
+  "schema": "e02-ordinary-producer3-unfrozen-draft-status-v1",
+  "state": "DRAFT_NULL_NOT_READY_NOT_FROZEN",
+  "producerRoot": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r3-corrected-r1",
+  "plannedRuntimeLab": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3",
+  "priorProducerSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/subject.json",
+    "bytes": 12000,
+    "sha256": "ef91dc64189d7c47a4b4539c4dacd93a4c5c760da8f98bf1b203040bba6eeffd"
+  },
+  "mapping": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-rebuilt-artifact-binding-map-20261027/mapping.json",
+    "bytes": 1959,
+    "sha256": "1d3369ff4c641839d1574eb06d1e8c5155676c1e56b95c6cb2632bf902f2f21c"
+  },
+  "runtimeSourceCount": 16,
+  "supplementalStagedData": "rebuilt-artifact-bindings.json (not a new worker module)",
+  "configurations": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r3-corrected-r1/proposed-incoming-run-config.json",
+      "bytes": 5480,
+      "sha256": "6673a5d720e33c16ace4d2e8151908307757ffb3472a723bcaf5fd79801ffd4d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r3-corrected-r1/proposed-archive-run-config.json",
+      "bytes": 5478,
+      "sha256": "1e9920a0fd495cdbcc398caf58e917fffc100059459fa3f28aae1619375fccb6"
+    }
+  ],
+  "newBindingFunction": "verify_rebuilt_artifacts",
+  "changedExistingFunctions": [
+    "materialize",
+    "verify_config"
+  ],
+  "allOtherSupervisorFunctionsAndRuntimeClassAstIdentical": true,
+  "javaScriptModulesByteIdentical": true,
+  "remainingNullFields": [
+    "amethystApk",
+    "amethystProvenance",
+    "amethystAcceptance",
+    "amethystAcceptanceDecision"
+  ],
+  "knownAcceptedBindings": {
+    "helper": {
+      "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/clipboard-capture.apk",
+      "bytes": 16787,
+      "sha256": "589031766a4be1cbd4e6a93b1b8d8af5db616d8dc51bcc7dd408a7f0a954b73e"
+    },
+    "native": {
+      "path": "/tmp/nbdp-e01-replay-20261026-preparation/lab/native/nbdp-experiment-rust",
+      "bytes": 24100272,
+      "sha256": "4ce385c5b1a713b35d58d787d94fbc298d139aa2e813daec15b2e99289cefd86"
+    },
+    "e01": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e01-native-rebuild-replay-20261026/actual-E01.json",
+      "bytes": 33503,
+      "sha256": "85905dd8a9de0285ebec8f04c39a59105c27387cd3b5b0bae18f81ab73dc1b06"
+    }
+  },
+  "runtimeSdkSeparate": "/tmp/nbdp-e02-api35-fixture-r2/sdk",
+  "newAPKPresent": false,
+  "actualModelsExecuted": 0,
+  "actualToolsExecuted": false,
+  "actualRuntimeStarted": false,
+  "rootGrantCreated": false,
+  "ordinaryRowsQualified": 0,
+  "parentRuntimeDirectoriesCreated": false,
+  "canonicalE02": "PARTIAL22_UNCHANGED",
+  "controlPlan": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r3-corrected-r1/control-plan-draft.json",
+    "bytes": 1328,
+    "sha256": "68064332caf6ad55a5919510697f9464d4d5b247cd5fa8b09f07d00d96cd7fa6"
+  },
+  "componentCarry": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r3-corrected-r1/component-carry-draft.json",
+    "bytes": 2357,
+    "sha256": "d63f25a93cdb15956d071eb0289b9351e54c41051a2ecda6ebe7e03cb62c8d62"
+  },
+  "knownInputClosure": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r3-corrected-r1/known-input-closure-draft.json",
+    "bytes": 191122,
+    "sha256": "360ccd1f370b0aceb0fb467a5b69e460d1b29a631043c4e298077a448f551586"
+  },
+  "newRebindControlDefinitions": 3,
+  "finalSourceSubjectCreated": false,
+  "newAcceptanceContract": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r3-corrected-r1/acceptance-contract-proposal.json",
+    "bytes": 1287,
+    "sha256": "b01707298e8c5601a35ea58a826816ba80ea14ef5373bb8422d6261eb8c4d10d"
+  },
+  "immutableRuntimeInputBlueprint": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r3-corrected-r1/runtime-input-blueprint.json",
+    "bytes": 1863,
+    "sha256": "cbbd5e035561666268dd02ed33dc79ff94df2122d8afad7f83c4880ef616ac92"
+  },
+  "priorDraftRemediationChanges": [
+    "verify_rebuilt_artifacts",
+    "verify_config"
+  ]
+}

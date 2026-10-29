@@ -1,0 +1,24 @@
+{
+  "role": "qa",
+  "session": "/root/transport_evidence_qa",
+  "decision": "HOLD",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r1/subject.json",
+    "bytes": 11531,
+    "sha256": "173b2fa59459b9e1fac04e21a56e84b6fb8ccaa35971c96d011648c0852d76b0"
+  },
+  "findings": [
+    {
+      "id": "QA-E02-QUERY-TERMINAL-EVIDENCE-001",
+      "severity": "MEDIUM",
+      "evidence": "exchange.mjs:12-24,65-66; fixture.mjs:65-68",
+      "summary": "Observation write failures can bypass exact-socket cleanup and Promise settlement after timer clear, replacing first failure with later outer timeout."
+    },
+    {
+      "id": "QA-E02-QUERY-PHASE-WRITE-002",
+      "severity": "MEDIUM",
+      "evidence": "fixture.mjs:39-43; current20 fake models",
+      "summary": "Phase writer ignores partial write count and lacks sticky poisoned state, allowing sends/success after incomplete required evidence."
+    }
+  ]
+}

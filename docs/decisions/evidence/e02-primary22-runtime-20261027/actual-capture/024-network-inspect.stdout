@@ -1,0 +1,60 @@
+[
+    {
+        "Name": "nbdp-e02-primary-20261027-2ea6fa3d1e75ae1b947611e0cd390b9f",
+        "Id": "9b653dde8593525d63c26257525a4bccb4c44248a3cf03c89652a50a70db6fc3",
+        "Created": "2026-10-27T16:00:13.337095848+01:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv4": true,
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.31.0.0/16",
+                    "Gateway": "172.31.0.1"
+                }
+            ]
+        },
+        "Internal": true,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Options": {},
+        "Labels": {
+            "nbdp.owner": "e02-primary-replay-20261027",
+            "nbdp.run": "2ea6fa3d1e75ae1b947611e0cd390b9f",
+            "nbdp.scope": "primary22-only"
+        },
+        "Containers": {
+            "7b3e433265a698bbb0e699c6746bf855101a5f7cedbb0a975c8ce15bbe2d2017": {
+                "Name": "nbdp-e02-primary-20261027-2ea6fa3d1e75ae1b947611e0cd390b9f-strfry",
+                "EndpointID": "d414fbb529ce9fab024cc8374f4d5ddd041adb88cf9e50defa16851d2168ed3e",
+                "MacAddress": "3a:18:eb:f0:e1:c7",
+                "IPv4Address": "172.31.0.2/16",
+                "IPv6Address": ""
+            },
+            "bc3e35e081c1c53f6e0f3f77b7c6427cad59d0ae159ecc87b6688eba64f55071": {
+                "Name": "nbdp-e02-primary-20261027-2ea6fa3d1e75ae1b947611e0cd390b9f-rs-relay",
+                "EndpointID": "2d257ea8a223e8edc5205c7819d70c22b29092e88def9cbc1f4cd463b0a0988f",
+                "MacAddress": "12:74:3c:d4:f3:ce",
+                "IPv4Address": "172.31.0.3/16",
+                "IPv6Address": ""
+            }
+        },
+        "Status": {
+            "IPAM": {
+                "Subnets": {
+                    "172.31.0.0/16": {
+                        "IPsInUse": 5,
+                        "DynamicIPsAvailable": 65531
+                    }
+                }
+            }
+        }
+    }
+]

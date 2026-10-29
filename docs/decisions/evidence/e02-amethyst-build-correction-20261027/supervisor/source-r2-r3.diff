@@ -1,0 +1,48 @@
+--- /tmp/nbdp-amethyst-build-supervisor-20261026-r2/supervise_build.py
++++ /tmp/nbdp-amethyst-build-supervisor-20261027-r3/supervise_build.py
+@@ -18,9 +18,9 @@
+ import subprocess
+ import time
+ 
+-WORK=Path('/tmp/nbdp-amethyst-build-supervisor-20261026-r2')
++WORK=Path('/tmp/nbdp-amethyst-build-supervisor-20261027-r3')
+ ROOT=Path('/tmp/nbdp-amethyst-rebuild-20261026')
+-PREP=ROOT/'preparation'
++PREP=Path('/tmp/nbdp-amethyst-build-preparation-20261027-r2')
+ DOCKER='/usr/bin/docker';TIMEOUT='/usr/bin/timeout'
+ IMAGE='sha256:32bb6c4c58ee5fe85f1e7229fb15008accb137990093941d2f8e768efd91cf8c'
+ NAME='nbdp-amethyst-build-20261026'
+@@ -89,6 +89,7 @@
+ def create_argv(plan,run_id,cidfile,network_id):
+     original=plan['proposedDockerCreateArgv']
+     need(original[:4]==[DOCKER,'create','--name',NAME] and original[-2:]==['/usr/bin/python3','/prep/build_inside.py'],'EXACT_FIXED_BUILD_PLAN_ARGV')
++    need(original.count('--workdir')==1 and original[original.index('--workdir')+1]=='/work','EXPLICIT_FIXED_WORKDIR_REQUIRED')
+     need(original.count('--network')==1 and original[original.index('--network')+1]==NETWORK,'FIXED_ORIGINAL_NETWORK_NAME')
+     argv=original[:-2]+[TIMEOUT,'--signal=TERM','--kill-after=5s','1800s',*original[-2:]]
+     argv[argv.index('--network')+1]=full_cid(network_id)
+@@ -147,6 +148,7 @@
+     need(type(value) is list and len(value)==1 and type(value[0]) is dict,'ONE_CONTAINER_INSPECT_OBJECT')
+     d=value[0];need(d['Id']==cid and d['Image']==IMAGE and d['Name']=='/'+NAME,'EXACT_CID_IMAGE_NAME')
+     config=d['Config'];labels=config['Labels']
++    need(config.get('WorkingDir')=='/work','EXACT_WORKING_DIRECTORY_REQUIRED')
+     need(all(labels.get(k)==v for k,v in {'nbdp.role':'amethyst-source-build','nbdp.owner':'nbdp-amethyst-rebuild-20261026','nbdp.buildRun':run_id}.items()),'EXACT_CREATION_LABELS')
+     need(config['User']=='1000:1000' and config['Entrypoint']==['/usr/bin/env'],'NONROOT_FIXED_ENTRYPOINT')
+     base=plan['proposedDockerCreateArgv'];command=base[base.index(IMAGE)+1:]
+@@ -349,7 +351,7 @@
+                 'build-tools':ROOT/'tools/sdk/build-tools/36.0.0','ndk':ROOT/'tools/sdk/ndk/30.0.16248370'}
+             need(extraction['destination']==str(destinations[name]),'EXACT_ACQUIRED_BUILD_TOOL_PATH')
+             tool_inventory(extraction)
+-        for value in (ROOT/'user/work',ROOT/'cache/build',ROOT/'output/build'):
++        for value in (ROOT/'user/work-r2',ROOT/'cache/build-r2',ROOT/'output/build-r2'):
+             safe(value);need(not value.exists(),'FRESH_OWNED_BUILD_ROOT_REQUIRED');value.mkdir(mode=0o700)
+         need(os.statvfs(ROOT).f_bavail*os.statvfs(ROOT).f_frsize>=12884901888,'TWELVE_GIB_BUILD_ADMISSION')
+         need(self.work_end-time.monotonic()>1845,'ENOUGH_ORIGINAL_BUDGET_FOR_JOB_AND_CLI')
+@@ -381,7 +383,7 @@
+             current,_=self.inspect();self.job_state=current['State']
+             need(attached['classification']=='NATURAL_ZERO','ATTACHED_JOB_FAILED_OR_LOG_CEILING:'+attached['classification'])
+             successful_job_state(current['State'],self.network_binding_stage)
+-            result=ROOT/'output/build/rebuilt-apks.json';need(result.is_file(),'ACTUAL_REBUILT_APK_METADATA_REQUIRED')
++            result=ROOT/'output/build-r2/rebuilt-apks.json';need(result.is_file(),'ACTUAL_REBUILT_APK_METADATA_REQUIRED')
+             self.output_pin=pin(result)
+         except BaseException as exc:self.fault(type(exc).__name__+':'+str(exc)[:2048])
+         finally:

@@ -1,0 +1,18 @@
+--- /Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2/test_raw_tools.py
++++ /Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r4/test_raw_tools.py
+@@ -347,11 +347,13 @@
+             with self.subTest(delta=delta):
+                 ports = StreamPorts()
+                 ports.stream_lengths[H.PYTHON] += delta
+-                with self.assertRaisesRegex(ValueError, 'RAW_TOOL_EXPECTED_SHA_LENGTH|RAW_TOOL_STREAM_LENGTH'):
++                expected = r'\ARAW_TOOL_EXPECTED_SHA_LENGTH\Z' if delta == -1 else r'\ARAW_TOOL_STREAM_LENGTH\Z'
++                with self.assertRaisesRegex(ValueError, expected):
+                     ports.one()
+                 self.assertEqual(len(ports.closes), 1)
++                self.assertTrue(all(1 <= size <= H.RAW_TOOL_CHUNK for path, size, position in ports.reads))
+                 if delta == 1:
+-                    self.assertEqual(ports.reads[-1][1], 1)
++                    self.assertEqual(ports.handles[ports.closes[0]]['position'], LENGTHS[H.PYTHON] + 1)
+ 
+     def test_clock_failure_before_open_and_after_first_read(self):
+         for check_at in (1, 2, 3, 4, 5):

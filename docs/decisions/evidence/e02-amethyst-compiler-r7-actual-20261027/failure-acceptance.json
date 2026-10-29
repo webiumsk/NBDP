@@ -1,0 +1,66 @@
+{
+  "schema": "nbdp-amethyst-failed-build-data-acceptance-v1",
+  "actor": "/root",
+  "decision": "ACCEPT_R7_TIMEOUT_AND_POSTCHECK_DATA_ONLY",
+  "controller": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/result.json",
+    "bytes": 1264,
+    "sha256": "f79b300c37a11de8c9e3301d62e2eb77e7df76e62ecf87f621e2c9e44f304bb1"
+  },
+  "postcheck": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/post-checks-r1/result.json",
+    "bytes": 824,
+    "sha256": "ce3233a61d4b730d56b28a2a03f605f4773a711e057a33db1b6189e67260e47c"
+  },
+  "sourceEquality": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/post-checks-r1/external-source-equality.json",
+    "bytes": 594,
+    "sha256": "99f329b27f1e4defb7809062b790e321ca76b833af62b68b617bf78c431c8620"
+  },
+  "copies": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-copy-manifest.json",
+    "bytes": 30894,
+    "sha256": "981f2707eb4704e1e045ffd5cf7fa7ee59d18b237c3ca9c519255e3929733bc7"
+  },
+  "terminal": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/terminal-tool-receipt.json",
+    "bytes": 1721,
+    "sha256": "afa2165f148f5f8009b03536da9bb1eb663890601dc8a3539f958bc247f82405"
+  },
+  "postcheckToolReceipt": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/post-checks-original-tool-receipt.json",
+    "bytes": 1922,
+    "sha256": "663cee94268ad40223113dc61208ee3b7784608980fc6427be57470df80d6b47"
+  },
+  "compilerObservations": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/terminal-compiler-observations.json",
+    "bytes": 1523,
+    "sha256": "9b5dc97108bedbb2673da5c00a2f517f0bfaf15dbeb1a663152df312de008568"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/data-qa.json",
+      "bytes": 1782,
+      "sha256": "efbf80501733d952da20cdff624e2e2c1f19a5e7b24de60979c459e96214864b"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/data-security.json",
+      "bytes": 1788,
+      "sha256": "b238b8dc4ecca8b021e3425cd06ba3701831647561f8a355e1121fdec7580699"
+    }
+  ],
+  "outerExit": 2,
+  "containerExit": 124,
+  "oomKilled": false,
+  "cleanup": "EXACT_CID_ABSENCE_KNOWN",
+  "originalSourceRows": 11085,
+  "afterSourceRows": 62283,
+  "sourceOriginalsUnchanged": true,
+  "unplannedFiles": [],
+  "sdkJdkArchiveUnchanged": true,
+  "privateKeyDescriptors": [],
+  "privateKeyBytesCopied": false,
+  "qualifiedApks": 0,
+  "qualifiedOrdinaryRows": 0,
+  "limits": "Negative result only. Keep R7 failed and original work/cache unchanged. No automatic retry, seeded-state admission or canonical promotion follows."
+}

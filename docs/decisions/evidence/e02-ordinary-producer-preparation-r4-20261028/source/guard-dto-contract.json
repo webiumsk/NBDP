@@ -1,0 +1,143 @@
+{
+  "schema": "e02-producer4-guard-dto-contract-v1",
+  "actor": "/root/producer4_nonblocking_source",
+  "profileId": "e02-ordinary-minimum-rs-two-role-v3",
+  "globalPhaseSequence": "Unchanged integer1..N; helper-local decimal sequence is guardSequence only",
+  "serviceCaptureStreams": [
+    "phase",
+    "proxy"
+  ],
+  "aggregateServiceCaptureBytes": 8388608,
+  "requestResponse": {
+    "requestKeys": [
+      "schema",
+      "operation",
+      "instance",
+      "runId",
+      "leaseSha256",
+      "sequence",
+      "label",
+      "contextSha256"
+    ],
+    "responseKeys": [
+      "schema",
+      "operation",
+      "instance",
+      "runId",
+      "leaseSha256",
+      "sequence",
+      "label",
+      "contextSha256",
+      "requestSha256",
+      "ok",
+      "clocks"
+    ],
+    "requestMaxBytes": 1024,
+    "responseMaxBytes": 2048,
+    "framing": "StrictUTF8 one newline frame, duplicate/nonfinite/numerictokens refused, all identity/clock/sequence decimal fields strings",
+    "operations": [
+      "CHECK",
+      "CLOSE"
+    ]
+  },
+  "newPhaseNames": [
+    "GUARD_RPC_REQUEST",
+    "GUARD_RPC_REPLY",
+    "GUARD_HELPER_LAUNCH",
+    "GUARD_HELPER_CREATED",
+    "GUARD_HELPER_STDERR",
+    "GUARD_HELPER_STDOUT_EOF",
+    "GUARD_HELPER_STDERR_EOF",
+    "GUARD_HELPER_EXIT",
+    "GUARD_HELPER_CLOSE",
+    "GUARD_HELPER_TERMINATE",
+    "GUARD_HELPER_CLEANUP_DEADLINE_EXHAUSTED",
+    "GUARD_TERMINAL"
+  ],
+  "existingPhaseChanges": {
+    "GUARD_ENTRY": [
+      "helperInstance",
+      "guardSequence",
+      "enqueueMonoNs",
+      "label"
+    ],
+    "GUARD_EXIT": [
+      "helperInstance",
+      "guardSequence",
+      "label",
+      "ok",
+      "error",
+      "consumed",
+      "consumedUtcUpperNs",
+      "consumedMonoNs",
+      "consumedBootUpperNs"
+    ]
+  },
+  "rpcRequestFields": [
+    "helperInstance",
+    "label",
+    "guardSequence",
+    "rawBase64",
+    "enqueueMonoNs",
+    "decisionDeadlineMonoNs",
+    "enqueueUtcLowerNs",
+    "enqueueBootLowerNs",
+    "decisionDeadlineUtcNs",
+    "decisionDeadlineBootNs"
+  ],
+  "rpcReplyFields": [
+    "helperInstance",
+    "guardSequence",
+    "rawBase64"
+  ],
+  "controllerAddedKey": "guardController",
+  "controllerAddedValueKeys": [
+    "schema",
+    "reservationIndex",
+    "instance",
+    "scope",
+    "runId",
+    "leaseSha256",
+    "configurationSha256",
+    "observations"
+  ],
+  "controllerObservationKeys": [
+    "name",
+    "fields"
+  ],
+  "controllerCustody": "ActualNodeChildProcess events; no PythonPopen/reap attestation invented; wholecontrollerstdout remains originalcommand capturebound",
+  "requiredJoins": [
+    "Globalphase contiguous1..N independent helperlocaldecimalcounter",
+    "ENTRY\u2192sameinstance/guardSequence/label\u2192REQUEST exact rawrequesthash\u2192REPLY exact request/response context\u2192consumedEXIT with current clock/context fences",
+    "EveryCHECK one fresh original Lease.check; one-use reply; CLOSE nofutureprotecteduse",
+    "Controller command source/config/run/release exact20workers; distinct helperinstances and original source/lease authority"
+  ],
+  "requiresVersionedConsumerAndCompletion": true,
+  "oldProducer3DataTransfers": false,
+  "runtimeExecutions": 0,
+  "controllerAuditMaxEncodedContributionBytes": 122880,
+  "allocation": {
+    "total": 16777216,
+    "service": 8388608,
+    "serviceHeader": 4096,
+    "serviceDiagnostics": 4096,
+    "controllerSlots": 64,
+    "slot": 131072,
+    "proof": 122880,
+    "ledger": 4096,
+    "diagnostics": 4096,
+    "wrapper": 1024
+  },
+  "observerStateSchema": "e02-minimum-observer-state-v3",
+  "aggregateBudgetSchema": "e02-minimum-aggregate-capture-budget-v3",
+  "fixtureCommandSchema": "e02-minimum-fixture-command-v3",
+  "fixtureCallSchema": "e02-minimum-fixture-call-v2",
+  "fixtureReplyPin": "Exact already-retained verified command.stdout Pin; no second RPCproof copy",
+  "terminalHelperCleanupRows": "Only allowlisted helper cleanup facts may follow local protocol terminal, marked terminalRetention:true; no later GUARD_EXITsuccess/protocol row.",
+  "serviceProofScope": "All Node-service put/phase/proxy proof representations charged within service share; startup memory then phase flush conservatively both charged, no refund.",
+  "accountSnapshot": "chargedBytes is admitted intended bytes, not physical attestation; final observer state records BEFORE_THIS_FINAL_RECORD_WRITE.",
+  "aggregateWindowNewRpcCaptureBytes": 16777216,
+  "otherServiceProofLocations": "Existing Node-service proof files and derived accounting metadata use same8MiB share; no separate allowance.",
+  "controllerEmitPath": "createControllerStdoutEmitter consumes exact immutable bound encodings once; Booleanwrite return is backpressure, not bytecount; actual parentEOF/natural/capture remains required.",
+  "parentLedgerRoot": "Host role output/controller-audit-reservations outside every fixture-writable mount"
+}

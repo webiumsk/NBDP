@@ -1,0 +1,9 @@
+# Exact SDK licence decision boundary
+
+The corrected Amethyst build stopped at the reported SDK37.0 licence refusal. The [proposal](proposal.json) identifies the exact **January16,2019** `android-sdk-license` text referenced by the actual Google repository package. [Read the retained exact text](../e02-api35-fixture-preparation-r2/current-official-license-text.txt); its raw decoded UTF-8 SHA256 is`1f8729233617b193fd619213792ae16a41b95d2bbbf525dfe66998252ba68b16`. This is text identity, not an SDKmanager acceptance-marker hash.
+
+Actual [research](actual-research-report.json) and separate QA/security question-readiness reviews verify the package/licence binding. The current public terms page bears a different date; it is not substituted for this exact text. The Product Owner question has been sent; [decision status](decision-status.json) remains pending. No licence-file operation, SDKmanager execution or affirmative consent operation occurred.
+
+The requested authority covers only this exact licence for isolated synthetic test tooling and the Amethyst artifact build. Different terms or other licence IDs must stop. It grants no production or protocol-gate authority. Supported SDKmanager/tool acquisition, installation/metadata method, new DATA inventories and finite execution grants require their own preparation/review; none is approved by this question. Handwritten acceptance markers, fabricated package metadata and blanket all-licence approval are excluded.
+
+Both platform and Build Tools lack package.xml; actual logs retain readonly metadata warnings. Licence acceptance alone is not established as the complete compilation remedy. [Google's documented package/licence workflow](https://developer.android.com/studio/intro/update#download-with-gradle) supplies the supported next-method reference.

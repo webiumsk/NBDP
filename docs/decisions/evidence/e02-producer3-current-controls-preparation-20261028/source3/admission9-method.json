@@ -1,0 +1,61 @@
+{
+  "schema": "e02-producer3-defined-admission9-method-v1",
+  "state": "DEFINED_ONLY_PENDING_INDEPENDENT_SOURCE_REVIEW_AND_ROOT_MODEL_RELEASE",
+  "modelSource": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/test_admission_models.py",
+    "bytes": 7341,
+    "sha256": "5f57204e46147976d6137618fd67d19ce8585294905ed5fb94a22f1479e25417"
+  },
+  "expectedCount": 9,
+  "format": "EXACT_QUIET_UNITTEST_DOTS_COUNT_OK_STDERR_EMPTY_STDOUT",
+  "argv": [
+    "/usr/bin/env",
+    "-i",
+    "PATH=/usr/bin:/bin",
+    "LANG=C.UTF-8",
+    "LC_ALL=C.UTF-8",
+    "/usr/bin/timeout",
+    "--signal=KILL",
+    "297",
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/test_admission_models.py"
+  ],
+  "outerRequestTemplate": {
+    "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 297 /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/test_admission_models.py",
+    "workdir": "/home/peterhorvath/apps/bitcoin/NBDP",
+    "login": false,
+    "yield_time_ms": 1000,
+    "max_output_tokens": 10000
+  },
+  "inputScopes": {
+    "capture-a": {
+      "controlPlan": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-a/control-plan.json",
+        "bytes": 7100,
+        "sha256": "9ac32b48c2f8d95d5508d76f01451b820993e58ad84b59148543c53a681208f7"
+      },
+      "frozenInputs": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-a/frozen-inputs.json",
+        "bytes": 755058,
+        "sha256": "3d3b9f2e9446a40036e4fc3999c504f7b39bdc0de390bf572fb1ffa3a03a7aed"
+      }
+    },
+    "capture-b": {
+      "controlPlan": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-b/control-plan.json",
+        "bytes": 4375,
+        "sha256": "9274e48cae49b51f85501f506daa07da1bb40fb409724037214caa22e2a80cfc"
+      },
+      "frozenInputs": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-b/frozen-inputs.json",
+        "bytes": 755058,
+        "sha256": "3d3b9f2e9446a40036e4fc3999c504f7b39bdc0de390bf572fb1ffa3a03a7aed"
+      }
+    }
+  },
+  "actualExecutions": 0,
+  "rootModelRelease": null,
+  "modelDataAcceptance": null
+}

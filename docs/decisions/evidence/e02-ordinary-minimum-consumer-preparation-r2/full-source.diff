@@ -1,0 +1,475 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v1/CONTRACT.md
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v2/CONTRACT.md
+@@ -1,4 +1,4 @@
+-# Minimum ordinary evidence consumer v1
++# Minimum ordinary evidence consumer v1 schemas — SOURCE revision2
+ 
+ SOURCE preparation only. This standalone DATA consumer is bound to producer
+ subject `296acf346bb034bcb8becc22562494e5f37e78c3f78537d061e83455135315b4`
+@@ -289,7 +289,7 @@
+ 
+ ## Remaining preparation and independent review
+ 
+-No tests or consumer invocation have run in this source task. Prepared54 controls
++No tests or consumer invocation have run in this source task. Prepared86 controls
+ are targeted synthetic DATA positives/negatives, including full publication/native
+ joins and whole-history refusal/actor union, not an authenticated Android window.
+ They do not yet construct a full end-to-end positive `consume()` graph. Actual
+@@ -299,3 +299,37 @@
+ not fabricated examples of completed work. Independent source QA/security precede
+ any controls; actual control results require independent review before any later
+ separately authorized evidence inspection or experiment.
++
++## Narrow revision2 remediation
++
++This source revision preserves all input schemas, producer pins, bounds, gates
++and external-origin limitations. The original v1 subject and actual independent
++QA/security HOLD reports remain immutable in the preparation provenance.
++
++- `QA-E02-CONSUMER-COMPOSER-001` /
++  `SEC-E02-MIN-CONSUMER-COMPOSER-002`: match the frozen producer's unique owned,
++  enabled empty EditText **ancestor containing** the Message label. Descendant
++  search from the TextView was a false refusal. The existing Back/note/copy/
++  helper/PNG/raw custody gates remain. Source-backed synthetic full `selection()`
++  positives and foreign/disabled/nonempty/detached/ambiguous/warning negatives
++  are definitions only, not observed Android compatibility.
++- `QA-E02-CONSUMER-RPC-WRAPPER-002` /
++  `SEC-E02-MIN-CONSUMER-RPC-001`: exact raw second reply is
++  `{ok:true,value:normalized}` as emitted by pinned Rust `main.rs`; compare
++  `.value` with `record.rust`. Do not unwrap arbitrary layers or reinterpret
++  errors, extra keys, missing/count/changed replies. Source echo and all other
++  raw input/output/role/native pin joins remain unchanged.
++- `QA-E02-CONSUMER-CANDIDATE-003`: candidate presence uses the frozen producer
++  predicate: selected connection/subscription EVENT whose event object's ID
++  equals the selected event ID. Altered payload or an uncompleted callback
++  cannot masquerade as query-only absence. Qualified delivery still requires
++  exact whole-event equality and existing current generation/attempt/callback
++  custody. Only the sealed interval establishes that bounded absence; later
++  raw frames remain visible without inventing eternal absence or a blanket
++  late-frame failure.
++
++No v1 controls ran. Revision2 retains the54 original test method bodies and
++adds32 targeted definitions; only the synthetic publication fixture's RPC form
++and candidate injection operands change. Full positive whole `consume()` coverage
++remains absent and explicit. Later genuine complete evidence may exercise that
++path; no new normative gate or positive runtime acceptance is introduced here.
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v1/README.md
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v2/README.md
+@@ -1,4 +1,4 @@
+-# E02 minimum ordinary evidence consumer — SOURCE only
++# E02 minimum ordinary evidence consumer — SOURCE revision2 only
+ 
+ Standalone DATA consumer for the separately adopted two-role JS/rs-relay method.
+ See [CONTRACT.md](CONTRACT.md) for exact schemas, external origin trust boundary,
+@@ -16,13 +16,13 @@
+ - `wire.py`: raw proxy/REQ/EOSE/epoch/publication/query/native validation and exact rumor.
+ - `gui.py`: actual nprofile decoder, selected XML/PNG and helper CLEAR/copy/CAPTURE custody.
+ - `consumer.py`: whole source/control/attempt history/window gate before contribution.
+-- `test_data_controls.py`:54 prepared pure DATA controls; **NOT EXECUTED**.
++- `test_data_controls.py`:86 prepared pure DATA controls; **NOT EXECUTED**.
+ 
+ After actual same-frozen-subject independent SOURCE QA and security acceptance
+ and a separate root instruction, the proposed pure-control command is:
+ 
+ ```sh
+-/home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v1/test_data_controls.py
++/home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v2/test_data_controls.py
+ ```
+ 
+ Capture finite foreground output under a trusted monitor,60s, stdout<=1MiB,
+@@ -39,7 +39,17 @@
+ ```
+ 
+ This is command syntax, not an issued execution grant or a fabricated future pin.
+-No complete actual minimum window exists in this source preparation. The54
++No complete actual minimum window exists in this source preparation. The86
+ targeted controls do not yet build a full positive whole-consumer graph; independent
+ review must consider that coverage gap before later activation. Current canonical
+ E02 remains PARTIAL22 and all five architectural blockers remain unchanged.
++
++Revision2 preserves the rejected v1 source and both actual HOLD reports. It fixes
++only three MEDIUM consumer defects: Message TextView must have one owned enabled
++empty EditText ancestor; the second raw native reply is exactly the successful
++RPC envelope around the normalized validator result; and a selected connection/
++subscription EVENT with the same ID counts as a candidate even if its payload
++changed. Qualified delivery still requires the exact whole event. Late frames
++outside the sealed absence interval remain retained history, not an automatic
++failure. Existing54 test bodies remain unchanged, the synthetic RPC fixture now
++matches the real native API, and32 targeted new DATA definitions remain unrun.
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v1/gui.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v2/gui.py
+@@ -33,6 +33,23 @@
+ 
+ def enabled(node):
+     return node.get('package') == APP and node.get('enabled') == 'true'
++
++
++def private_room_footer(nodes):
++    """Match frozen producer chat_context ownership, not TextView descendants."""
++    warnings = [n for n in nodes if n.get('text') == WARNING]
++    labels = [n for n in nodes if n.get('text') == 'Message']
++    need(not (labels and warnings), 'AMBIGUOUS_PRIVATE_ROOM_FOOTER')
++    if warnings:
++        need(len(warnings) == 1 and enabled(warnings[0]), 'EXACT_READ_ONLY_DM_WARNING')
++        bounds(warnings[0])
++        return 'RECIPIENT_DM_RELAYS_WARNING_READ_ONLY'
++    need(len(labels) == 1 and enabled(labels[0]), 'PRIVATE_MESSAGE_COMPOSER')
++    fields = [n for n in nodes if n.get('class') == 'android.widget.EditText'
++              and labels[0] in list(n.iter('node'))]
++    need(len(fields) == 1 and enabled(fields[0]) and not fields[0].get('text'), 'EMPTY_OWNED_COMPOSER')
++    bounds(fields[0])
++    return 'EMPTY_COMPOSER_READ_ONLY'
+ 
+ 
+ def nprofile(value):
+@@ -170,15 +187,7 @@
+     need(sum(v['bounds'][3] == max(x['bounds'][3] for x in visible) for v in visible) == 1, 'AMBIGUOUS_LOWEST_NOTE')
+     back = [n for n in nodes if n.get('content-desc') == 'Back' and enabled(n)]
+     need(len(back) == 1, 'KNOWN_PRIVATE_ROOM_BACK')
+-    warnings = [n for n in nodes if n.get('text') == WARNING]
+-    composers = [n for n in nodes if n.get('text') == 'Message']
+-    need(bool(warnings) != bool(composers), 'PRIVATE_ROOM_FOOTER')
+-    if warnings:
+-        need(len(warnings) == 1 and enabled(warnings[0]), 'EXACT_READ_ONLY_DM_WARNING')
+-    else:
+-        need(len(composers) == 1 and enabled(composers[0]), 'PRIVATE_MESSAGE_COMPOSER')
+-        fields = [n for n in composers[0].iter('node') if n.get('class') == 'android.widget.EditText']
+-        need(len(fields) == 1 and enabled(fields[0]) and not fields[0].get('text'), 'EMPTY_OWNED_COMPOSER')
++    private_room_footer(nodes)
+     equal(observation['visibleMatchingTextNodeCount'], len(visible))
+     equal(observation['duplicateObservation'], dict(scope='CURRENT_VISIBLE_MATCHING_TEXT_NODES_ONLY',
+           visibleMatchingTextNodeCount=len(visible), globalDuplicateBubbleCount=None,
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v1/test_data_controls.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v2/test_data_controls.py
+@@ -12,6 +12,7 @@
+ import sys
+ import tempfile
+ import unittest
++import xml.etree.ElementTree as ET
+ 
+ sys.path.insert(0, str(Path(__file__).resolve().parent))
+ import strict
+@@ -34,7 +35,8 @@
+     return value
+ 
+ 
+-def publication_data(root, role='incoming', index=0, observed=True):
++def publication_data(root, role='incoming', index=0, observed=True, candidate_payload=None,
++                     late_candidate=False):
+     """Fabricated DATA joins only: no signing/encryption/execution/review claim."""
+     files = strict.Files([str(root)])
+     def put(name, value, raw=False):
+@@ -61,10 +63,16 @@
+     row('RELAY_TO_PRODUCER', exchangeLabel=spec['id'] + '-publish', rawBase64=ack['rawBase64'])
+     delivery = None
+     if observed:
+-        forwarded = row('RELAY_TO_APP', connection=1, rawBase64=b64(strict.json_bytes(['EVENT', 'actual-sub', event])), publicationGeneration=gen, publicationAttempt=attempt)
++        payload = dict(event, **candidate_payload) if candidate_payload is not None else event
++        forwarded = row('RELAY_TO_APP', connection=1, rawBase64=b64(strict.json_bytes(['EVENT', 'actual-sub', payload])), publicationGeneration=gen, publicationAttempt=attempt)
+         callback = row('APP_SOCKET_SEND_COMPLETE', connection=1, sourceSequence=forwarded['sequence'], publicationGeneration=gen, publicationAttempt=attempt)
+         delivery = dict(connection=1, subscription='actual-sub', rowSequence=forwarded['sequence'], sentSequence=callback['sequence'],
+                         forwardGeneration=gen, completionGeneration=gen, forwardAttempt=attempt, completionAttempt=attempt)
++    elif candidate_payload is not None and not late_candidate:
++        # Deliberately false query-only claim: producer counts selected EVENT ID
++        # even when its payload changed and no callback completed.
++        row('RELAY_TO_APP', connection=1, rawBase64=b64(strict.json_bytes(['EVENT', 'actual-sub', dict(event, **candidate_payload)])),
++            publicationGeneration=gen, publicationAttempt=attempt)
+     close = row('PUBLICATION_WINDOW_CLOSED', stageId=spec['id'], eventId=event['id'], attempt=attempt,
+                 intentSequence=intentseq, actualNewAppFrameObserved=observed, candidateAppFrameSeen=observed, elapsedNanoseconds=100)
+     querysent = put('query-sent.json', strict.json_bytes(['REQ', 'e02-owned-query', {'ids': [event['id']], 'limit': 1}]), True)
+@@ -72,6 +80,9 @@
+     qr = dict(rawBase64=b64(strict.json_bytes(['EVENT', 'e02-owned-query', event])), frame=['EVENT', 'e02-owned-query', event])
+     qe = dict(rawBase64=b64(b'["EOSE","e02-owned-query"]'), frame=['EOSE', 'e02-owned-query'])
+     for reply in (qr, qe): row('RELAY_TO_PRODUCER', exchangeLabel=spec['id'] + '-query', rawBase64=reply['rawBase64'])
++    if late_candidate:
++        row('RELAY_TO_APP', connection=1, rawBase64=b64(strict.json_bytes(['EVENT', 'actual-sub', dict(event, **(candidate_payload or {}))])),
++            publicationGeneration=None, publicationAttempt=None)
+     proxy_pin = put('capture.jsonl', b''.join(strict.json_bytes(r) + b'\n' for r in rows), True)
+     proxy = wire.Proxy(files, proxy_pin)
+     def sentrow(p, message):
+@@ -100,7 +111,7 @@
+     src = put('rust-source.rs', b'SYNTHETIC_DATA_NOT_A_PRODUCER', True)
+     binary = put('rust-binary', b'SYNTHETIC_NOT_EXECUTED', True)
+     stdin = put('stdin.jsonl', strict.json_bytes({'op': 'source'}) + b'\n' + strict.json_bytes(request) + b'\n', True)
+-    stdout = put('stdout.jsonl', strict.json_bytes({'ok': True, 'value': files.read(src).decode()}) + b'\n' + strict.json_bytes(normalized) + b'\n', True)
++    stdout = put('stdout.jsonl', strict.json_bytes({'ok': True, 'value': files.read(src).decode()}) + b'\n' + strict.json_bytes({'ok': True, 'value': normalized}) + b'\n', True)
+     stderr = put('stderr.bin', b'', True)
+     validation = put('validation.json', dict(schema='e02-minimum-validated-wire-record-v1', profileId=wire.PROFILE,
+         windowId=wire.WINDOWS[role], stageId=spec['id'], origin=origin, clientReceiptEstablished=observed,
+@@ -115,6 +126,92 @@
+         producerValidation=producer, clientRetention='UNVERIFIED_REQUIRES_FRESH_CLIENT_SELECTION_EXPORT', validationOrigin=origin,
+         replayLimit=None if observed else 'SYNTHETIC bounded interval, not client receipt')
+     return files, proxy, record, expected, spec, role
++
++
++def selection_data(root, footer='owned', include_back=True):
++    """Synthetic source-backed XML/action DATA, never an actual Android frame."""
++    files = strict.Files([str(root)])
++    def put(relative, value, raw=False):
++        path = root / relative; path.parent.mkdir(parents=True, exist_ok=True)
++        return pin(path, value if raw else strict.json_bytes(value))
++    def node(parent, label='', package=gui.APP, kind='android.widget.TextView', enabled=True,
++             rectangle='[10,10][300,50]', description=''):
++        return ET.SubElement(parent, 'node', {'text': label, 'package': package, 'class': kind,
++            'enabled': 'true' if enabled else 'false', 'bounds': rectangle, 'content-desc': description})
++    def hierarchy(): return ET.Element('hierarchy')
++    def helper_screen():
++        tree = hierarchy()
++        node(tree, 'Clear clipboard', gui.HELPER, 'android.widget.Button', rectangle='[10,10][100,50]')
++        node(tree, 'Capture clipboard', gui.HELPER, 'android.widget.Button', rectangle='[10,60][100,100]')
++        return tree
++    expected, spec, role = inner(), wire.stage('incoming', 1), 'incoming'
++    sid = spec['id']; directory = 'evidence/' + sid + '/'
++    tree = hierarchy()
++    if include_back: node(tree, description='Back')
++    node(tree, expected['content'], rectangle='[10,100][200,150]')
++    if footer.startswith('warning'):
++        package = 'foreign.app' if footer == 'warning-foreign' else gui.APP
++        node(tree, gui.WARNING, package=package, enabled=footer != 'warning-disabled')
++        if footer == 'warning-duplicate': node(tree, gui.WARNING)
++        if footer == 'warning-and-label': node(tree, 'Message')
++    elif footer != 'missing':
++        owner = node(tree, 'already entered' if footer == 'nonempty' else '',
++                     package='foreign.app' if footer == 'foreign' else gui.APP,
++                     kind='android.widget.EditText', enabled=footer != 'disabled')
++        if footer == 'ambiguous': owner = node(owner, kind='android.widget.EditText')
++        node(tree if footer == 'detached' else owner, 'Message',
++             package='foreign.app' if footer == 'foreign-label' else gui.APP, enabled=footer != 'disabled-label')
++    more, copy_menu = hierarchy(), hierarchy()
++    node(more, 'More Options', rectangle='[20,200][120,240]')
++    node(copy_menu, 'Copy raw JSON', rectangle='[20,250][120,290]')
++    screens = [helper_screen(), tree, more, copy_menu, helper_screen()]
++    all_ui = []
++    for i, screen in enumerate(screens, 1):
++        all_ui.append(dict(xml=put('ui/ui-%03d-synthetic.xml' % i, ET.tostring(screen), True),
++                           png=put('ui/ui-%03d-synthetic.png' % i, b'\x89PNG\r\n\x1a\nSYNTHETIC_DATA_ONLY_' + str(i).encode(), True)))
++    raw = strict.json_bytes(expected)
++    raw_pin = put(directory + 'client-raw-rumor.json', raw, True)
++    cleared = dict(schema='e02-clipboard-capture-v1', caseId=sid, action='CLEAR', foregroundFocus=True,
++                   elapsedRealtimeNanos=100, wallClockMillis=100, status='EMPTY_SENTINEL_SET')
++    captured = dict(schema='e02-clipboard-capture-v1', caseId=sid, action='CAPTURE', foregroundFocus=True,
++                   elapsedRealtimeNanos=101, wallClockMillis=101, status='CAPTURED', mime='text/plain',
++                   bytes=len(raw), sha256=hashlib.sha256(raw).hexdigest(), clipboardItemCount=1, clipboardTimestamp=101)
++    clear_pin = put(directory + 'helper-clear.json', cleared); helper_pin = put(directory + 'helper-capture.json', captured)
++    helper_apk = dict(path=str(root / 'synthetic-unread-helper.apk'), bytes=1, sha256='0' * 64)
++    selected = all_ui[1]
++    selection = put(directory + 'selection.json', dict(schema='e02-minimum-selection-v1', profileId=wire.PROFILE,
++        windowId='incoming-b', observationId=sid, account=wire.B, peer=wire.A, originalAuthor=wire.A,
++        originalOrderedTags=[['p', wire.B]], rumorId=expected['id'], action='COPY_RAW_JSON',
++        method='ANDROID_LOCAL_FOREGROUND', helperPackage=gui.HELPER, helperArtifact=helper_apk,
++        helperReceipt=helper_pin, capturedMonotonicNs=1000, selectedGui=selected,
++        matchingVisibleTextNodes=[dict(bounds=[10,100,200,150], text=expected['content'])],
++        limits='SYNTHETIC_DATA_ONLY_NOT_RUNTIME_GUI'))
++    rows = []
++    def command(tail, stdout):
++        rows.append(dict(argv=['/usr/bin/docker', 'exec', 'synthetic-owned-cid', '/input/lease_guard.py',
++                              'exec', 'synthetic-lease', 'adb', *tail], stdout=stdout))
++    def empty(name): return put('synthetic-streams/' + name, b'', True)
++    command(['exec-out', 'screencap', '-p'], all_ui[0]['png'])
++    command(['shell', 'input', 'tap', '55', '30'], empty('clear-tap'))
++    prefix = 'files/captures/' + sid
++    command(['exec-out', 'run-as', gui.HELPER, 'cat', prefix + '.clear.json'], clear_pin)
++    command(['exec-out', 'screencap', '-p'], selected['png'])
++    command(['shell', 'input', 'swipe', '105', '125', '105', '125', '700'], empty('longpress'))
++    command(['exec-out', 'screencap', '-p'], all_ui[2]['png'])
++    command(['shell', 'input', 'tap', '70', '220'], empty('more-tap'))
++    command(['exec-out', 'screencap', '-p'], all_ui[3]['png'])
++    command(['shell', 'input', 'tap', '70', '270'], empty('copy-tap'))
++    command(['exec-out', 'screencap', '-p'], all_ui[4]['png'])
++    command(['shell', 'input', 'tap', '55', '80'], empty('capture-tap'))
++    command(['exec-out', 'run-as', gui.HELPER, 'cat', prefix + '.receipt.json'], helper_pin)
++    command(['exec-out', 'run-as', gui.HELPER, 'cat', prefix + '.raw.json'], raw_pin)
++    custody = dict(commandSequenceFirst=1, commandSequenceLast=13, uiCaptureSerialFirst=1,
++        uiCaptureSerialLast=5, uiActionCountBefore=0, uiActionCountAfter=8, uiCaptures=all_ui)
++    observation = dict(selection=selection, uiPng=selected['png'], uiXml=selected['xml'], rawClientRumor=raw_pin,
++        clipboardClear=clear_pin, visibleMatchingTextNodeCount=1, custodySegment=custody,
++        duplicateObservation=dict(scope='CURRENT_VISIBLE_MATCHING_TEXT_NODES_ONLY', visibleMatchingTextNodeCount=1,
++            globalDuplicateBubbleCount=None, globalDuplicateBubbleCountStatus='UNKNOWN_UNMEASURED', businessEffectsMeasured=False))
++    return files, observation, expected, spec, role, rows, all_ui, helper_apk
+ 
+ 
+ class PureDataControls(unittest.TestCase):
+@@ -414,6 +511,137 @@
+         origin, subject, finding = self.source_finding_data(); finding['severity'] = 'MEDIUM'
+         with self.assertRaises(strict.Refusal): origin.reviews(subject, 'SOURCE', ('qa',))
+ 
++    def test_selection_positive_owned_edittext_ancestor(self):
++        data = selection_data(self.root)
++        self.assertEqual(gui.selection(*data)['commandSequenceLast'], 13)
++
++    def test_selection_foreign_edittext_ancestor_refused(self):
++        with self.assertRaises(strict.Refusal): gui.selection(*selection_data(self.root, 'foreign'))
++
++    def test_selection_disabled_edittext_ancestor_refused(self):
++        with self.assertRaises(strict.Refusal): gui.selection(*selection_data(self.root, 'disabled'))
++
++    def test_selection_nonempty_edittext_ancestor_refused(self):
++        with self.assertRaises(strict.Refusal): gui.selection(*selection_data(self.root, 'nonempty'))
++
++    def test_selection_detached_message_label_refused(self):
++        with self.assertRaises(strict.Refusal): gui.selection(*selection_data(self.root, 'detached'))
++
++    def test_selection_ambiguous_edittext_ancestors_refused(self):
++        with self.assertRaises(strict.Refusal): gui.selection(*selection_data(self.root, 'ambiguous'))
++
++    def test_selection_foreign_message_label_refused(self):
++        with self.assertRaises(strict.Refusal): gui.selection(*selection_data(self.root, 'foreign-label'))
++
++    def test_selection_disabled_message_label_refused(self):
++        with self.assertRaises(strict.Refusal): gui.selection(*selection_data(self.root, 'disabled-label'))
++
++    def test_selection_positive_exact_source_dm_warning(self):
++        gui.selection(*selection_data(self.root, 'warning'))
++
++    def test_selection_foreign_warning_refused(self):
++        with self.assertRaises(strict.Refusal): gui.selection(*selection_data(self.root, 'warning-foreign'))
++
++    def test_selection_disabled_warning_refused(self):
++        with self.assertRaises(strict.Refusal): gui.selection(*selection_data(self.root, 'warning-disabled'))
++
++    def test_selection_duplicate_warning_refused(self):
++        with self.assertRaises(strict.Refusal): gui.selection(*selection_data(self.root, 'warning-duplicate'))
++
++    def test_selection_warning_and_message_label_refused(self):
++        with self.assertRaises(strict.Refusal): gui.selection(*selection_data(self.root, 'warning-and-label'))
++
++    def test_selection_no_composer_or_warning_refused(self):
++        with self.assertRaises(strict.Refusal): gui.selection(*selection_data(self.root, 'missing'))
++
++    def test_selection_warning_without_back_context_refused(self):
++        with self.assertRaises(strict.Refusal): gui.selection(*selection_data(self.root, 'warning', include_back=False))
++
++    def native_reply_fixture(self, mode):
++        data = publication_data(self.root)
++        files, _, record, _, _, _ = data
++        value = files.doc(record['validation']['validation'])
++        source = dict(ok=True, value=files.read(value['rustSource']).decode('utf-8'))
++        normalized = copy.deepcopy(value['rust'])
++        correct = dict(ok=True, value=normalized)
++        second = {'correct': correct, 'unwrapped': normalized, 'error': dict(ok=False, error='SYNTHETIC_RPC_ERROR'),
++            'extra': dict(correct, error=None), 'wrong': dict(ok=True, value=False),
++            'double': dict(ok=True, value=correct), 'missing': dict(ok=True)}
++        if mode in second:
++            replies = [source, second[mode]]
++        elif mode == 'one': replies = [source]
++        elif mode == 'three': replies = [source, correct, correct]
++        elif mode == 'zero': replies = []
++        elif mode == 'missing-source': replies = [correct, correct]
++        else: raise ValueError('Closed synthetic RPC case')
++        raw = b''.join(strict.json_bytes(v) + b'\n' for v in replies)
++        value['rustStdout'] = pin(self.root / 'changed-rpc-stdout.jsonl', raw)
++        record['validation']['validation'] = pin(self.root / 'changed-rpc-validation.json', strict.json_bytes(value))
++        return data
++
++    def test_native_actual_nested_rpc_envelope_positive(self):
++        wire.publication(*self.native_reply_fixture('correct'))
++
++    def test_native_unwrapped_rpc_reply_refused(self):
++        with self.assertRaises(strict.Refusal): wire.publication(*self.native_reply_fixture('unwrapped'))
++
++    def test_native_error_rpc_reply_refused(self):
++        with self.assertRaises(strict.Refusal): wire.publication(*self.native_reply_fixture('error'))
++
++    def test_native_extra_rpc_envelope_key_refused(self):
++        with self.assertRaises(strict.Refusal): wire.publication(*self.native_reply_fixture('extra'))
++
++    def test_native_wrong_rpc_value_refused(self):
++        with self.assertRaises(strict.Refusal): wire.publication(*self.native_reply_fixture('wrong'))
++
++    def test_native_double_rpc_envelope_refused(self):
++        with self.assertRaises(strict.Refusal): wire.publication(*self.native_reply_fixture('double'))
++
++    def test_native_missing_rpc_value_refused(self):
++        with self.assertRaises(strict.Refusal): wire.publication(*self.native_reply_fixture('missing'))
++
++    def test_native_missing_second_rpc_line_refused(self):
++        with self.assertRaises(strict.Refusal): wire.publication(*self.native_reply_fixture('one'))
++
++    def test_native_extra_rpc_line_refused(self):
++        with self.assertRaises(strict.Refusal): wire.publication(*self.native_reply_fixture('three'))
++
++    def test_native_zero_rpc_lines_refused(self):
++        with self.assertRaises(strict.Refusal): wire.publication(*self.native_reply_fixture('zero'))
++
++    def test_native_missing_source_echo_refused(self):
++        with self.assertRaises(strict.Refusal): wire.publication(*self.native_reply_fixture('missing-source'))
++
++    def test_identical_query_same_id_altered_payload_candidate_refused(self):
++        data = publication_data(self.root, 'archive', 1, False, candidate_payload={'content': 'changed'})
++        with self.assertRaises(strict.Refusal): wire.publication(*data)
++
++    def test_identical_query_same_id_altered_tags_candidate_refused(self):
++        data = publication_data(self.root, 'archive', 1, False, candidate_payload={'tags': [['p', wire.B]]})
++        with self.assertRaises(strict.Refusal): wire.publication(*data)
++
++    def test_identical_query_exact_candidate_uncompleted_callback_refused(self):
++        data = publication_data(self.root, 'archive', 1, False, candidate_payload={})
++        with self.assertRaises(strict.Refusal): wire.publication(*data)
++
++    def test_qualified_delivery_same_id_altered_payload_refused(self):
++        data = publication_data(self.root, candidate_payload={'content': 'changed'})
++        with self.assertRaises(strict.Refusal): wire.publication(*data)
++
++    def test_late_same_id_altered_payload_is_retained_not_interval_absence(self):
++        data = publication_data(self.root, 'archive', 1, False, candidate_payload={'content': 'late changed'}, late_candidate=True)
++        wire.publication(*data)
++        self.assertEqual(data[1].rows[-1]['direction'], 'RELAY_TO_APP')
++        self.assertEqual(data[1].frames[len(data[1].rows)][1][2]['content'], 'late changed')
++
++    def test_candidate_predicate_selected_id_not_whole_payload(self):
++        gate = dict(connection=1, subscription='actual-sub')
++        value = ['EVENT', 'actual-sub', {'id': 'a' * 64, 'content': 'different'}]
++        self.assertTrue(wire.candidate_app_frame(value, 1, gate, 'a' * 64))
++        self.assertFalse(wire.candidate_app_frame(value, 2, gate, 'a' * 64))
++        self.assertFalse(wire.candidate_app_frame(['EVENT', 'other', value[2]], 1, gate, 'a' * 64))
++        self.assertFalse(wire.candidate_app_frame(value, 1, gate, 'b' * 64))
++
+ 
+ if __name__ == '__main__':
+     unittest.main(verbosity=2)
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v1/wire.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v2/wire.py
+@@ -231,6 +231,13 @@
+         need('envelope' not in v, 'CHAT_HAS_NO_BUSINESS_ENVELOPE')
+ 
+ 
++def candidate_app_frame(value, connection, gate, event_id):
++    """Frozen producer candidate presence, separate from qualified equality."""
++    return (type(value) is list and len(value) >= 3 and value[0] == 'EVENT'
++            and type(value[2]) is dict and value[2].get('id') == event_id
++            and connection == gate['connection'] and value[1] == gate['subscription'])
++
++
+ def validation(files, record, event, expected, spec, origin, actual_raw, role):
+     closed(record, 'schema profileId windowId stageId origin clientReceiptEstablished transport rustBinary rustSource rustInput rustStdout rustStderr rustExit rustSignal actualQueriedEvent js rust clientRetention')
+     equal(record['schema'], 'e02-minimum-validated-wire-record-v1')
+@@ -253,7 +260,10 @@
+     replies = files.jsonl(record['rustStdout'], 2)
+     need(len(replies) == 2, 'EXACT_NATIVE_REPLY_COUNT')
+     equal(replies[0], {'ok': True, 'value': files.read(record['rustSource']).decode('utf-8', 'strict')})
+-    equal(replies[1], record['rust']); equal(files.read(record['rustStderr']), b'')
++    closed(replies[1], 'ok value')
++    equal(replies[1]['ok'], True, 'SUCCESSFUL_NATIVE_RPC_ENVELOPE')
++    equal(replies[1]['value'], record['rust'], 'NATIVE_RPC_NORMALIZED_VALUE')
++    equal(files.read(record['rustStderr']), b'')
+     files.read(record['rustBinary'], 67108864)
+ 
+ 
+@@ -293,8 +303,7 @@
+     sent = exchange(files, proxy, record['publication'], event, spec['id'] + '-publish')
+     exchange(files, proxy, record['query'], event, spec['id'] + '-query', True)
+     candidates = [r for r in proxy.rows[first:last - 1] if r['direction'] == 'RELAY_TO_APP'
+-                  and r['connection'] == gen['connection'] and
+-                  proxy.frames[r['sequence']][1] == ['EVENT', gen['subscription'], event]]
++                  and candidate_app_frame(proxy.frames[r['sequence']][1], r['connection'], gen, event['id'])]
+     if observed:
+         d = record['delivery']
+         closed(d, 'connection subscription rowSequence sentSequence forwardGeneration completionGeneration forwardAttempt completionAttempt')
+@@ -304,6 +313,7 @@
+         delivery = proxy.row(d['rowSequence'], 'RELAY_TO_APP')
+         callback = proxy.row(d['sentSequence'], 'APP_SOCKET_SEND_COMPLETE')
+         need(delivery in candidates and first < d['rowSequence'] < d['sentSequence'] < last, 'CURRENT_DELIVERY_CUSTODY')
++        equal(proxy.frames[d['rowSequence']][1], ['EVENT', gen['subscription'], event], 'QUALIFIED_WHOLE_EVENT_EQUALITY')
+         equal(callback['sourceSequence'], d['rowSequence'])
+         for row in (delivery, callback):
+             equal(row['connection'], gen['connection']); equal(row['publicationGeneration'], gen)

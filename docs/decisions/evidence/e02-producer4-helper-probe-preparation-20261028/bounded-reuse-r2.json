@@ -1,0 +1,131 @@
+{
+  "schema": "e02-producer4-helper-probe-bounded-reuse-map-v2",
+  "references": {
+    "finiteCoreSource": {
+      "path": "/Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r3/capture46.py",
+      "bytes": 17066,
+      "sha256": "9465dbfee3ce335df7d011b778eed960032cc1e8a37f9fd60e925f1d10c4b5d8"
+    },
+    "finiteCoreAdmission9Data": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-wrapper-capture-admission9-actual-20261028/acceptance.json",
+      "bytes": 1239,
+      "sha256": "0781b2bd7de977ff8ee8d1db75090f7d748fd5e4b9f6d06749211c5c24773b3b"
+    },
+    "currentConsumerCaptureSource": {
+      "path": "/Data/nbdp-e02-tooling-20261027/consumer5-control-capture-preparation-r1/capture.py",
+      "bytes": 18103,
+      "sha256": "362dade6a16ee4ce181aef18a509af8d18c323bf86b3208abe2fbbe8afd5d74b"
+    },
+    "currentConsumerCaptureSourceQa": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer5-control-capture-20261028/source-qa.json",
+      "bytes": 352,
+      "sha256": "5d8579a18e21a13b5770f5b0b86378b886cad1a1a9ff21552b22dec23306ce9f"
+    },
+    "currentConsumerCaptureSourceSecurity": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer5-control-capture-20261028/source-security.json",
+      "bytes": 371,
+      "sha256": "8636fbf37e409e3dfa16b168bcdaf7f783c0449fe2d0647f180cfa83a31d7ee2"
+    },
+    "originalGuardAndCleanupPureData": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/current-controls-r1/control-acceptance.json",
+      "bytes": 1438,
+      "sha256": "a13fea0dff9101554fabdad6d4eebace6a64dd029b29893212e75684b47bc551"
+    },
+    "guardBundleDeclaration": {
+      "path": "/tmp/nbdp-e02-minimal-rs-v7/records/guard-bundle-manifest.json",
+      "bytes": 332736,
+      "sha256": "9de311222ef78e20fbe05bfef32898976d80737d5d932166d23431a04a73a454"
+    },
+    "currentImageConfigurationContext": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/incoming-run-config.json",
+      "bytes": 5596,
+      "sha256": "cec7ee4aa2701eb8430434345454526bbcdfd35d2fe500e8b766db52939f3023"
+    },
+    "negative14LifecycleOnly": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/incoming-negative-lifecycle-acceptance.json",
+      "bytes": 2227,
+      "sha256": "1d44474e5675a1dfce2a3ebbde8ac11a4c102f15837a353c94d3cd2aa5a65e16"
+    },
+    "currentGuardTreePostrunDataOnly": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/postrun-r2-data-acceptance.json",
+      "bytes": 2121,
+      "sha256": "042cb0c4f51f9a3a29f0a043e2a00aae03b2d722e12d4935bb51f353a2107ca7"
+    },
+    "methodAdoption": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-guard-eventloop-method-20261028/root-method-adoption.json",
+      "bytes": 2450,
+      "sha256": "26e76c69b505aa4a6653500a5b4428fa9a36f696ae4767915b8a9ea52e8a06e6"
+    },
+    "methodContract": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-guard-eventloop-method-20261028/CONTRACT.md",
+      "bytes": 14014,
+      "sha256": "84420a9983e57676cfd40bb74fb11608728c04cce234a45e42caf4f581c4bf89"
+    }
+  },
+  "existingReusable": [
+    {
+      "source": {
+        "path": "/Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r3/capture46.py",
+        "bytes": 17066,
+        "sha256": "9465dbfee3ce335df7d011b778eed960032cc1e8a37f9fd60e925f1d10c4b5d8"
+      },
+      "functions": [
+        "signal_owned_group",
+        "finish_owned",
+        "capture_scope"
+      ],
+      "lines": [
+        85,
+        97,
+        126
+      ],
+      "limits": "Owned retained-unreapedPopen/PGID/SID, selector before spawn, actualEOF, oneabsolute3s reap, failure closure. Existing SOURCE3 target60/1MiB+256KiB must be explicitly adapted/reviewed to target55/stdout8384512+stderr4096; no whole-method DATA transfer."
+    },
+    {
+      "source": {
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/supervisor.py",
+        "bytes": 58019,
+        "sha256": "126e2caf1aea6451afb9a8a8cbc7f323d1e1642c131a121c36a6762e149771cf"
+      },
+      "functions": [
+        "Runtime.validate_identity",
+        "Runtime.validate_owned",
+        "Runtime.start intent-before-create",
+        "Runtime.cleanup",
+        "exact_cid_absent"
+      ],
+      "limits": "Reuse fixed ownership/CID/label/image/mount/resource and independent retain/remove/absence predicates only. Full original supervisor starts4roles+SDK/Android and MUST NOT be invoked for this probe. Factor minimal oneCID path only after Root selects implementation. Created/running/exited phases and exact guest Node command need explicitly versioned predicates; original validate_owned requires running and original four-role entrypoint. No unchanged predicate equivalence claim for the adapted probe.",
+      "lines": [
+        616,
+        625,
+        651,
+        708,
+        130
+      ]
+    },
+    {
+      "source": {
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/guard-client.mjs",
+        "bytes": 9788,
+        "sha256": "17555c08d2e9df79f20e00321970a1a64083babfa84c8b65026a5bcda9bfd203"
+      },
+      "functions": [
+        "createProductionGuard",
+        "finish",
+        "shutdownAfterFailure"
+      ],
+      "limits": "Exact guest production factory and Node-owned helper lifecycle; no hand-rolled helper alternative or authcache. Final source/control DATA pending."
+    }
+  ],
+  "implementation": null,
+  "fullControllerDuplicationAllowed": false,
+  "modelsExecuted": 0,
+  "probeExecutions": 0,
+  "readiness": false,
+  "metadataOnlySupersedes": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-helper-probe-preparation-20261028/bounded-reuse.json",
+    "bytes": 5555,
+    "sha256": "a6c970181412a86f5f2715b6467debc624b504db9ae861ebdf598c6f482b472f"
+  },
+  "expectedPinCaution": "Historical lifecycle9 establishes selectedOS ownership/reap/EOF primitives only. The full baseline observation framework is not reusable as expected-source authority; future controller must compare every expected source/runtime descriptor before each scope and afterward (preserving the independently found HIGH H1 history)."
+}

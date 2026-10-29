@@ -1,0 +1,991 @@
+{
+  "schema": "nbdp-clock90-progress-text-payload-v1",
+  "actor": "/root",
+  "baseCommit": "041dcff07d6536d22a082b32ca29dfb14979ff41",
+  "scope": "Accepted R7 timeout/postcheck negative DATA; deferred seed proposal; accepted R8 clock-only SOURCE/actual3controls/concrete grant ACTIVE checkpoint only; no R8 outcome/APK/client qualification",
+  "roots": [
+    "e02-amethyst-compiler-r7-actual-20261027",
+    "e02-amethyst-clock90-correction-20261028",
+    "e02-amethyst-clock90-model-actual-20261028",
+    "e02-amethyst-clock90-r8-actual-20261028"
+  ],
+  "files": [
+    {
+      "path": "docs/PROJECT_STATE.md",
+      "bytes": 62338,
+      "sha256": "c73b955b59828383ade1d58463171019d407627fad262088041a90207bba1ff9",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "bytes": 14714,
+      "sha256": "5c3e31d9f593a5a4677359842fa29511da256b88f092cd0a8d3f901e79abfeaa",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/method-adoption.json",
+      "bytes": 2568,
+      "sha256": "47217a4df03e2f109830b1a28dd5507599ff16e3d4799f5bdd0a0563359c1cec",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/preparation-count-disposition.json",
+      "bytes": 596,
+      "sha256": "5cac9c40cc8582d3482410a05d34f36e714ad9fbfd1d5d95ab04036924f6aacf",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/seed-proposal-disposition.json",
+      "bytes": 1731,
+      "sha256": "7bfc80cd6f15464baa7e3ccd1c20ac10066db003cccef32d56279464d9cd8637",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/README.md",
+      "bytes": 2291,
+      "sha256": "cbf0dedc5515f37999e2f876f57020d9ae83b392ad2a96f87ecb415c5bd11a2c",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/clock-delta.json",
+      "bytes": 1419,
+      "sha256": "43a2f92ee26fbdf946258d00318ba2c87798088d7c6cd3b43a940a08ecf43766",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/materializer-source/README.md",
+      "bytes": 174,
+      "sha256": "418c9f4496c7b7aef8da36acabbccb10de7527839a0d83a58dfce19a278068d7",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/materializer-source/materialize.py",
+      "bytes": 8072,
+      "sha256": "21f9efd506c99edb128a2d614ee61eea966de2ed817e235ae694959a558652d8",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/materializer-source/root-authorized-template.example.json",
+      "bytes": 2887,
+      "sha256": "40842f8e5ef567c9894184b36a906e36ea063f93318e5b3c9fb3af2c3d0d23c2",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/materializer-source/subject.json",
+      "bytes": 4943,
+      "sha256": "0d1dd7a1df9ef97143fb2caada5e7cdb0cf7d5cf20768f1c07cf9c205dccdafc",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/materializer-source-r7-r8.diff",
+      "bytes": 3215,
+      "sha256": "bd44467cc8f54ca24781804c2dabeb9751bc8ff3c874ed803081a0c1081f75dd",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/model-plan.json",
+      "bytes": 4087,
+      "sha256": "41b4f9b7685879b15601df44a382383dcd8342d7b1d5148eaad394d0c263a464",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/preparation/README.md",
+      "bytes": 174,
+      "sha256": "418c9f4496c7b7aef8da36acabbccb10de7527839a0d83a58dfce19a278068d7",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/preparation/build-plan.json",
+      "bytes": 9415,
+      "sha256": "e2c405a7262a7428fdd9c1586025f2d8fb665d16a1b296bb93650d8291a0b9fe",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/preparation/build_inside.py",
+      "bytes": 8341,
+      "sha256": "dd730ca18cbaad94b26ab3733c2c699cb0ea01f56f3aa88a8a6cdbee40ac27c6",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/preparation/subject.json",
+      "bytes": 5429,
+      "sha256": "b48c0e4965c9e91b7d0471518e54195de6f49cc31eeb74077d330720ccd9580b",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/preparation-r7-r8.diff",
+      "bytes": 778,
+      "sha256": "6676b83edcdce58b2cef8c120737b8762881f9c7cd7aca4ad5c08bee90e7d310",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/preservation.json",
+      "bytes": 8950,
+      "sha256": "f142a712f07a1381d616afb0233c1eb35f00aa2774d7f1e06c342852886b998b",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/prior-r7-component-carry.json",
+      "bytes": 2105,
+      "sha256": "010b2862b9d87ca8173ba68e6edd0484d3c7d732ffae9f1ec53381f816de70f1",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/subject.json",
+      "bytes": 8232,
+      "sha256": "7f3da3247b80eb02dae99c7296dd8858314263b398d0c404d402adaff9db17a8",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/supervisor-source/README.md",
+      "bytes": 174,
+      "sha256": "418c9f4496c7b7aef8da36acabbccb10de7527839a0d83a58dfce19a278068d7",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/supervisor-source/plan.json",
+      "bytes": 12314,
+      "sha256": "8ddc9312f7a642a9838b1b7bb5ee426d843415b260e2939e0ded9f8ab5d11360",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/supervisor-source/release-template.example.json",
+      "bytes": 2578,
+      "sha256": "b81141a4531aaf67516a8b10f5f5d126b08e2473b7b0b2043e1c30a4bcbd2014",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/supervisor-source/subject.json",
+      "bytes": 5376,
+      "sha256": "b8ebc5f3f0cce4297c738b2b9b0ab0f1b966b3b1dc7edcab62f1550321261ded",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/supervisor-source/supervise_build.py",
+      "bytes": 31753,
+      "sha256": "4664055e9563fe4cc1c3c50579990dfbdb5362bd7158a94ef487e21c80ad5677",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/supervisor-source/test_installed_sdk_bindings.py",
+      "bytes": 4917,
+      "sha256": "ae8416b4b6b8a26433ce5d62d1b8ed3b40951a1a455f99dc7e576c7b2525ea7e",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/supervisor-source-r7-r8.diff",
+      "bytes": 5870,
+      "sha256": "0ae121f2d205adb0afce97d5de53432f2651e2c4ea0e23ed565990172d45460e",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/syntax-only.json",
+      "bytes": 1278,
+      "sha256": "4c9cfef147afef8569809fe85492ff74046809e0266b7957ef810a216d04949b",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-archive/test_clock90.py",
+      "bytes": 10475,
+      "sha256": "0f378225f327bacf558a45c14c611960aeb8c949db760e3656e67164612f4f71",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-copy-manifest.json",
+      "bytes": 13908,
+      "sha256": "db7064100b309bb8f8c73e501a802533260d596755316e1af096896305b42522",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-packet.json",
+      "bytes": 6620,
+      "sha256": "f4eae68eb3c99827713327c693618f1d3fdd2b905eb7a20a939debec8aa87049",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-qa.json",
+      "bytes": 1191,
+      "sha256": "c6307236b1439a0ce4e1759615a702b2d30a6546716fe375e315e5e6a222d7d3",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/source-security.json",
+      "bytes": 1197,
+      "sha256": "7e6fe6d65087a94cd6e4514b62959901da1e567659e427be433ddc2535e59502",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-model-actual-20261028/acceptance.json",
+      "bytes": 1061,
+      "sha256": "abcc842db1678965504668edacb13e832659b89552b9f07b02e05a1de8141f7e",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-model-actual-20261028/capture.py",
+      "bytes": 3047,
+      "sha256": "41e3e67c855f11448eb9659bae5bfd18c2347a3a312b5ad3e29210da92125118",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-model-actual-20261028/original-tool-receipt.json",
+      "bytes": 891,
+      "sha256": "8672839f30588745a546284b41797f1264b49135ef4ec69565ad63410980dfec",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-model-actual-20261028/result.json",
+      "bytes": 15807,
+      "sha256": "41a870152db63384a7ca18d91c9aca404756047b516f8f79fdf975c3d4a0ba04",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-model-actual-20261028/root-release.json",
+      "bytes": 7921,
+      "sha256": "dee1fbd1796a4b47073eaa0548e37cfe19864995aa756cc64d7500c5dd924c1e",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-model-actual-20261028/source-qa.json",
+      "bytes": 1191,
+      "sha256": "c6307236b1439a0ce4e1759615a702b2d30a6546716fe375e315e5e6a222d7d3",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-model-actual-20261028/source-security.json",
+      "bytes": 1197,
+      "sha256": "7e6fe6d65087a94cd6e4514b62959901da1e567659e427be433ddc2535e59502",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-model-actual-20261028/stderr.raw",
+      "bytes": 594,
+      "sha256": "9fe9b275080a57f9d7afb801c0a6b22aa085eb1ee67444c434d9691a74c99f49",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-model-actual-20261028/stdout.raw",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-r8-actual-20261028/active-run-observation.json",
+      "bytes": 1181,
+      "sha256": "47e36cac85ae9d7113f69a4a5da11a68d52be57a105ae90dc313a9778ced10f9",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-r8-actual-20261028/actual-template-copy.json",
+      "bytes": 575,
+      "sha256": "7dcdde73111691599331c798e325771a156cebf0f033b1d3e94c17b1d9edecbb",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-r8-actual-20261028/concrete-qa.json",
+      "bytes": 1324,
+      "sha256": "937818b4cc12c4e467084a69839e481f26bb52ec9f7b64bb7a0f5c11a018c1cf",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-r8-actual-20261028/concrete-security.json",
+      "bytes": 1330,
+      "sha256": "f53e51f251348a780c83e0bf6888dde84a5c8e2e01b7d0af7e297232f5c6d627",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-r8-actual-20261028/coordinator-authorization.json",
+      "bytes": 1218,
+      "sha256": "907bb729b5b8f734090f955efdbf539a7fdacaaab3062d81beca142f1ad4c136",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-r8-actual-20261028/dispatch-tools.json",
+      "bytes": 610,
+      "sha256": "1b3dcfab03ff2d70cceb8b65de83c23fd0684d27652bb8c4c7aa849e8cfe54b9",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-r8-actual-20261028/original-tool-receipt.json",
+      "bytes": 779,
+      "sha256": "2220a5e28c638946b60fda4a85e27d624b0aeae2d5e17ca73f8a10e29ba354a7",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-r8-actual-20261028/post-checks-r1.py",
+      "bytes": 5903,
+      "sha256": "b4caaab6bc70cdc4077ec7fa5f1cb45395295135e60da0066d627ef6c17f2d96",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-r8-actual-20261028/postcheck-source-qa.json",
+      "bytes": 817,
+      "sha256": "0935d67efe177dc4af2fce0608aac9226332d81a0f00aa2b1053ddb2250b2f62",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-r8-actual-20261028/postcheck-source-security.json",
+      "bytes": 823,
+      "sha256": "d3b8b2b612e8df4b5f5e0d4e12609ba766512d4efc78b74b4f24f33e5c4611ae",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-r8-actual-20261028/request.json",
+      "bytes": 1455,
+      "sha256": "a0d31e76ef181e88f432deccc4b5c728b83b9c9ad08ee5096729d4ae70335942",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-r8-actual-20261028/review-template.json",
+      "bytes": 9136,
+      "sha256": "e60aaa9fc1f4a57196f6036d071bc76159cce4a019d76057aae1875858f3b181",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-r8-actual-20261028/runtime-parent-skeleton.json",
+      "bytes": 1114,
+      "sha256": "f890d3a245fad1989a21000d4e300e8664870ff8395560cb082167b924f37a62",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-clock90-r8-actual-20261028/sdk-uid-observation.json",
+      "bytes": 590,
+      "sha256": "0556e78580d720dde814350207e38056520a4c919f68df6c605c4156c7c2c9bf",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/active-run-observation.json",
+      "bytes": 1091,
+      "sha256": "3575e2ed8fa138e38083c0ca47b614c3b2f318ed319f665a63e9918d071f4b24",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-build/build-command.json",
+      "bytes": 632,
+      "sha256": "3f073e3d6945c7b834202b682b6ca7e3575adbd19a7ba484aff72005f388e16e",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-build/build.stderr",
+      "bytes": 211,
+      "sha256": "997ac0abd55c4ccb5477ec958442f0cf6e08c480b759de0596efb332a5f5faef",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-build/build.stdout",
+      "bytes": 2439099,
+      "sha256": "fcdc75aa471c95893cf12088ff22fce41641ce9f7efd7c1a43a96d46f2a24860",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-build/workcopy-before.json",
+      "bytes": 2454363,
+      "sha256": "56b2e3933d349cd6db404b5bf462e09345a699518d931b867630ab0e2a310bc0",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/001-precreate-name-request.json",
+      "bytes": 556,
+      "sha256": "80079ea87c01ac8b8e7c08fa19fbd3a100b5430965ed3197baace3d813733ab4",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/001-precreate-name-result.json",
+      "bytes": 1382,
+      "sha256": "d84725af7c5076653149d444e9a6df57d47632c83ebaeb4a2ee4af78ecc96f3d",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/001-precreate-name.stderr",
+      "bytes": 76,
+      "sha256": "5713c27e1a22df80ef070b365f47906a9cc2687a22a66fa0c7e69fba5b521f51",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/001-precreate-name.stdout",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/002-network-request.json",
+      "bytes": 624,
+      "sha256": "52c586063143bd1f5915179539a13b28910a4f99ebf388add206b511e7fcfcee",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/002-network-result.json",
+      "bytes": 1442,
+      "sha256": "6758df119a22393b10bc975bdd2d9bc0947b7ec18c311ad4c18505bf851a7edd",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/002-network.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/002-network.stdout",
+      "bytes": 1199,
+      "sha256": "3cf00c1b4963d7ca87b2c4ffa09875f4d70871ee8167541c42f07586731ec202",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/003-create-request.json",
+      "bytes": 5236,
+      "sha256": "4b2b9eb9a5ae0e67cbdd8cb19de6d49c72b63f9a4bf106b49d7cdcd0de4e67b1",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/003-create-result.json",
+      "bytes": 6329,
+      "sha256": "7f0cf59313525458574a02c08b746030e3c26f1ea93b96fa84abe14866314b80",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/003-create.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/003-create.stdout",
+      "bytes": 65,
+      "sha256": "8f59a4756ffd823880571d529422e0bde32cb29dce8718a2e4f55008b2fc3d31",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/004-inspect-cid-request.json",
+      "bytes": 628,
+      "sha256": "203bd1623d51e28e82f0b955990b5d5b4788db3d7b9044d58ef77d7ea39d17bf",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/004-inspect-cid-result.json",
+      "bytes": 1455,
+      "sha256": "fe06298be9736782196a1f185805c349f93653f29f526d3947cd572f5700be0d",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/004-inspect-cid.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/004-inspect-cid.stdout",
+      "bytes": 14113,
+      "sha256": "4c70bc70db137fe6e077b669537d0a8010c91f3c1f365664f60111ac66a0419f",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/005-start-attached-request.json",
+      "bytes": 626,
+      "sha256": "63e9ead9793398794f5e1fd0332a553e0b856bc1127eb4931373a91face403b3",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/005-start-attached-result.json",
+      "bytes": 1462,
+      "sha256": "3a4d001842d096afa56a97f611ce8f6f1d8e304c4e46c3118260b06a958174a5",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/005-start-attached.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/005-start-attached.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/006-inspect-cid-request.json",
+      "bytes": 628,
+      "sha256": "5c4b414a4bca1823df0423ec834017ef93eedf5b3ea0e2055b2eaddc3556f572",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/006-inspect-cid-result.json",
+      "bytes": 1455,
+      "sha256": "12a24f59813db40b8199854def9617fd53dfd99dab336935e0c24781ace5a82c",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/006-inspect-cid.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/006-inspect-cid.stdout",
+      "bytes": 14625,
+      "sha256": "10535ddc998c91a7b64383c15f843d2b1b1a766b570d424e99b827075ba0be79",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/007-inspect-cid-request.json",
+      "bytes": 628,
+      "sha256": "04e8a6675f27a3d4d3b812970bc9f0bb9ec38842a3532fcf06138ebcfdf12ea3",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/007-inspect-cid-result.json",
+      "bytes": 1454,
+      "sha256": "2aac13bfe8aa1127288466ebaad8ba916f759dd8541a3d248780288da02746e8",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/007-inspect-cid.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/007-inspect-cid.stdout",
+      "bytes": 14625,
+      "sha256": "10535ddc998c91a7b64383c15f843d2b1b1a766b570d424e99b827075ba0be79",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/008-inspect-cid-request.json",
+      "bytes": 628,
+      "sha256": "71824b9aa37f6e105ba69d5f4494c00783634462f3bbf8cb022d28742028c8d7",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/008-inspect-cid-result.json",
+      "bytes": 1455,
+      "sha256": "5f17837007722f080340b40aba0c83bfedf06f70f11deba1a0b7105353403771",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/008-inspect-cid.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/008-inspect-cid.stdout",
+      "bytes": 14625,
+      "sha256": "10535ddc998c91a7b64383c15f843d2b1b1a766b570d424e99b827075ba0be79",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/009-inspect-cid-request.json",
+      "bytes": 628,
+      "sha256": "d7f229cfbb85df0eaf6a616f719cc8ccd5bcf60e15634c3a7beb36a20652b127",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/009-inspect-cid-result.json",
+      "bytes": 1455,
+      "sha256": "3c2b5330a7a57519912fb0a28d682c284854a528a97b02bef4049293a3c8ee05",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/009-inspect-cid.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/009-inspect-cid.stdout",
+      "bytes": 14625,
+      "sha256": "10535ddc998c91a7b64383c15f843d2b1b1a766b570d424e99b827075ba0be79",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/010-remove-request.json",
+      "bytes": 584,
+      "sha256": "d86505c180e0c38290a9582a5a05c3fd34536e7bad3db05ed248f53c8e92874c",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/010-remove-result.json",
+      "bytes": 1394,
+      "sha256": "2000ea55cf843e1284ec3e9552baf2e9e973b0ba647dfd2156cae60fc7b4da6d",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/010-remove.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/010-remove.stdout",
+      "bytes": 65,
+      "sha256": "8f59a4756ffd823880571d529422e0bde32cb29dce8718a2e4f55008b2fc3d31",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/011-inspect-cid-request.json",
+      "bytes": 628,
+      "sha256": "7aef70dffdff48f808c94d9a4fbebb551f2a4103282612a106b448b1c3ec9254",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/011-inspect-cid-result.json",
+      "bytes": 1449,
+      "sha256": "f38c39d41f8b64960d676fef3a6ab2d2c3dba1eefff8d7d3936364c7df308c07",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/011-inspect-cid.stderr",
+      "bytes": 112,
+      "sha256": "732d6e090fc3c89764c07d11099a0b7208553ed647af952bba76d0200ce309cd",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/011-inspect-cid.stdout",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/cidfile",
+      "bytes": 64,
+      "sha256": "841ba759b42ee627855e8214b2fa8eff5fc149f65a4a999b34d323bf8f8d4b21",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/result.json",
+      "bytes": 1264,
+      "sha256": "f79b300c37a11de8c9e3301d62e2eb77e7df76e62ecf87f621e2c9e44f304bb1",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-copy-manifest.json",
+      "bytes": 30894,
+      "sha256": "981f2707eb4704e1e045ffd5cf7fa7ee59d18b237c3ca9c519255e3929733bc7",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-template-copy.json",
+      "bytes": 576,
+      "sha256": "10290ade80939bdf3c9e1a7544b3928a6472c1d0196a20ce17fef359c036f624",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/compiler-strategy-observation-r1.json",
+      "bytes": 1060,
+      "sha256": "fd8f80970dd471c2a761d5f5ad75915b857a75e00a0182ce8b9be6419cdf4a99",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/concrete-qa.json",
+      "bytes": 1350,
+      "sha256": "0772e63977def31567f95797c23ba7ef798e6bf540acdf89746611795bb90d1d",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/concrete-security.json",
+      "bytes": 1356,
+      "sha256": "3d1779eeb863be0f246aec6101e2dde8345a4aaf9a37d37e792c6369983ce370",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/coordinator-authorization.json",
+      "bytes": 1221,
+      "sha256": "1b7e6634959f18b4682c33009e6e72de26fb3691cb7514e658559b0f45e00778",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/data-qa.json",
+      "bytes": 1782,
+      "sha256": "efbf80501733d952da20cdff624e2e2c1f19a5e7b24de60979c459e96214864b",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/data-security.json",
+      "bytes": 1788,
+      "sha256": "b238b8dc4ecca8b021e3425cd06ba3701831647561f8a355e1121fdec7580699",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/dispatch-tools.json",
+      "bytes": 610,
+      "sha256": "1b3dcfab03ff2d70cceb8b65de83c23fd0684d27652bb8c4c7aa849e8cfe54b9",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/failure-acceptance.json",
+      "bytes": 3128,
+      "sha256": "9abc60f8c305bd6f62881a69a3d2d7effbdaa5041d6888e8518123027da8e518",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/original-tool-receipt.json",
+      "bytes": 799,
+      "sha256": "2f503fea1f82217f0dcb9246fb06e1017fd230f95cf831acc87a0f0ee669c4f2",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/post-checks-original-tool-receipt.json",
+      "bytes": 1922,
+      "sha256": "663cee94268ad40223113dc61208ee3b7784608980fc6427be57470df80d6b47",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/post-checks-r1/external-source-equality.json",
+      "bytes": 594,
+      "sha256": "99f329b27f1e4defb7809062b790e321ca76b833af62b68b617bf78c431c8620",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/post-checks-r1/external-workcopy-after.json",
+      "bytes": 17670011,
+      "sha256": "0c3863ed193931d0978ff0ec77fda06a49562efca047818a66e3746e5e03daba",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/post-checks-r1/result.json",
+      "bytes": 824,
+      "sha256": "ce3233a61d4b730d56b28a2a03f605f4773a711e057a33db1b6189e67260e47c",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/post-checks-r1.py",
+      "bytes": 5903,
+      "sha256": "6cdf0b3482fdc7fc209e36d600f619bcd716de0a0cdb48df55e8c7d4fe2662e7",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/postcheck-source-qa.json",
+      "bytes": 912,
+      "sha256": "2fda23eb187a44f267d0bf1f289b9feafc361449b3103acb56a177c09c06fabe",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/postcheck-source-security.json",
+      "bytes": 918,
+      "sha256": "0ff313fbff9f858d9b3090099e7d03dbd1d741d9d62b8d59483ab2980111f59b",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/readonly-resource-observation-r1/receipt.json",
+      "bytes": 638,
+      "sha256": "9fe65f4963c57dcaa0a8050610d85ca5430a2cccf7cfcec78df571e938d91185",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/readonly-resource-observation-r1/stderr.raw",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/readonly-resource-observation-r1/stdout.raw",
+      "bytes": 269,
+      "sha256": "b6ca9da3a6695bac779d45b0e71b2a742ac3aab0106c7a21cb81852acb06ffeb",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/readonly-resource-observation-r2/receipt.json",
+      "bytes": 623,
+      "sha256": "27af494f796fade145848e0bcb903154f843853699706e06acaa0de79327eeeb",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/readonly-resource-observation-r2/stderr.raw",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/readonly-resource-observation-r2/stdout.raw",
+      "bytes": 273,
+      "sha256": "3ab3ba685e5b7c53caf4ea45700f400f0e7cebe8d8441d65a0cf3b2c4383d0ed",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/request.json",
+      "bytes": 1456,
+      "sha256": "db295b6111ccd4effb361106eb1761f5b712ca1d7352dc1900800d39b3c31eac",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/review-template.json",
+      "bytes": 8672,
+      "sha256": "64c44a328343b29330e179fa38e079f0f0346b8c43cfbf9f89534b1294caa520",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/runtime-parent-skeleton.json",
+      "bytes": 1114,
+      "sha256": "5a9e644a2b1ce2347cf651da018f08d2c48e45c7a60b11c269ddd8a0b5654100",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/sdk-uid-observation.json",
+      "bytes": 590,
+      "sha256": "e65fd74b4cf288b908c8045d376124afbceb966acf71112c72d11154629e1529",
+      "sourceMode": "0o600",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/terminal-compiler-observations.json",
+      "bytes": 1523,
+      "sha256": "9b5dc97108bedbb2673da5c00a2f517f0bfaf15dbeb1a663152df312de008568",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/terminal-tool-receipt.json",
+      "bytes": 1721,
+      "sha256": "afa2165f148f5f8009b03536da9bb1eb663890601dc8a3539f958bc247f82405",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-compiler-progress-publication-20261027/publication-record.json",
+      "bytes": 1624,
+      "sha256": "bd4f4c70a2ab3106018edeb02d2840fb9ff74e3669e2dac738eab794395bb276",
+      "sourceMode": "0o664",
+      "gitMode": "100644"
+    }
+  ],
+  "totalFiles": 139,
+  "totalBytes": 23055811,
+  "excluded": "SDK/JDK/APK/archive binaries, signingkeys/caches/unrelatedwork. No production or architecture/gate changes.",
+  "publicationModes": "Byte-identical text copies normalized Git100644; source modes recorded, not a portable runtime replay image"
+}

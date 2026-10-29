@@ -1,0 +1,66 @@
+{
+  "origin": "Actual coordinator foreground tool invocation/responses, not child-generated API journals.",
+  "launch": {
+    "args": {
+      "cmd": "/home/peterhorvath/.miniforge3/bin/python3.13 -I -B /tmp/nbdp-sdk-restoration-20261026-r2/restore_sdk.py --plan /tmp/nbdp-sdk-restoration-20261026-r2/plan.json --plan-sha 53ca1e32778897b69b85d822253f1324777c51961d77e96d27e295e31bd0f03c --execute-reviewed-data-restoration",
+      "sandbox_permissions": "require_escalated",
+      "justification": "Môžem stiahnuť tri presne určené oficiálne Android archívy a obnoviť 434 overených SDK súborov v /tmp bez spustenia Androidu alebo SDK nástrojov?",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2500
+    },
+    "result": {
+      "chunk_id": "e0a174",
+      "wall_time_seconds": 1.001569594,
+      "session_id": 73226,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "polls": [
+    {
+      "args": {
+        "session_id": 73226,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2200
+      },
+      "result": {
+        "chunk_id": "2ad227",
+        "wall_time_seconds": 5.001957012,
+        "session_id": 73226,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "args": {
+        "session_id": 73226,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2500
+      },
+      "result": {
+        "chunk_id": "1d7df6",
+        "wall_time_seconds": 5.001379918,
+        "session_id": 73226,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "args": {
+        "session_id": 73226,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 1800
+      },
+      "result": {
+        "chunk_id": "0772af",
+        "wall_time_seconds": 0.000009887,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    }
+  ]
+}

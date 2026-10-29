@@ -1,0 +1,35 @@
+{
+  "schema": "nbdp-scoped-sdk-install-controller-result-v1",
+  "runId": "773980b3c4952faf71e260b09548292d",
+  "cid": null,
+  "state": "FAILED_OR_UNQUALIFIED_NO_RETRY",
+  "firstFault": "ValueError:SIXTEEN_GIB_INSTALL_ADMISSION",
+  "secondaryErrors": [],
+  "cleanup": "NOT_CREATED_NO_MUTATION_ATTEMPTED",
+  "jobState": null,
+  "networkBindingStage": "UNKNOWN",
+  "innerEvidence": {
+    "installation-result.json": null,
+    "consent-attempted.json": null,
+    "consent-sent.json": null
+  },
+  "cliReceipts": 0,
+  "consentStatus": "INSPECT_INNER_JOURNALS_UNKNOWN_UNTIL_INDEPENDENT_REVIEW",
+  "configuredLimits": {
+    "wholeSeconds": 1200,
+    "cleanupReserveSeconds": 90,
+    "jobSeconds": 1050,
+    "attachSeconds": 1080,
+    "memoryBytes": 2147483648,
+    "cpus": 2,
+    "pids": 256,
+    "jobPerFileBytes": 2147483648,
+    "cliCapturePerFileBytes": 4194304
+  },
+  "limitsMeaning": "Configured bounds only; no aggregate diskquota, measured peak, hostile atomic custody or egress guarantee.",
+  "networkMutationPerformed": false,
+  "sdkQualificationClaimed": false,
+  "canonicalE02Changed": false,
+  "noHostNumericPidSignalsByController": true,
+  "hostileAtomicClosureClaimed": false
+}

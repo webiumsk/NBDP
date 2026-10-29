@@ -1,0 +1,45 @@
+{
+  "schema": "e02-wrapper46-source2-remediation-map-v1",
+  "origin": "COORDINATOR_DELEGATED_ACTUAL_FINAL_QA_SECURITY_FINDINGS_NOT_IMPLEMENTER_APPROVAL",
+  "prior": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-wrapper46-model-method-20261028/source-packet.json",
+    "bytes": 4598,
+    "sha256": "7d1cd4686955b4e8e83c66ed046df81a22ed60ae4f4bab6cbae3d38273c3fa4b"
+  },
+  "findings": [
+    {
+      "role": "qa",
+      "severity": "MEDIUM",
+      "issue": "Missing explicit login:false in whole outer request",
+      "remediation": "Intentionally new five-key request in source2; old four-key r1 request preserved as-is",
+      "status": "SOURCE_IMPLEMENTED_PENDING_REVIEW"
+    },
+    {
+      "role": "qa",
+      "severity": "MEDIUM",
+      "issue": "Second fresh3s wait could allow6s after deadline",
+      "remediation": "ONE absolute monotonic reapDeadline, initialized once; all waits use remaining only, no fresh reserve",
+      "status": "SOURCE_IMPLEMENTED_PENDING_REVIEW"
+    },
+    {
+      "role": "security",
+      "severity": "MEDIUM",
+      "issue": "poll-based leader liveness skipped group kill while descendant retained PIPE",
+      "remediation": "Retain unpolled/unreaped owned leader identity; signal recorded group before leader wait on every fault; explicit absent-group handling; never fabricate EOF; fail-stop",
+      "status": "SOURCE_IMPLEMENTED_PENDING_REVIEW"
+    }
+  ],
+  "captureLifecycleDefinitions": {
+    "path": "/Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r2/capture-admission-definitions.json",
+    "bytes": 1279,
+    "sha256": "e9a76fb1563a76883e64758643586f33fc7af29d25d565cf26e8c903735076c3"
+  },
+  "captureDelta": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-wrapper46-model-method-20261028/source2/capture-r1-source2.diff",
+    "bytes": 10542,
+    "sha256": "0ee7d4025a831e18f0735b282460c5ad752babf7af95796762c5ee0acd4e930a"
+  },
+  "actualExecutions": 0,
+  "independentSourceQa": null,
+  "independentSourceSecurity": null
+}

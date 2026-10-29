@@ -1,0 +1,25 @@
+--- /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r5/preparation/build_inside.py
++++ /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r6/preparation/build_inside.py
+@@ -89,16 +89,17 @@
+     require((SDK/'ndk/30.0.16248370/source.properties').is_file(),'PINNED_NDK_LAYOUT')
+     require((SDK/'platforms/android-37.0/android.jar').is_file(),'PINNED_PLATFORM_LAYOUT')
+     argv=['/bin/sh',str(SOURCE/'gradlew'),':amethyst:assembleFdroidDebug','-PdisableAbiSplits=true',
+-        '--no-daemon','--max-workers=3',
+-        '-Dorg.gradle.jvmargs=-Xmx3g -XX:MaxMetaspaceSize=768m -Dfile.encoding=UTF-8 -Duser.home=/work/user',
+-        '-Dkotlin.daemon.jvmargs=-Xmx1536m -XX:MaxMetaspaceSize=512m',
+-        '-x','spotlessApply','-x',':installGitHook']
++        '--no-daemon','--max-workers=1',
++        '-Dorg.gradle.jvmargs=-Xmx4g -XX:MaxMetaspaceSize=768m -Dfile.encoding=UTF-8 -Duser.home=/work/user',
++        '-Pkotlin.daemon.jvmargs=-Xmx1536m -XX:MaxMetaspaceSize=512m',
++        '-x','spotlessApply','-x',':installGitHook',
++        '-Pkotlin.compiler.execution.strategy=in-process','--info']
+     write('build-command.json',dict(argv=argv,sourceCommit='e6f464a1179def75274512b3c5bab921de3bf3d8',
+         signing='Fresh isolated debug identity only; no old APK hash/release signature claim'))
+     started=time.monotonic();error=None;code=None
+     try:
+         with (OUT/'build.stdout').open('xb') as stdout,(OUT/'build.stderr').open('xb') as stderr:
+-            child=subprocess.run(argv,cwd=SOURCE,env=dict(os.environ),input=b'',stdout=stdout,stderr=stderr,timeout=1800)
++            child=subprocess.run(argv,cwd=SOURCE,env=dict(os.environ),input=b'',stdout=stdout,stderr=stderr,timeout=3600)
+             code=child.returncode
+     except Exception as exc:error=type(exc).__name__+':'+str(exc)[:1024]
+     after=snapshot();write('workcopy-after.json',after)

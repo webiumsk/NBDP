@@ -1,0 +1,49 @@
+{
+  "schema": "e02-root-controller-audit-budget-method-adoption-v1",
+  "actor": "/root",
+  "decision": "CONDITIONALLY_ADOPT_FOR_VERSIONED_SOURCE_IMPLEMENTATION_ONLY",
+  "proposal": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-controller-audit-budget-method-20261028/adoption-proposal.json",
+    "bytes": 3403,
+    "sha256": "c02de183c38702fc1bb9bd3c7d5b3862c917d0bdb414734a9d6a2bf211fb3b7c"
+  },
+  "securityReview": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-controller-audit-budget-method-20261028/independent-security.json",
+    "bytes": 458,
+    "sha256": "00645c874a4f5696fc799182529147487c7e513a37656c6c867a351740c991eb"
+  },
+  "contract": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-controller-audit-budget-method-20261028/CONTRACT.md",
+    "bytes": 8694,
+    "sha256": "cbce53e7f3c2d8970d6b974687c50bd20e5b2b0ce9f1e6d6ce6f751b8e8816da"
+  },
+  "requiredControls": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-controller-audit-budget-method-20261028/required-controls.json",
+    "bytes": 3188,
+    "sha256": "3eafe1bb0aaeba3da14016349cea984eb86c5069d5b52a343792f115d9216bfd"
+  },
+  "allocationBytes": {
+    "globalTotal": 16777216,
+    "serviceTotal": 8388608,
+    "serviceHeader": 4096,
+    "serviceDiagnostics": 4096,
+    "controllerSlots": 64,
+    "eachControllerTotal": 131072,
+    "eachProof": 122880,
+    "eachLedger": 4096,
+    "eachDiagnostics": 4096,
+    "wrapperPrepaidInsideProof": 1024
+  },
+  "mandatoryConditions": [
+    "Debit all launch attempts before inspect/spawn/first proof; parent-only bounded ledger outside fixture writable mounts; no refund/retry/repair.",
+    "Complete encoded bytes/JSON/base64/delimiters/wrappers/duplicates/headers/ledger/errors charged before underlying writes; immutable one-use row credit; actual wrapper overhead must fit1024.",
+    "Reuse verified actual command.stdout Pin as reply or fully debit any retained RPC proof duplicate.",
+    "Pure service accounting before helper startup, conservative early-buffer/phase-flush accounting, single service phase/proxy writer.",
+    "Immediate local terminal/first-fault fences and original Root/Lease failure propagation; no claim of atomic crossprocess global poisoning.",
+    "All16 added requirements need meaningful definitions/actual DATA plus original32+security regressions; separate current consumer/completion/source/concrete reviews remain."
+  ],
+  "scope": "Implementation in owned producer4 namespace only. Original MEDIUM implementation finding remains open until independently reviewed remediation. No models/helper/container/Android/role execution or grant.",
+  "ordinaryRowsQualified": 0,
+  "runtimeReleased": false,
+  "all14FailuresRemainNoContribution": true
+}

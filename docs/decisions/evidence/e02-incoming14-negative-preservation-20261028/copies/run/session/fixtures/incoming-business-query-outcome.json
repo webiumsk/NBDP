@@ -1,0 +1,76 @@
+{
+  "label": "incoming-business-query",
+  "elapsedNanoseconds": 20173611928,
+  "ack": [],
+  "received": [],
+  "eose": null,
+  "sentFrames": [
+    {
+      "frame": {
+        "path": "/session/fixtures/incoming-business-query-0-sent-frame.json",
+        "bytes": 112,
+        "sha256": "ca1970139424695bfef19a085d12195b6a4372907cd005a258f853d42d7c5b5c"
+      },
+      "eventId": null,
+      "messageType": "REQ",
+      "sendInvoked": true,
+      "sendCallbackCompleted": true,
+      "callbackBufferHash": "ca1970139424695bfef19a085d12195b6a4372907cd005a258f853d42d7c5b5c"
+    }
+  ],
+  "error": "Error: RELAY_TIMEOUT",
+  "secondaryRetentionErrors": [],
+  "observer": {
+    "schema": "e02-minimum-observer-state-v2",
+    "budget": {
+      "schema": "e02-minimum-aggregate-capture-budget-v2",
+      "limit": 16777216,
+      "intendedTotalBytes": 559615,
+      "acknowledgedTotalBytes": 559615,
+      "streams": {
+        "proxy": {
+          "intended": 28856,
+          "acknowledged": 28856
+        },
+        "phase": {
+          "intended": 530759,
+          "acknowledged": 530759
+        }
+      },
+      "poisoned": false,
+      "firstError": null,
+      "physicalBytes": null,
+      "physicalMeaning": "ACKNOWLEDGED_PREFIX_IS_NOT_INDEPENDENT_PHYSICAL_ATTESTATION",
+      "lastAttempt": {
+        "stream": "phase",
+        "intendedBytes": 418,
+        "writeInvoked": true,
+        "reportedCount": 418,
+        "acknowledgedBytes": 418,
+        "acknowledgedPrefixSha256": "e84edb1afb48a9c22cf98cc3a956de3c2882cc02a159c26ec5fcf0a1d3e059b4",
+        "physicalBytes": null,
+        "error": null
+      }
+    },
+    "phase": {
+      "sequence": 1552,
+      "intendedTotalBytes": 530759,
+      "acknowledgedTotalBytes": 530759,
+      "physicalBytes": null,
+      "physicalMeaning": "NOT_INDEPENDENTLY_MEASURED_ACKNOWLEDGED_PREFIX_IS_NOT_PHYSICAL_ATTESTATION",
+      "poisoned": false,
+      "firstError": null,
+      "lastAttempt": {
+        "sequence": 1552,
+        "phase": "EXCHANGE_REJECTED",
+        "intendedBytes": 418,
+        "writeInvoked": true,
+        "reportedCount": 418,
+        "acknowledgedBytes": 418,
+        "acknowledgedPrefixBase64": "eyJzY2hlbWEiOiJlMDItdHJhbnNwb3J0LXF1ZXJ5LXBoYXNlLXYyIiwic2VxdWVuY2UiOjE1NTIsInV0YyI6IjIwMjYtMTAtMjhUMDU6MTk6MjYuMDU1WiIsIm1vbm90b25pY05hbm9zZWNvbmRzIjoiMzMzMTA3NDk0NzE2Mjk1IiwicGhhc2UiOiJFWENIQU5HRV9SRUpFQ1RFRCIsInByb2ZpbGVJZCI6ImUwMi1vcmRpbmFyeS1taW5pbXVtLXJzLXR3by1yb2xlLXYyIiwid2luZG93SWQiOiJpbmNvbWluZy1iIiwib3JkaW5hcnlSb2xlIjoiaW5jb21pbmciLCJvYnNlcnZlZEF0dGVtcHQiOnsiZXBvY2giOjEsInN0YWdlSWQiOiJpbmNvbWluZy1idXNpbmVzcyJ9LCJsYWJlbCI6ImluY29taW5nLWJ1c2luZXNzLXF1ZXJ5IiwiZWxhcHNlZE5hbm9zZWNvbmRzIjoyMDE3MzYxMTkyOCwiZXJyb3IiOiJFcnJvcjogUkVMQVlfVElNRU9VVCJ9Cg==",
+        "physicalBytes": null,
+        "error": null
+      }
+    }
+  }
+}

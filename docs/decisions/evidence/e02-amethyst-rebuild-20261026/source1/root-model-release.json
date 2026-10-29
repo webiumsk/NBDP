@@ -1,0 +1,45 @@
+{
+  "schema": "nbdp-amethyst-policy-model-once-release-v1",
+  "actor": "/root",
+  "decision": "RELEASE_ONE_FIXED20_POLICY_MODEL_BATCH",
+  "subject": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/subject.json",
+    "bytes": 4032,
+    "sha256": "c8c75541ccaa8614831cd9c3acd9f8bc1668462561f227aeca6f3ff209369e52"
+  },
+  "modelPlan": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/model-plan.json",
+    "bytes": 1931,
+    "sha256": "d2e6035fa05fc35d379e73e6b9b528c217c8a13b6f71e8656c937d1a21ebe0f4"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-rebuild-20261026/source1/actual-source-qa-review.json",
+      "bytes": 1517,
+      "sha256": "2a44accbd0c7d0ed1a303991756138cd42c60e017e7f2c91d6815c2560cab590"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-rebuild-20261026/source1/actual-source-security-review.json",
+      "bytes": 1599,
+      "sha256": "004b5ef49463cb4e7ff5d15e3eee4d96ed784fe3cae318ecaf2b5413b680dc23"
+    }
+  ],
+  "command": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/tmp/nbdp-amethyst-rebuild-20261026/preparation/test_acquisition_models.py"
+  ],
+  "interpreter": {
+    "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "bytes": 32959480,
+    "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+  },
+  "timeoutSeconds": 30,
+  "stdoutRetainedBytes": 65536,
+  "stderrRetainedBytes": 262144,
+  "rerunsAuthorized": 0,
+  "acquisitionAuthorized": false,
+  "buildAuthorized": false,
+  "scope": "Pure synthetic URL/member/link policy only; no archive/network/extract/tool/build."
+}

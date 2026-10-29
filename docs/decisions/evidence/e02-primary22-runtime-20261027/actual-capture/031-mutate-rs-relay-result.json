@@ -1,0 +1,27 @@
+{
+  "request": {
+    "argv": [
+      "/usr/bin/timeout",
+      "--signal=TERM",
+      "--kill-after=2s",
+      "15s",
+      "/usr/bin/docker",
+      "rm",
+      "bc3e35e081c1c53f6e0f3f77b7c6427cad59d0ae159ecc87b6688eba64f55071"
+    ],
+    "maximumSeconds": 15,
+    "cleanup": true,
+    "startedUtcNs": 1793113220307615586
+  },
+  "exitCode": 0,
+  "stdout": {
+    "path": "/tmp/nbdp-e02-primary-replay-20261027-preparation/attempt-2ea6fa3d1e75ae1b947611e0cd390b9f/031-mutate-rs-relay.stdout",
+    "bytes": 65,
+    "sha256": "75db427dfa60bb8eca13f76da869c650cfeaf8f6236d83758952c7f64031b7f7"
+  },
+  "stderr": {
+    "path": "/tmp/nbdp-e02-primary-replay-20261027-preparation/attempt-2ea6fa3d1e75ae1b947611e0cd390b9f/031-mutate-rs-relay.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
