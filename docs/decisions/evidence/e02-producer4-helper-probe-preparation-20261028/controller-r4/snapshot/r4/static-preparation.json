@@ -1,0 +1,39 @@
+{
+  "schema": "e02-one-cid-controller-static-preparation-v1",
+  "version": "r4",
+  "actor": "/root/producer4_nonblocking_source",
+  "actualMetadataInterpreter": "/home/peterhorvath/.miniforge3/bin/python3",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "sourceAst": [
+    {
+      "source": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r4/test_raw_tools.py",
+        "bytes": 22506,
+        "sha256": "5746b7db52732779041a9d91c5850c12bd5544de2b19be3315e1a7913e64b352"
+      },
+      "result": "PARSED_NO_EVALUATION"
+    }
+  ],
+  "staticAssertions": [
+    "Exactly one RawToolControls method differs",
+    "Bothdelta(-1,1)/subtests/assertRaises/ownedclose retained",
+    "Exact per-case anchored expectedcodes",
+    "Semantic owned consumption expected+1 plus requestedread1..RAW_TOOL_CHUNK; no tail/chunkcount assumption",
+    "All other AST nodes and all104 definitionnames unchanged",
+    "All94 R1/R2/R3 originals preserved; runtime3+guest8+testHostR3 exact",
+    "Actualissued-vs-APIworkdir mismatch preserved and remainsunqualified"
+  ],
+  "exitCode": 0,
+  "targetImports": 0,
+  "modelsExecuted": 0,
+  "helperExecutions": 0,
+  "dockerExecutions": 0,
+  "nodeExecutions": 0,
+  "roleExecutions": 0,
+  "binariesRead": 0,
+  "binariesCopied": 0,
+  "syntaxIsRuntimeEvidence": false
+}

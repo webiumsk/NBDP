@@ -1,0 +1,92 @@
+{
+  "schema": "e02-root-producer4-current-control-data-acceptance-contract-v1",
+  "actor": "/root",
+  "scope": "Fixed future DATA envelope definition, not an issued acceptance or execution grant.",
+  "closedKeys": [
+    "schema",
+    "actor",
+    "decision",
+    "subject",
+    "reviews",
+    "producerSource",
+    "producerSourceAcceptance",
+    "captureSource",
+    "captureSourceAcceptance",
+    "admissionDataAcceptance",
+    "rootAcknowledgement",
+    "execution",
+    "originalToolOrigin",
+    "rawArtifactManifest",
+    "countsSeparate",
+    "modelsExecuted",
+    "modelsPassed",
+    "modelsFailed",
+    "helperExecutions",
+    "ordinaryRoleExecutions",
+    "ordinaryRowsQualified",
+    "scope",
+    "runtimeAuthorized",
+    "executionAuthorized"
+  ],
+  "literals": {
+    "schema": "e02-root-producer4-current-control-data-acceptance-v1",
+    "actor": "/root",
+    "decision": "ACCEPT_PRODUCER4_CURRENT_260_PURE_CONTROL_DATA_ONLY",
+    "countsSeparate": [
+      123,
+      33,
+      29,
+      16,
+      20,
+      10,
+      11,
+      8,
+      7,
+      3
+    ],
+    "modelsExecuted": 260,
+    "modelsPassed": 260,
+    "modelsFailed": 0,
+    "helperExecutions": 0,
+    "ordinaryRoleExecutions": 0,
+    "ordinaryRowsQualified": 0,
+    "scope": "CURRENT_SOURCE4_TEN_PURE_CONTROL_GROUPS_DATA_ONLY",
+    "runtimeAuthorized": false,
+    "executionAuthorized": false
+  },
+  "pinKeys": [
+    "subject",
+    "producerSource",
+    "producerSourceAcceptance",
+    "captureSource",
+    "captureSourceAcceptance",
+    "admissionDataAcceptance",
+    "rootAcknowledgement",
+    "execution",
+    "originalToolOrigin",
+    "rawArtifactManifest"
+  ],
+  "reviews": {
+    "order": [
+      "qa",
+      "security"
+    ],
+    "closedKeys": [
+      "role",
+      "session",
+      "decision",
+      "subject"
+    ],
+    "decision": "ACCEPT_PRODUCER4_CURRENT_260_PURE_CONTROL_DATA_ONLY",
+    "subject": "Exact actual assembled DATA subject; unique independent sessions outside full author/operator union."
+  },
+  "evidenceRequirements": [
+    "Exact current producer SOURCE4 34802f70,22workers and accepted capture4759/eff059 and canonical admission21 DATA1955/5c2cd076.",
+    "Actual one-use RootACK; all10 ordered natural child terminal0/reaped/EOF and exact raw outcome parsers,260PASS/zero skip/fail/truncation.",
+    "Complete actual outer API launch and all same-session polls, terminal0; no inner lifecycle inferred from API.",
+    "Exact expected hash/identity inputs unchanged before/after each scope and overall; no historical model result transfer."
+  ],
+  "modelsExecutedByThisContract": 0,
+  "acceptanceIssued": false,
+  "executionAuthorized": false
+}

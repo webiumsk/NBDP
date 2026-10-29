@@ -1,0 +1,454 @@
+{
+  "schema": "e02-producer4-original-guard-effect-map-v1",
+  "author": "/root/producer4_nonblocking_source",
+  "originalOccurrenceCount": 38,
+  "map": [
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 113,
+        "sourceExpression": "check()",
+        "characterOffset": 9257,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "startup:plan",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 115,
+        "sourceExpression": "check()",
+        "characterOffset": 9508,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "controller:connect",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 116,
+        "sourceExpression": "check()",
+        "characterOffset": 9813,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "controller:response",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 118,
+        "sourceExpression": "check()",
+        "characterOffset": 10080,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "startup:transport-import-complete",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 121,
+        "sourceExpression": "check()",
+        "characterOffset": 10319,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "startup:verify-event-api",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 122,
+        "sourceExpression": "check()",
+        "characterOffset": 10454,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "startup:streams",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 173,
+        "sourceExpression": "check('proxy:connection')",
+        "characterOffset": 16365,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "proxy:connection",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 187,
+        "sourceExpression": "check('proxy:app-message')",
+        "characterOffset": 17462,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "proxy:app-message",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 191,
+        "sourceExpression": "check('proxy:app-before-upstream-send')",
+        "characterOffset": 18034,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "proxy:app-before-upstream-send",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 195,
+        "sourceExpression": "check('proxy:upstream-open')",
+        "characterOffset": 18294,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "proxy:upstream-open",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 196,
+        "sourceExpression": "check('proxy:pending-before-upstream-send')",
+        "characterOffset": 18357,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "proxy:pending-before-upstream-send",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 200,
+        "sourceExpression": "check('proxy:upstream-message')",
+        "characterOffset": 18618,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "proxy:upstream-message",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 208,
+        "sourceExpression": "check('proxy:before-app-send')",
+        "characterOffset": 19665,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "proxy:before-app-send",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 212,
+        "sourceExpression": "check('proxy:app-send-callback')",
+        "characterOffset": 20033,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "proxy:app-send-callback",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 230,
+        "sourceExpression": "check()",
+        "characterOffset": 21677,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "flow:original-01",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 234,
+        "sourceExpression": "check()",
+        "characterOffset": 22089,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "flow:original-02",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 238,
+        "sourceExpression": "check()",
+        "characterOffset": 22718,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "flow:original-03",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 239,
+        "sourceExpression": "check()",
+        "characterOffset": 22952,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "flow:original-04",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 242,
+        "sourceExpression": "check()",
+        "characterOffset": 23206,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "flow:original-05",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 242,
+        "sourceExpression": "check()",
+        "characterOffset": 23714,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "flow:original-06",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 242,
+        "sourceExpression": "check()",
+        "characterOffset": 23868,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "flow:original-07",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 242,
+        "sourceExpression": "check()",
+        "characterOffset": 24380,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "flow:original-08",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 245,
+        "sourceExpression": "check()",
+        "characterOffset": 25814,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "flow:original-09",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 252,
+        "sourceExpression": "check()",
+        "characterOffset": 26723,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "flow:original-10",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 252,
+        "sourceExpression": "check()",
+        "characterOffset": 26798,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "flow:original-11",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 254,
+        "sourceExpression": "check()",
+        "characterOffset": 26934,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "flow:original-12",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 255,
+        "sourceExpression": "check()",
+        "characterOffset": 26986,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "flow:original-13",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 269,
+        "sourceExpression": "check()",
+        "characterOffset": 28506,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "flow:original-14",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 274,
+        "sourceExpression": "check()",
+        "characterOffset": 29489,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "flow:original-15",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 283,
+        "sourceExpression": "check()",
+        "characterOffset": 31447,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "control:command",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 283,
+        "sourceExpression": "check()",
+        "characterOffset": 32018,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "control:response",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 284,
+        "sourceExpression": "check()",
+        "characterOffset": 32557,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "control:listen",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "fixture.mjs",
+        "line": 285,
+        "sourceExpression": "check()",
+        "characterOffset": 32810,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "watchdog:tick",
+      "semantics": "Originalfreshcheck protected synchronouscontinuation; phaseobserver also retains rawRPCcontext. Additional pre-import/constructor/ready guards supplement original points."
+    },
+    {
+      "original": {
+        "file": "exchange.mjs",
+        "line": 5,
+        "sourceExpression": "check('exchange-entry')",
+        "characterOffset": 293,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "exchange:<fixedlabel>:exchange-entry",
+      "semantics": "exchange-adapter original base.check wrapper is an alias of exactlyone exchange guard, now base.guard; backendraw context is percontinuation, not shared pendingRaw."
+    },
+    {
+      "original": {
+        "file": "exchange.mjs",
+        "line": 44,
+        "sourceExpression": "check('send-before')",
+        "characterOffset": 2829,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "exchange:<fixedlabel>:send-before",
+      "semantics": "exchange-adapter original base.check wrapper is an alias of exactlyone exchange guard, now base.guard; backendraw context is percontinuation, not shared pendingRaw."
+    },
+    {
+      "original": {
+        "file": "exchange.mjs",
+        "line": 51,
+        "sourceExpression": "check('send-callback')",
+        "characterOffset": 3386,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "exchange:<fixedlabel>:send-callback",
+      "semantics": "exchange-adapter original base.check wrapper is an alias of exactlyone exchange guard, now base.guard; backendraw context is percontinuation, not shared pendingRaw."
+    },
+    {
+      "original": {
+        "file": "exchange.mjs",
+        "line": 66,
+        "sourceExpression": "check('socket-open')",
+        "characterOffset": 4548,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "exchange:<fixedlabel>:socket-open",
+      "semantics": "exchange-adapter original base.check wrapper is an alias of exactlyone exchange guard, now base.guard; backendraw context is percontinuation, not shared pendingRaw."
+    },
+    {
+      "original": {
+        "file": "exchange.mjs",
+        "line": 72,
+        "sourceExpression": "check('backend-message')",
+        "characterOffset": 4869,
+        "rule": "Exactlyone freshoriginalLease.check perinvocation, preserveposition/effectandfailuresemantics; no coalescing/reusedOK/permitcache. Awaitedconversion requiresboundedshortcontinuation+terminal/contextfence."
+      },
+      "newGuard": "exchange:<fixedlabel>:backend-message",
+      "semantics": "exchange-adapter original base.check wrapper is an alias of exactlyone exchange guard, now base.guard; backendraw context is percontinuation, not shared pendingRaw."
+    }
+  ],
+  "extraChecks": [
+    "startup:transport-import",
+    "startup:nostr-import",
+    "startup:ws-import",
+    "controller:socket-create",
+    "proxy:server-create",
+    "exchange:<label>:constructor",
+    "control:ready",
+    "controller:watchdog"
+  ],
+  "flowContinuationRule": "Each generator.next advancing protected code runs inside synchronous guarded effect; after wait only lexical assignment/loop predicate reaches next guard yield. No async lock across networkwait.",
+  "immediateDenialFences": [
+    "socketerror/close",
+    "helperfailure",
+    "timerdeadline",
+    "capturepoison",
+    "APPcallbackreceiptgeneration",
+    "cancellation"
+  ],
+  "coverageIndependentlyReviewed": false,
+  "modelsExecuted": 0,
+  "continuationAdditionalFences": [
+    "ObservedexternalREVOKED checked beforeconsume",
+    "Enqueue lowerUTC/BOOT vsconsume upperbounds within5s",
+    "ActualflowContinuationValid stage/attempt/APP receipt/subscription fences",
+    "Terminalhelpercleanup-only allowlist+boundedsingle drain",
+    "CODE-precharged8MiB+64x128KiB allproofadmission"
+  ],
+  "source2SocketErrorBoundary": "Shared actual APP/RELAY entrypoint claims originalfirstfault and core.cancel queues/inflight BEFORE observation; capturefailuresecondary; boundedcleanup finally; duplicate latefault cannotreplaceprimary."
+}

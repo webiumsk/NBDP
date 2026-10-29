@@ -1,0 +1,64 @@
+{
+  "schema": "e02-capture-admission-data-acceptance-contract-v1",
+  "actor": "/root",
+  "state": "SCHEMA_ONLY_NOT_AN_ISSUED_DATA_ACCEPTANCE_OR_EXECUTION_AUTHORITY",
+  "reviewEnvelope": {
+    "exactKeys": [
+      "role",
+      "session",
+      "decision",
+      "subject"
+    ],
+    "roles": [
+      "qa",
+      "security"
+    ],
+    "decision": "ACCEPT_PRODUCER4_CAPTURE_ADMISSION_DATA_ONLY",
+    "subject": "Exact actual capture-admission DATA subject pin; different from capture CODE subject.",
+    "sessions": "Distinct actual independent DATA reviewers outside full actual DATA/source/operator/helper union."
+  },
+  "rootAcceptance": {
+    "exactKeys": [
+      "schema",
+      "actor",
+      "decision",
+      "subject",
+      "reviews",
+      "captureSource",
+      "producerSource",
+      "admissionPlan",
+      "modelsDefined",
+      "modelsExecuted",
+      "modelsPassed",
+      "modelsFailed",
+      "targetModelsExecuted",
+      "helperExecutions",
+      "ordinaryRoleExecutions",
+      "scope",
+      "executionAuthorized"
+    ],
+    "literals": {
+      "schema": "e02-root-producer4-capture-admission-data-acceptance-v1",
+      "actor": "/root",
+      "decision": "ACCEPT_PRODUCER4_CAPTURE_ADMISSION_DATA_ONLY",
+      "modelsFailed": 0,
+      "targetModelsExecuted": 0,
+      "helperExecutions": 0,
+      "ordinaryRoleExecutions": 0,
+      "scope": "MOCKED_CAPTURE_ADMISSION_DATA_ONLY",
+      "executionAuthorized": false
+    },
+    "subject": "Exact actual issued DATA subject with externally pinned real API origin/output and current CODE/plan/unchanged-input evidence.",
+    "reviews": "Ordered exact raw review pins qa then security with the literal decision above.",
+    "captureSource": "Exact current independently accepted capture CODE subject.",
+    "producerSource": "Exact independently accepted current producer SOURCE4 subject.",
+    "admissionPlan": "Exact immutable admission definition/expected-case plan, distinct from runtime execution/grant plan.",
+    "counts": "modelsDefined/modelsExecuted/modelsPassed are the same positive integer N from actual frozen admission plan and complete actual result. Zero failed/errors/skipped/truncation; no static AST count or old9 transfer substituted for execution."
+  },
+  "dataEvidence": "Actual command/API exit/duration/output and lifecycle observations at their honest scope, original expected inputs before/after, meaningful mocked admission cases. No manufactured inner PID/reap/EOF claims. Failed batches are preserved and not retried under old grants.",
+  "acyclicity": "Actual DATA subject/reviews/Root acceptance are not CODE members; future current RootACK externally pins them. No selfhash cycle.",
+  "limits": "This accepts only mocked capture-admission DATA. It does not release producer target controls, helper probe, Docker, Android or ordinary roles; those need separate exact current RootACK.",
+  "finalDataAcceptance": null,
+  "finalDataReviews": null,
+  "executionAuthorized": false
+}

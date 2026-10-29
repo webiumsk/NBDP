@@ -1,0 +1,55 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 297 /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/verify-current-inputs.py",
+      "workdir": "/home/peterhorvath/apps/bitcoin/NBDP",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 10000
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "0ef782",
+      "wall_time_seconds": 1.009330585,
+      "session_id": 25560,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "polls": [
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 25560,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 10000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "cbca42",
+        "wall_time_seconds": 5.001424052,
+        "session_id": 25560,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 25560,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 10000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "858676",
+        "wall_time_seconds": 0.000079958,
+        "exit_code": 1,
+        "original_token_count": 151,
+        "output": "Traceback (most recent call last):\n  File \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/verify-current-inputs.py\", line 87, in <module>\n    if __name__ == '__main__': main()\n                               ~~~~^^\n  File \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/verify-current-inputs.py\", line 61, in main\n    assert actual_files == tree['files'] and len(actual_files) == tree['count']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "nbdp-e02-9d8bad6df86fc113f87e14e2974f9019-anchor",
+  "image": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+  "labels": {
+    "nbdp.run": "9d8bad6df86fc113f87e14e2974f9019",
+    "nbdp.role": "anchor",
+    "nbdp.creation": "0cde399f213744bb924670dc6f40d0f8"
+  },
+  "mounts": [
+    [
+      "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/input",
+      "/input",
+      false
+    ],
+    [
+      "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/session/lease.json",
+      "/session/lease.json",
+      false
+    ],
+    [
+      "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/session/control",
+      "/session/control",
+      true
+    ]
+  ],
+  "command": [
+    "--inhibit-cache",
+    "--library-path",
+    "/guard-python/lib",
+    "/guard-python/bin/python3.11",
+    "-B",
+    "-P",
+    "-S",
+    "-s",
+    "/input/supervisor.py",
+    "--guest",
+    "anchor"
+  ]
+}

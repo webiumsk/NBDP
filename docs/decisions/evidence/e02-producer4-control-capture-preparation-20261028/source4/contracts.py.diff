@@ -1,0 +1,25 @@
+--- source3/contracts.py
++++ source4/contracts.py
+@@ -11,6 +11,8 @@
+ SOURCE_DECISION='ACCEPT_PRODUCER4_SOURCE_AND_CONTROL_DEFINITIONS_ONLY'
+ CAPTURE_DECISION='ACCEPT_PRODUCER4_CAPTURE_SOURCE_AND_ADMISSION_DEFINITIONS_ONLY'
+ ADMISSION_DECISION='ACCEPT_PRODUCER4_CAPTURE_ADMISSION_DATA_ONLY'
++REQUIRED_KNOWN_ACTORS=('/root', '/root/r5_plan_fix', '/root/producer4_nonblocking_source', '/root/completion_wrapper', '/root/completion3_final', '/root/android_health_implementer', '/root/ordinary_api35_source', '/root/consumer3_preparation', '/root/producer3_capture', '/root/r5', '/root/whole_consumer_fixture')
++ROOT_KNOWN_ACTORS_PIN={'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-control-capture-preparation-20261028/root-known-actors.json', 'bytes': 1338, 'sha256': '7d6d9b6046e6ab69e146d8127ef6d22fbc9c97a910d605f513279675cd6c0fe3'}
+ ACK_KEYS='schema actor executionAuthorized scope producerSource producerSourceAcceptance producerReviews captureSource captureSourceAcceptance captureReviews admissionPlan admissionData admissionDataAcceptance admissionReviews sourceBirth actorContext inputManifest plan clockSelection requestContract runtimeBindings authors operators noRetry'
+ 
+ def need(v,m):
+@@ -37,8 +39,12 @@
+     values=counts(source,control);total=sum(values)
+     need(method['schema']=='e02-producer4-control-capture-code-subject-v1' and method['producerSource']==ack['producerSource'] and method['codeOnly'] is True,'EXACT_CAPTURE_CODE_SOURCE4_JOIN')
+     closed(context,'schema producerSource captureSource sourceBirth participants participantProofs');need(context['schema']=='e02-producer4-capture-current-actor-context-v1' and context['producerSource']==ack['producerSource'] and context['captureSource']==ack['captureSource'] and context['sourceBirth']==ack['sourceBirth'],'EXACT_EXTERNALLY_PINNED_ACTOR_CONTEXT')
++    known=records['knownActors'];closed(known,'schema actor scope producerSource knownActors provenance semantics sourceAccepted executionAuthorized')
++    need(method['knownActors']==ROOT_KNOWN_ACTORS_PIN and known['schema']=='e02-root-capture-known-actors-v1' and known['actor']=='/root' and known['scope']=='CURRENT_PRODUCER4_PURE_CONTROL_CAPTURE_AND_ADMISSION' and known['producerSource']==ack['producerSource'],'EXACT_REQUIRED_ROOT_KNOWN_ACTOR_AUTHORITY')
++    required=actors(known['knownActors']);need(required==set(REQUIRED_KNOWN_ACTORS),'COMPLETE_REQUIRED_ELEVEN_KNOWN_ACTORS')
++    need(required<=actors(context['participants']),'CONTEXT_INCLUDES_EVERY_ROOT_KNOWN_ACTOR')
+     # Close the complete union BEFORE accepting any of the three review pairs.
+-    union={'/root','/root/r5_plan_fix','/root/producer4_nonblocking_source','/root/completion_wrapper'}|actors(context['participants'])|actors(ack['authors'])|actors(ack['operators'])|actors(method['authors'])|actors(records['admissionSubject']['authors'])|actors(records['admissionSubject']['operators'])
++    union=required|{'/root','/root/r5_plan_fix','/root/producer4_nonblocking_source','/root/completion_wrapper'}|actors(context['participants'])|actors(ack['authors'])|actors(ack['operators'])|actors(method['authors'])|actors(records['admissionSubject']['authors'])|actors(records['admissionSubject']['operators'])
+     union|=actors(source['sourceContributors'])|{source['author'],source['coordinator'],source['predecessorAuthor']}
+     need(type(context['participantProofs']) is list and context['participantProofs'],'ACTUAL_ACTOR_DERIVATION_PROOFS_REQUIRED')
+     s=records['producerAcceptance'];closed(s,'schema actor decision subject reviews modelsDefined runtimeWorkerCount modelsExecuted helperExecutions roleExecutions runtimeReady runtimeReleased scope')

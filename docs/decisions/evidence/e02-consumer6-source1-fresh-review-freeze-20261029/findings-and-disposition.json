@@ -1,0 +1,34 @@
+{
+  "schema": "e02-consumer6-source1-review-disposition-v1",
+  "actor": "/root",
+  "subject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/consumer6-preparation-r1/subject.json",
+    "bytes": 13484,
+    "sha256": "be5084cc3535eb27d9653bf1d3f7ad999280897312452d59fec118b5ed1174ba"
+  },
+  "decision": "HOLD",
+  "findings": [
+    {
+      "id": "C6-S1-01",
+      "severity": "MEDIUM",
+      "evidence": "async_guard missing enqueue lower-bound to reply/consumption chronology permits impossible Mono/Boot/UTC traces.",
+      "remediation": "Explicit enqueue/core/consumption joins consistent original conservativeclocks/originallease/5s; independent per-domain/CLOSE negatives."
+    },
+    {
+      "id": "C6-S1-02",
+      "severity": "MEDIUM",
+      "evidence": "SOURCEoperators[] honest currentcontroller declaration rejected by unconditional nonempty actors().",
+      "remediation": "Typed explicitly known-empty SOURCE operators only with known nonempty creator authority; actual DATA/release operators remain nonempty, missing/unknown authority refuses."
+    },
+    {
+      "id": "C6-S1-03",
+      "severity": "MEDIUM",
+      "evidence": "Current consumer Source/control authority only actorRoot+subject/pin checks, not actualrunning CODE/12runtime/currentpartition/typedSource/controlDATA joins; old139 unrelatedauthority can masquerade.",
+      "remediation": "Fixed Rootcurrent acceptance contract6af89; actual self/runtime/test/controlplan pinjoins, fullsuccessorcounts/PASS+orderedindependentreviews, acyclicexternalleaf. Positive ready-path and stale139/unrelatedscope/source/self/model/reviewer negative regressions."
+    }
+  ],
+  "modelsDefined": 214,
+  "modelsExecuted": 0,
+  "helperExecutions": 0,
+  "executionAuthorized": false
+}

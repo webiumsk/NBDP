@@ -1,0 +1,35 @@
+{
+  "schema": "e02-actual-read-only-postrun-api-origin-v1",
+  "request": {
+    "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 297 /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/postrun-input-custody-r2.py",
+    "workdir": "/home/peterhorvath/apps/bitcoin/NBDP",
+    "login": false,
+    "yield_time_ms": 1000,
+    "max_output_tokens": 3000
+  },
+  "launch": {
+    "chunk_id": "963b97",
+    "wall_time_seconds": 1.001215103,
+    "session_id": 73965,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "polls": [
+    {
+      "request": {
+        "session_id": 73965,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 3000
+      },
+      "response": {
+        "chunk_id": "3600c8",
+        "wall_time_seconds": 0.000133165,
+        "exit_code": 0,
+        "original_token_count": 115,
+        "output": "{\"verification\": {\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/input-postrun-r2/verification.json\", \"bytes\": 17559, \"sha256\": \"444eaede6d8c3baabf78793a2c5dd0f87146987033c8a207c03897b516bfeb3e\"}, \"sourceFiles\": 31, \"stagedCopies\": 16, \"trees\": [{\"root\": \"/tmp/nbdp-e02-api35-fixture-r2/sdk\", \"regularFiles\": 434}, {\"root\": \"/tmp/nbdp-e02-minimal-rs-v7/guard-python\", \"regularFiles\": 522}]}\n"
+      }
+    }
+  ],
+  "terminalExit": 0
+}

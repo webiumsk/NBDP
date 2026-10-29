@@ -1,0 +1,305 @@
+[
+    {
+        "Id": "59a0ee36a50b86c32e23057f163bc945e9814ee1a83eb8026b6d4498541257c1",
+        "Created": "2026-10-28T05:08:56.609235291Z",
+        "Path": "/guard-python/lib/ld-linux-x86-64.so.2",
+        "Args": [
+            "--inhibit-cache",
+            "--library-path",
+            "/guard-python/lib",
+            "/guard-python/bin/python3.11",
+            "-B",
+            "-P",
+            "-S",
+            "-s",
+            "/input/supervisor.py",
+            "--guest",
+            "anchor"
+        ],
+        "State": {
+            "Status": "exited",
+            "Running": false,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 0,
+            "ExitCode": 2,
+            "Error": "",
+            "StartedAt": "2026-10-28T05:08:56.931072025Z",
+            "FinishedAt": "2026-10-28T05:19:27.610982665Z"
+        },
+        "Image": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+        "ResolvConfPath": "/var/lib/docker/containers/59a0ee36a50b86c32e23057f163bc945e9814ee1a83eb8026b6d4498541257c1/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/59a0ee36a50b86c32e23057f163bc945e9814ee1a83eb8026b6d4498541257c1/hostname",
+        "HostsPath": "/var/lib/docker/containers/59a0ee36a50b86c32e23057f163bc945e9814ee1a83eb8026b6d4498541257c1/hosts",
+        "LogPath": "",
+        "Name": "/nbdp-e02-9d8bad6df86fc113f87e14e2974f9019-anchor",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "local",
+                "Config": {
+                    "compress": "false",
+                    "max-file": "1",
+                    "max-size": "16m"
+                }
+            },
+            "NetworkMode": "none",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": [
+                "ALL"
+            ],
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": true,
+            "SecurityOpt": [
+                "no-new-privileges"
+            ],
+            "Tmpfs": {
+                "/tmp": "rw,nosuid,nodev,size=256m"
+            },
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 134217728,
+            "NanoCpus": 1000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 134217728,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": 64,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/input",
+                    "Target": "/input",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/session/lease.json",
+                    "Target": "/session/lease.json",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/session/control",
+                    "Target": "/session/control"
+                }
+            ],
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware",
+                "/sys/devices/system/cpu/cpu0/thermal_throttle",
+                "/sys/devices/system/cpu/cpu1/thermal_throttle",
+                "/sys/devices/system/cpu/cpu2/thermal_throttle",
+                "/sys/devices/system/cpu/cpu3/thermal_throttle",
+                "/sys/devices/system/cpu/cpu4/thermal_throttle",
+                "/sys/devices/system/cpu/cpu5/thermal_throttle",
+                "/sys/devices/system/cpu/cpu6/thermal_throttle",
+                "/sys/devices/system/cpu/cpu7/thermal_throttle",
+                "/sys/devices/system/cpu/cpu8/thermal_throttle",
+                "/sys/devices/system/cpu/cpu9/thermal_throttle",
+                "/sys/devices/system/cpu/cpu10/thermal_throttle",
+                "/sys/devices/system/cpu/cpu11/thermal_throttle",
+                "/sys/devices/system/cpu/cpu12/thermal_throttle",
+                "/sys/devices/system/cpu/cpu13/thermal_throttle",
+                "/sys/devices/system/cpu/cpu14/thermal_throttle",
+                "/sys/devices/system/cpu/cpu15/thermal_throttle",
+                "/sys/devices/system/cpu/cpu16/thermal_throttle",
+                "/sys/devices/system/cpu/cpu17/thermal_throttle",
+                "/sys/devices/system/cpu/cpu18/thermal_throttle",
+                "/sys/devices/system/cpu/cpu19/thermal_throttle",
+                "/sys/devices/system/cpu/cpu20/thermal_throttle",
+                "/sys/devices/system/cpu/cpu21/thermal_throttle"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ],
+            "Init": true
+        },
+        "GraphDriver": {
+            "Data": {
+                "ID": "59a0ee36a50b86c32e23057f163bc945e9814ee1a83eb8026b6d4498541257c1",
+                "LowerDir": "/var/lib/docker/overlay2/fb1cb0dca4f8cfdaba5fa7ed9de7dbae2b8bf2c6b1306b1a9a1935db12bbb2ba-init/diff:/var/lib/docker/overlay2/c7f08f4b3c492a4844809dd39d8ed9bfc56230e4ad20775e47063eb12307d5ed/diff:/var/lib/docker/overlay2/fbb4a11b60133d01c22aea529add7b758ff452a56223b19c943f9edc99f1723f/diff:/var/lib/docker/overlay2/9ba819cc18707e26d6c2f8f38decf84fd14c399523fca1e457a3f21151c6c980/diff:/var/lib/docker/overlay2/67ec01df09be7f8dbbf43499e9ae049ce4c5474513632f6157434aafad9054e4/diff:/var/lib/docker/overlay2/ecd244a37c15c492b779379dd9062ad6174ea02440b37596362eec8983b47327/diff:/var/lib/docker/overlay2/fc4e3c12be74eb5c2a132c0ba5005fe23c690148f97fedfff5b9bbf9210eca55/diff:/var/lib/docker/overlay2/yl44babg2cvr51liok0wz78i8/diff:/var/lib/docker/overlay2/jm0pge2fhluw10xb7o14u2dm5/diff:/var/lib/docker/overlay2/mlc8df1zk4yykwltq49k442xe/diff:/var/lib/docker/overlay2/sha2o0bjjij37jxb2qhh4ysh8/diff:/var/lib/docker/overlay2/lg2u1s9e5gshkqnzu4vju6lkf/diff:/var/lib/docker/overlay2/69mrcw3ntsiqfvgv4p3ijjgqj/diff:/var/lib/docker/overlay2/vcbz2pbvpeeg6b3gb5eyq6z1w/diff:/var/lib/docker/overlay2/ytk01uhxsrm690gvrsllcsqrp/diff:/var/lib/docker/overlay2/8ae5e3499817e9d8b6578e9958c7f4b5a730aeb75160a2061aa74a6e8aef271b/diff",
+                "MergedDir": "/var/lib/docker/overlay2/fb1cb0dca4f8cfdaba5fa7ed9de7dbae2b8bf2c6b1306b1a9a1935db12bbb2ba/merged",
+                "UpperDir": "/var/lib/docker/overlay2/fb1cb0dca4f8cfdaba5fa7ed9de7dbae2b8bf2c6b1306b1a9a1935db12bbb2ba/diff",
+                "WorkDir": "/var/lib/docker/overlay2/fb1cb0dca4f8cfdaba5fa7ed9de7dbae2b8bf2c6b1306b1a9a1935db12bbb2ba/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/input",
+                "Destination": "/input",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/session/control",
+                "Destination": "/session/control",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/session/lease.json",
+                "Destination": "/session/lease.json",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "59a0ee36a50b",
+            "Domainname": "",
+            "User": "1000:1000",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "ANDROID_SDK_ROOT=/sdk",
+                "ANDROID_USER_HOME=/state/android",
+                "ANDROID_AVD_HOME=/state/avd",
+                "TMPDIR=/tmp",
+                "OPENSSL_MODULES=/guard-python/lib/openssl-modules-disabled",
+                "NBDP_FIXTURE_PLAN_SHA256=71e3716fe6cffa6c02c69149ece20b18816eb49fe51ee380bedfa356103f7917",
+                "NBDP_MINIMUM_RUN_CONFIG_SHA256=cec7ee4aa2701eb8430434345454526bbcdfd35d2fe500e8b766db52939f3023",
+                "PATH=/sdk/emulator:/sdk/platform-tools:/usr/local/bin:/usr/bin:/bin",
+                "LANG=C.UTF-8",
+                "HOME=/state/home",
+                "ANDROID_HOME=/sdk",
+                "PYTHONHOME=/guard-python",
+                "OPENSSL_CONF=/dev/null",
+                "NBDP_LEASE_SHA256=ce260b13c7de0cbb94e5de0d35e8f9cfa5ab55535e3e2093a0ce9fe860060d54"
+            ],
+            "Cmd": [
+                "--inhibit-cache",
+                "--library-path",
+                "/guard-python/lib",
+                "/guard-python/bin/python3.11",
+                "-B",
+                "-P",
+                "-S",
+                "-s",
+                "/input/supervisor.py",
+                "--guest",
+                "anchor"
+            ],
+            "Image": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+            "Volumes": null,
+            "WorkingDir": "/input",
+            "Entrypoint": [
+                "/guard-python/lib/ld-linux-x86-64.so.2"
+            ],
+            "Labels": {
+                "nbdp.creation": "0cde399f213744bb924670dc6f40d0f8",
+                "nbdp.owner": "e02-ingress",
+                "nbdp.role": "anchor",
+                "nbdp.run": "9d8bad6df86fc113f87e14e2974f9019",
+                "nbdp.task": "e02-minimal-rs-v7-local-build"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "",
+            "SandboxKey": "",
+            "Ports": {},
+            "Networks": {
+                "none": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "6da71c081f1f3f7c6f915a69b17b13a31aa9cdf961d9545b68a93c8024e6d9a8",
+                    "EndpointID": "",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "MacAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+                }
+            }
+        }
+    }
+]

@@ -1,0 +1,33 @@
+{
+  "schema": "e02-controller-r2-mock-controls-failure-v1",
+  "actor": "/root",
+  "status": "FAILED_STOPPED_NO_RETRY",
+  "groupsExecuted": 2,
+  "modelsExecuted": 75,
+  "modelsPassed": 74,
+  "modelsFailed": 1,
+  "remainingModelsNotExecuted": 29,
+  "groupResults": [
+    {
+      "name": "test_controller",
+      "count": 39,
+      "exitCode": 0
+    },
+    {
+      "name": "test_host",
+      "count": 36,
+      "exitCode": 1,
+      "failedMethod": "HostControls.test_probe_closed_top_audit_observation_and_field_keys",
+      "subtestIndex": 1,
+      "actualRejection": "BOUND_NODE_HELPER_AUDIT",
+      "expectedDiagnosticRegex": "CLOSED_"
+    }
+  ],
+  "inputsUnchanged": true,
+  "protectedInputs": 33,
+  "guardHelperExecutions": 0,
+  "dockerExecutions": 0,
+  "ordinaryRoleExecutions": 0,
+  "innerPidReapEofAttested": false,
+  "executionAuthorized": false
+}

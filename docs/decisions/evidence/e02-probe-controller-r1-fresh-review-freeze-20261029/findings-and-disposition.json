@@ -1,0 +1,27 @@
+{
+  "schema": "e02-probe-r1-review-disposition-v1",
+  "actor": "/root",
+  "subject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/subject.json",
+    "bytes": 14534,
+    "sha256": "19ae46557c169cca1c3289d4acdcaa2fa65b488c7596500f281d69feb0e2245b"
+  },
+  "decision": "HOLD",
+  "findings": [
+    {
+      "ids": [
+        "PROBE-QA-01",
+        "PROBE-R1-SEC-01"
+      ],
+      "severity": "MEDIUM",
+      "evidence": "host.py190/302/312 uses parsed-metadata cap16777216 for current opaque Python32959480 and Docker47353290-byte tools.",
+      "impact": "Deterministic pre-stage BOUNDED_PIN refusal; intended probe cannot execute.",
+      "remediation": "Versioned narrow RAW2GiB bounded streaming expected-length/SHA/regularhandle/identity/clock verifier for only two declared opaque executables in admit/before_target/postread; no binary copying. JSON16MiB/proof16MiB and all original gates unchanged.",
+      "regressions": "Production admit/before_target/postread positive with actual declared tool sizes>16MiB; hash/size/oversize/identity drift and deadline faults reject."
+    }
+  ],
+  "remainingFindings": "No other material SOURCE finding reported by either bounded independent review.",
+  "modelsExecuted": 0,
+  "probeExecutions": 0,
+  "executionAuthorized": false
+}

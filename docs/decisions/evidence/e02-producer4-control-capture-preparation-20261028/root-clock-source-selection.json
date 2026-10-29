@@ -1,0 +1,29 @@
+{
+  "schema": "e02-root-control-capture-clock-source-selection-v1",
+  "actor": "/root",
+  "decision": "SELECT_OPERATIONAL_CLOCK_FOR_VERSIONED_SOURCE_PREPARATION_ONLY",
+  "draft": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-control-capture-preparation-20261028/source2/draft-source-packet.json",
+    "bytes": 8302,
+    "sha256": "621c41c42e0f938cb94bbbcb434990b68d6ba1975297c84c9dd3d16202beaa11"
+  },
+  "controllerSeconds": 1200,
+  "outerKillSeconds": 1203,
+  "sharedInputSnapshotPoolSeconds": 480,
+  "maximumSerialScopes": 10,
+  "eachScopeSeconds": 60,
+  "eachOwnedTerminationReserveSeconds": 3,
+  "metadataAndCleanupSeconds": 30,
+  "otherReserveSeconds": 60,
+  "sumSeconds": 1200,
+  "conditions": [
+    "Final actual producer SOURCE3 or later must independently pass; no predecessor acceptance transfer.",
+    "Final capture implementation, admission/models/input-closure/actor/request contract and exact clock enforcement need independent SOURCE review before execution.",
+    "Any changed scope count or budget requires explicit new selection, not a dynamic extension.",
+    "These are internal pure-control job clocks only; original guard5/query10/handshake3/control45/command55/ordinarylease1800 remain unchanged."
+  ],
+  "modelsExecuted": 0,
+  "executionAuthorized": false,
+  "rootGrantIssued": false,
+  "captureSourceAccepted": false
+}

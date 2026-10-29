@@ -1,0 +1,171 @@
+--- /Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/host.py
++++ /Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2/host.py
+@@ -17,7 +17,10 @@
+ 
+ PYTHON = '/home/peterhorvath/.miniforge3/bin/python3.13'
+ DOCKER = '/usr/bin/docker'
+-HERE = Path('/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1')
++HERE = Path('/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2')
++REUSED = Path('/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1')
++RAW_TOOL_LIMIT = 2_147_483_648
++RAW_TOOL_CHUNK = 65_536
+ GUARD_MANIFEST = {'path': '/tmp/nbdp-e02-minimal-rs-v7/records/guard-bundle-manifest.json',
+                   'bytes': 332736, 'sha256': '9de311222ef78e20fbe05bfef32898976d80737d5d932166d23431a04a73a454'}
+ 
+@@ -64,6 +67,68 @@
+     raw, _ = raw_read(descriptor['path'], cap, check)
+     need(len(raw) == descriptor['bytes'] and hashlib.sha256(raw).hexdigest() == descriptor['sha256'], 'EXPECTED_PIN_DRIFT')
+     return raw
++
++
++def verify_raw_tool(descriptor, check=lambda: None):
++    """RAW opaque executable authority, never JSON, copied bytes or execution.
++
++    Only the two declared fixed paths are admitted. At most one64KiB block is
++    held; original absolute clocks are checked before/after each read/hash and
++    identity observation. The RAW2GiB ceiling grants no physical-proof budget.
++    """
++    need(type(descriptor) is dict and set(descriptor) == {'path', 'bytes', 'sha256'}, 'CLOSED_RAW_TOOL_PIN')
++    need(type(descriptor['path']) is str and descriptor['path'] in (PYTHON, DOCKER) and type(descriptor['bytes']) is int and
++         0 < descriptor['bytes'] <= RAW_TOOL_LIMIT and type(descriptor['sha256']) is str and
++         re.fullmatch('[0-9a-f]{64}', descriptor['sha256']), 'DECLARED_RAW_TOOL2GIB')
++    check()
++    path = safe(descriptor['path'])
++    initial = path.lstat()
++    need(stat.S_ISREG(initial.st_mode) and initial.st_nlink == 1 and
++         initial.st_size == descriptor['bytes'], 'RAW_TOOL_EXPECTED_REGULAR_SIZE')
++    def ident(value):
++        return (value.st_dev, value.st_ino, value.st_size, value.st_mode, value.st_mtime_ns,
++                value.st_ctime_ns, value.st_nlink, value.st_uid, value.st_gid)
++    fd, first, result = None, None, None
++    try:
++        check()
++        fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
++        need(ident(os.fstat(fd)) == ident(initial), 'RAW_TOOL_OPENED_IDENTITY')
++        digest, size = hashlib.sha256(), 0
++        while True:
++            check()
++            # One extra byte detects growth beyond the exact expected length.
++            block = os.read(fd, min(RAW_TOOL_CHUNK, descriptor['bytes'] - size + 1))
++            check()
++            if not block:
++                break
++            size += len(block)
++            need(size <= descriptor['bytes'] and size <= RAW_TOOL_LIMIT, 'RAW_TOOL_STREAM_LENGTH')
++            digest.update(block)
++            check()
++        need(size == descriptor['bytes'] and digest.hexdigest() == descriptor['sha256'], 'RAW_TOOL_EXPECTED_SHA_LENGTH')
++        check()
++        need(ident(os.fstat(fd)) == ident(initial), 'RAW_TOOL_FINAL_FD_IDENTITY')
++        need(ident(path.lstat()) == ident(initial), 'RAW_TOOL_FINAL_PATH_IDENTITY')
++        check()
++        result = dict(descriptor)  # No binary bytes are returned or retained.
++    except BaseException as error:
++        first = error
++    finally:
++        if fd is not None:
++            try:
++                os.close(fd)
++            except BaseException as error:
++                first = first or error
++    if first is not None:
++        raise first
++    check()  # Close time also belongs to the same original caller deadline.
++    return result
++
++
++def verify_raw_tools(tools, check=lambda: None):
++    need(type(tools) is dict and set(tools) == {'python', 'docker'} and
++         tools['python']['path'] == PYTHON and tools['docker']['path'] == DOCKER, 'EXACT_TWO_RAW_TOOLS')
++    return [verify_raw_tool(tools[key], check) for key in ('python', 'docker')]
+ 
+ 
+ def strict(raw):
+@@ -186,8 +251,7 @@
+         need(qa['actor'] != sec['actor'], 'DISTINCT_QA_SECURITY')
+         need(plan['tools'].keys() == {'python', 'docker'} and plan['tools']['python']['path'] == PYTHON and
+              plan['tools']['docker']['path'] == DOCKER, 'EXACT_HOST_TOOLS')
+-        for descriptor in plan['tools'].values():
+-            verify(descriptor, check, cap=16_777_216)
++        verify_raw_tools(plan['tools'], check)
+         need(plan['uidGid'] == str(os.getuid()) + ':' + str(os.getgid()), 'ACTUAL_UID_GID')
+         private_roots(plan)
+         self.sources(plan, check)
+@@ -298,8 +362,7 @@
+         self.sources(plan, check, staged=True)
+         for descriptor in self.controller_sources:
+             verify(descriptor, check)
+-        for descriptor in plan['tools'].values():
+-            verify(descriptor, check, cap=16_777_216)
++        verify_raw_tools(plan['tools'], check)
+         raw, _ = raw_read(self.output / 'lease.json', 8192, check)
+         need(raw == verify(plan['lease'], check, 8192), 'BEFORE_TARGET_ORIGINAL_LEASE')
+ 
+@@ -308,8 +371,7 @@
+             self.sources(plan, check, staged=True)
+             for descriptor in self.controller_sources:
+                 verify(descriptor, check)
+-            for descriptor in plan['tools'].values():
+-                verify(descriptor, check, cap=16_777_216)
++            verify_raw_tools(plan['tools'], check)
+             need((self.output / 'lease.json').read_bytes() == verify(plan['lease'], check, 8192), 'LEASE_COPY_DRIFT')
+             actual = {'attached': 0, 'metadata': 0}
+             for key in ('inputRoot', 'controlRoot', 'outputRoot', 'dockerConfig'):
+@@ -493,7 +555,8 @@
+     need(subject['schema'] == 'e02-one-cid-helper-probe-controller-source-v1' and len(subject['runtimeSources']) == 3 and
+          {Path(d['path']).name for d in subject['runtimeSources']} == {'controller.py', 'host.py', 'finite_child.py'}, 'EXACT_MINIMAL_CODE')
+     for descriptor in subject['runtimeSources']:
+-        need(Path(descriptor['path']).parent == HERE, 'FIXED_CONTROLLER_ROOT')
++        expected = HERE / 'host.py' if Path(descriptor['path']).name == 'host.py' else REUSED / Path(descriptor['path']).name
++        need(Path(descriptor['path']) == expected, 'FIXED_CONTROLLER_ROOT')
+         verify(descriptor, phase_check)
+     need(bootstrap_pin(HERE / 'host.py') in subject['runtimeSources'], 'SELF_PIN')
+     constants = strict(verify(subject['constants'], phase_check))
+--- /Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/test_host.py
++++ /Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2/test_host.py
+@@ -25,7 +25,7 @@
+     return module
+ 
+ 
+-H = load('probe_host_control_subject', ROOT / 'host.py')
++H = load('probe_host_control_subject', Path('/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2/host.py'))
+ C = load('probe_host_core_control_subject', ROOT / 'controller.py')
+ NS = 1_000_000_000
+ PLAN_SHA = 'a' * 64
+@@ -188,6 +188,7 @@
+     fields['rawBase64'] = base64.b64encode(C.encoded(wire)).decode()
+ 
+ 
++# R2 entry-only binding delta: host.py is R2; controller.py/finite_child.py remain exact R1.
+ class EntryMemory:
+     """Only the real main() pre-import rejection path; no successful grant."""
+     def __init__(self):
+@@ -196,7 +197,7 @@
+                      'gates': {key: descriptor('/memory/' + key, b'gate-not-read') for key in C.GATE_KEYS}}
+         self.runtime = []
+         for name in ('controller.py', 'host.py', 'finite_child.py'):
+-            path = str(ROOT / name)
++            path = str(H.HERE / name if name == 'host.py' else ROOT / name)
+             raw = ('synthetic reviewed code ' + name + '\n').encode()
+             self.raw[path] = raw
+             self.runtime.append(descriptor(path, raw))
+@@ -293,7 +294,7 @@
+             for same_size in (False, True):
+                 with self.subTest(name=name, same_size=same_size):
+                     memory = EntryMemory()
+-                    path = str(ROOT / name)
++                    path = str(H.HERE / name if name == 'host.py' else ROOT / name)
+                     original = memory.raw[path]
+                     memory.raw[path] = b'X' + original[1:] if same_size else original + b'# drift\n'
+                     memory.reject(self, 'EXPECTED_PIN_DRIFT')
+--- /Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/outer-tokens-skeleton.json
++++ /Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2/outer-tokens-skeleton.json
+@@ -12,7 +12,7 @@
+     "/home/peterhorvath/.miniforge3/bin/python3.13",
+     "-I",
+     "-B",
+-    "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/host.py",
++    "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2/host.py",
+     "--plan",
+     null,
+     "--plan-sha",

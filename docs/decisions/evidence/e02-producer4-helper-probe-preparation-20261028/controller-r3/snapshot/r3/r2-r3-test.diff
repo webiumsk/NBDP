@@ -1,0 +1,21 @@
+--- /Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2/test_host.py
++++ /Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r3/test_host.py
+@@ -498,12 +498,13 @@
+         self.assertEqual(value['relayCause'], 'UNKNOWN')
+ 
+     def test_probe_closed_top_audit_observation_and_field_keys(self):
+-        mutations = [lambda v: v.update(extra=True), lambda v: v['guardController'].update(extra=True),
+-                     lambda v: v['guardController']['observations'][0].update(extra=True),
+-                     lambda v: event(v, 'GUARD_ENTRY').update(extra=True)]
+-        for index, mutate in enumerate(mutations):
++        mutations = [(lambda v: v.update(extra=True), r'\ACLOSED_GUEST_PROBE\Z'),
++                     (lambda v: v['guardController'].update(extra=True), r'\ABOUND_NODE_HELPER_AUDIT\Z'),
++                     (lambda v: v['guardController']['observations'][0].update(extra=True), r'\ACLOSED_SUCCESS_OBSERVATION\Z'),
++                     (lambda v: event(v, 'GUARD_ENTRY').update(extra=True), r'\ACLOSED_OBSERVATION_FIELDS\Z')]
++        for index, (mutate, expected) in enumerate(mutations):
+             with self.subTest(index=index):
+-                self.reject_trace(lambda v, p, l: mutate(v), 'CLOSED_')
++                self.reject_trace(lambda v, p, l: mutate(v), expected)
+ 
+     def test_probe_raw_request_context_sequence_and_operation_substitutions(self):
+         mutations = [{'contextSha256': '0' * 64}, {'sequence': '2'}, {'label': 'other'},

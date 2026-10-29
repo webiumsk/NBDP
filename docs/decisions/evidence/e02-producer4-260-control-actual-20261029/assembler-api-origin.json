@@ -1,0 +1,39 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 63s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /Data/nbdp-e02-tooling-20261027/producer4-control-capture-preparation-r1/source4/assemble.py --result /Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/result.json --origin /Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/original-tool-origin.json --ack /Data/nbdp-e02-tooling-20261027/producer4-control-capture-preparation-r1/source4/coordinator-acknowledgement.json --output /Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/assembled",
+      "workdir": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-preparation-r1/source4",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2000
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "b03322",
+      "wall_time_seconds": 1.001560433,
+      "session_id": 2835,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "polls": [
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 2835,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "a39e0e",
+        "wall_time_seconds": 0.000029269,
+        "exit_code": 0,
+        "original_token_count": 57,
+        "output": "{\"path\": \"/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/assembled/subject.json\", \"bytes\": 3350, \"sha256\": \"7381d62ad2ab8f138c00856fa22de3e796c9b6faa76a481a0bbcdbbf0b5f1f66\"}\n"
+      }
+    }
+  ]
+}

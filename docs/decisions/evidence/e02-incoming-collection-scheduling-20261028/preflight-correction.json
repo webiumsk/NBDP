@@ -1,0 +1,32 @@
+{
+  "schema": "e02-current-input-preflight-versioned-correction-v1",
+  "actor": "/root",
+  "previous": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/verify-current-inputs.py",
+    "bytes": 6815,
+    "sha256": "29dd91c27c9adb92d8514400cbd5db21ac4d1165cc7d17e38ad51a1ea1df9710"
+  },
+  "originalApi": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/preflight-original-tool-origin.json",
+    "bytes": 2203,
+    "sha256": "834c5bcdf30a253a7bce906dbe97fabc9df88ab690428e11fdfe9490fbed9732"
+  },
+  "diagnostic": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/preflight-order-diagnostic.json",
+    "bytes": 937,
+    "sha256": "edc5404dcc4f79afd249d48703962ba7230183f1c3653558135f8181ed137901"
+  },
+  "newSource": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/verify-current-inputs-r2.py",
+    "bytes": 6913,
+    "sha256": "4531ed969dc950a0dce492aeab0b5939de4772b310304fc9ebd035b02807ee68"
+  },
+  "originalResult": "ACTUAL_PREFLIGHT_EXIT1_BEFORE_ANY_ROLE_OUTPUT_GRANT_LEASE_OR_SERVICE",
+  "cause": "sorted(Path.rglob) uses path-component order; frozen fullReadTrees files use absolute-string lexical order. SDK qemu/linux-x86_64 child sorted before qemu-img by Path, but string order puts qemu-img first.",
+  "diagnosticFacts": "Both required sets434/522 and file modes match; reviewed producer verify_config completed before the failing additional tree comparison. Diagnostic itself did not rehash contents.",
+  "change": "Canonicalize newly measured rows by absolute path before comparing the same complete expected descriptors/modes/count. New output directory preserves old attempt. No expected bytes, membership, assertions, role code or clocks changed.",
+  "sourceValidation": "AST_ONLY_NO_IMPORT_OR_EXECUTION",
+  "newExecutionAuthorized": false,
+  "roleGrantIssued": false,
+  "ordinaryRowsQualified": 0
+}
