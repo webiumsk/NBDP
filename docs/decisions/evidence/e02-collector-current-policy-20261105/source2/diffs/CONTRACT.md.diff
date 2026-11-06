@@ -1,0 +1,113 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/CONTRACT.md
++++ /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/CONTRACT.md
+@@ -1,58 +1,58 @@
+-# Collector actual-request7 SOURCE1 composite
++# Collector actual-request7 SOURCE2 typed-origin remediation
+ 
+-This Source-only successor selects the historical R4 operational collector CLI
+-unchanged, a byte-identical local collector and per-origin raw codec, and new
+-local qualification/history modules. All operational collector requests still
+-use the pinned R4 CLI path, exact clean env and KILL10s command. Local test imports
+-use the new qualifier; history imports that same peer, never the old R4 qualifier.
+-The new composite subject is source1/source-subject.json at its absolute declared
+-path. Its complete external bytes/SHA descriptor must be Root accepted and passed
+-as collectorSource; this argument is not a self-issued source acceptance. Subject
+-does not embed its own digest and history does not introduce a hash cycle.
++Source1 is immutable and unaccepted. Its independent QA positive verdict and
++security HOLD remain preserved. SEC-01 found Python equality aliases JSON false
++with0 and int with float/bool. Source1's launch comparison checked args==expected
++without validating the separately copied actual request. Those are distinct raw
++JSON values and must not qualify complete expected/actual custody.
+ 
+-The exact outer exec API keys are cmd, workdir, login, yield_time_ms,
+-max_output_tokens, sandbox_permissions and justification. sandbox_permissions is
+-literally require_escalated. justification is a string of 1..1024 strict UTF8 bytes
+-with at least one non-whitespace character. The check never trims, normalizes,
+-rewrites or projects any value. The whole canonical request including both policy
+-values is pinned, then actualArguments must equal the complete expected request.
+-Matching expected+actual wrong policy, historical five fields and every unknown
+-extra field fail. New shell/tty/prefix_rule keys need a separately reviewed whole
+-shape. These outer API values never become Docker arguments or environment.
++Source2 validates BOTH the full expected and full actual launch with the same
++command() validator, including its closed seven keys, strict login/numeric types,
++fixed policy, UTF8 bound, exact pinned CLI and existing operation rules. It then
++compares the whole canonical encoded requests, preserving JSON type distinctions.
++Neither raw origins nor request values are changed, normalized or projected.
++The canonical expected requestPin remains a separate preexisting Root check.
+ 
+-All original complete launch/allpoll/session/terminal0/truncation checks, exact
+-acknowledgements, account/ledger counters, permanent RootFailstop and clean-env
+-route remain. No Source or control result transfers from historical R4/R5. All50
+-old named test bodies and assertions remain AST-identical. Two fixture request
+-constructors now add the actual7 policy fields; those are the only old test-file
+-adaptations. The dedicated new policy cases are synthetic definitions, not real
+-custody or runtime evidence. Their actual aggregate count is statically derived.
++Polls retain exactly the old permitted fieldset/session/empty-chars route. Actual
++poll session_id now requires exact positive int before same-session equality.
++Optional yield_time_ms requires exact int; omission still uses the existing API
++default and no numeric wait limit or operational clock is increased. Poll max
++output tokens retains the existing exact-int/count-cap guard. Optional terminal
++response session_id, when non-null, requires exact int plus the same session;
++this closes the analogous float/bool alias. Running response sessions were already
++strict positive ints. Complete launch/allpoll/session/terminal0/truncation checks
++and permanent runId failstop remain. None of this authenticates supplied origins.
+ 
+-Every expected preF request and actual origin retains all7 fields. The prefix and
+-envelope freeze BEFORE deriving F's request, requestPin, proof hash and origin.
+-None of those F members belongs in the prefix. The final F is still the same last
+-charged diagnostic record. Its complete actual launch/allpolls/terminal0 remains
+-platform-only. There is no physical own-F origin, index, status, copy, later CLI
+-or rescue after F. Same new qualifier and externally accepted composite pin apply
+-to preF and F. Existing actual-mode RootFailstop is required and failed F cannot
+-be retried into qualification. Supplied JSON cannot establish that later genuine
+-platform calls were not omitted; Root and independent concrete review must verify
+-the actual full finite cut and permanently retain run exclusion across processes.
++The Source2 composite uses its own source-subject.json absolute path and external
++whole bytes/hash. History imports the same Source2 qualifier; no old qualifier or
++old Source pin is selected. No self-hash cycle is introduced. All Source1 66 named
++controls remain semantically preserved. All original50 named method bodies stay
++AST-identical; one later Source-path assertion necessarily changes source1 to
++source2. Added definitions use separately copied actualArguments and cover the
++three diagnosed aliases in direct/yielded/preF/finalF/permanent-failstop paths,
++poll and response session types and valid unchanged inputs. Actual current count
++is statically derived; none of the controls has run and no historical result moves.
+ 
+-The existing 65536 physical/16384 ledger/49152 payload/64 writes/10-second CLI
+-limits stay fixed. Every retained raw request/origin, registered duplicate,
+-envelope/header/gzip and ledger charge counts. Host origin remains plain JSON;
+-collector gzip cannot substitute for Host custody. No command, write, slot or
+-sidecar is required solely by the request shape. Request7 growth formulas and
+-conservative bounds are declared in budget-contract.json. Bounds do not prove
+-gzip or whole-chain fit; Root must calculate the concrete exact raw/decoded/
+-Base64/F-command/copy chain and verify remaining capacity before F. No cap increase,
+-borrowing, refund, retry grant or historical compressed-margin transfer follows.
++Unchanged R4 operational collector CLI, local collector, codec and account/ledger
++engines remain pinned. Seven API keys/fixed require_escalated/nonblank1..1024 UTF8
++justification remain. Whole raw policy values stay in expected/actual history;
++metadata never enters Docker argv/env. Existing65536 physical/16384 ledger/49152
++payload/64 writes/10s limits and all charged duplicates remain. Request-growth
++and Base64 formulas are retained conservatively; no compressed or whole fit is
++asserted. There is no added operation/write/slot/sidecar solely from request shape.
+ 
+-This packet executes no target, codec, qualifier, history, tests, model, collector,
+-Docker, helper, SDK, network or ordinary role. It creates no Data account, lease,
+-identity, acceptance or release and binds no unissued producer/controller/helper
+-acceptance. Fresh independent whole-Source QA/security comes first, then separately
+-released full current controls and DATA review, then controller/helper/consumer
+-successors and independently reviewed concrete full fit and Root one-use release.
+-E02 remains PARTIAL22; Q06/Q24 and Q01/Q08/Q13/Q15/Q27 are not closed here.
++Prefix/envelope freeze precedes deriving F request/pin/hash/origin. F members are
++excluded from prefix. F's complete actual launch/allpoll/terminal0 remains solely
++the genuine platform witness; no physical own-F origin/index/status/copy/CLI or
++rescue after F is allowed. Same remaining slot and existing actual RootFailstop
++are mandatory. Root concrete review must establish the actual full finite cut
++and permanent quarantine; supplied JSON cannot detect omitted later platform calls.
++
++Source2 grants no current Source/DATA acceptance, controls, lease, identity,
++helper/role runtime or release and binds no unissued final component acceptance.
++Independent QA and security reviewers must be born after freeze and exclude all
++current contributors including the SEC-01 diagnosis contributor. Fresh reviewed
++whole Source and separately released complete current controls/DATA precede
++current controller/helper/consumer successors, concrete full-chain fit and one-use
++Root runtime release. Source1/HOLD and all earlier failures remain retained. E02
++stays PARTIAL22; no Q06/Q24 or Q01/Q08/Q13/Q15/Q27 gate is closed here.

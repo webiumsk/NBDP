@@ -1,0 +1,929 @@
+{
+  "author": "/root/consumer_eose_basis_source",
+  "canonicalModelsExecuted": 0,
+  "completedBasisIssued": false,
+  "controlFiles": [
+    "test_data_controls.py",
+    "test_async_guard.py",
+    "test_parent_allocation.py",
+    "test_observer_v3.py",
+    "test_source_bindings.py",
+    "test_current_controls.py",
+    "test_probe_adapter.py",
+    "test_whole_window.py",
+    "test_current_authority.py",
+    "test_request_families.py",
+    "test_import_closure.py",
+    "test_mode_reader.py",
+    "test_component_basis.py"
+  ],
+  "executionAuthorized": false,
+  "finalSourceFreezeReady": false,
+  "groups": [
+    {
+      "count": 86,
+      "definitionNames": [
+        "PureDataControls.test_positive_exact_six_field_unicode_export",
+        "PureDataControls.test_positive_empty_sig_client_representation_only",
+        "PureDataControls.test_nonempty_sig_refused",
+        "PureDataControls.test_extra_client_field_refused",
+        "PureDataControls.test_changed_content_even_with_recomputed_id_refused",
+        "PureDataControls.test_changed_ordered_tags_refused",
+        "PureDataControls.test_unicode_normalization_is_not_applied",
+        "PureDataControls.test_duplicate_json_keys_refused",
+        "PureDataControls.test_invalid_utf8_refused",
+        "PureDataControls.test_nonfinite_float_and_negative_zero_refused",
+        "PureDataControls.test_boolean_is_not_integer",
+        "PureDataControls.test_selection_i64_positive_exact_path",
+        "PureDataControls.test_lease_all_six_i64_fields_positive",
+        "PureDataControls.test_ns_name_does_not_widen_wire",
+        "PureDataControls.test_nested_schema_cannot_widen_parent",
+        "PureDataControls.test_unrelated_field_in_registered_schema_stays_safe",
+        "PureDataControls.test_i64_overflow_refused",
+        "PureDataControls.test_wire_timestamp_not_widened",
+        "PureDataControls.test_file_positive_then_drift_refused",
+        "PureDataControls.test_duplicate_pin_alias_refused",
+        "PureDataControls.test_symlink_file_and_component_refused",
+        "PureDataControls.test_guest_mapping_positive_and_crosswindow_refusal",
+        "PureDataControls.test_guest_binding_conflict_refused",
+        "PureDataControls.test_unbound_input_and_outside_root_refused",
+        "PureDataControls.test_raw_base64_positive_and_invalid_refused",
+        "PureDataControls.test_proxy_sequence_omission_refused",
+        "PureDataControls.test_proxy_unknown_direction_refused",
+        "PureDataControls.test_role_stage_contract_and_archive_inner_recipient",
+        "PureDataControls.test_actual_public_api35_nprofile_vector",
+        "PureDataControls.test_nprofile_checksum_and_truncation_refused",
+        "PureDataControls.test_fixture_json_text_and_clipboard_inputs_refused",
+        "PureDataControls.test_crossrole_helper_case_refused",
+        "PureDataControls.test_exact_synthetic_identity_allowed_but_wrong_role_refused",
+        "PureDataControls.test_unknown_json_schema_cannot_claim_window",
+        "PureDataControls.test_actor_union_and_same_session_review_refused",
+        "PureDataControls.test_missing_entire_history_witness_refused",
+        "PureDataControls.test_failed_window_no_partial_export_contribution",
+        "PureDataControls.test_positive_app_wire_and_native_data_joins",
+        "PureDataControls.test_positive_identical_query_origin_is_not_client_receipt",
+        "PureDataControls.test_query_origin_for_required_initial_stage_refused",
+        "PureDataControls.test_query_origin_for_required_fresh_wrap_refused",
+        "PureDataControls.test_stale_delivery_attempt_refused",
+        "PureDataControls.test_stale_delivery_eose_generation_refused",
+        "PureDataControls.test_send_callback_buffer_hash_mismatch_refused",
+        "PureDataControls.test_send_callback_not_completed_refused",
+        "PureDataControls.test_copied_forward_frame_without_current_callback_refused",
+        "PureDataControls.test_wrong_archive_outer_recipient_refused",
+        "PureDataControls.test_positive_history_union_includes_failed_and_legacy_operators",
+        "PureDataControls.test_omitted_failed_attempt_rejected_by_external_inventory",
+        "PureDataControls.test_omitted_legacy_context_rejected",
+        "PureDataControls.test_failed_attempt_row_donation_refused",
+        "PureDataControls.test_positive_actual_command_record_data_and_force_failure",
+        "PureDataControls.test_known_nonoperative_low_preserved_with_actual_disposition_operand",
+        "PureDataControls.test_medium_source_finding_cannot_use_nonoperative_exception",
+        "PureDataControls.test_selection_positive_owned_edittext_ancestor",
+        "PureDataControls.test_selection_foreign_edittext_ancestor_refused",
+        "PureDataControls.test_selection_disabled_edittext_ancestor_refused",
+        "PureDataControls.test_selection_nonempty_edittext_ancestor_refused",
+        "PureDataControls.test_selection_detached_message_label_refused",
+        "PureDataControls.test_selection_ambiguous_edittext_ancestors_refused",
+        "PureDataControls.test_selection_foreign_message_label_refused",
+        "PureDataControls.test_selection_disabled_message_label_refused",
+        "PureDataControls.test_selection_positive_exact_source_dm_warning",
+        "PureDataControls.test_selection_foreign_warning_refused",
+        "PureDataControls.test_selection_disabled_warning_refused",
+        "PureDataControls.test_selection_duplicate_warning_refused",
+        "PureDataControls.test_selection_warning_and_message_label_refused",
+        "PureDataControls.test_selection_no_composer_or_warning_refused",
+        "PureDataControls.test_selection_warning_without_back_context_refused",
+        "PureDataControls.test_native_actual_nested_rpc_envelope_positive",
+        "PureDataControls.test_native_unwrapped_rpc_reply_refused",
+        "PureDataControls.test_native_error_rpc_reply_refused",
+        "PureDataControls.test_native_extra_rpc_envelope_key_refused",
+        "PureDataControls.test_native_wrong_rpc_value_refused",
+        "PureDataControls.test_native_double_rpc_envelope_refused",
+        "PureDataControls.test_native_missing_rpc_value_refused",
+        "PureDataControls.test_native_missing_second_rpc_line_refused",
+        "PureDataControls.test_native_extra_rpc_line_refused",
+        "PureDataControls.test_native_zero_rpc_lines_refused",
+        "PureDataControls.test_native_missing_source_echo_refused",
+        "PureDataControls.test_identical_query_same_id_altered_payload_candidate_refused",
+        "PureDataControls.test_identical_query_same_id_altered_tags_candidate_refused",
+        "PureDataControls.test_identical_query_exact_candidate_uncompleted_callback_refused",
+        "PureDataControls.test_qualified_delivery_same_id_altered_payload_refused",
+        "PureDataControls.test_late_same_id_altered_payload_is_retained_not_interval_absence",
+        "PureDataControls.test_candidate_predicate_selected_id_not_whole_payload"
+      ],
+      "name": "test_data_controls.py",
+      "source": {
+        "bytes": 43425,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_data_controls.py",
+        "sha256": "4cce7a04508ff87ca0546983f97897be2e5d95d3a7fc5bf5e0e568af45923365"
+      }
+    },
+    {
+      "count": 47,
+      "definitionNames": [
+        "AsyncGuardControls.test_positive_complete_owner_and_effect",
+        "AsyncGuardControls.test_unrelated_observation_interleaving_is_causal",
+        "AsyncGuardControls.test_wrong_instance",
+        "AsyncGuardControls.test_wrong_run",
+        "AsyncGuardControls.test_wrong_lease_hash",
+        "AsyncGuardControls.test_wrong_reply_sequence",
+        "AsyncGuardControls.test_wrong_request_hash",
+        "AsyncGuardControls.test_wrong_context_hash",
+        "AsyncGuardControls.test_wrong_label",
+        "AsyncGuardControls.test_replayed_reply",
+        "AsyncGuardControls.test_missing_request",
+        "AsyncGuardControls.test_missing_reply",
+        "AsyncGuardControls.test_missing_consumption",
+        "AsyncGuardControls.test_nonconsumed_exit",
+        "AsyncGuardControls.test_denied_reply",
+        "AsyncGuardControls.test_held_ok_past_enqueue_deadline",
+        "AsyncGuardControls.test_utc_held_ok_deadline",
+        "AsyncGuardControls.test_boot_held_ok_deadline",
+        "AsyncGuardControls.test_reply_clock_rollback",
+        "AsyncGuardControls.test_original_core_lease_expiry",
+        "AsyncGuardControls.test_boot_identity_substitution",
+        "AsyncGuardControls.test_extended_five_second_window",
+        "AsyncGuardControls.test_terminal_fence_forbids_success",
+        "AsyncGuardControls.test_missing_orderly_close",
+        "AsyncGuardControls.test_close_nonnull_clocks",
+        "AsyncGuardControls.test_wrong_helper_source",
+        "AsyncGuardControls.test_missing_stderr_eof",
+        "AsyncGuardControls.test_missing_stdout_eof",
+        "AsyncGuardControls.test_nonnatural_helper_exit",
+        "AsyncGuardControls.test_close_without_actual_exit",
+        "AsyncGuardControls.test_wrong_effect_context",
+        "AsyncGuardControls.test_effect_after_consumption_refused",
+        "AsyncGuardControls.test_same_effect_not_reused",
+        "AsyncGuardControls.test_observed_effect_after_close_is_refused",
+        "AsyncGuardControls.test_core_mono_cannot_precede_enqueue",
+        "AsyncGuardControls.test_core_utc_cannot_precede_conservative_enqueue_lower",
+        "AsyncGuardControls.test_core_boot_cannot_precede_conservative_enqueue_lower",
+        "AsyncGuardControls.test_check_consumed_mono_cannot_precede_enqueue",
+        "AsyncGuardControls.test_check_consumed_utc_cannot_precede_enqueue_lower",
+        "AsyncGuardControls.test_check_consumed_boot_cannot_precede_enqueue_lower",
+        "AsyncGuardControls.test_close_consumed_mono_cannot_precede_enqueue",
+        "AsyncGuardControls.test_close_consumed_utc_cannot_precede_enqueue_lower",
+        "AsyncGuardControls.test_close_consumed_boot_cannot_precede_enqueue_lower",
+        "AsyncGuardControls.test_exact_enqueue_core_consumed_lower_boundary_is_valid",
+        "AsyncGuardControls.test_extra_reply_key",
+        "AsyncGuardControls.test_incomplete_raw_reply",
+        "AsyncGuardControls.test_old_sync_pair_is_not_fresh_rpc"
+      ],
+      "name": "test_async_guard.py",
+      "source": {
+        "bytes": 10240,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_async_guard.py",
+        "sha256": "d29ef53d04f81e2e51f1b2c498c5b8d8fb51a11335e5c4b3b1e077f1c7b04b78"
+      }
+    },
+    {
+      "count": 17,
+      "definitionNames": [
+        "ParentAllocationControls.test_positive_whole_parent_controller_join",
+        "ParentAllocationControls.test_global_budget_not_expanded",
+        "ParentAllocationControls.test_attempt65_refused",
+        "ParentAllocationControls.test_nonrefundable_slot",
+        "ParentAllocationControls.test_wrong_slot_precharge",
+        "ParentAllocationControls.test_wrong_original_lease",
+        "ParentAllocationControls.test_wrong_current_source_binding",
+        "ParentAllocationControls.test_fixture_writable_ledger_location",
+        "ParentAllocationControls.test_child_cannot_assign_capacity",
+        "ParentAllocationControls.test_wrong_helper_instance",
+        "ParentAllocationControls.test_wrong_encoded_audit_charge",
+        "ParentAllocationControls.test_duplicate_reply_copy_refused",
+        "ParentAllocationControls.test_missing_ledger_result",
+        "ParentAllocationControls.test_extra_unaccounted_ledger_file",
+        "ParentAllocationControls.test_truncated_controller_stdout_eof",
+        "ParentAllocationControls.test_controller_nonnatural_exit",
+        "ParentAllocationControls.test_controller_forced_lifecycle"
+      ],
+      "name": "test_parent_allocation.py",
+      "source": {
+        "bytes": 7718,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_parent_allocation.py",
+        "sha256": "f7350352aa4e2659d953ed37c4a2af3762bfd0b6201456343868144274dc65ed"
+      }
+    },
+    {
+      "count": 13,
+      "definitionNames": [
+        "ObserverV3Controls.test_positive_exact_current_service_state",
+        "ObserverV3Controls.test_old_observer_v2_rejected",
+        "ObserverV3Controls.test_old_budget_v2_rejected",
+        "ObserverV3Controls.test_service_share_not_whole16MiB",
+        "ObserverV3Controls.test_global_partition_not_expanded",
+        "ObserverV3Controls.test_missing_allocation_account",
+        "ObserverV3Controls.test_undercharged_stream_bytes",
+        "ObserverV3Controls.test_poisoned_service_account",
+        "ObserverV3Controls.test_diagnostics_cannot_borrow_proof_share",
+        "ObserverV3Controls.test_header_precharge_exact4096",
+        "ObserverV3Controls.test_unknown_physical_write_claim_refused",
+        "ObserverV3Controls.test_short_retained_phase_prefix_refused",
+        "ObserverV3Controls.test_wrong_exact_prefix_hash_refused"
+      ],
+      "name": "test_observer_v3.py",
+      "source": {
+        "bytes": 3521,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_observer_v3.py",
+        "sha256": "b86e06ad8d86bd8d6d88018a91c46458e4606093feedea47477a9cc1ea1bf565"
+      }
+    },
+    {
+      "count": 15,
+      "definitionNames": [
+        "CurrentSourceBindings.test_exact_current_source4_metadata_subject",
+        "CurrentSourceBindings.test_exact22_current_runtime_workers",
+        "CurrentSourceBindings.test_exact61_source_members_no_legacy31",
+        "CurrentSourceBindings.test_exact_current_source4_control260_counts",
+        "CurrentSourceBindings.test_all22_exact_bytes_declared",
+        "CurrentSourceBindings.test_current_profile_matches_actual_supervisor",
+        "CurrentSourceBindings.test_both_configs_bind22_workers_and_original1800",
+        "CurrentSourceBindings.test_current_dto_closed22_worker_list",
+        "CurrentSourceBindings.test_current_dto_original16MiB_partition",
+        "CurrentSourceBindings.test_current_export_and_guard_dto_are_distinct_operands",
+        "CurrentSourceBindings.test_actual260_bound_but_future_probe_data_stays_null",
+        "CurrentSourceBindings.test_pending_runtime_refuses_before_any_target_read",
+        "CurrentSourceBindings.test_runtime_leaf_is_unissued_unready_with_null_future_data",
+        "CurrentSourceBindings.test_unready_external_leaf_refuses_before_prerequisite_reads",
+        "CurrentSourceBindings.test_current_root_data_contract_is_definition_only"
+      ],
+      "name": "test_source_bindings.py",
+      "source": {
+        "bytes": 5946,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_source_bindings.py",
+        "sha256": "b158f594bc41fe48f9647350d401ae4d1c971dd19768cbbd9a09b5bbd766d2ed"
+      }
+    },
+    {
+      "count": 33,
+      "definitionNames": [
+        "CurrentControlAuthorityModels.test_positive_exact_closed24_root_shape",
+        "CurrentControlAuthorityModels.test_legacy_a_b_split_not_current_data",
+        "CurrentControlAuthorityModels.test_root_actor_must_be_actual_root",
+        "CurrentControlAuthorityModels.test_root_decision_scope_not_runtime_grant",
+        "CurrentControlAuthorityModels.test_models259_not_all260",
+        "CurrentControlAuthorityModels.test_one_failed_model_is_not_current_pass",
+        "CurrentControlAuthorityModels.test_boolean_not_integer_count",
+        "CurrentControlAuthorityModels.test_missing_scope_partition",
+        "CurrentControlAuthorityModels.test_wrong_source4_source_pin",
+        "CurrentControlAuthorityModels.test_helper_execution_not_in_pure_model_scope",
+        "CurrentControlAuthorityModels.test_no_ordinary_rows_from_pure_controls",
+        "CurrentControlAuthorityModels.test_extra_self_approval_key_refused",
+        "CurrentControlAuthorityModels.test_review_pair_author_cannot_review_own_data",
+        "CurrentControlAuthorityModels.test_review_pair_exact_role_order",
+        "CurrentControlAuthorityModels.test_exact_actual_current260_retained_data_consumer",
+        "CurrentControlAuthorityModels.test_whole_legacy260_root_acceptance_cannot_qualify266",
+        "CurrentControlAuthorityModels.test_legacy260_partition_with_current266_totals_refused",
+        "CurrentControlAuthorityModels.test_models265_not_all266",
+        "CurrentControlAuthorityModels.test_current266_mixed_legacy_producer_source_refused",
+        "CurrentControlAuthorityModels.test_current266_cannot_join_legacy_data_subject",
+        "CurrentControlAuthorityModels.test_current266_mixed_legacy_capture_source_refused",
+        "CurrentControlAuthorityModels.test_current266_mixed_legacy_admission_acceptance_refused",
+        "CurrentControlAuthorityModels.test_models285_not_all286",
+        "CurrentControlAuthorityModels.test_original266_partition_cannot_qualify286",
+        "CurrentControlAuthorityModels.test_exact_eleven_source_defined286_partition",
+        "CurrentControlAuthorityModels.test_new_external_family_cannot_drop_source_member",
+        "CurrentControlAuthorityModels.test_external20_exact_ordered_pure_output",
+        "CurrentControlAuthorityModels.test_external20_case_order_cannot_be_substituted",
+        "CurrentControlAuthorityModels.test_external19_cannot_qualify20",
+        "CurrentControlAuthorityModels.test_external_baseline_failure_must_be_reproduced",
+        "CurrentControlAuthorityModels.test_external_helper_claim_does_not_donate_rows",
+        "CurrentControlAuthorityModels.test_external_network_claim_is_not_pure_control",
+        "CurrentControlAuthorityModels.test_new_ordinary_origin_does_not_route_helper_family"
+      ],
+      "name": "test_current_controls.py",
+      "source": {
+        "bytes": 10395,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_current_controls.py",
+        "sha256": "eb741c777dd96ec367eda07937429b082b9c80f3d4b82cb9b000385018a4cc2e"
+      }
+    },
+    {
+      "count": 22,
+      "definitionNames": [
+        "ProbePrerequisiteModels.test_positive_closed18_root24_manifest4_model",
+        "ProbePrerequisiteModels.test_failed_inner_probe_not_qualified",
+        "ProbePrerequisiteModels.test_missing_exact_owned_cleanup",
+        "ProbePrerequisiteModels.test_unknown_cleanup_identity",
+        "ProbePrerequisiteModels.test_helper_result_no_backend_cause_inference",
+        "ProbePrerequisiteModels.test_helper_result_no_ordinary_row",
+        "ProbePrerequisiteModels.test_actual_host_scope_not_api_lifecycle_inference",
+        "ProbePrerequisiteModels.test_manifest_has_no_generic_extra_graph",
+        "ProbePrerequisiteModels.test_manifest_duplicate_members",
+        "ProbePrerequisiteModels.test_reservation_stays_inside_metadata",
+        "ProbePrerequisiteModels.test_metadata_share_not_expanded",
+        "ProbePrerequisiteModels.test_attached_share_not_expanded",
+        "ProbePrerequisiteModels.test_raw_member_expected_hash_is_checked",
+        "ProbePrerequisiteModels.test_api_nonnatural_exit_refuses",
+        "ProbePrerequisiteModels.test_wrong_outer_controller_request",
+        "ProbePrerequisiteModels.test_pending_probe_anchor_hard_refuses",
+        "ExplicitRawStreamControls.test_positive_explicit_raw_stream_and_recheck",
+        "ExplicitRawStreamControls.test_raw_hash_substitution_refused",
+        "ExplicitRawStreamControls.test_raw_file_drift_on_recheck",
+        "ExplicitRawStreamControls.test_raw_symlink_refused",
+        "ExplicitRawStreamControls.test_raw_above2GiB_refused_before_open",
+        "ExplicitRawStreamControls.test_raw_path_is_not_an_implicit_json_parse"
+      ],
+      "name": "test_probe_adapter.py",
+      "source": {
+        "bytes": 9700,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_probe_adapter.py",
+        "sha256": "e9676d081b00ec85f9e365c06d22f4ba420be4719afed9799d8df9d242798533"
+      }
+    },
+    {
+      "count": 11,
+      "definitionNames": [
+        "WholeWindowDataControls.test_complete_two_role_windows_with_five_exports",
+        "WholeWindowDataControls.test_whole_graph_preserves_actual_frozen_scope_and_source_guard_vocabulary",
+        "WholeWindowDataControls.test_complete_graph_failed_driver_has_no_export_contribution",
+        "WholeWindowDataControls.test_complete_graph_nonzero_supervisor_error_cannot_donate_early_rows",
+        "WholeWindowDataControls.test_complete_graph_omitted_final_phase_member_refused",
+        "WholeWindowDataControls.test_complete_graph_unknown_source_policy_effect_claim_refused",
+        "WholeWindowDataControls.test_complete_graph_late_unlisted_proof_file_refused",
+        "WholeWindowDataControls.test_complete_graph_sticky_revoke_refused",
+        "WholeWindowDataControls.test_complete_graph_operator_cannot_be_window_reviewer",
+        "WholeWindowDataControls.test_complete_current_producer_configuration_drives_real_two_role_models",
+        "WholeWindowDataControls.test_complete_historical_producer_helper_refused_by_real_window_validator"
+      ],
+      "name": "test_whole_window.py",
+      "source": {
+        "bytes": 8221,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_whole_window.py",
+        "sha256": "e7e5a2dfa873e9e630ce309d63b4d8ee5401ceaacb9c8a04e62f48a504a81cc1"
+      }
+    },
+    {
+      "count": 84,
+      "definitionNames": [
+        "CurrentReadyAuthorityControls.test_positive_full_current_ready_typed_authority_path",
+        "CurrentReadyAuthorityControls.test_current_actual_code_and_ast_partition_are_checked",
+        "CurrentReadyAuthorityControls.test_stale139_control_authority_refused",
+        "CurrentReadyAuthorityControls.test_wrong_source_acceptance_scope",
+        "CurrentReadyAuthorityControls.test_wrong_source_acceptance_decision",
+        "CurrentReadyAuthorityControls.test_wrong_control_acceptance_scope",
+        "CurrentReadyAuthorityControls.test_wrong_control_acceptance_decision",
+        "CurrentReadyAuthorityControls.test_unrelated_root_stub_without_typed_schema",
+        "CurrentReadyAuthorityControls.test_wrong_control_source_join",
+        "CurrentReadyAuthorityControls.test_wrong_control_plan_join",
+        "CurrentReadyAuthorityControls.test_incomplete_current_partition",
+        "CurrentReadyAuthorityControls.test_old16_runtime_root_field",
+        "CurrentReadyAuthorityControls.test_old31_source_root_field",
+        "CurrentReadyAuthorityControls.test_source_review_role_order",
+        "CurrentReadyAuthorityControls.test_control_review_role_order",
+        "CurrentReadyAuthorityControls.test_source_author_cannot_be_source_reviewer",
+        "CurrentReadyAuthorityControls.test_helper_creator_cannot_be_source_reviewer",
+        "CurrentReadyAuthorityControls.test_helper_creator_cannot_be_control_reviewer",
+        "CurrentReadyAuthorityControls.test_control_data_operator_list_cannot_be_empty",
+        "CurrentReadyAuthorityControls.test_model_api_inner_reap_eof_cannot_be_fabricated",
+        "CurrentReadyAuthorityControls.test_nonzero_model_failure_refused",
+        "CurrentReadyAuthorityControls.test_skipped_model_refused",
+        "CurrentReadyAuthorityControls.test_truncated_model_output_refused",
+        "CurrentReadyAuthorityControls.test_nonnatural_actual_api_exit_refused",
+        "CurrentReadyAuthorityControls.test_source_review_wrong_subject",
+        "CurrentReadyAuthorityControls.test_false_leaf_refuses_before_ready_authority",
+        "CurrentReadyAuthorityControls.test_wrong_current_self_code_hash",
+        "CurrentReadyAuthorityControls.test_wrong_current_test_body_hash",
+        "CurrentReadyAuthorityControls.test_old_source1_cannot_activate_current_code",
+        "CurrentReadyAuthorityControls.test_named_model_count_omission_refused",
+        "CurrentReadyAuthorityControls.test_fresh_source5_current_n_external_controller_triple_is_valid",
+        "CurrentReadyAuthorityControls.test_unmodified_source5_mixed_script_roots_and_reviewed_cwds_full_ready",
+        "CurrentReadyAuthorityControls.test_current_controller_request_preserves_frozen_predecessor_cwd",
+        "CurrentReadyAuthorityControls.test_current_controller_relative_cwd_refused",
+        "CurrentReadyAuthorityControls.test_current_controller_dot_alias_cwd_refused",
+        "CurrentReadyAuthorityControls.test_current_controller_dotdot_alias_cwd_refused",
+        "CurrentReadyAuthorityControls.test_current_controller_trailing_slash_alias_cwd_refused",
+        "CurrentReadyAuthorityControls.test_current_controller_repeated_slash_alias_cwd_refused",
+        "CurrentReadyAuthorityControls.test_current_controller_unapproved_foreign_cwd_refused",
+        "CurrentReadyAuthorityControls.test_current_controller_other_preparation_namespace_cwd_refused",
+        "CurrentReadyAuthorityControls.test_current_controller_future_revision_cwd_refused",
+        "CurrentReadyAuthorityControls.test_current_controller_predecessor_without_declared_member_cwd_refused",
+        "CurrentReadyAuthorityControls.test_current_controller_unbound_version_spelling_cannot_authorize_cwd",
+        "CurrentReadyAuthorityControls.test_current_controller_actual_api_cwd_cannot_be_rewritten_to_script_parent",
+        "CurrentReadyAuthorityControls.test_current_controller_actual_api_cwd_cannot_use_other_approved_root",
+        "CurrentReadyAuthorityControls.test_current_controller_actual_api_cwd_alias_refused",
+        "CurrentReadyAuthorityControls.test_partial_external_controller_tuple_refuses",
+        "CurrentReadyAuthorityControls.test_external_controller_source_must_equal_probe_operand",
+        "CurrentReadyAuthorityControls.test_external_controller_source_acceptance_must_equal_probe_operand",
+        "CurrentReadyAuthorityControls.test_external_controller_control_acceptance_must_equal_probe_operand",
+        "CurrentReadyAuthorityControls.test_current_controller_source_scope_is_typed",
+        "CurrentReadyAuthorityControls.test_current_controller_source_decision_is_typed",
+        "CurrentReadyAuthorityControls.test_current_controller_data_scope_is_typed",
+        "CurrentReadyAuthorityControls.test_current_controller_data_decision_is_typed",
+        "CurrentReadyAuthorityControls.test_old104_counts_cannot_qualify_new_host_current_n",
+        "CurrentReadyAuthorityControls.test_controller_control_data_source_must_match_current_tuple",
+        "CurrentReadyAuthorityControls.test_controller_source_review_roles_are_ordered",
+        "CurrentReadyAuthorityControls.test_controller_data_review_roles_are_ordered",
+        "CurrentReadyAuthorityControls.test_controller_helper_creator_cannot_review_current_controller_source",
+        "CurrentReadyAuthorityControls.test_controller_consumer_author_cannot_review_current_controller_data",
+        "CurrentReadyAuthorityControls.test_controller_wrong_host_code_hash_is_not_current_authority",
+        "CurrentReadyAuthorityControls.test_controller_missing_current_group_cannot_relabel_old_subset",
+        "CurrentReadyAuthorityControls.test_controller_model_skip_is_not_a_full_current_pass",
+        "CurrentReadyAuthorityControls.test_controller_api_only_does_not_invent_inner_reap",
+        "CurrentReadyAuthorityControls.test_controller_actual_group_api_exit_must_be_natural_zero",
+        "CurrentReadyAuthorityControls.test_exact_actual_r4_known_empty_source_operator_shape",
+        "CurrentReadyAuthorityControls.test_missing_source_creators_are_not_empty",
+        "CurrentReadyAuthorityControls.test_empty_data_operators_remain_invalid",
+        "CurrentReadyAuthorityControls.test_empty_release_operators_remain_invalid",
+        "CurrentReadyAuthorityControls.test_current266_exact_accepted_r8_168_full_ready_production_validator",
+        "CurrentReadyAuthorityControls.test_historical_r5_old260_tuple_cannot_qualify_current266",
+        "CurrentReadyAuthorityControls.test_current_r8_old260_upstream_model_count_refused",
+        "CurrentReadyAuthorityControls.test_current_r8_mixed_historical_producer_subject_refused",
+        "CurrentReadyAuthorityControls.test_current_r8_mixed_historical_source_acceptance_refused",
+        "CurrentReadyAuthorityControls.test_current_r8_mixed_historical_control_acceptance_refused",
+        "FixturePropagationControls.test_convergent_original_pin_diamond_rehashes_dependency_first_once",
+        "FixturePropagationControls.test_more_than256_convergent_edges_have_one_rehash_per_reachable_node",
+        "FixturePropagationControls.test_only_complete_exact_original_pin_replaced_wrong_hash_size_extra_and_partial_preserved",
+        "FixturePropagationControls.test_proposed_exact_original_self_cycle_fails_before_fixture_mutation",
+        "FixturePropagationControls.test_original_cycle_is_not_repaired_by_the_requested_mutation",
+        "FixturePropagationControls.test_dependency_cycle_is_failstop_in_finite_topological_order",
+        "FixturePropagationControls.test_colliding_named_path_versions_fail_before_fixture_mutation",
+        "FixturePropagationControls.test_alias_storage_path_is_not_another_graph_identity",
+        "FixturePropagationControls.test_noop_mutation_preserves_original_bytes_and_pins"
+      ],
+      "name": "test_current_authority.py",
+      "source": {
+        "bytes": 52760,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_current_authority.py",
+        "sha256": "ab7f4005cdad2f5955c9ba10e2ab4b51a3fd7c5bfe8d2a77926240d0b053401f"
+      }
+    },
+    {
+      "count": 27,
+      "definitionNames": [
+        "CurrentRequestFamilyModels.test_all_four_exact_actual_reader_paths_positive",
+        "CurrentRequestFamilyModels.test_model5_never_requires_or_invents_optional_native_counter",
+        "CurrentRequestFamilyModels.test_host7_and_capture7_native_counter_absence_preserved",
+        "CurrentRequestFamilyModels.test_collector7_missing_counter_is_permanent_family_refusal",
+        "CurrentRequestFamilyModels.test_legacy5_does_not_qualify_current_host_or_capture7",
+        "CurrentRequestFamilyModels.test_operational7_does_not_widen_model5",
+        "CurrentRequestFamilyModels.test_all_family_pairs_are_distinct_readers",
+        "CurrentRequestFamilyModels.test_unknown_family_refused_before_any_fallback",
+        "CurrentRequestFamilyModels.test_host7_policy_strings_are_exact_unprojected_fields",
+        "CurrentRequestFamilyModels.test_capture7_bare_actual_sha_never_quoted_substitution",
+        "CurrentRequestFamilyModels.test_full_request_false_int_and_float_aliases_refused",
+        "CurrentRequestFamilyModels.test_true_null_integer_string_native_flags_refused",
+        "CurrentRequestFamilyModels.test_absent_or_exact_false_native_flags_remain_lossless",
+        "CurrentRequestFamilyModels.test_token_counter_type_and_cap_boundaries",
+        "CurrentRequestFamilyModels.test_wall_domains_and_only_wall_float_path",
+        "CurrentRequestFamilyModels.test_direct_and_yielded_complete_session_lossless",
+        "CurrentRequestFamilyModels.test_session_and_terminal_aliases_and_late_frames_refused",
+        "CurrentRequestFamilyModels.test_duplicate_nonfinite_negativezero_and_depth_api_json_refused",
+        "CurrentRequestFamilyModels.test_collector_cli_reader_is_not_a_host_or_model_decoder",
+        "CurrentRequestFamilyModels.test_collector_direct_fixture_route_cannot_be_operational_evidence",
+        "CurrentRequestFamilyModels.test_exact_current_composite_collector_actor_schema",
+        "CurrentRequestFamilyModels.test_current_accepted_r10_178_model_data_is_consumed_without_activation",
+        "CurrentRequestFamilyModels.test_actual_accepted_typed_collector81_prerequisites_read_without_command_dispatch",
+        "CurrentRequestFamilyModels.test_typed_collector_composite_actor_must_be_in_explicit_union",
+        "CurrentRequestFamilyModels.test_collector7_operational_operator_cannot_be_nonroot_actor",
+        "CurrentRequestFamilyModels.test_actual_current_producer_reader_binds_ab6_native4ce_and_fresh_e01",
+        "CurrentRequestFamilyModels.test_old_producer_tuple_refused_by_actual_current_producer_reader"
+      ],
+      "name": "test_request_families.py",
+      "source": {
+        "bytes": 14614,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_request_families.py",
+        "sha256": "0a35acbd1670c8e0825ae96c0c54b3c1ac6e8a31c6b8c451d9a82169a3c8a43c"
+      }
+    },
+    {
+      "count": 8,
+      "definitionNames": [
+        "DeclaredImportClosureControls.test_complete_declared_code_and_transitive_runtime_import_closure",
+        "DeclaredImportClosureControls.test_preserved_source1_capture_outputs_imports_refused_by_actual_closure_reader",
+        "DeclaredImportClosureControls.test_actual_isolated_consumer_loads_only_declared_current_runtime_peers",
+        "DeclaredImportClosureControls.test_actual_isolated_current_controls_and_capture_outputs_load_declared_peers",
+        "DeclaredImportClosureControls.test_poisoned_legacy_ambient_aliases_do_not_supply_real_reader_imports",
+        "DeclaredImportClosureControls.test_real_capture_outputs_preserves_strict_local_decoder_and_output_checks",
+        "DeclaredImportClosureControls.test_unknown_dynamic_relative_and_local_symbol_imports_refused",
+        "DeclaredImportClosureControls.test_actual_isolated_preserved_source1_capture_outputs_still_exposes_original_hold"
+      ],
+      "name": "test_import_closure.py",
+      "source": {
+        "bytes": 11765,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_import_closure.py",
+        "sha256": "17016fc0873ce62c7267369f1f1910532170740ebba703be55848fc74bee049f"
+      }
+    },
+    {
+      "count": 23,
+      "definitionNames": [
+        "ExpectedModeReaderModels.test_exact_0664_and_full_recheck",
+        "ExpectedModeReaderModels.test_keyword_mode_uses_same_bounded_reader",
+        "ExpectedModeReaderModels.test_default_reader_does_not_invent_expected_mode",
+        "ExpectedModeReaderModels.test_wrong_actual_mode_refuses",
+        "ExpectedModeReaderModels.test_equal_declared_pair_does_not_mask_wrong_actual_modes",
+        "ExpectedModeReaderModels.test_mode_domain_rejects_bool_string_none_and_out_of_range",
+        "ExpectedModeReaderModels.test_keyword_mode_domain_refuses_non_integer",
+        "ExpectedModeReaderModels.test_conflicting_expected_modes_refuse_before_new_open",
+        "ExpectedModeReaderModels.test_later_chmod_refuses_default_read",
+        "ExpectedModeReaderModels.test_later_chmod_refuses_recheck",
+        "ExpectedModeReaderModels.test_restored_mode_still_refuses_changed_identity",
+        "ExpectedModeReaderModels.test_same_bytes_new_inode_refuses_continuity",
+        "ExpectedModeReaderModels.test_mode_change_between_before_and_after_stat_refuses",
+        "ExpectedModeReaderModels.test_same_content_path_replacement_during_read_refuses",
+        "ExpectedModeReaderModels.test_mode_change_at_canonical_reopen_refuses",
+        "ExpectedModeReaderModels.test_final_symlink_refuses",
+        "ExpectedModeReaderModels.test_ancestor_symlink_refuses",
+        "ExpectedModeReaderModels.test_ancestor_replaced_with_symlink_during_read_refuses",
+        "ExpectedModeReaderModels.test_raw_verification_preserves_constraint_and_recheck",
+        "ExpectedModeReaderModels.test_raw_first_then_mode_constraint_is_retained",
+        "ExpectedModeReaderModels.test_guest_alias_shares_exact_host_mode_constraint",
+        "ExpectedModeReaderModels.test_hash_and_size_checks_remain_mandatory",
+        "ExpectedModeReaderModels.test_read_and_pin_caps_remain_unchanged"
+      ],
+      "name": "test_mode_reader.py",
+      "source": {
+        "bytes": 9326,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_mode_reader.py",
+        "sha256": "a4e497dc09a7c8eb61d816018a7b446d8e6a2cc5750058df040e6ae5cc7cd37a"
+      }
+    },
+    {
+      "count": 54,
+      "definitionNames": [
+        "ConsumerBasisCallsiteTests.test_consumer_accepts_exact_completed_synthetic_basis",
+        "ConsumerBasisCallsiteTests.test_consumer_null_basis_refuses_before_any_read",
+        "ConsumerBasisCallsiteTests.test_consumer_unissued_basis_refuses",
+        "ConsumerBasisCallsiteTests.test_consumer_null_ordinary_authority_refuses_before_any_read",
+        "ConsumerBasisCallsiteTests.test_consumer_changed_ordinary_producer_refuses",
+        "ConsumerBasisCallsiteTests.test_consumer_changed_capture_source_refuses",
+        "ConsumerBasisCallsiteTests.test_consumer_changed_data_subject_refuses",
+        "ConsumerBasisCallsiteTests.test_consumer_changed_data_acceptance_refuses",
+        "ConsumerBasisCallsiteTests.test_metadata_selectors_restore_on_refusal",
+        "ConsumerBasisCallsiteTests.test_consumer_strict_controller_call_uses_original_basis_producer",
+        "ConsumerBasisCallsiteTests.test_strict_controller_source_profile_requires_original_producer",
+        "ComponentBasisTests.test_complete_source_basis_and_exact_actor_union",
+        "ComponentBasisTests.test_unissued_basis",
+        "ComponentBasisTests.test_unready_basis",
+        "ComponentBasisTests.test_execution_authorized",
+        "ComponentBasisTests.test_wrong_state",
+        "ComponentBasisTests.test_extra_top_level_field",
+        "ComponentBasisTests.test_root_actor_required",
+        "ComponentBasisTests.test_original_basis_cannot_be_recast",
+        "ComponentBasisTests.test_null_ordinary_pin",
+        "ComponentBasisTests.test_old_producer_cannot_be_ordinary",
+        "ComponentBasisTests.test_mixed_control_acceptance",
+        "ComponentBasisTests.test_ordinary_count_bool",
+        "ComponentBasisTests.test_ordinary_ten_groups",
+        "ComponentBasisTests.test_missing_eighth_pair",
+        "ComponentBasisTests.test_duplicate_pair",
+        "ComponentBasisTests.test_pair_order",
+        "ComponentBasisTests.test_hash_only_alias",
+        "ComponentBasisTests.test_wrong_pair_hash",
+        "ComponentBasisTests.test_declared_mode_wrong",
+        "ComponentBasisTests.test_actual_new_mode_wrong_despite_declared_equal",
+        "ComponentBasisTests.test_actual_old_mode_wrong_despite_declared_equal",
+        "ComponentBasisTests.test_source_verification_not_boolean",
+        "ComponentBasisTests.test_recomputed_environment_not_assertion",
+        "ComponentBasisTests.test_recomputed_mode_not_assertion",
+        "ComponentBasisTests.test_actor_omission",
+        "ComponentBasisTests.test_actor_extra",
+        "ComponentBasisTests.test_source_review_swapped",
+        "ComponentBasisTests.test_own_disposition_pin",
+        "ComponentBasisTests.test_original_root24_governance_mutation",
+        "ComponentBasisTests.test_operational_bodies_are_never_available",
+        "ComponentBasisTests.test_prior_design_reviewer_cannot_be_source_creator",
+        "ComponentBasisTests.test_source_creator_predecessor_is_in_union",
+        "ComponentBasisTests.test_extra_local_import_outside_eight",
+        "ComponentBasisTests.test_undeclared_eighth_member_edge",
+        "ComponentBasisTests.test_dynamic_javascript_import",
+        "ComponentBasisTests.test_external_package_import",
+        "ComponentBasisTests.test_python_nonstdlib_import",
+        "ComponentBasisTests.test_python_dynamic_builtin_import",
+        "ComponentBasisTests.test_python_eval",
+        "ComponentBasisTests.test_python_import_module",
+        "ComponentBasisTests.test_second_python_dynamic_execution_edge",
+        "ComponentBasisTests.test_runtime_manifest_hash_change",
+        "ComponentBasisTests.test_loader_prefix_change"
+      ],
+      "name": "test_component_basis.py",
+      "source": {
+        "bytes": 29435,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_component_basis.py",
+        "sha256": "034b49489fa226879ddcd64008892f8595d39ca74589e61bcef153c1223c5818"
+      }
+    }
+  ],
+  "members": [
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 2166,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/README.md",
+        "sha256": "6a3e8bcfef738f2df035f1aab1b08a726c3cc462fcf6438f649bf73ead65bbf6"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 11385,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/async_guard.py",
+        "sha256": "1417fe474d8695196f5e9b441189993144313b4c5d2d2929e9d0a77c87dc7c68"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 19017,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/capture_contracts.py",
+        "sha256": "cf491bf10d997bee6897aa42114c552e122f6f307db822851ece563999be204e"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 3688,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/capture_outputs.py",
+        "sha256": "32b1fcef306033557f736327916b9dfb532f5968bc457ccd85d1115a57f45621"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 4201,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/collector_contracts.py",
+        "sha256": "71027aeb69d409fbdcae19ff47be34c17b95106666e7f0e0459d1e87b6d48989"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 86814,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/consumer.py",
+        "sha256": "cd9e397607badcdb7946360b384009202162f463e6ee17212add80528a23763d"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 12999,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/current_authority_methods.txt",
+        "sha256": "d10e266dc4cfdd22dcfcd7b4c738010ef84808348b19570dd988c8f47589a1b4"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 10724,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/current_controls.py",
+        "sha256": "6a06bd3fc6da9a7456b639529b186b87d6b17e2ab9be5201cc149478755b6b38"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 14572,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/gui.py",
+        "sha256": "1dc3dc2fffd258c9f9a638f7ccdd21c82becb4a3dab7261efb2459d572c2bad5"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 8937,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/model_stage.py",
+        "sha256": "0f947d6c9970027cdf82d7c4fe233684c1a64bac30582107d4e5f87acb5308a7"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 23126,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/observer.py",
+        "sha256": "aca047cc7335c19cd620185ad21a0d8deb08d3c002cae15dd2cb2e5abc90d715"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 31367,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/ordinary_capture_contracts.py",
+        "sha256": "4857cec19615dd81f7302a74a28b0cf7a0f8af832733a34b02c9bd075af83b88"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 4917,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/ordinary_capture_outputs.py",
+        "sha256": "eeaa2e5b2cdc7c3e5edec9232ae010507bfcfe723de7b58150653cda75f04a63"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 6892,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/parent_allocation.py",
+        "sha256": "0460f7b9077277ce3fb5164e3e50b45324742b86b6cd58b601667126c57554b6"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 10232,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/prepare_consumer_edit.py",
+        "sha256": "219c41b0049f41d4a16eb7b9898d3258bab808b959bbc33382760e304f6d51c5"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 7536,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/prepare_observer_edit.py",
+        "sha256": "b29a95ed2413363efcf19223e840a02bb826b050db7f1ccebe2c272b73be0f4e"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 53667,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/probe_adapter.py",
+        "sha256": "5a3a0859d29a758d6135ff983f9976aeb9a5ab9b8ec6641db576750ea98e4281"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 11620,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/request_families.py",
+        "sha256": "29d98973b916060d94d98c954aa4a586586fe7f89e7dd557a49eee6a63519b68"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 12898,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/strict.py",
+        "sha256": "1bb1acaa173d1383d0aaef60130c4379b97b5e1d8014a8e73998639ed18430a3"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 2181,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/strict_raw_method.txt",
+        "sha256": "7799d75a2f22c9c5643ad3cebe52a5384a069c097c6e9e9d1157accd77dea0e6"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 10240,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_async_guard.py",
+        "sha256": "d29ef53d04f81e2e51f1b2c498c5b8d8fb51a11335e5c4b3b1e077f1c7b04b78"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 29435,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_component_basis.py",
+        "sha256": "034b49489fa226879ddcd64008892f8595d39ca74589e61bcef153c1223c5818"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 52760,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_current_authority.py",
+        "sha256": "ab7f4005cdad2f5955c9ba10e2ab4b51a3fd7c5bfe8d2a77926240d0b053401f"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 10395,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_current_controls.py",
+        "sha256": "eb741c777dd96ec367eda07937429b082b9c80f3d4b82cb9b000385018a4cc2e"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 43425,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_data_controls.py",
+        "sha256": "4cce7a04508ff87ca0546983f97897be2e5d95d3a7fc5bf5e0e568af45923365"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 11765,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_import_closure.py",
+        "sha256": "17016fc0873ce62c7267369f1f1910532170740ebba703be55848fc74bee049f"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 9326,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_mode_reader.py",
+        "sha256": "a4e497dc09a7c8eb61d816018a7b446d8e6a2cc5750058df040e6ae5cc7cd37a"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 3521,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_observer_v3.py",
+        "sha256": "b86e06ad8d86bd8d6d88018a91c46458e4606093feedea47477a9cc1ea1bf565"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 7718,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_parent_allocation.py",
+        "sha256": "f7350352aa4e2659d953ed37c4a2af3762bfd0b6201456343868144274dc65ed"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 9700,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_probe_adapter.py",
+        "sha256": "e9676d081b00ec85f9e365c06d22f4ba420be4719afed9799d8df9d242798533"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 14614,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_request_families.py",
+        "sha256": "0a35acbd1670c8e0825ae96c0c54b3c1ac6e8a31c6b8c451d9a82169a3c8a43c"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 5946,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_source_bindings.py",
+        "sha256": "b158f594bc41fe48f9647350d401ae4d1c971dd19768cbbd9a09b5bbd766d2ed"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 8221,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/test_whole_window.py",
+        "sha256": "e7e5a2dfa873e9e630ce309d63b4d8ee5401ceaacb9c8a04e62f48a504a81cc1"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 57972,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/whole_window.py",
+        "sha256": "ca6c7939b291748b495c73de32a8b41912d1ed89871dd803b671df8479180ecc"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 8132,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/whole_window_methods.txt",
+        "sha256": "f32efaeec213ed0444cc01a4fc673575b2b2028c5e37977d53ef358e1e34702c"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 20120,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/wire.py",
+        "sha256": "aa06718b30992c565ca7fcec721a5e3badebc6ad06f76ac11ebde09870932596"
+      }
+    },
+    {
+      "mode": 436,
+      "pin": {
+        "bytes": 19960,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/witness.py",
+        "sha256": "ce98436428fdcac553b6ef7e8452fedc9e0f5dfbc1d5f187c2a7ceb46014f377"
+      }
+    }
+  ],
+  "missingMembers": [],
+  "modelsDefined": 440,
+  "runtimeBindingIssued": false,
+  "runtimeFiles": [
+    "consumer.py",
+    "strict.py",
+    "wire.py",
+    "gui.py",
+    "witness.py",
+    "observer.py",
+    "async_guard.py",
+    "parent_allocation.py",
+    "capture_contracts.py",
+    "capture_outputs.py",
+    "ordinary_capture_contracts.py",
+    "ordinary_capture_outputs.py",
+    "current_controls.py",
+    "probe_adapter.py",
+    "request_families.py",
+    "collector_contracts.py"
+  ],
+  "schema": "e02-consumer-eose-unbound-code-snapshot-v1",
+  "sourceRoot": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source",
+  "state": "UNBOUND_CODE_AND_DEFINITIONS_ONLY"
+}

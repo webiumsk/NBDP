@@ -1,0 +1,34 @@
+{
+  "toolName": "tools.exec_command",
+  "actualArguments": {
+    "cmd": "python3 - <<'PY'\nimport ast,json,hashlib,sys\nfrom pathlib import Path\nowned=Path('/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source2');sys.path.insert(0,str(owned));import prepare_coupled as b\nsource=b.PREDECESSOR/'source';values=b.assignments((source/'consumer.py').read_bytes());code=sorted((*values['RUNTIME_FILES'],*values['CONTROL_FILES'],*b.EXTRAS));bodies={name:(source/name).read_bytes() for name in code}\nclockpath=owned.parent/'root-consumer-control-clock-selection.json';raw=clockpath.read_bytes();clockpin=b.descriptor(clockpath,raw);assert clockpin['sha256']==b.CLOCK_SHA\nbodies['consumer.py']=b.install_clock_source(bodies['consumer.py'],clockpin,json.loads(raw),values['CONTROL_FILES']);bodies['test_request_families.py']=b.adapt_request_fixture(bodies['test_request_families.py']);bodies['test_source_bindings.py']=b.add_clock_controls(bodies['test_source_bindings.py']);graph,_=b.static_import_closure(bodies,values['RUNTIME_FILES'])\ngroups=[];changes=[];added=[]\nfor name in values['CONTROL_FILES']:\n old=b.methods((source/name).read_bytes());new=b.methods(bodies[name]);assert old.keys()<=new.keys()\n groups.append(dict(name=name,count=len(new)));changes.extend(name+':'+m for m in old if old[m]!=new[m]);added.extend(name+':'+m for m in new if m not in old)\nassert len(changes)==2 and len(added)==4\nbaseline=b.PREDECESSOR.parent.parent/'e02-consumer-current178-source-20261105/source3/source';original=0\nfor name in values['CONTROL_FILES']:\n old=baseline/name\n if old.exists():\n  methods=b.methods(old.read_bytes());assert methods.keys()<=b.methods(bodies[name]).keys();original+=len(methods)\nassert original==352\nfor name in ('capture_contracts.py','capture_outputs.py','request_families.py'):assert bodies[name]==(baseline/name).read_bytes()\nprefix=ast.parse((baseline/'probe_adapter.py').read_bytes()).body;after=ast.parse(bodies['probe_adapter.py']).body;assert [ast.dump(n,include_attributes=False) for n in prefix]==[ast.dump(n,include_attributes=False) for n in after[:len(prefix)]]\nout=dict(schema='e02-consumer-source2-draft-static-audit-v1',author=b.AUTHOR,sourceCount=len(code),runtimeSourceCount=len(values['RUNTIME_FILES']),controlGroups=groups,modelsDefined=sum(g['count'] for g in groups),canonicalModelsExecuted=0,predecessorNamesPreserved=440,originalPurposesPreserved=352,changedPredecessorMethods=changes,addedClockMethods=added,originalProbeAstPrefixNodes=len(prefix),originalProbeAstAndImportsUnchanged=True,legacyHelperParsersByteIdentical=True,runtimeClosureDerived=graph['runtimeCount'],clockSelection=clockpin,finalFreezeIssued=False,sourceSelectorsStillUnbound=True)\npath=owned/'draft-static-audit.json';path.write_text(json.dumps(out,indent=2)+'\\n');print(json.dumps(out))\nPY",
+    "login": false,
+    "yield_time_ms": 1000,
+    "max_output_tokens": 3000
+  },
+  "unmodifiedResponse": {
+    "chunk_id": "972d94",
+    "wall_time_seconds": 1.001431304,
+    "session_id": 89470,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "polls": [
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 89470,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 3000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "5c5e6c",
+        "wall_time_seconds": 0.000018357,
+        "exit_code": 0,
+        "original_token_count": 537,
+        "output": "{\"schema\": \"e02-consumer-source2-draft-static-audit-v1\", \"author\": \"/root/consumer_coupled_source2\", \"sourceCount\": 37, \"runtimeSourceCount\": 16, \"controlGroups\": [{\"name\": \"test_data_controls.py\", \"count\": 86}, {\"name\": \"test_async_guard.py\", \"count\": 47}, {\"name\": \"test_parent_allocation.py\", \"count\": 17}, {\"name\": \"test_observer_v3.py\", \"count\": 13}, {\"name\": \"test_source_bindings.py\", \"count\": 19}, {\"name\": \"test_current_controls.py\", \"count\": 33}, {\"name\": \"test_probe_adapter.py\", \"count\": 22}, {\"name\": \"test_whole_window.py\", \"count\": 11}, {\"name\": \"test_current_authority.py\", \"count\": 84}, {\"name\": \"test_request_families.py\", \"count\": 27}, {\"name\": \"test_import_closure.py\", \"count\": 8}, {\"name\": \"test_mode_reader.py\", \"count\": 23}, {\"name\": \"test_component_basis.py\", \"count\": 54}], \"modelsDefined\": 444, \"canonicalModelsExecuted\": 0, \"predecessorNamesPreserved\": 440, \"originalPurposesPreserved\": 352, \"changedPredecessorMethods\": [\"test_request_families.py:CurrentRequestFamilyModels.test_current_accepted_r10_178_model_data_is_consumed_without_activation\", \"test_request_families.py:CurrentRequestFamilyModels.test_actual_current_producer_reader_binds_ab6_native4ce_and_fresh_e01\"], \"addedClockMethods\": [\"test_source_bindings.py:CurrentSourceBindings.test_root_selected_authority_clock_is120_seconds_once\", \"test_source_bindings.py:CurrentSourceBindings.test_other_twelve_pure_group_clocks_remain63_seconds\", \"test_source_bindings.py:CurrentSourceBindings.test_clock_metadata_duplicates_omissions_substitution_and_authority_refused\", \"test_source_bindings.py:CurrentSourceBindings.test_unknown_control_group_cannot_inherit_another_clock\"], \"originalProbeAstPrefixNodes\": 18, \"originalProbeAstAndImportsUnchanged\": true, \"legacyHelperParsersByteIdentical\": true, \"runtimeClosureDerived\": 16, \"clockSelection\": {\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/root-consumer-control-clock-selection.json\", \"bytes\": 3323, \"sha256\": \"af211c44c3218c0cc71a882fbaddc78959571962e6198ef98546374417d89f16\"}, \"finalFreezeIssued\": false, \"sourceSelectorsStillUnbound\": true}\n"
+      }
+    }
+  ]
+}

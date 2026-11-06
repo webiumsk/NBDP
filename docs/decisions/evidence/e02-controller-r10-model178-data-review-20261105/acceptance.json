@@ -1,0 +1,57 @@
+{
+  "schema": "e02-root-probe-controller-control-data-acceptance-v1",
+  "actor": "/root",
+  "decision": "ACCEPT_CURRENT_PROBE_CONTROLLER_MOCK_CONTROL_DATA_ONLY",
+  "modelsFailed": 0,
+  "skipped": 0,
+  "inputsUnchanged": true,
+  "guardHelperExecutions": 0,
+  "dockerExecutions": 0,
+  "ordinaryRoleExecutions": 0,
+  "scope": "CURRENT_PROBE_CONTROLLER_COMPLETE_MOCK_CONTROL_DATA_ONLY",
+  "executionAuthorized": false,
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-controller-r10-model178-actual-20261105/subject.json",
+    "bytes": 4674,
+    "sha256": "d41bcdbbf785a9a9a6330b4e473d98cc4e1439678e4f93586637221a3769f434"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-controller-r10-model178-data-review-20261105/qa-review.json",
+      "bytes": 393,
+      "sha256": "a18a893343ec333e87666b2eca3ef1e33d4ff562f96a1eb9349c66fc80e8c464"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-controller-r10-model178-data-review-20261105/security-review.json",
+      "bytes": 405,
+      "sha256": "a010483ecc2569f64be8c35c08a30e8c344824c8b3eaa89f35e09f43ff81d8a5"
+    }
+  ],
+  "controllerSource": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r10/subject.json",
+    "bytes": 65372,
+    "sha256": "20f3740d34dfac74d808857315ca338c49a836732bd95bf5315365fe94422855"
+  },
+  "controllerSourceAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-controller-source-review-20261105/r10/acceptance.json",
+    "bytes": 1216,
+    "sha256": "a06e93b82b3dcc32879d8584f463fc1e4fa42fefa843f2ee85a4487ed2829081"
+  },
+  "controlPlan": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r10/control-plan.json",
+    "bytes": 23350,
+    "sha256": "a2139c720d03ff05fde35536fb0f999e769d1f20efbdca470dd6de6f5de106c3"
+  },
+  "countsSeparate": [
+    39,
+    42,
+    10,
+    19,
+    23,
+    19,
+    26
+  ],
+  "modelsDefined": 178,
+  "modelsExecuted": 178,
+  "modelsPassed": 178
+}

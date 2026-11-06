@@ -1,0 +1,39 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "set -C\numask 077\nexec /usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 TZ=UTC /usr/bin/timeout --signal=TERM --kill-after=2s 60s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-capture-20261105/source2/capture/test_admission.py > /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-capture-admission-eose-model-20261105/r1/stdout.log 2> /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-capture-admission-eose-model-20261105/r1/stderr.log",
+      "login": false,
+      "max_output_tokens": 2000,
+      "workdir": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-capture-20261105/source2/capture",
+      "yield_time_ms": 1000
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "8e87bb",
+      "wall_time_seconds": 1.001300936,
+      "session_id": 75364,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "polls": [
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 75364,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "e3f4e1",
+        "wall_time_seconds": 0.000017428,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    }
+  ]
+}

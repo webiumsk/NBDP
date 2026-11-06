@@ -1,0 +1,39 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 63s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source3/coupled-r1/source/test_import_closure.py -v",
+      "workdir": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source3/coupled-r1/source",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 20000
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "e7a8cb",
+      "wall_time_seconds": 1.001430499,
+      "session_id": 41569,
+      "original_token_count": 197,
+      "output": "test_actual_isolated_consumer_loads_only_declared_current_runtime_peers (__main__.DeclaredImportClosureControls.test_actual_isolated_consumer_loads_only_declared_current_runtime_peers) ... ok\ntest_actual_isolated_current_controls_and_capture_outputs_load_declared_peers (__main__.DeclaredImportClosureControls.test_actual_isolated_current_controls_and_capture_outputs_load_declared_peers) ... ok\ntest_actual_isolated_preserved_source1_capture_outputs_still_exposes_original_hold (__main__.DeclaredImportClosureControls.test_actual_isolated_preserved_source1_capture_outputs_still_exposes_original_hold) ... ok\ntest_complete_declared_code_and_transitive_runtime_import_closure (__main__.DeclaredImportClosureControls.test_complete_declared_code_and_transitive_runtime_import_closure) ... "
+    }
+  },
+  "polls": [
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 41569,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 20000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "158bb4",
+        "wall_time_seconds": 3.446070076,
+        "exit_code": 0,
+        "original_token_count": 218,
+        "output": "ok\ntest_poisoned_legacy_ambient_aliases_do_not_supply_real_reader_imports (__main__.DeclaredImportClosureControls.test_poisoned_legacy_ambient_aliases_do_not_supply_real_reader_imports) ... ok\ntest_preserved_source1_capture_outputs_imports_refused_by_actual_closure_reader (__main__.DeclaredImportClosureControls.test_preserved_source1_capture_outputs_imports_refused_by_actual_closure_reader) ... ok\ntest_real_capture_outputs_preserves_strict_local_decoder_and_output_checks (__main__.DeclaredImportClosureControls.test_real_capture_outputs_preserves_strict_local_decoder_and_output_checks) ... ok\ntest_unknown_dynamic_relative_and_local_symbol_imports_refused (__main__.DeclaredImportClosureControls.test_unknown_dynamic_relative_and_local_symbol_imports_refused) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 4.435s\n\nOK\n"
+      }
+    }
+  ]
+}

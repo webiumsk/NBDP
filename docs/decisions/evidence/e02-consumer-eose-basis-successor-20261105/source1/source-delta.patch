@@ -1,0 +1,1325 @@
+--- baseline/README.md
++++ unbound/README.md
+@@ -1,36 +1,13 @@
+-# Current178 consumer SOURCE3 preparation
++# Unbound EOSE consumer CODE and definitions
+ 
+-Source1 remains HOLD for its original import defect. Source2 has independent
+-Source acceptance; its actual350 batch failed in whole-window group8 because
+-the model selected the historical producer. Its consumed release, 222 preceding
+-PASS results, seven failures, two errors and119 unexecuted controls are preserved.
+-No result transfers to this successor.
++This Source is authorized preparation only. It selects the ordinary producer EOSE successor (Source64/runtime22, eleven groups/286 definitions) and keeps the accepted original helper on its immutable d422/266/R10/Root24 basis. It grants no execution or runtime authority.
+ 
+-Source3 selects the complete current producer source/configuration namespace
+-through its immutable descriptor. Diagnosed current-controller expectations
+-derive revision/cwds/script roots/counts from the exact selected Source/plan.
+-The future-domain negative stays beyond that revision; changed whole requests
+-retain their original mutations and exact current refusal boundary.
+-Production algorithms, strict artifact matching and all four families remain
+-unchanged. All350 predecessor names remain; authorized fixture AST exceptions
+-are individually indexed. Every new definition remains unexecuted at this phase.
++The original `probe_adapter.validate`, `controller_profile`, `validate_controller_authority` and their import semantics are preserved. Legacy `capture_contracts`, `capture_outputs` and `request_families` remain byte-identical. New ordinary parsers use the explicit `ordinary_capture_*` namespace projected from capture Source2. Source2 has genuine independent Source acceptance; accepted admission42 DATA and full286 producer DATA remain required.
+ 
+-This successor reads the accepted current producer266/capture33, controller
+-R10/178 and typed Collector Source2/81 prerequisite tuples. Helper DATA,
+-helper Root24, consumer DATA24 and ordinary role/export authorities remain
+-unissued. Runtime binding cannot override the exact current frozen CODE.
++The additive component validator checks the Source-pinned closed completed basis, all eight original/new paths and exact bytes/modes0664, finite imports, original controller/guard/environment, staging0600, original Root24 governance, both pure-control metadata tuples and independent prior design reviews. It never opens the accepted helper S18 operational body. A Source equality record cannot qualify producer DATA or ordinary rows.
+ 
+-Four origin readers explicitly select PRODUCER_CAPTURE7, HOST7, COLLECTOR7
+-or MODEL5. Whole typed requests, exact policy strings, argv/cwd, native
+-responses and identity are retained. MODEL5 optional token metadata never
+-changes operational Collector7's required native counter.
++`strict.Files.read_mode` enforces expected mode through the bounded no-follow fd/path/hash checks, second path check, cached identity and recheck. Ordinary binding schema v2 has the same21 keys. Unissued or unready bindings refuse before prerequisite reads. Final binding still requires genuine two windows and five exports.
+ 
+-All original business/role/replay/lifecycle/budget/five-export predicates and
+-315 original definition names remain. Old R8/R5 fixture variable/test names
+-remain for preservation; the positive CURRENT_R8_FIXTURE now explicitly loads
+-the accepted current R10/178 tuple. Historical R5 remains a negative fixture.
++All original352 method names and purposes remain. Additional mode, basis and EOSE parser definitions are derived from actual AST. Pure development regressions are recorded separately from the unreleased canonical consumer batch. Old accepted results are never transferred to this Source.
+ 
+-The parent entrypoint pins the actual AST-derived inventory and requirements.
+-This is unexecuted Source. Independent post-freeze QA/security, Root Source
+-acceptance and a separate release must precede any full current model run.
+-No helper or ordinary runtime authorization follows from this preparation.
++`../prepare_bundle.py --unbound` derives Source-only metadata and a visibly unbound archive. It does not import project code, follow evidence descriptor children, issue a basis or create a final coupled freeze. Genuine capture/admission/286 DATA, completed-basis verification, final fixed-input closure, independent Source QA/security and Root release remain required.
+--- baseline/consumer.py
++++ unbound/consumer.py
+@@ -24,42 +24,44 @@
+ import capture_contracts
+ import capture_outputs
+ import current_controls
++import ordinary_capture_contracts
++import ordinary_capture_outputs
+ import probe_adapter
+ import request_families
+ import collector_contracts
+ from witness import Origin, actors, cleanup_check, commands, lease_check, ownership
+ 
+-# Current accepted producer266 DATA. Actual helper/consumer/window anchors remain unissued.
+-PRODUCER_SHA = 'd4229ef2ddf77e79a8f1a9990ea174db4c3dba9e7f2012ed42589d857be443b5'
++# New ordinary286 Source; actual ordinary DATA and completed basis stay unissued.
++PRODUCER_SHA = 'acbd539bba00aff05dd218d6c6323bf79904a4c14cfa3d0a9c89d32b3d4235a3'
+ CONTRACT_SHA = '48c683bf4c1fe23189ed9b8e0a386aa7f46346f3407dab239eb7270883603ebb'
+ ADOPTION_SHA = '2675f6906c3ab234f4d460960f4cc950eb8847b051b3e0d8cedaebdf38a75287'
+ RUNTIME_SCOPE = 'E02_ORDINARY_MINIMUM_RS_TWO_ROLE_V3_WINDOW_ONLY'
+ DRAFT_FINAL_ADAPTER_READY = False
+ CURRENT_PRODUCER_SCHEMA = 'e02-ordinary-producer4-source-subject-v1'
+-CURRENT_PRODUCER = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/subject.json', 'bytes': 41959, 'sha256': 'd4229ef2ddf77e79a8f1a9990ea174db4c3dba9e7f2012ed42589d857be443b5'}
+-CURRENT_SOURCE_PLAN = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/control-plan.json', 'bytes': 28451, 'sha256': '9aef9389217ced7f0b3f36fef265ca871f6b1faafb330e212764d13ff1654bcb'}
+-CURRENT_GUARD_DTO = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/guard-dto-contract.json', 'bytes': 14223, 'sha256': '33e3e1e9f0aab82238683563e2f7d4c15e6e8f736e5e7fdeb2722344f5b5feb6'}
+-CURRENT_EXPORT_CONTRACT = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/EXPORT-CONTRACT.md', 'bytes': 43900, 'sha256': '48c683bf4c1fe23189ed9b8e0a386aa7f46346f3407dab239eb7270883603ebb'}
++CURRENT_PRODUCER = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/subject.json', 'bytes': 48086, 'sha256': 'acbd539bba00aff05dd218d6c6323bf79904a4c14cfa3d0a9c89d32b3d4235a3'}
++CURRENT_SOURCE_PLAN = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/control-plan.json', 'bytes': 31652, 'sha256': 'df7323347fc84c363f5597a63abeced4816d3723e976490b8c39f18ec4942613'}
++CURRENT_GUARD_DTO = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/guard-dto-contract.json', 'bytes': 14223, 'sha256': '33e3e1e9f0aab82238683563e2f7d4c15e6e8f736e5e7fdeb2722344f5b5feb6'}
++CURRENT_EXPORT_CONTRACT = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/EXPORT-CONTRACT.md', 'bytes': 43900, 'sha256': '48c683bf4c1fe23189ed9b8e0a386aa7f46346f3407dab239eb7270883603ebb'}
+ CURRENT_AMETHYST_APK = {'path': '/Data/nbdp-e02-tooling-20261027/amethyst-build-r8/output/build/rebuilt-fdroid-debug-0.apk', 'bytes': 165860063, 'sha256': '368255b938e8fc72bf603a3f08dee29938e6c73e43ca6471a13ee1bc9ee0b4be'}
+ CURRENT_HELPER_APK = {'path': '/Data/nbdp-e02-tooling-20261027/clipboard-helper-current-build-20261105/clipboard-capture.apk', 'bytes': 16787, 'sha256': 'ab6e2628677d563fe3214e92ef1f25942aaf5e720de974db77bd4927beca2f83'}
+-CURRENT_ARTIFACT_BINDINGS = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/rebuilt-artifact-bindings.json', 'bytes': 5403, 'sha256': '6ba218be6e2b4b1b5a5e41bbcc04ae28d9fc592b05698d1afb436e1e2c45727b'}
+-CURRENT_CONFIGURATIONS = [{'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/incoming-run-config.json', 'bytes': 7999, 'sha256': 'f3214436e47697639352411cc5f92a4cd3087bbacd46ca7c4b50800c8256062f'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/archive-run-config.json', 'bytes': 7997, 'sha256': 'e63effb83579dbcec4034476406bfadd401bcce74870be11fddea03c12fc80b3'}]
+-CURRENT_WORKERS = [{'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/supervisor.py', 'bytes': 58020, 'sha256': '211c06f76625c59f2980ef3a9e3c57d03c5aca37474ae530837f728269eed0c9'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/lease_guard.py', 'bytes': 14846, 'sha256': 'd396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/android_driver.py', 'bytes': 49174, 'sha256': '6db92e1232eaf88860ab39a0ba1d027c330c6ac0917ec530f18754d3e0e97d85'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/ui-plan.json', 'bytes': 1482, 'sha256': '5beed690b07722aaa6a4bb3115b3b62da1c8b079d581325f26ad53bd66727f3a'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/fixture.mjs', 'bytes': 45130, 'sha256': '7294668da0e4c1fe92efc11c9cc43eab8e3d1e5c1a83c9bed0d72a224463d256'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/fixture-plan.json', 'bytes': 251848, 'sha256': '34ce27f72bfe98ee6f4488e8cc248ed351822d1ec31c9cca851cb9308fd9e4d1'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/minimum-plan.json', 'bytes': 1562, 'sha256': 'f82b59a6fadf311da81916b85e8e9ec399ad94004e54c07fbc4cfbed46d9205c'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/business-rumor.json', 'bytes': 910, 'sha256': '8bb0efcf8cc5a503e8f653885503958520f1a069066e549cd60dec7128d25291'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/chat-rumor.json', 'bytes': 384, 'sha256': 'f796df4b3ad76f832248fb60bdfb0d134a830257e95c0559b44d4fce0a900dc5'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/exchange.mjs', 'bytes': 6662, 'sha256': 'e3e962230a7adc84c495c23b0724ad6a1c8f366dd0e0376fc53cbaf00f1eb5dc'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/phase-writer.mjs', 'bytes': 2085, 'sha256': 'bcfb3338d1ab8cbb20709f6add09a2e7be01a270f48271112e3aa3a76743cead'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/dependency-tree.mjs', 'bytes': 2842, 'sha256': '0b574a14e591abc1908f4733908001d8ea1ab5698da8991e618ca26714eeded3'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/dependency-tree.json', 'bytes': 35599, 'sha256': '0536b9b0f6a127e3e43fd19bf5df0e3110b5c437e1a2c22c76e1a3e8dcc4f07f'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/capture-budget.mjs', 'bytes': 8963, 'sha256': '7e75aa2e0fcf1233a5d04cb899bde1ae6ff8a581bb8f57747e9115bf0993e312'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/exchange-adapter.mjs', 'bytes': 1012, 'sha256': '4e03f6449defff4585b532572ca3f0ef254dc76f056079ce85c2266de9f50aef'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/proxy-observer.mjs', 'bytes': 4478, 'sha256': 'fb17d34d3dea46c62bf29ed537684936b3a2871643b6d4fe3c16c88ffa37d0a1'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/guard-helper.py', 'bytes': 6219, 'sha256': '743e0ed269445a4d59407336e399d1c7bd46c5337408b157e9ef85773e2157cf'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/guard-wire.mjs', 'bytes': 1921, 'sha256': '8cf473b741d631f80ef785c86acf5caa9899d03206696a8f740db08878c02d8e'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/guard-client-core.mjs', 'bytes': 8072, 'sha256': '14be5abb1ff953d2336e841e1364acdfd8275874ffed3aef88f9a9489fac1083'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/guard-client.mjs', 'bytes': 9308, 'sha256': '50d3dacdc0e3a008ea15bc510004ff2bf805f3de195785eb25a241f678a1dfb0'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/guard-transport-boundaries.mjs', 'bytes': 4978, 'sha256': 'c4c5cda6107cdead8715da8bdba917a31ebabadc0249d8fba0b343a718f98068'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/capture-allocation.mjs', 'bytes': 7437, 'sha256': 'a86180100f6f4fee691bd177f557fbc3a4573ccc9d0f3f15ee66a32c1b8e57a7'}]
+-CURRENT_PRODUCER_SOURCE_ACCEPTANCE = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifact-source-review-20261105/acceptance.json', 'bytes': 1212, 'sha256': '277c4b31273e8e4c703a7fec54f5311ed159e4995d351a3c9017687006b51cdb'}
+-CURRENT_CAPTURE_SOURCE = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/capture/code-subject.json', 'bytes': 8987, 'sha256': '1a2bfdc92a68270d0712d7ad0f2107d407847c633d78869cdb0ed09bd343a719'}
+-CURRENT_CAPTURE_SOURCE_ACCEPTANCE = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-review-20261105/acceptance.json', 'bytes': 1403, 'sha256': '4c162f496912bcd9b8b96ca4f4468306265ca6d51a0d879825693067930ea762'}
+-CURRENT_ADMISSION_DATA_ACCEPTANCE = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-capture-admission33-model-20261105/acceptance.json', 'bytes': 2029, 'sha256': '5f266908363e444969dbae24e588d67d912c2c9c9d6c1b83ff16afdcee794165'}
+-CURRENT_DATA_ACCEPTANCE_CONTRACT = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/capture/contracts/current-producer-data-acceptance-contract-266.json', 'bytes': 2947, 'sha256': '17fea039fdcc88c5aa325e083337a702e8ae37852ae297adaebf3d39bc185fb9'}
+-CURRENT_CONTROL_ACTORS = ['/root', '/root/collector_policy_security_553c5bfd', '/root/collector_r4_fresh_security_bcf7ccfa57b4', '/root/collector_r5_fresh_qa_c05985fce1ea', '/root/collector_r5_fresh_security_c05985fce1ea', '/root/collector_typed_qa_1592707b', '/root/collector_typed_security_1592707b', '/root/completion_wrapper', '/root/consumer266_source', '/root/consumer6_s4_fresh_qa_6716777dfdd7', '/root/consumer6_s4_fresh_security_6716777dfdd7', '/root/consumer6_source', '/root/consumer_current178_source', '/root/consumer_source2_qa_70b36984', '/root/consumer_source2_security_70b36984', '/root/consumer_source_qa_e0e55c4e', '/root/consumer_source_security_e0e55c4e', '/root/controller_current_source_r9', '/root/controller_model_metadata_source2', '/root/controller_r9_qa_e7c43daa', '/root/controller_r9_security_e7c43daa', '/root/guard_recovery_source', '/root/helper_apk_binding_scope', '/root/helper_controller_source6_env', '/root/helper_env_removal_sources', '/root/helper_policy_source7', '/root/helper_r6_binding', '/root/lease_fix_binding_scope', '/root/native_rebuild_prepare', '/root/probe_concrete_path_composition', '/root/probe_r6_fresh_qa_d81b6f3ae5d8', '/root/probe_r6_fresh_security_d81b6f3ae5d8', '/root/probe_r7_fresh_qa_8d291e97745f', '/root/probe_r7_fresh_security_8d291e97745f', '/root/producer4_nonblocking_source', '/root/r5_plan_fix', '/root/root_failstop_bridge_source']
+-CURRENT_PRODUCER_CONTROL_DATA = {'path': '/Data/nbdp-e02-tooling-20261027/assembled/subject.json', 'bytes': 3653, 'sha256': 'e4a2b8da6d5aee04e08f98ebb508957a3639ec32c0cfe9a3089983a16e3a5e9e'}
+-CURRENT_PRODUCER_CONTROL_ACCEPTANCE = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-producer266-data-20261105/acceptance.json', 'bytes': 3716, 'sha256': '91a00b4ec693c7c776a031849d61ab676ceaeed4262085ba0a6fc1b6e81b2d6f'}
++CURRENT_ARTIFACT_BINDINGS = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/rebuilt-artifact-bindings.json', 'bytes': 5403, 'sha256': '6ba218be6e2b4b1b5a5e41bbcc04ae28d9fc592b05698d1afb436e1e2c45727b'}
++CURRENT_CONFIGURATIONS = [{'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/incoming-run-config.json', 'bytes': 7933, 'sha256': '5446ddf1339ab61f344b3ed3bbe83b7abdac7c8559c97d753248342a712029e3'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/archive-run-config.json', 'bytes': 7931, 'sha256': '02e2cbf5fadcabd5cd080a9c07e7d823430718715abbfd449e802dfedfa68cd9'}]
++CURRENT_WORKERS = [{'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/supervisor.py', 'bytes': 58020, 'sha256': '211c06f76625c59f2980ef3a9e3c57d03c5aca37474ae530837f728269eed0c9'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/lease_guard.py', 'bytes': 14846, 'sha256': 'd396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/android_driver.py', 'bytes': 49174, 'sha256': '6db92e1232eaf88860ab39a0ba1d027c330c6ac0917ec530f18754d3e0e97d85'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/ui-plan.json', 'bytes': 1482, 'sha256': '5beed690b07722aaa6a4bb3115b3b62da1c8b079d581325f26ad53bd66727f3a'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/fixture.mjs', 'bytes': 45613, 'sha256': '0d273eb11f9631e7be18e2cc959e3aa7f88f14441f7c6f7cfc05fa2448ee103b'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/fixture-plan.json', 'bytes': 251839, 'sha256': '26f9a9c02d0f23a8001b4daf9772ce43ba94150363804e4f9def56603fd4b941'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/minimum-plan.json', 'bytes': 1562, 'sha256': 'f82b59a6fadf311da81916b85e8e9ec399ad94004e54c07fbc4cfbed46d9205c'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/business-rumor.json', 'bytes': 910, 'sha256': '8bb0efcf8cc5a503e8f653885503958520f1a069066e549cd60dec7128d25291'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/chat-rumor.json', 'bytes': 384, 'sha256': 'f796df4b3ad76f832248fb60bdfb0d134a830257e95c0559b44d4fce0a900dc5'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/exchange.mjs', 'bytes': 6662, 'sha256': 'e3e962230a7adc84c495c23b0724ad6a1c8f366dd0e0376fc53cbaf00f1eb5dc'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/phase-writer.mjs', 'bytes': 2085, 'sha256': 'bcfb3338d1ab8cbb20709f6add09a2e7be01a270f48271112e3aa3a76743cead'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/dependency-tree.mjs', 'bytes': 2842, 'sha256': '0b574a14e591abc1908f4733908001d8ea1ab5698da8991e618ca26714eeded3'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/dependency-tree.json', 'bytes': 35599, 'sha256': '0536b9b0f6a127e3e43fd19bf5df0e3110b5c437e1a2c22c76e1a3e8dcc4f07f'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/capture-budget.mjs', 'bytes': 8963, 'sha256': '7e75aa2e0fcf1233a5d04cb899bde1ae6ff8a581bb8f57747e9115bf0993e312'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/exchange-adapter.mjs', 'bytes': 1012, 'sha256': '4e03f6449defff4585b532572ca3f0ef254dc76f056079ce85c2266de9f50aef'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/proxy-observer.mjs', 'bytes': 4478, 'sha256': 'fb17d34d3dea46c62bf29ed537684936b3a2871643b6d4fe3c16c88ffa37d0a1'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/guard-helper.py', 'bytes': 6219, 'sha256': '743e0ed269445a4d59407336e399d1c7bd46c5337408b157e9ef85773e2157cf'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/guard-wire.mjs', 'bytes': 1921, 'sha256': '8cf473b741d631f80ef785c86acf5caa9899d03206696a8f740db08878c02d8e'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/guard-client-core.mjs', 'bytes': 8072, 'sha256': '14be5abb1ff953d2336e841e1364acdfd8275874ffed3aef88f9a9489fac1083'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/guard-client.mjs', 'bytes': 9308, 'sha256': '50d3dacdc0e3a008ea15bc510004ff2bf805f3de195785eb25a241f678a1dfb0'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/guard-transport-boundaries.mjs', 'bytes': 4978, 'sha256': 'c4c5cda6107cdead8715da8bdba917a31ebabadc0249d8fba0b343a718f98068'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/capture-allocation.mjs', 'bytes': 7437, 'sha256': 'a86180100f6f4fee691bd177f557fbc3a4573ccc9d0f3f15ee66a32c1b8e57a7'}]
++CURRENT_PRODUCER_SOURCE_ACCEPTANCE = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-source-review-20261105/r1/acceptance.json', 'bytes': 1203, 'sha256': '2e54ff60fe6026172913a28820f5f2c5e8a28fc2c33e89ad5e6abca7fbfa5ee3'}
++CURRENT_CAPTURE_SOURCE = None
++CURRENT_CAPTURE_SOURCE_ACCEPTANCE = None
++CURRENT_ADMISSION_DATA_ACCEPTANCE = None
++CURRENT_DATA_ACCEPTANCE_CONTRACT = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/contracts/current-producer-data-acceptance-contract-286.json', 'bytes': 2960, 'sha256': '51c0fe19a75680e9f665df6e4c71a3f71d05080adf36ce49f272715f8fe1469a'}
++CURRENT_CONTROL_ACTORS = ['/root', '/root/android_health_implementer', '/root/bridge_bootstrap_source_recovery', '/root/bridge_reserve_bootstrap_architecture', '/root/bridge_source2_security_ec029e18', '/root/bridge_source4_security_c93e46ef', '/root/bridge_source5_qa_519d1926', '/root/bridge_source5_security_519d1926', '/root/bridge_source_security_b5268b9a', '/root/bridge_start_bootstrap_architecture', '/root/bridge_start_design_security', '/root/bridge_start_memory_source4', '/root/capacity_root_caller_source1', '/root/capacity_source2_qa_9ac4bd43', '/root/capacity_source2_security_9ac4bd43', '/root/collector_policy_security_553c5bfd', '/root/collector_r4_fresh_security_bcf7ccfa57b4', '/root/collector_r5_fresh_qa_c05985fce1ea', '/root/collector_r5_fresh_security_c05985fce1ea', '/root/collector_typed_qa_1592707b', '/root/collector_typed_security_1592707b', '/root/completion3_final', '/root/completion_wrapper', '/root/consumer266_source', '/root/consumer3_preparation', '/root/consumer6_s4_fresh_qa_6716777dfdd7', '/root/consumer6_s4_fresh_security_6716777dfdd7', '/root/consumer6_source', '/root/consumer_current178_source', '/root/consumer_eose_basis_source', '/root/consumer_eose_basis_source/expected_mode_reader', '/root/consumer_source2_qa_70b36984', '/root/consumer_source2_security_70b36984', '/root/consumer_source_qa_e0e55c4e', '/root/consumer_source_security_e0e55c4e', '/root/controller_current_source_r9', '/root/controller_model_metadata_source2', '/root/controller_r9_qa_e7c43daa', '/root/controller_r9_security_e7c43daa', '/root/current_daemon_admission_lookup', '/root/current_readiness_source', '/root/fixture_eose_queue_fix', '/root/guard_recovery_source', '/root/helper_apk_binding_scope', '/root/helper_controller_source6_env', '/root/helper_current178_source', '/root/helper_env_removal_sources', '/root/helper_policy_source7', '/root/helper_r6_binding', '/root/helper_source_qa_19b50833', '/root/helper_source_security_19b50833', '/root/lease_fix_binding_scope', '/root/native_rebuild_prepare', '/root/observer_source2_qa_73162a17', '/root/observer_source2_security_73162a17', '/root/observer_source3_security_18ec80ba', '/root/observer_source_qa_82d16bdc', '/root/observer_source_security_82d16bdc', '/root/ordinary_api35_source', '/root/ordinary_current266_templates', '/root/probe_concrete_path_composition', '/root/probe_r6_fresh_qa_d81b6f3ae5d8', '/root/probe_r6_fresh_security_d81b6f3ae5d8', '/root/probe_r7_fresh_qa_8d291e97745f', '/root/probe_r7_fresh_security_8d291e97745f', '/root/producer286_capture_source', '/root/producer3_capture', '/root/producer4_nonblocking_source', '/root/producer_eose_successor', '/root/r5', '/root/r5_plan_fix', '/root/readiness_source_qa_d262f46d', '/root/root_failstop_bridge_source', '/root/whole_consumer_fixture']
++CURRENT_PRODUCER_CONTROL_DATA = None
++CURRENT_PRODUCER_CONTROL_ACCEPTANCE = None
+ CURRENT_HELPER_PROBE_DATA = None
+ CURRENT_HELPER_PROBE_ACCEPTANCE = None
+ 
+ CURRENT_HELPER_PROBE_ACCEPTANCE_CONTRACT = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-current178-source-20261105/source1/helper-probe-data-acceptance-contract.json', 'bytes': 3325, 'sha256': '14f859491411c84ec03bc552f0be287269f6ff94a9d4b43cf7cdf22e650fdacc'}
+ CURRENT_HELPER_PROBE_SHAPE_CONTRACT = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-helper-probe-preparation-20261028/helper-probe-data-shape-contract.json', 'bytes': 2257, 'sha256': 'f1540a48582132fd8fa14a302df66defc0baed4354e347c4ed47f7630a32059b'}
+ 
+-CURRENT_CONSUMER_ACCEPTANCE_CONTRACT = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source3/contracts/current-consumer-acceptance-contract.json', 'bytes': 4612, 'sha256': '468996d45865499784f17762a33f698f1f82877628af7b803cbb94f170d3b674'}
++CURRENT_CONSUMER_ACCEPTANCE_CONTRACT = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/contracts/current-consumer-acceptance-contract.json', 'bytes': 5026, 'sha256': '03155edb0057833b2f5a2c815dd585f5f2286f1f40509742372ccbd966340f95'}
+ HISTORICAL_HELPER_CONTROLLER_SOURCE = {'path': '/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r4/subject.json', 'bytes': 18686, 'sha256': '5b2e78aa6780c0983f5bc1990d8e1490b03a74860c754951826a9120ce782a26'}
+ HISTORICAL_HELPER_CONTROLLER_SOURCE_ACCEPTANCE = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r4-source-acceptance-20261029/acceptance.json', 'bytes': 1231, 'sha256': 'b10881f06dc0aacae0989cbcf1a9336222f3a51581feefdbc01d59f2efab83c8'}
+ HISTORICAL_HELPER_CONTROLLER_CONTROL_ACCEPTANCE = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r4-model104-actual-20261029/acceptance.json', 'bytes': 2096, 'sha256': 'f9aed9dbe356ff0ffa74b932b091ae7d057d7a9498cc1e6e8e495b2ae16bd761'}
+@@ -74,7 +76,17 @@
+ CURRENT_COLLECTOR_SOURCE_ACCEPTANCE = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-review-20261105/source2/acceptance.json', 'bytes': 1224, 'sha256': '3365ed3a2761adb656768f7b2980b67667510e91ce459be9be9fb3a3e7405bb9'}
+ CURRENT_COLLECTOR_DATA = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-typed81-model-20261105/subject.json', 'bytes': 2839, 'sha256': '314e2d4e6c46e673bc33fbfc729c76e85de09c72bc9e25386fafe425897d92d0'}
+ CURRENT_COLLECTOR_DATA_ACCEPTANCE = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-typed81-model-20261105/acceptance.json', 'bytes': 2117, 'sha256': 'cdc427fed141908e61f36d0edc3abdbae6e1890d2c07fce59e1e95f135802673'}
+-CURRENT_COLLECTOR_PREREQUISITE_CONTRACT = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source3/contracts/current-collector-prerequisite-contract.json', 'bytes': 8594, 'sha256': '19132d969f4f29aca3cc4919132b22c57221923001f6ecd84f350ff189f0539f'}
++CURRENT_COLLECTOR_PREREQUISITE_CONTRACT = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/contracts/current-collector-prerequisite-contract.json', 'bytes': 8594, 'sha256': '19132d969f4f29aca3cc4919132b22c57221923001f6ecd84f350ff189f0539f'}
++
++CURRENT_HELPER_COMPONENT_BASIS = None
++CURRENT_HELPER_COMPONENT_BASIS_TEMPLATE = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-component-basis-contract-20261105/source1/component-basis.UNISSUED.json', 'bytes': 20245, 'sha256': '5fe7d1aefddd2f793d17222d47de001ece72801baaece25d8824be71d49ab6b5'}
++CURRENT_HELPER_COMPONENT_BASIS_DESIGN_ACCEPTANCE = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-component-basis-contract-20261105/review-r1/acceptance.json', 'bytes': 3821, 'sha256': 'eeea7f69554faf785d7a2b2ae85218f22c31b837fe0a051d5782c4308f5a4e4d'}
++HELPER_PRODUCER = {'bytes': 41959, 'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/subject.json', 'sha256': 'd4229ef2ddf77e79a8f1a9990ea174db4c3dba9e7f2012ed42589d857be443b5'}
++HELPER_PRODUCER_CONTROL_ACCEPTANCE = {'bytes': 3716, 'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-producer266-data-20261105/acceptance.json', 'sha256': '91a00b4ec693c7c776a031849d61ab676ceaeed4262085ba0a6fc1b6e81b2d6f'}
++CURRENT_PRODUCER_CONTROL_COUNTS = [129, 33, 29, 16, 20, 10, 11, 8, 7, 3, 20]
++CURRENT_EXTERNAL_CONTROL_SOURCES = [{'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/baseline/fixture.mjs', 'bytes': 45130, 'sha256': '7294668da0e4c1fe92efc11c9cc43eab8e3d1e5c1a83c9bed0d72a224463d256'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/capture-allocation.mjs', 'bytes': 7437, 'sha256': 'a86180100f6f4fee691bd177f557fbc3a4573ccc9d0f3f15ee66a32c1b8e57a7'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/capture-budget.mjs', 'bytes': 8963, 'sha256': '7e75aa2e0fcf1233a5d04cb899bde1ae6ff8a581bb8f57747e9115bf0993e312'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/dependency-tree.mjs', 'bytes': 2842, 'sha256': '0b574a14e591abc1908f4733908001d8ea1ab5698da8991e618ca26714eeded3'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/exchange-adapter.mjs', 'bytes': 1012, 'sha256': '4e03f6449defff4585b532572ca3f0ef254dc76f056079ce85c2266de9f50aef'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/exchange.mjs', 'bytes': 6662, 'sha256': 'e3e962230a7adc84c495c23b0724ad6a1c8f366dd0e0376fc53cbaf00f1eb5dc'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/fixture.mjs', 'bytes': 45613, 'sha256': '0d273eb11f9631e7be18e2cc959e3aa7f88f14441f7c6f7cfc05fa2448ee103b'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/guard-client-core.mjs', 'bytes': 8072, 'sha256': '14be5abb1ff953d2336e841e1364acdfd8275874ffed3aef88f9a9489fac1083'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/guard-client.mjs', 'bytes': 9308, 'sha256': '50d3dacdc0e3a008ea15bc510004ff2bf805f3de195785eb25a241f678a1dfb0'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/guard-transport-boundaries.mjs', 'bytes': 4978, 'sha256': 'c4c5cda6107cdead8715da8bdba917a31ebabadc0249d8fba0b343a718f98068'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/guard-wire.mjs', 'bytes': 1921, 'sha256': '8cf473b741d631f80ef785c86acf5caa9899d03206696a8f740db08878c02d8e'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/phase-writer.mjs', 'bytes': 2085, 'sha256': 'bcfb3338d1ab8cbb20709f6add09a2e7be01a270f48271112e3aa3a76743cead'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/proxy-observer.mjs', 'bytes': 4478, 'sha256': 'fb17d34d3dea46c62bf29ed537684936b3a2871643b6d4fe3c16c88ffa37d0a1'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/test_fixture.mjs', 'bytes': 3199, 'sha256': '11f9f9cd496885e6bf517a205b91cfe7dc9d95ab1451a31c21f09461d5c6d7f2'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/test_guard_client.mjs', 'bytes': 35675, 'sha256': 'dade2a486a9bfea5e89cafb2c0af33fc14c3956a0d78e456898d0c206df6efa5'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/test_minimum_fixture.mjs', 'bytes': 4852, 'sha256': 'f92aabd95b257cae2408a4e789eeb7ded8bf7979ec3723202f533f58fb92fc18'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/test_eose_queue.mjs', 'bytes': 10564, 'sha256': '8b85222b352e58feacc8d9a6cc78e9d41b6d74b931c5422384500cc91e5eac41'}]
++CURRENT_EXTERNAL_CALLER_FAMILY = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/caller-regression-family.json', 'bytes': 18495, 'sha256': 'b42e86124464fe9540a069f6437cf28aeb574703d51e538411c8940b4cf7d8e0'}
++UNBOUND_SOURCE_REVISION = "EOSE_COMPONENT_BASIS_UNBOUND_CODE_ONLY"
+ 
+ _ACTIVE_BINDINGS = None
+ BINDING_KEYS = 'schema actor producerSource producerSourceAcceptance producerControlData producerControlAcceptance helperProbeData helperProbeAcceptance controllerSource controllerSourceAcceptance controllerControlDataAcceptance consumerSource consumerSourceAcceptance consumerControlData consumerControlAcceptance incomingWindow archiveWindow ordinaryExports readiness issued executionAuthorized'
+@@ -93,8 +105,8 @@
+ 
+ 
+ # Fixed CODE membership; mutable authority/bindings are separate acyclic leaves.
+-RUNTIME_FILES = ('consumer.py', 'strict.py', 'wire.py', 'gui.py', 'witness.py', 'observer.py', 'async_guard.py', 'parent_allocation.py', 'capture_contracts.py', 'capture_outputs.py', 'current_controls.py', 'probe_adapter.py', 'request_families.py', 'collector_contracts.py')
+-CONTROL_FILES = ('test_data_controls.py', 'test_async_guard.py', 'test_parent_allocation.py', 'test_observer_v3.py', 'test_source_bindings.py', 'test_current_controls.py', 'test_probe_adapter.py', 'test_whole_window.py', 'test_current_authority.py', 'test_request_families.py', 'test_import_closure.py')
++RUNTIME_FILES = ('consumer.py', 'strict.py', 'wire.py', 'gui.py', 'witness.py', 'observer.py', 'async_guard.py', 'parent_allocation.py', 'capture_contracts.py', 'capture_outputs.py', 'ordinary_capture_contracts.py', 'ordinary_capture_outputs.py', 'current_controls.py', 'probe_adapter.py', 'request_families.py', 'collector_contracts.py')
++CONTROL_FILES = ('test_data_controls.py', 'test_async_guard.py', 'test_parent_allocation.py', 'test_observer_v3.py', 'test_source_bindings.py', 'test_current_controls.py', 'test_probe_adapter.py', 'test_whole_window.py', 'test_current_authority.py', 'test_request_families.py', 'test_import_closure.py', 'test_mode_reader.py', 'test_component_basis.py')
+ CODE_FILES = tuple(sorted((*RUNTIME_FILES,*CONTROL_FILES,'model_stage.py','whole_window.py',
+     'prepare_consumer_edit.py','prepare_observer_edit.py','strict_raw_method.txt',
+     'whole_window_methods.txt','current_authority_methods.txt','README.md')))
+@@ -107,7 +119,7 @@
+     """Verify external subject against actual current loaded CODE and test bytes."""
+     import ast
+     source=files.doc(descriptor)
+-    equal(source['schema'],'e02-ordinary-consumer6-source-subject-v1');equal(source['version'],'SOURCE4')
++    equal(source['schema'],'e02-ordinary-consumer6-source-subject-v1');equal(source['version'],'SOURCE5')
+     here=Path(__file__).resolve().parent;equal(source['sourceRoot'],str(here),'RUNNING_CURRENT_CONSUMER_SOURCE_ROOT')
+     equal(source['sourceCount'],len(CODE_FILES));equal(source['runtimeSourceCount'],len(RUNTIME_FILES))
+     declared=source['sources'];need(type(declared) is list,'CLOSED_CURRENT_CODE_MEMBER_LIST')
+@@ -122,6 +134,8 @@
+         module=sys.modules[__name__] if name=='consumer.py' else sys.modules.get(name[:-3])
+         need(module is not None and Path(module.__file__).resolve()==here/name,'ACTUAL_LOADED_RUNTIME_MODULE_PATH:'+name)
+     equal(source['producerSource'],CURRENT_PRODUCER);equal(source['producerControlAcceptance'],CURRENT_PRODUCER_CONTROL_ACCEPTANCE)
++    need(CURRENT_HELPER_COMPONENT_BASIS is not None,'UNBOUND_HELPER_COMPONENT_BASIS')
++    equal(source['helperComponentBasis'],CURRENT_HELPER_COMPONENT_BASIS,'SOURCE_SELECTED_COMPLETED_COMPONENT_BASIS')
+     equal(source['producerRuntimeWorkerCount'],22);equal(source['producerSourceMemberCount'],64)
+     plan=files.doc(source['controlPlan']);equal(plan['schema'],'e02-consumer6-model-control-plan-v1')
+     groups=plan['groups'];equal([g['name'] for g in groups],list(CONTROL_FILES),'ALL_CURRENT_ORDERED_CONTROL_GROUPS')
+@@ -163,15 +177,51 @@
+     return dict(cmd=shlex.join(argv),workdir=group['cwd'],login=False,yield_time_ms=1000,max_output_tokens=20000)
+ 
+ 
++def ordinary_basis_expectations():
++    """Exact SOURCE-selected ordinary tuple, filled only by final coupled preparation."""
++    expected = dict(producerSource=CURRENT_PRODUCER,
++        producerSourceAcceptance=CURRENT_PRODUCER_SOURCE_ACCEPTANCE,
++        producerControlData=CURRENT_PRODUCER_CONTROL_DATA,
++        producerControlAcceptance=CURRENT_PRODUCER_CONTROL_ACCEPTANCE,
++        captureSource=CURRENT_CAPTURE_SOURCE,
++        captureSourceAcceptance=CURRENT_CAPTURE_SOURCE_ACCEPTANCE,
++        admissionDataAcceptance=CURRENT_ADMISSION_DATA_ACCEPTANCE,
++        controlPlan=CURRENT_SOURCE_PLAN, countsSeparate=CURRENT_PRODUCER_CONTROL_COUNTS,
++        modelsDefined=sum(CURRENT_PRODUCER_CONTROL_COUNTS))
++    need(all(expected[k] is not None for k in ('producerSource','producerSourceAcceptance',
++        'producerControlData','producerControlAcceptance','captureSource',
++        'captureSourceAcceptance','admissionDataAcceptance')),
++        'UNBOUND_ORDINARY_286_AUTHORITY')
++    return expected
++
++
++def helper_component_basis(files, forbidden):
++    need(CURRENT_HELPER_COMPONENT_BASIS is not None,
++         'UNBOUND_HELPER_COMPONENT_BASIS')
++    return probe_adapter.validate_component_basis(files, CURRENT_HELPER_COMPONENT_BASIS,
++        CURRENT_HELPER_COMPONENT_BASIS_TEMPLATE,
++        CURRENT_HELPER_COMPONENT_BASIS_DESIGN_ACCEPTANCE,
++        ordinary_basis_expectations(), forbidden)
++
++
+ def control_actor_union(files,value):
+     from probe_adapter import source_actors,data_actors,participant_union
+     source=files.doc(value['consumerSource']);data=files.doc(value['consumerControlData'])
+     probe=files.doc(value['helperProbeData'])
+     triple={key:value[key] for key in ('controllerSource','controllerSourceAcceptance','controllerControlDataAcceptance')}
+-    for key,expected in triple.items():pin_shape(expected);equal(probe[key],expected,'EXACT_EXTERNAL_CURRENT_CONTROLLER_TRIPLE')
++    for key,expected in triple.items():pin_shape(expected);equal(probe[key],expected,'EXACT_EXTERNAL_ORIGINAL_CONTROLLER_TRIPLE')
+     union=set(CURRENT_CONTROL_ACTORS)|source_actors(source)|data_actors(data)
+     union|=participant_union(files,probe,union)
+-    probe_adapter.validate_controller_authority(files,triple,CURRENT_PRODUCER,CURRENT_HELPER_CONTROLLER_ACCEPTANCE_CONTRACT,union)
++    basis,basis_union=helper_component_basis(files,union)
++    original=basis['originalBasis']
++    equal(triple,original['controller'],'ORIGINAL_HELPER_CONTROLLER_BASIS')
++    equal(value['helperProbeData'],original['root24ExpectedPinOperands']['subject'],
++          'SOURCE_SELECTED_ORIGINAL_HELPER_DATA')
++    equal(value['helperProbeAcceptance'],original['helperDataAcceptance'],
++          'SOURCE_SELECTED_ORIGINAL_HELPER_ACCEPTANCE')
++    union|=basis_union
++    probe_adapter.validate_controller_authority(files,triple,
++        original['producer']['producerSource'],CURRENT_HELPER_CONTROLLER_ACCEPTANCE_CONTRACT,union)
+     return union
+ 
+ 
+@@ -232,9 +282,11 @@
+     global _ACTIVE_BINDINGS,DRAFT_FINAL_ADAPTER_READY,CURRENT_HELPER_PROBE_DATA,CURRENT_HELPER_PROBE_ACCEPTANCE
+     need(_ACTIVE_BINDINGS is None,'ONE_EXTERNAL_BINDINGS_ACTIVATION_PER_PROCESS')
+     value=files.doc(descriptor);closed(value,BINDING_KEYS)
+-    equal(value['schema'],'e02-consumer6-runtime-bindings-v1');equal(value['actor'],'/root')
++    equal(value['schema'],'e02-consumer6-runtime-bindings-v2');equal(value['actor'],'/root')
+     equal(value['readiness'],True,'UNREADY_BINDINGS_REFUSE_BEFORE_TARGET_READS');equal(value['issued'],True)
+     equal(value['executionAuthorized'],False,'DATA_INSPECTION_NOT_RUNTIME_RELEASE')
++    ordinary_basis_expectations()
++    need(CURRENT_HELPER_COMPONENT_BASIS is not None,'UNBOUND_HELPER_COMPONENT_BASIS')
+     for key,expected in [('producerSource',CURRENT_PRODUCER),('producerSourceAcceptance',CURRENT_PRODUCER_SOURCE_ACCEPTANCE),('producerControlData',CURRENT_PRODUCER_CONTROL_DATA),('producerControlAcceptance',CURRENT_PRODUCER_CONTROL_ACCEPTANCE)]:equal(value[key],expected,'EXACT_CURRENT_SOURCE_AND_ACTUAL266_BINDING')
+     for key in BINDING_KEYS.split()[2:-3]:
+         if key!='ordinaryExports':pin_shape(value[key])
+@@ -290,12 +342,19 @@
+ def current_producer(files, descriptor):
+     equal(descriptor,CURRENT_PRODUCER,'EXACT_CURRENT_PRODUCER4_SOURCE4_CURRENT_ARTIFACT_BINDINGS')
+     producer=files.doc(descriptor);equal(producer['schema'],CURRENT_PRODUCER_SCHEMA)
+-    equal(producer['version'],'SOURCE4');equal(producer['sourceRevision'],'CURRENT_ACCEPTED_ARTIFACT_BINDINGS_R1')
++    equal(producer['version'],'SOURCE4');equal(producer['sourceRevision'],'FIXTURE_EOSE_QUEUE_CALLER_R1')
+     equal(producer['runtimeSourceCount'],22);equal(producer['sourceCount'],64)
+     equal(producer['typedContract'],CURRENT_GUARD_DTO);equal(producer['controlPlan'],CURRENT_SOURCE_PLAN)
+     equal(producer['runtimeSources'],CURRENT_WORKERS);equal(list(producer['configurations'].values()),CURRENT_CONFIGURATIONS)
+     need(len(producer['sources'])==64 and len({Path(p['path']).name for p in producer['sources']})==64,'EXACT_CURRENT64_SOURCE22_WORKERS')
+     for p in producer['sources']:files.read(p)
++    equal(producer['selectedCountsSeparate'],CURRENT_PRODUCER_CONTROL_COUNTS)
++    equal(producer['selectedDefinitionCount'],286)
++    equal(producer['externalControlSources'],CURRENT_EXTERNAL_CONTROL_SOURCES)
++    equal(producer['externalCallerRegressionFamily'],CURRENT_EXTERNAL_CALLER_FAMILY)
++    equal(len(CURRENT_EXTERNAL_CONTROL_SOURCES),17,'EXACT_EXTERNAL_CALLER_CODE_CLOSURE')
++    for p in CURRENT_EXTERNAL_CONTROL_SOURCES:files.read(p)
++    ordinary_capture_contracts.counts(producer,files.doc(CURRENT_SOURCE_PLAN))
+     bindings=files.doc(CURRENT_ARTIFACT_BINDINGS)
+     for prefix,artifact,schema,decision in (
+       ('amethyst',CURRENT_AMETHYST_APK,'nbdp-actual-rebuilt-amethyst-artifact-acceptance-v1','ACCEPT_REBUILT_AMETHYST_ARTIFACT_ONLY'),
+@@ -362,7 +421,9 @@
+     from current_controls import validate_data
+     validate_data(files,value['producerControls'],origin,CURRENT_PRODUCER,CURRENT_PRODUCER_SOURCE_ACCEPTANCE,
+         CURRENT_CAPTURE_SOURCE,CURRENT_CAPTURE_SOURCE_ACCEPTANCE,CURRENT_ADMISSION_DATA_ACCEPTANCE,CURRENT_DATA_ACCEPTANCE_CONTRACT)
+-    validate_probe(files,value['helperProbe'],origin,CURRENT_PRODUCER,CURRENT_PRODUCER_CONTROL_ACCEPTANCE,CURRENT_HELPER_PROBE_ACCEPTANCE_CONTRACT,CURRENT_HELPER_PROBE_SHAPE_CONTRACT,expected_controller=dict(source=_ACTIVE_BINDINGS['controllerSource'],sourceAcceptance=_ACTIVE_BINDINGS['controllerSourceAcceptance'],controlAcceptance=_ACTIVE_BINDINGS['controllerControlDataAcceptance']))
++    basis,basis_union=helper_component_basis(files,origin.forbidden)
++    origin.forbidden|=basis_union
++    validate_probe(files,value['helperProbe'],origin,basis['originalBasis']['producer']['producerSource'],basis['originalBasis']['producer']['producerDataAcceptance'],CURRENT_HELPER_PROBE_ACCEPTANCE_CONTRACT,CURRENT_HELPER_PROBE_SHAPE_CONTRACT,expected_controller=dict(source=_ACTIVE_BINDINGS['controllerSource'],sourceAcceptance=_ACTIVE_BINDINGS['controllerSourceAcceptance'],controlAcceptance=_ACTIVE_BINDINGS['controllerControlDataAcceptance']))
+     origin.reviews(value['helperProbe']['subject'],'HELPER_PROBE')
+     equal(value['consumerSource'],_ACTIVE_BINDINGS['consumerSource']);equal(value['consumerControls'],_ACTIVE_BINDINGS['consumerControlData'])
+     for key in ('consumerSource','consumerControls'):files.read(value[key])
+--- baseline/current_controls.py
++++ unbound/current_controls.py
+@@ -1,6 +1,7 @@
+-"""Producer4 current266 retained DATA verification; no execution or SDK walks.
++"""Producer4 current286 retained DATA verification; no execution or SDK walks.
+ 
+-Pure capture schema/parser code is vendored from accepted captureSOURCE4.
++Pure ordinary capture parsers are projected from capture EOSE Source2 CODE;
++independent capture Source acceptance and fresh286 DATA remain external gates.
+ Raw proof metadata is checked against expected input pins; input snapshots are
+ not a fresh independent rehash of external SDK/APK/native inputs.
+ """
+@@ -8,10 +9,11 @@
+ import json
+ from strict import closed,equal,hx,integer,json_bytes,need
+ import capture_contracts as c
+-from capture_outputs import parse_outcome
++from ordinary_capture_outputs import parse_outcome
++import ordinary_capture_contracts as ordinary_c
+ from witness import actors
+ 
+-COUNTS = [129, 33, 29, 16, 20, 10, 11, 8, 7, 3]
++COUNTS = [129, 33, 29, 16, 20, 10, 11, 8, 7, 3, 20]
+ SUBJECT_KEYS='schema authors operators state producerSource producerSourceAcceptance captureSource captureSourceAcceptance admissionDataAcceptance plan inputManifest rootAcknowledgement execution originalToolOrigin rawArtifactManifest countsSeparate allExpectedInputsUnchanged runtimeAuthorized helperExecutions ordinaryRowsQualified canonicalE02'
+ 
+ 
+@@ -23,24 +25,24 @@
+ 
+ def root_acceptance(value,contract,subject,data):
+     closed(value,' '.join(contract['closedKeys']))
+-    for key,expected in contract['literals'].items():equal(value[key],expected,'EXACT_ISSUED_CURRENT266_ROOT_ACCEPTANCE')
++    for key,expected in contract['literals'].items():equal(value[key],expected,'EXACT_ISSUED_CURRENT286_ROOT_ACCEPTANCE')
+     equal(value['subject'],subject)
+     for key in contract['pinKeys']:
+-        if key!='subject':equal(value[key],data[key],'ROOT_CURRENT266_EXACT_DATA_JOIN')
++        if key!='subject':equal(value[key],data[key],'ROOT_CURRENT286_EXACT_DATA_JOIN')
+     return value
+ 
+ 
+ def validate_data(files,nodes,origin,producer_pin,source_acceptance,capture_pin,capture_acceptance,admission_acceptance,contract_pin):
+     closed(nodes,'subject acceptance')
+-    need(all(x is not None for x in nodes.values()),'ACTUAL_CURRENT266_DATA_NODES_REQUIRED')
++    need(all(x is not None for x in nodes.values()),'ACTUAL_CURRENT286_DATA_NODES_REQUIRED')
+     data=files.doc(nodes['subject']);closed(data,SUBJECT_KEYS)
+     equal(data['schema'],'e02-producer4-current-control-data-subject-v1');equal(data['producerSource'],producer_pin)
+-    for key,value in [('producerSourceAcceptance',source_acceptance),('captureSource',capture_pin),('captureSourceAcceptance',capture_acceptance),('admissionDataAcceptance',admission_acceptance),('countsSeparate',COUNTS),('allExpectedInputsUnchanged',True),('runtimeAuthorized',False),('helperExecutions',0),('ordinaryRowsQualified',0),('canonicalE02','PARTIAL22_UNCHANGED')]:equal(data[key],value,'CURRENT266_SUBJECT_SOURCE_AND_LIMIT_JOIN')
++    for key,value in [('producerSourceAcceptance',source_acceptance),('captureSource',capture_pin),('captureSourceAcceptance',capture_acceptance),('admissionDataAcceptance',admission_acceptance),('countsSeparate',COUNTS),('allExpectedInputsUnchanged',True),('runtimeAuthorized',False),('helperExecutions',0),('ordinaryRowsQualified',0),('canonicalE02','PARTIAL22_UNCHANGED')]:equal(data[key],value,'CURRENT286_SUBJECT_SOURCE_AND_LIMIT_JOIN')
+     equal(data['state'],'WRITES_STOPPED_PENDING_INDEPENDENT_DATA_QA_SECURITY')
+     acceptance=files.doc(nodes['acceptance']);contract=files.doc(contract_pin)
+     root_acceptance(acceptance,contract,nodes['subject'],data)
+     producer=files.doc(producer_pin);method=files.doc(capture_pin)
+-    forbidden=set(origin.forbidden)|actors(data['authors'])|actors(data['operators'])|actors(producer['sourceContributors'])|{producer['author'],producer['coordinator'],producer['predecessorAuthor']}|actors(method['authors'])|set(c.REQUIRED_KNOWN_ACTORS)
++    forbidden=set(origin.forbidden)|actors(data['authors'])|actors(data['operators'])|actors(producer['sourceContributors'])|{producer['author'],producer['coordinator'],producer['predecessorAuthor']}|actors(method['authors'])|set(ordinary_c.REQUIRED_KNOWN_ACTORS)
+     # Full union, including admission DATA creators/operators, is closed before
+     # ANY new producer/capture/admission/current-DATA review pair is admitted.
+     ack=files.doc(data['rootAcknowledgement'])
+@@ -49,11 +51,11 @@
+     origin.forbidden|=forbidden
+     review_pair(files,acceptance['reviews'],nodes['subject'],contract['reviews']['decision'],forbidden)
+     for key,value in [('producerSource',producer_pin),('producerSourceAcceptance',source_acceptance),('captureSource',capture_pin),('captureSourceAcceptance',capture_acceptance),('admissionDataAcceptance',admission_acceptance)]:equal(ack[key],value,'ACTUAL_ONCE_ACK_EXACT_CURRENT_SOURCE')
+-    records=dict(knownActors=files.doc(c.ROOT_KNOWN_ACTORS_PIN),producerAcceptance=files.doc(ack['producerSourceAcceptance']),captureAcceptance=files.doc(ack['captureSourceAcceptance']),admissionAcceptance=files.doc(ack['admissionDataAcceptance']),admissionSubject=adm)
++    records=dict(knownActors=files.doc(ordinary_c.ROOT_KNOWN_ACTORS_PIN),producerAcceptance=files.doc(ack['producerSourceAcceptance']),captureAcceptance=files.doc(ack['captureSourceAcceptance']),admissionAcceptance=files.doc(ack['admissionDataAcceptance']),admissionSubject=adm)
+     for key in ('producerReviews','captureReviews','admissionReviews'):records[key]=[files.doc(p) for p in ack[key]]
+     control=files.doc(producer['controlPlan']);plan=files.doc(ack['plan']);manifest=files.doc(ack['inputManifest']);clock=files.doc(ack['clockSelection'])
+-    values,union=c.validate_acceptances(ack,producer,control,method,files.doc(ack['admissionPlan']),records,context)
+-    c.validate_plan(plan,ack,producer,control,method,manifest,clock);equal(values,COUNTS)
++    values,union=ordinary_c.validate_acceptances(ack,producer,control,method,files.doc(ack['admissionPlan']),records,context)
++    ordinary_c.validate_plan(plan,ack,producer,control,method,manifest,clock);equal(values,COUNTS)
+     for proof in context['participantProofs']:
+         closed(proof,'actor authority selector');value=files.doc(proof['authority']);need(proof['selector'].startswith('/'),'ACTUAL_ACTOR_PROOF_POINTER')
+         for token in proof['selector'][1:].split('/'):
+@@ -62,13 +64,13 @@
+     equal(set(p['actor'] for p in context['participantProofs']),set(context['participants']))
+     state=files.doc(ack['runtimeBindings']);closed(state,'schema readiness producerSource producerAcceptance captureSourceAcceptance admissionDataAcceptance rootAcknowledgement')
+     for key,value in [('schema','e02-producer4-capture-runtime-bindings-v1'),('readiness',True),('producerSource',producer_pin),('producerAcceptance',source_acceptance),('captureSourceAcceptance',capture_acceptance),('admissionDataAcceptance',admission_acceptance),('rootAcknowledgement','EXTERNALLY_SHA_BOUND_AT_LAUNCH')]:equal(state[key],value)
+-    equal(files.doc(ack['requestContract']),c.request_template(plan,str(Path(capture_pin['path']).parent)))
+-    birth=files.doc(ack['sourceBirth']);equal(birth['schema'],'e02-root-producer4-source4-acceptance-lineage-v1');equal(birth['actor'],'/root');equal(birth['acceptance'],source_acceptance)
++    equal(files.doc(ack['requestContract']),ordinary_c.request_template(plan,str(Path(capture_pin['path']).parent)))
++    birth=files.doc(ack['sourceBirth']);equal(birth['schema'],'e02-root-producer-eose-source-acceptance-lineage-v1');equal(birth['actor'],'/root');equal(birth['acceptance'],source_acceptance)
+     execution=files.doc(data['execution'])
+     equal(execution['schema'],'e02-producer4-current-control-execution-v1')
+     for key in ('producerSource','captureSource','rootAcknowledgement','plan','inputManifest','countsSeparate'):equal(execution[key],data[key])
+-    for key,value in [('exitCode',0),('firstFault',None),('secondaryFaults',[]),('sourceUnchanged',True),('remainingNotExecuted',[]),('ordinaryRowsQualified',0),('canonicalE02','PARTIAL22_UNCHANGED')]:equal(execution[key],value,'ALL_TEN_EXACT_CURRENT_CONTROLS_ONLY')
+-    integer(execution['elapsedNs'],0,1200000000000);equal(len(execution['scopes']),10);equal(len(execution['outcomes']),10)
++    for key,value in [('exitCode',0),('firstFault',None),('secondaryFaults',[]),('sourceUnchanged',True),('remainingNotExecuted',[]),('ordinaryRowsQualified',0),('canonicalE02','PARTIAL22_UNCHANGED')]:equal(execution[key],value,'ALL_ELEVEN_EXACT_CURRENT_CONTROLS_ONLY')
++    integer(execution['elapsedNs'],0,1263000000000);equal(len(execution['scopes']),11);equal(len(execution['outcomes']),11)
+     before=files.doc(execution['overallBefore']);after=files.doc(execution['overallAfter']);equal(before,after,'ALL_CURRENT_EXPECTED_INPUTS_UNCHANGED')
+     closed(before,'rows memberships snapshotNotRaceFree');equal(before['snapshotNotRaceFree'],True)
+     indexed={r['pin']['path']:r for r in before['rows']};equal(len(indexed),len(before['rows']))
+@@ -77,12 +79,12 @@
+     for key in authority_keys:required[ack[key]['path']]=ack[key]
+     for key in ('producerReviews','captureReviews','admissionReviews'):
+         for p in ack[key]:required[p['path']]=p
+-    for p in [data['rootAcknowledgement'],c.ROOT_KNOWN_ACTORS_PIN,*[p['authority'] for p in context['participantProofs']],*[adm[k] for k in ('execution','originalToolOrigin','rawArtifactManifest','inputsBefore','inputsAfter')]]:required[p['path']]=p
++    for p in [data['rootAcknowledgement'],ordinary_c.ROOT_KNOWN_ACTORS_PIN,*[p['authority'] for p in context['participantProofs']],*[adm[k] for k in ('execution','originalToolOrigin','rawArtifactManifest','inputsBefore','inputsAfter')]]:required[p['path']]=p
+     equal(set(indexed),set(required),'COMPLETE_EXPECTED_METADATA_AND_INPUT_SET')
+     for path,pin in required.items():
+         row=indexed[path];closed(row,'pin mode uid gid device inode mtimeNs ctimeNs');equal(row['pin'],pin)
+         integer(row['mode'],0,4095);integer(row['uid']);integer(row['gid'])
+-        for k in ('device','inode','mtimeNs','ctimeNs'):c.need(type(row[k]) is str and row[k].isdigit(),'EXACT_CUSTODY_DECIMAL_IDENTITY')
++        for k in ('device','inode','mtimeNs','ctimeNs'):ordinary_c.need(type(row[k]) is str and row[k].isdigit(),'EXACT_CUSTODY_DECIMAL_IDENTITY')
+     for item in manifest['files']:equal(indexed[item['pin']['path']]['mode'],item['mode'],'EXPECTED_FILE_MODE_NOT_OBSERVED_BASELINE')
+     equal(before['memberships'],[dict(root=t['root'],membership=t['membership']) for t in manifest['fullTrees']]+[manifest['nodeDependencies']])
+     raw_manifest=files.doc(data['rawArtifactManifest']);closed(raw_manifest,'schema files runtimeManifest originalToolOrigin');equal(raw_manifest['schema'],'e02-producer4-control-combined-raw-manifest-v1');equal(raw_manifest['originalToolOrigin'],data['originalToolOrigin'])
+@@ -98,8 +100,8 @@
+             pin={k:v for k,v in row[name].items() if k!='mode'};equal(raw_index.get(pin['path']),pin);streams[name]=files.read(pin)
+         equal(parse_outcome(scope,row,streams['stdout'],streams['stderr']),outcome,'RETAINED_RAW_CURRENT_SCOPE_VALIDATION')
+         for tail in ('before','after'):
+-            p=raw_index[str(root/('%02d-%s.json'%(i,tail)))];equal(files.doc(p),before,'ALL20_EXPECTED_SCOPE_CUSTODY_SNAPSHOTS')
+-    api=c.decode_tool_origin(files.read(data['originalToolOrigin']))
+-    printed=c.validate_origin(api,c.expected_request(plan,data['rootAcknowledgement']['sha256'],str(Path(capture_pin['path']).parent)),ack['operators'],family='PRODUCER_CAPTURE7')
++            p=raw_index[str(root/('%02d-%s.json'%(i,tail)))];equal(files.doc(p),before,'ALL22_EXPECTED_SCOPE_CUSTODY_SNAPSHOTS')
++    api=ordinary_c.decode_tool_origin(files.read(data['originalToolOrigin']))
++    printed=ordinary_c.validate_origin(api,ordinary_c.expected_request(plan,data['rootAcknowledgement']['sha256'],str(Path(capture_pin['path']).parent)),ack['operators'],family='PRODUCER_CAPTURE7')
+     equal(json.loads(printed.strip()),dict(result=data['execution'],rawManifest=raw_manifest['runtimeManifest'],exitCode=0),'GENUINE_CURRENT_OUTER_API_TERMINAL_SUMMARY')
+     return data
+--- baseline/probe_adapter.py
++++ unbound/probe_adapter.py
+@@ -343,3 +343,390 @@
+     equal(observed,names,'ALL_CURRENT_COLLECTOR_AST_NAMES_ONCE')
+     receipt_actors={files.doc(p)['session'] for p in [*src['reviews'],*accepted['reviews']]}
+     return set(forbidden)|local_union|receipt_actors
++
++
++# The original helper/controller readers above retain their original ASTs and
++# capture-contract namespace. This separate SOURCE-only mapping admits no new
++# helper execution and never opens an operational helper proof body.
++_COMPONENT_KEYS = 'actor actorClosure contract designAuthor executionAuthorized issued ordinarySuccessor originalBasis readiness rootDisposition schema scope sourcePairs sourceReviews sourceVerification state'
++_COMPONENT_ORDINARY_KEYS = 'admissionDataAcceptance captureSource captureSourceAcceptance controlPlan countsSeparate modelsDefined producerControlAcceptance producerControlData producerSource producerSourceAcceptance'
++_COMPONENT_NAMES = ('probe-guard-helper.mjs', 'guard-client.mjs', 'guard-client-core.mjs',
++                    'guard-wire.mjs', 'guard-helper.py', 'lease_guard.py',
++                    'capture-allocation.mjs', 'guard-transport-boundaries.mjs')
++_COMPONENT_COUNTS = [129, 33, 29, 16, 20, 10, 11, 8, 7, 3, 20]
++
++
++def _component_source_creators(value):
++    need(value.get('schema') in ('e02-ordinary-producer4-source-subject-v1',
++         'e02-one-cid-helper-probe-controller-source-v1',
++         'e02-helper-current178-source-subject-v1'), 'COMPONENT_TYPED_SOURCE_ACTORS')
++    result = actors([value['author']]) | actors([value['coordinator']]) | actors(value['sourceContributors'])
++    if 'predecessorAuthor' in value:
++        result |= actors([value['predecessorAuthor']])
++    for field in ('operators', 'sourcePreparationOperators', 'designContributors'):
++        if field in value:
++            need(type(value[field]) is list, 'COMPONENT_TYPED_ACTOR_LIST')
++            if value[field]:
++                result |= actors(value[field])
++    return result
++
++
++def _component_no_self_reference(value, descriptor):
++    """Inspect the bounded record only; never follow arbitrary pin edges."""
++    stack, visits = [(value, 0)], 0
++    while stack:
++        item, depth = stack.pop(); visits += 1
++        need(depth <= 48 and visits <= 250000, 'COMPONENT_RECORD_BOUND')
++        if type(item) is dict:
++            if set(item) == {'path', 'bytes', 'sha256'}:
++                pin_shape(item)
++                need(item['path'] != descriptor['path'], 'COMPONENT_SELF_PIN')
++            else:
++                stack.extend((v, depth + 1) for v in item.values())
++        elif type(item) is list:
++            stack.extend((v, depth + 1) for v in item)
++
++
++def _component_members(producer):
++    equal(producer['schema'], 'e02-ordinary-producer4-source-subject-v1')
++    equal(producer['runtimeSourceCount'], 22)
++    need(type(producer['sources']) is list and len(producer['sources']) == 64,
++         'COMPONENT_EXACT_PRODUCER64_MEMBERS')
++    by_name = {}
++    for descriptor in producer['sources']:
++        path = pin_shape(descriptor)
++        need(path.name not in by_name, 'COMPONENT_DUPLICATE_SOURCE_NAME')
++        by_name[path.name] = descriptor
++    need(len({p['path'] for p in producer['sources']}) == 64, 'COMPONENT_SOURCE_PATH_ALIAS')
++    equal(producer['sourceCount'], 64)
++    need(type(producer['runtimeSources']) is list and len(producer['runtimeSources']) == 22,
++         'COMPONENT_EXACT_RUNTIME22_MEMBERS')
++    for descriptor in producer['runtimeSources']:
++        equal(by_name.get(Path(descriptor['path']).name), descriptor, 'COMPONENT_RUNTIME_MEMBER_AUTHORITY')
++    return by_name
++
++
++def _component_literals(raw):
++    import ast
++    result = {}
++    for node in ast.parse(raw).body:
++        if isinstance(node, ast.Assign) and len(node.targets) == 1 and isinstance(node.targets[0], ast.Name):
++            try:
++                result[node.targets[0].id] = ast.literal_eval(node.value)
++            except (ValueError, TypeError, SyntaxError):
++                pass
++    return result
++
++
++def _component_import_facts(bodies, boundary, manifest):
++    """Parse declared local edges from the exact pinned SOURCE; no imports run."""
++    import ast
++    import re
++    import sys
++    edges = {}
++    for name in _COMPONENT_NAMES:
++        raw = bodies[name]; source = raw.decode('utf8', 'strict'); local = []
++        if name.endswith('.mjs'):
++            need(re.search(r'\bimport\s*\(', source) is None, 'COMPONENT_UNDECLARED_DYNAMIC_JS_IMPORT')
++            for line in source.splitlines():
++                if not re.match(r'^\s*import\b', line):
++                    continue
++                match = re.fullmatch(r'\s*import\s+(?:[^;]+?\s+from\s+)?[\'"]([^\'"]+)[\'"];\s*', line)
++                need(match is not None, 'COMPONENT_CLOSED_STATIC_IMPORT')
++                target = match[1]
++                if target.startswith('node:'):
++                    continue
++                need(target.startswith('./') and target[2:] in _COMPONENT_NAMES,
++                     'COMPONENT_IMPORT_OUTSIDE_EIGHT')
++                local.append(target[2:])
++        else:
++            tree = ast.parse(source)
++            for node in ast.walk(tree):
++                if isinstance(node, ast.Import):
++                    for imported in node.names:
++                        need(imported.name.split('.')[0] in sys.stdlib_module_names,
++                             'COMPONENT_UNDECLARED_PYTHON_IMPORT')
++                elif isinstance(node, ast.ImportFrom):
++                    need(node.level == 0 and node.module and node.module.split('.')[0] in sys.stdlib_module_names,
++                         'COMPONENT_UNDECLARED_PYTHON_IMPORT')
++                elif isinstance(node, ast.Call):
++                    need(not (isinstance(node.func, ast.Name)
++                         and node.func.id in ('__import__', 'eval', 'exec', 'compile')),
++                         'COMPONENT_UNDECLARED_PYTHON_EXECUTION')
++                    need(not (isinstance(node.func, ast.Attribute)
++                         and node.func.attr in ('import_module', 'load_module')),
++                         'COMPONENT_UNDECLARED_PYTHON_DYNAMIC_IMPORT')
++            calls = [node for node in ast.walk(tree) if isinstance(node, ast.Call)
++                     and isinstance(node.func, ast.Attribute) and node.func.attr == 'spec_from_file_location']
++            if name == 'guard-helper.py':
++                need(len(calls) == 1 and len(calls[0].args) >= 2
++                     and isinstance(calls[0].args[1], ast.Constant)
++                     and calls[0].args[1].value == '/input/lease_guard.py',
++                     'COMPONENT_EXACT_DYNAMIC_LEASE_IMPORT')
++                local.append('lease_guard.py')
++            else:
++                equal(calls, [], 'COMPONENT_UNDECLARED_DYNAMIC_PYTHON_IMPORT')
++            executions = [node for node in ast.walk(tree) if isinstance(node, ast.Call)
++                          and isinstance(node.func, ast.Attribute) and node.func.attr == 'exec_module']
++            if name == 'guard-helper.py':
++                need(len(executions) == 1
++                     and ast.unparse(executions[0].func) == 'spec.loader.exec_module',
++                     'COMPONENT_EXACT_DYNAMIC_LEASE_EXECUTION')
++            else:
++                equal(executions, [], 'COMPONENT_UNDECLARED_DYNAMIC_PYTHON_EXECUTION')
++        edges[name] = local
++    equal(edges, boundary['localImportEdges'], 'COMPONENT_EXACT_IMPORT_BOUNDARY')
++    guard = _component_literals(bodies['guard-helper.py'])
++    equal(guard['GUARD_SHA'], boundary['sourcePairsByName']['lease_guard.py']['sha256'],
++          'COMPONENT_PYTHON_GUARD_HASH')
++    for literal, relative in (('RUNTIME', 'bin/python3.11'), ('LOADER', 'lib/ld-linux-x86-64.so.2')):
++        value = guard[literal]
++        need(type(value) is tuple and len(value) == 3, 'COMPONENT_GUARD_RUNTIME_LITERAL')
++        equal(value[0], '/guard-python/' + relative)
++        member = manifest['files'][relative]
++        equal(list(value[1:]), [member['bytes'], member['sha256']], 'COMPONENT_MANIFEST_RUNTIME_HASH')
++    client = bodies['guard-client.mjs'].decode('utf8', 'strict')
++    match = re.search(r'\bconst\s+argv\s*=\s*\[([^;]+)\];', client)
++    need(match is not None, 'COMPONENT_FIXED_HELPER_ARGV')
++    prefix = re.findall(r'[\'"]([^\'"]+)[\'"]', match[1])
++    equal(prefix, manifest['runtimeEntrypointPrefix'][1:] + ['/input/guard-helper.py'],
++          'COMPONENT_EXACT_HELPER_ARGV_PREFIX')
++    need(re.search(r'\bspawn\(\s*[\'"]/guard-python/lib/ld-linux-x86-64\.so\.2[\'"]\s*,\s*argv\s*,', client) is not None,
++         'COMPONENT_PINNED_DYNAMIC_HELPER_LOADER')
++    hashes = re.findall(r'\bconst\s+GUARD_SHA\s*=\s*[\'"]([0-9a-f]{64})[\'"]', client)
++    equal(hashes, [guard['GUARD_SHA']], 'COMPONENT_JS_GUARD_HASH')
++    dynamic = [dict(from_= 'guard-client.mjs', kind='PINNED_OWNED_CHILD_VIA_GUARD_PYTHON_LOADER', to='guard-helper.py'),
++               dict(from_= 'guard-helper.py', kind='EXACT_HASH_CHECKED_DYNAMIC_IMPORT', to='lease_guard.py')]
++    dynamic = [dict([('from', row['from_']), ('kind', row['kind']), ('to', row['to'])]) for row in dynamic]
++    equal(dynamic, boundary['dynamicExecutionEdges'], 'COMPONENT_EXACT_DYNAMIC_EXECUTION_BOUNDARY')
++    return dict(localImportEdges=edges, dynamicExecutionEdges=dynamic,
++                runtimeEntrypointPrefix=manifest['runtimeEntrypointPrefix'],
++                pythonRuntime=list(guard['RUNTIME']), pythonLoader=list(guard['LOADER']),
++                guardSha256=guard['GUARD_SHA'])
++
++
++def _component_source_verification(files, template, ordinary_expected):
++    """Recompute the finite Source facts; returned booleans are not authority."""
++    import ast
++    import hashlib
++    from strict import json_bytes
++    original = template['originalBasis']; base = original['producer']; boundary = original['boundary']
++    old = files.doc(base['producerSource']); new = files.doc(ordinary_expected['producerSource'])
++    old_members = _component_members(old); new_members = _component_members(new)
++    equal(new['sourceRevision'], 'FIXTURE_EOSE_QUEUE_CALLER_R1', 'COMPONENT_EXACT_ORDINARY_REVISION')
++    equal(new['selectedCountsSeparate'], _COMPONENT_COUNTS)
++    equal(new['selectedDefinitionCount'], 286)
++    equal(ordinary_expected['controlPlan'], new['controlPlan'])
++    equal(old['selectedDefinitionCount'], 266)
++    controller = files.doc(original['controller']['controllerSource'])
++    equal(controller['schema'], 'e02-one-cid-helper-probe-controller-source-v1')
++    equal(controller['upstreamProducerSubject'], base['producerSource'])
++    equal(controller['upstreamProducerModelsDefined'], 266)
++    equal(controller['upstreamProducerRuntimeWorkerCount'], 22)
++    equal(controller['constants'], boundary['controllerConstants'])
++    equal(controller['runtimeSources'], boundary['controllerRuntimeSources'])
++    constants = files.doc(boundary['controllerConstants'])
++    equal(constants['schema'], 'e02-one-cid-helper-probe-constants-v1')
++    equal(constants['acceptedProducerSubject'], base['producerSource'])
++    equal(constants['producerModelsDefined'], 266)
++    equal(constants['removedImageEnvironmentKeys'], boundary['removedImageEnvironmentKeys'])
++    original_pins = [old_members[name] for name in _COMPONENT_NAMES]
++    equal(controller['guestProbeSources'], original_pins)
++    equal(constants['source8'], original_pins)
++    equal(constants['sourceModes'], boundary['sourceModes'])
++    runtime_bodies = {Path(p['path']).name: files.read(p) for p in boundary['controllerRuntimeSources']}
++    control_literals = _component_literals(runtime_bodies['controller.py'])
++    for key, value in [('IMAGE', boundary['image']), ('ENV', boundary['hostEnvironment']),
++                       ('GUEST_ENV', boundary['guestExplicitEnvironment']),
++                       ('SOURCE_NAMES', tuple(_COMPONENT_NAMES)),
++                       ('REMOVED_IMAGE_ENV', tuple(boundary['removedImageEnvironmentKeys']))]:
++        equal(control_literals[key], value, 'COMPONENT_ORIGINAL_CONTROLLER_ENVIRONMENT')
++    host_literals = _component_literals(runtime_bodies['host.py'])
++    equal(host_literals['PYTHON'], boundary['tools']['python']['path'])
++    equal(host_literals['DOCKER'], boundary['tools']['docker']['path'])
++    equal(host_literals['GUARD_MANIFEST'], boundary['guardManifest'])
++    host_tree = ast.parse(runtime_bodies['host.py'])
++    exclusive = next((n for n in host_tree.body if isinstance(n, ast.FunctionDef) and n.name == 'exclusive'), None)
++    need(exclusive is not None, 'COMPONENT_STAGING_MODE_SOURCE')
++    staging_opens = [n for n in ast.walk(exclusive) if isinstance(n, ast.Call)
++                     and isinstance(n.func, ast.Attribute) and isinstance(n.func.value, ast.Name)
++                     and n.func.value.id == 'os' and n.func.attr == 'open']
++    need(len(staging_opens) == 1 and len(staging_opens[0].args) == 3,
++         'COMPONENT_EXACT_STAGING_OPEN')
++    equal(ast.literal_eval(staging_opens[0].args[2]), 0o600, 'COMPONENT_STAGING_MODE_0600')
++    equal(boundary['helperStagingMode'], '0o600')
++    manifest = files.doc(boundary['guardManifest'])
++    equal(manifest['fileCount'], boundary['guardMemberCount']);equal(len(manifest['files']), 522)
++    for key, value in manifest['runtimeRequiredEnvironment'].items():
++        equal(boundary['guestExplicitEnvironment'].get(key), value, 'COMPONENT_GUARD_RUNTIME_ENVIRONMENT')
++    pairs, old_bodies = [], {}
++    for name in _COMPONENT_NAMES:
++        old_pin, new_pin = old_members[name], new_members[name]
++        need(old_pin['path'] != new_pin['path'], 'COMPONENT_EXPLICIT_RELOCATED_SOURCE_PATHS')
++        old_raw = files.read_mode(old_pin, 0o664);new_raw = files.read_mode(new_pin, 0o664)
++        equal(old_raw, new_raw, 'COMPONENT_BYTE_IDENTICAL_SOURCE')
++        equal((old_pin['bytes'], old_pin['sha256']), (new_pin['bytes'], new_pin['sha256']))
++        equal(boundary['sourceModes'][name], 0o664)
++        old_bodies[name] = old_raw
++        pairs.append(dict(name=name, originalPin=old_pin, newPin=new_pin,
++                          originalMode=0o664, newMode=0o664,
++                          bytes=len(old_raw), sha256=hashlib.sha256(old_raw).hexdigest()))
++    parse_boundary = dict(boundary, sourcePairsByName={name: old_members[name] for name in _COMPONENT_NAMES})
++    imports = _component_import_facts(old_bodies, parse_boundary, manifest)
++    configurations = []
++    for role in ('incoming', 'archive'):
++        row = dict(role=role)
++        for label, producer in [('original', old), ('ordinary', new)]:
++            closed(producer['configurations'], 'incoming archive')
++            descriptor = producer['configurations'][role];config = files.doc(descriptor)
++            equal(config['ordinaryRole'], role)
++            equal(config['sourceAndDependencyPins'], producer['runtimeSources'])
++            for key, expected in [('guardBundleRoot', boundary['guardRoot']),
++                                  ('guardBundleInventory', boundary['guardManifest']),
++                                  ('runtimeImage', boundary['image'])]:
++                equal(config[key], expected, 'COMPONENT_ORDINARY_GUARD_ENVIRONMENT')
++            row[label + 'Config'] = descriptor
++        configurations.append(row)
++    facts = dict(schema='e02-helper-component-source-verification-v1',
++                 originalProducerSource=base['producerSource'],
++                 ordinaryProducerSource=ordinary_expected['producerSource'],
++                 controllerSource=original['controller']['controllerSource'],
++                 controllerConstants=boundary['controllerConstants'], sourcePairs=pairs,
++                 importBoundary=imports, controllerRuntimeSources=boundary['controllerRuntimeSources'],
++                 hostEnvironment=control_literals['ENV'], guestEnvironment=control_literals['GUEST_ENV'],
++                 image=control_literals['IMAGE'], guardManifest=boundary['guardManifest'],
++                 guardMemberCount=manifest['fileCount'], guardRoot=boundary['guardRoot'],
++                 stagingMode=0o600, configurations=configurations,
++                 originalBoundarySha256=hashlib.sha256(json_bytes(boundary)).hexdigest())
++    return facts, old, new, controller, constants
++
++
++def _component_control_actors(files, source_pin, source_acceptance_pin, data_pin, acceptance_pin, total, counts):
++    source = files.doc(source_pin);src = files.doc(source_acceptance_pin)
++    data = files.doc(data_pin);accepted = files.doc(acceptance_pin)
++    equal(src['actor'], '/root');equal(src['subject'], source_pin)
++    equal(src['modelsDefined'], total);equal(src['runtimeWorkerCount'], 22)
++    equal(src['modelsExecuted'], 0);equal(src['runtimeReady'], False);equal(src['runtimeReleased'], False)
++    equal(data['schema'], 'e02-producer4-current-control-data-subject-v1')
++    equal(data['producerSource'], source_pin);equal(data['producerSourceAcceptance'], source_acceptance_pin)
++    equal(data['countsSeparate'], counts)
++    equal(accepted['schema'], 'e02-root-producer4-current-control-data-acceptance-v1')
++    equal(accepted['actor'], '/root');equal(accepted['subject'], data_pin)
++    equal(accepted['producerSource'], source_pin);equal(accepted['producerSourceAcceptance'], source_acceptance_pin)
++    equal(accepted['countsSeparate'], counts)
++    for key, expected in [('modelsExecuted', total), ('modelsPassed', total), ('modelsFailed', 0),
++                          ('helperExecutions', 0), ('ordinaryRoleExecutions', 0),
++                          ('ordinaryRowsQualified', 0), ('runtimeAuthorized', False),
++                          ('executionAuthorized', False)]:
++        equal(accepted[key], expected, 'COMPONENT_PURE_CONTROL_METADATA')
++    return _component_source_creators(source) | data_actors(data) | {'/root'}
++
++
++def validate_component_basis(files, descriptor, template_pin, design_acceptance_pin, ordinary_expected, forbidden):
++    """Validate one SOURCE-pinned completed basis without following helper proof pins.
++
++    The caller fixes all descriptor arguments in its reviewed SOURCE context and
++    closes actual helper/consumer participants before calling. This is component
++    equality evidence, never a replacement for either strict DATA validator.
++    """
++    from strict import same
++    for pin in (descriptor, template_pin, design_acceptance_pin):pin_shape(pin)
++    closed(ordinary_expected, _COMPONENT_ORDINARY_KEYS)
++    for key in _COMPONENT_ORDINARY_KEYS.split():
++        if key not in ('countsSeparate', 'modelsDefined'):
++            need(ordinary_expected[key] is not None, 'COMPONENT_UNBOUND_ORDINARY_AUTHORITY');pin_shape(ordinary_expected[key])
++    equal(ordinary_expected['countsSeparate'], _COMPONENT_COUNTS)
++    equal(ordinary_expected['modelsDefined'], 286)
++    template = files.doc(template_pin);closed(template, _COMPONENT_KEYS)
++    basis = files.doc(descriptor);closed(basis, _COMPONENT_KEYS)
++    for key in ('actor', 'contract', 'designAuthor', 'originalBasis', 'schema', 'scope'):
++        equal(basis[key], template[key], 'COMPONENT_EXACT_SOURCE_PINNED_BASIS')
++    equal(basis['actor'], '/root');equal(basis['executionAuthorized'], False)
++    equal(basis['schema'], 'e02-helper-component-basis-binding-v1')
++    equal(basis['scope'], 'ORIGINAL_ACCEPTED_HELPER_GUARD_COMPONENT_BASIS_ONLY')
++    equal(basis['issued'], True, 'COMPONENT_UNISSUED_BASIS')
++    equal(basis['readiness'], True, 'COMPONENT_UNREADY_BASIS')
++    equal(basis['state'], 'COMPLETED_SOURCE_COMPONENT_BASIS_ONLY')
++    equal(basis['ordinarySuccessor'], ordinary_expected, 'COMPONENT_EXACT_ORDINARY_AUTHORITY')
++    _component_no_self_reference(basis, descriptor)
++    design = files.doc(design_acceptance_pin)
++    equal(design['schema'], 'e02-root-helper-component-basis-source-contract-acceptance-v1')
++    equal(design['actor'], '/root')
++    equal(design['decision'], 'ACCEPT_EXPLICIT_ORIGINAL_HELPER_COMPONENT_BASIS_SOURCE_CONTRACT_ONLY')
++    equal(design['unissuedTemplate'], template_pin)
++    equal(design['contract'], template['contract'])
++    equal(design['executionAuthorized'], False);equal(design['helperCarryIssued'], False)
++    need(not same(design['subject'], descriptor), 'COMPONENT_SELF_ACCEPTANCE')
++    equal(basis['sourceReviews'], design['reviews'], 'COMPONENT_PRIOR_DESIGN_REVIEWS_ONLY')
++    equal(basis['rootDisposition'], design_acceptance_pin, 'COMPONENT_PRIOR_DESIGN_DISPOSITION_ONLY')
++    entry = files.doc(design['subject'])
++    need(type(entry) is dict, 'COMPONENT_DESIGN_SOURCE_ENTRYPOINT')
++    # The immutable design authority pins the exact unissued template. Its own
++    # Source review is prior authority, not a review of this completed record.
++    def contains_pin(value):
++        if type(value) is dict:
++            return same(value, template_pin) or any(contains_pin(v) for v in value.values())
++        return type(value) is list and any(contains_pin(v) for v in value)
++    need(contains_pin(entry), 'COMPONENT_DESIGN_TEMPLATE_AUTHORITY')
++    original = basis['originalBasis'];base = original['producer']
++    need(not same(base['producerSource'], ordinary_expected['producerSource']), 'COMPONENT_DISTINCT_ORDINARY_BASIS')
++    facts, old, new, controller, constants = _component_source_verification(files, template, ordinary_expected)
++    need(type(basis['sourcePairs']) is list and len(basis['sourcePairs']) == 8, 'COMPONENT_EXACT_EIGHT')
++    equal([p['name'] for p in basis['sourcePairs']], list(_COMPONENT_NAMES), 'COMPONENT_EXACT_EIGHT_ORDER')
++    for row, old_row, evidence in zip(basis['sourcePairs'], template['sourcePairs'], facts['sourcePairs']):
++        closed(row, 'name originalPin originalMode newPin newMode')
++        equal(row['name'], old_row['name']);equal(row['originalPin'], old_row['originalPin'])
++        equal(row['originalMode'], '0o664');equal(old_row['originalMode'], '0o664')
++        equal(row['newMode'], '0o664')
++        equal(row['originalPin'], evidence['originalPin']);equal(row['newPin'], evidence['newPin'])
++    need(len({r['originalPin']['path'] for r in basis['sourcePairs']}) == 8
++         and len({r['newPin']['path'] for r in basis['sourcePairs']}) == 8, 'COMPONENT_EIGHT_PATH_ALIAS')
++    equal(basis['sourceVerification'], facts, 'COMPONENT_RECOMPUTED_SOURCE_FACTS')
++    root = files.doc(original['helperDataAcceptance'])
++    expected_root = dict(original['root24ExpectedLiterals'], **original['root24ExpectedPinOperands'],
++                         reviews=original['root24ExpectedReviews'])
++    need(len(expected_root) == 24, 'COMPONENT_CLOSED_ROOT24_DEFINITION')
++    closed(root, ' '.join(expected_root));equal(root, expected_root, 'COMPONENT_EXACT_ORIGINAL_ROOT24')
++    equal(root['producerSource'], base['producerSource']);equal(root['producerDataAcceptance'], base['producerDataAcceptance'])
++    for key, pin in original['controller'].items():equal(root[key], pin, 'COMPONENT_ORIGINAL_R10_ROOT24')
++    union = set(forbidden) | {'/root', basis['designAuthor']}
++    if union:actors(sorted(union))
++    union |= _component_control_actors(files, base['producerSource'], base['producerSourceAcceptance'],
++        base['producerData'], base['producerDataAcceptance'], 266, _COMPONENT_COUNTS[:-1])
++    union |= _component_control_actors(files, ordinary_expected['producerSource'], ordinary_expected['producerSourceAcceptance'],
++        ordinary_expected['producerControlData'], ordinary_expected['producerControlAcceptance'], 286, _COMPONENT_COUNTS)
++    for source_pin, data_pin, acceptance_pin, capture_pin, capture_acceptance_pin, admission_pin in (
++        (base['producerSource'], base['producerData'], base['producerDataAcceptance'],
++         base['producerCaptureSource'], base['producerCaptureSourceAcceptance'], base['producerAdmissionDataAcceptance']),
++        (ordinary_expected['producerSource'], ordinary_expected['producerControlData'], ordinary_expected['producerControlAcceptance'],
++         ordinary_expected['captureSource'], ordinary_expected['captureSourceAcceptance'], ordinary_expected['admissionDataAcceptance'])):
++        data = files.doc(data_pin);accepted = files.doc(acceptance_pin)
++        for field, expected in [('captureSource', capture_pin), ('captureSourceAcceptance', capture_acceptance_pin),
++                                ('admissionDataAcceptance', admission_pin)]:
++            equal(data[field], expected, 'COMPONENT_CONTROL_CAPTURE_AUTHORITY')
++            equal(accepted[field], expected, 'COMPONENT_ROOT_CAPTURE_AUTHORITY')
++        capture = files.doc(capture_pin)
++        equal(capture['schema'], 'e02-producer4-control-capture-code-subject-v1')
++        equal(capture['producerSource'], source_pin);union |= actors(capture['authors'])
++        capture_accepted = files.doc(capture_acceptance_pin)
++        equal(capture_accepted['actor'], '/root');equal(capture_accepted['subject'], capture_pin)
++        admission = files.doc(admission_pin);equal(admission['actor'], '/root')
++        admission_data = files.doc(admission['subject'])
++        equal(admission_data['schema'], 'e02-producer4-capture-admission-data-subject-v1')
++        equal(admission_data['producerSource'], source_pin);equal(admission_data['captureSource'], capture_pin)
++        union |= data_actors(admission_data)
++    union |= _component_source_creators(controller) | actors(constants['sourceContributors'])
++    method = files.doc(original['helperMethodSource']);union |= _component_source_creators(method)
++    method_control = files.doc(original['helperMethodControlAcceptance'])
++    equal(method_control['actor'], '/root');union |= data_actors(files.doc(method_control['subject']))
++    controller_control = files.doc(original['controller']['controllerControlDataAcceptance'])
++    equal(controller_control['actor'], '/root');union |= data_actors(files.doc(controller_control['subject']))
++    closed(basis['actorClosure'], 'schema participants')
++    equal(basis['actorClosure']['schema'], 'e02-helper-component-actor-closure-v1')
++    actors(basis['actorClosure']['participants'])
++    equal(basis['actorClosure']['participants'], sorted(union), 'COMPONENT_COMPLETE_ACTOR_UNION')
++    c.reviews([files.doc(p) for p in root['reviews']], root['reviews'], root['subject'],
++              'ACCEPT_ONE_CURRENT_HELPER_PROBE_DATA_ONLY', union)
++    c.reviews([files.doc(p) for p in basis['sourceReviews']], basis['sourceReviews'], design['subject'],
++              'ACCEPT_HELPER_COMPONENT_BASIS_SOURCE_CONTRACT_ONLY', union)
++    return basis, union
+--- baseline/strict.py
++++ unbound/strict.py
+@@ -142,6 +142,10 @@
+         self.pins, self.visits, self.total = {}, 0, 0
+         self.guest = {}
+         self.raw_pins = {}
++        # Only explicit expected-mode reads establish this stronger continuity
++        # contract. A later read/RAW verification cannot discard the constraint.
++        self.expected_modes = {}
++        self.mode_identities = {}
+         self.session_root = None
+ 
+     def window(self, root):
+@@ -171,7 +175,60 @@
+             return actual
+         return descriptor
+ 
+-    def read(self, descriptor, maximum=DATA):
++    @staticmethod
++    def _identity(status):
++        return (status.st_dev, status.st_ino, status.st_mode, status.st_uid,
++                status.st_gid, status.st_size, status.st_mtime_ns, status.st_ctime_ns)
++
++    @staticmethod
++    def _open_file(path):
++        """Walk from / for every open; no symlink ancestor or final component."""
++        fd = os.open('/', os.O_RDONLY | os.O_DIRECTORY | os.O_CLOEXEC)
++        try:
++            for component in path.parts[1:-1]:
++                newfd = os.open(component, os.O_RDONLY | os.O_DIRECTORY |
++                                os.O_NOFOLLOW | os.O_CLOEXEC, dir_fd=fd)
++                os.close(fd)
++                fd = newfd
++            return os.open(path.name, os.O_RDONLY | os.O_NOFOLLOW |
++                           os.O_NONBLOCK | os.O_CLOEXEC, dir_fd=fd)
++        finally:
++            os.close(fd)
++
++    def _selected_mode(self, path, expected_mode):
++        prior = self.expected_modes.get(str(path))
++        if expected_mode is not None:
++            integer(expected_mode, 0, 0o7777)
++            need(prior is None or prior == expected_mode, 'EXPECTED_MODE_CONFLICT')
++            return expected_mode
++        return prior
++
++    def _before_mode_read(self, path, status, expected_mode):
++        if expected_mode is not None:
++            need(stat.S_IMODE(status.st_mode) == expected_mode, 'EXPECTED_FILE_MODE')
++            prior = self.mode_identities.get(str(path))
++            need(prior is None or prior == self._identity(status),
++                 'EXPECTED_MODE_IDENTITY_DRIFT')
++
++    def _after_mode_read(self, path, before, after, expected_mode):
++        # Reopen the canonical path, rather than following possibly replaced
++        # ancestors with Path.stat/lstat. This observes path-to-fd continuity.
++        fd = self._open_file(path)
++        try:
++            current = os.fstat(fd)
++        finally:
++            os.close(fd)
++        need(self._identity(before) == self._identity(after) == self._identity(current),
++             'HASH_IDENTITY_DRIFT')
++        if expected_mode is not None:
++            need(stat.S_IMODE(after.st_mode) == expected_mode, 'EXPECTED_FILE_MODE')
++
++    def _retain_mode(self, path, status, expected_mode):
++        if expected_mode is not None:
++            self.expected_modes[str(path)] = expected_mode
++            self.mode_identities[str(path)] = self._identity(status)
++
++    def read(self, descriptor, maximum=DATA, *, expected_mode=None):
+         self.visits += 1
+         need(self.visits <= 250000, 'DESCRIPTOR_VISITS_BOUND')
+         d = self.resolved(descriptor)
+@@ -180,27 +237,27 @@
+         prior = self.pins.get(str(p),self.raw_pins.get(str(p)))
+         need(prior is None or same(prior, d), 'PIN_DRIFT')
+         need(prior is not None or (len(set(self.pins)|set(self.raw_pins)) < 20000 and self.total + d['bytes'] <= 536870912), 'GRAPH_BOUND')
+-        fd = os.open('/', os.O_RDONLY | os.O_DIRECTORY)
+-        try:
+-            for component in p.parts[1:-1]:
+-                newfd = os.open(component, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW, dir_fd=fd)
+-                os.close(fd)
+-                fd = newfd
+-            filefd = os.open(p.name, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK, dir_fd=fd)
+-        finally:
+-            os.close(fd)
++        selected_mode = self._selected_mode(p, expected_mode)
++        filefd = self._open_file(p)
+         with os.fdopen(filefd, 'rb') as stream:
+             before = os.fstat(stream.fileno())
+             need(stat.S_ISREG(before.st_mode) and before.st_size == d['bytes'], 'REGULAR_SIZE')
++            self._before_mode_read(p, before, selected_mode)
+             raw = stream.read(maximum + 1)
+             after = os.fstat(stream.fileno())
+-        identity = lambda s: (s.st_dev, s.st_ino, s.st_size, s.st_mtime_ns, s.st_ctime_ns)
+-        need(identity(before) == identity(after) and len(raw) == d['bytes']
++        self._after_mode_read(p, before, after, selected_mode)
++        need(len(raw) == d['bytes']
+              and hashlib.sha256(raw).hexdigest() == d['sha256'], 'HASH_IDENTITY_DRIFT')
+         if prior is None:
+             self.total += len(raw)
+         self.pins[str(p)] = dict(d)
++        self._retain_mode(p, after, selected_mode)
+         return raw
++
++    def read_mode(self, descriptor, expected_mode, maximum=DATA):
++        """Verify bytes and an exact permission mode as one bounded observation."""
++        integer(expected_mode, 0, 0o7777)
++        return self.read(descriptor, maximum, expected_mode=expected_mode)
+ 
+     def verify_raw(self, descriptor):
+         """Stream one explicitly named HOST RAW pin, <=2GiB; never parse it.
+@@ -216,24 +273,22 @@
+         prior=self.pins.get(str(p),self.raw_pins.get(str(p)))
+         need(prior is None or same(prior,descriptor),'PIN_DRIFT')
+         need(prior is not None or (len(set(self.pins)|set(self.raw_pins))<20000 and self.total+descriptor['bytes']<=536870912),'GRAPH_BOUND')
+-        fd=os.open('/',os.O_RDONLY|os.O_DIRECTORY)
+-        try:
+-            for component in p.parts[1:-1]:
+-                newfd=os.open(component,os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW,dir_fd=fd);os.close(fd);fd=newfd
+-            filefd=os.open(p.name,os.O_RDONLY|os.O_NOFOLLOW|os.O_NONBLOCK,dir_fd=fd)
+-        finally:os.close(fd)
++        selected_mode=self._selected_mode(p,None)
++        filefd=self._open_file(p)
+         digest=hashlib.sha256();size=0
+-        identity=lambda s:(s.st_dev,s.st_ino,s.st_mode,s.st_uid,s.st_gid,s.st_size,s.st_mtime_ns,s.st_ctime_ns)
+         with os.fdopen(filefd,'rb') as stream:
+             before=os.fstat(stream.fileno());need(stat.S_ISREG(before.st_mode) and before.st_size==descriptor['bytes'],'REGULAR_RAW_SIZE')
++            self._before_mode_read(p,before,selected_mode)
+             while True:
+                 chunk=stream.read(1048576)
+                 if not chunk:break
+                 size+=len(chunk);need(size<=descriptor['bytes'],'RAW_READ_BOUND');digest.update(chunk)
+             after=os.fstat(stream.fileno())
+-        need(identity(before)==identity(after)==identity(p.lstat()) and size==descriptor['bytes'] and digest.hexdigest()==descriptor['sha256'],'RAW_EXPECTED_PIN_IDENTITY_DRIFT')
++        self._after_mode_read(p,before,after,selected_mode)
++        need(size==descriptor['bytes'] and digest.hexdigest()==descriptor['sha256'],'RAW_EXPECTED_PIN_IDENTITY_DRIFT')
+         if prior is None:self.total+=size
+         self.raw_pins[str(p)]=dict(descriptor)
++        self._retain_mode(p,after,selected_mode)
+         return size
+ 
+ 
+--- baseline/test_current_authority.py
++++ unbound/test_current_authority.py
+@@ -23,14 +23,18 @@
+ 
+ class ReadyAuthorityModel(MemoryFiles):
+     def __init__(self):
+-        super().__init__();self.named={};self.here=Path(consumer.__file__).resolve().parent
++        super().__init__();self.named={};self.modes={};self.here=Path(consumer.__file__).resolve().parent
++        # Only memory-local selector records are issued by this fixture. The
++        # repository's actual component basis/ordinary DATA remain unissued.
++        self.synthetic_ordinary_basis()
+         self.source=self.copy_file(self.here/'subject.json')
++        self.named['consumer-source']=self.source
+         source=self.doc(self.source);self.plan=self.copy_file(source['controlPlan']['path'])
+         for p in source['sources']:self.copy_file(p['path'])
+         self.copy_file(source['inputManifest']['path'])
+         inputs=self.doc(source['inputManifest'])['fixedSourceAndCurrentDataOperands']
+         # Other retained upstream operands are modeled snapshot descriptors only;
+-        # the separate current266 DATA control inspects their actual proof graph.
++        # the separate current286 DATA control inspects their actual proof graph.
+         self.copy_file(consumer.CURRENT_CONSUMER_ACCEPTANCE_CONTRACT['path'])
+         self.contract=self.doc(consumer.CURRENT_CONSUMER_ACCEPTANCE_CONTRACT)
+         self.groups=self.doc(self.plan)['groups'];self.counts=[g['count'] for g in self.groups];self.total=sum(self.counts)
+@@ -70,14 +74,125 @@
+         da=dict(self.contract['data']['literals'],subject=data,reviews=data_reviews,consumerSource=self.source,consumerSourceAcceptance=source_acceptance,controlPlan=self.plan,producerSource=consumer.CURRENT_PRODUCER,producerControlAcceptance=consumer.CURRENT_PRODUCER_CONTROL_ACCEPTANCE,countsSeparate=self.counts,modelsDefined=self.total,modelsExecuted=self.total,modelsPassed=self.total)
+         data_acceptance=self.record('data-acceptance',da)
+         export=dict(path='/model/SYNTHETIC_EXPORT_NOT_REAL',bytes=1,sha256='a'*64)
+-        leaf=dict(schema='e02-consumer6-runtime-bindings-v1',actor='/root',producerSource=consumer.CURRENT_PRODUCER,producerSourceAcceptance=consumer.CURRENT_PRODUCER_SOURCE_ACCEPTANCE,producerControlData=consumer.CURRENT_PRODUCER_CONTROL_DATA,producerControlAcceptance=consumer.CURRENT_PRODUCER_CONTROL_ACCEPTANCE,helperProbeData=probe,helperProbeAcceptance=probe_acceptance,controllerSource=ctrl,controllerSourceAcceptance=ctrl_sa,controllerControlDataAcceptance=ctrl_da,consumerSource=self.source,consumerSourceAcceptance=source_acceptance,consumerControlData=data,consumerControlAcceptance=data_acceptance,incomingWindow=export,archiveWindow=export,ordinaryExports=[export]*5,readiness=True,issued=True,executionAuthorized=False)
++        leaf=dict(schema='e02-consumer6-runtime-bindings-v2',actor='/root',producerSource=consumer.CURRENT_PRODUCER,producerSourceAcceptance=consumer.CURRENT_PRODUCER_SOURCE_ACCEPTANCE,producerControlData=consumer.CURRENT_PRODUCER_CONTROL_DATA,producerControlAcceptance=consumer.CURRENT_PRODUCER_CONTROL_ACCEPTANCE,helperProbeData=probe,helperProbeAcceptance=probe_acceptance,controllerSource=ctrl,controllerSourceAcceptance=ctrl_sa,controllerControlDataAcceptance=ctrl_da,consumerSource=self.source,consumerSourceAcceptance=source_acceptance,consumerControlData=data,consumerControlAcceptance=data_acceptance,incomingWindow=export,archiveWindow=export,ordinaryExports=[export]*5,readiness=True,issued=True,executionAuthorized=False)
+         self.record('leaf',leaf)
++        self.component_basis_fixture(probe)
++
++    def synthetic_ordinary_basis(self):
++        """Metadata-only synthetic286 tuple over the genuine new producer Source.
++
++        This never substitutes for the separately required actual capture DATA.
++        The fixture exercises consumer joins; no capture/producer code is run.
++        """
++        producer=self.copy_expected(consumer.CURRENT_PRODUCER)
++        self.copy_expected(consumer.CURRENT_PRODUCER_SOURCE_ACCEPTANCE)
++        capture=self.record('component-new-capture',dict(schema='e02-producer4-control-capture-code-subject-v1',
++            producerSource=producer,authors=['/root/SYNTHETIC_CAPTURE_CREATOR']))
++        capture_acceptance=self.record('component-new-capture-acceptance',dict(actor='/root',subject=capture))
++        admission=self.record('component-new-admission',dict(schema='e02-producer4-capture-admission-data-subject-v1',
++            producerSource=producer,captureSource=capture,authors=['/root/SYNTHETIC_MODEL_OPERATOR'],
++            operators=['/root/SYNTHETIC_MODEL_OPERATOR']))
++        admission_acceptance=self.record('component-new-admission-acceptance',dict(actor='/root',subject=admission))
++        joins=dict(producerSource=producer,producerSourceAcceptance=consumer.CURRENT_PRODUCER_SOURCE_ACCEPTANCE,
++            countsSeparate=consumer.CURRENT_PRODUCER_CONTROL_COUNTS,captureSource=capture,
++            captureSourceAcceptance=capture_acceptance,admissionDataAcceptance=admission_acceptance)
++        data=self.record('component-new-control',dict(schema='e02-producer4-current-control-data-subject-v1',
++            authors=['/root/SYNTHETIC_MODEL_OPERATOR'],operators=['/root/SYNTHETIC_MODEL_OPERATOR'],**joins))
++        accepted=self.record('component-new-control-acceptance',dict(schema='e02-root-producer4-current-control-data-acceptance-v1',
++            actor='/root',subject=data,modelsExecuted=286,modelsPassed=286,modelsFailed=0,
++            helperExecutions=0,ordinaryRoleExecutions=0,ordinaryRowsQualified=0,runtimeAuthorized=False,
++            executionAuthorized=False,**joins))
++        for key,value in [('CURRENT_PRODUCER_CONTROL_DATA',data),('CURRENT_PRODUCER_CONTROL_ACCEPTANCE',accepted),
++                          ('CURRENT_CAPTURE_SOURCE',capture),('CURRENT_CAPTURE_SOURCE_ACCEPTANCE',capture_acceptance),
++                          ('CURRENT_ADMISSION_DATA_ACCEPTANCE',admission_acceptance)]:setattr(consumer,key,value)
++
++    def component_basis_fixture(self,probe):
++        """Copy a finite SOURCE/pure-control closure and build a synthetic basis.
++
++        No actual helper subject, release, plan, result, Host/F/M4 or raw proof
++        descriptor is followed. Root24 operands remain descriptors. Its subject
++        and acceptance are replaced with the memory-only helper probe above.
++        """
++        template_pin=self.copy_expected(consumer.CURRENT_HELPER_COMPONENT_BASIS_TEMPLATE)
++        template=self.doc(template_pin);original=template['originalBasis'];base=original['producer']
++        design_pin=self.copy_expected(consumer.CURRENT_HELPER_COMPONENT_BASIS_DESIGN_ACCEPTANCE)
++        design=self.doc(design_pin)
++        # A finite list of typed Source/governance and pure-control metadata.
++        for key in ('producerSourceAcceptance','producerData','producerDataAcceptance',
++                    'producerCaptureSource','producerCaptureSourceAcceptance','producerAdmissionDataAcceptance'):
++            self.copy_expected(base[key])
++        admission=self.doc(base['producerAdmissionDataAcceptance']);self.copy_expected(admission['subject'])
++        for source_pin in (base['producerSource'],consumer.CURRENT_PRODUCER):
++            self.copy_expected(source_pin);source=self.doc(source_pin)
++            for descriptor in source['sources']:self.copy_expected(descriptor)
++            for descriptor in source['configurations'].values():self.copy_expected(descriptor)
++        boundary=original['boundary']
++        for descriptor in [boundary['controllerConstants'],boundary['guardManifest'],
++                           *boundary['controllerRuntimeSources'],original['helperMethodSource'],
++                           original['helperMethodControlAcceptance']]:self.copy_expected(descriptor)
++        method_acceptance=self.doc(original['helperMethodControlAcceptance'])
++        self.copy_expected(method_acceptance['subject'])
++        # Reuse the frozen Root24 literals and original producer/controller
++        # operands while replacing only the synthetic helper subject/reviews.
++        helper_reviews=self.reviews('component-helper',probe,'ACCEPT_ONE_CURRENT_HELPER_PROBE_DATA_ONLY')
++        original['root24ExpectedPinOperands']['subject']=probe
++        original['root24ExpectedReviews']=helper_reviews
++        root24=dict(original['root24ExpectedLiterals'],**original['root24ExpectedPinOperands'],reviews=helper_reviews)
++        def replace_root(value):value.clear();value.update(root24)
++        self.change('helper-acceptance',replace_root)
++        original['helperDataAcceptance']=self.named['helper-acceptance']
++        # New prior design receipts are explicitly synthetic test records. Their
++        # subject pins this synthetic template, never the completed basis itself.
++        template_pin=self.record('component-template',template)
++        entry=self.record('component-design-entry',dict(schema='SYNTHETIC_COMPONENT_DESIGN_SOURCE',unissuedTemplate=template_pin))
++        design_reviews=self.reviews('component-design',entry,'ACCEPT_HELPER_COMPONENT_BASIS_SOURCE_CONTRACT_ONLY')
++        design.update(unissuedTemplate=template_pin,subject=entry,reviews=design_reviews)
++        design_pin=self.record('component-design-acceptance',design)
++        ordinary=consumer.ordinary_basis_expectations()
++        facts,_,_,_,_=probe_adapter._component_source_verification(self,template,ordinary)
++        pairs=[dict(name=row['name'],originalPin=row['originalPin'],originalMode='0o664',
++                    newPin=row['newPin'],newMode='0o664') for row in facts['sourcePairs']]
++        leaf=self.leaf();consumer_source=self.doc(leaf['consumerSource']);control=self.doc(leaf['consumerControlData'])
++        union=set(consumer.CURRENT_CONTROL_ACTORS)|probe_adapter.source_actors(consumer_source)|probe_adapter.data_actors(control)
++        union=probe_adapter.participant_union(self,self.doc(probe),union)
++        union|={'/root',template['designAuthor']}
++        def source_creators(value):
++            result={value['author'],value['coordinator']}|set(value['sourceContributors'])
++            for key in ('operators','sourcePreparationOperators','designContributors'):result.update(value.get(key,[]))
++            if 'predecessorAuthor' in value:result.add(value['predecessorAuthor'])
++            return result
++        for source_pin,data_pin,capture_pin,admission_pin in (
++            (base['producerSource'],base['producerData'],base['producerCaptureSource'],base['producerAdmissionDataAcceptance']),
++            (ordinary['producerSource'],ordinary['producerControlData'],ordinary['captureSource'],ordinary['admissionDataAcceptance'])):
++            union|=source_creators(self.doc(source_pin))|probe_adapter.data_actors(self.doc(data_pin))
++            union.update(self.doc(capture_pin)['authors'])
++            union|=probe_adapter.data_actors(self.doc(self.doc(admission_pin)['subject']))
++        union|=source_creators(self.doc(original['controller']['controllerSource']))
++        union.update(self.doc(boundary['controllerConstants'])['sourceContributors'])
++        union|=source_creators(self.doc(original['helperMethodSource']))
++        union|=probe_adapter.data_actors(self.doc(method_acceptance['subject']))
++        controller_accepted=self.doc(original['controller']['controllerControlDataAcceptance'])
++        union|=probe_adapter.data_actors(self.doc(controller_accepted['subject']))
++        basis=copy.deepcopy(template)
++        basis.update(actor='/root',issued=True,readiness=True,executionAuthorized=False,
++            ordinarySuccessor=ordinary,sourcePairs=pairs,sourceVerification=facts,
++            actorClosure=dict(schema='e02-helper-component-actor-closure-v1',participants=sorted(union)),
++            sourceReviews=design_reviews,rootDisposition=design_pin,state='COMPLETED_SOURCE_COMPONENT_BASIS_ONLY')
++        basis_pin=self.record('component-basis',basis)
++        consumer.CURRENT_HELPER_COMPONENT_BASIS=basis_pin
++        consumer.CURRENT_HELPER_COMPONENT_BASIS_TEMPLATE=template_pin
++        consumer.CURRENT_HELPER_COMPONENT_BASIS_DESIGN_ACCEPTANCE=design_pin
++        # Repin every dependent memory descriptor, including the Source anchor,
++        # Source acceptance, snapshots, control DATA and final synthetic leaf.
++        self.change('consumer-source',lambda value:value.update(helperComponentBasis=basis_pin,
++            producerControlAcceptance=consumer.CURRENT_PRODUCER_CONTROL_ACCEPTANCE))
++
+     def current_controller(self):
+         # Exact accepted current R10 SOURCE and complete178 retained DATA are read-only
+         # inputs. This copies bytes into a memory-only test graph; it issues no
+         # helper/consumer/runtime authority. Any change() is synthetic DATA.
+         source_pin=self.copy_expected(CURRENT_R8_FIXTURE['source'],'controller-source')
+-        source=self.doc(source_pin);self.copy_expected(consumer.CURRENT_PRODUCER)
++        source=self.doc(source_pin);self.copy_expected(consumer.HELPER_PRODUCER)
+         for p in source['sources']:self.copy_expected(p)
+         plan_pin=self.copy_expected(source['controlPlan'],'controller-plan')
+         self.copy_expected(consumer.CURRENT_HELPER_CONTROLLER_ACCEPTANCE_CONTRACT)
+@@ -114,10 +229,18 @@
+         return self.doc(source['controlPlan'])['groups'][1]
+ 
+     def copy_file(self,path):
+-        path=Path(path);raw=path.read_bytes();p=dict(path=str(path),bytes=len(raw),sha256=hashlib.sha256(raw).hexdigest());self.raw[str(path)]=raw
++        path=Path(path)
++        if '65d8116b77bc0af1a108122ec28cfcea' in str(path):raise AssertionError('NO_OPERATIONAL_HELPER_PROOF_READ')
++        raw=path.read_bytes();p=dict(path=str(path),bytes=len(raw),sha256=hashlib.sha256(raw).hexdigest());self.raw[str(path)]=raw
++        self.modes[str(path)]=path.stat().st_mode & 0o7777
+         try:self.data[str(path)]=json.loads(raw)
+         except (ValueError,UnicodeError):self.data[str(path)]=raw
+         return p
++    def read_mode(self,descriptor,expected_mode):
++        # Modes are captured with the explicitly copied fixture file, with no
++        # filesystem fallback from a validator operating on this memory graph.
++        if self.modes.get(descriptor['path'])!=expected_mode:raise Refusal('MODEL_SOURCE_MODE_DRIFT')
++        return self.read(descriptor)
+     def record(self,name,value):
+         p=self.put('/model/UNAUTHENTICATED_SYNTHETIC_'+name+'.json',value);self.named[name]=p;return p
+     def reviews(self,prefix,subject,decision):
+@@ -201,13 +324,22 @@
+         updated_named={label:replace(p) for label,p in self.named.items()}
+         for path,(changed,raw) in updates.items():self.data[path]=changed;self.raw[path]=raw
+         self.named=updated_named
++        if 'consumer-source' in self.named:self.source=self.named['consumer-source']
++        for key,label in [('CURRENT_HELPER_COMPONENT_BASIS','component-basis'),
++                          ('CURRENT_HELPER_COMPONENT_BASIS_TEMPLATE','component-template'),
++                          ('CURRENT_HELPER_COMPONENT_BASIS_DESIGN_ACCEPTANCE','component-design-acceptance')]:
++            if label in self.named:setattr(consumer,key,self.named[label])
+         return processed
+ 
+ class CurrentReadyAuthorityControls(unittest.TestCase):
+     def setUp(self):
+-        self.saved=(consumer._ACTIVE_BINDINGS,consumer.DRAFT_FINAL_ADAPTER_READY,consumer.CURRENT_HELPER_PROBE_DATA,consumer.CURRENT_HELPER_PROBE_ACCEPTANCE)
++        self.saved={key:getattr(consumer,key) for key in ('_ACTIVE_BINDINGS','DRAFT_FINAL_ADAPTER_READY',
++            'CURRENT_HELPER_PROBE_DATA','CURRENT_HELPER_PROBE_ACCEPTANCE','CURRENT_HELPER_COMPONENT_BASIS',
++            'CURRENT_HELPER_COMPONENT_BASIS_TEMPLATE','CURRENT_HELPER_COMPONENT_BASIS_DESIGN_ACCEPTANCE',
++            'CURRENT_PRODUCER_CONTROL_DATA','CURRENT_PRODUCER_CONTROL_ACCEPTANCE','CURRENT_CAPTURE_SOURCE',
++            'CURRENT_CAPTURE_SOURCE_ACCEPTANCE','CURRENT_ADMISSION_DATA_ACCEPTANCE')}
+     def tearDown(self):
+-        consumer._ACTIVE_BINDINGS,consumer.DRAFT_FINAL_ADAPTER_READY,consumer.CURRENT_HELPER_PROBE_DATA,consumer.CURRENT_HELPER_PROBE_ACCEPTANCE=self.saved
++        for key,value in self.saved.items():setattr(consumer,key,value)
+     def model(self):return ReadyAuthorityModel()
+     def reject(self,name,mutate):
+         f=self.model();f.change(name,mutate)
+@@ -227,7 +359,7 @@
+     def test_wrong_control_source_join(self):self.reject('control-data',lambda d:d.update(consumerSource=dict(d['consumerSource'],sha256='b'*64)))
+     def test_wrong_control_plan_join(self):self.reject('control-data',lambda d:d.update(controlPlan=dict(d['controlPlan'],sha256='b'*64)))
+     def test_incomplete_current_partition(self):self.reject('data-acceptance',lambda d:d.update(countsSeparate=d['countsSeparate'][:-1]))
+-    def test_old16_runtime_root_field(self):self.reject('source-acceptance',lambda d:d.update(runtimeSourceCount=16))
++    def test_old16_runtime_root_field(self):self.reject('source-acceptance',lambda d:d.update(runtimeSourceCount=14))
+     def test_old31_source_root_field(self):self.reject('source-acceptance',lambda d:d.update(sourceCount=31))
+     def test_source_review_role_order(self):self.reject('source-acceptance',lambda d:d.update(reviews=list(reversed(d['reviews']))))
+     def test_control_review_role_order(self):self.reject('data-acceptance',lambda d:d.update(reviews=list(reversed(d['reviews']))))
+@@ -263,7 +395,7 @@
+         expected,_=current_controller_expectations()
+         self.assertEqual(source['version'],expected['version']);self.assertNotEqual(value['controllerSource'],consumer.HISTORICAL_HELPER_CONTROLLER_SOURCE)
+         triple={k:value[k] for k in ('controllerSource','controllerSourceAcceptance','controllerControlDataAcceptance')}
+-        result=probe_adapter.validate_controller_authority(f,triple,consumer.CURRENT_PRODUCER,consumer.CURRENT_HELPER_CONTROLLER_ACCEPTANCE_CONTRACT,set(consumer.CURRENT_CONTROL_ACTORS))
++        result=probe_adapter.validate_controller_authority(f,triple,consumer.HELPER_PRODUCER,consumer.CURRENT_HELPER_CONTROLLER_ACCEPTANCE_CONTRACT,set(consumer.CURRENT_CONTROL_ACTORS))
+         self.assertEqual(result[3],sum(g['count'] for g in result[1]['groups']));consumer.validate_current_consumer_authority(f,value)
+     def test_unmodified_source5_mixed_script_roots_and_reviewed_cwds_full_ready(self):
+         f=self.model();source=f.doc(f.leaf()['controllerSource']);plan=f.doc(source['controlPlan'])
+@@ -335,7 +467,7 @@
+     def test_controller_wrong_host_code_hash_is_not_current_authority(self):
+         f=self.model();value=f.leaf();source=f.doc(value['controllerSource']);host=next(p for p in source['sources'] if Path(p['path']).name=='host.py');host['sha256']='b'*64
+         bad=f.record('bad-controller-code',source)
+-        with self.assertRaisesRegex(Refusal,'MODEL_PIN_DRIFT'):probe_adapter.controller_profile(f,bad,consumer.CURRENT_PRODUCER)
++        with self.assertRaisesRegex(Refusal,'MODEL_PIN_DRIFT'):probe_adapter.controller_profile(f,bad,consumer.HELPER_PRODUCER)
+     def test_controller_missing_current_group_cannot_relabel_old_subset(self):self.reject('controller-data-acceptance',lambda d:d.update(countsSeparate=d['countsSeparate'][:-1]))
+     def test_controller_model_skip_is_not_a_full_current_pass(self):self.reject('controller-data',lambda d:d.update(skipped=1))
+     def test_controller_api_only_does_not_invent_inner_reap(self):self.reject('controller-execution',lambda d:d.update(innerPidReapEofAttested=True))
+@@ -358,10 +490,10 @@
+         self.assertEqual(value['controllerSource'],CURRENT_R8_FIXTURE['source'])
+         self.assertEqual(value['controllerSourceAcceptance'],CURRENT_R8_FIXTURE['sourceAcceptance'])
+         self.assertEqual(value['controllerControlDataAcceptance'],CURRENT_R8_FIXTURE['controlAcceptance'])
+-        self.assertEqual(source['upstreamProducerSubject'],consumer.CURRENT_PRODUCER)
++        self.assertEqual(source['upstreamProducerSubject'],consumer.HELPER_PRODUCER)
+         self.assertEqual(source['upstreamProducerModelsDefined'],266)
+         triple={k:value[k] for k in ('controllerSource','controllerSourceAcceptance','controllerControlDataAcceptance')}
+-        result=probe_adapter.validate_controller_authority(f,triple,consumer.CURRENT_PRODUCER,consumer.CURRENT_HELPER_CONTROLLER_ACCEPTANCE_CONTRACT,set(consumer.CURRENT_CONTROL_ACTORS))
++        result=probe_adapter.validate_controller_authority(f,triple,consumer.HELPER_PRODUCER,consumer.CURRENT_HELPER_CONTROLLER_ACCEPTANCE_CONTRACT,set(consumer.CURRENT_CONTROL_ACTORS))
+         expected,expected_plan=current_controller_expectations();counts=[g['count'] for g in expected_plan['groups']]
+         self.assertEqual(result[2],counts);self.assertEqual(result[3],sum(counts));self.assertEqual(result[3],expected['modelsDefined'])
+         self.assertTrue(consumer.bind_current_profile(f,f.named['leaf'])['readiness'])
+@@ -369,8 +501,8 @@
+         f=self.model();consumer.validate_current_consumer_authority(f,f.leaf())
+         legacy=f.copy_expected(HISTORICAL_R5_FIXTURE['source'],'historical-r5-negative-source')
+         self.assertEqual(f.doc(legacy)['upstreamProducerModelsDefined'],260)
+-        self.assertNotEqual(f.doc(legacy)['upstreamProducerSubject'],consumer.CURRENT_PRODUCER)
+-        with self.assertRaises(ValueError):probe_adapter.controller_profile(f,legacy,consumer.CURRENT_PRODUCER)
++        self.assertNotEqual(f.doc(legacy)['upstreamProducerSubject'],consumer.HELPER_PRODUCER)
++        with self.assertRaises(ValueError):probe_adapter.controller_profile(f,legacy,consumer.HELPER_PRODUCER)
+     def test_current_r8_old260_upstream_model_count_refused(self):
+         self.reject_current_r8('controller-source',lambda d:d.update(upstreamProducerModelsDefined=260))
+     def test_current_r8_mixed_historical_producer_subject_refused(self):
+--- baseline/test_current_controls.py
++++ unbound/test_current_controls.py
+@@ -1,4 +1,4 @@
+-"""SOURCE definitions: current Root266 closed metadata and retained real DATA.
++"""SOURCE definitions: current Root286 closed metadata and retained real DATA.
+ 
+ The one current DATA read below is a planned future read-only consumer control,
+ not another execution of the266 producer models or a helper/ordinary run.
+@@ -8,6 +8,8 @@
+ from types import SimpleNamespace
+ sys.path.insert(0,str(Path(__file__).resolve().parent))
+ import consumer
++import ordinary_capture_contracts as ordinary_c
++from ordinary_capture_outputs import parse_outcome
+ from current_controls import root_acceptance,validate_data,review_pair
+ from strict import Refusal,Files
+ from test_parent_allocation import MemoryFiles
+@@ -46,10 +48,18 @@
+         for role in ('security','qa'):pins.append(f.put('/model/'+role,dict(role=role,session='/root/'+role,decision='DATA',subject=subject)))
+         with self.assertRaises(ValueError):review_pair(f,pins,subject,'DATA',set())
+     def test_exact_actual_current260_retained_data_consumer(self):
++        # Before the final coupled Source exists, refusal must precede all reads.
++        # The full retained-data branch remains for the separately released batch.
++        if consumer.CURRENT_PRODUCER_CONTROL_DATA is None:
++            class NoReads:
++                def doc(self,*args):raise AssertionError('UNBOUND_DATA_MUST_NOT_BE_READ')
++            with self.assertRaisesRegex(Refusal,'ACTUAL_CURRENT286_DATA_NODES_REQUIRED'):
++                validate_data(NoReads(),dict(subject=None,acceptance=None),SimpleNamespace(forbidden=set()),consumer.CURRENT_PRODUCER,consumer.CURRENT_PRODUCER_SOURCE_ACCEPTANCE,None,None,None,consumer.CURRENT_DATA_ACCEPTANCE_CONTRACT)
++            return
+         files=Files(['/Data/nbdp-e02-tooling-20261027','/home/peterhorvath/apps/bitcoin/NBDP','/tmp/nbdp-e02-minimal-rs-v7','/home/peterhorvath/.nvm','/home/peterhorvath/.miniforge3','/usr/bin'])
+         origin=SimpleNamespace(forbidden=set(consumer.CURRENT_CONTROL_ACTORS))
+         data=validate_data(files,dict(subject=consumer.CURRENT_PRODUCER_CONTROL_DATA,acceptance=consumer.CURRENT_PRODUCER_CONTROL_ACCEPTANCE),origin,consumer.CURRENT_PRODUCER,consumer.CURRENT_PRODUCER_SOURCE_ACCEPTANCE,consumer.CURRENT_CAPTURE_SOURCE,consumer.CURRENT_CAPTURE_SOURCE_ACCEPTANCE,consumer.CURRENT_ADMISSION_DATA_ACCEPTANCE,consumer.CURRENT_DATA_ACCEPTANCE_CONTRACT)
+-        self.assertEqual(data['countsSeparate'],[129,33,29,16,20,10,11,8,7,3]);files.recheck()
++        self.assertEqual(data['countsSeparate'],[129,33,29,16,20,10,11,8,7,3,20]);files.recheck()
+ 
+     def test_whole_legacy260_root_acceptance_cannot_qualify266(self):
+         contract,data,current=fixture()
+@@ -70,4 +80,45 @@
+     def test_current266_mixed_legacy_admission_acceptance_refused(self):
+         self.refuse(lambda value:value.update(admissionDataAcceptance=dict(path='/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-capture-admission21-canonical-r1-20261028/acceptance.json',bytes=1955,sha256='5c2cd0767fba10bf5196591887db61aa54566cec24ebe7cda38e248680ed9700')))
+ 
++    def test_models285_not_all286(self):self.refuse(lambda v:v.update(modelsPassed=285))
++    def test_original266_partition_cannot_qualify286(self):
++        self.refuse(lambda v:v.update(countsSeparate=[129,33,29,16,20,10,11,8,7,3]))
++    def test_exact_eleven_source_defined286_partition(self):
++        source=json.loads(Path(consumer.CURRENT_PRODUCER['path']).read_bytes())
++        control=json.loads(Path(consumer.CURRENT_SOURCE_PLAN['path']).read_bytes())
++        self.assertEqual(ordinary_c.counts(source,control),consumer.CURRENT_PRODUCER_CONTROL_COUNTS)
++        self.assertEqual(ordinary_c.LIMITS['controllerSeconds'],1263)
++        self.assertEqual(ordinary_c.LIMITS['outerSeconds'],1266)
++        self.assertEqual(len(ordinary_c.FILES),11)
++    def test_new_external_family_cannot_drop_source_member(self):
++        source=json.loads(Path(consumer.CURRENT_PRODUCER['path']).read_bytes())
++        control=json.loads(Path(consumer.CURRENT_SOURCE_PLAN['path']).read_bytes())
++        source['externalControlSources']=source['externalControlSources'][:-1]
++        with self.assertRaisesRegex(ValueError,'EXACT_EXTERNAL_CODE_MEMBERSHIP'):ordinary_c.counts(source,control)
++    def external(self):
++        scope=dict(scope='fixtureEoseCaller',count=20,definitionNames=list(ordinary_c.EXTERNAL_NAMES))
++        result=dict(exitCode=0,reaped=True,eof=dict(stdout=True,stderr=True),fault=None,groupClosure=None,groupClosureFault=None,retentionErrors=[])
++        value=dict(schema='e02-fixture-eose-pure-regression-result-v1',scope='EXACT_SOURCE_CALLBACK_AND_UNCHANGED_GUARD_CORE_WITH_FAKE_TRANSPORT_AND_CLOCKS',checks=20,cases=list(ordinary_c.EXTERNAL_NAMES),baselineFailureReproduced=True,baselineFailure='QUEUED_CONTEXT_CHANGED',runtimeExecuted=False,helperExecuted=False,networkExecuted=False,ordinaryRowsQualified=0,canonicalE02='PARTIAL22')
++        return scope,result,value
++    def external_refuses(self,change):
++        scope,result,value=self.external();change(scope,result,value)
++        with self.assertRaises(ValueError):parse_outcome(scope,result,(json.dumps(value)+'\n').encode(),b'')
++    def test_external20_exact_ordered_pure_output(self):
++        scope,result,value=self.external()
++        actual=parse_outcome(scope,result,(json.dumps(value)+'\n').encode(),b'')
++        self.assertTrue(actual['allOk']);self.assertEqual(actual['sourceNames'],list(ordinary_c.EXTERNAL_NAMES))
++    def test_external20_case_order_cannot_be_substituted(self):
++        self.external_refuses(lambda s,r,v:v.update(cases=list(reversed(v['cases']))))
++    def test_external19_cannot_qualify20(self):
++        self.external_refuses(lambda s,r,v:v.update(checks=19,cases=v['cases'][:-1]))
++    def test_external_baseline_failure_must_be_reproduced(self):
++        self.external_refuses(lambda s,r,v:v.update(baselineFailureReproduced=False))
++    def test_external_helper_claim_does_not_donate_rows(self):
++        self.external_refuses(lambda s,r,v:v.update(helperExecuted=True,ordinaryRowsQualified=1))
++    def test_external_network_claim_is_not_pure_control(self):
++        self.external_refuses(lambda s,r,v:v.update(networkExecuted=True))
++    def test_new_ordinary_origin_does_not_route_helper_family(self):
++        with self.assertRaisesRegex(ValueError,'ORDINARY_CAPTURE_FAMILY_ONLY'):
++            ordinary_c.validate_origin({}, {}, [], family='HELPER_MODEL')
++
+ if __name__=='__main__':unittest.main()
+--- baseline/test_import_closure.py
++++ unbound/test_import_closure.py
+@@ -43,6 +43,9 @@
+ elif target=='capture_outputs':
+     import capture_outputs
+     chosen=capture_outputs
++elif target=='ordinary_capture_outputs':
++    import ordinary_capture_outputs
++    chosen=ordinary_capture_outputs
+ else:raise AssertionError('UNDECLARED_MODULE_SELECTION')
+ assert Path(chosen.__file__).resolve()==root/(target+'.py')
+ if mode in ('poison','strict'):
+@@ -56,6 +59,15 @@
+         try:capture_outputs.decode_metadata(raw)
+         except ValueError:pass
+         else:raise AssertionError('STRICT_DECODER_WEAKENED')
++    import ordinary_capture_outputs
++    import ordinary_capture_contracts
++    assert ordinary_capture_outputs.need is ordinary_capture_contracts.need
++    assert ordinary_capture_outputs.closed is ordinary_capture_contracts.closed
++    assert ordinary_capture_outputs.decode_metadata is strict.loads
++    for raw in (b'{"x":1,"x":2}',b'{"x":0.5}',b'{"x":NaN}',b'{"x":-0}'):
++        try:ordinary_capture_outputs.decode_metadata(raw)
++        except ValueError:pass
++        else:raise AssertionError('ORDINARY_STRICT_DECODER_WEAKENED')
+     scope=dict(scope='test_guard_client.mjs',count=1,definitionNames=['SYNTHETIC'])
+     result=dict(exitCode=0,reaped=True,eof=dict(stdout=True,stderr=True),fault=None,
+         groupClosure=None,groupClosureFault=None,retentionErrors=[])
+@@ -166,6 +178,7 @@
+         self.assertEqual(reachable(graph,runtime),runtime)
+         self.assertEqual(reachable(graph,['consumer']),runtime)
+         self.assertEqual(graph['capture_outputs'],{'capture_contracts','strict'})
++        self.assertEqual(graph['ordinary_capture_outputs'],{'ordinary_capture_contracts','strict'})
+ 
+     def test_preserved_source1_capture_outputs_imports_refused_by_actual_closure_reader(self):
+         _,bodies=source_inputs()
+@@ -184,7 +197,7 @@
+             self.assertIn(target,value['loaded']);self.assertIn('capture_contracts',value['loaded']);self.assertIn('strict',value['loaded'])
+ 
+     def test_poisoned_legacy_ambient_aliases_do_not_supply_real_reader_imports(self):
+-        for target in ('consumer','current_controls','capture_outputs'):self.isolated(HERE,target,'poison')
++        for target in ('consumer','current_controls','capture_outputs','ordinary_capture_outputs'):self.isolated(HERE,target,'poison')
+ 
+     def test_real_capture_outputs_preserves_strict_local_decoder_and_output_checks(self):
+         self.isolated(HERE,'capture_outputs','strict')
+--- baseline/test_source_bindings.py
++++ unbound/test_source_bindings.py
+@@ -17,7 +17,7 @@
+     def test_exact61_source_members_no_legacy31(self):
+         p=self.producer();self.assertEqual(len(p['sources']),64);self.assertEqual(len({Path(d['path']).name for d in p['sources']}),64)
+     def test_exact_current_source4_control260_counts(self):
+-        p=self.producer();self.assertEqual(sum(p['modelsDefined'].values()),266);self.assertEqual(p['selectedDefinitionCount'],266)
++        p=self.producer();self.assertEqual(sum(p['modelsDefined'].values()),286);self.assertEqual(p['selectedDefinitionCount'],286)
+     def test_all22_exact_bytes_declared(self):
+         for p in consumer.CURRENT_WORKERS:
+             raw=Path(p['path']).read_bytes();self.assertEqual((len(raw),hashlib.sha256(raw).hexdigest()),(p['bytes'],p['sha256']))
+@@ -35,8 +35,16 @@
+     def test_current_export_and_guard_dto_are_distinct_operands(self):
+         self.assertNotEqual(consumer.CURRENT_EXPORT_CONTRACT,consumer.CURRENT_GUARD_DTO);self.assertEqual(consumer.CONTRACT_SHA,consumer.CURRENT_EXPORT_CONTRACT['sha256']);self.assertEqual(self.producer()['typedContract'],consumer.CURRENT_GUARD_DTO)
+     def test_actual260_bound_but_future_probe_data_stays_null(self):
+-        self.assertEqual(consumer.CURRENT_PRODUCER_CONTROL_DATA['sha256'],'e4a2b8da6d5aee04e08f98ebb508957a3639ec32c0cfe9a3089983a16e3a5e9e')
+-        self.assertEqual(consumer.CURRENT_PRODUCER_CONTROL_ACCEPTANCE['sha256'],'91a00b4ec693c7c776a031849d61ab676ceaeed4262085ba0a6fc1b6e81b2d6f')
++        # Original helper authority stays on the accepted old266 producer. New
++        # ordinary DATA must be genuine and is deliberately unbound in Source.
++        self.assertEqual(consumer.HELPER_PRODUCER_CONTROL_ACCEPTANCE['sha256'],'91a00b4ec693c7c776a031849d61ab676ceaeed4262085ba0a6fc1b6e81b2d6f')
++        self.assertNotEqual(consumer.HELPER_PRODUCER,consumer.CURRENT_PRODUCER)
++        if consumer.CURRENT_PRODUCER_CONTROL_DATA is None:
++            self.assertIsNone(consumer.CURRENT_PRODUCER_CONTROL_ACCEPTANCE)
++            with self.assertRaisesRegex(Refusal,'UNBOUND_ORDINARY_286_AUTHORITY'):consumer.ordinary_basis_expectations()
++        else:
++            self.assertIsNotNone(consumer.CURRENT_PRODUCER_CONTROL_ACCEPTANCE)
++            self.assertEqual(consumer.ordinary_basis_expectations()['modelsDefined'],286)
+         for value in (consumer.CURRENT_HELPER_PROBE_DATA,consumer.CURRENT_HELPER_PROBE_ACCEPTANCE):self.assertIsNone(value)
+     def test_pending_runtime_refuses_before_any_target_read(self):
+         class NoReads:
+@@ -45,6 +53,7 @@
+     def test_runtime_leaf_is_unissued_unready_with_null_future_data(self):
+         p=Path(__file__).with_name('runtime-gates.json');value=json.loads(p.read_text())
+         self.assertEqual(set(value),set(consumer.BINDING_KEYS.split()));self.assertFalse(value['issued']);self.assertFalse(value['readiness']);self.assertIsNone(value['helperProbeData']);self.assertIsNone(value['helperProbeAcceptance'])
++        self.assertEqual(value['schema'],'e02-consumer6-runtime-bindings-v2')
+     def test_unready_external_leaf_refuses_before_prerequisite_reads(self):
+         class OnlyBinding:
+             def __init__(self):self.reads=0

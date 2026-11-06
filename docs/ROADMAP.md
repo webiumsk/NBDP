@@ -1,8 +1,18 @@
 # NBDP roadmap
 
-Updated 2026-10-29. [Project state](PROJECT_STATE.md), the [action board](research/transport-gate-readiness-2026-10-23.md) and [preserved previous documents](decisions/evidence/transport-runtime-current-state-r2/preserved-current-documents.json) distinguish current work from history.
+Updated 2026-11-06. [Project state](PROJECT_STATE.md), the [action board](research/transport-gate-readiness-2026-10-23.md) and [preserved previous documents](decisions/evidence/transport-runtime-current-state-r2/preserved-current-documents.json) distinguish current work from history.
 
 ## Active transport milestone
+
+## Current accepted consumer checkpoint — 2026-11-06
+
+Current consumer Source has independent QA/security and Root acceptance:37 Code files,16 runtime modules and450 definitions. One full fresh batch passed all450 named controls in13 groups with38 complete native API frames and byte-identical1601-input snapshots; paired actual DATA review and Root acceptance are complete. See the [evidence guide](decisions/evidence/e02-current450-publication-20261106/README.md), [current Source receipt](decisions/evidence/e02-consumer-eose-basis-successor-20261105/review-coupled-r1/acceptance.json) and [current DATA receipt](decisions/evidence/e02-consumer450-model-review-20261106/r1/acceptance.json).
+
+Current admission42, ordinary-producer286 and the separate original helper266/R10 evidence are accepted. The completed helper component basis establishes Source equality/mode/import/environment declarations, not a new live helper observation. Accepted batches are not repeated or promoted to ordinary-client results.
+
+E02 remains PARTIAL22: one qualified helper run, zero qualified ordinary windows and zero exports. Completion/wrapper correction remains under independent review and its active Source3 code is excluded. Its final Source/current models/graph, two genuine role windows, five exports, whole consumption, original primary22, independently reviewed candidate/finalize and final integration remain required. The publication is a text evidence checkpoint, not a portable execution environment. Q01/Q08/Q13/Q15/Q27, conditional Option B, baseline NIP-44 limits, parallel devices, Satflux independence and all SDK/deployment/merge restrictions remain unchanged.
+
+The following older published checkpoints preserve history and are superseded where they describe pending prerequisites completed above.
 
 Current producer260 and controller104 actual pure/mock DATA both have independent QA/security and Root acceptance (43ff44b9/f9aed9db). Genuinehelperprobe still0. Consumer6 SOURCE1 three MEDIUM HOLDs →boundedSOURCE2; collectorR2 inputtransport MEDIUM/ACK LOW HOLDs →boundedR3; all failed attempts preserved. Reviewable progress publication is being prepared, excluding active successors and allbinary/privateinputs. Next: accepted collector controls/concreteinputs and one actualhelperprobe, then currentconsumer/completion/two genuineclientwindows.
 

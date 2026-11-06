@@ -1,0 +1,611 @@
+{
+  "schema": "e02-ordinary-consumer6-source-subject-v1",
+  "version": "SOURCE4",
+  "sourceRevision": "CURRENT178_LOCAL_IMPORT_CLOSURE_SOURCE2",
+  "author": "/root/consumer_current178_source",
+  "coordinator": "/root",
+  "sourceContributors": [
+    "/root",
+    "/root/collector_policy_security_553c5bfd",
+    "/root/collector_r4_fresh_security_bcf7ccfa57b4",
+    "/root/collector_r5_fresh_qa_c05985fce1ea",
+    "/root/collector_r5_fresh_security_c05985fce1ea",
+    "/root/collector_typed_qa_1592707b",
+    "/root/collector_typed_security_1592707b",
+    "/root/completion_wrapper",
+    "/root/consumer266_source",
+    "/root/consumer6_s4_fresh_qa_6716777dfdd7",
+    "/root/consumer6_s4_fresh_security_6716777dfdd7",
+    "/root/consumer6_source",
+    "/root/consumer_current178_source",
+    "/root/consumer_source_qa_e0e55c4e",
+    "/root/consumer_source_security_e0e55c4e",
+    "/root/controller_current_source_r9",
+    "/root/controller_model_metadata_source2",
+    "/root/controller_r9_qa_e7c43daa",
+    "/root/controller_r9_security_e7c43daa",
+    "/root/guard_recovery_source",
+    "/root/helper_apk_binding_scope",
+    "/root/helper_controller_source6_env",
+    "/root/helper_env_removal_sources",
+    "/root/helper_policy_source7",
+    "/root/helper_r6_binding",
+    "/root/lease_fix_binding_scope",
+    "/root/native_rebuild_prepare",
+    "/root/probe_concrete_path_composition",
+    "/root/probe_r6_fresh_qa_d81b6f3ae5d8",
+    "/root/probe_r6_fresh_security_d81b6f3ae5d8",
+    "/root/probe_r7_fresh_qa_8d291e97745f",
+    "/root/probe_r7_fresh_security_8d291e97745f",
+    "/root/producer4_nonblocking_source",
+    "/root/r5_plan_fix"
+  ],
+  "predecessorAuthor": "/root/consumer6_source",
+  "operators": [],
+  "state": "WRITES_STOPPED_PENDING_FRESH_INDEPENDENT_CURRENT178_SOURCE2_QA_SECURITY",
+  "scope": "CURRENT_CONSUMER_SOURCE4_CURRENT178_350_UNEXECUTED_DEFINITIONS_ONLY",
+  "profileId": "e02-ordinary-minimum-rs-two-role-v3",
+  "sourceRoot": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source",
+  "sources": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/README.md",
+      "bytes": 1636,
+      "sha256": "e6eab5b27220d893d7dc42ac7390cc206a9539c5539d39fe01f641b6327c04ae"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/async_guard.py",
+      "bytes": 11385,
+      "sha256": "1417fe474d8695196f5e9b441189993144313b4c5d2d2929e9d0a77c87dc7c68"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/capture_contracts.py",
+      "bytes": 19017,
+      "sha256": "cf491bf10d997bee6897aa42114c552e122f6f307db822851ece563999be204e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/capture_outputs.py",
+      "bytes": 3688,
+      "sha256": "32b1fcef306033557f736327916b9dfb532f5968bc457ccd85d1115a57f45621"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/collector_contracts.py",
+      "bytes": 4201,
+      "sha256": "71027aeb69d409fbdcae19ff47be34c17b95106666e7f0e0459d1e87b6d48989"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/consumer.py",
+      "bytes": 77773,
+      "sha256": "bd4d3436c66d1f60f012c83c86167fa0403f2e4b7f47fa8f49d17fe823c380ee"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/current_authority_methods.txt",
+      "bytes": 12999,
+      "sha256": "d10e266dc4cfdd22dcfcd7b4c738010ef84808348b19570dd988c8f47589a1b4"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/current_controls.py",
+      "bytes": 10486,
+      "sha256": "5a900c91921a0890b8ae8e6fffbd7549a1bed97bdb4ffe1cdd670cbaa594f0d5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/gui.py",
+      "bytes": 14572,
+      "sha256": "1dc3dc2fffd258c9f9a638f7ccdd21c82becb4a3dab7261efb2459d572c2bad5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/model_stage.py",
+      "bytes": 8937,
+      "sha256": "0f947d6c9970027cdf82d7c4fe233684c1a64bac30582107d4e5f87acb5308a7"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/observer.py",
+      "bytes": 23126,
+      "sha256": "aca047cc7335c19cd620185ad21a0d8deb08d3c002cae15dd2cb2e5abc90d715"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/parent_allocation.py",
+      "bytes": 6892,
+      "sha256": "0460f7b9077277ce3fb5164e3e50b45324742b86b6cd58b601667126c57554b6"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/prepare_consumer_edit.py",
+      "bytes": 10232,
+      "sha256": "219c41b0049f41d4a16eb7b9898d3258bab808b959bbc33382760e304f6d51c5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/prepare_observer_edit.py",
+      "bytes": 7536,
+      "sha256": "b29a95ed2413363efcf19223e840a02bb826b050db7f1ccebe2c272b73be0f4e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/probe_adapter.py",
+      "bytes": 27714,
+      "sha256": "56bf2c3a83eae3305507a9d12f54430f78ecb350961f68ca0afb4bf3ff62ffda"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/request_families.py",
+      "bytes": 11620,
+      "sha256": "29d98973b916060d94d98c954aa4a586586fe7f89e7dd557a49eee6a63519b68"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/strict.py",
+      "bytes": 10542,
+      "sha256": "4ca505283f911b73eca0685d828340bfa1c87b310e2cc1702195729d2a8787cf"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/strict_raw_method.txt",
+      "bytes": 2181,
+      "sha256": "7799d75a2f22c9c5643ad3cebe52a5384a069c097c6e9e9d1157accd77dea0e6"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_async_guard.py",
+      "bytes": 10240,
+      "sha256": "d29ef53d04f81e2e51f1b2c498c5b8d8fb51a11335e5c4b3b1e077f1c7b04b78"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_current_authority.py",
+      "bytes": 41213,
+      "sha256": "1721d703567047819d50562f85831f4b84bbb69ff656dec93480d91bcdc181be"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_current_controls.py",
+      "bytes": 6264,
+      "sha256": "43e3677efac5ac3f71786157ec96815b2d706ed04aa1e425bc9b8cc7fe1aa441"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_data_controls.py",
+      "bytes": 43425,
+      "sha256": "4cce7a04508ff87ca0546983f97897be2e5d95d3a7fc5bf5e0e568af45923365"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_import_closure.py",
+      "bytes": 10995,
+      "sha256": "54338326033fbdb9a95acc1e499779094468178c93d38bd4ec46600ef781125d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_observer_v3.py",
+      "bytes": 3521,
+      "sha256": "b86e06ad8d86bd8d6d88018a91c46458e4606093feedea47477a9cc1ea1bf565"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_parent_allocation.py",
+      "bytes": 7718,
+      "sha256": "f7350352aa4e2659d953ed37c4a2af3762bfd0b6201456343868144274dc65ed"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_probe_adapter.py",
+      "bytes": 9700,
+      "sha256": "e9676d081b00ec85f9e365c06d22f4ba420be4719afed9799d8df9d242798533"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_request_families.py",
+      "bytes": 14614,
+      "sha256": "0a35acbd1670c8e0825ae96c0c54b3c1ac6e8a31c6b8c451d9a82169a3c8a43c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_source_bindings.py",
+      "bytes": 5334,
+      "sha256": "55fc81902a841f6dfcd55cef05abcc88c7d84dd85a7a1a033c5c788c707d9f06"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_whole_window.py",
+      "bytes": 5857,
+      "sha256": "9b1966dc88a0ad078792b0fcb61a2a3ddcfa6a3ca3957db0cff5074c4ae76883"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/whole_window.py",
+      "bytes": 57972,
+      "sha256": "ca6c7939b291748b495c73de32a8b41912d1ed89871dd803b671df8479180ecc"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/whole_window_methods.txt",
+      "bytes": 8132,
+      "sha256": "f32efaeec213ed0444cc01a4fc673575b2b2028c5e37977d53ef358e1e34702c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/wire.py",
+      "bytes": 20120,
+      "sha256": "aa06718b30992c565ca7fcec721a5e3badebc6ad06f76ac11ebde09870932596"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/witness.py",
+      "bytes": 19960,
+      "sha256": "ce98436428fdcac553b6ef7e8452fedc9e0f5dfbc1d5f187c2a7ceb46014f377"
+    }
+  ],
+  "sourceCount": 33,
+  "runtimeSources": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/consumer.py",
+      "bytes": 77773,
+      "sha256": "bd4d3436c66d1f60f012c83c86167fa0403f2e4b7f47fa8f49d17fe823c380ee"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/strict.py",
+      "bytes": 10542,
+      "sha256": "4ca505283f911b73eca0685d828340bfa1c87b310e2cc1702195729d2a8787cf"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/wire.py",
+      "bytes": 20120,
+      "sha256": "aa06718b30992c565ca7fcec721a5e3badebc6ad06f76ac11ebde09870932596"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/gui.py",
+      "bytes": 14572,
+      "sha256": "1dc3dc2fffd258c9f9a638f7ccdd21c82becb4a3dab7261efb2459d572c2bad5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/witness.py",
+      "bytes": 19960,
+      "sha256": "ce98436428fdcac553b6ef7e8452fedc9e0f5dfbc1d5f187c2a7ceb46014f377"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/observer.py",
+      "bytes": 23126,
+      "sha256": "aca047cc7335c19cd620185ad21a0d8deb08d3c002cae15dd2cb2e5abc90d715"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/async_guard.py",
+      "bytes": 11385,
+      "sha256": "1417fe474d8695196f5e9b441189993144313b4c5d2d2929e9d0a77c87dc7c68"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/parent_allocation.py",
+      "bytes": 6892,
+      "sha256": "0460f7b9077277ce3fb5164e3e50b45324742b86b6cd58b601667126c57554b6"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/capture_contracts.py",
+      "bytes": 19017,
+      "sha256": "cf491bf10d997bee6897aa42114c552e122f6f307db822851ece563999be204e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/capture_outputs.py",
+      "bytes": 3688,
+      "sha256": "32b1fcef306033557f736327916b9dfb532f5968bc457ccd85d1115a57f45621"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/current_controls.py",
+      "bytes": 10486,
+      "sha256": "5a900c91921a0890b8ae8e6fffbd7549a1bed97bdb4ffe1cdd670cbaa594f0d5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/probe_adapter.py",
+      "bytes": 27714,
+      "sha256": "56bf2c3a83eae3305507a9d12f54430f78ecb350961f68ca0afb4bf3ff62ffda"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/request_families.py",
+      "bytes": 11620,
+      "sha256": "29d98973b916060d94d98c954aa4a586586fe7f89e7dd557a49eee6a63519b68"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/collector_contracts.py",
+      "bytes": 4201,
+      "sha256": "71027aeb69d409fbdcae19ff47be34c17b95106666e7f0e0459d1e87b6d48989"
+    }
+  ],
+  "runtimeSourceCount": 14,
+  "controlPlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/control-plan.json",
+    "bytes": 39038,
+    "sha256": "8e6a54bfe022f22bf53edc967141eb3d3f1cf941d5e8f92338cc2ff5099448ff"
+  },
+  "inputManifest": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/input-manifest.json",
+    "bytes": 196887,
+    "sha256": "cd137f9d97dbe6675f2e6d1f981e40c6590e390bcf8b640a471386be061d0aad"
+  },
+  "staticPreparation": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/static-preparation.json",
+    "bytes": 9380,
+    "sha256": "429b11d3176c51b180b2e37029cdc0aeccf7509a73398612cc6292d3fb93f95f"
+  },
+  "lineage": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/lineage.json",
+    "bytes": 14489,
+    "sha256": "16e82aa36d2c54d9e3d684fffe8f6d925f8238dbd0d055628fef33ac322f79c4"
+  },
+  "predecessorSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source1/source/subject.json",
+    "bytes": 27879,
+    "sha256": "5a1b4a73b3fb15659f0295581bb4246ada77a67fd29f89a7fd2417af27a36660"
+  },
+  "predecessorControlDataAcceptance": null,
+  "producerSource": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/subject.json",
+    "bytes": 41959,
+    "sha256": "d4229ef2ddf77e79a8f1a9990ea174db4c3dba9e7f2012ed42589d857be443b5"
+  },
+  "producerSourceAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifact-source-review-20261105/acceptance.json",
+    "bytes": 1212,
+    "sha256": "277c4b31273e8e4c703a7fec54f5311ed159e4995d351a3c9017687006b51cdb"
+  },
+  "producerControlData": {
+    "path": "/Data/nbdp-e02-tooling-20261027/assembled/subject.json",
+    "bytes": 3653,
+    "sha256": "e4a2b8da6d5aee04e08f98ebb508957a3639ec32c0cfe9a3089983a16e3a5e9e"
+  },
+  "producerControlAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-producer266-data-20261105/acceptance.json",
+    "bytes": 3716,
+    "sha256": "91a00b4ec693c7c776a031849d61ab676ceaeed4262085ba0a6fc1b6e81b2d6f"
+  },
+  "producerRuntimeWorkerCount": 22,
+  "producerSourceMemberCount": 64,
+  "producerExportContract": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/EXPORT-CONTRACT.md",
+    "bytes": 43900,
+    "sha256": "48c683bf4c1fe23189ed9b8e0a386aa7f46346f3407dab239eb7270883603ebb"
+  },
+  "producerGuardDto": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/guard-dto-contract.json",
+    "bytes": 14223,
+    "sha256": "33e3e1e9f0aab82238683563e2f7d4c15e6e8f736e5e7fdeb2722344f5b5feb6"
+  },
+  "helperProbeAcceptanceContract": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-current178-source-20261105/source1/helper-probe-data-acceptance-contract.json",
+    "bytes": 3325,
+    "sha256": "14f859491411c84ec03bc552f0be287269f6ff94a9d4b43cf7cdf22e650fdacc"
+  },
+  "helperProbeShapeContract": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-helper-probe-preparation-20261028/helper-probe-data-shape-contract.json",
+    "bytes": 2257,
+    "sha256": "f1540a48582132fd8fa14a302df66defc0baed4354e347c4ed47f7630a32059b"
+  },
+  "currentConsumerAcceptanceContract": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/contracts/current-consumer-acceptance-contract.json",
+    "bytes": 4612,
+    "sha256": "468996d45865499784f17762a33f698f1f82877628af7b803cbb94f170d3b674"
+  },
+  "currentControllerAcceptanceContract": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-helper-probe-preparation-20261028/current-controller-acceptance-contract.json",
+    "bytes": 3204,
+    "sha256": "5d882ebdf7e3df7b72f941df2ff0ef561f4f221fde5771af5ce7c8e2d7d2d437"
+  },
+  "controlDataShapeContract": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/control-data-shape-contract.json",
+    "bytes": 2696,
+    "sha256": "05e76fec19bfc08fd094e84fdc7d0c6a354e2888043cdcd51aaeb894af1d1b36"
+  },
+  "modelsDefined": {
+    "test_data_controls.py": 86,
+    "test_async_guard.py": 47,
+    "test_parent_allocation.py": 17,
+    "test_observer_v3.py": 13,
+    "test_source_bindings.py": 15,
+    "test_current_controls.py": 22,
+    "test_probe_adapter.py": 22,
+    "test_whole_window.py": 9,
+    "test_current_authority.py": 84,
+    "test_request_families.py": 27,
+    "test_import_closure.py": 8
+  },
+  "modelGroups": 11,
+  "modelDefinitions": 350,
+  "modelsExecuted": 0,
+  "targetImports": 0,
+  "helperExecutions": 0,
+  "dockerExecutions": 0,
+  "ordinaryRoleExecutions": 0,
+  "ordinaryRowsQualified": 0,
+  "runtimeReady": false,
+  "executionAuthorized": false,
+  "actualHelperProbeData": null,
+  "actualHelperProbeAcceptance": null,
+  "actualConsumerControlData": null,
+  "actualConsumerControlAcceptance": null,
+  "currentActualControllerTuple": null,
+  "genuineRoleWindows": null,
+  "genuineExports": null,
+  "independentSourceReviews": null,
+  "rootSourceAcceptance": null,
+  "excludedMutableMetadata": [
+    "runtime-gates.json",
+    "external-bindings",
+    "reviews",
+    "acceptances",
+    "runtime-output"
+  ],
+  "historical302ControlsTransferred": false,
+  "all14PriorFailures": "NO_CONTRIBUTION",
+  "originalClocksResourcesAndCriteriaPreserved": true,
+  "canonicalE02": "PARTIAL22_UNCHANGED",
+  "architecturalBlockers": [
+    "Q01",
+    "Q08",
+    "Q13",
+    "Q15",
+    "Q27"
+  ],
+  "productionSDKAuthorized": false,
+  "selfApproval": false,
+  "publicationPerformed": false,
+  "declaredSource5Fixture": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r5/subject.json",
+    "bytes": 22404,
+    "sha256": "6259e4dae59b27839378ec03c96056c5efab1c21132ac0eda451dbed8d8e4a03"
+  },
+  "declaredSource5FixtureIsNotActualApproval": true,
+  "externalBindingKeyCount": 21,
+  "currentControllerTupleSelection": "EXACT_EXTERNAL_SHA_BOUND_LEAF_OPERANDS_JOINED_TO_ACTUAL_PROBE18_AND_ROOT24_AND_CURRENT_CONTROLLER_SOURCE14_CONTROL20",
+  "controllerModelCwdPolicy": "EXACT_REVIEWED_PLAN_CWD_CANONICAL_FIXED_NAMESPACE_REVISION_1_THROUGH_CURRENT_SOURCE_VERSION_BACKED_BY_VERIFIED_DECLARED_MEMBER",
+  "remainingGates": [
+    "Fresh independent exact post-freeze Source QA/security and Root Source acceptance",
+    "Separate explicit Root release for complete current AST-derived model batch, then independent DATA review/Root acceptance",
+    "Accepted actual helper DATA18/Root24, current external authority leaf and full current consumer DATA24 before activation",
+    "Original two ordinary role windows/five genuine exports/full consumer and separately authorized completion integration"
+  ],
+  "historical309ControlsTransferred": false,
+  "declaredCurrentR8Fixture": {
+    "source": {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r10/subject.json",
+      "bytes": 65372,
+      "sha256": "20f3740d34dfac74d808857315ca338c49a836732bd95bf5315365fe94422855"
+    },
+    "sourceAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-controller-source-review-20261105/r10/acceptance.json",
+      "bytes": 1216,
+      "sha256": "a06e93b82b3dcc32879d8584f463fc1e4fa42fefa843f2ee85a4487ed2829081"
+    },
+    "controlAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-controller-r10-model178-data-review-20261105/acceptance.json",
+      "bytes": 2125,
+      "sha256": "7be2187f5dfbabd8959e7fb75d0817b824921467b05fbe5626d8a2f5cd6327b2"
+    }
+  },
+  "declaredCurrentR8FixtureIsNotRuntimeApproval": true,
+  "declaredSource5FixtureIsHistoricalNegativeOnly": true,
+  "currentControllerPrerequisites": {
+    "controllerSource": {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r10/subject.json",
+      "bytes": 65372,
+      "sha256": "20f3740d34dfac74d808857315ca338c49a836732bd95bf5315365fe94422855"
+    },
+    "controllerSourceAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-controller-source-review-20261105/r10/acceptance.json",
+      "bytes": 1216,
+      "sha256": "a06e93b82b3dcc32879d8584f463fc1e4fa42fefa843f2ee85a4487ed2829081"
+    },
+    "controllerData": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-controller-r10-model178-actual-20261105/subject.json",
+      "bytes": 4674,
+      "sha256": "d41bcdbbf785a9a9a6330b4e473d98cc4e1439678e4f93586637221a3769f434"
+    },
+    "controllerDataAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-controller-r10-model178-data-review-20261105/acceptance.json",
+      "bytes": 2125,
+      "sha256": "7be2187f5dfbabd8959e7fb75d0817b824921467b05fbe5626d8a2f5cd6327b2"
+    }
+  },
+  "collectorPrerequisiteContract": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/contracts/current-collector-prerequisite-contract.json",
+    "bytes": 8594,
+    "sha256": "19132d969f4f29aca3cc4919132b22c57221923001f6ecd84f350ff189f0539f"
+  },
+  "conservativeReviewerExclusions": [
+    "/root",
+    "/root/android_health_implementer",
+    "/root/collector_policy_security_553c5bfd",
+    "/root/collector_r4_fresh_security_bcf7ccfa57b4",
+    "/root/collector_r5_fresh_qa_c05985fce1ea",
+    "/root/collector_r5_fresh_security_c05985fce1ea",
+    "/root/collector_typed_qa_1592707b",
+    "/root/collector_typed_security_1592707b",
+    "/root/completion3_final",
+    "/root/completion_wrapper",
+    "/root/consumer266_source",
+    "/root/consumer3_preparation",
+    "/root/consumer6_s4_fresh_qa_6716777dfdd7",
+    "/root/consumer6_s4_fresh_security_6716777dfdd7",
+    "/root/consumer6_source",
+    "/root/consumer_current178_source",
+    "/root/consumer_source_qa_e0e55c4e",
+    "/root/consumer_source_security_e0e55c4e",
+    "/root/controller_current_source_r9",
+    "/root/controller_model_metadata_source2",
+    "/root/controller_r9_qa_e7c43daa",
+    "/root/controller_r9_security_e7c43daa",
+    "/root/guard_recovery_source",
+    "/root/helper_apk_binding_scope",
+    "/root/helper_controller_source6_env",
+    "/root/helper_current178_source",
+    "/root/helper_env_removal_sources",
+    "/root/helper_policy_source7",
+    "/root/helper_r6_binding",
+    "/root/lease_fix_binding_scope",
+    "/root/native_rebuild_prepare",
+    "/root/ordinary_api35_source",
+    "/root/probe_concrete_path_composition",
+    "/root/probe_r6_fresh_qa_d81b6f3ae5d8",
+    "/root/probe_r6_fresh_security_d81b6f3ae5d8",
+    "/root/probe_r7_fresh_qa_8d291e97745f",
+    "/root/probe_r7_fresh_security_8d291e97745f",
+    "/root/producer3_capture",
+    "/root/producer4_nonblocking_source",
+    "/root/producer_lease_fresh_qa_7569bcc497a2",
+    "/root/producer_lease_fresh_security_7569bcc497a2",
+    "/root/r5",
+    "/root/r5_plan_fix",
+    "/root/root_failstop_bridge_source",
+    "/root/whole_consumer_fixture"
+  ],
+  "creatorUnion": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/creator-union-and-exclusions.json",
+    "bytes": 18656,
+    "sha256": "0fcd251e14e90bdf27549b01a2a50e471867644eebcd03bf1e9893ce4468e73a"
+  },
+  "rootScope": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-goal-resume-20261104/consumer-current178-source2-root-scope-20261105.json",
+    "bytes": 35377,
+    "sha256": "675975d6d23b472f40983fa60c66996911580011e7182eb343a876750a9011eb"
+  },
+  "requestFamilyAuthority": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-goal-resume-20261104/request-family-authority-current178-20261105.json",
+    "bytes": 6548,
+    "sha256": "d84c074354b8b63f28b1b7f4857de4e6382d5ffe923749aabac9fadd7a81d07c"
+  },
+  "currentReadMap": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/input-read-map.json",
+    "bytes": 427676,
+    "sha256": "f749056744c95ff1b6b103ff608b04675c1e247b72263c825e0d395aecea6a76"
+  },
+  "derivedClosedContracts": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/contracts/frozen-closed-contracts.json",
+    "bytes": 3863,
+    "sha256": "b4143692c8a050ce7c888acecf6f96d965ebf80746b57e4713eb316fc2d8b9ea"
+  },
+  "preservation": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/preservation.json",
+    "bytes": 68462,
+    "sha256": "3d97ccf84fc7e6196baacf26f89f01fd2c85d4a24b7dc68e41a7c9316f8cfb51"
+  },
+  "sourceDiff": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source-diff.json",
+    "bytes": 31548,
+    "sha256": "4698d5be413645e3149a408536a7fc5ed999ccc6138026295ecef8ed60d5661d"
+  },
+  "historical315ControlsTransferred": false,
+  "negativePredecessorEntry": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source1/entrypoint.json",
+    "bytes": 29295,
+    "sha256": "0a02eb6b930eec114d9c1cc1c6b7e024a3547fca3321b737c144dbaa7cfb207e"
+  },
+  "negativeDisposition": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-review-20261105/source1/source1-disposition.json",
+    "bytes": 1648,
+    "sha256": "231f71a6353086449dcb0f5791a7e013f5a82c594dc9a6d59470e85064c9c2fd"
+  },
+  "negativeReviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-review-20261105/source1/qa-review.json",
+      "bytes": 356,
+      "sha256": "52b4b2a31fb4e859cd8dc5d2278ebbfda5b70e7e5d7bc9f7b6efdf70324e6803"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-review-20261105/source1/security-review.json",
+      "bytes": 368,
+      "sha256": "3dbae2660cb4f6a9d02d81a42621e5cec96667f3cc54cd906fc6fc46d22303da"
+    }
+  ],
+  "negativeFindings": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-review-20261105/source1/qa-findings.json",
+      "bytes": 1474,
+      "sha256": "1086773426d8ad0875b469d121f720348b0f09a81720204c5e312add4ddfdd49"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-review-20261105/source1/security-findings.json",
+      "bytes": 1475,
+      "sha256": "6d16623193aeeb5bf4e1678c93af004e2cc135864d5e2b3bad2da006efc292a7"
+    }
+  ],
+  "importClosure": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/import-closure.json",
+    "bytes": 83539,
+    "sha256": "fc3785c449a28cd6f3fa53494f69d0eb3932b29b1c1ab6c3cc5fd9101112e687"
+  },
+  "source1_342ControlsTransferred": false
+}

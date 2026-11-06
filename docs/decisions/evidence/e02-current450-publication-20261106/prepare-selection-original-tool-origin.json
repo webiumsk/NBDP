@@ -1,0 +1,22 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/home/peterhorvath/.miniforge3/bin/python3.13 -I -B docs/decisions/evidence/e02-current450-publication-20261106/prepare_selection.py",
+      "workdir": "/home/peterhorvath/apps/bitcoin/NBDP",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 1800
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "ec7a95",
+      "wall_time_seconds": 0.290616439,
+      "exit_code": 0,
+      "original_token_count": 95,
+      "output": "{\"selection\": {\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current450-publication-20261106/selection.UNREVIEWED.json\", \"bytes\": 888041, \"sha256\": \"51706685f7451cddf79ebead89e44d484b4d239c73d9b59299aa1047819eea59\"}, \"selected\": 1342, \"changed\": 1311, \"bytes\": 34090307, \"omittedBinaries\": 5, \"externalOperands\": 394, \"publicationPerformed\": false}\n"
+    }
+  },
+  "polls": []
+}

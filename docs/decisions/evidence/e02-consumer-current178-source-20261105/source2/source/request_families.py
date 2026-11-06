@@ -1,0 +1,240 @@
+"""Four explicit request families; bounded native mechanics, no IO/dispatch.
+
+Pure decoder/type/response functions are AST-exact from accepted method5e4a.
+MODEL5 optional token metadata never widens strict operational COLLECTOR7.
+"""
+from decimal import Decimal
+import json, math, re
+from strict import Refusal
+DATA=16777216
+OUTPUT=1048576
+SAFE=9007199254740991
+I64=9223372036854775807
+DEPTH=64
+METADATA_DEPTH=48
+NODES=250000
+FLAGS={'truncated','output_truncated','interrupted','error','isError'}
+RESPONSE_KEYS={'chunk_id','wall_time_seconds','exit_code','original_token_count','output','session_id'}|FLAGS
+POLL_KEYS={'session_id','chars','yield_time_ms','max_output_tokens'}
+FAMILIES=('MODEL5','HOST7','COLLECTOR7','PRODUCER_CAPTURE7')
+KEYS5={'cmd','workdir','login','yield_time_ms','max_output_tokens'}
+KEYS7=KEYS5|{'sandbox_permissions','justification'}
+HOST_POLICY={'sandbox_permissions': 'require_escalated', 'justification': 'Môžem raz vykonať prijatý izolovaný E02 helper probe s aktuálnou jednorazovou Root release, pôvodnými limitmi a úplnou evidenciou? Bez opakovania, SDK a bežných klientov.'}
+CAPTURE_POLICY={'sandbox_permissions': 'require_escalated', 'justification': 'Môžem raz vykonať prijatých 266 syntetických kontrol E02 s výsledkami v izolovanom /Data adresári? Platí aktuálny Root ACK, pôvodné časové a vstupné limity a zákaz automatického opakovania.'}
+
+def need(value, reason):
+    if not value:
+        raise Refusal(reason)
+
+def closed(value, keys):
+    need(type(value) is dict and set(value) == set(keys), 'CLOSED_KEYS')
+    return value
+
+def integer(value, lo=0, hi=SAFE):
+    need(type(value) is int and lo <= value <= hi, 'INTEGER_DOMAIN')
+    return value
+
+def text(value, maximum=DATA):
+    need(type(value) is str, 'TEXT_TYPE')
+    need(len(value.encode('utf8', 'strict')) <= maximum, 'TEXT_BOUND')
+    return value
+
+def same(a, b):
+    if type(a) is not type(b):
+        return False
+    if type(a) is dict:
+        return set(a) == set(b) and all(same(a[k], b[k]) for k in a)
+    if type(a) is list:
+        return len(a) == len(b) and all(same(x, y) for x, y in zip(a, b))
+    return a == b
+
+def equal(a, b, reason='TYPED_VALUE_MISMATCH'):
+    need(same(a, b), reason)
+
+def preflight_json(raw, api=False):
+    """Bound allocations before json.loads, including structural nesting."""
+    need(type(raw) is bytes and len(raw) <= DATA, 'JSON_BYTES_BOUND')
+    value = raw.decode('utf8', 'strict')
+    nesting, nodes, quoted, escaped, token = 0, 0, False, False, False
+    for char in value:
+        if quoted:
+            if escaped:
+                escaped = False
+            elif char == '\\':
+                escaped = True
+            elif char == '"':
+                quoted = False
+            continue
+        if char == '"':
+            nodes += 1
+            quoted, token = True, False
+        elif char in '{[':
+            nesting += 1
+            nodes += 1
+            token = False
+            need(nesting <= (DEPTH if api else METADATA_DEPTH) + 1, 'JSON_PRE_DEPTH')
+        elif char in '}]':
+            nesting -= 1
+            token = False
+        elif char.isspace() or char in ',:':
+            token = False
+        elif not token:
+            nodes += 1
+            token = True
+        need(nodes <= NODES, 'JSON_PRE_NODES')
+    return value
+
+def wall_path(path):
+    return (path == ('launch', 'unmodifiedResponse', 'wall_time_seconds') or
+            len(path) == 4 and path[0] == 'polls' and type(path[1]) is int and
+            path[2:] == ('unmodifiedResponse', 'wall_time_seconds'))
+
+def validate_tree(value, api=False):
+    schema = value.get('schema') if type(value) is dict else None
+    snapshot_schema = (type(schema) is str and
+                       re.fullmatch('e02-controller[1-9][0-9]*-current-inputs-v1', schema))
+    stack, count = [(value, (), 0)], 0
+    while stack:
+        item, path, depth = stack.pop()
+        count += 1
+        need(depth <= (DEPTH if api else METADATA_DEPTH) and count <= NODES, 'JSON_STRUCTURE_BOUND')
+        if type(item) is dict:
+            for key, child in item.items():
+                text(key)
+                count += 1
+                need(count <= NODES, 'JSON_NODE_BOUND')
+                stack.append((child, path + (key,), depth + 1))
+        elif type(item) is list:
+            stack.extend((child, path + (i,), depth + 1) for i, child in enumerate(item))
+        elif type(item) is str:
+            text(item)
+        elif type(item) is int:
+            timestamp = (snapshot_schema and len(path) == 3 and path[0] == 'rows'
+                         and type(path[1]) is int and path[2] in ('mtimeNs', 'ctimeNs'))
+            integer(item, -I64 if timestamp else -SAFE, I64 if timestamp else SAFE)
+        elif type(item) in (float, Decimal):
+            need(api and wall_path(path), 'ONLY_API_WALL_FLOAT')
+            finite = item.is_finite() if type(item) is Decimal else math.isfinite(item)
+            need(finite and item >= 0, 'FINITE_NONNEGATIVE_WALL')
+        else:
+            need(item is None or type(item) is bool, 'JSON_VALUE_TYPE')
+    return value
+
+def decode_json(raw, api=False):
+    value = preflight_json(raw, api)
+    def pairs(items):
+        result = {}
+        for key, child in items:
+            need(key not in result, 'DUPLICATE_JSON_KEY')
+            result[key] = child
+        return result
+    def number(token):
+        need(token != '-0', 'NEGATIVE_ZERO')
+        return integer(int(token), -I64, I64)
+    def forbidden(_):
+        raise Refusal('NONFINITE_JSON')
+    try:
+        result = json.loads(value, object_pairs_hook=pairs, parse_int=number,
+                            parse_float=Decimal, parse_constant=forbidden)
+    except (json.JSONDecodeError, RecursionError, OverflowError) as error:
+        raise Refusal('INVALID_BOUNDED_JSON') from error
+    return validate_tree(result, api)
+
+def response_metadata(response, cap):
+    need(type(response) is dict and set(response) <= RESPONSE_KEYS, 'DECLARED_NATIVE_RESPONSE_KEYS')
+    integer(cap, 1)
+    for key in FLAGS:
+        # These flags are optional native metadata. Never repair/coerce them.
+        need(key not in response or type(response[key]) is bool and response[key] is False,
+             'NO_NEGATIVE_OR_UNKNOWN_API_FLAG')
+    need('wall_time_seconds' in response, 'NATIVE_WALL_REQUIRED')
+    wall = response['wall_time_seconds']
+    need(type(wall) in (int, float, Decimal), 'WALL_NUMBER_TYPE')
+    if type(wall) is int:
+        integer(wall, 0)
+    else:
+        need((wall.is_finite() if type(wall) is Decimal else math.isfinite(wall)) and wall >= 0,
+             'FINITE_NONNEGATIVE_WALL')
+    if 'original_token_count' in response:
+        integer(response['original_token_count'], 0, cap)
+    # original_token_count is optional in the native API schema. Absence stays
+    # absent; this optional counter alone never establishes completeness.
+    if 'chunk_id' in response:
+        need(bool(text(response['chunk_id'], 256)), 'CHUNK_ID')
+    if 'exit_code' in response and response['exit_code'] is not None:
+        integer(response['exit_code'], -SAFE, SAFE)
+    if 'session_id' in response and response['session_id'] is not None:
+        integer(response['session_id'], 1)
+    need('output' in response, 'NATIVE_OUTPUT_REQUIRED')
+    text(response['output'], OUTPUT)
+
+
+def decode_tool_origin(raw):
+    return decode_json(raw, api=True)
+
+
+def canonical_request(value, family):
+    need(family in FAMILIES, 'EXPLICIT_KNOWN_REQUEST_FAMILY')
+    closed(value, KEYS5 if family == 'MODEL5' else KEYS7)
+    text(value['cmd'], DATA);text(value['workdir'],4096)
+    need(value['cmd'] and value['workdir'].startswith('/') and '\x00' not in value['cmd'] + value['workdir'], 'REQUEST_TEXT_DOMAINS')
+    need(type(value['login']) is bool and value['login'] is False, 'EXACT_LOGIN_FALSE')
+    integer(value['yield_time_ms'],1,10000);integer(value['max_output_tokens'],1,20000)
+    if family in ('HOST7','PRODUCER_CAPTURE7'):
+        policy = HOST_POLICY if family == 'HOST7' else CAPTURE_POLICY
+        for key, expected in policy.items():equal(value[key],expected,'EXACT_FAMILY_POLICY')
+    elif family == 'COLLECTOR7':
+        import collector_contracts as collector
+        words,route=collector.command_words(value)
+        equal(route,'ROOT_CLEANENV_KILL10S','OPERATIONAL_COLLECTOR_REQUIRES_CLEANENV')
+        need(len(words)>=7,'COMPLETE_COLLECTOR_COMMAND')
+        collector.command(value,words[6])
+    return json.dumps(value,sort_keys=True,separators=(',',':'),ensure_ascii=True,allow_nan=False).encode('utf8')
+
+
+def validate_origin(origin, expected, operators, *, family):
+    """Read a whole native origin in one explicitly selected immutable family."""
+    validate_tree(origin,api=True)
+    closed(origin,('schema','operator','launch','polls'))
+    equal(origin['schema'],'e02-actual-tool-custody-v1')
+    need(type(operators) in (list,tuple,set) and operators and origin['operator'] in operators,'DECLARED_ACTUAL_OPERATOR')
+    text(origin['operator'],4096)
+    if family=='COLLECTOR7':equal(origin['operator'],'/root','OPERATIONAL_COLLECTOR_ROOT_OPERATOR')
+    expected_bytes=canonical_request(expected,family)
+    maximum_polls=16 if family=='COLLECTOR7' else 128
+    need(type(origin['polls']) is list and len(origin['polls'])<=maximum_polls,'FINITE_ACTUAL_POLLS')
+    session,terminal,outputs,total=None,False,[],0
+    for i,frame in enumerate([origin['launch'],*origin['polls']]):
+        closed(frame,('toolName','actualArguments','unmodifiedResponse'))
+        need(not terminal,'NO_FRAME_AFTER_TERMINAL')
+        arguments,response=frame['actualArguments'],frame['unmodifiedResponse']
+        if i==0:
+            equal(frame['toolName'],'tools.exec_command')
+            equal(canonical_request(arguments,family),expected_bytes,'WHOLE_ACTUAL_REQUEST_FAMILY')
+            cap=arguments['max_output_tokens']
+        else:
+            equal(frame['toolName'],'tools.write_stdin')
+            need(type(arguments) is dict and set(arguments)<=POLL_KEYS,'DECLARED_POLL_FIELDS')
+            integer(arguments.get('session_id'),1);equal(arguments['session_id'],session,'SAME_SESSION_ARGUMENT')
+            need('chars' not in arguments or type(arguments['chars']) is str and arguments['chars']=='','READ_ONLY_POLL')
+            for key in ('yield_time_ms','max_output_tokens'):
+                if key in arguments:integer(arguments[key],1)
+            cap=arguments.get('max_output_tokens',10000)
+        response_metadata(response,cap)
+        if family=='COLLECTOR7':
+            need('original_token_count' in response,'COLLECTOR_PRESENT_NATIVE_COUNTER_REQUIRED')
+            integer(response['original_token_count'],0,cap)
+        if response.get('exit_code') is None:
+            integer(response.get('session_id'),1)
+            session=session or response['session_id'];equal(response['session_id'],session,'SAME_SESSION_RESPONSE')
+        else:
+            equal(response['exit_code'],0,'NATURAL_API_TERMINAL0')
+            need(response.get('session_id') is None or type(response['session_id']) is int and response['session_id']==session,'TERMINAL_SESSION')
+            terminal=True
+        output=response['output']
+        need(not any(marker in output for marker in ('tokens truncated','Warning: truncated output','Output exceeded the available','[output truncated]')),'NO_TRUNCATION_MARKER')
+        total+=len(output.encode('utf8','strict'))
+        need(total<=(65536 if family=='COLLECTOR7' else OUTPUT),'WHOLE_API_OUTPUT_BOUND')
+        outputs.append(output)
+    need(terminal,'COMPLETE_TERMINAL_REQUIRED')
+    return ''.join(outputs)

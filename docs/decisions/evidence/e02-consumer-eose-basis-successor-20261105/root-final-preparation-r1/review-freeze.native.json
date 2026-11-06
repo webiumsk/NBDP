@@ -1,0 +1,39 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/home/peterhorvath/.miniforge3/bin/python3.13 -I -B docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/root-final-preparation-r1/prepare_review_freeze.py",
+      "workdir": "/home/peterhorvath/apps/bitcoin/NBDP",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 1800
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "cd0baf",
+      "wall_time_seconds": 1.001082425,
+      "session_id": 5453,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "polls": [
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 5453,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 1800
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "ef394c",
+        "wall_time_seconds": 0.000025127,
+        "exit_code": 0,
+        "original_token_count": 161,
+        "output": "{\"freeze\": {\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/review-coupled-r1/complete-freeze.json\", \"bytes\": 449392, \"sha256\": \"e715cff2da70388b7ec37ea50020ad10fab4d1869dcd51a30670d71ca1233eb4\"}, \"subject\": {\"bytes\": 21493, \"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source3/coupled-r1/source/subject.json\", \"sha256\": \"4de06eb9dac6f17633d662593ae6030d67606b7717e4aa33ab4b8a27baef9ae4\"}, \"physicalInputs\": 1577, \"packetFiles\": 57, \"opaqueExpectedOnly\": 2, \"modelsDefined\": 450, \"canonicalModelsExecuted\": 0}\n"
+      }
+    }
+  ]
+}

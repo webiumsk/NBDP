@@ -1,0 +1,16 @@
+{
+  "toolName": "tools.exec_command",
+  "actualArguments": {
+    "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport json,sys\nowned=Path('/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source2');sys.path.insert(0,str(owned));import prepare_coupled as b\nreader=b.Reader();draft=json.loads((owned/'input-capabilities.DRAFT-r2.json').read_bytes());rows={p['path']:p for p in draft['inputFiles']};policy_pin,raw=reader.read(owned.parent/'root-required-failed-inventory-selection.json');assert policy_pin['sha256']==b.FAILED_SHA;policy=reader.doc(policy_pin)\nnew=[policy_pin,policy['historicalRegistry'],policy['currentFailure']['subject'],policy['currentFailure']['rootNegativeDisposition']]\nfor old in policy['historicalFailures']:new.extend([old['sourceSubject'],*old['allowedRawOutcomes']])\nadded=[]\nfor pin in new:\n if pin['path'] in rows:assert rows[pin['path']]==pin\n else:reader.read(pin['path'],pin);rows[pin['path']]=pin;added.append(pin)\nreader.admit([rows[k] for k in sorted(rows)]);reader.recheck()\ndraft.update(inputFiles=[rows[k] for k in sorted(rows)],incrementalRootSelection=policy_pin,addedVerifiedPins=added,missingInputs=['Completed genuine basis and verification receipts','Final preparation recipe pin','Actual Root spec'])\npath=owned/'input-capabilities.DRAFT-r3.json';b.put(path,draft)\nprint(json.dumps(dict(inputs=len(rows),addedVerifiedPins=len(added),allCapabilitiesPreadmitted=True,opaquePhysicalReads=0,finalFreezeIssued=False,canonicalModelsExecuted=0)))\nPY",
+    "login": false,
+    "yield_time_ms": 1000,
+    "max_output_tokens": 1800
+  },
+  "unmodifiedResponse": {
+    "chunk_id": "775d9f",
+    "wall_time_seconds": 0.053532632,
+    "exit_code": 0,
+    "original_token_count": 41,
+    "output": "{\"inputs\": 1490, \"addedVerifiedPins\": 2, \"allCapabilitiesPreadmitted\": true, \"opaquePhysicalReads\": 0, \"finalFreezeIssued\": false, \"canonicalModelsExecuted\": 0}\n"
+  }
+}

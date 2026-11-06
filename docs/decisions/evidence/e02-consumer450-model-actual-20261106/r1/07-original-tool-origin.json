@@ -1,0 +1,22 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 63s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source3/coupled-r1/source/test_probe_adapter.py -v",
+      "workdir": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source3/coupled-r1/source",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 20000
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "f53c3a",
+      "wall_time_seconds": 0.220748795,
+      "exit_code": 0,
+      "original_token_count": 672,
+      "output": "test_positive_explicit_raw_stream_and_recheck (__main__.ExplicitRawStreamControls.test_positive_explicit_raw_stream_and_recheck) ... ok\ntest_raw_above2GiB_refused_before_open (__main__.ExplicitRawStreamControls.test_raw_above2GiB_refused_before_open) ... ok\ntest_raw_file_drift_on_recheck (__main__.ExplicitRawStreamControls.test_raw_file_drift_on_recheck) ... ok\ntest_raw_hash_substitution_refused (__main__.ExplicitRawStreamControls.test_raw_hash_substitution_refused) ... ok\ntest_raw_path_is_not_an_implicit_json_parse (__main__.ExplicitRawStreamControls.test_raw_path_is_not_an_implicit_json_parse) ... ok\ntest_raw_symlink_refused (__main__.ExplicitRawStreamControls.test_raw_symlink_refused) ... ok\ntest_actual_host_scope_not_api_lifecycle_inference (__main__.ProbePrerequisiteModels.test_actual_host_scope_not_api_lifecycle_inference) ... ok\ntest_api_nonnatural_exit_refuses (__main__.ProbePrerequisiteModels.test_api_nonnatural_exit_refuses) ... ok\ntest_attached_share_not_expanded (__main__.ProbePrerequisiteModels.test_attached_share_not_expanded) ... ok\ntest_failed_inner_probe_not_qualified (__main__.ProbePrerequisiteModels.test_failed_inner_probe_not_qualified) ... ok\ntest_helper_result_no_backend_cause_inference (__main__.ProbePrerequisiteModels.test_helper_result_no_backend_cause_inference) ... ok\ntest_helper_result_no_ordinary_row (__main__.ProbePrerequisiteModels.test_helper_result_no_ordinary_row) ... ok\ntest_manifest_duplicate_members (__main__.ProbePrerequisiteModels.test_manifest_duplicate_members) ... ok\ntest_manifest_has_no_generic_extra_graph (__main__.ProbePrerequisiteModels.test_manifest_has_no_generic_extra_graph) ... ok\ntest_metadata_share_not_expanded (__main__.ProbePrerequisiteModels.test_metadata_share_not_expanded) ... ok\ntest_missing_exact_owned_cleanup (__main__.ProbePrerequisiteModels.test_missing_exact_owned_cleanup) ... ok\ntest_pending_probe_anchor_hard_refuses (__main__.ProbePrerequisiteModels.test_pending_probe_anchor_hard_refuses) ... ok\ntest_positive_closed18_root24_manifest4_model (__main__.ProbePrerequisiteModels.test_positive_closed18_root24_manifest4_model) ... ok\ntest_raw_member_expected_hash_is_checked (__main__.ProbePrerequisiteModels.test_raw_member_expected_hash_is_checked) ... ok\ntest_reservation_stays_inside_metadata (__main__.ProbePrerequisiteModels.test_reservation_stays_inside_metadata) ... ok\ntest_unknown_cleanup_identity (__main__.ProbePrerequisiteModels.test_unknown_cleanup_identity) ... ok\ntest_wrong_outer_controller_request (__main__.ProbePrerequisiteModels.test_wrong_outer_controller_request) ... ok\n\n----------------------------------------------------------------------\nRan 22 tests in 0.028s\n\nOK\n"
+    }
+  },
+  "polls": []
+}

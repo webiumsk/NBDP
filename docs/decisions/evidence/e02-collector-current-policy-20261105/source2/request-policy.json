@@ -1,0 +1,40 @@
+{
+  "actualAndExpectedBothUseCompleteCommandValidation": true,
+  "closed": true,
+  "dockerArgumentsOrEnvironment": false,
+  "executionAuthorized": false,
+  "fiveKeyFallback": false,
+  "justification": {
+    "fullValueInActualArguments": true,
+    "fullValueInCanonicalRequestPin": true,
+    "maximumBytes": 1024,
+    "minimumBytes": 1,
+    "nonblank": true,
+    "normalization": false,
+    "type": "strict UTF8 string"
+  },
+  "keys": [
+    "cmd",
+    "workdir",
+    "login",
+    "yield_time_ms",
+    "max_output_tokens",
+    "sandbox_permissions",
+    "justification"
+  ],
+  "outerApiMetadataOnly": true,
+  "pollTypes": {
+    "chars": "Existing empty chars route and permitted fieldset unchanged",
+    "max_output_tokens": "Existing exact-int/count-cap guard unchanged",
+    "session_id": "Exact positive int; same previously established session",
+    "yield_time_ms": "Optional exact int; omission/default and prior clock allowances unchanged"
+  },
+  "rawOriginMutation": false,
+  "sandbox_permissions": "require_escalated",
+  "schema": "e02-collector-actual-request7-typed-origin-policy-v2",
+  "shellTtyPrefixRuleRequireNewReviewedWholeShape": true,
+  "sourceAcceptance": null,
+  "terminalResponseSession": "Absent/null or exact int equal to the established yielded session",
+  "unknownExtrasAllowed": false,
+  "wholeExpectedActualEquality": "Exact canonical encoded JSON bytes; preserves type distinctions"
+}

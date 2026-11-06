@@ -1,0 +1,91 @@
+{
+  "schema": "e02-root-controller-current-mock-release-v1",
+  "actor": "/root",
+  "issuedAtUtcMillis": 1793856186295,
+  "notAfterUtcMillis": 1793856786295,
+  "startAllowanceSeconds": 120,
+  "controllerSource": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r10/subject.json",
+    "bytes": 65372,
+    "sha256": "20f3740d34dfac74d808857315ca338c49a836732bd95bf5315365fe94422855"
+  },
+  "controllerSourceAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-controller-source-review-20261105/r10/acceptance.json",
+    "bytes": 1216,
+    "sha256": "a06e93b82b3dcc32879d8584f463fc1e4fa42fefa843f2ee85a4487ed2829081"
+  },
+  "controlPlan": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r10/control-plan.json",
+    "bytes": 23350,
+    "sha256": "a2139c720d03ff05fde35536fb0f999e769d1f20efbdca470dd6de6f5de106c3"
+  },
+  "inputsBefore": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-controller-r10-model178-actual-20261105/before.json",
+    "bytes": 88792,
+    "sha256": "0e281849203c94a44c4c57493783908373778e8c1a8fc446fbf14f21907b8bbc"
+  },
+  "requests": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-controller-r10-model178-actual-20261105/01-exact-request.json",
+      "bytes": 440,
+      "sha256": "630fb00facec9e7caadee788e4c01e1a77aa1d84e6b51bbb500f0476c9932042"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-controller-r10-model178-actual-20261105/02-exact-request.json",
+      "bytes": 434,
+      "sha256": "a65220b5de77ee0193109f86d1fef5f1e24140b4073b8f181100aa2ae0decdeb"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-controller-r10-model178-actual-20261105/03-exact-request.json",
+      "bytes": 441,
+      "sha256": "125581618c08a5d9ce3c014255144ef6e8965223eeedafd72873cd71f0113535"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-controller-r10-model178-actual-20261105/04-exact-request.json",
+      "bytes": 439,
+      "sha256": "662a02855b85d209819d734bd9730253d4a4cf7a6d54e48399f7f40cb12fe767"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-controller-r10-model178-actual-20261105/05-exact-request.json",
+      "bytes": 447,
+      "sha256": "9357fa4450ed4babf29daa89d2a86986e9c0845616fa2c9a66ff55f36b34dff5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-controller-r10-model178-actual-20261105/06-exact-request.json",
+      "bytes": 449,
+      "sha256": "b2adaf1524ebe9256155289e53255142b75715b4bc5a797cf8b0b57eb08cf411"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-controller-r10-model178-actual-20261105/07-exact-request.json",
+      "bytes": 453,
+      "sha256": "d6e893f2e6a408acbc918d4ac84a11f224c5c9616a3f6c06d1ec6097d1f11b5c"
+    }
+  ],
+  "jobPlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-controller-r10-model178-actual-20261105/job-plan.json",
+    "bytes": 52615,
+    "sha256": "210668ac895ecca8c37483e20c39f2bad9da5305a09b8db93737d49271d09d0e"
+  },
+  "modelsDefined": 178,
+  "countsSeparate": [
+    39,
+    42,
+    10,
+    19,
+    23,
+    19,
+    26
+  ],
+  "maximumExecutionsPerGroup": 1,
+  "groupsSequential": true,
+  "stopOnFirstFailure": true,
+  "noRetry": true,
+  "perGroupKillSeconds": 63,
+  "scope": "API_ONLY_MOCK_OR_READ_ONLY_MODELS_NO_TARGET_RUNTIME",
+  "actualRequestFamily": "MODEL5",
+  "innerPidReapEofAttested": false,
+  "guardHelperExecutionsAuthorized": 0,
+  "dockerExecutionsAuthorized": 0,
+  "ordinaryRoleExecutionsAuthorized": 0,
+  "executionAuthorized": true
+}

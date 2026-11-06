@@ -1,0 +1,137 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 1266s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-capture-20261105/source2/capture/capture.py --execute-once --root-ack-sha 80cc29506f77f93d227d8a22d1c74d182bcb8a2a380e6d7e4979d12167e2f0d7",
+      "workdir": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-capture-20261105/source2/capture",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2000,
+      "sandbox_permissions": "require_escalated",
+      "justification": "Jednorazové vykonanie prijatých 286 syntetických kontrol E02 s výsledkami v izolovanom /Data adresári podľa aktuálneho Root ACK; pôvodné limity a zákaz automatického opakovania zostávajú platné."
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "c3ce95",
+      "wall_time_seconds": 1.000590369,
+      "session_id": 7597,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "polls": [
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 7597,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "ac3f68",
+        "wall_time_seconds": 5.001530733,
+        "session_id": 7597,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 7597,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "652296",
+        "wall_time_seconds": 5.001092272,
+        "session_id": 7597,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 7597,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "f860b3",
+        "wall_time_seconds": 5.00120983,
+        "session_id": 7597,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 7597,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "83e9da",
+        "wall_time_seconds": 5.002085194,
+        "session_id": 7597,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 7597,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "078f80",
+        "wall_time_seconds": 5.00093918,
+        "session_id": 7597,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 7597,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "f71afc",
+        "wall_time_seconds": 5.001133922,
+        "session_id": 7597,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 7597,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "308eb2",
+        "wall_time_seconds": 0.000022534,
+        "exit_code": 0,
+        "original_token_count": 125,
+        "output": "{\"result\": {\"path\": \"/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-eose-6ea9fb8bcdd736d1d54000e4/capture/result.json\", \"bytes\": 32485, \"sha256\": \"8c057ff8447cef3d7ea0d1fe6234896321b6131b8530bb80d64b1d3bdbc4a672\"}, \"rawManifest\": {\"path\": \"/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-eose-6ea9fb8bcdd736d1d54000e4/capture/raw-artifact-manifest.json\", \"bytes\": 21877, \"sha256\": \"a2a53eaa4bf197a9acd9a58b4f63c09b3c1bcb5a035a236de1d8dfc2cde5f7d3\"}, \"exitCode\": 0}\n"
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "e02-root-current450-publication-selection-review-v1",
+  "actor": "/root",
+  "selection": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current450-publication-20261106/selection.UNREVIEWED.json",
+    "bytes": 888041,
+    "sha256": "51706685f7451cddf79ebead89e44d484b4d239c73d9b59299aa1047819eea59"
+  },
+  "reviews": [
+    {
+      "role": "qa",
+      "session": "/root/consumer_source2_recipe_qa",
+      "result": "PASS_SELECTION_ONLY_NO_MATERIAL_FINDINGS",
+      "native": "0eabbb/0"
+    },
+    {
+      "role": "security",
+      "session": "/root/consumer_source2_recipe_security",
+      "result": "ACCEPTABLE_SELECTION_ONLY_NO_MATERIAL_FINDINGS",
+      "native": [
+        "c552aa/session40114→63fe82/0",
+        "44bf4a/0"
+      ]
+    }
+  ],
+  "selectedTextFiles": 1342,
+  "selectedTextBytes": 34090307,
+  "changedGitBlobs": 1311,
+  "omittedBinaries": 5,
+  "externalExplicitOperands": 394,
+  "sourcePermissions": {
+    "0664": 1091,
+    "0600": 251
+  },
+  "stagedTreeReviewStillRequired": true,
+  "publicationPerformed": false
+}

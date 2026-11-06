@@ -1,0 +1,75 @@
+{
+  "schema": "e02-root-failed-helper-probe-data-acceptance-v1",
+  "actor": "/root",
+  "decision": "ACCEPT_ONE_FAILED_CURRENT_HELPER_PROBE_DATA_ONLY",
+  "subject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-actual/774675cbeebc22ae6a87b8b20795f539/gate--helper-subject.json",
+    "bytes": 3039,
+    "sha256": "add5550b60c250c8337b55ecf855df9500ca5bfa38cf242d3d90b22654ec6f25"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-probe-negative-774675cbeebc-20261029/qa-review.json",
+      "bytes": 394,
+      "sha256": "c4d718661f859cfb178692dc5d4394cde36ec13208ebac1901c8a27cce653f7e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-probe-negative-774675cbeebc-20261029/security-review.json",
+      "bytes": 406,
+      "sha256": "f968564b54fee5c0b3a5fb069d395a6796f7c352535900ebbbf03263f075451c"
+    }
+  ],
+  "reviewEntrypoint": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-probe-negative-774675cbeebc-20261029/review-entrypoint.json",
+    "bytes": 3140,
+    "sha256": "989ea267b76cca84aa77f71739c56768457c5b58a0e6dd4cab6a5dfa33be3877"
+  },
+  "controllerSource": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r5/subject.json",
+    "bytes": 22404,
+    "sha256": "6259e4dae59b27839378ec03c96056c5efab1c21132ac0eda451dbed8d8e4a03"
+  },
+  "execution": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-actual-r1/774675cbeebc22ae6a87b8b20795f539/output/result.json",
+    "bytes": 484,
+    "sha256": "5165ecba2c921bff1e3759d42f0c0467759a6688e4026fd1a253ad27563e67ce"
+  },
+  "originalProbeApi": {
+    "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-actual/774675cbeebc22ae6a87b8b20795f539/api-frame--probe-origin.json",
+    "bytes": 1323,
+    "sha256": "0bf1e9e83838b7e9cce63f6d0ab9cd3d300547234dfb9d4a7e1f322da36b40fc"
+  },
+  "rawArtifactManifest": {
+    "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-actual/774675cbeebc22ae6a87b8b20795f539/gate--raw-manifest.json",
+    "bytes": 8735,
+    "sha256": "84f273cefdea781e9213e9f0c748295fe39390b709e5b82423cdb9feeef3dc98"
+  },
+  "finalHistoryPrefix": {
+    "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-actual/774675cbeebc22ae6a87b8b20795f539/diagnostic--history-prefix.bin",
+    "bytes": 21199,
+    "sha256": "f61587b224e860e09d1af03ccdba561bdc66029d2585a36d815bde30f64cd668"
+  },
+  "qualified": false,
+  "hostInvocations": 1,
+  "createdContainers": 1,
+  "targetStartsObserved": 0,
+  "cleanup": {
+    "removed": true,
+    "absence": true,
+    "unknownIdentity": false
+  },
+  "error": "EXACT_GUEST_ENVIRONMENT",
+  "collectorCustodyQualifiedAtCut": true,
+  "collectorCommands": 14,
+  "registeredWrites": 13,
+  "payloadBytes": 45455,
+  "prepaidSlotUpperBytes": 61839,
+  "slotLimit": 65536,
+  "current538InputsUnchanged": true,
+  "platformOnlyFinalWitness": true,
+  "physicalFinalOriginCopies": 0,
+  "postFinalCollectorCommands": 0,
+  "ordinaryRowsQualified": 0,
+  "scope": "FAILED_HELPER_DATA_ONLY_NO_RUNTIME_OR_CANONICAL_PROMOTION",
+  "executionAuthorized": false
+}

@@ -1,0 +1,81 @@
+    def parent_allocation_metadata(self):
+        from async_guard import ALLOCATION
+        binding_sha=hashlib.sha256(self.s.json_bytes(self.sources)).hexdigest()
+        self.put('capture-allocation-header.json',dict(schema='e02-controller-capture-parent-allocation-v1',actor='/root',runId=self.run_id,runConfig=self.config_pin,sourceBindingsSha256=binding_sha,originalLeaseSha256=self.lease_pin['sha256'],allocation=ALLOCATION,ledgerRoot=str(self.root/'controller-audit-reservations'),ledgerBoundary='HOST_ONLY_OUTSIDE_FIXTURE_WRITABLE_MOUNTS',prechargedServiceBytes=8388608,controllerReservationsRefundable=False))
+        count=len(self.fixture_call_pins)
+        self.put('capture-allocation-status.json',dict(schema='e02-controller-capture-parent-status-v1',runId=self.run_id,controllerAttempts=count,controllerPoolPrechargedBytes=count*131072,servicePrechargedBytes=8388608,globalMaximumBytes=16777216,headerPrechargedLimit=4096,noRefunds=True,scope='CONSISTENCY_ONLY_NOT_POSTHOC_ADMISSION'))
+
+    def upgrade_async_service(self):
+        """Convert MODEL template events into fresh exact v3 retained DATA.
+
+        No previous result is reused: every raw RPC, context hash, sequence,
+        parent command and byte pin is newly modeled. This is synthetic fixture
+        construction, not an authentic source run or historical evidence repair.
+        """
+        old=self.phase_rows;self.phase_rows=[];mapping={};counter=0
+        instance=hashlib.sha256((self.run_id+':service').encode()).hexdigest()[:32]
+        helper=self.source_by_name['guard-helper.py'];lease=self.doc(self.lease_pin)
+        callback_names={'RAW_BACKEND_CALLBACK_ENTRY','SOCKET_OPEN_CALLBACK_ENTRY','SEND_CALLBACK_ENTRY','PROXY_CONNECTION_CALLBACK_ENTRY','PROXY_SOCKET_OPEN_CALLBACK_ENTRY','PROXY_RAW_CALLBACK_ENTRY','PROXY_SEND_CALLBACK_ENTRY'}
+        def emit(name,fields,context=None):return self.phase(name,context,**fields)
+        def previous_raw(i,label):
+            if label.startswith('exchange:'):
+                exchange,point=label[len('exchange:'):].rsplit(':',1)
+                if point in ('exchange-entry','socket-open','constructor'):return exchange.encode()
+                event='RAW_BACKEND_CALLBACK_ENTRY' if point=='backend-message' else 'SEND_INTENT'
+                choices=[r for r in old[:i] if r['phase']==event and r.get('label')==exchange]
+                if not choices and point=='send-before':choices=[r for r in old[i+2:] if r['phase']=='SEND_INTENT' and r.get('label')==exchange]
+                if choices:return base64.b64decode(choices[-1 if point!='send-before' else 0]['rawBase64'])
+            if label.startswith('proxy:'):
+                origin='APP' if label in ('proxy:app-message','proxy:app-before-upstream-send','proxy:pending-before-upstream-send') else 'RELAY'
+                choices=[r for r in old[:i] if r['phase']=='PROXY_RAW_CALLBACK_ENTRY' and r.get('origin')==origin]
+                if choices:return base64.b64decode(choices[-1]['rawBase64'])
+            return self.s.json_bytes({'mode':'serve'})
+        def begin(label,context,observed):
+            nonlocal counter
+            counter+=1;sequence=str(counter)
+            emit('GUARD_ENTRY',dict(helperInstance=instance,label=label,guardSequence=sequence,enqueueMonoNs='100'),observed)
+            if counter==1:
+                emit('GUARD_HELPER_LAUNCH',dict(helperInstance=instance,executable='/guard-python/lib/ld-linux-x86-64.so.2',argv=['--inhibit-cache','--library-path','/guard-python/lib','/guard-python/bin/python3.11','-B','-P','-S','-s','/input/guard-helper.py',instance,self.lease_pin['sha256'],str(helper['bytes']),helper['sha256']]),observed)
+                emit('GUARD_HELPER_CREATED',dict(helperInstance=instance,pid=12345),observed)
+            operation='CLOSE' if label=='owner-close' else 'CHECK'
+            request=dict(schema='e02-fresh-guard-request-v1',operation=operation,instance=instance,runId=self.run_id,leaseSha256=self.lease_pin['sha256'],sequence=sequence,label=label,contextSha256=hashlib.sha256(context).hexdigest())
+            raw=self.s.json_bytes(request)+b'\n'
+            emit('GUARD_RPC_REQUEST',dict(helperInstance=instance,label=label,guardSequence=sequence,rawBase64=base64.b64encode(raw).decode(),enqueueMonoNs='100',decisionDeadlineMonoNs='5000000100',enqueueUtcLowerNs=str(lease['issuedUtcNs']+100),enqueueBootLowerNs='100',decisionDeadlineUtcNs=str(lease['issuedUtcNs']+5000000100),decisionDeadlineBootNs='5000000100'),observed)
+            reply=dict(request,schema='e02-fresh-guard-response-v1',requestSha256=hashlib.sha256(raw).hexdigest(),ok=True,clocks=None if operation=='CLOSE' else dict(Utc=str(lease['issuedUtcNs']+200),Mono='200',Boot='200',bootId=lease['bootId']))
+            emit('GUARD_RPC_REPLY',dict(helperInstance=instance,guardSequence=sequence,rawBase64=base64.b64encode(self.s.json_bytes(reply)+b'\n').decode()),observed)
+            return sequence
+        def end(label,sequence,observed):
+            return emit('GUARD_EXIT',dict(helperInstance=instance,label=label,guardSequence=sequence,ok=True,error=None,consumed=True,consumedUtcUpperNs=str(lease['issuedUtcNs']+300),consumedMonoNs='300',consumedBootUpperNs='300'),observed)
+        i=0
+        while i<len(old):
+            row=old[i]
+            if row['phase']!='GUARD_ENTRY':
+                fields={k:v for k,v in row.items() if k not in ('schema','sequence','utc','monotonicNanoseconds','phase','profileId','windowId','ordinaryRole','observedAttempt')}
+                mapping[row['sequence']]=emit(row['phase'],fields,row['observedAttempt'])['sequence'];i+=1;continue
+            if i+1>=len(old) or old[i+1]['phase']!='GUARD_EXIT':raise ValueError('MODEL_TEMPLATE_GUARD_PAIR_REQUIRED')
+            label=row['label'];label='flow:original-01' if label=='original-unlabeled' else label
+            observed=row['observedAttempt'];mapping[row['sequence']]=len(self.phase_rows)+1
+            token=begin(label,previous_raw(i,label),observed)
+            j=i+2
+            while j<len(old) and old[j]['phase'] not in callback_names and old[j]['phase']!='GUARD_ENTRY':
+                effect=old[j]
+                if effect['phase']=='GUARD_EXIT':raise ValueError('ORPHAN_MODEL_TEMPLATE_EXIT')
+                fields={k:v for k,v in effect.items() if k not in ('schema','sequence','utc','monotonicNanoseconds','phase','profileId','windowId','ordinaryRole','observedAttempt')}
+                mapping[effect['sequence']]=emit(effect['phase'],fields,effect['observedAttempt'])['sequence'];j+=1
+            mapping[old[i+1]['sequence']]=end(label,token,observed)['sequence'];i=j
+        token=begin('owner-close',b'',None);end('owner-close',token,None)
+        emit('GUARD_HELPER_STDOUT_EOF',dict(helperInstance=instance));emit('GUARD_HELPER_STDERR_EOF',dict(helperInstance=instance))
+        emit('GUARD_HELPER_EXIT',dict(helperInstance=instance,code=0,signal=None));emit('GUARD_HELPER_CLOSE',dict(helperInstance=instance,code=0,signal=None,stdoutEOF=True,stderrEOF=True,exitSeen=True))
+        # Repin fresh MODEL snapshots after final global/local sequence expansion.
+        for record,expected,spec in self.stages:
+            value=record['observation'];first=mapping[value['phaseStartSequence']];last=mapping[value['phaseEndSequence']]
+            value.update(phaseStartSequence=first,phaseEndSequence=last,observer=self.state(last,value['proxyEndSequence']))
+        labels=['prepare-inboxes']+[sid+suffix for sid in self.w.STAGES[self.role] for suffix in ('-publish','-query')]
+        for label in labels:
+            path=self.root/'session/fixtures'/(label+'-outcome.json');value=self.doc(self.pin(path));oldstate=value['observer'];newend=mapping[oldstate['phase']['sequence']]
+            acknowledged=oldstate['budget']['streams']['proxy']['acknowledged'];count=0;size=0
+            for row in self.proxy_rows:
+                if size>=acknowledged:break
+                size+=len(self.s.json_bytes(row))+1;count+=1
+            if size!=acknowledged:raise ValueError('MODEL_GLOBAL_PROXY_PREFIX_BOUNDARY')
+            value['observer']=self.state(newend,count);self.put(path,value)
