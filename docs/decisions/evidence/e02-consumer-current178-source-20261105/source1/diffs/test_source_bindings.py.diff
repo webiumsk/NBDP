@@ -1,0 +1,13 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer266-source-preparation-20261104/r2/source/test_source_bindings.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source1/source/test_source_bindings.py
+@@ -35,8 +35,8 @@
+     def test_current_export_and_guard_dto_are_distinct_operands(self):
+         self.assertNotEqual(consumer.CURRENT_EXPORT_CONTRACT,consumer.CURRENT_GUARD_DTO);self.assertEqual(consumer.CONTRACT_SHA,consumer.CURRENT_EXPORT_CONTRACT['sha256']);self.assertEqual(self.producer()['typedContract'],consumer.CURRENT_GUARD_DTO)
+     def test_actual260_bound_but_future_probe_data_stays_null(self):
+-        self.assertEqual(consumer.CURRENT_PRODUCER_CONTROL_DATA['sha256'],'5013b22644e90a82d10792c456440e34faa1b1b2a5a033ac2f29282e4f14ad92')
+-        self.assertEqual(consumer.CURRENT_PRODUCER_CONTROL_ACCEPTANCE['sha256'],'189a8564f53619210c431fa05ec9d3df90640279362b98c4e082f87b923daa5d')
++        self.assertEqual(consumer.CURRENT_PRODUCER_CONTROL_DATA['sha256'],'e4a2b8da6d5aee04e08f98ebb508957a3639ec32c0cfe9a3089983a16e3a5e9e')
++        self.assertEqual(consumer.CURRENT_PRODUCER_CONTROL_ACCEPTANCE['sha256'],'91a00b4ec693c7c776a031849d61ab676ceaeed4262085ba0a6fc1b6e81b2d6f')
+         for value in (consumer.CURRENT_HELPER_PROBE_DATA,consumer.CURRENT_HELPER_PROBE_ACCEPTANCE):self.assertIsNone(value)
+     def test_pending_runtime_refuses_before_any_target_read(self):
+         class NoReads:

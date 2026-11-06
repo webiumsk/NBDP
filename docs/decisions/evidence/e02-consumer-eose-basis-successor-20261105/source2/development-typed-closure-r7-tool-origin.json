@@ -1,0 +1,34 @@
+{
+  "toolName": "tools.exec_command",
+  "actualArguments": {
+    "cmd": "/home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source2/audit_typed_closure.py --capabilities-output /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source2/input-capabilities.DRAFT-r2.json",
+    "login": false,
+    "yield_time_ms": 1000,
+    "max_output_tokens": 3500
+  },
+  "unmodifiedResponse": {
+    "chunk_id": "8c9455",
+    "wall_time_seconds": 1.001163998,
+    "session_id": 21126,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "polls": [
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 21126,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 3500
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "334b06",
+        "wall_time_seconds": 0.000015281,
+        "exit_code": 0,
+        "original_token_count": 220,
+        "output": "{\"schema\": \"e02-consumer-source2-typed-closure-development-audit-v1\", \"declaredInputs\": 1488, \"actualObservedInputs\": 1486, \"typedReadSites\": 2351, \"explicitHistoricalInputs\": 847, \"totalDeclaredBytes\": 122314817, \"opaqueHistoricalNegativeInputs\": 2, \"opaqueHistoricalNegativePhysicalReads\": 0, \"sourcePairRows\": 8, \"allFinalInputAuthorityVerified\": false, \"callerV2Verified\": true, \"callerDeclarations\": 26, \"historicalAttempts\": 15, \"legacyNodes\": 63, \"capabilitiesDraft\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source2/input-capabilities.DRAFT-r2.json\", \"missingInputs\": [\"Genuine completed basis\", \"External completed Source-mapping verification\", \"Final preparation recipe pin\"], \"finalFreezeIssued\": false, \"canonicalModelsExecuted\": 0, \"operationalHelperBodiesRead\": 0, \"recursiveDescriptorWalk\": false}\n"
+      }
+    }
+  ]
+}

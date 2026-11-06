@@ -1,0 +1,22 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /home/peterhorvath/.miniforge3/bin/python3.13 -I -B - <<'PY'\nfrom pathlib import Path\nimport json,os,shutil,stat,time\nlab=Path('/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3')\nout=lab/'runs/9d8bad6df86fc113f87e14e2974f9019'\nassert lab.resolve(strict=True)==lab and not os.path.lexists(out)\nfree=shutil.disk_usage(lab).free\nmem=next(int(x.split()[1])*1024 for x in Path('/proc/meminfo').read_text().splitlines() if x.startswith('MemAvailable:'))\ncpus=sorted(os.sched_getaffinity(0))\nfd=os.open('/dev/kvm',os.O_RDWR|os.O_CLOEXEC)\ntry:\n device=os.fstat(fd);assert stat.S_ISCHR(device.st_mode)\nfinally:os.close(fd)\nassert free>=8589934592 and mem>=12884901888 and len(cpus)>=8\nprint(json.dumps(dict(schema='nbdp-minimum-role-actual-resource-admission-v1',actor='/root',context='SUPPORTED_HOST',measuredAtUtcNs=time.time_ns(),actualOutput=str(out),measuredFilesystemAncestor=str(lab),filesystemDevice=lab.stat().st_dev,freeBytes=free,MemAvailableBytes=mem,affinityCpus=cpus,kvmReadWriteOpened=True,kvmVmCreated=False,meaning='ACTUAL_CURRENT_ADMISSION_NOT_MINIMUM_OR_PEAK_OR_GUEST_HEALTH')))\nPY",
+      "workdir": "/home/peterhorvath/apps/bitcoin/NBDP",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 5000
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "d2fe0a",
+      "wall_time_seconds": 0.000216273,
+      "exit_code": 0,
+      "original_token_count": 164,
+      "output": "{\"schema\": \"nbdp-minimum-role-actual-resource-admission-v1\", \"actor\": \"/root\", \"context\": \"SUPPORTED_HOST\", \"measuredAtUtcNs\": 1793164077371957610, \"actualOutput\": \"/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019\", \"measuredFilesystemAncestor\": \"/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3\", \"filesystemDevice\": 66306, \"freeBytes\": 2030642831360, \"MemAvailableBytes\": 20183138304, \"affinityCpus\": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21], \"kvmReadWriteOpened\": true, \"kvmVmCreated\": false, \"meaning\": \"ACTUAL_CURRENT_ADMISSION_NOT_MINIMUM_OR_PEAK_OR_GUEST_HEALTH\"}\n"
+    }
+  },
+  "polls": []
+}

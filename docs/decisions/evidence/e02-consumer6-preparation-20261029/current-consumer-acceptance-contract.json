@@ -1,0 +1,100 @@
+{
+  "schema": "e02-root-current-consumer6-acceptance-contract-v1",
+  "actor": "/root",
+  "source": {
+    "closedKeys": [
+      "schema",
+      "actor",
+      "decision",
+      "subject",
+      "reviews",
+      "producerSource",
+      "producerControlAcceptance",
+      "runtimeSourceCount",
+      "sourceCount",
+      "modelsDefined",
+      "modelsExecuted",
+      "ordinaryRowsQualified",
+      "runtimeReady",
+      "scope",
+      "executionAuthorized"
+    ],
+    "literals": {
+      "schema": "e02-root-consumer6-source-acceptance-v1",
+      "actor": "/root",
+      "decision": "ACCEPT_CURRENT_CONSUMER6_SOURCE_AND_CONTROL_DEFINITIONS_ONLY",
+      "modelsExecuted": 0,
+      "ordinaryRowsQualified": 0,
+      "runtimeReady": false,
+      "scope": "CURRENT_CONSUMER6_SOURCE_AND_CONTROL_DEFINITIONS_ONLY",
+      "executionAuthorized": false
+    },
+    "reviewDecision": "ACCEPT_CURRENT_CONSUMER6_SOURCE_AND_CONTROL_DEFINITIONS_ONLY",
+    "subjectSchema": "e02-ordinary-consumer6-source-subject-v1"
+  },
+  "data": {
+    "closedKeys": [
+      "schema",
+      "actor",
+      "decision",
+      "subject",
+      "reviews",
+      "consumerSource",
+      "consumerSourceAcceptance",
+      "controlPlan",
+      "producerSource",
+      "producerControlAcceptance",
+      "countsSeparate",
+      "modelsDefined",
+      "modelsExecuted",
+      "modelsPassed",
+      "modelsFailed",
+      "skipped",
+      "inputsUnchanged",
+      "helperExecutions",
+      "dockerExecutions",
+      "ordinaryRoleExecutions",
+      "ordinaryRowsQualified",
+      "scope",
+      "runtimeAuthorized",
+      "executionAuthorized"
+    ],
+    "literals": {
+      "schema": "e02-root-consumer6-control-data-acceptance-v1",
+      "actor": "/root",
+      "decision": "ACCEPT_CURRENT_CONSUMER6_CONTROL_DATA_ONLY",
+      "modelsFailed": 0,
+      "skipped": 0,
+      "inputsUnchanged": true,
+      "helperExecutions": 0,
+      "dockerExecutions": 0,
+      "ordinaryRoleExecutions": 0,
+      "ordinaryRowsQualified": 0,
+      "scope": "CURRENT_CONSUMER6_COMPLETE_CONTROL_DATA_ONLY",
+      "runtimeAuthorized": false,
+      "executionAuthorized": false
+    },
+    "reviewDecision": "ACCEPT_CURRENT_CONSUMER6_CONTROL_DATA_ONLY",
+    "subjectSchema": "e02-consumer6-current-control-data-subject-v1"
+  },
+  "reviewEnvelopeClosedKeys": [
+    "role",
+    "session",
+    "decision",
+    "subject"
+  ],
+  "reviewOrder": [
+    "qa",
+    "security"
+  ],
+  "requirements": [
+    "Exact current subject and SOURCE/controlDATA Root schemas/decisions/scopes/closed keys; ordered independently issued reviews outside complete author/operator union before every pair.",
+    "Current source has actual running self/runtime-member paths and hashes, not merely descriptor shape. Exact current declared CODE/member closure must match actual loaded consumer modules and current frozen control-plan/test sources. No self-hash cycle: external SHA-bound activation leaf selects subject which pins CODE; CODE checks actual file hashes.",
+    "Source subject runtimeSourceCount/sourceCount/model partition and RootSource fields join exactly; counts derived from actual successor subject+frozen ordered control-plan groups, never literal historical139 or assumed214.",
+    "Current controlDATA binds exact current source/sourceAcceptance/controlPlan/producerSource/accepted260. All current complete groups/names/counts executed+PASS with zero skip/fail/truncation and unchanged inputs, exact actualAPI custody and independent reviews.",
+    "ModelsDefined/Executed/Passed and countsSeparate sum equal current complete frozen partition; current Rootacceptance modelsDefined is integer total, source modelsDefined is named group map, and source modelDefinitions is matching integer total.",
+    "Current same producer22/61/34802/sourceAcceptance and actual260Root43ff required; actualhelperprobe and futurecurrentconsumer controlDATA/windows remainNULL until genuineaccepted.",
+    "SOURCE operators may be explicitly known-empty only when typedSOURCE creator authority is otherwise known/nonempty; missing/unknown creators are never silently empty. ActualDATA/release operators remain nonempty."
+  ],
+  "executionAuthorized": false
+}

@@ -1,0 +1,357 @@
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/input-read-map.json
+@@ -0,0 +1,354 @@
++{
++  "derivedSourceReadForASTAndHash": [
++    {
++      "bytes": 4434,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source/codec.py",
++      "sha256": "de176c9d9f94d20d472cb5dac0103bf7cc2c280a276ecb389bde6855a87f6096"
++    },
++    {
++      "bytes": 14974,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source/collector.py",
++      "sha256": "27ded9b13436412ed0bfc3309669f3524dff43a8930f053388d8e782df806de7"
++    },
++    {
++      "bytes": 8765,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source/history_prefix.py",
++      "sha256": "5708bec3fa695849d5d7e72e8b850d1c4540fbcda7b4ac74a554e474ebec0f6f"
++    },
++    {
++      "bytes": 12061,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source/qualification.py",
++      "sha256": "ec585d26a36cc2ba0e5b5d642e7d2186b695fcaa7a89e37091dca1f4f81b4319"
++    },
++    {
++      "bytes": 32023,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source/test_collector.py",
++      "sha256": "4432230c206e8de35ff399901732f4689c5ddcd7dd9a768871cc10442d580659"
++    },
++    {
++      "bytes": 9541,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source/test_history_prefix.py",
++      "sha256": "ebb8a2b14d688f49133fcb108264173e97080a9a6758f2a07040bfb5d68ea5b0"
++    },
++    {
++      "bytes": 10079,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source/test_request_policy.py",
++      "sha256": "2107240e74623c1d7ba0a24e0294c8e62630331dc705a3f33cab1f84a8611ce8"
++    },
++    {
++      "bytes": 765,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source/test_source7.py",
++      "sha256": "a63f7368eacfda3f6be978674f15eb8124d1e862483614c314885910817e2fbd"
++    },
++    {
++      "bytes": 8852,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source/test_typed_origin.py",
++      "sha256": "f3b8625a2c3837176d74dbcbf4025230740f748a45b62bc4a3fe6d3030be9180"
++    }
++  ],
++  "futureModuleResolution": {
++    "historyPrefix": "Source2 source/history_prefix.py imports this same Source2 source/qualification.py",
++    "operationalCLI": "R4 collector remains pinned; no R4/R5 qualifier selected",
++    "wholeControlRunner": "Source2 source/test_source7.py explicitly selects its own directory before local module imports; this runner has not executed"
++  },
++  "historicalOperandsReadForExactInvariance": [
++    {
++      "bytes": 31797,
++      "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-collector-preparation-r5/test_collector.py",
++      "sha256": "0f2f0aae901e40efc1a6b846aa516015268ffe401eb54938933fe1d06a06d0fa"
++    },
++    {
++      "bytes": 9541,
++      "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-collector-preparation-r5/test_history_prefix.py",
++      "sha256": "ebb8a2b14d688f49133fcb108264173e97080a9a6758f2a07040bfb5d68ea5b0"
++    },
++    {
++      "bytes": 14974,
++      "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-collector-preparation-r5/collector.py",
++      "sha256": "27ded9b13436412ed0bfc3309669f3524dff43a8930f053388d8e782df806de7"
++    },
++    {
++      "bytes": 4434,
++      "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-collector-preparation-r5/codec.py",
++      "sha256": "de176c9d9f94d20d472cb5dac0103bf7cc2c280a276ecb389bde6855a87f6096"
++    }
++  ],
++  "inputHashEqualityDoesNotGrantSourceOrRuntimeApproval": true,
++  "method": "SOURCE generator read operands only; all exact external bytes read for hashes, listed subsets also parsed/copied for preparation. No target module imports or execution.",
++  "predecessorMetadataParsed": [
++    {
++      "bytes": 6029,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/lineage.json",
++      "sha256": "880e29bf4b525f1e033230aecad7c6598bdcba71463af639021fb0fe7fc2f526"
++    },
++    {
++      "bytes": 804,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/request-policy.json",
++      "sha256": "61706023b6691862e92bced840cb23ef582de6ee6487014028662bf768f979c2"
++    },
++    {
++      "bytes": 2156,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/budget-contract.json",
++      "sha256": "76e1c94a4730bfbb0a21689ea455c7e9cf913520f58144f7a5220334bbd568da"
++    },
++    {
++      "bytes": 9987,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source-subject.json",
++      "sha256": "74493c0a18238708e20cca2985bffb9b328c6510a1bc53587f1c9b74377c9868"
++    }
++  ],
++  "predecessorSourceModulesCopied": [
++    {
++      "bytes": 4434,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/codec.py",
++      "sha256": "de176c9d9f94d20d472cb5dac0103bf7cc2c280a276ecb389bde6855a87f6096"
++    },
++    {
++      "bytes": 14974,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/collector.py",
++      "sha256": "27ded9b13436412ed0bfc3309669f3524dff43a8930f053388d8e782df806de7"
++    },
++    {
++      "bytes": 8765,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/history_prefix.py",
++      "sha256": "d55c0f75bc096a30c85efed21114ff5b2e756f936e3bf0adf896397d6e781cde"
++    },
++    {
++      "bytes": 11641,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/qualification.py",
++      "sha256": "291cfdb05c415e15ada57234e6f97dc34ee32f4139aa08ae72b19f78b9f77919"
++    },
++    {
++      "bytes": 32023,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/test_collector.py",
++      "sha256": "4432230c206e8de35ff399901732f4689c5ddcd7dd9a768871cc10442d580659"
++    },
++    {
++      "bytes": 9541,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/test_history_prefix.py",
++      "sha256": "ebb8a2b14d688f49133fcb108264173e97080a9a6758f2a07040bfb5d68ea5b0"
++    },
++    {
++      "bytes": 10079,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/test_request_policy.py",
++      "sha256": "94d6f65df8b698ce687b1134a6a1ce682c64ec0b9f9ec07cea009c3225598884"
++    },
++    {
++      "bytes": 693,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/test_source7.py",
++      "sha256": "fac49f8b17ec6cbade0f456c23d070f981a8ce70a7ef805149aee7fac2cc8288"
++    }
++  ],
++  "predecessorWholePacketReadForPreservation": [
++    {
++      "bytes": 4146,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/CONTRACT.md",
++      "sha256": "4c1db59095c61de8346facd2274cef43fff8c7f757de7dd1dd5aed2bfdcc1db4"
++    },
++    {
++      "bytes": 2156,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/budget-contract.json",
++      "sha256": "76e1c94a4730bfbb0a21689ea455c7e9cf913520f58144f7a5220334bbd568da"
++    },
++    {
++      "bytes": 13991,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/control-plan.json",
++      "sha256": "6a30032cdf3baeafb3c9d93c3f527c2ee592d2ef797477ebcac15abd76614936"
++    },
++    {
++      "bytes": 10030,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/diffs/CONTRACT.md.diff",
++      "sha256": "40545b38080c0386e0b9640c7d3270a0be7a327f843572455688e20fecb0c0ce"
++    },
++    {
++      "bytes": 0,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/diffs/codec.py.diff",
++      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
++    },
++    {
++      "bytes": 0,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/diffs/collector.py.diff",
++      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
++    },
++    {
++      "bytes": 2461,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/diffs/history_prefix.py.diff",
++      "sha256": "48504c356c80e61df54afd669baf2f4e969e1a8821f24bfd3b7ccd64ebfcfd22"
++    },
++    {
++      "bytes": 34462,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/diffs/prepare_source.py.diff",
++      "sha256": "7060ac41b137c8fe7d4b5f17dcb606e890b549ab188c71a145ee4c9ab6d2e073"
++    },
++    {
++      "bytes": 2158,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/diffs/qualification.py.diff",
++      "sha256": "514b35e2a64c92d0e61029a50be2a601d407022dec09ded12fe8d815a487d092"
++    },
++    {
++      "bytes": 2244,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/diffs/test_collector.py.diff",
++      "sha256": "78ac4ef9f38e0455c8cdc646efe38490a4cc8242fbaaabb20862d9337e616209"
++    },
++    {
++      "bytes": 0,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/diffs/test_history_prefix.py.diff",
++      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
++    },
++    {
++      "bytes": 10356,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/diffs/test_request_policy.py.diff",
++      "sha256": "48150e8dd6d4d9199c51fa5f7b5e6659d19f24a8d739faa74dc0bc05f43bc050"
++    },
++    {
++      "bytes": 1261,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/diffs/test_source7.py.diff",
++      "sha256": "6bd804a8bd245fe5f9c1be5002712f38bd6438fe171b5aef783340b45b8b4028"
++    },
++    {
++      "bytes": 8660,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/full-diff-index.json",
++      "sha256": "a62d2c98b288f700ee670e56b9aeb2ab931cd6ddb4454be3522bef585dc875be"
++    },
++    {
++      "bytes": 6029,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/lineage.json",
++      "sha256": "880e29bf4b525f1e033230aecad7c6598bdcba71463af639021fb0fe7fc2f526"
++    },
++    {
++      "bytes": 33985,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/prepare_source.py",
++      "sha256": "c73afd4db4bd38514052de695192ccd97c0367275b41acb97221b11da6db81a7"
++    },
++    {
++      "bytes": 804,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/request-policy.json",
++      "sha256": "61706023b6691862e92bced840cb23ef582de6ee6487014028662bf768f979c2"
++    },
++    {
++      "bytes": 8925,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/requirements-and-coverage.json",
++      "sha256": "bec96b37b129e2efbedeb261a88feba2e33aac0f2245a1b7fd745f2cd374c336"
++    },
++    {
++      "bytes": 1440,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/review-entrypoint.json",
++      "sha256": "36580ffe221e1a385895492f7f119c4262e1e3a8bc7190277b06a38efed5f9e1"
++    },
++    {
++      "bytes": 7858,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/snapshot-manifest.json",
++      "sha256": "1157c7e9c1f1197a5102221b82d3f84bbbe8a4a1799eb6bd75166c75406afa3e"
++    },
++    {
++      "bytes": 4434,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/codec.py",
++      "sha256": "de176c9d9f94d20d472cb5dac0103bf7cc2c280a276ecb389bde6855a87f6096"
++    },
++    {
++      "bytes": 14974,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/collector.py",
++      "sha256": "27ded9b13436412ed0bfc3309669f3524dff43a8930f053388d8e782df806de7"
++    },
++    {
++      "bytes": 8765,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/history_prefix.py",
++      "sha256": "d55c0f75bc096a30c85efed21114ff5b2e756f936e3bf0adf896397d6e781cde"
++    },
++    {
++      "bytes": 11641,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/qualification.py",
++      "sha256": "291cfdb05c415e15ada57234e6f97dc34ee32f4139aa08ae72b19f78b9f77919"
++    },
++    {
++      "bytes": 32023,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/test_collector.py",
++      "sha256": "4432230c206e8de35ff399901732f4689c5ddcd7dd9a768871cc10442d580659"
++    },
++    {
++      "bytes": 9541,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/test_history_prefix.py",
++      "sha256": "ebb8a2b14d688f49133fcb108264173e97080a9a6758f2a07040bfb5d68ea5b0"
++    },
++    {
++      "bytes": 10079,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/test_request_policy.py",
++      "sha256": "94d6f65df8b698ce687b1134a6a1ce682c64ec0b9f9ec07cea009c3225598884"
++    },
++    {
++      "bytes": 693,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/test_source7.py",
++      "sha256": "fac49f8b17ec6cbade0f456c23d070f981a8ce70a7ef805149aee7fac2cc8288"
++    },
++    {
++      "bytes": 9987,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source-subject.json",
++      "sha256": "74493c0a18238708e20cca2985bffb9b328c6510a1bc53587f1c9b74377c9868"
++    },
++    {
++      "bytes": 9101,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/static-invariance.json",
++      "sha256": "63aaea17201a5c3094cab0a60f1e5b9deed076a066552e413fe77e077f5a17d7"
++    }
++  ],
++  "reviewEvidenceParsedForDiagnosis": [
++    {
++      "bytes": 2547,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-review-20261105/security-findings.json",
++      "sha256": "855a1ca8e562ead3403ef66d6c6a8e57d6d3fc1925e93fc02e2a941be973cf68"
++    },
++    {
++      "bytes": 1016,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-review-20261105/source1-disposition.json",
++      "sha256": "a2a4caaa92b434bc074e8cca2175b05d52abfd817aacbf5b7e342b70d1cbe4a3"
++    }
++  ],
++  "rootScope": {
++    "bytes": 2415,
++    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-goal-resume-20261104/collector-policy-source2-root-scope-20261105.json",
++    "sha256": "e4476fd06db1ddb8433fac2e83a0db1b385fed07718174daeb521d14519d528a"
++  },
++  "schema": "e02-collector-policy-source2-input-read-map-v1",
++  "source1ReviewEvidenceReadForPreservation": [
++    {
++      "bytes": 10905,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-review-20261105/complete-freeze.json",
++      "sha256": "553c5bfdaee113cb7cd8f4bde552ca9d3988be4270c1224ff72bf2fa1f59d59f"
++    },
++    {
++      "bytes": 2030,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-review-20261105/json-alias-demonstration-origin.json",
++      "sha256": "bc2707c364b81e3dfd71c2d055beff47d7296645db34f85c1d29f12b9af21cfe"
++    },
++    {
++      "bytes": 1267,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-review-20261105/qa-findings.json",
++      "sha256": "f6eaa07b4cb31802bb9de982b50f933c8a87ab72a2d56fa564456849eeef01a9"
++    },
++    {
++      "bytes": 427,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-review-20261105/qa-review.json",
++      "sha256": "cf0df1ab8710da0f24ec881eddc0cb1d6a97d8dfdc639e25bd27d450c3acdbb6"
++    },
++    {
++      "bytes": 640,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-review-20261105/review-agent-birth-record.json",
++      "sha256": "55179e523bd27051bae0338a22c182328aa1599c281213698fd5637f9c166278"
++    },
++    {
++      "bytes": 2547,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-review-20261105/security-findings.json",
++      "sha256": "855a1ca8e562ead3403ef66d6c6a8e57d6d3fc1925e93fc02e2a941be973cf68"
++    },
++    {
++      "bytes": 366,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-review-20261105/security-review.json",
++      "sha256": "fefac5d1309bdc0ac4a14e50314104df06ea9770a46bcb370c577725b4e8821f"
++    },
++    {
++      "bytes": 1016,
++      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-review-20261105/source1-disposition.json",
++      "sha256": "a2a4caaa92b434bc074e8cca2175b05d52abfd817aacbf5b7e342b70d1cbe4a3"
++    }
++  ]
++}

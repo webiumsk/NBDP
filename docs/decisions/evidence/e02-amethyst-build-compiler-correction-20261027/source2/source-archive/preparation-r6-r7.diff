@@ -1,0 +1,15 @@
+--- /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r6/preparation/build_inside.py
++++ /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r7/preparation/build_inside.py
+@@ -105,9 +105,10 @@
+     after=snapshot();write('workcopy-after.json',after)
+     changed=[p for p,v in before.items() if after.get(p)!=v]
+     modules={str(Path(p).parent) for p in before if Path(p).name in ('build.gradle','build.gradle.kts')}
++    output_prefixes=tuple(str(PurePosixPath(module)/folder)
++                          for module in modules for folder in ('build','.gradle','.kotlin','.cxx'))
+     def output_allowed(p):
+-        return any(p==str(PurePosixPath(module)/folder) or p.startswith(str(PurePosixPath(module)/folder)+'/')
+-                   for module in modules for folder in ('build','.gradle','.kotlin','.cxx'))
++        return any(p==prefix or p.startswith(prefix+'/') for prefix in output_prefixes)
+     unplanned=[p for p in after.keys()-before.keys() if not output_allowed(p)]
+     write('source-equality.json',dict(originalFilesUnchanged=not changed,changedOriginalFiles=changed,
+         unplannedNewFiles=unplanned,allowedNewRoots='Known Gradle module build/.gradle/.kotlin/.cxx only; never original-file changes'))

@@ -1,0 +1,49 @@
+{
+  "origin": "Actual structured tool responses retained by coordinator; not child-generated command journals.",
+  "launch": {
+    "args": {
+      "cmd": "/home/peterhorvath/.miniforge3/bin/python3.13 -I -B docs/decisions/evidence/e02-consumer4-data-run-r1/capture.py 017dbe6ee45d2d469404abd0be235b204ffddc64940617f2db13e6e7713ccfbb",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2000
+    },
+    "result": {
+      "chunk_id": "80f234",
+      "wall_time_seconds": 1.001070137,
+      "session_id": 23432,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "polls": [
+    {
+      "args": {
+        "session_id": 23432,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2500
+      },
+      "result": {
+        "chunk_id": "b8b3fd",
+        "wall_time_seconds": 5.000461087,
+        "session_id": 23432,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "args": {
+        "session_id": 23432,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2500
+      },
+      "result": {
+        "chunk_id": "4190d4",
+        "wall_time_seconds": 0.000013814,
+        "exit_code": 0,
+        "original_token_count": 60,
+        "output": "{\"execution\": {\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer4-data-run-r1/execution.json\", \"bytes\": 5254, \"sha256\": \"f730dd3ab9d450cb7722fab93d62014dba32a838091a74549b640d1aca56d21b\"}, \"failure\": null}\n"
+      }
+    }
+  ]
+}

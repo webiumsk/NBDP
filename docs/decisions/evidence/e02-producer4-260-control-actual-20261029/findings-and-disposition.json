@@ -1,0 +1,44 @@
+{
+  "schema": "e02-producer4-current-control-data-review-disposition-v1",
+  "actor": "/root",
+  "subject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/assembled/subject.json",
+    "bytes": 3350,
+    "sha256": "7381d62ad2ab8f138c00856fa22de3e796c9b6faa76a481a0bbcdbbf0b5f1f66"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-260-control-actual-20261029/qa-review.json",
+      "bytes": 413,
+      "sha256": "2b9bf019cc972b98ece033033363987957628466d894506775f97403b1639e78"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-260-control-actual-20261029/security-review.json",
+      "bytes": 425,
+      "sha256": "3d63358d27821ef01d4903538c4e9f4bd0a44349173bf96d72585a4a9f386645"
+    }
+  ],
+  "findings": [],
+  "disposition": "ACCEPT_CURRENT_PURE_CONTROL_DATA_ONLY",
+  "countsSeparate": [
+    123,
+    33,
+    29,
+    16,
+    20,
+    10,
+    11,
+    8,
+    7,
+    3
+  ],
+  "effectiveProtectedInputRows": 2109,
+  "identicalSnapshots": 22,
+  "elapsedNs": 266264669315,
+  "limitations": [
+    "JavaScript aggregate loop membership is source/raw contract evidence, not independent per-body attestation.",
+    "Outer API receipts are distinct from inner owned child PID/reap/EOF observations.",
+    "No actual helper/probe/Docker/ordinary role qualification; all14 prior ordinary attempts remain unqualified."
+  ],
+  "executionAuthorized": false
+}

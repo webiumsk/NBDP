@@ -1,0 +1,960 @@
+--- original/test_public_identity_metadata.py
++++ producer2/test_public_identity_metadata.py
+@@ -1 +1,956 @@
+-Module()
++Module(
++  body=[
++    Expr(
++      value=Constant(value='Prepared DATA definitions only: public scalar NIP19 formatting consistency.\n\nNo signing/encryption/curve operation, user key input, SDK, process or service.\n')),
++    Import(
++      names=[
++        alias(name='ast')]),
++    Import(
++      names=[
++        alias(name='json')]),
++    ImportFrom(
++      module='pathlib',
++      names=[
++        alias(name='Path')],
++      level=0),
++    Import(
++      names=[
++        alias(name='unittest')]),
++    Assign(
++      targets=[
++        Name(id='HERE', ctx=Store())],
++      value=Attribute(
++        value=Call(
++          func=Attribute(
++            value=Call(
++              func=Name(id='Path', ctx=Load()),
++              args=[
++                Name(id='__file__', ctx=Load())]),
++            attr='resolve',
++            ctx=Load())),
++        attr='parent',
++        ctx=Load())),
++    Assign(
++      targets=[
++        Name(id='REPO', ctx=Store())],
++      value=Call(
++        func=Name(id='Path', ctx=Load()),
++        args=[
++          Constant(value='/home/peterhorvath/apps/bitcoin/NBDP')])),
++    Assign(
++      targets=[
++        Name(id='PREP', ctx=Store())],
++      value=BinOp(
++        left=Name(id='REPO', ctx=Load()),
++        op=Div(),
++        right=Constant(value='docs/decisions/evidence/e02-ordinary-minimum-preparation-r2'))),
++    Assign(
++      targets=[
++        Name(id='ABC', ctx=Store())],
++      value=Constant(value='qpzry9x8gf2tvdw0s3jn54khce6mua7l')),
++    FunctionDef(
++      name='decode_public_nsec',
++      args=arguments(
++        args=[
++          arg(arg='value'),
++          arg(arg='scalar')]),
++      body=[
++        If(
++          test=BoolOp(
++            op=Or(),
++            values=[
++              Compare(
++                left=Call(
++                  func=Name(id='type', ctx=Load()),
++                  args=[
++                    Name(id='value', ctx=Load())]),
++                ops=[
++                  IsNot()],
++                comparators=[
++                  Name(id='str', ctx=Load())]),
++              Compare(
++                left=Call(
++                  func=Name(id='len', ctx=Load()),
++                  args=[
++                    Name(id='value', ctx=Load())]),
++                ops=[
++                  NotEq()],
++                comparators=[
++                  Constant(value=63)]),
++              UnaryOp(
++                op=Not(),
++                operand=Call(
++                  func=Attribute(
++                    value=Name(id='value', ctx=Load()),
++                    attr='startswith',
++                    ctx=Load()),
++                  args=[
++                    Constant(value='nsec1')]))]),
++          body=[
++            Raise(
++              exc=Call(
++                func=Name(id='ValueError', ctx=Load()),
++                args=[
++                  Constant(value='Exact whole lowercase NIP19 nsec required')]))]),
++        Try(
++          body=[
++            Assign(
++              targets=[
++                Name(id='words', ctx=Store())],
++              value=ListComp(
++                elt=Call(
++                  func=Attribute(
++                    value=Name(id='ABC', ctx=Load()),
++                    attr='index',
++                    ctx=Load()),
++                  args=[
++                    Name(id='c', ctx=Load())]),
++                generators=[
++                  comprehension(
++                    target=Name(id='c', ctx=Store()),
++                    iter=Subscript(
++                      value=Name(id='value', ctx=Load()),
++                      slice=Slice(
++                        lower=Constant(value=5)),
++                      ctx=Load()),
++                    is_async=0)]))],
++          handlers=[
++            ExceptHandler(
++              type=Name(id='ValueError', ctx=Load()),
++              body=[
++                Raise(
++                  exc=Call(
++                    func=Name(id='ValueError', ctx=Load()),
++                    args=[
++                      Constant(value='Bech32 alphabet')]),
++                  cause=Constant(value=None))])]),
++        Assign(
++          targets=[
++            Name(id='checksum', ctx=Store())],
++          value=Constant(value=1)),
++        For(
++          target=Name(id='word', ctx=Store()),
++          iter=BinOp(
++            left=List(
++              elts=[
++                Constant(value=3),
++                Constant(value=3),
++                Constant(value=3),
++                Constant(value=3),
++                Constant(value=0),
++                Constant(value=14),
++                Constant(value=19),
++                Constant(value=5),
++                Constant(value=3)],
++              ctx=Load()),
++            op=Add(),
++            right=Name(id='words', ctx=Load())),
++          body=[
++            Assign(
++              targets=[
++                Tuple(
++                  elts=[
++                    Name(id='top', ctx=Store()),
++                    Name(id='checksum', ctx=Store())],
++                  ctx=Store())],
++              value=Tuple(
++                elts=[
++                  BinOp(
++                    left=Name(id='checksum', ctx=Load()),
++                    op=RShift(),
++                    right=Constant(value=25)),
++                  BinOp(
++                    left=BinOp(
++                      left=BinOp(
++                        left=Name(id='checksum', ctx=Load()),
++                        op=BitAnd(),
++                        right=Constant(value=33554431)),
++                      op=LShift(),
++                      right=Constant(value=5)),
++                    op=BitXor(),
++                    right=Name(id='word', ctx=Load()))],
++                ctx=Load())),
++            For(
++              target=Tuple(
++                elts=[
++                  Name(id='bit', ctx=Store()),
++                  Name(id='generator', ctx=Store())],
++                ctx=Store()),
++              iter=Call(
++                func=Name(id='enumerate', ctx=Load()),
++                args=[
++                  Tuple(
++                    elts=[
++                      Constant(value=996825010),
++                      Constant(value=642813549),
++                      Constant(value=513874426),
++                      Constant(value=1027748829),
++                      Constant(value=705979059)],
++                    ctx=Load())]),
++              body=[
++                If(
++                  test=BinOp(
++                    left=Name(id='top', ctx=Load()),
++                    op=BitAnd(),
++                    right=BinOp(
++                      left=Constant(value=1),
++                      op=LShift(),
++                      right=Name(id='bit', ctx=Load()))),
++                  body=[
++                    AugAssign(
++                      target=Name(id='checksum', ctx=Store()),
++                      op=BitXor(),
++                      value=Name(id='generator', ctx=Load()))])])]),
++        If(
++          test=Compare(
++            left=Name(id='checksum', ctx=Load()),
++            ops=[
++              NotEq()],
++            comparators=[
++              Constant(value=1)]),
++          body=[
++            Raise(
++              exc=Call(
++                func=Name(id='ValueError', ctx=Load()),
++                args=[
++                  Constant(value='Bech32 checksum')]))]),
++        Assign(
++          targets=[
++            Name(id='value_bits', ctx=Store())],
++          value=Constant(value=0)),
++        For(
++          target=Name(id='word', ctx=Store()),
++          iter=Subscript(
++            value=Name(id='words', ctx=Load()),
++            slice=Slice(
++              upper=UnaryOp(
++                op=USub(),
++                operand=Constant(value=6))),
++            ctx=Load()),
++          body=[
++            Assign(
++              targets=[
++                Name(id='value_bits', ctx=Store())],
++              value=BinOp(
++                left=BinOp(
++                  left=Name(id='value_bits', ctx=Load()),
++                  op=LShift(),
++                  right=Constant(value=5)),
++                op=BitOr(),
++                right=Name(id='word', ctx=Load())))]),
++        If(
++          test=BinOp(
++            left=Name(id='value_bits', ctx=Load()),
++            op=BitAnd(),
++            right=Constant(value=15)),
++          body=[
++            Raise(
++              exc=Call(
++                func=Name(id='ValueError', ctx=Load()),
++                args=[
++                  Constant(value='Nonzero Bech32 padding')]))]),
++        Assign(
++          targets=[
++            Name(id='payload', ctx=Store())],
++          value=Call(
++            func=Attribute(
++              value=BinOp(
++                left=Name(id='value_bits', ctx=Load()),
++                op=RShift(),
++                right=Constant(value=4)),
++              attr='to_bytes',
++              ctx=Load()),
++            args=[
++              Constant(value=32),
++              Constant(value='big')])),
++        If(
++          test=BoolOp(
++            op=Or(),
++            values=[
++              Compare(
++                left=Name(id='scalar', ctx=Load()),
++                ops=[
++                  NotIn()],
++                comparators=[
++                  Tuple(
++                    elts=[
++                      Constant(value=1),
++                      Constant(value=2)],
++                    ctx=Load())]),
++              Compare(
++                left=Name(id='payload', ctx=Load()),
++                ops=[
++                  NotEq()],
++                comparators=[
++                  Call(
++                    func=Attribute(
++                      value=Name(id='scalar', ctx=Load()),
++                      attr='to_bytes',
++                      ctx=Load()),
++                    args=[
++                      Constant(value=32),
++                      Constant(value='big')])])]),
++          body=[
++            Raise(
++              exc=Call(
++                func=Name(id='ValueError', ctx=Load()),
++                args=[
++                  Constant(value='Fixed public scalar payload')]))]),
++        Return(
++          value=Name(id='payload', ctx=Load()))]),
++    ClassDef(
++      name='PublicIdentityMetadata',
++      bases=[
++        Attribute(
++          value=Name(id='unittest', ctx=Load()),
++          attr='TestCase',
++          ctx=Load())],
++      body=[
++        FunctionDef(
++          name='setUp',
++          args=arguments(
++            args=[
++              arg(arg='self')]),
++          body=[
++            Assign(
++              targets=[
++                Attribute(
++                  value=Name(id='self', ctx=Load()),
++                  attr='data',
++                  ctx=Store())],
++              value=Subscript(
++                value=Call(
++                  func=Attribute(
++                    value=Name(id='json', ctx=Load()),
++                    attr='loads',
++                    ctx=Load()),
++                  args=[
++                    Call(
++                      func=Attribute(
++                        value=BinOp(
++                          left=Name(id='PREP', ctx=Load()),
++                          op=Div(),
++                          right=Constant(value='public-scalar-format-data.json')),
++                        attr='read_bytes',
++                        ctx=Load()))]),
++                slice=Constant(value='values'),
++                ctx=Load()))]),
++        FunctionDef(
++          name='test_whole_checksum_payload_both_public_scalars',
++          args=arguments(
++            args=[
++              arg(arg='self')]),
++          body=[
++            For(
++              target=Name(id='scalar', ctx=Store()),
++              iter=Tuple(
++                elts=[
++                  Constant(value=1),
++                  Constant(value=2)],
++                ctx=Load()),
++              body=[
++                Assign(
++                  targets=[
++                    Name(id='value', ctx=Store())],
++                  value=Subscript(
++                    value=Attribute(
++                      value=Name(id='self', ctx=Load()),
++                      attr='data',
++                      ctx=Load()),
++                    slice=Call(
++                      func=Name(id='str', ctx=Load()),
++                      args=[
++                        Name(id='scalar', ctx=Load())]),
++                    ctx=Load())),
++                Expr(
++                  value=Call(
++                    func=Attribute(
++                      value=Name(id='self', ctx=Load()),
++                      attr='assertEqual',
++                      ctx=Load()),
++                    args=[
++                      Call(
++                        func=Attribute(
++                          value=Call(
++                            func=Name(id='decode_public_nsec', ctx=Load()),
++                            args=[
++                              Subscript(
++                                value=Name(id='value', ctx=Load()),
++                                slice=Constant(value='nsec'),
++                                ctx=Load()),
++                              Name(id='scalar', ctx=Load())]),
++                          attr='hex',
++                          ctx=Load())),
++                      Subscript(
++                        value=Name(id='value', ctx=Load()),
++                        slice=Constant(value='scalarHex'),
++                        ctx=Load())]))])]),
++        FunctionDef(
++          name='test_four_metadata_operands_equal_unchanged_driver',
++          args=arguments(
++            args=[
++              arg(arg='self')]),
++          body=[
++            Assign(
++              targets=[
++                Name(id='tree', ctx=Store())],
++              value=Call(
++                func=Attribute(
++                  value=Name(id='ast', ctx=Load()),
++                  attr='parse',
++                  ctx=Load()),
++                args=[
++                  Call(
++                    func=Attribute(
++                      value=BinOp(
++                        left=Name(id='HERE', ctx=Load()),
++                        op=Div(),
++                        right=Constant(value='android_driver.py')),
++                      attr='read_text',
++                      ctx=Load()))])),
++            Assign(
++              targets=[
++                Name(id='literals', ctx=Store())],
++              value=SetComp(
++                elt=Attribute(
++                  value=Name(id='n', ctx=Load()),
++                  attr='value',
++                  ctx=Load()),
++                generators=[
++                  comprehension(
++                    target=Name(id='n', ctx=Store()),
++                    iter=Call(
++                      func=Attribute(
++                        value=Name(id='ast', ctx=Load()),
++                        attr='walk',
++                        ctx=Load()),
++                      args=[
++                        Name(id='tree', ctx=Load())]),
++                    ifs=[
++                      BoolOp(
++                        op=And(),
++                        values=[
++                          Call(
++                            func=Name(id='isinstance', ctx=Load()),
++                            args=[
++                              Name(id='n', ctx=Load()),
++                              Attribute(
++                                value=Name(id='ast', ctx=Load()),
++                                attr='Constant',
++                                ctx=Load())]),
++                          Compare(
++                            left=Call(
++                              func=Name(id='type', ctx=Load()),
++                              args=[
++                                Attribute(
++                                  value=Name(id='n', ctx=Load()),
++                                  attr='value',
++                                  ctx=Load())]),
++                            ops=[
++                              Is()],
++                            comparators=[
++                              Name(id='str', ctx=Load())])])],
++                    is_async=0)])),
++            For(
++              target=Name(id='path', ctx=Store()),
++              iter=List(
++                elts=[
++                  BinOp(
++                    left=Name(id='HERE', ctx=Load()),
++                    op=Div(),
++                    right=Constant(value='minimum-plan.json')),
++                  BinOp(
++                    left=Name(id='HERE', ctx=Load()),
++                    op=Div(),
++                    right=Constant(value='fixture-plan.json')),
++                  BinOp(
++                    left=Name(id='HERE', ctx=Load()),
++                    op=Div(),
++                    right=Constant(value='ui-plan.json')),
++                  BinOp(
++                    left=Name(id='PREP', ctx=Load()),
++                    op=Div(),
++                    right=Constant(value='oracle-provenance.json'))],
++                ctx=Load()),
++              body=[
++                Assign(
++                  targets=[
++                    Name(id='roles', ctx=Store())],
++                  value=Subscript(
++                    value=Call(
++                      func=Attribute(
++                        value=Name(id='json', ctx=Load()),
++                        attr='loads',
++                        ctx=Load()),
++                      args=[
++                        Call(
++                          func=Attribute(
++                            value=Name(id='path', ctx=Load()),
++                            attr='read_bytes',
++                            ctx=Load()))]),
++                    slice=Constant(value='roles'),
++                    ctx=Load())),
++                For(
++                  target=Tuple(
++                    elts=[
++                      Name(id='role', ctx=Store()),
++                      Name(id='scalar', ctx=Store())],
++                    ctx=Store()),
++                  iter=List(
++                    elts=[
++                      Tuple(
++                        elts=[
++                          Constant(value='incoming'),
++                          Constant(value=2)],
++                        ctx=Load()),
++                      Tuple(
++                        elts=[
++                          Constant(value='archive'),
++                          Constant(value=1)],
++                        ctx=Load())],
++                    ctx=Load()),
++                  body=[
++                    Assign(
++                      targets=[
++                        Name(id='operand', ctx=Store())],
++                      value=Subscript(
++                        value=Subscript(
++                          value=Name(id='roles', ctx=Load()),
++                          slice=Name(id='role', ctx=Load()),
++                          ctx=Load()),
++                        slice=Constant(value='nsec'),
++                        ctx=Load())),
++                    Expr(
++                      value=Call(
++                        func=Attribute(
++                          value=Name(id='self', ctx=Load()),
++                          attr='assertEqual',
++                          ctx=Load()),
++                        args=[
++                          Name(id='operand', ctx=Load()),
++                          Subscript(
++                            value=Subscript(
++                              value=Attribute(
++                                value=Name(id='self', ctx=Load()),
++                                attr='data',
++                                ctx=Load()),
++                              slice=Call(
++                                func=Name(id='str', ctx=Load()),
++                                args=[
++                                  Name(id='scalar', ctx=Load())]),
++                              ctx=Load()),
++                            slice=Constant(value='nsec'),
++                            ctx=Load())])),
++                    Expr(
++                      value=Call(
++                        func=Attribute(
++                          value=Name(id='self', ctx=Load()),
++                          attr='assertIn',
++                          ctx=Load()),
++                        args=[
++                          Name(id='operand', ctx=Load()),
++                          Name(id='literals', ctx=Load())])),
++                    Expr(
++                      value=Call(
++                        func=Name(id='decode_public_nsec', ctx=Load()),
++                        args=[
++                          Name(id='operand', ctx=Load()),
++                          Name(id='scalar', ctx=Load())]))])])]),
++        FunctionDef(
++          name='test_historical_65_character_operand_refused_preserved',
++          args=arguments(
++            args=[
++              arg(arg='self')]),
++          body=[
++            Assign(
++              targets=[
++                Name(id='old', ctx=Store())],
++              value=Subscript(
++                value=Subscript(
++                  value=Subscript(
++                    value=Call(
++                      func=Attribute(
++                        value=Name(id='json', ctx=Load()),
++                        attr='loads',
++                        ctx=Load()),
++                      args=[
++                        Call(
++                          func=Attribute(
++                            value=BinOp(
++                              left=Attribute(
++                                value=Name(id='HERE', ctx=Load()),
++                                attr='parent',
++                                ctx=Load()),
++                              op=Div(),
++                              right=Constant(value='e02_ordinary_minimum_v1/minimum-plan.json')),
++                            attr='read_bytes',
++                            ctx=Load()))]),
++                    slice=Constant(value='roles'),
++                    ctx=Load()),
++                  slice=Constant(value='incoming'),
++                  ctx=Load()),
++                slice=Constant(value='nsec'),
++                ctx=Load())),
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=Name(id='self', ctx=Load()),
++                  attr='assertEqual',
++                  ctx=Load()),
++                args=[
++                  Call(
++                    func=Name(id='len', ctx=Load()),
++                    args=[
++                      Name(id='old', ctx=Load())]),
++                  Constant(value=65)])),
++            With(
++              items=[
++                withitem(
++                  context_expr=Call(
++                    func=Attribute(
++                      value=Name(id='self', ctx=Load()),
++                      attr='assertRaisesRegex',
++                      ctx=Load()),
++                    args=[
++                      Name(id='ValueError', ctx=Load()),
++                      Constant(value='Exact whole')]))],
++              body=[
++                Expr(
++                  value=Call(
++                    func=Name(id='decode_public_nsec', ctx=Load()),
++                    args=[
++                      Name(id='old', ctx=Load()),
++                      Constant(value=2)]))])]),
++        FunctionDef(
++          name='test_checksum_corruption_refused',
++          args=arguments(
++            args=[
++              arg(arg='self')]),
++          body=[
++            Assign(
++              targets=[
++                Name(id='value', ctx=Store())],
++              value=Subscript(
++                value=Subscript(
++                  value=Attribute(
++                    value=Name(id='self', ctx=Load()),
++                    attr='data',
++                    ctx=Load()),
++                  slice=Constant(value='2'),
++                  ctx=Load()),
++                slice=Constant(value='nsec'),
++                ctx=Load())),
++            With(
++              items=[
++                withitem(
++                  context_expr=Call(
++                    func=Attribute(
++                      value=Name(id='self', ctx=Load()),
++                      attr='assertRaisesRegex',
++                      ctx=Load()),
++                    args=[
++                      Name(id='ValueError', ctx=Load()),
++                      Constant(value='checksum')]))],
++              body=[
++                Expr(
++                  value=Call(
++                    func=Name(id='decode_public_nsec', ctx=Load()),
++                    args=[
++                      BinOp(
++                        left=Subscript(
++                          value=Name(id='value', ctx=Load()),
++                          slice=Slice(
++                            upper=UnaryOp(
++                              op=USub(),
++                              operand=Constant(value=1))),
++                          ctx=Load()),
++                        op=Add(),
++                        right=IfExp(
++                          test=Compare(
++                            left=Subscript(
++                              value=Name(id='value', ctx=Load()),
++                              slice=UnaryOp(
++                                op=USub(),
++                                operand=Constant(value=1)),
++                              ctx=Load()),
++                            ops=[
++                              NotEq()],
++                            comparators=[
++                              Constant(value='q')]),
++                          body=Constant(value='q'),
++                          orelse=Constant(value='p'))),
++                      Constant(value=2)]))])]),
++        FunctionDef(
++          name='test_valid_other_payload_refused',
++          args=arguments(
++            args=[
++              arg(arg='self')]),
++          body=[
++            With(
++              items=[
++                withitem(
++                  context_expr=Call(
++                    func=Attribute(
++                      value=Name(id='self', ctx=Load()),
++                      attr='assertRaisesRegex',
++                      ctx=Load()),
++                    args=[
++                      Name(id='ValueError', ctx=Load()),
++                      Constant(value='payload')]))],
++              body=[
++                Expr(
++                  value=Call(
++                    func=Name(id='decode_public_nsec', ctx=Load()),
++                    args=[
++                      Subscript(
++                        value=Subscript(
++                          value=Attribute(
++                            value=Name(id='self', ctx=Load()),
++                            attr='data',
++                            ctx=Load()),
++                          slice=Constant(value='1'),
++                          ctx=Load()),
++                        slice=Constant(value='nsec'),
++                        ctx=Load()),
++                      Constant(value=2)]))])]),
++        FunctionDef(
++          name='test_whitespace_case_truncation_never_normalized',
++          args=arguments(
++            args=[
++              arg(arg='self')]),
++          body=[
++            Assign(
++              targets=[
++                Name(id='value', ctx=Store())],
++              value=Subscript(
++                value=Subscript(
++                  value=Attribute(
++                    value=Name(id='self', ctx=Load()),
++                    attr='data',
++                    ctx=Load()),
++                  slice=Constant(value='2'),
++                  ctx=Load()),
++                slice=Constant(value='nsec'),
++                ctx=Load())),
++            For(
++              target=Name(id='wrong', ctx=Store()),
++              iter=List(
++                elts=[
++                  BinOp(
++                    left=Constant(value=' '),
++                    op=Add(),
++                    right=Name(id='value', ctx=Load())),
++                  Call(
++                    func=Attribute(
++                      value=Name(id='value', ctx=Load()),
++                      attr='upper',
++                      ctx=Load())),
++                  Subscript(
++                    value=Name(id='value', ctx=Load()),
++                    slice=Slice(
++                      upper=UnaryOp(
++                        op=USub(),
++                        operand=Constant(value=1))),
++                    ctx=Load()),
++                  BinOp(
++                    left=Name(id='value', ctx=Load()),
++                    op=Add(),
++                    right=Constant(value='q')),
++                  Call(
++                    func=Attribute(
++                      value=Name(id='value', ctx=Load()),
++                      attr='replace',
++                      ctx=Load()),
++                    args=[
++                      Constant(value='nsec1'),
++                      Constant(value='npub1')])],
++                ctx=Load()),
++              body=[
++                With(
++                  items=[
++                    withitem(
++                      context_expr=Call(
++                        func=Attribute(
++                          value=Name(id='self', ctx=Load()),
++                          attr='assertRaises',
++                          ctx=Load()),
++                        args=[
++                          Name(id='ValueError', ctx=Load())]))],
++                  body=[
++                    Expr(
++                      value=Call(
++                        func=Name(id='decode_public_nsec', ctx=Load()),
++                        args=[
++                          Name(id='wrong', ctx=Load()),
++                          Constant(value=2)]))])])]),
++        FunctionDef(
++          name='test_non_bech32_glyph_refused',
++          args=arguments(
++            args=[
++              arg(arg='self')]),
++          body=[
++            Assign(
++              targets=[
++                Name(id='value', ctx=Store())],
++              value=Subscript(
++                value=Subscript(
++                  value=Attribute(
++                    value=Name(id='self', ctx=Load()),
++                    attr='data',
++                    ctx=Load()),
++                  slice=Constant(value='2'),
++                  ctx=Load()),
++                slice=Constant(value='nsec'),
++                ctx=Load())),
++            With(
++              items=[
++                withitem(
++                  context_expr=Call(
++                    func=Attribute(
++                      value=Name(id='self', ctx=Load()),
++                      attr='assertRaisesRegex',
++                      ctx=Load()),
++                    args=[
++                      Name(id='ValueError', ctx=Load()),
++                      Constant(value='alphabet')]))],
++              body=[
++                Expr(
++                  value=Call(
++                    func=Name(id='decode_public_nsec', ctx=Load()),
++                    args=[
++                      BinOp(
++                        left=BinOp(
++                          left=Subscript(
++                            value=Name(id='value', ctx=Load()),
++                            slice=Slice(
++                              upper=Constant(value=8)),
++                            ctx=Load()),
++                          op=Add(),
++                          right=Constant(value='i')),
++                        op=Add(),
++                        right=Subscript(
++                          value=Name(id='value', ctx=Load()),
++                          slice=Slice(
++                            lower=Constant(value=9)),
++                          ctx=Load())),
++                      Constant(value=2)]))])]),
++        FunctionDef(
++          name='test_new_plan_keeps_scalar_roles_and_whole_value',
++          args=arguments(
++            args=[
++              arg(arg='self')]),
++          body=[
++            Assign(
++              targets=[
++                Name(id='plan', ctx=Store())],
++              value=Call(
++                func=Attribute(
++                  value=Name(id='json', ctx=Load()),
++                  attr='loads',
++                  ctx=Load()),
++                args=[
++                  Call(
++                    func=Attribute(
++                      value=BinOp(
++                        left=Name(id='HERE', ctx=Load()),
++                        op=Div(),
++                        right=Constant(value='minimum-plan.json')),
++                      attr='read_bytes',
++                      ctx=Load()))])),
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=Name(id='self', ctx=Load()),
++                  attr='assertEqual',
++                  ctx=Load()),
++                args=[
++                  Subscript(
++                    value=Name(id='plan', ctx=Load()),
++                    slice=Constant(value='profileId'),
++                    ctx=Load()),
++                  Constant(value='e02-ordinary-minimum-rs-two-role-v2')])),
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=Name(id='self', ctx=Load()),
++                  attr='assertEqual',
++                  ctx=Load()),
++                args=[
++                  Subscript(
++                    value=Subscript(
++                      value=Subscript(
++                        value=Name(id='plan', ctx=Load()),
++                        slice=Constant(value='roles'),
++                        ctx=Load()),
++                      slice=Constant(value='incoming'),
++                      ctx=Load()),
++                    slice=Constant(value='scalar'),
++                    ctx=Load()),
++                  Constant(value=2)])),
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=Name(id='self', ctx=Load()),
++                  attr='assertEqual',
++                  ctx=Load()),
++                args=[
++                  Subscript(
++                    value=Subscript(
++                      value=Subscript(
++                        value=Name(id='plan', ctx=Load()),
++                        slice=Constant(value='roles'),
++                        ctx=Load()),
++                      slice=Constant(value='archive'),
++                      ctx=Load()),
++                    slice=Constant(value='scalar'),
++                    ctx=Load()),
++                  Constant(value=1)])),
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=Name(id='self', ctx=Load()),
++                  attr='assertEqual',
++                  ctx=Load()),
++                args=[
++                  Subscript(
++                    value=Name(id='plan', ctx=Load()),
++                    slice=Constant(value='maximumRoleWindows'),
++                    ctx=Load()),
++                  Constant(value=2)])),
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=Name(id='self', ctx=Load()),
++                  attr='assertEqual',
++                  ctx=Load()),
++                args=[
++                  Subscript(
++                    value=Name(id='plan', ctx=Load()),
++                    slice=Constant(value='perWindowOriginalLeaseSeconds'),
++                    ctx=Load()),
++                  Constant(value=1800)])),
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=Name(id='self', ctx=Load()),
++                  attr='assertFalse',
++                  ctx=Load()),
++                args=[
++                  Subscript(
++                    value=Name(id='plan', ctx=Load()),
++                    slice=Constant(value='canonicalPass'),
++                    ctx=Load())]))])]),
++    If(
++      test=Compare(
++        left=Name(id='__name__', ctx=Load()),
++        ops=[
++          Eq()],
++        comparators=[
++          Constant(value='__main__')]),
++      body=[
++        Expr(
++          value=Call(
++            func=Attribute(
++              value=Name(id='unittest', ctx=Load()),
++              attr='main',
++              ctx=Load())))])])

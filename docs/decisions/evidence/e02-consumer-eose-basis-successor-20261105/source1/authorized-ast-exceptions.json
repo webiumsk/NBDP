@@ -1,0 +1,89 @@
+{
+  "allNamesPreserved": true,
+  "baseline": {
+    "bytes": 30603,
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source3/source/subject.json",
+    "sha256": "0ddefe981254f4b9cb5de2bf4f17108cd7fbeac527330d86012eea0cd708add9"
+  },
+  "baselineMethods": 352,
+  "changes": [
+    {
+      "group": "test_source_bindings.py",
+      "method": "CurrentSourceBindings.test_exact_current_source4_control260_counts",
+      "newAstSha256": "d92b3127d75d33904c67a16e5428ca4ca15434e45bab16c969e5988f161f67d9",
+      "oldAstSha256": "56ea9faf5ca747f9db0f2e15a285a6dff32cb958e210ff98504c0195944fcc1d",
+      "reason": "Necessary current286/basis/fixture API adaptation; purpose retained"
+    },
+    {
+      "group": "test_source_bindings.py",
+      "method": "CurrentSourceBindings.test_actual260_bound_but_future_probe_data_stays_null",
+      "newAstSha256": "167aa1eede74efed7930e15e4f01092ae2d5ea00d35a1158e5ddb51333991084",
+      "oldAstSha256": "370c88456ed55fe408b970d392bb76306dc2aed12cb3522bf871836fafab1a0f",
+      "reason": "Necessary current286/basis/fixture API adaptation; purpose retained"
+    },
+    {
+      "group": "test_source_bindings.py",
+      "method": "CurrentSourceBindings.test_runtime_leaf_is_unissued_unready_with_null_future_data",
+      "newAstSha256": "1f7df00b7d89f8d0a03e17df79df83f620290c464fa02f2e450c2fb31972811f",
+      "oldAstSha256": "a1912a6baa36a79832cb5d528a216cbf9afb68c83be09f9cc24880d4b1324f19",
+      "reason": "Necessary current286/basis/fixture API adaptation; purpose retained"
+    },
+    {
+      "group": "test_current_controls.py",
+      "method": "CurrentControlAuthorityModels.test_exact_actual_current260_retained_data_consumer",
+      "newAstSha256": "651893213a01966cd24d8d5416ae91fc64f97f9ae491a67d89d98d6c78bce39e",
+      "oldAstSha256": "95a756f73cb2198af257491e20643e5682a7b949d738a6198da50b5fb3fd202f",
+      "reason": "Necessary current286/basis/fixture API adaptation; purpose retained"
+    },
+    {
+      "group": "test_current_authority.py",
+      "method": "CurrentReadyAuthorityControls.test_old16_runtime_root_field",
+      "newAstSha256": "f960e900fa8fc348abb53ded1866666e9bbda6fb600dc251266ad58d780709cc",
+      "oldAstSha256": "4b2a67b360f460a552d3ee2b72bb200f0cadb272439cc81bfbb10f517ed92606",
+      "reason": "Necessary current286/basis/fixture API adaptation; purpose retained"
+    },
+    {
+      "group": "test_current_authority.py",
+      "method": "CurrentReadyAuthorityControls.test_fresh_source5_current_n_external_controller_triple_is_valid",
+      "newAstSha256": "5ff3f1f5c6c2311ec920657fcf756342c19054b81779f33356cb9709cc5f80ab",
+      "oldAstSha256": "c23028dd4e52de16d7293308ece4765706f62bd0d2f024a62e0f4135c7f3bd99",
+      "reason": "Necessary current286/basis/fixture API adaptation; purpose retained"
+    },
+    {
+      "group": "test_current_authority.py",
+      "method": "CurrentReadyAuthorityControls.test_controller_wrong_host_code_hash_is_not_current_authority",
+      "newAstSha256": "1e2bc09d7497b98a53994d3cad64b35a9f440f9222a914fc65a64cb8eae7637e",
+      "oldAstSha256": "4e4e89c7af2eb692f5c52177dd75e92d4ba81b151fb8096782dac64e6bdf62f5",
+      "reason": "Necessary current286/basis/fixture API adaptation; purpose retained"
+    },
+    {
+      "group": "test_current_authority.py",
+      "method": "CurrentReadyAuthorityControls.test_current266_exact_accepted_r8_168_full_ready_production_validator",
+      "newAstSha256": "27d27b066603b055bb8066540d88f9f104b5fbac7559e6809d66c9a7f7b0079a",
+      "oldAstSha256": "948ee45884005fbb17c517caa263f061fcb446dd6a7a834263f1f4b3ed0b08d5",
+      "reason": "Necessary current286/basis/fixture API adaptation; purpose retained"
+    },
+    {
+      "group": "test_current_authority.py",
+      "method": "CurrentReadyAuthorityControls.test_historical_r5_old260_tuple_cannot_qualify_current266",
+      "newAstSha256": "6dba39517aa4816d6ea56814a0fb0f5b5604c2d27b89c63fa7c04c086c9d8eef",
+      "oldAstSha256": "d4d09b64fbeed9875584df6e75d1219d109dd4279940542108c8fd0d5ba09fd9",
+      "reason": "Necessary current286/basis/fixture API adaptation; purpose retained"
+    },
+    {
+      "group": "test_import_closure.py",
+      "method": "DeclaredImportClosureControls.test_complete_declared_code_and_transitive_runtime_import_closure",
+      "newAstSha256": "d39ec56d6250b8fe8709dc7f7e64797cc17cbc4c2c9684bf27cb644f4dd50a70",
+      "oldAstSha256": "74197f45758889bb2eb05ffb1cdd8ddadc4afed1ee6ae9b434001bcb898f79b5",
+      "reason": "Necessary current286/basis/fixture API adaptation; purpose retained"
+    },
+    {
+      "group": "test_import_closure.py",
+      "method": "DeclaredImportClosureControls.test_poisoned_legacy_ambient_aliases_do_not_supply_real_reader_imports",
+      "newAstSha256": "c4c95b359bf12a69a3305879ced95c4ee58f340f059e8690b0145cc78674ee14",
+      "oldAstSha256": "e8968e3a3748f03d59f2172343e75b6b6235ca6cbb6ee7ebcb6b256333fe7787",
+      "reason": "Necessary current286/basis/fixture API adaptation; purpose retained"
+    }
+  ],
+  "schema": "e02-consumer-eose-method-adaptations-v1"
+}

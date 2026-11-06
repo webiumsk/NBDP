@@ -1,0 +1,82 @@
+{
+  "schema": "nbdp-isolated-rust-native-build-result-v1",
+  "state": "BUILT_NOT_EXECUTED_PENDING_INDEPENDENT_REVIEW",
+  "sourceBefore": {
+    "path": "/tmp/nbdp-rust-rebuild-20261026/records/source-before.json",
+    "bytes": 1677,
+    "sha256": "be434d07e2dfcc71e134e236722bb4017e6e5f60bd2226dc73495cabc70d7527"
+  },
+  "sourceAfter": {
+    "path": "/tmp/nbdp-rust-rebuild-20261026/records/source-after.json",
+    "bytes": 1233,
+    "sha256": "82436c1f171c3d254a5d074c3258ace4e02ef5326562eca789c25ed2312ba13e"
+  },
+  "sourceUnchanged": true,
+  "imageId": "sha256:cc39c88add68c6e4ed377beccd6a659e59b286954d2c7e5c8e5b1dde2a82a8e8",
+  "imageRepoDigest": "rust@sha256:3914072ca0c3b8aad871db9169a651ccfce30cf58303e5d6f2db16d1d8a7e58f",
+  "rustc": "1.90.0 (1159e78c4 2025-09-14)",
+  "cargo": "1.90.0 (840b83a10 2025-07-30)",
+  "cargoCommand": [
+    "cargo",
+    "build",
+    "--locked",
+    "--manifest-path",
+    "/src/Cargo.toml",
+    "--target-dir",
+    "/target"
+  ],
+  "profile": "dev unoptimized with debuginfo",
+  "toolCompletion": {
+    "tool": "write_stdin",
+    "sessionId": 41827,
+    "result": {
+      "chunk_id": "e5c797",
+      "wall_time_seconds": 4.576577354,
+      "exit_code": 0,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "buildObservedDuration": "Cargo reported 1m07s; not independent CPU/resource measurement",
+  "limitsConfigured": {
+    "cpus": 4,
+    "memoryBytes": 4294967296,
+    "pids": 256,
+    "timeoutSeconds": 600,
+    "killAfterSeconds": 10,
+    "sourceReadonly": true,
+    "nonRootUser": "1000:1000",
+    "network": "bridge bootstrap dependencies only"
+  },
+  "binary": {
+    "path": "/tmp/nbdp-rust-rebuild-20261026/target/debug/nbdp-experiment-rust",
+    "bytes": 24100272,
+    "sha256": "4ce385c5b1a713b35d58d787d94fbc298d139aa2e813daec15b2e99289cefd86"
+  },
+  "binaryMode": "0o700",
+  "historicalExpectedSha256": "ecd1c1ab446782e263ae9e606117486b25d79b16732de5c4fac97e78b31699d9",
+  "historicalByteMatch": false,
+  "logs": [
+    {
+      "path": "/tmp/nbdp-rust-rebuild-20261026/records/stdout.log",
+      "bytes": 722,
+      "sha256": "09089500ec420dcb54f049b451219fef487c730067d951c56c551757d2e1bb57"
+    },
+    {
+      "path": "/tmp/nbdp-rust-rebuild-20261026/records/stderr.log",
+      "bytes": 5940,
+      "sha256": "c3086a7c0f7ca520b3215f136b97a3ec2f48ee9f7c827c93f1e70f31b26ebc8b"
+    }
+  ],
+  "launchReceipt": {
+    "path": "/tmp/nbdp-rust-rebuild-20261026/records/launch-receipt.json",
+    "bytes": 446,
+    "sha256": "2b256d5430f560110c1aaab2158f8dab42dd49b0a970691c53300b9c24eb28c9"
+  },
+  "builtBinaryExecuted": false,
+  "nativeValidationOrProtocolTestsExecuted": false,
+  "runtimeAdmissionEstablished": false,
+  "canonicalE02": "PARTIAL22_UNCHANGED",
+  "securityApprovalByBuildAuthor": false,
+  "requiredNext": "Independent build provenance review and versioned fixture/runtime binding; not historical byte-restoration unless exact hash matches."
+}

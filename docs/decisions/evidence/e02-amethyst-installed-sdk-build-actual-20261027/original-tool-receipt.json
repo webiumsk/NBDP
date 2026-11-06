@@ -1,0 +1,32 @@
+{
+  "original": {
+    "invocation": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 TZ=UTC /usr/bin/timeout --signal=TERM --kill-after=3s 2397s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/materializer-source/materialize.py --template-sha d04dd7300709d72e7423baea4d0df52b464a533730898f7d71cb77292ef0b492",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 4000
+    },
+    "result": {
+      "chunk_id": "d98222",
+      "wall_time_seconds": 1.001045618,
+      "session_id": 29554,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "terminalObservation": {
+    "invocation": {
+      "session_id": 29554,
+      "chars": "",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 4000
+    },
+    "result": {
+      "chunk_id": "85d218",
+      "wall_time_seconds": 0.000006824,
+      "exit_code": 2,
+      "original_token_count": 293,
+      "output": "{\"schema\": \"nbdp-amethyst-build-supervisor-result-v1\", \"runId\": \"ac42a6574b749180898382ce8cba2afd\", \"cid\": \"b54aaa41431940d61be299ff3ac32fd5cfb2bba81850ccf22f5a70b25af11e4e\", \"state\": \"FAILED_OR_UNQUALIFIED_NO_RETRY\", \"firstFault\": \"ValueError:ATTACHED_JOB_FAILED_OR_LOG_CEILING:NONZERO_143\", \"secondaryErrors\": [], \"cleanup\": \"EXACT_CID_ABSENCE_KNOWN\", \"jobState\": {\"Status\": \"exited\", \"Running\": false, \"Paused\": false, \"Restarting\": false, \"OOMKilled\": false, \"Dead\": false, \"Pid\": 0, \"ExitCode\": 143, \"Error\": \"\", \"StartedAt\": \"2026-10-27T20:34:36.976226802Z\", \"FinishedAt\": \"2026-10-27T20:49:51.578081176Z\"}, \"jobStateMeaning\": \"Last successful exact-owned inspect after start attempt, including exit/OOM data when observed; UNKNOWN/null if unavailable.\", \"networkBindingStage\": \"ENDPOINT_FULL_NETWORK_ID_OBSERVED\", \"rebuiltApks\": null, \"cliReceipts\": 11, \"attachedCapturePerFileLimitBytes\": 67108864, \"jobPerFileLimitBytes\": 536870912, \"limitsMeaning\": \"Configured per-file/CPU/memory/PID/time limits; no aggregate diskquota or measured peak claim.\", \"noHostNumericPidSignalsByController\": true, \"hostileAtomicClosureClaimed\": false, \"canonicalE02Changed\": false}\n"
+    }
+  },
+  "provenance": "Original API invocation/result and terminal observation of same owned session; no retry. Root operator intervention is separately recorded."
+}

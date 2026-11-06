@@ -1,0 +1,33 @@
+{
+  "schema": "nbdp-cmdline-acquisition-reused-source-functions-v1",
+  "prior": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation-r2/acquire.py",
+    "bytes": 18642,
+    "sha256": "096cdac801bbcbca83e8adf136d880e42b02e2e763020333aa2fc9ed61b9c176"
+  },
+  "unchangedDefinitions": [
+    "Redirects",
+    "create",
+    "digest",
+    "fetch",
+    "inventory",
+    "name",
+    "opened_archive",
+    "platform_properties",
+    "private",
+    "record",
+    "require",
+    "target_path",
+    "url_allowed",
+    "validate_members"
+  ],
+  "changedDefinitions": [
+    "extract",
+    "main"
+  ],
+  "newDefinitions": [
+    "commandline_properties"
+  ],
+  "method": "stdlib AST comparison, no module import/exec",
+  "meaning": "All HTTPS/hash/same-FD archive/path/special/link/inventory safety functions and Redirects class are unchanged. New root/plan, fixed one-artifact fetch+extract scope and post-extraction cmdline metadata/layout only. Original20 archive models are not copied or rerun."
+}

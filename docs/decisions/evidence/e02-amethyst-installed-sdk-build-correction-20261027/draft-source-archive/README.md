@@ -1,0 +1,11 @@
+# Amethyst immutable-source command remediation — DRAFT ONLY
+
+The sole functional build change appends `-x spotlessApply -x :installGitHook` to the existing Gradle argv. The two upstream convenience tasks mutate/form files or create .git/hooks, conflicting with the existing source guard. Every other build_inside AST node, including original-file bytes/modes, allowed-new-file roots, no-Git/source archive, build/APK/signature/debug-key checks, is unchanged. No guard/assertion is waived to obtain a pass.
+
+New PREP and runtime targets are preparation-r4 and amethyst-build-r4. Source/JDK/accepted SDKr6/archive/UID1000/read-only mounts/workdir/work, resource/deadline/floor/cleanup policies remain identical. SDK platform-tools autoinstall failure remains preserved LOW evidence; no platform-tools install, SDK write, consent or SDK-download flag change is part of this draft. All r3 files/work/caches/keys/reports are untouched.
+
+Every supervisor/materializer function/class AST and seven SDK model source bytes are unchanged; only source/runtime globals, future immutable bindings and disabled materializer operands differ. Three narrow source/AST command/guard regression models are defined, none executed. Prior7/52/16 suites are not rerun. Preparation performs no project imports, Gradle/Docker/SDK operation, signing, runtime parent creation, grant or Git publication.
+
+This is not a frozen executable packet. Negative actual DATA, post SDK/JDK/archive/original-source reviews and explicit root method adoption remain pending. Materializer PINNED stays None; preparation subject references stay absent/null. After those gates, dependent subjects/pins and one concrete root release must be separately finalized and reviewed. No automatic retry or claimed build/client/E02 qualification follows.
+
+Actual-evidence distinction: root QA observed all11085 original files unchanged and exactlytwo unplanned .git/hooks files. No actual Spotless source edit is asserted; excluding formatting is preventive because the pinned upstream tasks are write-capable. Source/data/exclusion semantics still require the stated independent reviews; future unchanged-source guards remain decisive. Historical r3 comparison artifacts copied into this draft remain context only; active deltas are the explicit r3-r4 diff files.

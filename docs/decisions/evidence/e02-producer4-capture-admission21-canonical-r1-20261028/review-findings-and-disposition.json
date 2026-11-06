@@ -1,0 +1,28 @@
+{
+  "schema": "e02-capture-admission21-review-disposition-v1",
+  "actor": "/root",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-capture-admission21-canonical-r1-20261028/subject.json",
+    "bytes": 2462,
+    "sha256": "872570129fd20bd06e15f8ce600072f8cb74bf9547d22295fd29a6181f2a7369"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-capture-admission21-canonical-r1-20261028/qa-review.json",
+      "bytes": 415,
+      "sha256": "379cd3fae8975bb7cc0b8206eb5a57d4f2cf2903b5bb875cbaf1707b5d08c560"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-capture-admission21-canonical-r1-20261028/security-review.json",
+      "bytes": 427,
+      "sha256": "242ad5d9a7153ebea478aa986ee003ed337468e8d6d5bf69ed95757e22bca6ea"
+    }
+  ],
+  "finding": "CAP21-SEC-01",
+  "severity": "LOW",
+  "disposition": "RESOLVED_FOR_CANONICAL_METADATA_OVERLAY_ONLY",
+  "evidence": "Both independently issued exact canonical-subject DATA decisions are ACCEPT. The original actual summary and its HOLD remain unchanged.",
+  "actualExecutionCount": 1,
+  "modelsRerun": 0,
+  "executionAuthorized": false
+}

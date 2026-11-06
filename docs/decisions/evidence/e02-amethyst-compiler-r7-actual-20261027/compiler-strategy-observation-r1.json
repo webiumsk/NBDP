@@ -1,0 +1,24 @@
+{
+  "actor": "/root",
+  "evidenceType": "LIVE_BUILD_LOG_OBSERVATION_NOT_FINAL_ARTIFACT_ACCEPTANCE",
+  "recordedUtcNs": 1793139910197308364,
+  "sourceFile": "/Data/nbdp-e02-tooling-20261027/amethyst-build-r7/output/build/build.stdout",
+  "observedPrefixBytes": 1344455,
+  "observedPrefixSha256": "e1ec773b518104755f75745acc6f7f71b387c90db384a6693040001c6bd63eca",
+  "observations": [
+    {
+      "task": ":quartz:compileAndroidMain",
+      "line": "i: Finished executing kotlin compiler using IN_PROCESS strategy"
+    },
+    {
+      "task": ":quic:compileAndroidMain",
+      "line": "i: Finished executing kotlin compiler using IN_PROCESS strategy"
+    },
+    {
+      "task": ":nestsClient:compileAndroidMain",
+      "line": "i: Finished executing kotlin compiler using IN_PROCESS strategy"
+    }
+  ],
+  "meaning": "Actual log reports successful IN_PROCESS compiler invocation for the associated task. Complete terminal log must be rejoined independently; this is not a whole-build/resource/APK qualification or atomic snapshot.",
+  "noRuntimeMutation": true
+}

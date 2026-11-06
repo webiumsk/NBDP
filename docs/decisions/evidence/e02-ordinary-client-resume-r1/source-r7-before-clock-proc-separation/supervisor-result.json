@@ -1,0 +1,87 @@
+{
+  "schema": "e02-first-cell-supervisor-result-v1",
+  "runId": "dd6061c90d8448439799f765529d3c9e",
+  "runConfig": {
+    "path": "/tmp/nbdp-e02-ordinary-client-v1/run-config-r7.json",
+    "bytes": 3132,
+    "sha256": "f3c1a487ba7ea1f90392bc3f97302c28770f3e7f5178d367d94113f02a5508b9"
+  },
+  "runRelease": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-client-resume-r1/exact-root-release-r7.json",
+    "bytes": 1684,
+    "sha256": "a78cf8aaaeb5c485a0e8f564a6d3f4006dc193d6291df21c443ffea541ed4585"
+  },
+  "lease": {
+    "path": "/tmp/nbdp-e02-ordinary-client-v1/runs/dd6061c90d8448439799f765529d3c9e/session/lease.json",
+    "bytes": 368,
+    "sha256": "fb2b0845d8e4f72f11142dc12a9345e0b6ea7f20a6d2711576da331f9e1fd326"
+  },
+  "canonicalE02Changed": false,
+  "limits": [
+    "One cell only; mandatory wider matrix remains missing.",
+    "No hard realtime/suspended-host cleanup guarantee.",
+    "Independent QA/security must inspect actual results before acceptance."
+  ],
+  "executionState": "FAILED_UNQUALIFIED",
+  "error": "LeaseDenied('LeaseDenied: sticky revocation')",
+  "secondaryErrors": [],
+  "cleanup": {
+    "ok": true,
+    "rows": [
+      {
+        "role": "android",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "97c3b4c76f2b2d1775258dd6741d9e3e908dea78d703e9526063135e441ed835",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "fixture",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "f0ddf5ca22dd9e23ea2941d7f339afcf6aa753180cae7ee55c5e713a417592b0",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "rs-relay",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "4bef0407ff97375ae7d27116a65ab7534979629a292ed390fce3eaa4a746cb01",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "anchor",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "2b00a42aa6f6b43eb16c55620bd30c493ab18c7ce8302c1c3e2d79d89b382264",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      }
+    ],
+    "errors": [],
+    "evidence": {
+      "path": "/tmp/nbdp-e02-ordinary-client-v1/runs/dd6061c90d8448439799f765529d3c9e/cleanup/result.json",
+      "bytes": 1393,
+      "sha256": "648b12d7b6ec29cc01c4c245e054dae6d4dc70401339b21c96b4e5734d64eea5"
+    }
+  }
+}

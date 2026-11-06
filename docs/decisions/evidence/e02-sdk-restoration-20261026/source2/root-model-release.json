@@ -1,0 +1,46 @@
+{
+  "schema": "nbdp-sdk-placement-model-once-release-v1",
+  "actor": "/root",
+  "decision": "RELEASE_ONE_FIXED17_PLACEMENT_MODEL_BATCH",
+  "subject": {
+    "path": "/tmp/nbdp-sdk-restoration-20261026-r2/subject.json",
+    "bytes": 3795,
+    "sha256": "14356532c8d7da6ca80891ed704f9f4097f8ba06732c31e06d7a78465c731471"
+  },
+  "script": {
+    "path": "/tmp/nbdp-sdk-restoration-20261026-r2/restore_sdk.py",
+    "bytes": 26289,
+    "sha256": "14c1e632a0aeb5d37c3935cceee825609e7b45c5fef84078084c757a607741e9"
+  },
+  "controlPlan": {
+    "path": "/tmp/nbdp-sdk-restoration-20261026-r2/control-plan.json",
+    "bytes": 2660,
+    "sha256": "2e128b5efb918247e158bfe7cc81ca57ceb059f6540e4f2ce398120ccab9c3bd"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-restoration-20261026/source2/actual-source-qa-review.json",
+      "bytes": 1490,
+      "sha256": "482f22f4368559dcc7e5e07ce47128c1536df558180fadb57835bb644f39d491"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-restoration-20261026/source2/actual-source-security-review.json",
+      "bytes": 1580,
+      "sha256": "cbf0d54d3dad99f216235bab0e9a0f4761d14625520e34c3118ef9db2ea4fa82"
+    }
+  ],
+  "command": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/tmp/nbdp-sdk-restoration-20261026-r2/test_placement_models.py"
+  ],
+  "limits": {
+    "maximumSeconds": 30,
+    "maximumStdoutBytes": 65536,
+    "maximumStderrBytes": 262144
+  },
+  "rerunsAuthorized": 0,
+  "acquisitionAuthorized": false,
+  "scope": "Pure fake-operation DATA only; no download/extract/SDK/library/realrename/tool execution."
+}

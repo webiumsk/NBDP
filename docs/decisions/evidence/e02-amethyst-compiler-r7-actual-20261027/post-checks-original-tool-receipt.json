@@ -1,0 +1,33 @@
+{
+  "tool": "functions.exec / tools.exec_command + tools.write_stdin",
+  "launch": {
+    "args": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 TZ=UTC /usr/bin/timeout --signal=TERM --kill-after=3s 177s /usr/bin/python3.12 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/post-checks-r1.py",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 3000
+    },
+    "result": {
+      "chunk_id": "1a2a91",
+      "wall_time_seconds": 1.001442851,
+      "session_id": 68205,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "terminal": {
+    "args": {
+      "session_id": 68205,
+      "chars": "",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 3500
+    },
+    "result": {
+      "chunk_id": "2b12c3",
+      "wall_time_seconds": 0.000018825,
+      "exit_code": 0,
+      "original_token_count": 196,
+      "output": "{\"actor\": \"/root\", \"state\": \"POST_BUILD_DATA_CAPTURED_PENDING_INDEPENDENT_REVIEW\", \"sourceEquality\": {\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/post-checks-r1/external-source-equality.json\", \"bytes\": 594, \"sha256\": \"99f329b27f1e4defb7809062b790e321ca76b833af62b68b617bf78c431c8620\"}, \"sdkCompleteInventoryBytesModesLinksAndUidsUnchanged\": true, \"sdkMembers\": 24590, \"jdkCompleteInventoryUnchanged\": true, \"sourceArchiveAndReceiptUnchanged\": true, \"acceptedSdkEvidenceUnchanged\": true, \"privateDebugKeyDescriptors\": [], \"privateKeysCopied\": false, \"elapsedSeconds\": 58.032666288956534, \"qualification\": \"Pure root read-only source/input reconciliation; actual artifact and terminal lifecycle reviewed separately\"}\n"
+    }
+  },
+  "provenance": "Exact original structured launch and terminal tool results for same session68205; no rerun. Empty progress polls retained in conversation."
+}

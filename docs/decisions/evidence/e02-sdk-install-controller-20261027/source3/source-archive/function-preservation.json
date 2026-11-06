@@ -1,0 +1,57 @@
+{
+  "parentController": {
+    "path": "/tmp/nbdp-e02-sdk-install-controller-20261027/source-r2/controller.py",
+    "bytes": 33523,
+    "sha256": "6745687c10d143a33343717f4830ae6c91dcf49f3516bae0f092b6c6b55de580"
+  },
+  "allFunctionsAndSupervisorAstIdentical": {
+    "need": true,
+    "full_cid": true,
+    "safe": true,
+    "pin": true,
+    "checked": true,
+    "doc": true,
+    "exact_absence": true,
+    "classify": true,
+    "network_binding": true,
+    "successful_job_state": true,
+    "tool_inventory": true,
+    "fixed_mounts": true,
+    "environment": true,
+    "container_command": true,
+    "create_argv": true,
+    "network_identity": true,
+    "owned_identity": true,
+    "inner_success": true,
+    "lease_end": true,
+    "exact_bundle": true,
+    "inner_source_membership": true,
+    "Supervisor": true,
+    "main": true
+  },
+  "changedGlobalsOnly": [
+    "WORK -> new owned /Data controller-r3; WRITABLE remains WORK/writable-r1",
+    "PREP -> metadata-only installation-source-r3",
+    "INPUTS -> explicit identical old /tmp input-bundle-r1"
+  ],
+  "unchangedRootBundleInventory": {
+    "path": "/tmp/nbdp-e02-sdk-install-controller-20261027/input-bundle-inventory-r1.json",
+    "bytes": 1508,
+    "sha256": "a935c1bd95aeb34019fd09124d30224669bb1dc453df01aa086e3a738872fbb9"
+  },
+  "modelsByteIdenticalToR2": true,
+  "modelsExecutedThisPreparation": 0,
+  "sourceSemantics": "All functions unchanged; statvfs(WORK) now checks the same /Data filesystem that contains the actual new SDK writable destination.",
+  "resourceFloorBytesUnchanged": 17179869184,
+  "noNewMeasurementFramework": true,
+  "priorFailureAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-install-actual-20261027/failure-acceptance.json",
+    "bytes": 1912,
+    "sha256": "9ee67a13d0ceccbc491b2c63e0e67a82907b8dba8998cf2125483c5eeb763076"
+  },
+  "storageObservation": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-install-storage-correction-20261027/storage-observation.json",
+    "bytes": 898,
+    "sha256": "7eb7d65b3ae4c406794da8db975ccb7203f97bf87143ab275566cb1ba4106104"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "schema": "e02-root-current178-explicit-request-family-authority-v1",
+  "actor": "/root",
+  "basis": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-goal-resume-20261104/helper-current178-binding-map-20261105.json",
+    "bytes": 60864,
+    "sha256": "9a448aef65d1975b03e9387808a5c0b39d3746b1034383998ef9ae37c101e8af"
+  },
+  "families": {
+    "MODEL5": {
+      "keys": [
+        "cmd",
+        "workdir",
+        "login",
+        "yield_time_ms",
+        "max_output_tokens"
+      ],
+      "reference": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-controller-current-model-preparation-20261105/source2/controller_model_metadata.py",
+        "bytes": 38348,
+        "sha256": "5e4aeae68d57629fde902eee8d306d1b7ae4cb5d920917f4adc234a1b0d4c0bd"
+      },
+      "rule": "Current controller178 MODEL5 actuals use default-policy whole5 with63s and max20000; accepted strict reader validates exact types and whole request. Future consumer models have their own exact selected MODEL5 request."
+    },
+    "HOST7": {
+      "policy": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r10/outer-request7-policy.json",
+        "bytes": 3127,
+        "sha256": "b67efc7efcaa5b10c44860a680bd41ed64d2443a1ce39f09d86e7b82595c2934"
+      },
+      "skeleton": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r10/outer-request7-skeleton.json",
+        "bytes": 482,
+        "sha256": "ccb4283d2be673f10a6e4e85376f802f8fe9be89b7e3fb1cf109213606f5e533"
+      },
+      "keys": [
+        "cmd",
+        "workdir",
+        "login",
+        "yield_time_ms",
+        "max_output_tokens",
+        "sandbox_permissions",
+        "justification"
+      ],
+      "exactPolicyFields": {
+        "workdir": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r10",
+        "login": false,
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2000,
+        "sandbox_permissions": "require_escalated",
+        "justification": "M\u00f4\u017eem raz vykona\u0165 prijat\u00fd izolovan\u00fd E02 helper probe s aktu\u00e1lnou jednorazovou Root release, p\u00f4vodn\u00fdmi limitmi a \u00faplnou evidenciou? Bez opakovania, SDK a be\u017en\u00fdch klientov."
+      },
+      "rule": "Current accepted policy/skeleton are SOURCE, actual plan/release/request remain unissued. Keep fixed183s Host CLI and policy strings exactly."
+    },
+    "COLLECTOR7": {
+      "qualifier": {
+        "bytes": 12061,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source/qualification.py",
+        "sha256": "ec585d26a36cc2ba0e5b5d642e7d2186b695fcaa7a89e37091dca1f4f81b4319"
+      },
+      "history": {
+        "bytes": 8765,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source/history_prefix.py",
+        "sha256": "5708bec3fa695849d5d7e72e8b850d1c4540fbcda7b4ac74a554e474ebec0f6f"
+      },
+      "keys": [
+        "cmd",
+        "workdir",
+        "login",
+        "yield_time_ms",
+        "max_output_tokens",
+        "sandbox_permissions",
+        "justification"
+      ],
+      "rule": "Source2 validates both expected and actual whole7, literal require_escalated, bounded nonblank1024-byte justification, exact original collector CLI and same-session histories.",
+      "nativeResponseImplementationCheck": {
+        "qualifierFile": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source/qualification.py",
+        "line": 66,
+        "finding": "The accepted Source2 collector complete_origin still requires a present integer original_token_count; the accepted MODEL5 metadata method treats this native field as optional. The81 MOCK result does not establish that future actual collector responses will contain it.",
+        "requiredReviewCriterion": "Before operational use, reconcile this exact response-family boundary in the selected implementation/reader contract. Any needed adaptation requires explicit reviewed SOURCE and meaningful controls; preserve real absence and full other completeness/terminal/session evidence. Never invent a token count or silently project/repair actual responses. This is an implementation verification criterion, not an authorization to probe."
+      }
+    },
+    "PRODUCER_CAPTURE7": {
+      "contracts": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/capture/contracts.py",
+      "actualOrigin": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-review-20261105/concrete-r1/actual-capture-tool-origin.json",
+        "bytes": 3404,
+        "sha256": "73662456a863812ee199f5f11971b298f94220e8e0049c6e0b47e21bfa3882ec"
+      },
+      "rule": "Use its exact current accepted typed7 capture request/schema/justification and complete producer266 originals. It is a separate family from Host7, Collector7 and MODEL5."
+    }
+  },
+  "nativeResponsePolicy": {
+    "common": "Strict bounded duplicate/nonfinite/depth/float-path native API decode; exact typed flags/sessions/terminals/wall/output/caps; preserve all actual fields and original response bytes, never normalize or fabricate.",
+    "MODEL5": "Native optional original_token_count remains optional exactly as independently accepted current178 method.",
+    "HOST7": "Native optional original_token_count remains optional; preserve actual response and exact acceptedR10 policy.",
+    "PRODUCER_CAPTURE7": "Use exact currentcapture expected_request and proven actual whole7 origin/policy. Do not substitute literal quoted template placeholder; genuine request uses bare actualACKSHA.",
+    "COLLECTOR7": "Preserve accepted Source2 qualifier requiring a present plain-integer original_token_count at operational acceptance. Native API omission is a permanent qualification refusal in this stricter operational family; no counter fabrication or MODEL5 fallback. Define meaningful missing-counter refusal and whole-prefix/finalF sticky failstop regressions. Any future relaxation requires its own reviewed Source, not this authority."
+  },
+  "familyDispatchRule": "Explicit closed knownfamily per call site; no universal key projection/5to7 mutation, no Collector-specific argv decoder for Host/model.",
+  "implementationAuthorized": false,
+  "executionAuthorized": false
+}

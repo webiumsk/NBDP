@@ -1,0 +1,27 @@
+{
+  "actor": "/root",
+  "decision": "ACCEPT_ACTUAL_3_PURE_CLOCK90_MODELS_ONLY",
+  "result": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-clock90-model-actual-20261028/result.json",
+    "bytes": 15807,
+    "sha256": "41a870152db63384a7ca18d91c9aca404756047b516f8f79fdf975c3d4a0ba04"
+  },
+  "qa": {
+    "reviewer": "/root/r4_qa",
+    "decision": "ACCEPT",
+    "findings": []
+  },
+  "security": {
+    "reviewer": "/root/r4_security",
+    "decision": "ACCEPT",
+    "findings": []
+  },
+  "passed": 3,
+  "failed": 0,
+  "skipped": 0,
+  "inputs": 30,
+  "directOperands": 11,
+  "scope": "Exactly once pure clock/source controls; exact accepted/current pins/modes and unchanged before-after; natural0/reaped/fullEOF/no fault. No prior-suite rerun.",
+  "limits": "Current concrete QA/security/root release and actual artifact/source/input/privatekey/lifecycle DATA required; no compiler or interoperability qualification.",
+  "provenance": "Faithful coordinator transcription of actual independent QA/security DATA decisions"
+}

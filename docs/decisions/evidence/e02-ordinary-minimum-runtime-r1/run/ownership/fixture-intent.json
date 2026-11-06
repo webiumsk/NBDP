@@ -1,0 +1,79 @@
+{
+  "name": "nbdp-e02-1c09035e6a7e469a9449cdfa9764725a-fixture",
+  "image": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+  "labels": {
+    "nbdp.run": "1c09035e6a7e469a9449cdfa9764725a",
+    "nbdp.role": "fixture",
+    "nbdp.creation": "7b6de5f1639c47c5bbda5a84f76414d0"
+  },
+  "mounts": [
+    [
+      "/tmp/nbdp-e02-ordinary-minimum-v1/runs/1c09035e6a7e469a9449cdfa9764725a/input",
+      "/input",
+      false
+    ],
+    [
+      "/tmp/nbdp-e02-ordinary-minimum-v1/runs/1c09035e6a7e469a9449cdfa9764725a/session/lease.json",
+      "/session/lease.json",
+      false
+    ],
+    [
+      "/tmp/nbdp-e02-ordinary-minimum-v1/runs/1c09035e6a7e469a9449cdfa9764725a/session/control",
+      "/session/control",
+      true
+    ],
+    [
+      "/tmp/nbdp-e02-ordinary-minimum-v1/runs/1c09035e6a7e469a9449cdfa9764725a/session/fixtures",
+      "/session/fixtures",
+      true
+    ],
+    [
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules",
+      "/input/node_modules",
+      false
+    ],
+    [
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/transport.mjs",
+      "/input/transport.mjs",
+      false
+    ],
+    [
+      "/tmp/nbdp-005-rust-target/debug/nbdp-experiment-rust",
+      "/input/nbdp-experiment-rust",
+      false
+    ],
+    [
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/rust/src/main.rs",
+      "/input/rust-source.rs",
+      false
+    ],
+    [
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/package-lock.json",
+      "/input/package-lock.json",
+      false
+    ],
+    [
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/results/E01.json",
+      "/input/E01.json",
+      false
+    ],
+    [
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/results/E02.json",
+      "/input/E02.json",
+      false
+    ]
+  ],
+  "command": [
+    "--inhibit-cache",
+    "--library-path",
+    "/guard-python/lib",
+    "/guard-python/bin/python3.11",
+    "-B",
+    "-P",
+    "-S",
+    "-s",
+    "/input/supervisor.py",
+    "--guest",
+    "fixture"
+  ]
+}

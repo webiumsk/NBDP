@@ -1,0 +1,57 @@
+{
+  "schema": "e02-one-cid-controller-r2-delta-proof-v1",
+  "predecessorSubject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/subject.json",
+    "bytes": 14534,
+    "sha256": "19ae46557c169cca1c3289d4acdcaa2fa65b488c7596500f281d69feb0e2245b"
+  },
+  "predecessorDisposition": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r1-fresh-review-freeze-20261029/findings-and-disposition.json",
+    "bytes": 1323,
+    "sha256": "40547788c8e584cea118b5ae89ea2b2a84e57e88c534b40775b917e338db3b90"
+  },
+  "findingIds": [
+    "PROBE-QA-01",
+    "PROBE-R1-SEC-01"
+  ],
+  "predecessorStillHold": true,
+  "sourceDiff": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2/r1-r2-source.diff",
+    "bytes": 9046,
+    "sha256": "ea11b1d7c2493404b0d4adbef327062926c6904f73d92cbe2c79f49e1a36b9f0"
+  },
+  "productionDelta": [
+    "distinct RAW2GiB only fixedPython/Docker verifier streaming<=65536/hash/regularNOFOLLOW/open+finalfd+pathidentity/originaldeadline/no binaryreturn",
+    "Host.admit/before_target/postread switch from metadata verifier to same RAW verifier",
+    "new host root with exact reused R1 controller+finite path bindings only"
+  ],
+  "prior85DefinitionsRetained": true,
+  "exactUnchangedDefinitionFiles": [
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/test_controller.py",
+      "bytes": 34076,
+      "sha256": "d858419a398340c9996a594a7c4616a6c5649dcad122880629f457a04d0553bf"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/test_finite_child.py",
+      "bytes": 7445,
+      "sha256": "c0b578cb1f3b4e3c4789956a2823320c17764899fd705586245dd68b2f44d5ff"
+    }
+  ],
+  "priorHostDefinitionNamesUnchanged": true,
+  "hostDefinitionBodyFixtureChanges": [
+    "HostControls.test_main_each_corrupt_expected_runtime_source_pin_before_any_reviewed_import"
+  ],
+  "hostFixtureChangeScope": "H import pointsR2; mixed source descriptor/mutation paths useR2host/R1controller+finite; all other36names/bodies same",
+  "unchangedNormativeCaps": {
+    "rawOpaqueDeclaredTools": 2147483648,
+    "parsedJson": 16777216,
+    "physicalProof": 16777216,
+    "perOwnerProof": 8388608
+  },
+  "originalClocksResourcesAndGatesChanged": false,
+  "binariesReadDuringPreparation": 0,
+  "binariesCopied": 0,
+  "modelsExecuted": 0,
+  "selfApproval": false
+}

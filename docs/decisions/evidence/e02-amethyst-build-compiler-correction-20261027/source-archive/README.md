@@ -1,0 +1,11 @@
+# Amethyst compiler and finite artifact-budget correction (SOURCE only)
+
+The accepted r5 negative DATA records timeout124, OOMKilledtrue and no qualified APK, with exact-owned cleanup and preserved raw/post data. The source finding establishes the Kotlin project-property namespace; it does not establish the effective old compiler heap or identify an OOM victim.
+
+This version changes only the artifact command and finite timing: max-workers1, Gradle4g/768m, -Pkotlin.daemon.jvmargs with the same1536m/512m value, in-process Kotlin strategy and --info. Docker remains6GiB/4CPU/512PID. Source bytes/modes/new-file classification, source archive, SDK/JDK read-only bindings, APK/signature predicates, UID1000, fresh work/cache/key policy, full CID/network ownership and cleanup remain unchanged. One shared4g heap is an intended configuration, not proof of sufficient memory or actual strategy.
+
+The whole artifact job is3600s+5s; attach3645s; supervisor3900s with120s cleanup reserve; root lease4200s and proposed outer4197s+3s. Supervisor creation, actual Config.Cmd ownership, admission and attach checks, inner timeout, materializer fresh interval and signed-nanosecond overflow bound all use the new artifact values. The job includes extraction, Gradle and post/source/APK validation, so this is not a guaranteed3600-second Gradle window or an atomic end-to-end deadline claim. Ordinary producer1800 and all E02 qualification criteria remain unchanged.
+
+Five new AST/source-read/pure-definition models are defined, unexecuted. Review model-plan.json and all12 direct operands. No executable build module is imported by the model; selected pure definitions/predicates use synthetic values only. Prior3/1/7/52/16 results stay historical, with carry limited to independently confirmed unchanged components.
+
+No runtime root, grant, Docker/SDK/Gradle command or artifact was produced. Independent SOURCE review, separately released bounded model DATA/review, current concrete method/prerequisites and a fresh one-use root release precede any build. Actual source/input immutability, APK/signature, private-key exclusion and exact-owned cleanup DATA remain mandatory. No canonical E02 promotion, ordinary-client qualification, architecture/blocker change, production SDK or deployment follows.

@@ -1,0 +1,76 @@
+{
+  "schema": "nbdp-amethyst-pinned-source-archive-once-release-v1",
+  "actor": "/root",
+  "decision": "RELEASE_ONE_PINNED_SOURCE_ARCHIVE_DATA_STEP",
+  "sourceSubject": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/subject.json",
+    "bytes": 4032,
+    "sha256": "c8c75541ccaa8614831cd9c3acd9f8bc1668462561f227aeca6f3ff209369e52"
+  },
+  "sourceReviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-rebuild-20261026/source1/actual-source-qa-review.json",
+      "bytes": 1517,
+      "sha256": "2a44accbd0c7d0ed1a303991756138cd42c60e017e7f2c91d6815c2560cab590"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-rebuild-20261026/source1/actual-source-security-review.json",
+      "bytes": 1599,
+      "sha256": "004b5ef49463cb4e7ff5d15e3eee4d96ed784fe3cae318ecaf2b5413b680dc23"
+    }
+  ],
+  "script": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/prepare_source.py",
+    "bytes": 3029,
+    "sha256": "f6cd2084886a4051682ffd0992b9bc69817fe5dbb26a7ff22723bf62bc995e7a"
+  },
+  "tools": [
+    {
+      "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "bytes": 32959480,
+      "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+    },
+    {
+      "path": "/usr/bin/git",
+      "bytes": 4066232,
+      "sha256": "2a8c18fbf43da9f692d75474c72bea9dfd796c260b0f3dfe456376abc3bbd668"
+    },
+    {
+      "path": "/usr/bin/timeout",
+      "bytes": 39880,
+      "sha256": "12690a043dfd555a6c14ccc1564f5649c18f1762c0d6ff66729948130898ec52"
+    },
+    {
+      "path": "/usr/bin/prlimit",
+      "bytes": 27536,
+      "sha256": "17064f67e650d6152a6902b013aab496b54c87587c8eea6f5023aafee6154069"
+    }
+  ],
+  "command": [
+    "/usr/bin/env",
+    "-i",
+    "PATH=/usr/bin:/bin",
+    "LANG=C.UTF-8",
+    "LC_ALL=C.UTF-8",
+    "/usr/bin/prlimit",
+    "--as=4294967296:4294967296",
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=5s",
+    "240s",
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/tmp/nbdp-amethyst-rebuild-20261026/preparation/prepare_source.py"
+  ],
+  "commit": "e6f464a1179def75274512b3c5bab921de3bf3d8",
+  "tree": "11a90777c85c71912594612f42d9807004834f67",
+  "scope": "Local cached Git archive DATA only. No acquiredtool, sourceapplication/Gradle/SDKmanager/license/Android/network execution.",
+  "sourceAdmissionObserved": {
+    "regularBlobs": 11085,
+    "regularBytes": 335107378,
+    "unsupportedLinkOrSubmoduleEntries": 0
+  },
+  "rerunsAuthorized": 0,
+  "buildAuthorized": false
+}

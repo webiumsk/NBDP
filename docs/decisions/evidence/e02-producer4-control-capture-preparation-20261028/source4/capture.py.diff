@@ -1,0 +1,55 @@
+--- source3/capture.py
++++ source4/capture.py
+@@ -132,6 +132,8 @@
+     docs={}
+     for name in ('producerSource','producerSourceAcceptance','captureSource','captureSourceAcceptance','admissionPlan','admissionData','admissionDataAcceptance','sourceBirth','actorContext','inputManifest','plan','clockSelection','requestContract','runtimeBindings'):
+         docs[name]=metadata(ack[name],deadline)
++    need(docs['captureSource']['knownActors']==ROOT_KNOWN_ACTORS_PIN,'PINNED_ROOT_KNOWN_ACTOR_SOURCE')
++    docs['knownActors']=metadata(ROOT_KNOWN_ACTORS_PIN,deadline)
+     docs['control']=metadata(docs['producerSource']['controlPlan'],deadline)
+     docs['configs']=[metadata(d,deadline) for d in docs['producerSource']['configurations'].values()]
+     for s in docs['plan']['scopes']:
+@@ -149,7 +151,7 @@
+             key=token.replace('~1','/').replace('~0','~');value=value[int(key)] if type(value) is list else value[key]
+         need(value==proof['actor'] and proof['actor'] in docs['actorContext']['participants'],'ACTUAL_KNOWN_ACTOR_FIELD_PROOF');proofs.append(proof['actor'])
+     need(set(proofs)==set(docs['actorContext']['participants']),'COMPLETE_CONTEXT_ACTOR_PROOFS')
+-    records={'producerAcceptance':docs['producerSourceAcceptance'],'captureAcceptance':docs['captureSourceAcceptance'],'admissionAcceptance':docs['admissionDataAcceptance'],'admissionSubject':docs['admissionData']}
++    records={'knownActors':docs['knownActors'],'producerAcceptance':docs['producerSourceAcceptance'],'captureAcceptance':docs['captureSourceAcceptance'],'admissionAcceptance':docs['admissionDataAcceptance'],'admissionSubject':docs['admissionData']}
+     for key in ('producerReviews','captureReviews','admissionReviews'):records[key]=[metadata(d,deadline) for d in ack[key]]
+     return docs,records
+ 
+@@ -178,7 +180,7 @@
+     # manifest where including own method/plan/ACK would form a hash cycle.
+     values=[ack[k] for k in ('producerSource','producerSourceAcceptance','captureSource','captureSourceAcceptance','admissionPlan','admissionData','admissionDataAcceptance','sourceBirth','actorContext','inputManifest','plan','clockSelection','requestContract','runtimeBindings')]
+     for key in ('producerReviews','captureReviews','admissionReviews'):values.extend(ack[key])
+-    values.append(descriptor(HERE/'coordinator-acknowledgement.json'))
++    values.append(descriptor(HERE/'coordinator-acknowledgement.json'));values.append(ROOT_KNOWN_ACTORS_PIN)
+     for proof in docs['actorContext']['participantProofs']:values.append(proof['authority'])
+     for key in ('execution','originalToolOrigin','rawArtifactManifest','inputsBefore','inputsAfter'):values.append(docs['admissionData'][key])
+     seen={}
+@@ -200,16 +202,21 @@
+ def execute(ack,ack_pin,docs,values,pool,before):
+     plan=docs['plan'];root=pathlib.Path(plan['outputRoot']);need(not root.exists() and not root.is_symlink(),'FRESH_ONE_USE_OUTPUT')
+     root.mkdir(mode=0o700);put(root,'overall-before.json',before)
+-    scopes=[];outcomes=[];first=None;after=None;authorities=expected_authorities(ack,docs)
++    scopes=[];outcomes=[];first=None;secondary=[];after=None;authorities=expected_authorities(ack,docs)
+     try:
+         for i,s in enumerate(plan['scopes'],1):
+             current=pool.run(11-i,lambda d:snapshot(docs['inputManifest'],authorities,d));need(current==before,'EVERY_EXPECTED_INPUT_BEFORE_EACH_SCOPE');put(root,'%02d-before.json'%i,current)
+             pool.admit_child(11-i);row,stdout,stderr=capture_scope(root,s,i);scopes.append(row)
++            first=row['fault'] if row['fault'] is not None else first
+             current=pool.run(10-i,lambda d:snapshot(docs['inputManifest'],authorities,d));put(root,'%02d-after.json'%i,current);need(current==before,'EVERY_EXPECTED_INPUT_AFTER_EACH_SCOPE')
++            if first is not None:break
+             outcomes.append(parse_outcome(s,row,stdout,stderr))
+-        after=pool.run(0,lambda d:snapshot(docs['inputManifest'],authorities,d));put(root,'overall-after.json',after);need(after==before,'OVERALL_EXPECTED_CUSTODY')
+-    except BaseException as error:first=repr(error)
+-    result=dict(schema='e02-producer4-current-control-execution-v1',authors=docs['captureSource']['authors'],operators=ack['operators'],producerSource=ack['producerSource'],captureSource=ack['captureSource'],rootAcknowledgement=ack_pin,plan=ack['plan'],inputManifest=ack['inputManifest'],countsSeparate=values,scopes=scopes,outcomes=outcomes,remainingNotExecuted=[s['scope'] for s in plan['scopes'][len(scopes):]],firstFault=first,sourceUnchanged=after==before if after is not None else False,overallBefore=descriptor(root/'overall-before.json'),overallAfter=descriptor(root/'overall-after.json') if (root/'overall-after.json').exists() else None,elapsedNs=pool.clock()-(pool.end-1200000000000),exitCode=0 if first is None and len(outcomes)==10 else 2,outerApiOrigin='ACTUAL_ROOT_RESPONSES_MUST_BE_RETAINED_EXTERNALLY_NOT_INNER_PID_REAP_OR_EOF',ordinaryRowsQualified=0,canonicalE02='PARTIAL22_UNCHANGED')
++        if first is None:
++            after=pool.run(0,lambda d:snapshot(docs['inputManifest'],authorities,d));put(root,'overall-after.json',after);need(after==before,'OVERALL_EXPECTED_CUSTODY')
++    except BaseException as error:
++        if first is None:first=repr(error)
++        else:secondary.append(repr(error))
++    result=dict(schema='e02-producer4-current-control-execution-v1',authors=docs['captureSource']['authors'],operators=ack['operators'],producerSource=ack['producerSource'],captureSource=ack['captureSource'],rootAcknowledgement=ack_pin,plan=ack['plan'],inputManifest=ack['inputManifest'],countsSeparate=values,scopes=scopes,outcomes=outcomes,remainingNotExecuted=[s['scope'] for s in plan['scopes'][len(scopes):]],firstFault=first,secondaryFaults=secondary,sourceUnchanged=after==before if after is not None else False,overallBefore=descriptor(root/'overall-before.json'),overallAfter=descriptor(root/'overall-after.json') if (root/'overall-after.json').exists() else None,elapsedNs=pool.clock()-(pool.end-1200000000000),exitCode=0 if first is None and len(outcomes)==10 else 2,outerApiOrigin='ACTUAL_ROOT_RESPONSES_MUST_BE_RETAINED_EXTERNALLY_NOT_INNER_PID_REAP_OR_EOF',ordinaryRowsQualified=0,canonicalE02='PARTIAL22_UNCHANGED')
+     put(root,'result.json',result)
+     # File list is exact flat owned proof output, never a recursive source DAG.
+     files=[]

@@ -1,0 +1,61 @@
+{
+  "schema": "e02-first-cell-supervisor-result-v1",
+  "runId": "a635c32460b74145bfb48a34e0751538",
+  "runConfig": {
+    "path": "/tmp/nbdp-e02-ordinary-client-v1/run-config-r2.json",
+    "bytes": 3132,
+    "sha256": "7360c45ecbf58403aef8878742548db2321156cdb8a707e42df800e4c26aa822"
+  },
+  "runRelease": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-client-resume-r1/exact-root-release.json",
+    "bytes": 1671,
+    "sha256": "a09731be20fef0c8f747256f41330129f36cfa637f7538c941dcdd3376972883"
+  },
+  "lease": {
+    "path": "/tmp/nbdp-e02-ordinary-client-v1/runs/a635c32460b74145bfb48a34e0751538/session/lease.json",
+    "bytes": 368,
+    "sha256": "766eeb28e49d00f4260b8840d1e84de847f4056bc6090d88c9aafc2aa90d3009"
+  },
+  "canonicalE02Changed": false,
+  "limits": [
+    "One cell only; mandatory wider matrix remains missing.",
+    "No hard realtime/suspended-host cleanup guarantee.",
+    "Independent QA/security must inspect actual results before acceptance."
+  ],
+  "executionState": "FAILED_UNQUALIFIED",
+  "error": "LeaseDenied('owned command exited unsuccessfully')",
+  "secondaryErrors": [
+    "anchor: logs-diagnostic: RuntimeError('Owned log collection failed')",
+    "anchor: absence: RuntimeError('Removal not independently observed for exact CID')"
+  ],
+  "cleanup": {
+    "ok": false,
+    "rows": [
+      {
+        "role": "anchor",
+        "exactOwnedCleanupOnly": true,
+        "errors": [
+          "logs-diagnostic: RuntimeError('Owned log collection failed')",
+          "absence: RuntimeError('Removal not independently observed for exact CID')"
+        ],
+        "identityVerified": true,
+        "absenceConfirmed": false,
+        "inspectExit": 0,
+        "cid": "4cc1b0a780f08a273880c1ecf072bf4bd9dc3517fb60d22ff4dcdc745081ce14",
+        "logsExit": 1,
+        "removeExit": 0,
+        "afterInspectExit": 1,
+        "error": "logs-diagnostic: RuntimeError('Owned log collection failed')"
+      }
+    ],
+    "errors": [
+      "anchor: logs-diagnostic: RuntimeError('Owned log collection failed')",
+      "anchor: absence: RuntimeError('Removal not independently observed for exact CID')"
+    ],
+    "evidence": {
+      "path": "/tmp/nbdp-e02-ordinary-client-v1/runs/a635c32460b74145bfb48a34e0751538/cleanup/result.json",
+      "bytes": 795,
+      "sha256": "12e15978ccf5ffefd01c7de5efec784707927e3f9437ede242eb69e942690a8e"
+    }
+  }
+}

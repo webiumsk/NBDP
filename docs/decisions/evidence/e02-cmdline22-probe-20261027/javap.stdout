@@ -1,0 +1,759 @@
+Compiled from "SdkManagerCli.java"
+public class com.android.sdklib.tool.sdkmanager.SdkManagerCli {
+  private final com.android.sdklib.tool.sdkmanager.SdkManagerCliSettings mSettings;
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: aload_0
+       1: invokestatic  #1                  // Method java/util/Arrays.asList:([Ljava/lang/Object;)Ljava/util/List;
+       4: invokestatic  #7                  // Method main:(Ljava/util/List;)V
+       7: goto          15
+      10: astore_1
+      11: iconst_1
+      12: invokestatic  #17                 // Method java/lang/System.exit:(I)V
+      15: return
+    Exception table:
+       from    to  target type
+           0     7    10   Class com/android/sdklib/tool/sdkmanager/SdkManagerCli$CommandFailedException
+           0     7    10   Class com/android/sdklib/tool/sdkmanager/SdkManagerCli$UncheckedCommandFailedException
+
+  private static void main(java.util.List<java.lang.String>) throws com.android.sdklib.tool.sdkmanager.SdkManagerCli$CommandFailedException;
+    Code:
+       0: getstatic     #23                 // Field java/lang/System.err:Ljava/io/PrintStream;
+       3: ldc           #27                 // String WARNING: The SDK Manager CLI tool (sdkmanager) is deprecated. Use Android CLI instead.
+       5: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       8: getstatic     #23                 // Field java/lang/System.err:Ljava/io/PrintStream;
+      11: ldc           #35                 // String The \'android\' binary can also be found in the cmdline-tools directory, and \'android sdk\' is the replacement for \'sdkmanager\'.
+      13: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      16: getstatic     #23                 // Field java/lang/System.err:Ljava/io/PrintStream;
+      19: ldc           #37                 // String To learn more about the Android CLI and how to use it, see the documentation (https://d.android.com/tools/agents/android-cli)\n
+      21: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      24: aload_0
+      25: invokestatic  #39                 // Method java/nio/file/FileSystems.getDefault:()Ljava/nio/file/FileSystem;
+      28: invokestatic  #45                 // Method com/android/sdklib/tool/sdkmanager/SdkManagerCliSettings.createSettings:(Ljava/util/List;Ljava/nio/file/FileSystem;)Lcom/android/sdklib/tool/sdkmanager/SdkManagerCliSettings;
+      31: astore_1
+      32: goto          70
+      35: astore_2
+      36: getstatic     #23                 // Field java/lang/System.err:Ljava/io/PrintStream;
+      39: invokestatic  #53                 // Method usage:(Ljava/io/PrintStream;)V
+      42: new           #13                 // class com/android/sdklib/tool/sdkmanager/SdkManagerCli$CommandFailedException
+      45: dup
+      46: invokespecial #57                 // Method com/android/sdklib/tool/sdkmanager/SdkManagerCli$CommandFailedException."<init>":()V
+      49: athrow
+      50: astore_2
+      51: new           #13                 // class com/android/sdklib/tool/sdkmanager/SdkManagerCli$CommandFailedException
+      54: dup
+      55: invokespecial #57                 // Method com/android/sdklib/tool/sdkmanager/SdkManagerCli$CommandFailedException."<init>":()V
+      58: athrow
+      59: astore_2
+      60: getstatic     #23                 // Field java/lang/System.err:Ljava/io/PrintStream;
+      63: ldc           #65                 // String Failed to create settings
+      65: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      68: aload_2
+      69: athrow
+      70: aload_1
+      71: invokevirtual #67                 // Method com/android/sdklib/tool/sdkmanager/SdkManagerCliSettings.getLocalPath:()Ljava/nio/file/Path;
+      74: astore_2
+      75: aload_2
+      76: iconst_0
+      77: anewarray     #71                 // class java/nio/file/LinkOption
+      80: invokestatic  #73                 // Method java/nio/file/Files.exists:(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z
+      83: ifne          132
+      86: aload_2
+      87: iconst_0
+      88: anewarray     #79                 // class java/nio/file/attribute/FileAttribute
+      91: invokestatic  #81                 // Method java/nio/file/Files.createDirectories:(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
+      94: pop
+      95: goto          132
+      98: astore_3
+      99: getstatic     #23                 // Field java/lang/System.err:Ljava/io/PrintStream;
+     102: aload_2
+     103: invokestatic  #87                 // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+     106: invokedynamic #93,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+     111: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     114: getstatic     #23                 // Field java/lang/System.err:Ljava/io/PrintStream;
+     117: aload_3
+     118: invokevirtual #97                 // Method java/io/IOException.getMessage:()Ljava/lang/String;
+     121: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     124: new           #13                 // class com/android/sdklib/tool/sdkmanager/SdkManagerCli$CommandFailedException
+     127: dup
+     128: invokespecial #57                 // Method com/android/sdklib/tool/sdkmanager/SdkManagerCli$CommandFailedException."<init>":()V
+     131: athrow
+     132: getstatic     #101                // Field com/android/prefs/AndroidLocationsSingleton.INSTANCE:Lcom/android/prefs/AndroidLocationsSingleton;
+     135: aload_2
+     136: invokestatic  #107                // Method com/android/sdklib/repository/AndroidSdkHandler.getInstance:(Lcom/android/prefs/AndroidLocationsProvider;Ljava/nio/file/Path;)Lcom/android/sdklib/repository/AndroidSdkHandler;
+     139: astore_3
+     140: new           #8                  // class com/android/sdklib/tool/sdkmanager/SdkManagerCli
+     143: dup
+     144: aload_1
+     145: getstatic     #113                // Field java/lang/System.out:Ljava/io/PrintStream;
+     148: getstatic     #116                // Field java/lang/System.in:Ljava/io/InputStream;
+     151: new           #120                // class com/android/sdklib/repository/legacy/LegacyDownloader
+     154: dup
+     155: aload_1
+     156: invokespecial #122                // Method com/android/sdklib/repository/legacy/LegacyDownloader."<init>":(Lcom/android/repository/api/SettingsController;)V
+     159: aload_3
+     160: invokespecial #125                // Method "<init>":(Lcom/android/sdklib/tool/sdkmanager/SdkManagerCliSettings;Ljava/io/PrintStream;Ljava/io/InputStream;Lcom/android/repository/api/Downloader;Lcom/android/sdklib/repository/AndroidSdkHandler;)V
+     163: aload_1
+     164: invokevirtual #128                // Method com/android/sdklib/tool/sdkmanager/SdkManagerCliSettings.getProgressIndicator:()Lcom/android/repository/api/ProgressIndicator;
+     167: invokevirtual #132                // Method run:(Lcom/android/repository/api/ProgressIndicator;)V
+     170: getstatic     #113                // Field java/lang/System.out:Ljava/io/PrintStream;
+     173: invokevirtual #136                // Method java/io/PrintStream.println:()V
+     176: return
+    Exception table:
+       from    to  target type
+          24    32    35   Class com/android/sdklib/tool/sdkmanager/SdkManagerCliSettings$ShowUsageException
+          24    32    50   Class com/android/sdklib/tool/sdkmanager/SdkManagerCliSettings$FailSilentlyException
+          24    32    59   Class java/lang/Exception
+          86    95    98   Class java/io/IOException
+
+  public com.android.sdklib.tool.sdkmanager.SdkManagerCli(com.android.sdklib.tool.sdkmanager.SdkManagerCliSettings, java.io.PrintStream, java.io.InputStream, com.android.repository.api.Downloader, com.android.sdklib.repository.AndroidSdkHandler);
+    Code:
+       0: aload_0
+       1: invokespecial #138                // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: aload_1
+       6: putfield      #141                // Field mSettings:Lcom/android/sdklib/tool/sdkmanager/SdkManagerCliSettings;
+       9: aload_0
+      10: getfield      #141                // Field mSettings:Lcom/android/sdklib/tool/sdkmanager/SdkManagerCliSettings;
+      13: aload_3
+      14: invokevirtual #145                // Method com/android/sdklib/tool/sdkmanager/SdkManagerCliSettings.setInputStream:(Ljava/io/InputStream;)V
+      17: aload_0
+      18: getfield      #141                // Field mSettings:Lcom/android/sdklib/tool/sdkmanager/SdkManagerCliSettings;
+      21: aload_2
+      22: invokevirtual #149                // Method com/android/sdklib/tool/sdkmanager/SdkManagerCliSettings.setOutputStream:(Ljava/io/PrintStream;)V
+      25: aload_0
+      26: getfield      #141                // Field mSettings:Lcom/android/sdklib/tool/sdkmanager/SdkManagerCliSettings;
+      29: aload         4
+      31: invokevirtual #152                // Method com/android/sdklib/tool/sdkmanager/SdkManagerCliSettings.setDownloader:(Lcom/android/repository/api/Downloader;)V
+      34: aload_0
+      35: getfield      #141                // Field mSettings:Lcom/android/sdklib/tool/sdkmanager/SdkManagerCliSettings;
+      38: aload         5
+      40: invokevirtual #156                // Method com/android/sdklib/tool/sdkmanager/SdkManagerCliSettings.setSdkHandler:(Lcom/android/sdklib/repository/AndroidSdkHandler;)V
+      43: return
+
+  void run(com.android.repository.api.ProgressIndicator) throws com.android.sdklib.tool.sdkmanager.SdkManagerCli$CommandFailedException;
+    Code:
+       0: aload_0
+       1: getfield      #141                // Field mSettings:Lcom/android/sdklib/tool/sdkmanager/SdkManagerCliSettings;
+       4: ifnonnull     15
+       7: new           #13                 // class com/android/sdklib/tool/sdkmanager/SdkManagerCli$CommandFailedException
+      10: dup
+      11: invokespecial #57                 // Method com/android/sdklib/tool/sdkmanager/SdkManagerCli$CommandFailedException."<init>":()V
+      14: athrow
+      15: aload_0
+      16: getfield      #141                // Field mSettings:Lcom/android/sdklib/tool/sdkmanager/SdkManagerCliSettings;
+      19: invokevirtual #160                // Method com/android/sdklib/tool/sdkmanager/SdkManagerCliSettings.getAction:()Lcom/android/sdklib/tool/sdkmanager/SdkAction;
+      22: aload_1
+      23: invokevirtual #164                // Method com/android/sdklib/tool/sdkmanager/SdkAction.execute:(Lcom/android/repository/api/ProgressIndicator;)V
+      26: return
+
+  static boolean askForLicense(com.android.repository.api.License, java.io.PrintStream, java.io.BufferedReader);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #169                // Method printLicense:(Lcom/android/repository/api/License;Ljava/io/PrintStream;)V
+       5: aload_1
+       6: ldc           #173                // String Accept? (y/N):
+       8: invokevirtual #175                // Method java/io/PrintStream.print:(Ljava/lang/String;)V
+      11: aload_2
+      12: invokestatic  #178                // Method askYesNo:(Ljava/io/BufferedReader;)Z
+      15: ireturn
+
+  static void printLicense(com.android.repository.api.License, java.io.PrintStream);
+    Code:
+       0: aload_1
+       1: ldc           #182                // String License %s:%n
+       3: iconst_1
+       4: anewarray     #139                // class java/lang/Object
+       7: dup
+       8: iconst_0
+       9: aload_0
+      10: invokevirtual #184                // Method com/android/repository/api/License.getId:()Ljava/lang/String;
+      13: aastore
+      14: invokevirtual #189                // Method java/io/PrintStream.printf:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;
+      17: pop
+      18: aload_1
+      19: ldc           #193                // String ---------------------------------------
+      21: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      24: aload_1
+      25: aload_0
+      26: invokevirtual #195                // Method com/android/repository/api/License.getValue:()Ljava/lang/String;
+      29: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      32: aload_1
+      33: ldc           #193                // String ---------------------------------------
+      35: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      38: return
+
+  static boolean askYesNo(java.io.BufferedReader);
+    Code:
+       0: aload_0
+       1: invokevirtual #198                // Method java/io/BufferedReader.readLine:()Ljava/lang/String;
+       4: astore_1
+       5: aload_1
+       6: ifnull        31
+       9: aload_1
+      10: ldc           #203                // String y
+      12: invokevirtual #205                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+      15: ifne          27
+      18: aload_1
+      19: ldc           #209                // String yes
+      21: invokevirtual #205                // Method java/lang/String.equalsIgnoreCase:(Ljava/lang/String;)Z
+      24: ifeq          31
+      27: iconst_1
+      28: goto          32
+      31: iconst_0
+      32: ireturn
+      33: astore_1
+      34: iconst_0
+      35: ireturn
+    Exception table:
+       from    to  target type
+           0    32    33   Class java/io/IOException
+
+  private static void usage(java.io.PrintStream);
+    Code:
+       0: aload_0
+       1: ldc           #211                // String Usage:
+       3: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       6: aload_0
+       7: ldc           #213                // String   sdkmanager [--uninstall] [<common args>] [--package_file=<file>] [<packages>...]
+       9: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      12: aload_0
+      13: ldc           #215                // String   sdkmanager --update [<common args>]
+      15: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      18: aload_0
+      19: ldc           #217                // String   sdkmanager --list [<common args>]
+      21: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      24: aload_0
+      25: ldc           #219                // String   sdkmanager --list_installed [<common args>]
+      27: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      30: aload_0
+      31: ldc           #221                // String   sdkmanager --licenses [<common args>]
+      33: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      36: aload_0
+      37: ldc           #223                // String   sdkmanager --version
+      39: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      42: aload_0
+      43: invokevirtual #136                // Method java/io/PrintStream.println:()V
+      46: aload_0
+      47: ldc           #225                // String With --install (optional), installs or updates packages.
+      49: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      52: aload_0
+      53: ldc           #227                // String     By default, the listed packages are installed or (if already installed)
+      55: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      58: aload_0
+      59: ldc           #229                // String     updated to the latest version.
+      61: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      64: aload_0
+      65: ldc           #231                // String With --uninstall, uninstall the listed packages.
+      67: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      70: aload_0
+      71: invokevirtual #136                // Method java/io/PrintStream.println:()V
+      74: aload_0
+      75: ldc           #233                // String     <package> is a sdk-style path (e.g. \"build-tools;23.0.0\" or
+      77: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      80: aload_0
+      81: ldc           #235                // String              \"platforms;android-23\").
+      83: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      86: aload_0
+      87: ldc           #237                // String     <package-file> is a text file where each line is a sdk-style path
+      89: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      92: aload_0
+      93: ldc           #239                // String                    of a package to install or uninstall.
+      95: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      98: aload_0
+      99: ldc           #241                // String     Multiple --package_file arguments may be specified in combination
+     101: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     104: aload_0
+     105: ldc           #243                // String     with explicit paths.
+     107: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     110: aload_0
+     111: invokevirtual #136                // Method java/io/PrintStream.println:()V
+     114: aload_0
+     115: ldc           #245                // String With --update, all installed packages are updated to the latest version.
+     117: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     120: aload_0
+     121: invokevirtual #136                // Method java/io/PrintStream.println:()V
+     124: aload_0
+     125: ldc           #247                // String With --list, all installed and available packages are printed out.
+     127: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     130: aload_0
+     131: invokevirtual #136                // Method java/io/PrintStream.println:()V
+     134: aload_0
+     135: ldc           #249                // String With --list_installed, all installed packages are printed out.
+     137: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     140: aload_0
+     141: invokevirtual #136                // Method java/io/PrintStream.println:()V
+     144: aload_0
+     145: ldc           #251                // String With --licenses, show and offer the option to accept licenses for all
+     147: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     150: aload_0
+     151: ldc           #253                // String      available packages that have not already been accepted.
+     153: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     156: aload_0
+     157: invokevirtual #136                // Method java/io/PrintStream.println:()V
+     160: aload_0
+     161: ldc           #255                // String With --version, prints the current version of sdkmanager.
+     163: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     166: aload_0
+     167: invokevirtual #136                // Method java/io/PrintStream.println:()V
+     170: aload_0
+     171: ldc_w         #257                // String Common Arguments:
+     174: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     177: aload_0
+     178: ldc_w         #259                // String     --sdk_root=<sdkRootPath>: Use the specified SDK root instead of the SDK
+     181: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     184: aload_0
+     185: ldc_w         #261                // String                               containing this tool
+     188: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     191: aload_0
+     192: invokevirtual #136                // Method java/io/PrintStream.println:()V
+     195: aload_0
+     196: ldc_w         #263                // String     --channel=<channelId>: Include packages in channels up to <channelId>.
+     199: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     202: aload_0
+     203: ldc_w         #265                // String                            Common channels are:
+     206: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     209: aload_0
+     210: ldc_w         #267                // String                            0 (Stable), 1 (Beta), 2 (Dev), and 3 (Canary).
+     213: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     216: aload_0
+     217: invokevirtual #136                // Method java/io/PrintStream.println:()V
+     220: aload_0
+     221: ldc_w         #269                // String     --include_obsolete: With --list, show obsolete packages in the
+     224: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     227: aload_0
+     228: ldc_w         #271                // String                         package listing. With --update, update obsolete
+     231: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     234: aload_0
+     235: ldc_w         #273                // String                         packages as well as non-obsolete.
+     238: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     241: aload_0
+     242: invokevirtual #136                // Method java/io/PrintStream.println:()V
+     245: aload_0
+     246: ldc_w         #275                // String     --newer: With --list, show only new and/or updatable packages.
+     249: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     252: aload_0
+     253: invokevirtual #136                // Method java/io/PrintStream.println:()V
+     256: aload_0
+     257: ldc_w         #277                // String     --no_https: Force all connections to use http rather than https.
+     260: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     263: aload_0
+     264: invokevirtual #136                // Method java/io/PrintStream.println:()V
+     267: aload_0
+     268: ldc_w         #279                // String     --proxy=<http | socks>: Connect via a proxy of the given type.
+     271: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     274: aload_0
+     275: invokevirtual #136                // Method java/io/PrintStream.println:()V
+     278: aload_0
+     279: ldc_w         #281                // String     --proxy_host=<IP or DNS address>: IP or DNS address of the proxy to use.
+     282: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     285: aload_0
+     286: invokevirtual #136                // Method java/io/PrintStream.println:()V
+     289: aload_0
+     290: ldc_w         #283                // String     --proxy_port=<port #>: Proxy port to connect to.
+     293: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     296: aload_0
+     297: invokevirtual #136                // Method java/io/PrintStream.println:()V
+     300: aload_0
+     301: ldc_w         #285                // String     --verbose: Enable verbose output.
+     304: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     307: aload_0
+     308: invokevirtual #136                // Method java/io/PrintStream.println:()V
+     311: aload_0
+     312: ldc_w         #287                // String * If the env var REPO_OS_OVERRIDE is set to \"windows\",\n  \"macosx\", or \"linux\", packages will be downloaded for that OS.
+     315: invokevirtual #29                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     318: return
+}
+Compiled from "TrimStringAdapter.java"
+public class com.android.repository.impl.meta.TrimStringAdapter extends javax.xml.bind.annotation.adapters.XmlAdapter<java.lang.String, java.lang.String> {
+  private static final java.util.Map<java.lang.String, java.lang.String> POOL;
+
+  public com.android.repository.impl.meta.TrimStringAdapter();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method javax/xml/bind/annotation/adapters/XmlAdapter."<init>":()V
+       4: return
+
+  public java.lang.String unmarshal(java.lang.String);
+    Code:
+       0: aload_1
+       1: ifnonnull     6
+       4: aconst_null
+       5: areturn
+       6: aload_1
+       7: ldc           #7                  // String (?<=\\s)[ \t]*
+       9: ldc           #9                  // String
+      11: invokevirtual #11                 // Method java/lang/String.replaceAll:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+      14: ldc           #17                 // String (?<!\n)\n(?!\n)
+      16: ldc           #19                 // String
+      18: invokevirtual #11                 // Method java/lang/String.replaceAll:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+      21: ldc           #21                 // String  +
+      23: ldc           #19                 // String
+      25: invokevirtual #11                 // Method java/lang/String.replaceAll:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+      28: invokevirtual #23                 // Method java/lang/String.trim:()Ljava/lang/String;
+      31: astore_2
+      32: getstatic     #27                 // Field POOL:Ljava/util/Map;
+      35: aload_2
+      36: invokeinterface #33,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      41: checkcast     #12                 // class java/lang/String
+      44: astore_3
+      45: aload_3
+      46: ifnull        51
+      49: aload_3
+      50: areturn
+      51: getstatic     #27                 // Field POOL:Ljava/util/Map;
+      54: aload_2
+      55: aload_2
+      56: invokeinterface #39,  3           // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      61: pop
+      62: aload_2
+      63: areturn
+
+  public java.lang.String marshal(java.lang.String);
+    Code:
+       0: aload_1
+       1: areturn
+
+  public java.lang.Object marshal(java.lang.Object) throws java.lang.Exception;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: checkcast     #12                 // class java/lang/String
+       5: invokevirtual #43                 // Method marshal:(Ljava/lang/String;)Ljava/lang/String;
+       8: areturn
+
+  public java.lang.Object unmarshal(java.lang.Object) throws java.lang.Exception;
+    Code:
+       0: aload_0
+       1: aload_1
+       2: checkcast     #12                 // class java/lang/String
+       5: invokevirtual #47                 // Method unmarshal:(Ljava/lang/String;)Ljava/lang/String;
+       8: areturn
+
+  static {};
+    Code:
+       0: new           #50                 // class java/util/HashMap
+       3: dup
+       4: invokespecial #52                 // Method java/util/HashMap."<init>":()V
+       7: putstatic     #27                 // Field POOL:Ljava/util/Map;
+      10: return
+}
+Compiled from "License.java"
+public abstract class com.android.repository.api.License implements java.lang.Comparable<com.android.repository.api.License> {
+  public static final java.lang.String LICENSE_DIR;
+
+  public com.android.repository.api.License();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public abstract java.lang.String getId();
+
+  public abstract void setId(java.lang.String);
+
+  public abstract java.lang.String getValue();
+
+  public abstract void setValue(java.lang.String);
+
+  public java.lang.String getType();
+    Code:
+       0: aconst_null
+       1: areturn
+
+  public void setType(java.lang.String);
+    Code:
+       0: return
+
+  public java.lang.String getLicenseHash();
+    Code:
+       0: invokestatic  #7                  // Method com/google/common/hash/Hashing.sha1:()Lcom/google/common/hash/HashFunction;
+       3: aload_0
+       4: invokevirtual #13                 // Method getValue:()Ljava/lang/String;
+       7: getstatic     #19                 // Field java/nio/charset/StandardCharsets.UTF_8:Ljava/nio/charset/Charset;
+      10: invokevirtual #25                 // Method java/lang/String.getBytes:(Ljava/nio/charset/Charset;)[B
+      13: invokeinterface #31,  2           // InterfaceMethod com/google/common/hash/HashFunction.hashBytes:([B)Lcom/google/common/hash/HashCode;
+      18: invokevirtual #37                 // Method com/google/common/hash/HashCode.toString:()Ljava/lang/String;
+      21: areturn
+
+  public java.lang.String toString();
+    Code:
+       0: new           #42                 // class java/lang/StringBuilder
+       3: dup
+       4: invokespecial #44                 // Method java/lang/StringBuilder."<init>":()V
+       7: astore_1
+       8: aload_1
+       9: ldc           #45                 // String <License ref:
+      11: invokevirtual #47                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      14: aload_0
+      15: invokevirtual #51                 // Method getId:()Ljava/lang/String;
+      18: invokevirtual #47                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      21: ldc           #54                 // String , text:
+      23: invokevirtual #47                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      26: aload_0
+      27: invokevirtual #13                 // Method getValue:()Ljava/lang/String;
+      30: invokevirtual #47                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      33: ldc           #56                 // String >
+      35: invokevirtual #47                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      38: pop
+      39: aload_1
+      40: invokevirtual #58                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      43: areturn
+
+  public int hashCode();
+    Code:
+       0: bipush        31
+       2: istore_1
+       3: iconst_1
+       4: istore_2
+       5: bipush        31
+       7: iload_2
+       8: imul
+       9: aload_0
+      10: invokevirtual #13                 // Method getValue:()Ljava/lang/String;
+      13: ifnonnull     20
+      16: iconst_0
+      17: goto          27
+      20: aload_0
+      21: invokevirtual #13                 // Method getValue:()Ljava/lang/String;
+      24: invokevirtual #59                 // Method java/lang/String.hashCode:()I
+      27: iadd
+      28: istore_2
+      29: bipush        31
+      31: iload_2
+      32: imul
+      33: aload_0
+      34: invokevirtual #51                 // Method getId:()Ljava/lang/String;
+      37: ifnonnull     44
+      40: iconst_0
+      41: goto          51
+      44: aload_0
+      45: invokevirtual #51                 // Method getId:()Ljava/lang/String;
+      48: invokevirtual #59                 // Method java/lang/String.hashCode:()I
+      51: iadd
+      52: istore_2
+      53: iload_2
+      54: ireturn
+
+  public boolean equals(java.lang.Object);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: if_acmpne     7
+       5: iconst_1
+       6: ireturn
+       7: aload_1
+       8: ifnonnull     13
+      11: iconst_0
+      12: ireturn
+      13: aload_1
+      14: instanceof    #14                 // class com/android/repository/api/License
+      17: ifne          22
+      20: iconst_0
+      21: ireturn
+      22: aload_1
+      23: checkcast     #14                 // class com/android/repository/api/License
+      26: astore_2
+      27: aload_0
+      28: invokevirtual #13                 // Method getValue:()Ljava/lang/String;
+      31: aload_2
+      32: invokevirtual #13                 // Method getValue:()Ljava/lang/String;
+      35: invokestatic  #63                 // Method com/google/common/base/Objects.equal:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      38: ifeq          59
+      41: aload_0
+      42: invokevirtual #51                 // Method getId:()Ljava/lang/String;
+      45: aload_2
+      46: invokevirtual #51                 // Method getId:()Ljava/lang/String;
+      49: invokestatic  #63                 // Method com/google/common/base/Objects.equal:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      52: ifeq          59
+      55: iconst_1
+      56: goto          60
+      59: iconst_0
+      60: ireturn
+
+  public boolean checkAccepted(java.nio.file.Path);
+    Code:
+       0: aload_1
+       1: ifnonnull     6
+       4: iconst_0
+       5: ireturn
+       6: aload_1
+       7: ldc           #69                 // String licenses
+       9: invokeinterface #71,  2           // InterfaceMethod java/nio/file/Path.resolve:(Ljava/lang/String;)Ljava/nio/file/Path;
+      14: astore_2
+      15: aload_2
+      16: aload_0
+      17: invokevirtual #51                 // Method getId:()Ljava/lang/String;
+      20: invokeinterface #71,  2           // InterfaceMethod java/nio/file/Path.resolve:(Ljava/lang/String;)Ljava/nio/file/Path;
+      25: astore_3
+      26: new           #77                 // class java/io/InputStreamReader
+      29: dup
+      30: aload_3
+      31: iconst_0
+      32: anewarray     #79                 // class java/nio/file/OpenOption
+      35: invokestatic  #81                 // Method com/android/io/CancellableFileIo.newInputStream:(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/InputStream;
+      38: invokespecial #87                 // Method java/io/InputStreamReader."<init>":(Ljava/io/InputStream;)V
+      41: astore        4
+      43: aload         4
+      45: invokestatic  #90                 // Method com/google/common/io/CharStreams.readLines:(Ljava/lang/Readable;)Ljava/util/List;
+      48: invokeinterface #96,  1           // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+      53: astore        5
+      55: aload         5
+      57: invokeinterface #102,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      62: ifeq          103
+      65: aload         5
+      67: invokeinterface #108,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      72: checkcast     #26                 // class java/lang/String
+      75: astore        6
+      77: aload         6
+      79: aload_0
+      80: invokevirtual #112                // Method getLicenseHash:()Ljava/lang/String;
+      83: invokevirtual #115                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      86: ifeq          100
+      89: iconst_1
+      90: istore        7
+      92: aload         4
+      94: invokevirtual #119                // Method java/io/InputStreamReader.close:()V
+      97: iload         7
+      99: ireturn
+     100: goto          55
+     103: aload         4
+     105: invokevirtual #119                // Method java/io/InputStreamReader.close:()V
+     108: goto          133
+     111: astore        5
+     113: aload         4
+     115: invokevirtual #119                // Method java/io/InputStreamReader.close:()V
+     118: goto          130
+     121: astore        6
+     123: aload         5
+     125: aload         6
+     127: invokevirtual #124                // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+     130: aload         5
+     132: athrow
+     133: goto          140
+     136: astore        4
+     138: iconst_0
+     139: ireturn
+     140: iconst_0
+     141: ireturn
+    Exception table:
+       from    to  target type
+          43    92   111   Class java/lang/Throwable
+         100   103   111   Class java/lang/Throwable
+         113   118   121   Class java/lang/Throwable
+          26    97   136   Class java/io/IOException
+         100   133   136   Class java/io/IOException
+
+  public boolean setAccepted(java.nio.file.Path);
+    Code:
+       0: aload_1
+       1: ifnonnull     6
+       4: iconst_0
+       5: ireturn
+       6: aload_0
+       7: aload_1
+       8: invokevirtual #130                // Method checkAccepted:(Ljava/nio/file/Path;)Z
+      11: ifeq          16
+      14: iconst_1
+      15: ireturn
+      16: aload_1
+      17: ldc           #69                 // String licenses
+      19: invokeinterface #71,  2           // InterfaceMethod java/nio/file/Path.resolve:(Ljava/lang/String;)Ljava/nio/file/Path;
+      24: astore_2
+      25: aload_2
+      26: iconst_0
+      27: anewarray     #134                // class java/nio/file/LinkOption
+      30: invokestatic  #136                // Method java/nio/file/Files.exists:(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z
+      33: ifeq          49
+      36: aload_2
+      37: iconst_0
+      38: anewarray     #134                // class java/nio/file/LinkOption
+      41: invokestatic  #142                // Method java/nio/file/Files.isDirectory:(Ljava/nio/file/Path;[Ljava/nio/file/LinkOption;)Z
+      44: ifne          49
+      47: iconst_0
+      48: ireturn
+      49: aload_2
+      50: iconst_0
+      51: anewarray     #145                // class java/nio/file/attribute/FileAttribute
+      54: invokestatic  #147                // Method java/nio/file/Files.createDirectories:(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
+      57: pop
+      58: aload_2
+      59: aload_0
+      60: invokevirtual #51                 // Method getId:()Ljava/lang/String;
+      63: invokeinterface #71,  2           // InterfaceMethod java/nio/file/Path.resolve:(Ljava/lang/String;)Ljava/nio/file/Path;
+      68: astore_3
+      69: aload_3
+      70: iconst_2
+      71: anewarray     #79                 // class java/nio/file/OpenOption
+      74: dup
+      75: iconst_0
+      76: getstatic     #151                // Field java/nio/file/StandardOpenOption.APPEND:Ljava/nio/file/StandardOpenOption;
+      79: aastore
+      80: dup
+      81: iconst_1
+      82: getstatic     #157                // Field java/nio/file/StandardOpenOption.CREATE:Ljava/nio/file/StandardOpenOption;
+      85: aastore
+      86: invokestatic  #160                // Method java/nio/file/Files.newOutputStream:(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/OutputStream;
+      89: astore        4
+      91: aload         4
+      93: ldc           #164                // String %n%s
+      95: iconst_1
+      96: anewarray     #2                  // class java/lang/Object
+      99: dup
+     100: iconst_0
+     101: aload_0
+     102: invokevirtual #112                // Method getLicenseHash:()Ljava/lang/String;
+     105: aastore
+     106: invokestatic  #166                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+     109: invokevirtual #170                // Method java/lang/String.getBytes:()[B
+     112: invokevirtual #173                // Method java/io/OutputStream.write:([B)V
+     115: aload         4
+     117: ifnull        155
+     120: aload         4
+     122: invokevirtual #179                // Method java/io/OutputStream.close:()V
+     125: goto          155
+     128: astore        5
+     130: aload         4
+     132: ifnull        152
+     135: aload         4
+     137: invokevirtual #179                // Method java/io/OutputStream.close:()V
+     140: goto          152
+     143: astore        6
+     145: aload         5
+     147: aload         6
+     149: invokevirtual #124                // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+     152: aload         5
+     154: athrow
+     155: goto          161
+     158: astore_3
+     159: iconst_0
+     160: ireturn
+     161: iconst_1
+     162: ireturn
+    Exception table:
+       from    to  target type
+          91   115   128   Class java/lang/Throwable
+         135   140   143   Class java/lang/Throwable
+          49   155   158   Class java/io/IOException
+
+  public int compareTo(com.android.repository.api.License);
+    Code:
+       0: invokedynamic #180,  0            // InvokeDynamic #0:apply:()Ljava/util/function/Function;
+       5: invokestatic  #184                // InterfaceMethod java/util/Comparator.comparing:(Ljava/util/function/Function;)Ljava/util/Comparator;
+       8: invokedynamic #190,  0            // InvokeDynamic #1:apply:()Ljava/util/function/Function;
+      13: invokeinterface #191,  2          // InterfaceMethod java/util/Comparator.thenComparing:(Ljava/util/function/Function;)Ljava/util/Comparator;
+      18: aload_0
+      19: aload_1
+      20: invokeinterface #194,  3          // InterfaceMethod java/util/Comparator.compare:(Ljava/lang/Object;Ljava/lang/Object;)I
+      25: ireturn
+
+  public int compareTo(java.lang.Object);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: checkcast     #14                 // class com/android/repository/api/License
+       5: invokevirtual #198                // Method compareTo:(Lcom/android/repository/api/License;)I
+       8: ireturn
+}

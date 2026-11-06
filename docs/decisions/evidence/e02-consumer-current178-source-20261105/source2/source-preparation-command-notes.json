@@ -1,0 +1,30 @@
+{
+  "schema": "e02-consumer-current178-source2-command-notes-v1",
+  "actor": "/root/consumer_current178_source",
+  "generation": [
+    {
+      "command": "python source2/prepare_source.py",
+      "chunk": "9c08ce",
+      "exitCode": 0
+    },
+    {
+      "command": "python source2/prepare_bundle.py",
+      "chunk": "be7036",
+      "exitCode": 0
+    }
+  ],
+  "other": [
+    {
+      "command": "git status --short --branch",
+      "exitCode": 128,
+      "reason": "No usable .git exposed; no Git mutation."
+    },
+    {
+      "command": "stdlib AST/pin/Source1 preservation inspection",
+      "exitCode": 0
+    }
+  ],
+  "targetImports": 0,
+  "modelsExecuted": 0,
+  "source1HoldPreserved": true
+}

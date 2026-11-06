@@ -1,0 +1,41 @@
+{
+  "actor": "/root",
+  "evidenceType": "TERMINAL_LOG_OBSERVATION_NOT_ARTIFACT_QUALIFICATION",
+  "observedTaskCompletions": [
+    {
+      "task": ":quartz:compileAndroidMain",
+      "line": "i: Finished executing kotlin compiler using IN_PROCESS strategy"
+    },
+    {
+      "task": ":quic:compileAndroidMain",
+      "line": "i: Finished executing kotlin compiler using IN_PROCESS strategy"
+    },
+    {
+      "task": ":nestsClient:compileAndroidMain",
+      "line": "i: Finished executing kotlin compiler using IN_PROCESS strategy"
+    },
+    {
+      "task": ":commons:compileAndroidMain",
+      "line": "i: Finished executing kotlin compiler using IN_PROCESS strategy"
+    },
+    {
+      "task": ":commonsUI:compileAndroidMain",
+      "line": "i: Finished executing kotlin compiler using IN_PROCESS strategy"
+    },
+    {
+      "task": ":marmotQuic:compileAndroidMain",
+      "line": "i: Finished executing kotlin compiler using IN_PROCESS strategy"
+    },
+    {
+      "task": ":nappletHost:compileDebugKotlin",
+      "line": "i: Finished executing kotlin compiler using IN_PROCESS strategy"
+    },
+    {
+      "task": ":amethyst:compileFdroidDebugKotlin",
+      "line": "i: Finished executing kotlin compiler using IN_PROCESS strategy"
+    }
+  ],
+  "livePrefixRejoined": true,
+  "buildSuccessfulMarkerPresent": false,
+  "meaning": "Compiler invocations report IN_PROCESS completion; whole container timed out during later DEX work, no APK qualified. Does not assert independent compiler correctness or resource peak."
+}

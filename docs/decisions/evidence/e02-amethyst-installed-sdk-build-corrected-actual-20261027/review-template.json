@@ -1,0 +1,137 @@
+{
+  "schema": "nbdp-amethyst-one-build-dispatch-template-v1",
+  "actor": "/root",
+  "decision": "AUTHORIZE_ONE_FIXED_AMETHYST_BUILD_DISPATCH",
+  "expectedOutput": "/Data/nbdp-e02-tooling-20261027/amethyst-build-r4/controller/attempt-183d768051b94b529adbfb27e7be9b16",
+  "release": {
+    "schema": "nbdp-amethyst-build-only-root-release-v1",
+    "actor": "/root",
+    "executionAuthorized": true,
+    "scope": "FIXED_AMETHYST_BUILD_ONLY",
+    "runId": "183d768051b94b529adbfb27e7be9b16",
+    "issuedAtUtcNs": null,
+    "notAfterUtcNs": null,
+    "supervisorSubject": {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/supervisor-source/subject.json",
+      "bytes": 3157,
+      "sha256": "88e70f471849a612e66306ca9b0d9b3dd091a9b408ddbda605f0cd5dde265730"
+    },
+    "buildPreparationSubject": {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/preparation/subject.json",
+      "bytes": 3211,
+      "sha256": "b32b47011c79409a6e46edd6c51aefc6723ac22a9188590405c414960751dc8a"
+    },
+    "sourceReviews": [
+      {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-correction-20261027/source-qa.json",
+        "bytes": 984,
+        "sha256": "da4cf87089aac88c67aefafea7b619d86461a486e6aee8d24a9b4dd34345a6f2"
+      },
+      {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-correction-20261027/source-security.json",
+        "bytes": 1082,
+        "sha256": "f88ba19c6ec7fef98826372c17f13e31edec8bbbaf739a319eedc49dd27ac660"
+      }
+    ],
+    "prerequisiteAcceptances": [
+      {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/acceptance.json",
+        "bytes": 1369,
+        "sha256": "e33c4fb753622d1195b21db5f5eb45b28216ad10e9d8657da38fcd118957b143"
+      },
+      {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-installed-data-actual-20261027/acceptance.json",
+        "bytes": 4224,
+        "sha256": "19458f67876206388d808508c5ac9fdd2af86e1b3c00a174386b1b61be6a529a"
+      },
+      {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-model-actual-20261027/acceptance.json",
+        "bytes": 881,
+        "sha256": "c9bab6b065c0f07c4c92924b14d3cf56798589590d16d94ff33b52503a02a35f"
+      },
+      {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-command3-model-actual-20261027/acceptance.json",
+        "bytes": 1131,
+        "sha256": "697556206ee1d68912b5ba33d1ee296bbd18d50588fabacce7d83ab7e0e8aaf3"
+      }
+    ],
+    "sourceArchive": {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/source.tar",
+      "bytes": 345579520,
+      "sha256": "a2b4b590456e5fc78dccbcbd5d732127b3f1280812bf4734ee2d741dfcf3cf75"
+    },
+    "sourceArchiveReceipt": {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/source-archive.json",
+      "bytes": 664,
+      "sha256": "ee9f42d3b1af79b49d41ae7673fdd1176aadd20e3abcd37fa43dfb4c8a38c6e0"
+    },
+    "networkId": "acf4c0e2d847dedb7841a18c0713ba9b58ad680d686c2d43d95612f54ff6ff9b",
+    "networkLabels": {
+      "nbdp.owner": "e02-amethyst-rebuild-20261026",
+      "nbdp.scope": "isolated-build-bootstrap"
+    },
+    "meaning": "One fresh isolated command-corrected artifact build only; exact -x spotlessApply -x :installGitHook, unchanged guards/resources/readonly SDK; actual artifact/lifecycle review required. No retry/client/canonical promotion.",
+    "jdkExtraction": {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/acquisition/jdk-extraction.json",
+      "bytes": 178456,
+      "sha256": "a2547e5989af52335e1a03d853797e0e1efa57b55d782214620ee56ca80b0db2"
+    },
+    "installedSdkInventory": {
+      "path": "/Data/nbdp-e02-tooling-20261027/sdk-data-preparation-r1/attempt-r1/sdk-inventory.json",
+      "bytes": 4909049,
+      "sha256": "5ed617a850f06d936a602a0b18cab36adb8438b752c36f892e1526eb177dadf2"
+    },
+    "installedSdkMetadata": {
+      "path": "/Data/nbdp-e02-tooling-20261027/sdk-data-preparation-r1/attempt-r1/metadata.json",
+      "bytes": 7867,
+      "sha256": "bcc7f37128e751d7a0e47705de87e8d1e4d1d5dd6e4972ee8667bbd5c79c4744"
+    },
+    "installedSdkConsent": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-install-actual-20261027-r5/sdk-consent.json",
+      "bytes": 2294,
+      "sha256": "afafd5bfb5054aa129458a35ab0352348a4980f1936d41c2f1c624ce093d8342"
+    },
+    "installedSdkAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-installed-data-actual-20261027/acceptance.json",
+      "bytes": 4224,
+      "sha256": "19458f67876206388d808508c5ac9fdd2af86e1b3c00a174386b1b61be6a529a"
+    }
+  },
+  "metadata": [
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/subject.json",
+      "bytes": 11224,
+      "sha256": "1b87443f5a8c76b2f511076cd50d5c13d79b425ed593eec384b6ee6824714ca8"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/materializer-source/subject.json",
+      "bytes": 2724,
+      "sha256": "c61fc000634ddc304b4cf16ab05cb0b9d6787bd56339c9060b00fca9a9853aa5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-command3-model-actual-20261027/result.json",
+      "bytes": 19243,
+      "sha256": "2cc1b669bfd40cd86d5b6b43348afed4cf53b27292d047854ee278085a77970a"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-corrected-actual-20261027/runtime-parent-skeleton.json",
+      "bytes": 1114,
+      "sha256": "99b5c39c33d006a50dcf8b0fa20577a54face6b6331a09f63fd52a24c0f4bb27"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-corrected-actual-20261027/sdk-uid-observation.json",
+      "bytes": 590,
+      "sha256": "25b81127249129c69dcd1d3b2f174b450fa3a440967c7d906dd3fea148288faa"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-actual-20261027/failure-acceptance.json",
+      "bytes": 3705,
+      "sha256": "f56932a850f6e149f0c3a39de3e980f3e3df40b6aadf3e04c59b05b69c73d1a1"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-correction-20261027/method-adoption.json",
+      "bytes": 2611,
+      "sha256": "44335bb21881e36b1116b04c84b7560996ef338a39eeb9302f047659437d0e95"
+    }
+  ]
+}

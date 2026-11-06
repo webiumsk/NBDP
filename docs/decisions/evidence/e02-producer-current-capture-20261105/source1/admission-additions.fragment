@@ -1,0 +1,97 @@
+
+ def _actual7_origin(self,request,yielded=False):
+  frame=dict(toolName='tools.exec_command',actualArguments=copy.deepcopy(request),unmodifiedResponse=dict(exit_code=0,output='MOCK_REQUEST7'))
+  origin=dict(schema='e02-actual-tool-custody-v1',operator='/root/mock-operator',launch=frame,polls=[])
+  if yielded:
+   frame['unmodifiedResponse']=dict(session_id=19,output='MOCK_')
+   origin['polls']=[dict(toolName='tools.write_stdin',actualArguments=dict(session_id=19,chars='',yield_time_ms=1000,max_output_tokens=2000),unmodifiedResponse=dict(exit_code=0,output='REQUEST7'))]
+  return origin
+ def test_actual7_direct_and_yielded_keep_both_policy_fields(self):
+  f=fixture();request=c.expected_request(f['plan'],'a'*64,'/MOCK/capture')
+  self.assertEqual(set(request),set(c.REQUEST_KEYS));self.assertEqual(request['sandbox_permissions'],'require_escalated');self.assertEqual(request['justification'],c.REQUEST_POLICY['justification'])
+  for yielded in (False,True):self.assertEqual(c.validate_origin(self._actual7_origin(request,yielded),request,f['ack']['operators']),'MOCK_REQUEST7')
+ def test_actual7_missing_or_changed_policy_is_not_projected_to_five(self):
+  f=fixture();expected=c.expected_request(f['plan'],'a'*64,'/MOCK/capture')
+  for key in ('sandbox_permissions','justification'):
+   for mutation in ('missing','changed','null'):
+    request=copy.deepcopy(expected)
+    if mutation=='missing':del request[key]
+    else:request[key]='CHANGED_POLICY' if mutation=='changed' else None
+    for yielded in (False,True):
+     with self.subTest(key=key,mutation=mutation,yielded=yielded),self.assertRaises(ValueError):c.validate_origin(self._actual7_origin(request,yielded),expected,f['ack']['operators'])
+    with self.assertRaises(ValueError):c.validate_origin(self._actual7_origin(request),request,f['ack']['operators'])
+ def test_actual7_extra_shell_tty_prefix_and_unknown_fields_refused(self):
+  f=fixture();expected=c.expected_request(f['plan'],'a'*64,'/MOCK/capture')
+  for key,value in [('shell','/bin/bash'),('tty',False),('prefix_rule',['python']),('extra',False)]:
+   request={**expected,key:value}
+   with self.subTest(key=key),self.assertRaises(ValueError):c.validate_origin(self._actual7_origin(request),expected,f['ack']['operators'])
+ def test_actual7_quoted_sha_is_refused_even_when_shell_argv_equal(self):
+  import shlex
+  f=fixture();sha='a'*64;expected=c.expected_request(f['plan'],sha,'/MOCK/capture');quoted=dict(expected)
+  quoted['cmd']=expected['cmd'][:-len(sha)]+"'"+sha+"'"
+  self.assertEqual(shlex.split(quoted['cmd']),shlex.split(expected['cmd']))
+  with self.assertRaises(ValueError):c.validate_origin(self._actual7_origin(quoted),expected,f['ack']['operators'])
+ def test_actual_request_from_plan_serializes_full_actual7_dictionary(self):
+  import runpy
+  f=fixture();fake=types.ModuleType('capture');fake.HERE=pathlib.Path('/MOCK/capture');fake.CURRENT_PRODUCER_SOURCE=f['ack']['producerSource'];fake.CURRENT_PRODUCER_ACCEPTANCE=f['ack']['producerSourceAcceptance'];fake.require_runtime_ready=lambda:None;fake.descriptor=lambda path:dict(path=str(path),bytes=1,sha256='a'*64)
+  with patch.dict(sys.modules,{'capture':fake}),patch.object(inputs,'metadata',side_effect=[f['ack'],f['plan']]),patch('builtins.print') as printed:
+   namespace=runpy.run_path(str(pathlib.Path(__file__).resolve().parent/'request-from-plan.py'),run_name='REQUEST_GENERATOR_MOCK_SOURCE')
+   namespace['main'](['--root-ack','/MOCK/issued-ack.json'])
+  value=json.loads(printed.call_args.args[0]);self.assertEqual(value,c.expected_request(f['plan'],'a'*64,'/MOCK/capture'));self.assertEqual(set(value),set(c.REQUEST_KEYS))
+ def _expected_authority_fixture(self):
+  import input_authority as a
+  rows=[dict(pin=p('baseline/%04d'%i),mode=420,role='BASELINE_READ',origin='MOCK_DECLARATION') for i in range(2175)]
+  removed=[dict(before=row) for row in rows[:6]];retained=rows[6:];extra=dict(pin=p('new/current'),mode=384,role='METADATA_AUTHORITY',origin='MOCK_CURRENT')
+  side=p('new/authority.json');coverage=dict(retained=[retained[0]['pin']],current=[extra['pin']])
+  baseline=dict(files=rows,actualInputCount=2175,fullTrees=['MOCK_SDK_GUARD'],nodeDependencies=['MOCK_NODE'])
+  authority=dict(schema='e02-producer4-current-expected-input-authority-v1',baselineManifest=p('baseline/manifest.json'),baselineRowCount=2175,supersessions=removed,retainedRowCount=2169,retainedRowsSha256=a.retained_digest(retained),additionalRows=[extra],projectedRowCountExcludingSelf=2170,selfMode=384,coverage=coverage,wholeInputQualified=False,executionAuthorized=False)
+  manifest=dict(baselineInputAuthority=authority['baselineManifest'],currentExpectedInputAuthority=side,files=retained+[extra,dict(pin=side,mode=384,role='METADATA_AUTHORITY',origin='CURRENT_FINITE_EXPECTED_INPUT_AUTHORITY')],actualInputCount=2171,requiredCoverage={**coverage,'currentExpectedInputAuthority':[side]},fullTrees=baseline['fullTrees'],nodeDependencies=baseline['nodeDependencies'])
+  return a,authority,baseline,manifest
+ def test_expected_authority_exact2169_projection_and_membership_preserved(self):
+  a,authority,baseline,manifest=self._expected_authority_fixture();self.assertEqual(a.validate_expected_authority(authority,baseline,manifest),2171)
+  for mutate in (lambda x:x['files'].pop(),lambda x:x['files'][0].__setitem__('mode',384),lambda x:x.__setitem__('nodeDependencies',['CHANGED'])):
+   changed=copy.deepcopy(manifest);mutate(changed)
+   with self.assertRaises(ValueError):a.validate_expected_authority(authority,baseline,changed)
+ def test_expected_authority_duplicate_path_conflict_and_removed_alias_refused(self):
+  a,authority,baseline,manifest=self._expected_authority_fixture()
+  for row in (manifest['files'][0],baseline['files'][0],authority['additionalRows'][0]):
+   changed=copy.deepcopy(authority);changed['additionalRows'].append(copy.deepcopy(row))
+   with self.assertRaises(ValueError):a.validate_expected_authority(changed,baseline,manifest)
+ def test_expected_authority_coverage_cannot_dangle_or_reintroduce_removed_read(self):
+  a,authority,baseline,manifest=self._expected_authority_fixture()
+  for pin in (p('UNKNOWN'),baseline['files'][0]['pin']):
+   changed=copy.deepcopy(authority);value=copy.deepcopy(manifest);changed['coverage']['current']=[pin];value['requiredCoverage']['current']=[pin]
+   with self.assertRaises(ValueError):a.validate_expected_authority(changed,baseline,value)
+
+ def test_actual7_direct_and_yielded_argument_types_refuse_python_aliases(self):
+  f=fixture();expected=c.expected_request(f['plan'],'a'*64,'/MOCK/capture')
+  for key,value in [('login',0),('yield_time_ms',1000.0),('max_output_tokens',2000.0),('cmd',[]),('workdir',None)]:
+   changed={**expected,key:value}
+   for yielded in (False,True):
+    with self.subTest(key=key,yielded=yielded),self.assertRaises(ValueError):c.validate_origin(self._actual7_origin(changed,yielded),expected,f['ack']['operators'])
+  small={**expected,'yield_time_ms':1};changed={**small,'yield_time_ms':True}
+  for yielded in (False,True):
+   with self.assertRaises(ValueError):c.validate_origin(self._actual7_origin(changed,yielded),small,f['ack']['operators'])
+ def test_poll_session_yield_token_and_chars_keep_declared_json_types(self):
+  f=fixture();expected=c.expected_request(f['plan'],'a'*64,'/MOCK/capture')
+  for key,value in [('session_id',19.0),('yield_time_ms',1000.0),('max_output_tokens',2000.0),('chars',None),('yield_time_ms',True)]:
+   origin=self._actual7_origin(expected,True);origin['polls'][0]['actualArguments'][key]=value
+   with self.subTest(key=key,value=value),self.assertRaises(ValueError):c.validate_origin(origin,expected,f['ack']['operators'])
+  origin=self._actual7_origin(expected,True);origin['launch']['unmodifiedResponse']['session_id']=1;origin['polls'][0]['actualArguments']['session_id']=True
+  with self.assertRaises(ValueError):c.validate_origin(origin,expected,f['ack']['operators'])
+ def test_terminal_exit_and_response_session_refuse_bool_float_aliases(self):
+  f=fixture();expected=c.expected_request(f['plan'],'a'*64,'/MOCK/capture')
+  for yielded in (False,True):
+   for value in (False,0.0):
+    origin=self._actual7_origin(expected,yielded);frame=origin['polls'][-1] if yielded else origin['launch'];frame['unmodifiedResponse']['exit_code']=value
+    with self.subTest(yielded=yielded,value=value),self.assertRaises(ValueError):c.validate_origin(origin,expected,f['ack']['operators'])
+  origin=self._actual7_origin(expected,True);origin['polls'][0]['unmodifiedResponse']['session_id']=19.0
+  with self.assertRaises(ValueError):c.validate_origin(origin,expected,f['ack']['operators'])
+  origin=self._actual7_origin(expected,True);origin['launch']['unmodifiedResponse']['session_id']=1;origin['polls'][0]['actualArguments']['session_id']=1;origin['polls'][0]['unmodifiedResponse']['session_id']=True
+  with self.assertRaises(ValueError):c.validate_origin(origin,expected,f['ack']['operators'])
+ def test_canonical_request_and_origin_checks_leave_original_objects_unchanged(self):
+  f=fixture();expected=c.expected_request(f['plan'],'a'*64,'/MOCK/capture');origin=self._actual7_origin(expected,True);before=copy.deepcopy(origin);expected_before=copy.deepcopy(expected)
+  self.assertEqual(c.validate_origin(origin,expected,f['ack']['operators']),'MOCK_REQUEST7');self.assertEqual(origin,before);self.assertEqual(expected,expected_before)
+  self.assertNotEqual(json.dumps({'login':False}),json.dumps({'login':0}))
+  with self.assertRaises(ValueError):c.canonical_request({**expected,'login':0})
+

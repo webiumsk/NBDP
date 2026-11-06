@@ -1,0 +1,44 @@
+{
+  "schema": "e02-minimum-consumer-capture-ast-diff-v1",
+  "previousMonitor": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/current-controls-r1/capture-controls.py",
+    "bytes": 13851,
+    "sha256": "8fc0b86374f7ed5e13ac51bdd9374035fe828c18301f5d32ea6907d6c9b90c9b"
+  },
+  "currentMonitor": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r2/current-controls-r1/capture-controls.py",
+    "bytes": 13914,
+    "sha256": "5d5161126ef34914812c26bb7d0c560b173bd7fa8287a0d9ed875287b26e47ff"
+  },
+  "byteEqual": false,
+  "astParsedOnly": true,
+  "functionsUnchanged": [
+    "utc"
+  ],
+  "functionsChanged": [
+    "pin",
+    "save",
+    "snapshot",
+    "main"
+  ],
+  "functionsRemoved": [
+    "descriptor_closure",
+    "output_shape",
+    "one"
+  ],
+  "functionsAdded": [
+    "strict",
+    "doc"
+  ],
+  "declaredDeltas": [
+    "Five Python/Node scopes reduced to exact one Python86 DATA scope; same60s deadline.",
+    "Exact frozen stdout1MiB/stderr256KiB post-capture retention; no streaming-memory cap claim.",
+    "Only owned direct Popen.kill on failure, no process-group signal; suite has no subprocess/service effects.",
+    "Externally hash-bound root acknowledgement and actual accepted same-source nonauthor reviews required.",
+    "Full frozen current consumer/producer/protected inputs and interpreter/monitor/reviews/rootack checked before/after.",
+    "CaptureMatched is mechanical; author never issues independent control acceptance.",
+    "Coordinator-assigned current-controls-r1 storage replaces unexecuted template actual-controls path, no source-plan edit."
+  ],
+  "helperImported": false,
+  "testsExecuted": 0
+}

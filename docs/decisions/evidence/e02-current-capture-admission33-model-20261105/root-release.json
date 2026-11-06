@@ -1,0 +1,100 @@
+{
+  "schema": "e02-root-current-pure-model-one-use-release-v1",
+  "actor": "/root",
+  "decision": "AUTHORIZE_ONE_FULL_CURRENT_MOCK_MODEL_BATCH_ONLY",
+  "source": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/capture/code-subject.json",
+    "bytes": 8987,
+    "sha256": "1a2bfdc92a68270d0712d7ad0f2107d407847c633d78869cdb0ed09bd343a719"
+  },
+  "sourceAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-review-20261105/acceptance.json",
+    "bytes": 1403,
+    "sha256": "4c162f496912bcd9b8b96ca4f4468306265ca6d51a0d879825693067930ea762"
+  },
+  "controlPlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/capture/admission-plan.json",
+    "bytes": 3751,
+    "sha256": "3c954e944200c991c97d9680f9c32477aaf1c4faf6eca4141bf72dc5d0afb388"
+  },
+  "inputsBefore": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-capture-admission33-model-20261105/before.json",
+    "bytes": 63488,
+    "sha256": "a10a8285204800d57e263eccd1e7e29dee5f43ae1ea94192ec5f61c706df7165"
+  },
+  "runner": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/capture/test_admission.py",
+    "bytes": 31078,
+    "sha256": "8a377b034864811f047771a94a819fa1c7d3d192595802be7369f24ad42b8962"
+  },
+  "tools": {
+    "python": {
+      "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "bytes": 32959480,
+      "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+    },
+    "timeout": {
+      "path": "/usr/bin/timeout",
+      "bytes": 39880,
+      "sha256": "12690a043dfd555a6c14ccc1564f5649c18f1762c0d6ff66729948130898ec52"
+    },
+    "env": {
+      "path": "/usr/bin/env",
+      "bytes": 48072,
+      "sha256": "886e5fa8be716b03eeda48856e0f04493f2969fc148fb7812594ffac647fa050"
+    }
+  },
+  "modelsDefined": 33,
+  "expectedCaseNames": [
+    "AdmissionDefinitions.test_mock_complete_contract_and_overlay_model_cwd",
+    "AdmissionDefinitions.test_null_unknown_and_predecessor_source_refused",
+    "AdmissionDefinitions.test_exact_decisions_counts_and_source_subject",
+    "AdmissionDefinitions.test_full_union_closed_before_first_review_pair",
+    "AdmissionDefinitions.test_swapped_scope_file_count_missing_input_and_wrong_clocks",
+    "AdmissionDefinitions.test_exact_five_key_direct_and_same_session_original_api",
+    "AdmissionDefinitions.test_source_parser_extra_keys_wrong_count_skip_and_missing_eof",
+    "AdmissionDefinitions.test_shared_snapshot480_and_full_child60_plus3_admission",
+    "AdmissionDefinitions.test_one_absolute_reap_deadline_and_fault_signal_before_reap",
+    "AdmissionDefinitions.test_selector_failure_never_spawns_and_shortprefix_never_repairs",
+    "AdmissionDefinitions.test_expected_hash_before_read_result_not_self_certified_baseline",
+    "AdmissionDefinitions.test_unbound_entry_refuses_before_any_target_metadata",
+    "AdmissionDefinitions.test_exact_guard123_schema_and_mutations",
+    "AdmissionDefinitions.test_exact_registered_transport33_schema_and_mutations",
+    "AdmissionDefinitions.test_exact_allocation29_schema_and_mutations",
+    "AdmissionDefinitions.test_exact_controller16_schema_and_mutations",
+    "AdmissionDefinitions.test_exact_observation20_schema_and_mutations",
+    "AdmissionDefinitions.test_each_eleven_known_helpers_rejected_in_each_six_review_slots",
+    "AdmissionDefinitions.test_missing_required_actor_authority_schema_and_context_refused",
+    "AdmissionDefinitions.test_execute_timeout_first_cause_and_post_snapshot_secondary",
+    "AdmissionDefinitions.test_execute_retention_first_cause_and_post_snapshot_secondary",
+    "AdmissionDefinitions.test_actual7_direct_and_yielded_keep_both_policy_fields",
+    "AdmissionDefinitions.test_actual7_missing_or_changed_policy_is_not_projected_to_five",
+    "AdmissionDefinitions.test_actual7_extra_shell_tty_prefix_and_unknown_fields_refused",
+    "AdmissionDefinitions.test_actual7_quoted_sha_is_refused_even_when_shell_argv_equal",
+    "AdmissionDefinitions.test_actual_request_from_plan_serializes_full_actual7_dictionary",
+    "AdmissionDefinitions.test_expected_authority_exact2169_projection_and_membership_preserved",
+    "AdmissionDefinitions.test_expected_authority_duplicate_path_conflict_and_removed_alias_refused",
+    "AdmissionDefinitions.test_expected_authority_coverage_cannot_dangle_or_reintroduce_removed_read",
+    "AdmissionDefinitions.test_actual7_direct_and_yielded_argument_types_refuse_python_aliases",
+    "AdmissionDefinitions.test_poll_session_yield_token_and_chars_keep_declared_json_types",
+    "AdmissionDefinitions.test_terminal_exit_and_response_session_refuse_bool_float_aliases",
+    "AdmissionDefinitions.test_canonical_request_and_origin_checks_leave_original_objects_unchanged"
+  ],
+  "actualRequest": {
+    "cmd": "set -C\numask 077\nexec /usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 TZ=UTC /usr/bin/timeout --signal=TERM --kill-after=2s 60s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/capture/test_admission.py > /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-capture-admission33-model-20261105/stdout.log 2> /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-capture-admission33-model-20261105/stderr.log",
+    "workdir": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/capture",
+    "login": false,
+    "yield_time_ms": 1000,
+    "max_output_tokens": 2000
+  },
+  "issuedAtUtcMillis": 1793849438912,
+  "notAfterUtcMillis": 1793850038912,
+  "maximumInvocations": 1,
+  "maximumModelSeconds": 60,
+  "terminationGraceSeconds": 2,
+  "noAutomaticRetry": true,
+  "operationalCollectorAuthorized": false,
+  "producerControlsAuthorized": false,
+  "helperRoleRuntimeAuthorized": false,
+  "limits": "Synthetic unittest/model scope only. Root must preserve actual complete foreground responses/raw streams and unchanged inputs. No inner PID/reap/EOF attestation."
+}

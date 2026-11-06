@@ -1,0 +1,41 @@
+{
+  "schema": "e02-producer4-budget-source-finding-v1",
+  "recordedBy": "/root/producer4_nonblocking_source",
+  "finding": "MEDIUM_CONTROLLER_RPC_AUDIT_NOT_PRECHARGED_TO_ADOPTED16MIB",
+  "independentReviewActor": "/root/r5s3_fresh_security_633357df4a935397d8757b93be9d8be0e",
+  "actualObservedFindingVersions": [
+    "fixture40777/dcac9a65...",
+    "guard-client8610/6252ca42...",
+    "capture-budget3474/6d3ba9a2..."
+  ],
+  "retainedCurrentVersionCopies": [
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/fixture.mjs",
+      "bytes": 40777,
+      "sha256": "dcac9a65c8576bea793456947d2d9cd6d793798adc3a6acbfe93d83ff9011042",
+      "copy": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/anticipatory-budget-baseline/fixture.mjs"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/guard-client.mjs",
+      "bytes": 8610,
+      "sha256": "6252ca42301a49fdc843f640975754bb5abc8daabf2cf022c44a30c387793267",
+      "copy": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/anticipatory-budget-baseline/guard-client.mjs"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/capture-budget.mjs",
+      "bytes": 3474,
+      "sha256": "6d3ba9a24716e9f770cbfc5933454854eb4dd6530f7c886026f418e7f971c1f1",
+      "copy": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/anticipatory-budget-baseline/capture-budget.mjs"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/supervisor.py",
+      "bytes": 50524,
+      "sha256": "1823637444fd76ecd070e6d764847d48318ec233f2c69c8bf4f35ed42f8a0d2a",
+      "copy": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/anticipatory-budget-baseline/supervisor.py"
+    }
+  ],
+  "copyLimit": "Current copies are exact only for recorded current rows, not a reconstructed claim for any superseded full client source.",
+  "sourceProblem": "Controller returns before servebudgetcreation and keeps separate1MiB audit\u2192stdout; adopted anyaddedRPC evidence rule not enforced. Separatecommandcap/posthocsum is insufficient.",
+  "remediation": "Pending Root+SEC SOURCE method addendum, proposed finite precharged partition within original16MiB. No implementation or acceptance inferred.",
+  "modelsExecuted": 0
+}

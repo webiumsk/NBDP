@@ -1,0 +1,34 @@
+    def verify_raw(self, descriptor):
+        """Stream one explicitly named HOST RAW pin, <=2GiB; never parse it.
+
+        Parsed JSON admission remains16MiB and all existing read() ceilings stay
+        unchanged. This method is for the typed helper-probe proof member list.
+        """
+        self.visits+=1;need(self.visits<=250000,'DESCRIPTOR_VISITS_BOUND')
+        closed(descriptor,'path bytes sha256');integer(descriptor['bytes'],0,2147483648);hx(descriptor['sha256'])
+        p=Path(text(descriptor['path'],4096))
+        need(p.is_absolute() and str(p)==descriptor['path'] and '..' not in p.parts
+             and any(p.is_relative_to(root) for root in self.roots),'EXPLICIT_HOST_RAW_PIN')
+        prior=self.pins.get(str(p),self.raw_pins.get(str(p)))
+        need(prior is None or same(prior,descriptor),'PIN_DRIFT')
+        need(prior is not None or (len(set(self.pins)|set(self.raw_pins))<20000 and self.total+descriptor['bytes']<=536870912),'GRAPH_BOUND')
+        fd=os.open('/',os.O_RDONLY|os.O_DIRECTORY)
+        try:
+            for component in p.parts[1:-1]:
+                newfd=os.open(component,os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW,dir_fd=fd);os.close(fd);fd=newfd
+            filefd=os.open(p.name,os.O_RDONLY|os.O_NOFOLLOW|os.O_NONBLOCK,dir_fd=fd)
+        finally:os.close(fd)
+        digest=hashlib.sha256();size=0
+        identity=lambda s:(s.st_dev,s.st_ino,s.st_mode,s.st_uid,s.st_gid,s.st_size,s.st_mtime_ns,s.st_ctime_ns)
+        with os.fdopen(filefd,'rb') as stream:
+            before=os.fstat(stream.fileno());need(stat.S_ISREG(before.st_mode) and before.st_size==descriptor['bytes'],'REGULAR_RAW_SIZE')
+            while True:
+                chunk=stream.read(1048576)
+                if not chunk:break
+                size+=len(chunk);need(size<=descriptor['bytes'],'RAW_READ_BOUND');digest.update(chunk)
+            after=os.fstat(stream.fileno())
+        need(identity(before)==identity(after)==identity(p.lstat()) and size==descriptor['bytes'] and digest.hexdigest()==descriptor['sha256'],'RAW_EXPECTED_PIN_IDENTITY_DRIFT')
+        if prior is None:self.total+=size
+        self.raw_pins[str(p)]=dict(descriptor)
+        return size
+

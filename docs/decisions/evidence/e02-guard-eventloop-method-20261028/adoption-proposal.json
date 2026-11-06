@@ -1,0 +1,104 @@
+{
+  "schema": "e02-guard-eventloop-method-proposal-v1",
+  "author": "/root/completion3_final",
+  "state": "PENDING_ROOT_AND_INDEPENDENT_SECURITY_METHOD_REVIEW",
+  "actualEvidence": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-guard-eventloop-method-20261028/actual-evidence.json",
+    "bytes": 9070,
+    "sha256": "0db1aa5e0543c5bea14a28ae2a094e5987458910ca84a554681356d0d63a9f01"
+  },
+  "contract": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-guard-eventloop-method-20261028/CONTRACT.md",
+    "bytes": 14014,
+    "sha256": "84420a9983e57676cfd40bb74fb11608728c04cce234a45e42caf4f581c4bf89"
+  },
+  "effectPointMap": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-guard-eventloop-method-20261028/effect-point-map.json",
+    "bytes": 15520,
+    "sha256": "cf7e53d9bfeddf24ff4f3d3c2f009054b49aad00e74aa6d5a3c8ca686b3f987d"
+  },
+  "requiredControlVectors": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-guard-eventloop-method-20261028/required-control-vectors.json",
+    "bytes": 6640,
+    "sha256": "e5771761d0af71973a1bd525c112855148af2773449bd08a1318285f76db3402"
+  },
+  "recommended": "FiniteownedpersistentPythonhelperperfixtureNodeprocess, exactbyteidenticalLease.checkperrequest; awaitednonblockingguardedshortcontinuationswithimmediateterminalfences",
+  "alternatives": [
+    {
+      "method": "Awaitedasyncone-shotPythoncheck",
+      "tradeoff": "Smallerstate/protocolchangebutretainscoldstartupcostandcannotguaranteesufficientburstthroughput; originaltimeoutsstillnegative."
+    },
+    {
+      "method": "DedicatedNodeworkerdoingone-shotsynchronouscheck",
+      "tradeoff": "Unblocksnetworkingloopbutretainsspawncostandaddsanotherownership/cancellationlayer."
+    }
+  ],
+  "forbidden": [
+    "authorizationcache/reusedsuccess/periodicpermit",
+    "Leaseclass/sample/clock/hash/revocation/maxgap15 weakening",
+    "query10s/handshake3s/command55/control45/1800lease orcapture/resource/cleanup widening",
+    "oneglobalexecutorheldacrossnetworkawait",
+    "fire-and-forgetguardPromises/unobservedrejections",
+    "helperauto-restart/sessionreset/rerunoldrole"
+  ],
+  "unchangedLimits": {
+    "originalLeaseSeconds": 1800,
+    "guardDecisionSecondsIncludingQueueAndStartup": 5,
+    "networkTimeoutMilliseconds": 10000,
+    "handshakeTimeoutMilliseconds": 3000,
+    "fixtureCommandSeconds": 55,
+    "controlReplyMilliseconds": 45000,
+    "originalGuardMaxObservationGapSeconds": 15,
+    "captureAggregateBytes": 16777216,
+    "messageBytes": 262144,
+    "connections": 64,
+    "rustTimeoutMilliseconds": 8000
+  },
+  "newProposedTransportBounds": {
+    "operations": [
+      "CHECK",
+      "CLOSE"
+    ],
+    "requestLineBytes": 1024,
+    "responseLineBytes": 2048,
+    "guardedQueueEntries": 64,
+    "oneInflightPerHelper": true,
+    "terminalRejectsQueuedImmediately": true,
+    "authorizationDecisionReusable": false,
+    "cleanupReserve": "Finiteownedchildcleanupinsideexistingoutercommand/rootleaseclocks; noextendeddecisionpermit."
+  },
+  "acceptanceCriteria": [
+    "RootandindependentSECadoptexactmethod; thisproposalnotapprovalorimplementationauthority",
+    "NewproducerSOURCEpreservesoriginal14failureDATAandunchangedlease_guard.pybytes; newsources/configs/runIDs/outputnamespaces; exactfixedhelperruntime/stdio/ownershipcontracts",
+    "Reviewedcompleteoriginalguard/effectpointcoverageincludingasyncaliases; onefreshcorecheckateachoriginalpoint; noauthcache",
+    "Explicitboundedserializationandterminalgeneration/attempt/buffer/deadlinefences; noawaitlockdeadlock/stalecompletion",
+    "Freshactualrequiredregressionswithtrue5/10/3/55/1800and15gap/firstfault/capture/ownershipconditions; unknown/failurecannotqualify",
+    "Measurecurrentownedhelperlatency/throughputandtimerdispatchhonestly; evenifimproved, backendrootcause/clientinteroperabilityremainunproveduntilactualfreshwindows",
+    "Versionedchangedproducer/capture/consumer/completioncontrolsandindependentSOURCE/DATA/concretereviews; finalwholeconsumercriteriaunchanged",
+    "SeparatefutureRootgrantonlyafterallcurrenttechnicalgates; noarchive/retryorresumptionauthorizednow"
+  ],
+  "openTechnicalRisks": [
+    "Asynchronousfreshcheck-to-effecthandoffisnotatomic; adoptionmustshowstalequeuedresponsecannotadmitafterterminal/expiryunderoriginaltrustassumptions, notinventpermitTTL.",
+    "Aglobalqueuecanstarveresponsecallbacks/deadlockifheldacrosspublish/networkwait; onlyshortcontinuationsallowed.",
+    "PersistentLease.previousstrengthens15sgapcontinuityversusoldone-shotCLI; watchdog/suspend/delayvectorsrequired.",
+    "Helpercoldstartremovaldoesnotprovequerybackendcauseorsuccess; actual23guardintervaloccupancyiscorrelatedsourceevidenceonly.",
+    "NormalcontrollerhelperCLOSEmustnotrevokeentirewindow; unexpectedEOF/failuremustremainsticky/localterminalwithtruthfulhostpropagation.",
+    "Newhelper/RPCobservationsconsumeoriginal16MiBcapturebudget andallcurrentDTO/type/custodyreadersmustbereviewed."
+  ],
+  "modelsExecuted": 0,
+  "runtimeExecutions": 0,
+  "helperStarted": false,
+  "grantIssued": false,
+  "implementationAuthorizedByThisProposal": false,
+  "ordinaryRowsQualified": 0,
+  "ordinaryAttemptsUnqualified": 14,
+  "canonicalE02": "PARTIAL22_UNCHANGED",
+  "stockE04E06Unlocked": false,
+  "blockersUnchanged": [
+    "Q01",
+    "Q08",
+    "Q13",
+    "Q15",
+    "Q27"
+  ]
+}

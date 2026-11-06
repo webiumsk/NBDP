@@ -1,0 +1,46 @@
+[
+    {
+        "Id": "sha256:32bb6c4c58ee5fe85f1e7229fb15008accb137990093941d2f8e768efd91cf8c",
+        "RepoTags": [
+            "nbdp-e02-artifact-build:local"
+        ],
+        "RepoDigests": [],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-10-11T19:41:09.555248555+02:00",
+        "Config": {
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Entrypoint": [
+                "python3",
+                "/work/build.py"
+            ],
+            "WorkingDir": "/work/source",
+            "ArgsEscaped": true
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 211716379,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/drsfgu4b2zuqnbja8p52o8gmk/diff:/var/lib/docker/overlay2/t6eh1pagtumqlc6x05jdali6z/diff:/var/lib/docker/overlay2/8ae5e3499817e9d8b6578e9958c7f4b5a730aeb75160a2061aa74a6e8aef271b/diff",
+                "MergedDir": "/var/lib/docker/overlay2/rnt7uaq77pk3xors8entxyd5x/merged",
+                "UpperDir": "/var/lib/docker/overlay2/rnt7uaq77pk3xors8entxyd5x/diff",
+                "WorkDir": "/var/lib/docker/overlay2/rnt7uaq77pk3xors8entxyd5x/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:e58989146fcec76699871403b9897b5c014af1ccd85f5a9300a215e7975525d7",
+                "sha256:7b8eb5a5363a41fa5e94cb91ba0177882d0a923328c84613f91065f23ee82426",
+                "sha256:d32d663da137aafadee7e6d89357901870a7e5ddbded6756c0347085f1af4e73",
+                "sha256:914c1b3433abe4387fa8b87c95a41ca809d23d7dcd6098f62d01a2856897fd02"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-10-11T19:41:30.18983895+02:00"
+        }
+    }
+]

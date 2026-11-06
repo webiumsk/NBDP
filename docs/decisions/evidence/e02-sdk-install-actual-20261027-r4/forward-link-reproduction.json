@@ -1,0 +1,57 @@
+{
+  "operation": "Once-only pure ownedtemporaryfilesystem diagnostic using actual pinnedNDK forwardlink and SOURCE5 usage definitions, no SDK/process/network/consent",
+  "sourceSha256": "64475bc0d2bfc9b2c59eacb74586dfff83bb88b2d2055c9e821740a92aceaa31",
+  "archiveLink": "android-ndk-r30/shader-tools/linux-x86_64/libc++.so",
+  "target": "../../toolchains/llvm/prebuilt/linux-x86_64/lib/libc++.so",
+  "result": {
+    "reproduced": true,
+    "errorType": "FileNotFoundError",
+    "errno": 2,
+    "filename": "/Data/nbdp-e02-tooling-20261027/ndk-forward-link-forensic-6ynew2zf/sdk/.temp/PackageOperation01/unzip/android-ndk-r30/toolchains",
+    "frames": [
+      {
+        "file": "<stdin>",
+        "function": "<module>",
+        "line": 12,
+        "code": ""
+      },
+      {
+        "file": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/installation-source-r5/install.py",
+        "function": "usage",
+        "line": 113,
+        "code": "need(path.resolve(strict=True).is_relative_to(root),'WRITABLE_LINK_ESCAPE')"
+      },
+      {
+        "file": "/usr/lib/python3.12/pathlib.py",
+        "function": "resolve",
+        "line": 1242,
+        "code": "s = self._flavour.realpath(self, strict=strict)"
+      },
+      {
+        "file": "<frozen posixpath>",
+        "function": "realpath",
+        "line": 432,
+        "code": ""
+      },
+      {
+        "file": "<frozen posixpath>",
+        "function": "_joinrealpath",
+        "line": 499,
+        "code": ""
+      },
+      {
+        "file": "<frozen posixpath>",
+        "function": "_joinrealpath",
+        "line": 476,
+        "code": ""
+      }
+    ],
+    "observations": {
+      "vanishedCount": 0,
+      "vanishedCountSaturated": false,
+      "examples": [],
+      "samplingIncomplete": false
+    }
+  },
+  "limits": "Reproduces exact strict-resolution failure under legitimate intermediate archive state; historical actual attempt lacks traceback, so this is independent diagnostic not asserted recovered past stack."
+}

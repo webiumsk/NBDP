@@ -1,0 +1,106 @@
+ def test_eleven_typed_families_external_node_cwd_and_source(self):
+  f=fixture();planned(f);self.assertEqual(len(f['plan']['scopes']),11)
+  last=f['plan']['scopes'][-1];self.assertEqual(last['argv'],[f['plan']['tools']['node']['path'],c.EXTERNAL_SOURCE['path']]);self.assertEqual(last['cwd'],c.EXTERNAL_CWD)
+  for key,value in [('argv',[f['plan']['tools']['python']['path'],'-I','-B',c.EXTERNAL_SOURCE['path']]),('cwd','/MOCK/source4'),('source',p('unreviewed20.mjs')),('format','QUIET_UNITTEST_NO_SKIPS')]:
+   g=fixture();g['plan']['scopes'][-1][key]=value
+   with self.subTest(key=key),self.assertRaises(ValueError):planned(g)
+
+ def test_external_fixture_target_mode_and_full_import_closure(self):
+  for mutation in ('target-hash','target-mode','external-mode','missing-import','changed-family'):
+   f=fixture()
+   if mutation=='target-hash':next(d for d in f['source']['sources'] if d['path'].endswith('/fixture.mjs'))['sha256']='b'*64
+   elif mutation=='target-mode':next(d for d in f['manifest']['files'] if d['pin']['path']=='/MOCK/source4/fixture.mjs')['mode']=384
+   elif mutation=='external-mode':next(d for d in f['manifest']['files'] if d['pin']==c.EXTERNAL_TESTED_FIXTURE)['mode']=384
+   elif mutation=='missing-import':f['manifest']['files']=[d for d in f['manifest']['files'] if d['pin']!=c.EXTERNAL_CODE[0]];f['manifest']['actualInputCount']-=1
+   else:f['source']['externalCallerRegressionFamily']=p('false-family')
+   with self.subTest(mutation=mutation),self.assertRaises(ValueError):planned(f)
+
+ def test_external_twenty_output_closed_schema_order_and_model_limits(self):
+  scope=dict(scope='fixtureEoseCaller',count=20,definitionNames=list(c.EXTERNAL_NAMES))
+  row=dict(exitCode=0,reaped=True,eof=dict(stdout=True,stderr=True),fault=None,groupClosure=None,groupClosureFault=None,retentionErrors=[])
+  value=dict(schema='e02-fixture-eose-pure-regression-result-v1',scope='EXACT_SOURCE_CALLBACK_AND_UNCHANGED_GUARD_CORE_WITH_FAKE_TRANSPORT_AND_CLOCKS',checks=20,cases=list(c.EXTERNAL_NAMES),baselineFailureReproduced=True,baselineFailure='QUEUED_CONTEXT_CHANGED',runtimeExecuted=False,helperExecuted=False,networkExecuted=False,ordinaryRowsQualified=0,canonicalE02='PARTIAL22')
+  raw=lambda v:(json.dumps(v)+'\n').encode()
+  self.assertTrue(outputs.parse_outcome(scope,row,raw(value),b'')['allOk'])
+  changes=[('checks',True),('checks',19),('cases',list(reversed(c.EXTERNAL_NAMES))),('baselineFailureReproduced',False),('baselineFailure','OTHER'),('runtimeExecuted',True),('helperExecuted',True),('networkExecuted',True),('ordinaryRowsQualified',False),('canonicalE02','PASS')]
+  for key,v in changes:
+   changed=copy.deepcopy(value);changed[key]=v
+   with self.subTest(key=key,value=v),self.assertRaises(ValueError):outputs.parse_outcome(scope,row,raw(changed),b'')
+  changed=dict(value,extra=False)
+  with self.assertRaises(ValueError):outputs.parse_outcome(scope,row,raw(changed),b'')
+  for key in value:
+   changed=dict(value);del changed[key]
+   with self.subTest(missing=key),self.assertRaises((ValueError,KeyError)):outputs.parse_outcome(scope,row,raw(changed),b'')
+  with self.assertRaises(ValueError):outputs.parse_outcome(scope,row,raw(value),b'error')
+
+ def test_frozen_external_source_bytes_and_order_refuse_substitution(self):
+  scope=dict(source=c.EXTERNAL_SOURCE,definitionNames=list(c.EXTERNAL_NAMES))
+  raw=pathlib.Path(c.EXTERNAL_SOURCE['path']).read_bytes()
+  self.assertEqual(c.validate_external_source_names(raw,scope),list(c.EXTERNAL_NAMES))
+  with self.assertRaises(ValueError):c.validate_external_source_names(raw+b' ',scope)
+  with self.assertRaises(ValueError):c.validate_external_source_names(raw,dict(scope,definitionNames=list(reversed(c.EXTERNAL_NAMES))))
+  with self.assertRaises(ValueError):c.validate_external_source_names(raw,dict(scope,source=p('same-name-other-source')))
+
+ def test_exact1263_eleven_clock_and_no_twelfth_scope_extension(self):
+  self.assertEqual(c.LEDGER,dict(snapshots=480,children=693,metadataCleanup=30,reserve=60));self.assertEqual(sum(c.LEDGER.values()),1263)
+  self.assertEqual((c.LIMITS['controllerSeconds'],c.LIMITS['outerSeconds']),(1263,1266))
+  f=fixture();planned(f)
+  for key,value in [('controllerSeconds',1200),('outerKillSeconds',1203),('maximumSerialScopes',10),('maximumSerialScopes',12),('sumSeconds',1264)]:
+   g=fixture();g['clock'][key]=value
+   with self.subTest(key=key,value=value),self.assertRaises(ValueError):planned(g)
+  f=fixture();f['plan']['scopes'].append(copy.deepcopy(f['plan']['scopes'][-1]))
+  with self.assertRaises(ValueError):planned(f)
+
+ def test_execute_all_eleven_and_twenty_two_scope_snapshots_mock_only(self):
+  retained={};events=[];before=dict(rows=['MOCK_EXPECTED'],memberships=[])
+  class FakePath(pathlib.PurePosixPath):
+   def exists(self):return str(self) in retained
+   def is_symlink(self):return False
+   def is_file(self):return self.exists()
+   def mkdir(self,**kw):pass
+   def iterdir(self):return iter(FakePath(k) for k in retained)
+  class Pool:
+   end=1263000000000
+   def clock(self):return 1
+   def run(self,n,fn):events.append(('snapshot',n));return fn(1000)
+   def admit_child(self,n):events.append(('admit',n))
+  f=fixture();f['plan']['outputRoot']='/MOCK/output';docs=dict(plan=f['plan'],inputManifest=f['manifest'],captureSource=f['method'])
+  def save(root,name,value):retained[str(root/name)]=copy.deepcopy(value)
+  desc=lambda p:dict(path=str(p),bytes=1,sha256='a'*64)
+  def child(root,scope,index):events.append(('child',index,scope['scope'],scope['argv']));return dict(scope=scope['scope'],fault=None),b'',b''
+  with patch.object(capture.pathlib,'Path',FakePath),patch.object(capture,'put',side_effect=save),patch.object(capture,'descriptor',side_effect=desc),patch.object(capture,'expected_authorities',return_value=[]),patch.object(capture,'snapshot',return_value=before),patch.object(capture,'capture_scope',side_effect=child),patch.object(capture,'parse_outcome',side_effect=lambda s,*a:dict(scope=s['scope'],allOk=True)),patch('builtins.print'):
+   self.assertEqual(capture.execute(f['ack'],p('mock-ack'),docs,[2]*10+[20],Pool(),before),0)
+  result=retained['/MOCK/output/result.json'];self.assertEqual(len(result['scopes']),11);self.assertEqual(len(result['outcomes']),11);self.assertEqual(result['remainingNotExecuted'],[])
+  self.assertEqual([x[1] for x in events if x[0]=='child'],list(range(1,12)))
+  self.assertEqual(len([k for k in retained if k.endswith('-before.json') and not k.endswith('overall-before.json')]),11)
+  self.assertEqual(len([k for k in retained if k.endswith('-after.json') and not k.endswith('overall-after.json')]),11)
+  self.assertEqual([x[1] for x in events if x[0]=='admit'],list(range(11,0,-1)))
+
+ def test_external_family_cannot_add_opaque_unlisted_or_duplicate_code(self):
+  for mutation in ('extra','missing','duplicate'):
+   f=fixture()
+   if mutation=='extra':f['source']['externalControlSources'].append(p('opaque-unlisted'))
+   elif mutation=='missing':f['source']['externalControlSources'].pop()
+   else:f['source']['externalControlSources'].append(copy.deepcopy(f['source']['externalControlSources'][0]))
+   with self.subTest(mutation=mutation),self.assertRaises(ValueError):admit(f)
+
+ def test_original266_source_receipt_or_review_label_cannot_authorize286(self):
+  for mutation in ('old-schema','old-decision','old-review','old-scope'):
+   f=fixture()
+   if mutation=='old-schema':f['records']['producerAcceptance']['schema']='e02-root-current-producer4-source-acceptance-v1'
+   elif mutation=='old-decision':f['records']['producerAcceptance']['decision']='ACCEPT_PRODUCER4_SOURCE_AND_CONTROL_DEFINITIONS_ONLY'
+   elif mutation=='old-review':f['records']['producerReviews'][0]['decision']='ACCEPT_PRODUCER4_SOURCE4_AND_266_CONTROL_DEFINITIONS_ONLY'
+   else:f['records']['producerAcceptance']['scope']='EXACT_CURRENT_SOURCE_AND_CONTROL_DEFINITIONS_ONLY'
+   with self.subTest(mutation=mutation),self.assertRaises(ValueError):admit(f)
+
+ def test_real_emitted_authority_manifest_projection_and_reserved_coverage(self):
+  root=pathlib.Path(__file__).resolve().parent
+  authority=json.loads((root/'expected-input-authority.json').read_bytes())
+  manifest=json.loads((root/'input-manifest.json').read_bytes())
+  baseline=json.loads(pathlib.Path(authority['baselineManifest']['path']).read_bytes())
+  prior=pathlib.Path('/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-capture-20261105/source1/capture')
+  source1=(json.loads((prior/'expected-input-authority.json').read_bytes()),json.loads((prior/'input-manifest.json').read_bytes()))
+  inherited=authority['coverage']['historicalPriorExpectedInputAuthority'][0]
+  result=artifact_validation.check_emitted(authority,baseline,manifest,inherited,source1)
+  self.assertEqual(result['checks'],8)
+  self.assertGreater(result['actualInputCount'],2518)
+  self.assertEqual(result['manifestCoverageGroups'],result['authorityCoverageGroups']+1)

@@ -1,0 +1,89 @@
+{
+  "schema": "nbdp-native-build-actual-tool-invocation-v1",
+  "origin": "Operator transcription of exact observed tool-call arguments and actual tool results in this session; not authenticated provider logs.",
+  "tool": "exec_command",
+  "actualToolCall": {
+    "cmd": "docker run --rm --init --name nbdp-rust-rebuild-20261026 --network bridge --read-only --cap-drop ALL --security-opt no-new-privileges --pids-limit 256 --memory 4g --memory-swap 4g --cpus 4 --user 1000:1000 --tmpfs /tmp:rw,nosuid,nodev,size=128m,mode=1777 --env CARGO_HOME=/cache --env CARGO_TARGET_DIR=/target --mount type=bind,src=/home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/rust,dst=/src,readonly --mount type=bind,src=/tmp/nbdp-rust-rebuild-20261026/cargo,dst=/cache --mount type=bind,src=/tmp/nbdp-rust-rebuild-20261026/target,dst=/target --mount type=bind,src=/tmp/nbdp-rust-rebuild-20261026/records,dst=/records --workdir /src sha256:cc39c88add68c6e4ed377beccd6a659e59b286954d2c7e5c8e5b1dde2a82a8e8 /usr/bin/timeout --signal=TERM --kill-after=10s 600s /bin/sh /records/build.sh > /tmp/nbdp-rust-rebuild-20261026/records/stdout.log 2> /tmp/nbdp-rust-rebuild-20261026/records/stderr.log",
+    "sandbox_permissions": "require_escalated",
+    "justification": "M\u00f4\u017eem zostavi\u0165 ch\u00fdbaj\u00facu testovaciu Rust bin\u00e1rku E02 v izolovanom kontajneri s pripnut\u00fdm lockfile, limitom 600 sek\u00fand, 4 CPU a 4 GiB RAM, bez jej spustenia?",
+    "max_output_tokens": 2000,
+    "yield_time_ms": 1000
+  },
+  "dockerArgv": [
+    "docker",
+    "run",
+    "--rm",
+    "--init",
+    "--name",
+    "nbdp-rust-rebuild-20261026",
+    "--network",
+    "bridge",
+    "--read-only",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--pids-limit",
+    "256",
+    "--memory",
+    "4g",
+    "--memory-swap",
+    "4g",
+    "--cpus",
+    "4",
+    "--user",
+    "1000:1000",
+    "--tmpfs",
+    "/tmp:rw,nosuid,nodev,size=128m,mode=1777",
+    "--env",
+    "CARGO_HOME=/cache",
+    "--env",
+    "CARGO_TARGET_DIR=/target",
+    "--mount",
+    "type=bind,src=/home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/rust,dst=/src,readonly",
+    "--mount",
+    "type=bind,src=/tmp/nbdp-rust-rebuild-20261026/cargo,dst=/cache",
+    "--mount",
+    "type=bind,src=/tmp/nbdp-rust-rebuild-20261026/target,dst=/target",
+    "--mount",
+    "type=bind,src=/tmp/nbdp-rust-rebuild-20261026/records,dst=/records",
+    "--workdir",
+    "/src",
+    "sha256:cc39c88add68c6e4ed377beccd6a659e59b286954d2c7e5c8e5b1dde2a82a8e8",
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=10s",
+    "600s",
+    "/bin/sh",
+    "/records/build.sh"
+  ],
+  "stdoutRedirection": "/tmp/nbdp-rust-rebuild-20261026/records/stdout.log",
+  "stderrRedirection": "/tmp/nbdp-rust-rebuild-20261026/records/stderr.log",
+  "buildScript": {
+    "path": "/tmp/nbdp-rust-rebuild-20261026/records/build.sh",
+    "bytes": 313,
+    "sha256": "62341be79909835ae3d81a3a73816427d6e31fa91e44f63f75bbd258d2863c1f"
+  },
+  "launchReceipt": {
+    "path": "/tmp/nbdp-rust-rebuild-20261026/records/launch-receipt.json",
+    "bytes": 446,
+    "sha256": "2b256d5430f560110c1aaab2158f8dab42dd49b0a970691c53300b9c24eb28c9"
+  },
+  "naturalCompletion": {
+    "tool": "write_stdin",
+    "arguments": {
+      "session_id": 41827,
+      "chars": "",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 1500
+    },
+    "result": {
+      "chunk_id": "e5c797",
+      "wall_time_seconds": 4.576577354,
+      "exit_code": 0,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "configuredControlsOnly": "Resource/mount/network flags are recorded actual invocation; no independent live container resource/membership observation or peak usage measurement."
+}

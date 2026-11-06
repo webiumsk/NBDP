@@ -1,0 +1,130 @@
+{
+  "schema": "e02-producer4-helper-probe-observed-wip-source-v1",
+  "state": "READ_ONLY_WIP_SNAPSHOT_NOT_FINAL_OR_ACCEPTED_CODE",
+  "observedSourceClosure": [
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/probe-guard-helper.mjs",
+      "bytes": 3008,
+      "sha256": "396efe615ec3a099c149da6725d629576176799dda6ef7300fc3df5e9a5e2546"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/guard-client.mjs",
+      "bytes": 9788,
+      "sha256": "17555c08d2e9df79f20e00321970a1a64083babfa84c8b65026a5bcda9bfd203"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/guard-client-core.mjs",
+      "bytes": 7756,
+      "sha256": "1bd67ecd0887ddee24a82160cdb6faa35f0a4073a4f10ae423c50aba24206d66"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/guard-wire.mjs",
+      "bytes": 1921,
+      "sha256": "8cf473b741d631f80ef785c86acf5caa9899d03206696a8f740db08878c02d8e"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/guard-helper.py",
+      "bytes": 6219,
+      "sha256": "743e0ed269445a4d59407336e399d1c7bd46c5337408b157e9ef85773e2157cf"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/lease_guard.py",
+      "bytes": 14846,
+      "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/capture-allocation.mjs",
+      "bytes": 6732,
+      "sha256": "60255580f8f16c5286d0cbe10c19b500c518e20cd568d6cf3ffa59adc8cc0ebe"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/guard-transport-boundaries.mjs",
+      "bytes": 2399,
+      "sha256": "bbd9687eea64253bd65df3418279790d9fe5214fd0b8f7485f04498fe5617e8c"
+    }
+  ],
+  "sourceCount": 8,
+  "recipeHelperPin": {
+    "path": "/input/guard-helper.py",
+    "bytes": 6219,
+    "sha256": "743e0ed269445a4d59407336e399d1c7bd46c5337408b157e9ef85773e2157cf"
+  },
+  "observedActualHelper": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/guard-helper.py",
+    "bytes": 6219,
+    "sha256": "743e0ed269445a4d59407336e399d1c7bd46c5337408b157e9ef85773e2157cf"
+  },
+  "embeddedHelperMatchesObserved": true,
+  "sourceOwner": "/root/producer4_nonblocking_source",
+  "allocationAuthor": "/root/completion_wrapper",
+  "knownGaps": [
+    "FinalP4CODE/config/pureDATA not issued; source owner reports22worker closure pending final freeze.",
+    "Probe helper embedded pin is observed WIP and must be checked/refreshed against final helper bytes before any execution.",
+    "All eight transitive/direct code operands must be included in final probe input manifest; no node_modules/SDK/APK/native inputs required."
+  ],
+  "references": {
+    "finiteCoreSource": {
+      "path": "/Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r3/capture46.py",
+      "bytes": 17066,
+      "sha256": "9465dbfee3ce335df7d011b778eed960032cc1e8a37f9fd60e925f1d10c4b5d8"
+    },
+    "finiteCoreAdmission9Data": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-wrapper-capture-admission9-actual-20261028/acceptance.json",
+      "bytes": 1239,
+      "sha256": "0781b2bd7de977ff8ee8d1db75090f7d748fd5e4b9f6d06749211c5c24773b3b"
+    },
+    "currentConsumerCaptureSource": {
+      "path": "/Data/nbdp-e02-tooling-20261027/consumer5-control-capture-preparation-r1/capture.py",
+      "bytes": 18103,
+      "sha256": "362dade6a16ee4ce181aef18a509af8d18c323bf86b3208abe2fbbe8afd5d74b"
+    },
+    "currentConsumerCaptureSourceQa": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer5-control-capture-20261028/source-qa.json",
+      "bytes": 352,
+      "sha256": "5d8579a18e21a13b5770f5b0b86378b886cad1a1a9ff21552b22dec23306ce9f"
+    },
+    "currentConsumerCaptureSourceSecurity": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer5-control-capture-20261028/source-security.json",
+      "bytes": 371,
+      "sha256": "8636fbf37e409e3dfa16b168bcdaf7f783c0449fe2d0647f180cfa83a31d7ee2"
+    },
+    "originalGuardAndCleanupPureData": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/current-controls-r1/control-acceptance.json",
+      "bytes": 1438,
+      "sha256": "a13fea0dff9101554fabdad6d4eebace6a64dd029b29893212e75684b47bc551"
+    },
+    "guardBundleDeclaration": {
+      "path": "/tmp/nbdp-e02-minimal-rs-v7/records/guard-bundle-manifest.json",
+      "bytes": 332736,
+      "sha256": "9de311222ef78e20fbe05bfef32898976d80737d5d932166d23431a04a73a454"
+    },
+    "currentImageConfigurationContext": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/incoming-run-config.json",
+      "bytes": 5596,
+      "sha256": "cec7ee4aa2701eb8430434345454526bbcdfd35d2fe500e8b766db52939f3023"
+    },
+    "negative14LifecycleOnly": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/incoming-negative-lifecycle-acceptance.json",
+      "bytes": 2227,
+      "sha256": "1d44474e5675a1dfce2a3ebbde8ac11a4c102f15837a353c94d3cd2aa5a65e16"
+    },
+    "currentGuardTreePostrunDataOnly": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/postrun-r2-data-acceptance.json",
+      "bytes": 2121,
+      "sha256": "042cb0c4f51f9a3a29f0a043e2a00aae03b2d722e12d4935bb51f353a2107ca7"
+    },
+    "methodAdoption": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-guard-eventloop-method-20261028/root-method-adoption.json",
+      "bytes": 2450,
+      "sha256": "26e76c69b505aa4a6653500a5b4428fa9a36f696ae4767915b8a9ea52e8a06e6"
+    },
+    "methodContract": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-guard-eventloop-method-20261028/CONTRACT.md",
+      "bytes": 14014,
+      "sha256": "84420a9983e57676cfd40bb74fb11608728c04cce234a45e42caf4f581c4bf89"
+    }
+  },
+  "modelsExecuted": 0,
+  "probeExecutions": 0,
+  "containersStarted": 0
+}

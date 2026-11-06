@@ -1,0 +1,107 @@
+{
+  "schema": "nbdp-amethyst-build-supervisor-source-subject-v1",
+  "author": "/root/whole_consumer_fixture",
+  "coordinator": "/root",
+  "state": "WRITES_STOPPED_SOURCE_ONLY_PENDING_INDEPENDENT_QA_SECURITY",
+  "preparedAtUtc": "2026-10-26T22:53:17.571091+00:00",
+  "scope": "FIXED_BUILD_ONLY_SUPERVISOR_AND_PURE_MODEL_DEFINITIONS_NO_ACTIVATION",
+  "sources": [
+    {
+      "path": "/tmp/nbdp-amethyst-build-supervisor-20261026/supervise_build.py",
+      "bytes": 22722,
+      "sha256": "14f714c8b068d981ca21dc4e7fe661499e50857444b9e704102e22cef3b498f3"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-build-supervisor-20261026/plan.json",
+      "bytes": 3471,
+      "sha256": "ac0cbef9ab14c743aea4d9387671437081aff2fd64b9d6140c45ae6f0f266923"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-build-supervisor-20261026/test_supervisor_models.py",
+      "bytes": 7847,
+      "sha256": "a813bae186acb38c51f8e5e376dde9839f1cc99783dca75168db27fe16285cf9"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-build-supervisor-20261026/model-plan.json",
+      "bytes": 1977,
+      "sha256": "318de0078ec8b5f114ec6587898b719b499b98421fe1b9aa4b0d58d0f866ef01"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-build-supervisor-20261026/README.md",
+      "bytes": 5878,
+      "sha256": "534b773dbc8d622b0a196e01a280c3e5cef5683043738bb69c270992b3b21eb4"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-build-supervisor-20261026/readiness.json",
+      "bytes": 960,
+      "sha256": "b16451661cdc47885a7cf72b4ce732dff69e9f7fba8313551c0cd2e5e3bf1415"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-build-supervisor-20261026/release-template.json",
+      "bytes": 879,
+      "sha256": "817931cede2a563c08c579bb7b5fc6355dc8996e19503180d0002bca2fd57162"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-build-supervisor-20261026/static-source-checks.json",
+      "bytes": 327,
+      "sha256": "9bf123d3f042d8faf1808df78b2a6f4967cc9802a8adbae197c310fe6f1fc23d"
+    }
+  ],
+  "buildPreparation": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/subject.json",
+    "bytes": 4032,
+    "sha256": "c8c75541ccaa8614831cd9c3acd9f8bc1668462561f227aeca6f3ff209369e52"
+  },
+  "buildMethodSources": [
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/subject.json",
+      "bytes": 4032,
+      "sha256": "c8c75541ccaa8614831cd9c3acd9f8bc1668462561f227aeca6f3ff209369e52"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/build-plan.json",
+      "bytes": 4425,
+      "sha256": "2fe9d72a850e52cf706d85fffb3513518a4fa78812ccf7457fe89dc8f121d455"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/build_inside.py",
+      "bytes": 8176,
+      "sha256": "2ecf91a0f9959931075d4b8ac3e4f7e2337054fbcb9b9b58f53707cd1375d405"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/source-input-pins.json",
+      "bytes": 2396,
+      "sha256": "0327e6ec448e39cd80b0ea65de14443d08f39095a0358ac35b164ef69c6510e4"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/prepare_source.py",
+      "bytes": 3029,
+      "sha256": "f6cd2084886a4051682ffd0992b9bc69817fe5dbb26a7ff22723bf62bc995e7a"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/acquisition-plan.json",
+      "bytes": 3306,
+      "sha256": "82c8b19c869315f34151727469772f4336be0dc4d77b6fd07e4fe0332df48bf1"
+    }
+  ],
+  "runtimeStatus": "NOT_READY",
+  "modelsDefined": 28,
+  "modelsExecuted": 0,
+  "DockerCliExecuted": false,
+  "acquiredProgramsOrBuildExecuted": false,
+  "sourceArchiveOrNetworkCreated": false,
+  "SDKAcquisitionOrEvidenceChanged": false,
+  "hostNumericPidSignalsByController": false,
+  "claimLimits": [
+    "GNUtimeout owns finite CLI child lifecycle; source does not establish E06 process custody or hostile atomic closure.",
+    "CLI capture max64MiB/file; separate container512MiB/file limit includes inner logs/APKs/cache, no aggregate diskquota or measured peak.",
+    "Actual existing/future SDK/JDK/archive inputs need accepted complete-current pins and fresh root release before any build.",
+    "This worker did not review or approve its own source/security/model results."
+  ],
+  "requiredNext": [
+    "Independent exact-source QA/security including fullCID/mount/resource/log-limit/cleanup lifecycle.",
+    "Separate fixed28 pure model capture/root release and independent actual result review.",
+    "Actual independently accepted acquired tool/sourcearchive inputs, fresh owned roots and root-created dedicated network.",
+    "Separate finite exact-source+input root build release; no automatic job start."
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "schema": "nbdp-amethyst-failed-build-data-acceptance-v1",
+  "actor": "/root",
+  "decision": "ACCEPT_R5_FAILED_BUILD_AND_POSTCHECK_DATA_ONLY",
+  "runId": "fee598385f736512839257471eb43a02",
+  "controller": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/actual-controller/result.json",
+    "bytes": 1263,
+    "sha256": "92f3c9818349e519f8305219c04f7937002aab01dbdd621b3a0d2ab2c44a9600"
+  },
+  "postcheck": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/post-checks-r2/result.json",
+    "bytes": 1036,
+    "sha256": "e0d081f4da9819b793f13a64233ea1b6e8b334dbda2245e0f62fee27d1fd666f"
+  },
+  "sourceEquality": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/post-checks-r2/external-source-equality.json",
+    "bytes": 605,
+    "sha256": "bbd4a16c4d32ef0a1f8746cb609d51cc1d7c794aee6026e7bb6ce7eebd6c3460"
+  },
+  "actualCopies": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/actual-copy-manifest.json",
+    "bytes": 32028,
+    "sha256": "fea20f5006849f2098b0d8aa6d6319120d06d6dc2ed86ea7c473adcd0568d53e"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/data-qa.json",
+      "bytes": 1884,
+      "sha256": "075ea36d4d46f2bbe815afd442409a416633dbc63d73d4d74fe5c57ab99b2f8b"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/data-security.json",
+      "bytes": 1890,
+      "sha256": "330c6ca6db7d4a762d68b9a6e4d2d06fb9b1ac680a2d218f6ec821038fb91a23"
+    }
+  ],
+  "terminalToolReceipt": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/terminal-tool-receipt.json",
+    "bytes": 1738,
+    "sha256": "ccc1d40f41564d72216c32df969412c804567ddfbe6cbe6c97877c316606a294"
+  },
+  "postcheckToolReceipt": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/post-checks-original-tool-receipt.json",
+    "bytes": 2044,
+    "sha256": "b27a45e6d18151412cde2eaac36d6cede048ab77288a2033679c79802cab9010"
+  },
+  "gradleDiagnosticCopy": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/gradle-daemon-log-copy.json",
+    "bytes": 659,
+    "sha256": "0fb47ccf3326dc51643d9138ccc0dd03048a42b20bf3947eb3f0d367ac94a14d"
+  },
+  "compilerSourceFinding": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/kotlin-configuration-source-finding.json",
+    "bytes": 4493,
+    "sha256": "a6353ee4b6b1971a3691d82b3e129e83997b0972a396d8dc7abd2a26e9d2b755"
+  },
+  "outerExit": 2,
+  "containerExit": 124,
+  "oomKilled": true,
+  "cleanup": "EXACT_CID_ABSENCE_KNOWN",
+  "originalSourceRows": 11085,
+  "afterSourceRows": 38242,
+  "sourceOriginalsUnchanged": true,
+  "unplannedFiles": [],
+  "sdkJdkArchiveUnchanged": true,
+  "privateKeyBytesCopied": false,
+  "privateKeyDescriptorOnly": true,
+  "qualifiedApks": 0,
+  "qualifiedOrdinaryRows": 0,
+  "findings": "Retain MEDIUM availability and SOURCE namespace finding; no process/effectiveKotlinheap/OOM attribution inferred",
+  "limits": "No automatic retry, source/guard waiver or client/canonical promotion. Future reviewed method/source/models/concrete/root grant required."
+}

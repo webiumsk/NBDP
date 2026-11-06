@@ -1,0 +1,82 @@
+{
+  "schema": "e02-producer2-capture-root-ack-shape-v1",
+  "state": "SCHEMA_ONLY_NOT_AN_ACKNOWLEDGEMENT_OR_GRANT",
+  "actualAckSchema": "e02-producer2-controls-root-ack-v1",
+  "actor": "/root",
+  "closedRequiredKeys": [
+    "schema",
+    "actor",
+    "sourceSubject",
+    "runnerSubject",
+    "runner",
+    "controlPlan",
+    "sourceQaReview",
+    "sourceSecurityReview",
+    "sourceQaDecision",
+    "sourceSecurityDecision",
+    "captureQaReview",
+    "captureSecurityReview",
+    "captureQaDecision",
+    "captureSecurityDecision",
+    "pureControlsAuthorized",
+    "allowedScopes",
+    "stopFirstFailure",
+    "noRetry",
+    "ordinaryRuntimeAuthorized",
+    "primaryAuthorized",
+    "consumerAuthorized",
+    "androidAuthorized",
+    "servicesAuthorized",
+    "protocolCryptoOrNativeAuthorized",
+    "sdkAuthorized"
+  ],
+  "actualAllowedScopes": {
+    "observation-model": 20,
+    "public-identity-metadata": 8,
+    "producer2-source-wiring": 7
+  },
+  "requiredTrue": [
+    "pureControlsAuthorized",
+    "stopFirstFailure",
+    "noRetry"
+  ],
+  "requiredFalse": [
+    "ordinaryRuntimeAuthorized",
+    "primaryAuthorized",
+    "consumerAuthorized",
+    "androidAuthorized",
+    "servicesAuthorized",
+    "protocolCryptoOrNativeAuthorized",
+    "sdkAuthorized"
+  ],
+  "actualReviewShape": {
+    "closedKeys": [
+      "role",
+      "session",
+      "decision",
+      "subject"
+    ],
+    "roles": [
+      "qa",
+      "security"
+    ],
+    "sessions": "Two actual different /root/* sessions per subject, neither author/operator /root/ordinary_api35_source nor coordinator /root; review record Pins and exact accepted literals must join the actual subject."
+  },
+  "scope": "Synthetic fake guard/WS/clock/fs only, fixed public NIP19 encoding/checksum/hash metadata, source AST/hash wiring. No NIP44/sign/encrypt/decrypt/nativeRust/actualguard/network/Android/SDK/services.",
+  "originalApiCustody": "Caller separately preserves actual toolName+actualArguments+unmodifiedResponse immediately; child journals do not fabricate unavailable outer API fields.",
+  "actualMainSourceReviews": {
+    "qa": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/actual-source-qa-review.json",
+      "bytes": 383,
+      "sha256": "a374e317469fb4cc3d5919b29526658852c620c9f8b841641f0da413838f38f1"
+    },
+    "security": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/actual-source-security-review.json",
+      "bytes": 390,
+      "sha256": "c1a0641cc108b4afbffb73eb69e7c699690b5e56e727ae9b23d9298385e48d32"
+    }
+  },
+  "actualMainDecisionLiteral": "ACCEPT_MINIMUM_PRODUCER_SOURCE_FOR_CHANGED_CONTROLS_ONLY",
+  "permittedFutureCaptureDecisionLiteral": "ACCEPT_PRODUCER2_FIXED_CAPTURE_SOURCE_FOR_CURRENT_DATA_CONTROLS_ONLY",
+  "futureCaptureAcceptanceClaimed": false
+}

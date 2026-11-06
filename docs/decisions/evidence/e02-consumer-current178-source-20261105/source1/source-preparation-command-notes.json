@@ -1,0 +1,44 @@
+{
+  "schema": "e02-consumer-current178-source-command-notes-v1",
+  "actor": "/root/consumer_current178_source",
+  "commands": [
+    {
+      "command": "pwd",
+      "exitCode": 0
+    },
+    {
+      "command": "git status --short --branch",
+      "exitCode": 128,
+      "reason": "Workspace exposes no usable .git repository; no Git mutation attempted."
+    },
+    {
+      "command": "python prepare_source.py",
+      "lastObservedChunk": "125ad4",
+      "exitCode": 0,
+      "scope": "stdlib SOURCE generation only"
+    },
+    {
+      "command": "python prepare_bundle.py",
+      "lastObservedChunk": "fe9a83",
+      "exitCode": 0,
+      "scope": "stdlib metadata/AST/archive generation only"
+    },
+    {
+      "command": "bounded JSON metadata inspection",
+      "exitCode": 1,
+      "reason": "Assumed collector execution groups; actual one-batch schema has no groups. Corrected metadata read used actual keys."
+    },
+    {
+      "command": "AST callsite display",
+      "exitCode": 1,
+      "reason": "Literal display met test variable family name. Corrected static audit only visits production code and ast.unparse."
+    },
+    {
+      "command": "stdlib AST/pin/inventory inspection",
+      "exitCode": 0
+    }
+  ],
+  "modelsExecuted": 0,
+  "targetImports": 0,
+  "noRuntimeInteropClaim": true
+}

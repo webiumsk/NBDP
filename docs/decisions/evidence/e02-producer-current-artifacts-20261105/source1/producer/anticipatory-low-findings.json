@@ -1,0 +1,36 @@
+{
+  "schema": "e02-producer4-anticipatory-low-source-findings-v1",
+  "transcribedBy": "/root/producer4_nonblocking_source",
+  "independentReview": "/root/r5s3_fresh_security_633357df4a935397d8757b93be9d8be0e",
+  "findings": [
+    {
+      "id": "LOW1",
+      "finding": "Plain prototype gate skips arrays; inherited toJSON can execute before later mismatch. Reject custom arrays/hooks before invocation."
+    },
+    {
+      "id": "LOW2",
+      "finding": "writeExclusiveProof invalid/oversize Buffer validation outside sticky poison try; can leave healthy account/replace original fault. Move inside poison path."
+    }
+  ],
+  "exactBaseline": [
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/capture-allocation.mjs",
+      "bytes": 6732,
+      "sha256": "60255580f8f16c5286d0cbe10c19b500c518e20cd568d6cf3ffa59adc8cc0ebe",
+      "copy": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/anticipatory-low-baseline/capture-allocation.mjs"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/test_capture_allocation.mjs",
+      "bytes": 16742,
+      "sha256": "bb7f3386d7790935e777fb87ccf7d648eed61585c61bab6e60ebabff355a122d",
+      "copy": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/anticipatory-low-baseline/test_capture_allocation.mjs"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/capture-budget.mjs",
+      "bytes": 4634,
+      "sha256": "a56425726fff318eb3fc8bf3e521f131223ca9ea379f3a8c1968c6a6e263a19e",
+      "copy": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/anticipatory-low-baseline/capture-budget.mjs"
+    }
+  ],
+  "modelsExecuted": 0
+}

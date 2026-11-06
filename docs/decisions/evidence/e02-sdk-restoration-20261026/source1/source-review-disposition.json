@@ -1,0 +1,105 @@
+{
+  "schema": "nbdp-sdk-source1-coordinator-disposition-v1",
+  "actor": "/root",
+  "subject": {
+    "path": "/tmp/nbdp-sdk-restoration-20261026/subject.json",
+    "bytes": 4152,
+    "sha256": "93c1e247aa6796de9a3d6884f8f9df461715be297364d6dfe4d494d5ff006f3d"
+  },
+  "decision": "HOLD_PRESERVE_SOURCE1_PREPARE_BOUNDED_SOURCE2",
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-restoration-20261026/source1/actual-source-qa-review.json",
+      "bytes": 1486,
+      "sha256": "9c3e986d4a5db221e2f7fed4d808a5f9bbe24e2608b795fe5b6182dada8aae67"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-restoration-20261026/source1/actual-source-security-review.json",
+      "bytes": 1171,
+      "sha256": "d561126cf818657188d4ae81719d2fda98c0e76fba7421378b8b3a012f5088a6"
+    }
+  ],
+  "finding": {
+    "id": "QA-SDK-PLACEMENT-001",
+    "severity": "MEDIUM",
+    "evidence": "run363 sets placed=True only after publish returns; publish334-341 can rename successfully then fail inode/fsync/deadline/reserve checks; failure378 falsely says placed:false.",
+    "requiredChange": "State success immediately at successful rename boundary; use UNKNOWN for uncertain/interrupted placement, no absence inference. Target pre/post-rename failure models; preserve originalsubject."
+  },
+  "sourceCopies": [
+    {
+      "original": {
+        "path": "/tmp/nbdp-sdk-restoration-20261026/subject.json",
+        "bytes": 4152,
+        "sha256": "93c1e247aa6796de9a3d6884f8f9df461715be297364d6dfe4d494d5ff006f3d"
+      },
+      "copy": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-restoration-20261026/source1/subject.json",
+        "bytes": 4152,
+        "sha256": "93c1e247aa6796de9a3d6884f8f9df461715be297364d6dfe4d494d5ff006f3d"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-sdk-restoration-20261026/README.md",
+        "bytes": 4173,
+        "sha256": "eaa680733c61cc58717ae0adfbcce8c28f0f696393698cf72f1cd12966dc7c50"
+      },
+      "copy": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-restoration-20261026/source1/README.md",
+        "bytes": 4173,
+        "sha256": "eaa680733c61cc58717ae0adfbcce8c28f0f696393698cf72f1cd12966dc7c50"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-sdk-restoration-20261026/plan.json",
+        "bytes": 138890,
+        "sha256": "53ca1e32778897b69b85d822253f1324777c51961d77e96d27e295e31bd0f03c"
+      },
+      "copy": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-restoration-20261026/source1/plan.json",
+        "bytes": 138890,
+        "sha256": "53ca1e32778897b69b85d822253f1324777c51961d77e96d27e295e31bd0f03c"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-sdk-restoration-20261026/restore_sdk.py",
+        "bytes": 24664,
+        "sha256": "489f3c107feb09501e6a3e8744eee892a74b82a63941238dce50477320a76078"
+      },
+      "copy": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-restoration-20261026/source1/restore_sdk.py",
+        "bytes": 24664,
+        "sha256": "489f3c107feb09501e6a3e8744eee892a74b82a63941238dce50477320a76078"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-sdk-restoration-20261026/preparation-failures.json",
+        "bytes": 511,
+        "sha256": "97fe2757f8f3f260be08613e9c7c0d37b8ccae394c14d1f449761e553e53dee2"
+      },
+      "copy": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-restoration-20261026/source1/preparation-failures.json",
+        "bytes": 511,
+        "sha256": "97fe2757f8f3f260be08613e9c7c0d37b8ccae394c14d1f449761e553e53dee2"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-sdk-restoration-20261026/static-source-checks.json",
+        "bytes": 714,
+        "sha256": "858cbacbd8c767bac16210aaaf800a30e16dae4c355a7a18e34595c1c9c8322d"
+      },
+      "copy": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-restoration-20261026/source1/static-source-checks.json",
+        "bytes": 714,
+        "sha256": "858cbacbd8c767bac16210aaaf800a30e16dae4c355a7a18e34595c1c9c8322d"
+      }
+    }
+  ],
+  "downloadsExecuted": 0,
+  "sdkToolsExecuted": false,
+  "runtimeAuthorized": false
+}

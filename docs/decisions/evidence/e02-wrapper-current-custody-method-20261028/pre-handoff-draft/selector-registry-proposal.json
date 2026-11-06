@@ -1,0 +1,461 @@
+{
+  "schema": "e02-wrapper-current-custody-selector-registry-proposal-v1",
+  "author": "/root/completion3_final",
+  "state": "PROPOSED_SOURCE_CONTRACT_NOT_IMPLEMENTED",
+  "rootsFrom": "Root-reviewed exact final plan/current completion profile and current accepted subject pins; no caller-controlled root or selector",
+  "currentTypedExamples": [
+    {
+      "kind": "current-consumer-source",
+      "currentExample": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r5/source2/subject.json",
+        "bytes": 13952,
+        "sha256": "bb99b3b11db70a19cd5b6266dbdea381d84bb7f1ccc9ed58a463f01120e20178"
+      },
+      "literalSchema": "e02-ordinary-minimum-consumer5-source-subject-v1",
+      "closedCurrentExampleKeys": [
+        "actualControlDefinitions",
+        "actualControlsExecuted",
+        "author",
+        "canonicalE02",
+        "captureSource",
+        "controlPlan",
+        "coordinator",
+        "currentCaptureGraphs",
+        "historicalSource3Transfer",
+        "ordinaryRowsQualified",
+        "producerContract",
+        "producerSourcePacket",
+        "producerSubject",
+        "profileId",
+        "runtimeAuthorized",
+        "schema",
+        "scope",
+        "sourceCount",
+        "sourceInputManifest",
+        "sourceReadiness",
+        "sourceRoot",
+        "sources",
+        "state",
+        "wholeWindowMeaning"
+      ],
+      "parsedAuthoritySelectors": [
+        "/sourceInputManifest",
+        "/controlPlan",
+        "/producerSubject",
+        "/currentCaptureBindings/capture-a",
+        "/currentCaptureBindings/capture-b"
+      ],
+      "rawHostLeafSelectors": [
+        "/sources/*"
+      ],
+      "requiredJoins": [
+        "14sources exact; currentproducer553d; literal26 currentcaptureedges; finalindependentSOURCE acceptance required"
+      ],
+      "participantSelectors": [
+        "/author",
+        "/coordinator"
+      ],
+      "recursiveDictionaryDiscovery": false,
+      "suffixBasedParserSelection": false
+    },
+    {
+      "kind": "current-consumer-source-seeds",
+      "currentExample": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r5/source2/source-input-manifest.json",
+        "bytes": 39229,
+        "sha256": "1ca3b56139e35719f546b5f231bae2d72b760fc70e0c419dc6d7ac04776b8c1c"
+      },
+      "literalSchema": "e02-consumer5-source-and-current-data-input-manifest-v1",
+      "closedCurrentExampleKeys": [
+        "acceptedCurrentCaptureGraphs",
+        "actualDeclaredFiles",
+        "actualExecutions",
+        "allSourceFiles",
+        "captureClosureRequirement",
+        "captureSource",
+        "files",
+        "opaqueProofSnapshots",
+        "producerSource",
+        "schema",
+        "scope",
+        "sourceCount"
+      ],
+      "parsedAuthoritySelectors": [],
+      "rawHostLeafSelectors": [
+        "/files/*",
+        "/allSourceFiles/*"
+      ],
+      "requiredJoins": [
+        "106declaredfiles exact; unionmustcontainall14sources; notfullruntimeclaim"
+      ],
+      "participantSelectors": [],
+      "recursiveDictionaryDiscovery": false,
+      "suffixBasedParserSelection": false
+    },
+    {
+      "kind": "current-producer-source",
+      "currentExample": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/source2/subject.json",
+        "bytes": 12116,
+        "sha256": "553d513b4625b8d40e95f475246acc2a4520e1a90b35ee88290c9ddbc617def6"
+      },
+      "literalSchema": "e02-ordinary-minimum-producer3-source-subject-v1",
+      "closedCurrentExampleKeys": [
+        "actualRuntimeOrExperiments",
+        "architecturalBlockersUnchanged",
+        "artifactBindings",
+        "author",
+        "authorApprovesOwnResults",
+        "canonicalE02",
+        "componentCarry",
+        "configurations",
+        "controlPlan",
+        "coordinator",
+        "currentProjectControlsExecuted",
+        "definedControlScopes",
+        "fullSourceDiff",
+        "historicalControlQualificationTransfer",
+        "materializationOnlyInvocations",
+        "metadataOnlySupersedes",
+        "oldFailedWholeWindowDonation",
+        "oldSourcePreserved",
+        "productOwnerInputRequired",
+        "profileId",
+        "pythonTypedAstCarry",
+        "remainingPrerequisites",
+        "rootGrantOrLeaseCreated",
+        "runtimeSourceCount",
+        "schema",
+        "scope",
+        "sourceDataInputClosure",
+        "sources",
+        "state",
+        "syntaxOnly",
+        "typedContract"
+      ],
+      "parsedAuthoritySelectors": [
+        "/sourceDataInputClosure",
+        "/controlPlan",
+        "/artifactBindings"
+      ],
+      "rawHostLeafSelectors": [
+        "/sources/*",
+        "/configurations/*",
+        "/typedContract"
+      ],
+      "requiredJoins": [
+        "31sources/16workers; exact acceptedAPK/helper/native/E01/roleconfigjoins"
+      ],
+      "participantSelectors": [
+        "/author",
+        "/coordinator"
+      ],
+      "recursiveDictionaryDiscovery": false,
+      "suffixBasedParserSelection": false
+    },
+    {
+      "kind": "current-producer-control-inputs",
+      "currentExample": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source4/capture-a/frozen-inputs.json",
+        "bytes": 756909,
+        "sha256": "f9faea2fbae382dbd3bc7d9c9d6d77bd1b47988920b38afce28991f59784ecff"
+      },
+      "literalSchema": "e02-producer3-control-frozen-inputs-v1",
+      "closedCurrentExampleKeys": [
+        "actualInputCount",
+        "actualSourceReviews",
+        "files",
+        "fullReadTrees",
+        "maximumInputCount",
+        "node",
+        "python",
+        "requiredCoverage",
+        "schema",
+        "scope",
+        "sourceControlPlan",
+        "sourceManifest",
+        "sourceSubject"
+      ],
+      "parsedAuthoritySelectors": [
+        "/actualSourceReviews/qa",
+        "/actualSourceReviews/security"
+      ],
+      "rawHostLeafSelectors": [
+        "/files/*"
+      ],
+      "requiredJoins": [
+        "1889closedhostfiles; source553d; source4de130; fullReadTrees exactSDK434/guard522 membershipandflatjoin; <=4096"
+      ],
+      "participantSelectors": [],
+      "recursiveDictionaryDiscovery": false,
+      "suffixBasedParserSelection": false
+    },
+    {
+      "kind": "current-consumer-capture-inputs",
+      "currentExample": {
+        "path": "/Data/nbdp-e02-tooling-20261027/consumer5-control-capture-preparation-r1/input-manifest.json",
+        "bytes": 25530,
+        "sha256": "e7ff8c583981d3b76ba86844d2d7bd7a4999f2d2f0ba178ec02d283446d85d0f"
+      },
+      "literalSchema": "e02-consumer5-capture-known-inputs-v1",
+      "closedCurrentExampleKeys": [
+        "actualInputCount",
+        "configurations",
+        "consumerSource",
+        "files",
+        "fullRuntimeClientClosureClaimed",
+        "producerSources",
+        "schema",
+        "scope",
+        "sdkTreeIncluded",
+        "sourceFiles",
+        "syntheticWrites",
+        "testReadOperands"
+      ],
+      "parsedAuthoritySelectors": [],
+      "rawHostLeafSelectors": [
+        "/files/*"
+      ],
+      "requiredJoins": [
+        "60knownfiles +externalmethod/self/ACK/reviews actuallyclosedbyacceptedcapture;14sources/31producerfiles; noSDKclosureclaim"
+      ],
+      "participantSelectors": [],
+      "recursiveDictionaryDiscovery": false,
+      "suffixBasedParserSelection": false
+    },
+    {
+      "kind": "current-consumer-capture-source",
+      "currentExample": {
+        "path": "/Data/nbdp-e02-tooling-20261027/consumer5-control-capture-preparation-r1/method-source.json",
+        "bytes": 2178,
+        "sha256": "61fa7f0165e790ce5e646cbcb8e7bff75713a45a0937f2e7e761f25999c7d6bb"
+      },
+      "literalSchema": "e02-consumer5-capture-method-source-v1",
+      "closedCurrentExampleKeys": [
+        "actualExecutions",
+        "author",
+        "consumerPacket",
+        "consumerSource",
+        "coordinator",
+        "coreReuse",
+        "inputManifest",
+        "plan",
+        "rootGrant",
+        "runtimeAuthorized",
+        "schema",
+        "scopeCounts",
+        "sourceAuthors",
+        "sourceReviews",
+        "sources",
+        "state"
+      ],
+      "parsedAuthoritySelectors": [
+        "/plan",
+        "/inputManifest"
+      ],
+      "rawHostLeafSelectors": [
+        "/sources/*"
+      ],
+      "requiredJoins": [
+        "exactcapturer61fa source, currentconsumerbb99, frozenplanned139contract; changesrequireversionedreview"
+      ],
+      "participantSelectors": [
+        "/authors/*",
+        "/operators/*"
+      ],
+      "recursiveDictionaryDiscovery": false,
+      "suffixBasedParserSelection": false
+    },
+    {
+      "kind": "current-producer-control-data",
+      "currentExample": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-controls-actual-20261028-r2/capture-a/subject.json",
+        "bytes": 6112,
+        "sha256": "5ec2f6bf547f38413fbeef2db0253e7d82eb3efeb5c25e5184fd6076f74175d4"
+      },
+      "literalSchema": "e02-producer3-actual-control-data-subject-v1",
+      "closedCurrentExampleKeys": [
+        "admissionModelAcceptance",
+        "allNatural0NoForceNoErrorNoTruncation",
+        "authors",
+        "canonicalE02",
+        "captureId",
+        "captureReviews",
+        "captureScript",
+        "captureSource",
+        "completeInstalledMembership",
+        "controlPlan",
+        "coordinator",
+        "countsSeparate",
+        "execution",
+        "fixedInputCount",
+        "frozenInputs",
+        "operators",
+        "ordinaryRowsQualified",
+        "originalToolOrigin",
+        "overallSourcesAfter",
+        "overallSourcesBefore",
+        "producerContract",
+        "producerSource",
+        "pythonNamesMeaning",
+        "rawArtifactManifest",
+        "retentionMeaning",
+        "rootAcknowledgement",
+        "runtimeAuthorized",
+        "schema",
+        "scopeNames",
+        "sourceReviews",
+        "sourceUnchangedBeforeAfterEveryScopeAndOverall",
+        "state"
+      ],
+      "parsedAuthoritySelectors": [
+        "/producerSource",
+        "/captureSource",
+        "/controlPlan",
+        "/rootAcknowledgement",
+        "/sourceReviews/*",
+        "/captureReviews/*",
+        "/admissionModelAcceptance",
+        "/execution",
+        "/rawArtifactManifest",
+        "/originalToolOrigin",
+        "/frozenInputs"
+      ],
+      "rawHostLeafSelectors": [
+        "/overallSourcesBefore",
+        "/overallSourcesAfter"
+      ],
+      "requiredJoins": [
+        "exact32keys; typed441165contract; actual20/8/7or3; noqualificationtransfer"
+      ],
+      "participantSelectors": [
+        "/authors/*",
+        "/operators/*",
+        "/coordinator"
+      ],
+      "recursiveDictionaryDiscovery": false,
+      "suffixBasedParserSelection": false
+    },
+    {
+      "kind": "accepted-artifact-subject",
+      "currentExample": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-clock90-r8-actual-20261028/artifact-subject.json",
+        "bytes": 5389,
+        "sha256": "29268829a85e62c229121bf2e5a61b0ddd15806c3015ae57932f9be05977f517"
+      },
+      "literalSchema": "nbdp-actual-rebuilt-amethyst-artifact-subject-v1",
+      "closedCurrentExampleKeys": [
+        "actor",
+        "actualTextCopies",
+        "apk",
+        "apkBinaryPublished",
+        "badging",
+        "canonicalE02Changed",
+        "clockData",
+        "containerApk",
+        "controller",
+        "externalSourceEquality",
+        "freshPrivateKeyDescriptors",
+        "innerBuild",
+        "innerSourceEquality",
+        "installedSdkData",
+        "launch",
+        "modelData",
+        "ordinaryClientRowsQualified",
+        "postcheck",
+        "privateKeyBytesCopied",
+        "rebuiltMetadata",
+        "rootAuthorization",
+        "schema",
+        "scope",
+        "signature",
+        "sourceCommit",
+        "sourceLinkedNotReproducibleClaim",
+        "sourceTree",
+        "state",
+        "terminal"
+      ],
+      "parsedAuthoritySelectors": [
+        "/actualTextCopies"
+      ],
+      "rawHostLeafSelectors": [
+        "/apk",
+        "/controller",
+        "/innerBuild",
+        "/innerSourceEquality",
+        "/postcheck",
+        "/externalSourceEquality",
+        "/rebuiltMetadata",
+        "/signature",
+        "/badging",
+        "/launch",
+        "/terminal",
+        "/rootAuthorization",
+        "/modelData",
+        "/clockData",
+        "/installedSdkData"
+      ],
+      "requiredJoins": [
+        "literalacceptedroot5368; exactAPKdescriptor3682; containerApk isembeddedguestrecord nothostselector; nestedproofsnapshotsremainrawpayload"
+      ],
+      "participantSelectors": [
+        "/actor"
+      ],
+      "recursiveDictionaryDiscovery": false,
+      "suffixBasedParserSelection": false
+    },
+    {
+      "kind": "accepted-artifact-retained-copies",
+      "currentExample": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-clock90-r8-actual-20261028/actual-copy-manifest.json",
+        "bytes": 34521,
+        "sha256": "0d39ab4de88fb6f25045424e850b15a8fa2aa50ddb90bfdba897221aa9cd0ce2"
+      },
+      "literalSchema": null,
+      "closedCurrentExampleKeys": [
+        "actor",
+        "copies",
+        "count",
+        "excludedApkDescriptors",
+        "noPrivateKeysCopied",
+        "scope"
+      ],
+      "parsedAuthoritySelectors": [],
+      "rawHostLeafSelectors": [
+        "/copies/*/copy"
+      ],
+      "requiredJoins": [
+        "closedknownschema-less56copyrecord byliteralacceptedpin; original/copy bytesandsha equal; original.path retainedasbuildtimeorigin, notcurrenthostexecutioninput; all56retainedcopieshashed"
+      ],
+      "participantSelectors": [
+        "/actor"
+      ],
+      "recursiveDictionaryDiscovery": false,
+      "suffixBasedParserSelection": false
+    }
+  ],
+  "requiredFinalSchemaDefinitions": [
+    "newwrapperR5CODEsubject/selectorregistry",
+    "finalcompletionSOURCE/profilewithalloperationalkeysclosed",
+    "currentactualconsumer139subject/execution/acceptance/reviews/custody using frozenplannedcontract",
+    "currentactualwrappermodels+independentacceptance",
+    "concreteinput/release deferredoperands",
+    "currentordinarycandidate/history/windows/externallyauthenticatedorigin/participantinventory"
+  ],
+  "deferredFormatContract": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer5-control-capture-20261028/planned-data-contract.json",
+    "bytes": 5231,
+    "sha256": "ad75f765786830d19aff4540a7f937484d64527bc2d17f99f31f0a88176c0498"
+  },
+  "noFinalSchemaInvented": true,
+  "operationalCoverageRule": "Every actual import/read/process/config/tool/dependency/protected-canonical operand used by accepted CODE must map to a required typed selector or measured host leaf; generated exact set and edge ledger equal reviewed inventory, not arbitrary supplied expected set.",
+  "participantRule": "Useexplicittyped participant edges forcurrentSOURCE/DATA and allwhole-historyattempt/legacycontexts, sourceauthor singular/plural and currentcontrolhelperauthors/operators. Opaque payloadclassification neverdropsactualparticipant fromforbiddenunion. Verifycurrentwholeconsumer provenance-derivedactorinventory, no caller-providedunion.",
+  "limits": {
+    "streamedRawFileBytes": 8589934592,
+    "parsedMetadataBytes": 16777216,
+    "selectedHostFiles": 20000,
+    "rootReadDomains": "Canonicalregularhost paths only; guestmappedexplicitly; no symlink/specialfile"
+  },
+  "modelsExecuted": 0,
+  "runtimeExecutions": 0
+}

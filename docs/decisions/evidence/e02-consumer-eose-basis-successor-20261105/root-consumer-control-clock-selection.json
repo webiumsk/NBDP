@@ -1,0 +1,98 @@
+{
+  "schema": "e02-root-consumer-pure-control-clock-source-selection-v1",
+  "actor": "/root",
+  "scope": "CURRENT_COUPLED_CONSUMER_PURE_CONTROL_REQUESTS_ONLY",
+  "predecessorControlPlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/control-plan.json",
+    "bytes": 47015,
+    "sha256": "a6eee6cb4116a8a8d6a4bed401e80a058bf00901528dfd9f9afea4d6dc047a0c"
+  },
+  "selection": "FIXED_PER_GROUP_OUTER_KILL_BOUND_WITHOUT_RENEWAL",
+  "groups": [
+    {
+      "name": "test_data_controls.py",
+      "definitions": 86,
+      "outerKillSeconds": 63
+    },
+    {
+      "name": "test_async_guard.py",
+      "definitions": 47,
+      "outerKillSeconds": 63
+    },
+    {
+      "name": "test_parent_allocation.py",
+      "definitions": 17,
+      "outerKillSeconds": 63
+    },
+    {
+      "name": "test_observer_v3.py",
+      "definitions": 13,
+      "outerKillSeconds": 63
+    },
+    {
+      "name": "test_source_bindings.py",
+      "definitions": 15,
+      "outerKillSeconds": 63
+    },
+    {
+      "name": "test_current_controls.py",
+      "definitions": 33,
+      "outerKillSeconds": 63
+    },
+    {
+      "name": "test_probe_adapter.py",
+      "definitions": 22,
+      "outerKillSeconds": 63
+    },
+    {
+      "name": "test_whole_window.py",
+      "definitions": 11,
+      "outerKillSeconds": 63
+    },
+    {
+      "name": "test_current_authority.py",
+      "definitions": 84,
+      "outerKillSeconds": 120
+    },
+    {
+      "name": "test_request_families.py",
+      "definitions": 27,
+      "outerKillSeconds": 63
+    },
+    {
+      "name": "test_import_closure.py",
+      "definitions": 8,
+      "outerKillSeconds": 63
+    },
+    {
+      "name": "test_mode_reader.py",
+      "definitions": 23,
+      "outerKillSeconds": 63
+    },
+    {
+      "name": "test_component_basis.py",
+      "definitions": 54,
+      "outerKillSeconds": 63
+    }
+  ],
+  "totalSerialOuterKillSeconds": 876,
+  "basis": {
+    "previousUniformOuterKillSeconds": 63,
+    "authority84ReportedDevelopmentSeconds": "74.046",
+    "developmentOriginalFullNativeCustody": "REPORTED_ONLY_NOT_CANONICAL_DATA",
+    "reason": "The84-case authority development run exceeded the old63s outer bound. Root selects a finite120s bound for this pure-control group, leaving45.954s margin over that report. All other existing groups retain63s. Fresh canonical fullN execution and independent DATA review remain required."
+  },
+  "sourceRequirements": [
+    "Bind this exact selection pin in final consumer Source/readmap and Rootcanonicalrelease.",
+    "Use exact closed13 family names with name-selected120s only for test_current_authority.py; reject unknown/duplicate/omitted group selections.",
+    "Preserve group argv/cwd/env/isolated flags/all5 MODEL5 dictionary types and complete actual native custody.",
+    "Meaningful request positives/refusals must cover selected120s, unchanged63s and substituted/unissued clock metadata.",
+    "The120s clock starts once per authorized authority-group process; no renewal/retry or transfer of earlier74s report as DATA."
+  ],
+  "helperAndControllerR10ClocksChanged": false,
+  "ordinaryLeaseSeconds": 1800,
+  "ordinaryClockChanged": false,
+  "producer286ClockChanged": false,
+  "modelExecutionAuthorized": false,
+  "executionAuthorized": false
+}

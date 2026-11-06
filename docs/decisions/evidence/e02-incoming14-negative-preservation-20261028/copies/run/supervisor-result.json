@@ -1,0 +1,90 @@
+{
+  "schema": "e02-ordinary-minimum-role-supervisor-result-v2",
+  "runId": "9d8bad6df86fc113f87e14e2974f9019",
+  "profileId": "e02-ordinary-minimum-rs-two-role-v2",
+  "ordinaryRole": "incoming",
+  "windowId": "incoming-b",
+  "runConfig": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/incoming-run-config.json",
+    "bytes": 5596,
+    "sha256": "cec7ee4aa2701eb8430434345454526bbcdfd35d2fe500e8b766db52939f3023"
+  },
+  "runRelease": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/incoming-root-role-release.json",
+    "bytes": 2971,
+    "sha256": "59f9d357eb91bfe312fb8c43a8d79217874bc145e0eb3fea0896137a0329eef5"
+  },
+  "lease": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/session/lease.json",
+    "bytes": 364,
+    "sha256": "ce260b13c7de0cbb94e5de0d35e8f9cfa5ab55535e3e2093a0ce9fe860060d54"
+  },
+  "canonicalE02Changed": false,
+  "limits": [
+    "One cell only; mandatory wider matrix remains missing.",
+    "No hard realtime/suspended-host cleanup guarantee.",
+    "Independent QA/security must inspect actual results before acceptance."
+  ],
+  "executionState": "FAILED_UNQUALIFIED",
+  "error": "LeaseDenied('owned command exited unsuccessfully')",
+  "secondaryErrors": [],
+  "cleanup": {
+    "ok": true,
+    "rows": [
+      {
+        "role": "android",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "b67b35415693acdcdaae85be36203616ff9ba407cb014ac315020e5578113276",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "fixture",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "5f77ef22d7741012c8c67b2b50c9f1ff8dde7a150074f5edd64644afbcaf0acf",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "rs-relay",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "9b9e49ae279ae59b375106f6631d751e41e227ef805d7fba2cad0d021f508852",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "anchor",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "59a0ee36a50b86c32e23057f163bc945e9814ee1a83eb8026b6d4498541257c1",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      }
+    ],
+    "errors": [],
+    "evidence": {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/cleanup/result.json",
+      "bytes": 1393,
+      "sha256": "7eae2ecb2dd8f21daf39f53b620c882d24594f1b452e3fb7fc0688aa053cc5fc"
+    }
+  }
+}

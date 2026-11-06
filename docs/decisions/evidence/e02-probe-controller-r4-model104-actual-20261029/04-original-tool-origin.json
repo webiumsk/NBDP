@@ -1,0 +1,39 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 63s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r4/test_raw_tools.py -v",
+      "workdir": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 20000
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "f08931",
+      "wall_time_seconds": 1.00166202,
+      "session_id": 26308,
+      "original_token_count": 309,
+      "output": "test_all_three_actual_host_phases_admit_declared_large_tools (__main__.RawToolControls.test_all_three_actual_host_phases_admit_declared_large_tools) ... ok\ntest_clock_failure_before_open_and_after_first_read (__main__.RawToolControls.test_clock_failure_before_open_and_after_first_read) ... ok\ntest_declared_python_and_docker_above16mib_stream_positive_no_retained_binary (__main__.RawToolControls.test_declared_python_and_docker_above16mib_stream_positive_no_retained_binary) ... ok\ntest_declared_size_wrong_before_open (__main__.RawToolControls.test_declared_size_wrong_before_open) ... ok\ntest_each_host_phase_refuses_tool_deadline_after_read_with_owned_close (__main__.RawToolControls.test_each_host_phase_refuses_tool_deadline_after_read_with_owned_close) ... ok\ntest_each_host_phase_refuses_tool_hash_drift_through_real_verifier (__main__.RawToolControls.test_each_host_phase_refuses_tool_hash_drift_through_real_verifier) ... ok\ntest_each_phase_reopens_and_remeasures_tools_no_cached_success (__main__.RawToolControls.test_each_phase_reopens_and_remeasures_tools_no_cached_success) ... ok\ntest_final_fd_and_path_identity_each_field_and_close (__main__.RawToolControls.test_final_fd_and_path_identity_each_field_and_close) ... "
+    }
+  },
+  "polls": [
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 26308,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 20000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "87613f",
+        "wall_time_seconds": 1.387487501,
+        "exit_code": 0,
+        "original_token_count": 423,
+        "output": "ok\ntest_foreign_path_closed_pin_and_wrong_tool_slot_rejected_before_open (__main__.RawToolControls.test_foreign_path_closed_pin_and_wrong_tool_slot_rejected_before_open) ... ok\ntest_nonregular_and_hardlink_before_open (__main__.RawToolControls.test_nonregular_and_hardlink_before_open) ... ok\ntest_open_failure_has_no_close_of_unowned_descriptor (__main__.RawToolControls.test_open_failure_has_no_close_of_unowned_descriptor) ... ok\ntest_open_identity_error_not_replaced_by_close_failure (__main__.RawToolControls.test_open_identity_error_not_replaced_by_close_failure) ... ok\ntest_opened_identity_each_field_refuses_before_read_and_closes (__main__.RawToolControls.test_opened_identity_each_field_refuses_before_read_and_closes) ... ok\ntest_path_and_ancestor_symlink_before_open (__main__.RawToolControls.test_path_and_ancestor_symlink_before_open) ... ok\ntest_premature_eof_and_exact_length_plus_one_growth_refused (__main__.RawToolControls.test_premature_eof_and_exact_length_plus_one_growth_refused) ... ok\ntest_raw2gib_ceiling_is_separate_from_metadata_and_proof_caps (__main__.RawToolControls.test_raw2gib_ceiling_is_separate_from_metadata_and_proof_caps) ... ok\ntest_read_error_and_close_error_preserve_original_first_fault (__main__.RawToolControls.test_read_error_and_close_error_preserve_original_first_fault) ... ok\ntest_successful_stream_close_error_still_refuses (__main__.RawToolControls.test_successful_stream_close_error_still_refuses) ... ok\ntest_wrong_expected_hash_or_stream_bytes_refuses (__main__.RawToolControls.test_wrong_expected_hash_or_stream_bytes_refuses) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 2.190s\n\nOK\n"
+      }
+    }
+  ]
+}

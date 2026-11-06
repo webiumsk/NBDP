@@ -1,0 +1,87 @@
+{
+  "schema": "e02-api35-v3-first-cell-supervisor-result-v1",
+  "runId": "6b590774938d4fd597189b05f588f130",
+  "runConfig": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r3/proposed-run-config.json",
+    "bytes": 3253,
+    "sha256": "2daa94f85bcb6493666c72896a07c9bc6f6aedc446c875c4e98b5cafd1053eb1"
+  },
+  "runRelease": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r3/exact-root-first-cell-release.json",
+    "bytes": 2407,
+    "sha256": "428f96e909f3c2f8d371aaddb843e0bd7050bebc6adf42dd0133747f40b8792d"
+  },
+  "lease": {
+    "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/session/lease.json",
+    "bytes": 368,
+    "sha256": "155d11c722ef510c367cddd6e3a02025a68fd2cd09ed361e4c3df6ace8552e4e"
+  },
+  "canonicalE02Changed": false,
+  "limits": [
+    "One cell only; mandatory wider matrix remains missing.",
+    "No hard realtime/suspended-host cleanup guarantee.",
+    "Independent QA/security must inspect actual results before acceptance."
+  ],
+  "executionState": "FAILED_UNQUALIFIED",
+  "error": "ValueError('Expected control absent after bounded scroll: System')",
+  "secondaryErrors": [],
+  "cleanup": {
+    "ok": true,
+    "rows": [
+      {
+        "role": "android",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "6a0c3573884f603eb9423a8858d689fac50b4b7a24da9e348ab2e5f211e9af20",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "fixture",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "f56c6ad7a6685f67ac4ddb674149b789b449325b29364086994cc5a087020902",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "rs-relay",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "8646f1203485fc68ac482086ac3051b8e933a0ff0e28725a6af23a0aa308e764",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "anchor",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "54b01019b0734173fe00a3da75669bea20a775c0a53b448a0141dfe7d42d4b13",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      }
+    ],
+    "errors": [],
+    "evidence": {
+      "path": "/tmp/nbdp-e02-ordinary-client-api35-v3/runs/6b590774938d4fd597189b05f588f130/cleanup/result.json",
+      "bytes": 1393,
+      "sha256": "79fa9ae1111f6ea2817607cf8c46da19598fd5b5cfd99b080eb37d67e99ba5a2"
+    }
+  }
+}

@@ -1,0 +1,348 @@
+{
+  "Id": "c1c6c3e0373f46945d0d15b3843f71b7c908253b1bdf796ca11857357fb3c61a",
+  "Created": "2026-10-24T05:35:19.958463302Z",
+  "Path": "/guard-python/lib/ld-linux-x86-64.so.2",
+  "Args": [
+    "--inhibit-cache",
+    "--library-path",
+    "/guard-python/lib",
+    "/guard-python/bin/python3.11",
+    "-B",
+    "-P",
+    "-S",
+    "-s",
+    "/input/supervisor.py",
+    "--guest",
+    "android"
+  ],
+  "State": {
+    "Status": "running",
+    "Running": true,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 3813568,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-24T05:35:20.222088232Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "Image": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+  "ResolvConfPath": "/var/lib/docker/containers/f38562a1a5805992f2c9ba969960254044dd329a233e8270d61108d1780ca02a/resolv.conf",
+  "HostnamePath": "/var/lib/docker/containers/f38562a1a5805992f2c9ba969960254044dd329a233e8270d61108d1780ca02a/hostname",
+  "HostsPath": "/var/lib/docker/containers/f38562a1a5805992f2c9ba969960254044dd329a233e8270d61108d1780ca02a/hosts",
+  "LogPath": "",
+  "Name": "/nbdp-e02-1c09035e6a7e469a9449cdfa9764725a-android",
+  "RestartCount": 0,
+  "Driver": "overlay2",
+  "Platform": "linux",
+  "MountLabel": "",
+  "ProcessLabel": "",
+  "AppArmorProfile": "docker-default",
+  "ExecIDs": null,
+  "HostConfig": {
+    "Binds": null,
+    "ContainerIDFile": "",
+    "LogConfig": {
+      "Type": "local",
+      "Config": {
+        "compress": "false",
+        "max-file": "1",
+        "max-size": "16m"
+      }
+    },
+    "NetworkMode": "container:f38562a1a5805992f2c9ba969960254044dd329a233e8270d61108d1780ca02a",
+    "PortBindings": {},
+    "RestartPolicy": {
+      "Name": "no",
+      "MaximumRetryCount": 0
+    },
+    "AutoRemove": false,
+    "VolumeDriver": "",
+    "VolumesFrom": null,
+    "ConsoleSize": [
+      0,
+      0
+    ],
+    "CapAdd": null,
+    "CapDrop": [
+      "ALL"
+    ],
+    "CgroupnsMode": "private",
+    "Dns": null,
+    "DnsOptions": [],
+    "DnsSearch": [],
+    "ExtraHosts": null,
+    "GroupAdd": [
+      "109"
+    ],
+    "IpcMode": "private",
+    "Cgroup": "",
+    "Links": null,
+    "OomScoreAdj": 0,
+    "PidMode": "",
+    "Privileged": false,
+    "PublishAllPorts": false,
+    "ReadonlyRootfs": true,
+    "SecurityOpt": [
+      "no-new-privileges"
+    ],
+    "Tmpfs": {
+      "/tmp": "rw,nosuid,nodev,size=256m"
+    },
+    "UTSMode": "",
+    "UsernsMode": "",
+    "ShmSize": 67108864,
+    "Runtime": "runc",
+    "Isolation": "",
+    "CpuShares": 0,
+    "Memory": 8589934592,
+    "NanoCpus": 8000000000,
+    "CgroupParent": "",
+    "BlkioWeight": 0,
+    "BlkioWeightDevice": [],
+    "BlkioDeviceReadBps": [],
+    "BlkioDeviceWriteBps": [],
+    "BlkioDeviceReadIOps": [],
+    "BlkioDeviceWriteIOps": [],
+    "CpuPeriod": 0,
+    "CpuQuota": 0,
+    "CpuRealtimePeriod": 0,
+    "CpuRealtimeRuntime": 0,
+    "CpusetCpus": "",
+    "CpusetMems": "",
+    "Devices": [
+      {
+        "PathOnHost": "/dev/kvm",
+        "PathInContainer": "/dev/kvm",
+        "CgroupPermissions": "rw"
+      }
+    ],
+    "DeviceCgroupRules": null,
+    "DeviceRequests": null,
+    "MemoryReservation": 0,
+    "MemorySwap": 8589934592,
+    "MemorySwappiness": null,
+    "OomKillDisable": null,
+    "PidsLimit": 512,
+    "Ulimits": null,
+    "CpuCount": 0,
+    "CpuPercent": 0,
+    "IOMaximumIOps": 0,
+    "IOMaximumBandwidth": 0,
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/tmp/nbdp-e02-ordinary-minimum-v1/runs/1c09035e6a7e469a9449cdfa9764725a/input",
+        "Target": "/input",
+        "ReadOnly": true
+      },
+      {
+        "Type": "bind",
+        "Source": "/tmp/nbdp-e02-ordinary-minimum-v1/runs/1c09035e6a7e469a9449cdfa9764725a/session/lease.json",
+        "Target": "/session/lease.json",
+        "ReadOnly": true
+      },
+      {
+        "Type": "bind",
+        "Source": "/tmp/nbdp-e02-ordinary-minimum-v1/runs/1c09035e6a7e469a9449cdfa9764725a/session/control",
+        "Target": "/session/control"
+      },
+      {
+        "Type": "bind",
+        "Source": "/tmp/nbdp-e02-api35-fixture-r2/sdk",
+        "Target": "/sdk",
+        "ReadOnly": true
+      },
+      {
+        "Type": "bind",
+        "Source": "/tmp/nbdp-e02-android-artifact/source/amethyst/build/outputs/apk/fdroid/debug/amethyst-fdroid-debug.apk",
+        "Target": "/artifact.apk",
+        "ReadOnly": true
+      },
+      {
+        "Type": "bind",
+        "Source": "/tmp/nbdp-e02-ordinary-client-v1/helper-build-20261023a/clipboard-capture.apk",
+        "Target": "/helper.apk",
+        "ReadOnly": true
+      },
+      {
+        "Type": "bind",
+        "Source": "/tmp/nbdp-e02-ordinary-minimum-v1/runs/1c09035e6a7e469a9449cdfa9764725a/android-state",
+        "Target": "/state"
+      }
+    ],
+    "MaskedPaths": [
+      "/proc/acpi",
+      "/proc/asound",
+      "/proc/interrupts",
+      "/proc/kcore",
+      "/proc/keys",
+      "/proc/latency_stats",
+      "/proc/sched_debug",
+      "/proc/scsi",
+      "/proc/timer_list",
+      "/proc/timer_stats",
+      "/sys/devices/virtual/powercap",
+      "/sys/firmware",
+      "/sys/devices/system/cpu/cpu0/thermal_throttle",
+      "/sys/devices/system/cpu/cpu1/thermal_throttle",
+      "/sys/devices/system/cpu/cpu2/thermal_throttle",
+      "/sys/devices/system/cpu/cpu3/thermal_throttle",
+      "/sys/devices/system/cpu/cpu4/thermal_throttle",
+      "/sys/devices/system/cpu/cpu5/thermal_throttle",
+      "/sys/devices/system/cpu/cpu6/thermal_throttle",
+      "/sys/devices/system/cpu/cpu7/thermal_throttle",
+      "/sys/devices/system/cpu/cpu8/thermal_throttle",
+      "/sys/devices/system/cpu/cpu9/thermal_throttle",
+      "/sys/devices/system/cpu/cpu10/thermal_throttle",
+      "/sys/devices/system/cpu/cpu11/thermal_throttle",
+      "/sys/devices/system/cpu/cpu12/thermal_throttle",
+      "/sys/devices/system/cpu/cpu13/thermal_throttle",
+      "/sys/devices/system/cpu/cpu14/thermal_throttle",
+      "/sys/devices/system/cpu/cpu15/thermal_throttle",
+      "/sys/devices/system/cpu/cpu16/thermal_throttle",
+      "/sys/devices/system/cpu/cpu17/thermal_throttle",
+      "/sys/devices/system/cpu/cpu18/thermal_throttle",
+      "/sys/devices/system/cpu/cpu19/thermal_throttle",
+      "/sys/devices/system/cpu/cpu20/thermal_throttle",
+      "/sys/devices/system/cpu/cpu21/thermal_throttle"
+    ],
+    "ReadonlyPaths": [
+      "/proc/bus",
+      "/proc/fs",
+      "/proc/irq",
+      "/proc/sys",
+      "/proc/sysrq-trigger"
+    ],
+    "Init": true
+  },
+  "GraphDriver": {
+    "Data": {
+      "ID": "c1c6c3e0373f46945d0d15b3843f71b7c908253b1bdf796ca11857357fb3c61a",
+      "LowerDir": "/var/lib/docker/overlay2/30979dae7e87e1a9f1163daf73adb012574c87c5b8eaf7634b2b63cf1c1f3361-init/diff:/var/lib/docker/overlay2/c7f08f4b3c492a4844809dd39d8ed9bfc56230e4ad20775e47063eb12307d5ed/diff:/var/lib/docker/overlay2/fbb4a11b60133d01c22aea529add7b758ff452a56223b19c943f9edc99f1723f/diff:/var/lib/docker/overlay2/9ba819cc18707e26d6c2f8f38decf84fd14c399523fca1e457a3f21151c6c980/diff:/var/lib/docker/overlay2/67ec01df09be7f8dbbf43499e9ae049ce4c5474513632f6157434aafad9054e4/diff:/var/lib/docker/overlay2/ecd244a37c15c492b779379dd9062ad6174ea02440b37596362eec8983b47327/diff:/var/lib/docker/overlay2/fc4e3c12be74eb5c2a132c0ba5005fe23c690148f97fedfff5b9bbf9210eca55/diff:/var/lib/docker/overlay2/yl44babg2cvr51liok0wz78i8/diff:/var/lib/docker/overlay2/jm0pge2fhluw10xb7o14u2dm5/diff:/var/lib/docker/overlay2/mlc8df1zk4yykwltq49k442xe/diff:/var/lib/docker/overlay2/sha2o0bjjij37jxb2qhh4ysh8/diff:/var/lib/docker/overlay2/lg2u1s9e5gshkqnzu4vju6lkf/diff:/var/lib/docker/overlay2/69mrcw3ntsiqfvgv4p3ijjgqj/diff:/var/lib/docker/overlay2/vcbz2pbvpeeg6b3gb5eyq6z1w/diff:/var/lib/docker/overlay2/ytk01uhxsrm690gvrsllcsqrp/diff:/var/lib/docker/overlay2/8ae5e3499817e9d8b6578e9958c7f4b5a730aeb75160a2061aa74a6e8aef271b/diff",
+      "MergedDir": "/var/lib/docker/overlay2/30979dae7e87e1a9f1163daf73adb012574c87c5b8eaf7634b2b63cf1c1f3361/merged",
+      "UpperDir": "/var/lib/docker/overlay2/30979dae7e87e1a9f1163daf73adb012574c87c5b8eaf7634b2b63cf1c1f3361/diff",
+      "WorkDir": "/var/lib/docker/overlay2/30979dae7e87e1a9f1163daf73adb012574c87c5b8eaf7634b2b63cf1c1f3361/work"
+    },
+    "Name": "overlay2"
+  },
+  "Mounts": [
+    {
+      "Type": "bind",
+      "Source": "/tmp/nbdp-e02-android-artifact/source/amethyst/build/outputs/apk/fdroid/debug/amethyst-fdroid-debug.apk",
+      "Destination": "/artifact.apk",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/tmp/nbdp-e02-ordinary-client-v1/helper-build-20261023a/clipboard-capture.apk",
+      "Destination": "/helper.apk",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/tmp/nbdp-e02-ordinary-minimum-v1/runs/1c09035e6a7e469a9449cdfa9764725a/input",
+      "Destination": "/input",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/tmp/nbdp-e02-api35-fixture-r2/sdk",
+      "Destination": "/sdk",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/tmp/nbdp-e02-ordinary-minimum-v1/runs/1c09035e6a7e469a9449cdfa9764725a/android-state",
+      "Destination": "/state",
+      "Mode": "",
+      "RW": true,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/tmp/nbdp-e02-ordinary-minimum-v1/runs/1c09035e6a7e469a9449cdfa9764725a/session/control",
+      "Destination": "/session/control",
+      "Mode": "",
+      "RW": true,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/tmp/nbdp-e02-ordinary-minimum-v1/runs/1c09035e6a7e469a9449cdfa9764725a/session/lease.json",
+      "Destination": "/session/lease.json",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    }
+  ],
+  "Config": {
+    "Hostname": "f38562a1a580",
+    "Domainname": "",
+    "User": "1000:1000",
+    "AttachStdin": false,
+    "AttachStdout": true,
+    "AttachStderr": true,
+    "Tty": false,
+    "OpenStdin": false,
+    "StdinOnce": false,
+    "Env": [
+      "PATH=/sdk/emulator:/sdk/platform-tools:/usr/local/bin:/usr/bin:/bin",
+      "LANG=C.UTF-8",
+      "ANDROID_SDK_ROOT=/sdk",
+      "ANDROID_AVD_HOME=/state/avd",
+      "TMPDIR=/tmp",
+      "PYTHONHOME=/guard-python",
+      "OPENSSL_CONF=/dev/null",
+      "OPENSSL_MODULES=/guard-python/lib/openssl-modules-disabled",
+      "HOME=/state/home",
+      "ANDROID_HOME=/sdk",
+      "ANDROID_USER_HOME=/state/android",
+      "NBDP_LEASE_SHA256=353013682e52a8eaa51400f78c8ed189bd4ed837628549042b2cd7739c431912",
+      "NBDP_FIXTURE_PLAN_SHA256=744d703f96747adffe8444ac083b1de1f0a3c8a59f8536e7721ea2b6c198efee",
+      "NBDP_MINIMUM_RUN_CONFIG_SHA256=9403036b52608929f4be45a5998b6b134dfbdc9454887dcac9be0646848cce5e"
+    ],
+    "Cmd": [
+      "--inhibit-cache",
+      "--library-path",
+      "/guard-python/lib",
+      "/guard-python/bin/python3.11",
+      "-B",
+      "-P",
+      "-S",
+      "-s",
+      "/input/supervisor.py",
+      "--guest",
+      "android"
+    ],
+    "Image": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+    "Volumes": null,
+    "WorkingDir": "/input",
+    "Entrypoint": [
+      "/guard-python/lib/ld-linux-x86-64.so.2"
+    ],
+    "Labels": {
+      "nbdp.creation": "49f8f6287e2f4778b24a80d0ccfa81e0",
+      "nbdp.owner": "e02-ingress",
+      "nbdp.role": "android",
+      "nbdp.run": "1c09035e6a7e469a9449cdfa9764725a",
+      "nbdp.task": "e02-minimal-rs-v7-local-build"
+    }
+  },
+  "NetworkSettings": {
+    "SandboxID": "",
+    "SandboxKey": "",
+    "Ports": {},
+    "Networks": {}
+  }
+}

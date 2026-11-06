@@ -1,0 +1,71 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/supervisor.py
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r3/supervisor.py
+@@ -24,7 +24,7 @@
+ # Guest source is staged at /input/supervisor.py. Host-only helpers use this
+ # fixed authorized checkout; module initialization must also work in /input.
+ REPO = Path('/home/peterhorvath/apps/bitcoin/NBDP')
+-LAB = Path('/tmp/nbdp-e02-ordinary-minimum-v2')
++LAB = Path('/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3')
+ OLD = Path('/tmp/nbdp-e02-minimal-rs-v7')
+ SCOPE = 'E02_ORDINARY_MINIMUM_RS_TWO_ROLE_V2_WINDOW_ONLY'
+ PROFILE = 'e02-ordinary-minimum-rs-two-role-v2'
+@@ -268,8 +268,51 @@
+             'capture-budget.mjs', 'exchange-adapter.mjs', 'proxy-observer.mjs')]
+ 
+ 
++def verify_rebuilt_artifacts(bindings=None):
++    """Host DATA binding only; no tools, native or APK code is executed."""
++    bindings = strict((HERE / 'rebuilt-artifact-bindings.json').read_bytes()) if bindings is None else bindings
++    need(bindings['state'] == 'SOURCE_BOUND_REQUIRES_REVIEW_AND_ROLE_RELEASE'
++         and all(bindings[k] is not None for k in ('amethystApk','amethystProvenance','amethystAcceptance','amethystAcceptanceDecision')),
++         'New accepted Amethyst APK is NULL_NOT_READY; no historical artifact fallback')
++    need(bindings['schema'] == 'e02-ordinary-rebuilt-artifact-bindings-v1'
++         and bindings['runtimeSourceCount'] == 16, 'Exact rebuilt producer binding scope')
++    for key in ('amethystApk','amethystProvenance','amethystAcceptance','helperApk','helperProvenance','helperAcceptance','rustBinary','acceptedE01','acceptedE01Acceptance','originalCanonicalE01'):
++        checked(bindings[key])
++    apk_origin = strict(checked(bindings['amethystProvenance']).read_bytes())
++    apk_acceptance = strict(checked(bindings['amethystAcceptance']).read_bytes())
++    need(apk_origin['apk'] == bindings['amethystApk'] and apk_acceptance['subject'] == bindings['amethystProvenance']
++         and apk_acceptance['decision'] == bindings['amethystAcceptanceDecision'], 'Actual accepted rebuilt APK provenance join')
++    helper_origin = strict(checked(bindings['helperProvenance']).read_bytes())
++    helper_acceptance = strict(checked(bindings['helperAcceptance']).read_bytes())
++    need(helper_origin['apk'] == bindings['helperApk'] and helper_acceptance['subject'] == bindings['helperProvenance']
++         and helper_acceptance['decision'] == 'ACCEPT_REBUILT_HELPER_ARTIFACT_ONLY', 'Actual accepted rebuilt helper join')
++    e01 = strict(checked(bindings['acceptedE01']).read_bytes())
++    original = strict(checked(bindings['originalCanonicalE01']).read_bytes())
++    acceptance = strict(checked(bindings['acceptedE01Acceptance']).read_bytes())
++    need(e01['status'] == 'PASS' and len(e01['tests']) == 140 and all(t['ok'] is True for t in e01['tests'])
++         and e01['skipped'] == [] and len(e01['source_sha256']) == 19
++         and e01['source_sha256'] == original['source_sha256'] == bindings['expectedOriginal19Sources'], 'Exact original19 source PASS140 E01 binding')
++    need(e01['environment']['rust_binary_sha256'] == bindings['rustBinary']['sha256']
++         and bindings['rustBinary']['sha256'] == '4ce385c5b1a713b35d58d787d94fbc298d139aa2e813daec15b2e99289cefd86'
++         and acceptance['nativeSha256'] == bindings['rustBinary']['sha256'] and acceptance['report'] == bindings['acceptedE01']
++         and acceptance['decision'] == 'ACCEPT_ACTUAL_E01_REPLAY_FOR_EXACT_REBUILT_NATIVE_CANDIDATE', 'Current accepted E01/native equality')
++    for relative, expected in e01['source_sha256'].items():
++        path = REPO / 'experiments' / relative
++        need(not path.is_symlink() and digest(path) == expected, 'Current original19 E01 source drift')
++    runtime = strict((HERE / 'runtime-plan.json').read_bytes())
++    fixture = strict((HERE / 'fixture-plan.json').read_bytes())
++    need(runtime['amethystApk'] == bindings['amethystApk'] and runtime['helperApk'] == bindings['helperApk']
++         and runtime['sdkRoot'] == bindings['runtimeSdk'] == '/tmp/nbdp-e02-api35-fixture-r2/sdk'
++         and runtime['runtimeImage'] == bindings['runtimeImage'] == RUNTIME, 'Runtime-only SDK434/image and exact rebuilt APK/helper')
++    for key, value in (('rustBinary',bindings['rustBinary']),('e01',bindings['acceptedE01'])):
++        need({k: fixture['pins'][key][k if k != 'path' else 'source'] for k in ('path','bytes','sha256')} == value, 'Exact host/runtime native/E01 staged source join')
++    need({k: fixture['pins']['rebuiltBindings'][k if k != 'path' else 'source'] for k in ('path','bytes','sha256')} == pin(HERE / 'rebuilt-artifact-bindings.json'), 'Hash-bound supplemental artifact DATA')
++    return bindings
++
++
+ def materialize(destination, run_id, seconds, ordinary_role):
+     """Prepare bytes only; does not issue a lease, import workers or start Docker."""
++    verify_rebuilt_artifacts()
+     need(re.fullmatch('[0-9a-f]{32}', run_id) and 60 <= seconds <= 1800, 'Fresh bounded run identity')
+     old = strict((HERE / 'runtime-plan.json').read_bytes())
+     config = {k: old[k] for k in ('schema', 'scope', 'runtimeImage', 'relayImage',
+@@ -291,6 +334,7 @@
+ 
+ 
+ def verify_config(config):
++    verify_rebuilt_artifacts()
+     need(config['schema'] == 'e02-ordinary-minimum-role-runtime-plan-v2' and config['scope'] == SCOPE,
+          'Fixed first slice only')
+     need(config['profileId'] == PROFILE and config['ordinaryRole'] in ('incoming', 'archive'),

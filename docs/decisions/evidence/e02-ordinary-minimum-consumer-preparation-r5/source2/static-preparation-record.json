@@ -1,0 +1,149 @@
+{
+  "schema": "e02-consumer5-source2-static-preparation-record-v2",
+  "method": "Source text/AST/descriptor comparisons only; no executable target imports or model calls.",
+  "originalConsumerFunctionsUnchanged": [
+    "external",
+    "provenance",
+    "graph",
+    "fixture_calls",
+    "preparation_join",
+    "status_join",
+    "guest_observations",
+    "window",
+    "main"
+  ],
+  "originalConsumerFunctionsChanged": [
+    "require_current_source_profile",
+    "control_evidence",
+    "consume"
+  ],
+  "newSourceHelpers": [
+    "current_producer",
+    "capture_output",
+    "capture_child",
+    "capture_inputs",
+    "current_capture",
+    "capture_data_reviews",
+    "capture_authority",
+    "capture_admission_models",
+    "model_execution_record",
+    "admission_model_execution",
+    "capture_original_tool",
+    "capture_root_ack"
+  ],
+  "protectedByteIdentical": [
+    "gui.py",
+    "observer.py",
+    "strict.py",
+    "wire.py",
+    "witness.py",
+    "test_observer.py"
+  ],
+  "originalDraftPreserved": true,
+  "knownSource3": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/subject.json",
+    "bytes": 7081,
+    "sha256": "e103370b6e1f9b6e2f1a133f9c7653cb29612a04b02f7f4f3032d16b9f424c1e"
+  },
+  "remainingNullByCapture": {
+    "capture-a": [
+      "release",
+      "originalToolResponses",
+      "result",
+      "acceptance",
+      "qaReview",
+      "securityReview",
+      "admissionModelAcceptance"
+    ],
+    "capture-b": [
+      "release",
+      "originalToolResponses",
+      "result",
+      "acceptance",
+      "qaReview",
+      "securityReview",
+      "admissionModelAcceptance"
+    ]
+  },
+  "remainingCurrentActors": null,
+  "sourceCount": 14,
+  "durableCopies": 14,
+  "definedTopLevelScopes": [
+    86,
+    36,
+    8,
+    9
+  ],
+  "allModelsExecuted": 0,
+  "roleRuntimeExecuted": 0,
+  "grantCreated": false,
+  "finalSubjectCreated": false,
+  "currentEntryPoint": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r5/source2/draft-pointer.json",
+    "bytes": 13718,
+    "sha256": "5cbc926c8a57870e75653fa4c07021bbee3e17a630b267015679eb63a404205a"
+  },
+  "currentConsumer": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-consumer-preparation-r5-source2/consumer.py",
+    "bytes": 92480,
+    "sha256": "bf5944ec6ef9ad8c20811333eb4dbf13f014d4e8b847bf82805584c40e601bb8"
+  },
+  "sourcePreparationCommands": [
+    {
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r5/source2/prepare-source2.py"
+      ],
+      "chunkId": "d53f53",
+      "exitCode": 0,
+      "wallTimeSeconds": "0.199367812"
+    },
+    {
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r5/source2/prepare-source2.py",
+        "--refresh-draft"
+      ],
+      "chunkId": "a75609",
+      "exitCode": 0,
+      "wallTimeSeconds": "0.287489928"
+    },
+    {
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r5/source2/prepare-source2.py",
+        "--refresh-draft"
+      ],
+      "chunkId": "976dbf",
+      "exitCode": 0,
+      "wallTimeSeconds": "0.27406209"
+    },
+    {
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r5/source2/prepare-source2.py",
+        "--refresh-draft"
+      ],
+      "chunkId": "064d54",
+      "exitCode": 0,
+      "wallTimeSeconds": "0.269480038"
+    }
+  ],
+  "gitObservation": "git status --short --branch failed128: shared .git is empty/read-only, no Git state asserted or changed.",
+  "sourceReview": "Pending independent review; author does not approve own implementation or findings.",
+  "actual9": "Actualroot-run positive DATA observed; independent acceptance pending. Worker executed no models.",
+  "legacyMetadataDecoder": "Decimal only at model execution root durationSeconds; raw evidence unchanged, strict protocol/File limits unchanged.",
+  "preservedPriorCheckpoint": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r5/source2/checkpoint-before-actual9-adapter/copies.json",
+    "bytes": 14581,
+    "sha256": "3232eb7ec2775085bbad4b9784186d706a719d9e184228b90c4da68f3bd6e569"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "nbdp-native-build-name-absence-receipt-v1",
+  "origin": "Exact actual command/result transcribed by operator, not authenticated provider logs.",
+  "actualToolCall": {
+    "cmd": "docker container inspect nbdp-rust-rebuild-20261026 --format '{{json .Id}}'",
+    "sandbox_permissions": "require_escalated",
+    "max_output_tokens": 1500
+  },
+  "actualToolResult": {
+    "chunk_id": "bfb778",
+    "wall_time_seconds": 7.1889e-05,
+    "exit_code": 1,
+    "original_token_count": 19,
+    "output": "\nError response from daemon: No such container: nbdp-rust-rebuild-20261026\n"
+  },
+  "scope": "Exact dedicated NAME absent after natural successful docker run --rm; no exactCID was captured, no independent process-census/atomic-closure claim."
+}

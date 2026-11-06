@@ -1,0 +1,38 @@
+{
+  "schema": "e02-helper-rebuild-pure-plan-models-v1",
+  "source": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v2/test_plan_models.py",
+    "bytes": 4281,
+    "sha256": "79d793a77caadba0eb84b6a3972ad26dd86370e02a27a06645456b6cdb0b268c"
+  },
+  "modelNames": [
+    "test_positive_shape_only_not_tool_authentication",
+    "test_not_ready_state_refuses",
+    "test_missing_tool_hash_refuses",
+    "test_null_tool_hash_refuses",
+    "test_duplicate_tool_alias_refuses",
+    "test_foreign_tool_path_refuses",
+    "test_old_source_path_cannot_substitute_new_builder",
+    "test_old_apk_identity_field_refuses",
+    "test_original_phase_deadline_cannot_increase",
+    "test_original_command_deadline_cannot_increase",
+    "test_jvm_environment_configuration_cannot_silently_change",
+    "test_old_output_root_refuses",
+    "test_all_eight_original_cli_commands_and_flags_are_preserved"
+  ],
+  "defined": 13,
+  "executed": 0,
+  "scope": "Pure plan/path/source/limits/CLI-list DATA only; no tools, Java, compile, key generation, APK or Android",
+  "bounds": {
+    "maximumSeconds": 30,
+    "maximumStdoutBytes": 65536,
+    "maximumStderrBytes": 262144
+  },
+  "proposedCommand": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v2/test_plan_models.py"
+  ],
+  "rootReleaseRequired": true
+}

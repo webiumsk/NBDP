@@ -1,0 +1,192 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/capture-controls.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/capture-controls.py
+@@ -1,4 +1,4 @@
+-"""Fixed once-only18/27/6 synthetic DATA capture. Requires a fresh external root ack.
++"""Fixed once-only20/8/7 synthetic DATA capture. Requires a fresh external root ack.
+ 
+ Popen.communicate retains output in memory until completion. Byte limits below
+ are post-capture file retention/refusal limits, NOT streaming memory/resource
+@@ -19,15 +19,22 @@
+ ROOT = Path('/home/peterhorvath/apps/bitcoin/NBDP')
+ HERE = Path(__file__).resolve().parent
+ PREP = HERE.parent
+-SOURCE = ROOT / 'experiments/prototypes/e02_transport_query_diagnostic_v2'
++SOURCE = ROOT / 'experiments/prototypes/e02_ordinary_minimum_v2'
+ NODE = Path('/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node')
+ PYTHON = Path('/home/peterhorvath/.miniforge3/bin/python3.13')
+ ACTOR = '/root/ordinary_api35_source'
+ CAPTURE = HERE
+-SOURCE_SHA = 'aece375c76f20d8c738d34e57feb19e50c2ccfc28cb09ffc9347481d2f526b85'
+-MANIFEST_SHA = '99c2e428d87ca19cbbc19c3912e3c7ff548217dba540c517ffab81852dd8bb9c'
+-FROZEN_PLAN_SHA = 'bf227bade861821099eed7f3c664ab8f56259b028000ea5b42024821f3fef1fb'
++SOURCE_SHA = 'ef91dc64189d7c47a4b4539c4dacd93a4c5c760da8f98bf1b203040bba6eeffd'
++MANIFEST_SHA = '60d55e830b4dce27ec1392b9c827e4f0ce28d2f8c6d3266e0405969fdd46d53f'
++FROZEN_PLAN_SHA = '58c4ec1a81f723ff5657cadce489b07dc9c62ace2f185752b5d2a81b313678eb'
+ LIMITS = {'stdout':1048576,'stderr':262144}
++ACCEPTED_REVIEW_DECISIONS = {
++    'source': {'qa': ('ACCEPT_MINIMUM_PRODUCER_SOURCE_FOR_CHANGED_CONTROLS_ONLY',),
++               'security': ('ACCEPT_MINIMUM_PRODUCER_SOURCE_FOR_CHANGED_CONTROLS_ONLY',)},
++    'capture': {'qa': ('ACCEPT_PRODUCER2_FIXED_CAPTURE_SOURCE_FOR_CURRENT_DATA_CONTROLS_ONLY',),
++                'security': ('ACCEPT_PRODUCER2_FIXED_CAPTURE_SOURCE_FOR_CURRENT_DATA_CONTROLS_ONLY',)}}
++# Source decisions above are ACTUAL received decisions. Capture values define
++# the sole permitted future scoped decision, not a claim it has been received.
+ 
+ 
+ def utc():
+@@ -97,14 +104,18 @@
+ def snapshot(ack_sha):
+     source=pin(PREP/'subject.json');assert source['sha256']==SOURCE_SHA
+     manifest=pin(PREP/'artifact-manifest.json');assert manifest['sha256']==MANIFEST_SHA
+-    frozen_plan=pin(PREP/'control-plan.json');assert frozen_plan['sha256']==FROZEN_PLAN_SHA
+-    plan=doc(PREP/'control-plan.json');current_plan=doc(CAPTURE/'control-plan.json')
+-    assert plan['separateScopes']==current_plan['separateScopes']
+-    assert plan['rawRetentionBytes']==LIMITS and all(s['timeoutSeconds']==60 for s in plan['separateScopes'])
+-    inputs=doc(CAPTURE/'frozen-inputs.json');assert inputs['schema']=='e02-transport-source2-control-frozen-inputs-v1'
++    frozen_plan=pin(PREP/'execution-control-plan.json');assert frozen_plan['sha256']==FROZEN_PLAN_SHA
++    plan=doc(PREP/'execution-control-plan.json');current_plan=doc(CAPTURE/'control-plan.json')
++    assert len(plan['separateScopes'])==len(current_plan['separateScopes'])==3
++    for original,current in zip(plan['separateScopes'],current_plan['separateScopes']):
++        assert (original['name'],original['argv'],original['plannedChecks'],original['namedCases'])==(current['name'],current['argv'],current['count'],current['expectedCases'])
++        assert original['timeoutSeconds']==current['timeoutSeconds']==60
++        assert original['stdoutRetentionBytes']==LIMITS['stdout'] and original['stderrRetentionBytes']==LIMITS['stderr']
++    inputs=doc(CAPTURE/'frozen-inputs.json');assert inputs['schema']=='e02-producer2-control-frozen-inputs-v1'
+     expected=inputs['files'];assert 1<=len(expected)<=4096 and len({d['path'] for d in expected})==len(expected)
+     actual=[pin(Path(d['path'])) for d in expected];assert actual==expected
+-    assert inputs['sourceSubject']==source and pin(PREP/'proposed-run-config.json')==inputs['configuration']
++    assert inputs['sourceSubject']==source
++    assert [pin(PREP/('proposed-'+role+'-run-config.json')) for role in ('incoming','archive')]==inputs['configurations']
+     assert pin(NODE)==inputs['node'] and pin(PYTHON)==inputs['python']
+     membership=installed_membership()
+     ack_path=CAPTURE/'coordinator-acknowledgement.json';ack_pin=pin(ack_path)
+@@ -114,14 +125,14 @@
+         'sourceQaReview','sourceSecurityReview','sourceQaDecision','sourceSecurityDecision',
+         'captureQaReview','captureSecurityReview','captureQaDecision','captureSecurityDecision',
+         'pureControlsAuthorized','allowedScopes','stopFirstFailure','noRetry',
+-        'diagnosticRuntimeAuthorized','primaryAuthorized','consumerAuthorized','androidAuthorized',
+-        'servicesAuthorized','cryptoOrNativeAuthorized','sdkAuthorized'}
+-    assert ack['schema']=='e02-transport-source2-controls-root-ack-v1' and ack['actor']=='/root'
+-    assert ack['sourceSubject']==source and ack['allowedScopes']=={s['name']:s['count'] for s in plan['separateScopes']}
++        'ordinaryRuntimeAuthorized','primaryAuthorized','consumerAuthorized','androidAuthorized',
++        'servicesAuthorized','protocolCryptoOrNativeAuthorized','sdkAuthorized'}
++    assert ack['schema']=='e02-producer2-controls-root-ack-v1' and ack['actor']=='/root'
++    assert ack['sourceSubject']==source and ack['allowedScopes']=={s['name']:s['count'] for s in current_plan['separateScopes']}
+     assert ack['runner']==pin(Path(__file__).resolve()) and ack['controlPlan']==pin(CAPTURE/'control-plan.json')
+     assert ack['runnerSubject']==pin(CAPTURE/'runner-subject.json')
+     for key in ('pureControlsAuthorized','stopFirstFailure','noRetry'):assert ack[key] is True
+-    for key in ('diagnosticRuntimeAuthorized','primaryAuthorized','consumerAuthorized','androidAuthorized','servicesAuthorized','cryptoOrNativeAuthorized','sdkAuthorized'):assert ack[key] is False
++    for key in ('ordinaryRuntimeAuthorized','primaryAuthorized','consumerAuthorized','androidAuthorized','servicesAuthorized','protocolCryptoOrNativeAuthorized','sdkAuthorized'):assert ack[key] is False
+     rs=doc(CAPTURE/'runner-subject.json');assert rs['runner']==ack['runner'] and rs['controlPlan']==ack['controlPlan']
+     for d in rs['preparationArtifacts']:assert pin(Path(d['path']))==d
+     reviews=[]
+@@ -129,14 +140,15 @@
+         sessions=[]
+         for role,title in (('qa','Qa'),('security','Security')):
+             d=ack[prefix+title+'Review'];assert Path(d['path']).parent==parent and pin(Path(d['path']))==d
++            if prefix=='source':assert d==inputs['actualSourceReviews'][role]
+             r=doc(Path(d['path']));assert set(r)=={'role','session','decision','subject'}
+             assert r['role']==role and r['subject']==subject and r['decision']==ack[prefix+title+'Decision']
+             assert type(r['session']) is str and r['session'].startswith('/root/') and r['session'] not in (ACTOR,'/root')
+-            if prefix=='source':assert r['decision']=={'qa':'ACCEPT_DIAGNOSTIC_SOURCE_CONFIG_ONLY','security':'ACCEPT_SOURCE_FOR_SCOPED_DATA_CONTROLS_ONLY'}[role]
++            assert r['decision'] in ACCEPTED_REVIEW_DECISIONS[prefix][role]
+             sessions.append(r['session']);reviews.append(d)
+         assert len(set(sessions))==2
+     return {'sourceSubject':source,'sourceManifest':manifest,'frozenSourcePlan':frozen_plan,
+-        'frozenInputs':actual,'installedMembership':membership,'configuration':inputs['configuration'],
++        'frozenInputs':actual,'installedMembership':membership,'configurations':inputs['configurations'],
+         'interpreters':{'python':inputs['python'],'node':inputs['node']},'monitor':pin(Path(__file__).resolve()),
+         'runnerSubject':ack['runnerSubject'],'controlPlan':ack['controlPlan'],
+         'sourceAndCaptureReviewRecords':reviews,'coordinatorAcknowledgement':ack_pin,
+@@ -144,30 +156,22 @@
+ 
+ 
+ def output_shape(scope,raw):
+-    if scope['name']=='source-custody-and-host-inventory':
++    if scope['name'] in ('public-identity-metadata','producer2-source-wiring'):
+         assert raw['stdout']==b''
+-        match=re.search(rb'\nRan ([0-9]+) tests? in [^\n]+\n\nOK\n\Z',raw['stderr'])
+-        assert match and int(match[1])==18
+-        pairs=re.findall(rb'^(test_[a-z0-9_]+) \(__main__\.([A-Za-z0-9_]+)\.(test_[a-z0-9_]+)\) \.\.\. ok$',raw['stderr'],re.M)
+-        actual={}
+-        for one,klass,two in pairs:
+-            assert one==two;actual.setdefault(klass.decode(),[]).append(one.decode())
+-        assert sum(map(len,actual.values()))==18 and len(pairs)==18
+-        assert {k:sorted(v) for k,v in actual.items()}=={k:sorted(v) for k,v in scope['expectedClassCases'].items()}
+-        return 18,{'SourceCustodyControls':10,'ClosedDependencyControls':8}
++        # Fixed original argv has default unittest verbosity. Exact dots/count/
++        # OK, no skip/failure/error/extra output is permitted.
++        match=re.fullmatch(rb'([.]+)\n-{70}\nRan ([0-9]+) tests? in [^\n]+\n\nOK\n',raw['stderr'])
++        assert match and len(match[1])==scope['count'] and int(match[2])==scope['count']
++        return scope['count'],{scope['name']:scope['count']}
++    assert scope['name']=='observation-model'
+     assert raw['stderr']==b'' and raw['stdout'].endswith(b'\n') and raw['stdout'].count(b'\n')==1
+-    v=strict(raw['stdout']);assert type(v['checks']) is int and v['checks']==scope['count']
+-    assert v['cases']==scope['expectedCases'] and len(v['cases'])==scope['count'] and len(set(v['cases']))==len(v['cases'])
+-    if scope['name']=='fake-socket-and-physical-prefix-model':
+-        assert set(v)=={'scope','checks','cases','realGuardExecuted','networkExecuted','cryptoExecuted','ordinaryClientQualified'}
+-        assert v['scope']=='TRANSPORT_QUERY_FAKE_SOCKET_PHASE_MODEL_ONLY'
+-        for k in ('realGuardExecuted','networkExecuted','cryptoExecuted','ordinaryClientQualified'):assert v[k] is False
+-        return 27,{'priorScopeCasesIncludingVersionedLateBehavior':20,'newFaultFamilies':7}
+-    assert scope['name']=='guest-dependency-inventory-data'
+-    assert set(v)=={'scope','checks','cases','optionalModuleImported','networkExecuted','containerExecuted'}
+-    assert v['scope']=='GUEST_DEPENDENCY_INVENTORY_DATA_ONLY'
+-    for k in ('optionalModuleImported','networkExecuted','containerExecuted'):assert v[k] is False
+-    return 6,{'guestInventoryFamilies':6}
++    value=strict(raw['stdout'])
++    assert set(value)=={'schema','ok','checks','cases','scope'}
++    assert value['schema']=='e02-producer2-observation-model-controls-v1' and value['ok'] is True
++    assert value['scope']=='SYNTHETIC_FS_SOCKET_GUARD_DATA_ONLY_NO_RUNTIME'
++    assert type(value['checks']) is int and value['checks']==scope['count']==20
++    assert value['cases']==scope['expectedCases'] and len(value['cases'])==20 and len(set(value['cases']))==20
++    return 20,{'shared-budget-guard-proxy-and-exchange-adapter-models':20}
+ 
+ 
+ def one_scope(scope,ack_sha):
+@@ -180,7 +184,7 @@
+     before = after = None
+     child = None
+     raw = {'stdout': b'', 'stderr': b''}
+-    receipt = dict(schema='e02-transport-source2-pure-scope-execution-v1', actor=ACTOR,
++    receipt = dict(schema='e02-producer2-pure-scope-execution-v1', actor=ACTOR,
+         parentCoordinator='/root', argv=ARGV, cwd=str(ROOT), expectedCount=scope['count'], startedUtc=utc(),
+         timeoutSeconds=60, retentionBytes=LIMITS, retentionMeaning='POST_CAPTURE_FILE_PREFIX_LIMIT_NOT_STREAMING_MEMORY_CAP',
+         pid=None, exitCode=None, signal=None, reaped=False, naturalExit=False, stdoutEOF=False, stderrEOF=False,
+@@ -268,7 +272,7 @@
+         and not any(receipt['truncated'].values()) and receipt['sourceUnchanged'])
+     receipt['state'] = 'WRITES_STOPPED'
+     receipt['result'] = 'SCOPED_DATA_CAPTURE_MATCHED_PENDING_INDEPENDENT_REVIEW' if receipt['captureMatched'] else 'STOPPED_AT_FIRST_FAILURE_NO_RETRY'
+-    receipt['meaning'] = 'Synthetic DATA only; no primary/consumer/runtime/crypto/native/client execution or external/canonicalPASS, SDK or experiment authority.'
++    receipt['meaning'] = 'Synthetic DATA/model and fixed-public NIP19 encoding/checksum/hash metadata only; no actual guard/network/primary/consumer/runtime/NIP44/sign/encrypt/decrypt/native/client execution or external/canonicalPASS, SDK or experiment authority.'
+     save('execution.json', receipt)
+     return receipt,pin(HERE/'execution.json')
+ 
+@@ -277,9 +281,9 @@
+     assert len(sys.argv)==4 and sys.argv[1:3]==['--execute-once','--root-ack-sha']
+     ack_sha=sys.argv[3];assert re.fullmatch('[0-9a-f]{64}',ack_sha)
+     os.umask(0o077)
+-    save('started.json',{'actor':ACTOR,'utc':utc(),'pid':os.getpid(),'scope':'ONCE_FIXED_18_27_6_DATA_ONLY'})
++    save('started.json',{'actor':ACTOR,'utc':utc(),'pid':os.getpid(),'scope':'ONCE_FIXED_20_8_7_DATA_ONLY'})
+     before=snapshot(ack_sha);save('sources-before.json',before)
+-    scopes=doc(PREP/'control-plan.json')['separateScopes'];assert [s['count'] for s in scopes]==[18,27,6]
++    scopes=doc(CAPTURE/'control-plan.json')['separateScopes'];assert [s['count'] for s in scopes]==[20,8,7]
+     results=[]
+     for scope in scopes:
+         result,descriptor=one_scope(scope,ack_sha)
+@@ -288,15 +292,15 @@
+         if not result['captureMatched']:break
+     after=snapshot(ack_sha);save('sources-after.json',after)
+     matched=len(results)==3 and all(r['captureMatched'] for r in results) and before==after
+-    save('execution.json',{'schema':'e02-transport-source2-current-control-execution-v1','actor':ACTOR,
++    save('execution.json',{'schema':'e02-producer2-current-control-execution-v1','actor':ACTOR,
+         'state':'WRITES_STOPPED','result':'ALL_THREE_DATA_SCOPES_MATCHED_PENDING_REVIEW' if matched else 'STOPPED_FIRST_FAILURE_NO_RETRY',
+         'sourceSubject':pin(PREP/'subject.json'),'runnerSubject':pin(CAPTURE/'runner-subject.json'),
+         'runner':pin(Path(__file__).resolve()),'controlPlan':pin(CAPTURE/'control-plan.json'),
+         'rootAcknowledgement':pin(CAPTURE/'coordinator-acknowledgement.json'),'scopes':results,
+         'remainingNotExecuted':[s['name'] for s in scopes[len(results):]],'sourceUnchanged':before==after,
+         'noRetry':True,'controlResultAcceptedByAuthor':False,'independentResultReview':'PENDING_ACTUAL_NONAUTHOR_NONOPERATOR_QA_SECURITY',
+-        'noDiagnosticRuntimePrimaryConsumerGuardNetworkSdkServices':True})
+-    save('result-artifact-manifest.json',{'schema':'e02-transport-source2-current-control-artifact-manifest-v1',
++        'noOrdinaryRuntimePrimaryConsumerActualGuardNetworkSdkServices':True})
++    save('result-artifact-manifest.json',{'schema':'e02-producer2-current-control-artifact-manifest-v1',
+         'files':[pin(p) for p in sorted(CAPTURE.rglob('*')) if p.is_file()],
+         'originalApiResponses':'Actual caller separately persists exact original toolName/arguments/response immediately.'})
+     print(json.dumps({'state':'WRITES_STOPPED','captureMatched':matched,'execution':pin(CAPTURE/'execution.json'),'scopes':results}))

@@ -1,0 +1,38 @@
+{
+  "recorder": "/root",
+  "reviewer": "/root/r4_qa",
+  "evidenceType": "ACTUAL_INDEPENDENT_READ_ONLY_SOURCE_REVIEW_MAILBOX",
+  "decision": "ACCEPT_PRE_APK_REMEDIATION_SOURCE_ONLY",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r3-corrected-r1/source-packet.json",
+    "bytes": 26984,
+    "sha256": "ada8916905994a4b711dc152742bb55601d8c07e30f381f9b84585a3b7eb482e"
+  },
+  "mandatorySupplement": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r3-corrected-r1/review-input-supplement.json",
+    "bytes": 1580,
+    "sha256": "af0a234d12e06abc011b962919b3a4fa617e98799e2ab3bfd026c34e81a395c3"
+  },
+  "verified": {
+    "currentReferencedDescriptors": 959,
+    "knownInputs": 829,
+    "exactCopies": 43,
+    "preservedOriginalDraftFiles": 37,
+    "preservedRepoFiles": 3,
+    "definitionChanges": [
+      "verify_rebuilt_artifacts",
+      "verify_config"
+    ],
+    "runtimeBaseline": "Exact original frozen producer2 incoming/archive descriptors"
+  },
+  "remediation": "QA2MEDIUM andSECthird metadataauthority gap resolved; exact artifacts/schemas/decisions/Trueflag/metadata joins enforced before dependent checks.",
+  "remaining": [
+    {
+      "severity": "LOW",
+      "scope": "FINAL_CONTROL_DEFINITION_READINESS",
+      "required": "Both valid role verify_config(base) positives; remaining absent/unknownschema+decision, NULL/stringqualification, wrongsubject/provenanceAPK, helperdecision analogues, expecteddescriptor actualbytes/tree drift vectors within3methods in final generation."
+    }
+  ],
+  "limits": "Pre-APK remediation SOURCE only. Four APK NULLs remain; finalsubject absent; no models/DATA/producer readiness/role release accepted.",
+  "actions": "Read-only; no imports/tests/runtime/Git/state/R8interaction by reviewer."
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "e02-current-runtime-admission-map-v1",
+  "actor": "/root",
+  "evidenceType": "ACTUAL_INDEPENDENT_READ_ONLY_QA_SOURCE_MAP_NOT_RUNTIME_ADMISSION",
+  "reviewer": "/root/r4_qa",
+  "producerSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/source2/subject.json",
+    "bytes": 12116,
+    "sha256": "553d513b4625b8d40e95f475246acc2a4520e1a90b35ee88290c9ddbc617def6"
+  },
+  "incomingConfig": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/incoming-run-config.json",
+    "bytes": 5596,
+    "sha256": "cec7ee4aa2701eb8430434345454526bbcdfd35d2fe500e8b766db52939f3023"
+  },
+  "archiveConfig": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/archive-run-config.json",
+    "bytes": 5594,
+    "sha256": "171e59d0b76050e8e4cde0ab1252dcdae93763d2aaf880e875025eb126131052"
+  },
+  "guardAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/current-controls-r1/control-acceptance.json",
+    "bytes": 1438,
+    "sha256": "a13fea0dff9101554fabdad6d4eebace6a64dd029b29893212e75684b47bc551"
+  },
+  "guardMeaning": "29_PRIOR_GUARD_CONTROLS_ONLY; BYTE_IDENTICAL_CARRY_NOT_NEW_EXECUTION; current lease_guard d396cde and test95862de exact baseline bytes. Producer3 SOURCE_CONTEXT_ONLY matrix is not a current runtime or historical changed-control acceptance.",
+  "guardChain": [
+    "e02-ordinary-minimum-preparation-r1/unchanged-guard-scope-link.json",
+    "producer2 component matrix unchangedGuard",
+    "producer3 component-matrix48e270 BYTE_IDENTICAL guard source"
+  ],
+  "freshProducerControlsSeparate": {
+    "A": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-controls-actual-20261028-r2/capture-a/acceptance.json",
+      "bytes": 1128,
+      "sha256": "6116b898c7d99aa92b21f1347959d7a0b688b866db95155e98238e6994d3bfc9"
+    },
+    "B": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-controls-actual-20261028-r2/capture-b/acceptance.json",
+      "bytes": 1122,
+      "sha256": "4b8319c8764e07a2b715dbefb3068f09faa2371838b8f98055f994d916e6a5bb"
+    }
+  },
+  "remainingBeforeRoleRelease": [
+    "Current consumer controls and independent DATA acceptance",
+    "Current completion controls and independent DATA acceptance",
+    "Fresh actual resource admission8GiB output filesystem/12GiB MemAvailable/eight affinity CPUs/KVM",
+    "Exact root-only oneuse role grant after independent readiness review; original1800 lease including staging, all setup and cleanup guards"
+  ],
+  "outputRootCreatedEmpty": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3",
+  "rootCreationMeaning": "Empty0700 directory only; no lease/grant/process/client evidence.",
+  "executionAuthorized": false,
+  "ordinaryRowsQualified": 0,
+  "canonicalE02": "PARTIAL22_UNCHANGED"
+}

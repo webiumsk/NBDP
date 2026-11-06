@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=2s",
+    "15s",
+    "/usr/bin/docker",
+    "container",
+    "inspect",
+    "nbdp-e02-primary-20261027-2ea6fa3d1e75ae1b947611e0cd390b9f-strfry"
+  ],
+  "maximumSeconds": 15,
+  "cleanup": false,
+  "startedUtcNs": 1793113213111299190
+}

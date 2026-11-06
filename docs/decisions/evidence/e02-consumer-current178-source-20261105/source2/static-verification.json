@@ -1,0 +1,40 @@
+{
+  "schema": "e02-consumer-current178-source2-stdlib-static-verification-v1",
+  "actor": "/root/consumer_current178_source",
+  "negativePredecessor": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source1/source/subject.json",
+    "bytes": 27879,
+    "sha256": "5a1b4a73b3fb15659f0295581bb4246ada77a67fd29f89a7fd2417af27a36660"
+  },
+  "negativeDisposition": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-review-20261105/source1/source1-disposition.json",
+    "bytes": 1648,
+    "sha256": "231f71a6353086449dcb0f5791a7e013f5a82c594dc9a6d59470e85064c9c2fd"
+  },
+  "all695NegativeInputsPreserved": true,
+  "pythonFilesASTParsed": 31,
+  "preserved342MethodNamesAndAST": true,
+  "newDefinitions": [
+    "test_import_closure.py:DeclaredImportClosureControls.test_complete_declared_code_and_transitive_runtime_import_closure",
+    "test_import_closure.py:DeclaredImportClosureControls.test_preserved_source1_capture_outputs_imports_refused_by_actual_closure_reader",
+    "test_import_closure.py:DeclaredImportClosureControls.test_actual_isolated_consumer_loads_only_declared_current_runtime_peers",
+    "test_import_closure.py:DeclaredImportClosureControls.test_actual_isolated_current_controls_and_capture_outputs_load_declared_peers",
+    "test_import_closure.py:DeclaredImportClosureControls.test_poisoned_legacy_ambient_aliases_do_not_supply_real_reader_imports",
+    "test_import_closure.py:DeclaredImportClosureControls.test_real_capture_outputs_preserves_strict_local_decoder_and_output_checks",
+    "test_import_closure.py:DeclaredImportClosureControls.test_unknown_dynamic_relative_and_local_symbol_imports_refused",
+    "test_import_closure.py:DeclaredImportClosureControls.test_actual_isolated_preserved_source1_capture_outputs_still_exposes_original_hold"
+  ],
+  "totalDefinitions": 350,
+  "captureOutputsByteExactlyAccepted315Baseline": true,
+  "captureOutputsNonImportASTExactlySource1": true,
+  "allEightBusinessModulesByteIdentical": true,
+  "completeLocalImportGraphStatic": true,
+  "transitiveConsumerRuntimeMembers": 14,
+  "reviewerExclusions": 45,
+  "modelsExecuted": 0,
+  "targetImports": 0,
+  "isolatedLoadDefinitionsExecuted": 0,
+  "executionAuthorized": false,
+  "independentApproval": false,
+  "remaining": "Independent exact post-freeze Source QA/security and Root acceptance, then separate full current model release. AST evidence cannot establish actual load/interoperability success."
+}

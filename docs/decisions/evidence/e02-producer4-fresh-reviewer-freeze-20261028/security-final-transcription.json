@@ -1,0 +1,29 @@
+{
+  "role": "security",
+  "session": "/root/producer4_fresh_security_de88fcf187b7be58e6a85c7a1e9febbb",
+  "decision": {
+    "status": "HOLD",
+    "findings": [
+      {
+        "id": "P4-SEC-12",
+        "severity": "MEDIUM",
+        "evidence": "fixture.mjs:234 calls proxyPhase before fatal(originalSocketError); phase165 calls fatal(captureError), fatal170-173 sets closed/firstFailure and the later original fault is ignored.",
+        "scenario": "Socket error plus ENOSPC, short-write or exhausted capture budget.",
+        "impact": "Wrong primary failure attribution; terminal refusal still occurs, no unauthorized protocol success demonstrated.",
+        "required": "Claim and fence original socket fault before fallible retention. Actual APP/RELAY production boundary tests for all three failures, queued/inflight rejection, lateOK no success and continued cleanup."
+      },
+      {
+        "id": "P4-SEC-13",
+        "severity": "LOW",
+        "evidence": "guard-dto-contract.json113 says exact20workers; subject/control-plan/configurations use22.",
+        "required": "Reconcile DTO and actual22-source graph; reject incomplete20 graph."
+      }
+    ],
+    "verification": "147 SOURCE,59 history,9 latest,16 method/finding metadata and modes match. Actual fresh birth verified. Read-only; no target imports/execution/writes or acceptance."
+  },
+  "subject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/subject.json",
+    "bytes": 23889,
+    "sha256": "e1c6148dd733d620decb129a522e52e651449ce32c915a5b25926ca818f20aa9"
+  }
+}

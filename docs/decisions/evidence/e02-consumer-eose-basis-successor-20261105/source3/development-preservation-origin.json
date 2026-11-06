@@ -1,0 +1,20 @@
+{
+  "schema": "nbdp-complete-native-development-origin-v1",
+  "frames": [
+    {
+      "toolName": "tools.exec_command",
+      "actualArguments": {
+        "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,ast\nroot=Path('docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source3').resolve()\ndef pin(p):\n raw=p.read_bytes();return dict(path=str(p),bytes=len(raw),sha256=hashlib.sha256(raw).hexdigest())\nold=root.parent/'source2';a=ast.parse((old/'prepare_coupled.py').read_bytes());b=ast.parse((root/'prepare_coupled.py').read_bytes())\noldf={n.name:ast.dump(n,include_attributes=False) for n in a.body if isinstance(n,(ast.FunctionDef,ast.ClassDef))}\nnewf={n.name:ast.dump(n,include_attributes=False) for n in b.body if isinstance(n,(ast.FunctionDef,ast.ClassDef))}\nunchanged=['methods','assignments','adapt_request_fixture','install_clock_source','add_clock_controls','install_failed_inventory_source','add_failed_inventory_controls','static_import_closure']\nassert all(oldf[n]==newf[n] for n in unchanged)\nproof=dict(schema='e02-consumer-source3-recipe-preservation-v1',predecessorRecipe=pin(old/'prepare_coupled.py'),recipe=pin(root/'prepare_coupled.py'),unchangedRuntimeGeneratorFunctions=unchanged,changedRecipeFunctions=[n for n in oldf if oldf[n]!=newf[n]],runtime450DerivedAudit=pin(root/'draft-static-audit.json'),source1AndSource2Edited=False,canonicalModelsExecuted=0,actualFinalBuilderInvoked=False)\n(root/'recipe-preservation.json').write_text(json.dumps(proof,indent=2)+'\\n')\nprint(json.dumps(proof))\nPY",
+        "login": false,
+        "max_output_tokens": 2000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "45153d",
+        "wall_time_seconds": 0.476957686,
+        "exit_code": 0,
+        "original_token_count": 312,
+        "output": "{\"schema\": \"e02-consumer-source3-recipe-preservation-v1\", \"predecessorRecipe\": {\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source2/prepare_coupled.py\", \"bytes\": 116517, \"sha256\": \"e0483e05dfbb6fbf4337c991588662e16fcb1721d1352306f81b53f41b2028b0\"}, \"recipe\": {\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source3/prepare_coupled.py\", \"bytes\": 120684, \"sha256\": \"8cbcc9e0237e5a736902fa0f5b44797e693b26af91fdf1bb794f51de69498e92\"}, \"unchangedRuntimeGeneratorFunctions\": [\"methods\", \"assignments\", \"adapt_request_fixture\", \"install_clock_source\", \"add_clock_controls\", \"install_failed_inventory_source\", \"add_failed_inventory_controls\", \"static_import_closure\"], \"changedRecipeFunctions\": [\"Reader\", \"validate_spec\", \"fixed_closure\", \"build\"], \"runtime450DerivedAudit\": {\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source3/draft-static-audit.json\", \"bytes\": 3571, \"sha256\": \"83e6b48ad06ab7aea183942c77686bdca338225204eb4e43221c0fa85025cafb\"}, \"source1AndSource2Edited\": false, \"canonicalModelsExecuted\": 0, \"actualFinalBuilderInvoked\": false}\n"
+      }
+    }
+  ]
+}

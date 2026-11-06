@@ -1,0 +1,71 @@
+{
+  "schema": "e02-wrapper-r3-source-remediation-map-v1",
+  "evidenceType": "COORDINATOR_DELEGATED_ACTUAL_QA_SECURITY_HOLD_SUMMARY_NOT_IMPLEMENTER_APPROVAL",
+  "prior": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-completion-primary-wrapper-preparation-20261028-r2/source-packet.json",
+    "bytes": 5319,
+    "sha256": "acaf73c5cdabad518f49a428b6bbe06421a5f39177feec1d533f94d08afeb799"
+  },
+  "findings": [
+    {
+      "severity": "MEDIUM",
+      "finding": "Actual model/concrete authors/operators omitted from forbidden reviewers",
+      "sourceChanges": [
+        "declared_participants",
+        "source_participants",
+        "acceptance_reviews"
+      ],
+      "modelCoverage": [
+        "direct author/operator and nested helper selfreviews for model+concrete",
+        "missing explicit declarations",
+        "actual independent positives"
+      ],
+      "status": "IMPLEMENTED_SOURCE_PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+      "severity": "MEDIUM",
+      "finding": "Child may complete after phase expiry while root physical lease remains valid",
+      "rootDecision": "STRICT_COMPLETION_BY_PHASE_EXPIRY_UNCHANGED243_NO_MINIMUM240_GUARANTEE",
+      "sourceChanges": [
+        "heavy snapshot/health before fresh phase release",
+        "phase_admission",
+        "Replay.run_primary_process",
+        "Replay.record_primary_process",
+        "BigInt exact observed expiry in actual JS adapter"
+      ],
+      "modelCoverage": [
+        "40s postrender refusal before Popen",
+        "within-expiry exit0 positive",
+        "recorded late exit0 rejected in Python",
+        "actual JS +1ns observation and late subject rejected",
+        "owned parent deadline TERM negative"
+      ],
+      "status": "IMPLEMENTED_SOURCE_PENDING_INDEPENDENT_REVIEW"
+    },
+    {
+      "severity": "MEDIUM",
+      "finding": "R2 helper coverage omitted actual decision paths",
+      "sourceChanges": [
+        "35 Python+11JS definitions against actual identity/review/dispatch/primary/proxy/adapter paths"
+      ],
+      "status": "DEFINITIONS_ONLY_ZERO_EXECUTED_PENDING_REVIEW"
+    },
+    {
+      "severity": "LOW",
+      "finding": "Invalid proxy completion did not fault launcher",
+      "sourceChanges": [
+        "record requested TERM/KILL flags",
+        "proxy_completion used by actual cleanup",
+        "zero/capture contract enforced in launcher+JS"
+      ],
+      "modelCoverage": [
+        "nonzero/stderr/ceiling/KILL/already-exited negatives",
+        "controlled owned SIGTERM0 positive"
+      ],
+      "status": "IMPLEMENTED_SOURCE_PENDING_INDEPENDENT_REVIEW"
+    }
+  ],
+  "independentR3Qa": null,
+  "independentR3Security": null,
+  "modelOrRuntimeExecuted": false
+}

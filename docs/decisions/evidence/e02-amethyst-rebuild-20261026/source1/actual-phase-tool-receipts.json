@@ -1,0 +1,156 @@
+{
+  "origin": "Actual phase tool invocations/responses; source1 stopped after platform extraction failure, no remaining build-tools/NDK phases were launched.",
+  "phases": [
+    {
+      "args": {
+        "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/prlimit --as=4294967296:4294967296 /usr/bin/timeout --signal=TERM --kill-after=5s 1800s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /tmp/nbdp-amethyst-rebuild-20261026/preparation/acquire.py fetch jdk --plan-sha 82c8b19c869315f34151727469772f4336be0dc4d77b6fd07e4fe0332df48bf1",
+        "sandbox_permissions": "require_escalated",
+        "justification": "Môžem stiahnuť presne overený verejný JDK 21 archív do izolovaného /tmp pre zostavenie testovacieho Amethystu, bez spustenia stiahnutých nástrojov?",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2200
+      },
+      "result": {
+        "chunk_id": "a2305c",
+        "wall_time_seconds": 1.001067812,
+        "session_id": 49117,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "args": {
+        "session_id": 49117,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 1800
+      },
+      "result": {
+        "chunk_id": "c696db",
+        "wall_time_seconds": 0.000114671,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "args": {
+        "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/prlimit --as=4294967296:4294967296 /usr/bin/timeout --signal=TERM --kill-after=5s 1800s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /tmp/nbdp-amethyst-rebuild-20261026/preparation/acquire.py extract jdk --plan-sha 82c8b19c869315f34151727469772f4336be0dc4d77b6fd07e4fe0332df48bf1",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2200
+      },
+      "result": {
+        "chunk_id": "2ab7d3",
+        "wall_time_seconds": 1.001393519,
+        "session_id": 86953,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "args": {
+        "session_id": 86953,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 1800
+      },
+      "result": {
+        "chunk_id": "85f9ce",
+        "wall_time_seconds": 0.000071483,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "args": {
+        "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/prlimit --as=4294967296:4294967296 /usr/bin/timeout --signal=TERM --kill-after=5s 1800s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /tmp/nbdp-amethyst-rebuild-20261026/preparation/acquire.py fetch platform --plan-sha 82c8b19c869315f34151727469772f4336be0dc4d77b6fd07e4fe0332df48bf1",
+        "sandbox_permissions": "require_escalated",
+        "justification": "Môžem stiahnuť presne pripnutý oficiálny Android platform 37.0 archív pre izolované zostavenie testovacieho klienta?",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 1800
+      },
+      "result": {
+        "chunk_id": "9363ce",
+        "wall_time_seconds": 1.00170788,
+        "session_id": 32614,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "args": {
+        "session_id": 32614,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 1500
+      },
+      "result": {
+        "chunk_id": "92a5fd",
+        "wall_time_seconds": 0.000017409,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "args": {
+        "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/prlimit --as=4294967296:4294967296 /usr/bin/timeout --signal=TERM --kill-after=5s 1800s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /tmp/nbdp-amethyst-rebuild-20261026/preparation/acquire.py extract platform --plan-sha 82c8b19c869315f34151727469772f4336be0dc4d77b6fd07e4fe0332df48bf1",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2000
+      },
+      "result": {
+        "chunk_id": "2b520f",
+        "wall_time_seconds": 1.00155017,
+        "session_id": 58395,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "args": {
+        "session_id": 58395,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 1600
+      },
+      "result": {
+        "chunk_id": "81946d",
+        "wall_time_seconds": 0.000026107,
+        "exit_code": 1,
+        "original_token_count": 227,
+        "output": "Traceback (most recent call last):\n  File \"/tmp/nbdp-amethyst-rebuild-20261026/preparation/acquire.py\", line 307, in <module>\n    if __name__ == '__main__': main()\n                               ~~~~^^\n  File \"/tmp/nbdp-amethyst-rebuild-20261026/preparation/acquire.py\", line 295, in main\n    (fetch if args.phase == 'fetch' else extract)(item,plan['limits'])\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/nbdp-amethyst-rebuild-20261026/preparation/acquire.py\", line 259, in extract\n    require(properties.get('AndroidVersion.ApiLevel') == '37', 'EXPECTED_PLATFORM_API')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/nbdp-amethyst-rebuild-20261026/preparation/acquire.py\", line 29, in require\n    if not value: raise ValueError(message)\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: EXPECTED_PLATFORM_API\n"
+      }
+    }
+  ],
+  "sourceArchive": [
+    {
+      "args": {
+        "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/prlimit --as=4294967296:4294967296 /usr/bin/timeout --signal=TERM --kill-after=5s 240s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /tmp/nbdp-amethyst-rebuild-20261026/preparation/prepare_source.py",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 1800
+      },
+      "result": {
+        "chunk_id": "c6ef50",
+        "wall_time_seconds": 1.001111089,
+        "session_id": 99764,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "args": {
+        "session_id": 99764,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 1600
+      },
+      "result": {
+        "chunk_id": "6d2aa3",
+        "wall_time_seconds": 0.00002478,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    }
+  ]
+}

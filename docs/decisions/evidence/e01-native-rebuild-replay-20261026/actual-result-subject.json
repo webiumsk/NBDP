@@ -1,0 +1,61 @@
+{
+  "schema": "nbdp-e01-rebuilt-native-actual-result-subject-v1",
+  "operator": "/root",
+  "plan": {
+    "path": "/tmp/nbdp-e01-replay-20261026-preparation/plan.json",
+    "bytes": 4386,
+    "sha256": "b468884050d1f7fc0cd6120bf09c3cd2487c7ec635edf197fcdca3ece0c8d11e"
+  },
+  "release": {
+    "path": "/tmp/nbdp-e01-replay-20261026-preparation/root-release.json",
+    "bytes": 1175,
+    "sha256": "d1c55698d70bffd60651d9d2f8de68539386944d17c5c8ffd46800212709ad95"
+  },
+  "originalToolReceipts": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e01-native-rebuild-replay-20261026/original-replay-tool-receipts.json",
+    "bytes": 1168,
+    "sha256": "b3ea0837c26428e055ee25c2f3d7ac08e599a064299ee58936c325602623a26e"
+  },
+  "report": {
+    "path": "/tmp/nbdp-e01-replay-20261026-preparation/lab/experiments/results/E01.json",
+    "bytes": 33503,
+    "sha256": "85905dd8a9de0285ebec8f04c39a59105c27387cd3b5b0bae18f81ab73dc1b06"
+  },
+  "reportCopy": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e01-native-rebuild-replay-20261026/actual-E01.json",
+    "bytes": 33503,
+    "sha256": "85905dd8a9de0285ebec8f04c39a59105c27387cd3b5b0bae18f81ab73dc1b06"
+  },
+  "inputAfter": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e01-native-rebuild-replay-20261026/actual-inputs-after.json",
+    "bytes": 4100,
+    "sha256": "6d6d01cc2a902b8fbdecc23a24d865d8621d340f199c0ae9535165dc4749b640"
+  },
+  "sourceInventory": {
+    "path": "/tmp/nbdp-e01-replay-20261026-preparation/input-inventory.json",
+    "bytes": 209794,
+    "sha256": "9d6d9d8334563c5c4952bab4d7939e7c434522a99e1f56af5b10df9f4d574fd2"
+  },
+  "stdout": {
+    "path": "/tmp/nbdp-e01-replay-20261026-preparation/actual.stdout",
+    "bytes": 110,
+    "sha256": "1f8fed4e91fc18ce6dd54e56b22f8b59d75bf75b5301d5ef6101223fb053f22b"
+  },
+  "stderr": {
+    "path": "/tmp/nbdp-e01-replay-20261026-preparation/actual.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "actualTests": 140,
+  "status": "PASS_PENDING_INDEPENDENT_RESULT_REVIEW",
+  "nativeSha256": "4ce385c5b1a713b35d58d787d94fbc298d139aa2e813daec15b2e99289cefd86",
+  "oldCanonicalResultOverwritten": false,
+  "durationMs": 4214,
+  "ordinaryRowsQualified": 0,
+  "scope": "Actual isolated E01 replay only. Original19 source pins equal; exact rebuilt native artifact. E02 remains PARTIAL22.",
+  "limits": [
+    "No complete process-tree/PID-custody/egress/peak-resource attestation.",
+    "Tool receipts show outer natural0. Actual child source equality is required by unchanged RustClient path and PASS140.",
+    "Fresh result is scoped to copied candidate and new build; no automatic prerequisite/profile/binding/gate promotion."
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "schema": "e02-clipboard-helper-rebuild-plan-v2",
+  "scope": "OFFLINE_REBUILT_HELPER_ARTIFACT_ONLY",
+  "state": "NOT_READY",
+  "outputRoot": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2",
+  "sources": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v3/clipboard-helper/AndroidManifest.xml",
+      "bytes": 519,
+      "sha256": "66d182d3c10b4db2690d8833c8998a0aeb9c29afce54aa1347dc1a82410ad2f1"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v3/clipboard-helper/src/org/nbdp/clipboard/capture/CaptureActivity.java",
+      "bytes": 6775,
+      "sha256": "e6dec4f53ca582784da1c8b60cb692cb15d0ca0c12ae300e9694b5c6565c1290"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v3/build_helper.py",
+      "bytes": 11416,
+      "sha256": "c92cbf4f6a0ca694b69f5589bc9e3b9dff6ad006c27cb7646aa3a5e396831ed6"
+    }
+  ],
+  "tools": [
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/jdk/bin/java",
+      "bytes": 12328,
+      "sha256": "9cad3f2620d3ef2ed10b26f922af7e773d54fdaa05f615d6d6df014f3fec4155"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/jdk/bin/javac",
+      "bytes": 12424,
+      "sha256": "2cc288a26beebc50ca7cd924847dffbfb38ef3314e105bba6d4ebce03a0bcb6b"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/jdk/bin/keytool",
+      "bytes": 12392,
+      "sha256": "e0e1db441b22bcc85e3402a6640a099dd56de2b38eb52b255107e5eebdd88d5e"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/aapt2",
+      "bytes": 5735384,
+      "sha256": "1a6a396b9cd071f7040071fdd108718cb98c3c9f4960044f373b288993d19eb7"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/apksigner",
+      "bytes": 2959,
+      "sha256": "b47549e373b895ce6ca620d0c7887e674d9615ffa837a86ac601dcfd04adb0f0"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/d8",
+      "bytes": 2678,
+      "sha256": "b773a721be3d4988dea9660815a9e441b76100e5b0f5c72b5893cfadadc76c6f"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/lib/apksigner.jar",
+      "bytes": 1100545,
+      "sha256": "3716d9311e55d2b0918a2fd9d54ba9e406c5f6abeea700b287f11259bc163dec"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/lib/d8.jar",
+      "bytes": 17998582,
+      "sha256": "4097ff9c46c185c6e7214da7fe9b1befb5adeea5cc9ca349270e0249904f9240"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0/zipalign",
+      "bytes": 227696,
+      "sha256": "c5f559e946de5a9e7d58792181db20383b228877812136bc469d97ae00a43b0a"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/platforms/android-37.0/android.jar",
+      "bytes": 43044472,
+      "sha256": "bf1b4387cc7ca94fc6ef684f040d9d16fbf16248e181819f020736ea2053f177"
+    }
+  ],
+  "limits": {
+    "phaseSeconds": 180,
+    "commandSeconds": 60
+  },
+  "jvm": {
+    "javaToolOptions": "-Xmx512m -XX:MaxMetaspaceSize=256m -XX:CompressedClassSpaceSize=128m -XX:ReservedCodeCacheSize=128m",
+    "meaning": "Configured environment options; acquired wrapper command-line defaults can override heap and need separate source observation."
+  },
+  "toolAcceptance": {
+    "path": null,
+    "bytes": null,
+    "sha256": null
+  },
+  "wrapperHeapEvidence": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-clipboard-helper-rebuild-20261027/wrapper-source-observation-r1.json",
+    "bytes": 17525,
+    "sha256": "37f8137bee5bf1acb611d1e0ddb4a785ce827a89f82f59065f280a489d925161"
+  }
+}

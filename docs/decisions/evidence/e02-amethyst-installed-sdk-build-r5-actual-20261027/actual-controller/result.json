@@ -1,0 +1,32 @@
+{
+  "schema": "nbdp-amethyst-build-supervisor-result-v1",
+  "runId": "fee598385f736512839257471eb43a02",
+  "cid": "cbab508d851ce656edb2bdb2df03946aaef1bd0cad0dc8fd540e0c1e97064394",
+  "state": "FAILED_OR_UNQUALIFIED_NO_RETRY",
+  "firstFault": "ValueError:ATTACHED_JOB_FAILED_OR_LOG_CEILING:GNU_TIMEOUT_EXPIRED",
+  "secondaryErrors": [],
+  "cleanup": "EXACT_CID_ABSENCE_KNOWN",
+  "jobState": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": true,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 124,
+    "Error": "",
+    "StartedAt": "2026-10-27T21:14:04.374412853Z",
+    "FinishedAt": "2026-10-27T21:44:05.816096607Z"
+  },
+  "jobStateMeaning": "Last successful exact-owned inspect after start attempt, including exit/OOM data when observed; UNKNOWN/null if unavailable.",
+  "networkBindingStage": "ENDPOINT_FULL_NETWORK_ID_OBSERVED",
+  "rebuiltApks": null,
+  "cliReceipts": 11,
+  "attachedCapturePerFileLimitBytes": 67108864,
+  "jobPerFileLimitBytes": 536870912,
+  "limitsMeaning": "Configured per-file/CPU/memory/PID/time limits; no aggregate diskquota or measured peak claim.",
+  "noHostNumericPidSignalsByController": true,
+  "hostileAtomicClosureClaimed": false,
+  "canonicalE02Changed": false
+}

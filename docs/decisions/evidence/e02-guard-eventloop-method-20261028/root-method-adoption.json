@@ -1,0 +1,30 @@
+{
+  "schema": "e02-root-guard-eventloop-method-adoption-v1",
+  "actor": "/root",
+  "decision": "CONDITIONALLY_ADOPT_FOR_VERSIONED_SOURCE_PREPARATION_ONLY",
+  "proposal": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-guard-eventloop-method-20261028/adoption-proposal.json",
+    "bytes": 5406,
+    "sha256": "92ddf1f6412da53a424aaf62333ed39d4b625a8a3d346be7ff37929ff97cce4a"
+  },
+  "securityReview": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-guard-eventloop-method-20261028/independent-security.json",
+    "bytes": 441,
+    "sha256": "d82f89b7da878cdddfc23228e4670d9365bcf0aec08d1fd78e31ca4cb7c02cea"
+  },
+  "mandatorySecurityConditions": [
+    "Direct absolute enqueue-inclusive5s and applicable query/handshake/lease deadline recheck immediately before each effect; delayed timer dispatch cannot extend authority.",
+    "One-use helper-instance/sequence/request/context bound fresh unchanged Lease.check reply, immediately consumed in same synchronous continuation after epoch/generation/attempt/socket/buffer revalidation; no retained success or yield.",
+    "Preserve sticky denial and original parent guards; explicit live-helper revocation and abnormal EOF propagation; no atomic crossprocess check-to-effect revocation claim.",
+    "All terminal failures immediately fence queued/inflight continuations outside queue; preserve first fault and bounded owned cleanup.",
+    "One helper/Lease per owner without restart or previous reset; orderly CLOSE only with zero pending/future work and expected natural exit/EOF.",
+    "Add held-OK crossing decision/query/lease expiry, delayed timer dispatch, suspend/resume, external revocation during check, generation changes, and DENY/death/cancellation then lateOK regressions with zero protected effects after fences.",
+    "Retain all32 proposed requirements and independently review complete alias/effect coverage;38 occurrences are only static inventory."
+  ],
+  "scope": "New producer4 SOURCE/config/control definitions only in separate namespace; no helper/model/services/role execution. Preserve all14 failed attempts and original limits. Exact SOURCE and control DATA, consumer/completion rebinding and separate concrete Root release remain required.",
+  "originalGuardCoreMustRemainByteIdentical": true,
+  "authorizationCacheAllowed": false,
+  "modelsExecuted": 0,
+  "runtimeReleased": false,
+  "backendCause": "UNKNOWN"
+}

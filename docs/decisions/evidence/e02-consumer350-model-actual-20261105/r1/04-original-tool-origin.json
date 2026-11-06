@@ -1,0 +1,22 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 63s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_observer_v3.py -v",
+      "workdir": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 20000
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "19fc64",
+      "wall_time_seconds": 0.038274553,
+      "exit_code": 0,
+      "original_token_count": 374,
+      "output": "test_diagnostics_cannot_borrow_proof_share (__main__.ObserverV3Controls.test_diagnostics_cannot_borrow_proof_share) ... ok\ntest_global_partition_not_expanded (__main__.ObserverV3Controls.test_global_partition_not_expanded) ... ok\ntest_header_precharge_exact4096 (__main__.ObserverV3Controls.test_header_precharge_exact4096) ... ok\ntest_missing_allocation_account (__main__.ObserverV3Controls.test_missing_allocation_account) ... ok\ntest_old_budget_v2_rejected (__main__.ObserverV3Controls.test_old_budget_v2_rejected) ... ok\ntest_old_observer_v2_rejected (__main__.ObserverV3Controls.test_old_observer_v2_rejected) ... ok\ntest_poisoned_service_account (__main__.ObserverV3Controls.test_poisoned_service_account) ... ok\ntest_positive_exact_current_service_state (__main__.ObserverV3Controls.test_positive_exact_current_service_state) ... ok\ntest_service_share_not_whole16MiB (__main__.ObserverV3Controls.test_service_share_not_whole16MiB) ... ok\ntest_short_retained_phase_prefix_refused (__main__.ObserverV3Controls.test_short_retained_phase_prefix_refused) ... ok\ntest_undercharged_stream_bytes (__main__.ObserverV3Controls.test_undercharged_stream_bytes) ... ok\ntest_unknown_physical_write_claim_refused (__main__.ObserverV3Controls.test_unknown_physical_write_claim_refused) ... ok\ntest_wrong_exact_prefix_hash_refused (__main__.ObserverV3Controls.test_wrong_exact_prefix_hash_refused) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 0.001s\n\nOK\n"
+    }
+  },
+  "polls": []
+}

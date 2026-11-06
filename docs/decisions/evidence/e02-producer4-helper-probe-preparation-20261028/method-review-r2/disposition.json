@@ -1,0 +1,31 @@
+{
+  "schema": "e02-helper-probe-method-review-disposition-v1",
+  "actor": "/root",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-helper-probe-preparation-20261028/planning-packet-r2.json",
+    "bytes": 2881,
+    "sha256": "3d7823ffa113a5f9b04f44a5f9ea0299d12bb25b887fc79acdb4bbc1d876d7f0"
+  },
+  "architectureReviewer": "/root/completion3_final",
+  "securityReviewer": "/root/p4m1_fresh_security_b868e223adb7ade8cebe5fa3074c232",
+  "decision": "HOLD_FOR_VERSIONED_CLEANUP_CLARIFICATION",
+  "finding": {
+    "severity": "MEDIUM",
+    "evidence": "command-templates.removeExactOwned.condition requires successful runtime isolation/mount/UID/resource/network checks as removal prerequisites.",
+    "risk": "Proven own container with failed isolation could remain running because cleanup authority is incorrectly denied.",
+    "required": "Fresh immutableCID/name/image/three intentlabels gate removal. Isolation mismatch remains fatal/unqualified and forbidsstart, but doesnot revoke ownCIDcleanup. Unknown identity neverremoved. Failedretention doesnot skipcleanup/absence."
+  },
+  "clockCondition": "30s firstphase absolute cap; three8+3 CLI maxima plus staging cannotbeassumedtofit. Clamp/fail early andpreserve48s cleanupreserve, target55incl2cleanup/controller180/outer183 unchanged.",
+  "bindingCondition": "Select actual8-file closure from acceptedSOURCE4 metadata-r1 subject34802, not oldobservedWIP. Preserveold snapshotascontext.",
+  "otherConditions": [
+    "OneCID/networknone/image07892/1CPU1024MiB128PID",
+    "OriginalLease1800/fresh5s/noSDKKVMAndroidrelayRustrealdata",
+    "Probe-onlylog-driver none; noordinaryloggingchange",
+    "Hostphysicalproof16MiB/owner8MiB allrepresentationsprecharged",
+    "ActualNodehelper/Popen/APIlifecycle distinctions, nofakeEOF/reap",
+    "All29NULLs untilactualsource/control/concretebindings; noexecution"
+  ],
+  "implementationAuthorized": false,
+  "runtimeReleased": false,
+  "modelsExecuted": 0
+}

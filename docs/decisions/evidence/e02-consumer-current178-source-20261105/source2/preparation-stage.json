@@ -1,0 +1,51 @@
+{
+  "schema": "e02-consumer-current178-source2-preparation-v1",
+  "actor": "/root/consumer_current178_source",
+  "rootScope": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-goal-resume-20261104/consumer-current178-source2-root-scope-20261105.json",
+    "bytes": 35377,
+    "sha256": "675975d6d23b472f40983fa60c66996911580011e7182eb343a876750a9011eb"
+  },
+  "sourceRoot": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source",
+  "negativePredecessor": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source1/source/subject.json",
+    "bytes": 27879,
+    "sha256": "5a1b4a73b3fb15659f0295581bb4246ada77a67fd29f89a7fd2417af27a36660"
+  },
+  "negativeFreezeInputsPreserved": 695,
+  "strictOutputBodyRestoredByteExactlyToAcceptedBaseline": true,
+  "runtimeFiles": [
+    "consumer.py",
+    "strict.py",
+    "wire.py",
+    "gui.py",
+    "witness.py",
+    "observer.py",
+    "async_guard.py",
+    "parent_allocation.py",
+    "capture_contracts.py",
+    "capture_outputs.py",
+    "current_controls.py",
+    "probe_adapter.py",
+    "request_families.py",
+    "collector_contracts.py"
+  ],
+  "controlFiles": [
+    "test_data_controls.py",
+    "test_async_guard.py",
+    "test_parent_allocation.py",
+    "test_observer_v3.py",
+    "test_source_bindings.py",
+    "test_current_controls.py",
+    "test_probe_adapter.py",
+    "test_whole_window.py",
+    "test_current_authority.py",
+    "test_request_families.py",
+    "test_import_closure.py"
+  ],
+  "modelsExecuted": 0,
+  "targetImports": 0,
+  "phase": "SOURCE_GENERATION_COMPLETE_PENDING_POST_FREEZE_INDEPENDENT_REVIEW",
+  "executionAuthorized": false,
+  "modelsDefined": 350
+}

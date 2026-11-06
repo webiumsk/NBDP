@@ -1,0 +1,15 @@
+{
+  "toolName": "tools.exec_command",
+  "actualArguments": {
+    "cmd": "python - <<'PY'\nimport ast,json,hashlib\nfrom pathlib import Path\np=Path('docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105');spec=json.loads((p/'root-final-preparation-r1/spec.UNRELEASED.json').read_text());tree=ast.parse((p/'source3/prepare_coupled.py').read_text());keys=None\nfor n in tree.body:\n if isinstance(n,ast.Assign) and any(isinstance(t,ast.Name) and t.id=='SPEC_KEYS' for t in n.targets): keys=ast.literal_eval(n.value.func.value).split()\n if isinstance(n,ast.Expr) and isinstance(n.value,ast.Call) and isinstance(n.value.func,ast.Attribute) and isinstance(n.value.func.value,ast.Name) and n.value.func.value.id=='SPEC_KEYS':keys.extend(ast.literal_eval(n.value.args[0]))\nassert set(keys)==set(spec) and len(keys)==len(spec)==21\nassert len(spec['inputFiles'])==1514\nassert len({r['path'] for r in spec['inputFiles']})==1514\nplan=json.loads((p/'root-final-preparation-r1/concrete-plan.UNRELEASED.json').read_text());raw=(p/'root-final-preparation-r1/spec.UNRELEASED.json').read_bytes();assert plan['spec']['sha256']==hashlib.sha256(raw).hexdigest() and plan['spec']['bytes']==len(raw)\nassert len(plan['request'])==5 and not Path(plan['freshOutput']).exists()\nprint('PASS: exact21-key spec;1514 unique finite expected rows; exact spec pin; MODEL5; fresh Source-only output. No selected input bodies or actual builder/public mapping read/executed.')\nPY",
+    "max_output_tokens": 900,
+    "login": false
+  },
+  "unmodifiedResponse": {
+    "chunk_id": "027efc",
+    "wall_time_seconds": 0.127560763,
+    "exit_code": 0,
+    "original_token_count": 45,
+    "output": "PASS: exact21-key spec;1514 unique finite expected rows; exact spec pin; MODEL5; fresh Source-only output. No selected input bodies or actual builder/public mapping read/executed.\n"
+  }
+}

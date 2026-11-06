@@ -1,0 +1,37 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v2/build_helper.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v3/build_helper.py
+@@ -20,10 +20,13 @@
+ TOOLS=Path('/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0')
+ ANDROID_JAR=Path('/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/platforms/android-37.0/android.jar')
+ BASE=Path('/tmp/nbdp-e02-clipboard-helper-rebuild-20261027')
+-OUT=BASE/'build-r1'
+-EFFECTIVE_PLAN=HERE/'helper-build-plan-effective-r1.json'
++OUT=BASE/'build-r2'
++EFFECTIVE_PLAN=HERE/'helper-build-plan-effective-r2.json'
+ PACKAGE='org.nbdp.clipboard.capture'
+ JVM_FLAGS='-Xmx512m -XX:MaxMetaspaceSize=256m -XX:CompressedClassSpaceSize=128m -XX:ReservedCodeCacheSize=128m'
++# SOURCE2 resource admission only: unchanged acquired d8 CLI defaults to2GiB.
++# No runtime heap/peak or4GiB address-space success claim.
++ALLOWED_WRAPPER_HEAPS_MIB={'d8':(512,1024,2048),'apksigner':(512,1024)}
+ 
+ 
+ def need(value,message):
+@@ -82,11 +85,16 @@
+         need(pin(value['path'])==value,'ACTUAL_BUILD_INPUT_PIN_MISMATCH')
+     wrappers=json.loads(Path(plan['wrapperHeapEvidence']['path']).read_bytes())
+     need(wrappers['schema']=='e02-helper-wrapper-heap-source-observation-v1','ACTUAL_WRAPPER_SOURCE_OBSERVATION_REQUIRED')
+-    tool_by_path={value['path']:value for value in plan['tools']}
++    return validate_wrapper_heaps(wrappers,{value['path']:value for value in plan['tools']})
++
++
++def validate_wrapper_heaps(wrappers,tool_by_path):
++    """Pure source-observation policy; actual file pins remain validate_inputs' duty."""
+     need(set(wrappers['wrappers'])=={'d8','apksigner'},'BOTH_WRAPPER_HEAP_OBSERVATIONS_REQUIRED')
+     for name,row in wrappers['wrappers'].items():
+         need(row['tool']==tool_by_path[str(TOOLS/name)] and row['flagsUnchanged'] is True,'EXACT_REVIEWED_WRAPPER_SOURCE_BINDING')
+-        need(type(row['effectiveHeapMiBFromSource']) is int and row['effectiveHeapMiBFromSource'] in (512,1024),
++        need(type(row['effectiveHeapMiBFromSource']) is int and
++             row['effectiveHeapMiBFromSource'] in ALLOWED_WRAPPER_HEAPS_MIB[name],
+              'EFFECTIVE_WRAPPER_HEAP_UNRESOLVED_OR_NEEDS_VERSIONED_REVIEW')
+         need(row['notRuntimeMeasured'] is True,'SOURCE_HEAP_OBSERVATION_NOT_MEASUREMENT')
+     return wrappers

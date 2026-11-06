@@ -1,0 +1,1310 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/EXPORT-CONTRACT.md
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/EXPORT-CONTRACT.md
+@@ -1,7 +1,7 @@
+ # Minimum ordinary-client export contract v1
+ 
+ This is an experimental **SOURCE contract**, profile
+-`e02-ordinary-minimum-rs-two-role-v1`. It implements the coordinator's separately
++`e02-ordinary-minimum-rs-two-role-v2`. It implements the coordinator's separately
+ adopted minimum method. It grants no execution or qualification authority.
+ No aggregate consumer or canonical integration is implemented in this directory.
+ The original eight-row profile/consumer remains strict and unchanged.
+@@ -119,7 +119,7 @@
+ Exchange = {ack:[ActualReply], received:[ActualReply],
+             eose:null|{rawBase64:string,frame:["EOSE","e02-owned-query"]},
+             sentFrames:[SentFrame], elapsedNanoseconds:Safe[0..1800000000000]}
+-Prepared = {schema:"e02-minimum-prepared-v1", profileId, windowId, role,
++Prepared = {schema:"e02-minimum-prepared-v2", profileId, windowId, role,
+             rumors:{business:Inner,chat:Inner}, events:[Signed1059],
+             expected:{closed role StageId -> {stage:Stage,rumor:Pin,content:Pin}}}
+ PrepareResult = {profileId,windowId,ordinaryRole,expected,prepared:Pin,inboxes:Pin}
+@@ -140,7 +140,7 @@
+ lease, not absolute host ns, resource usage, or an invented API completion flag.
+ 
+ ```text
+-PublicationWindow = {schema:"e02-minimum-publication-window-v1",
++PublicationWindow = {schema:"e02-minimum-publication-window-v2",
+  profileId,windowId,stageId:StageId,eventId:hex64,attempt:Attempt,
+  intentSequence:Seq,closeSequence:Seq,actualNewAppFrameObserved:boolean,
+  candidateAppFrameSeen:boolean,elapsedNanoseconds:Safe[0..1800000000000],
+@@ -169,7 +169,7 @@
+ must join without omitted, reordered, duplicated or unexplained commands.
+ Status is preflight; the publisher must independently bind its own current gate.
+ 
+-`e02-minimum-transport-v1` has exactly schema and six Pin fields:
++`e02-minimum-transport-v2` has exactly schema and six Pin fields:
+ frame, wire, jsRequest, rustRequest, jsResult and rustResult. The validated-wire
+ record has exactly schema,profileId,windowId,stageId,origin,
+ clientReceiptEstablished,transport:Pin,rustBinary:Pin,rustSource:Pin,rustInput:Pin,
+@@ -234,7 +234,7 @@
+ wrap is produced by the same pinned existing `transport.wrap` implementation;
+ no crypto primitive or nonce profile is introduced.
+ 
+-`e02-minimum-fixture-command-v1` has exactly schema, profileId, windowId,
++`e02-minimum-fixture-command-v2` has exactly schema, profileId, windowId,
+ operation, caseId (`minimum-two-role-rs`), ok and result. Failed replies never
+ qualify. `prepare.result.expected` is keyed by the exact role's stage IDs and
+ contains `{stage,rumor:Pin,content:Pin}` for each. A status names the current
+@@ -268,16 +268,16 @@
+    the identical outer twice. A fresh post-replay client GUI/export is still
+    mandatory.
+ 
+-`e02-minimum-validated-wire-record-v1.origin` is exactly
++`e02-minimum-validated-wire-record-v2.origin` is exactly
+ `ACTUAL_APP_SOCKET_FRAME` or `ACTUAL_RELAY_QUERY_NO_NEW_APP_FRAME`;
+ `clientReceiptEstablished` must equal the first origin. Preserve native source
+ echo, exact native stdin/stdout/stderr, exit0/natural completion, independent
+ normalized JS/Rust results, frame/wire pins and the six-field frozen rumor join.
+-The associated `e02-minimum-transport-v1` cannot be passed to the old consumer as
++The associated `e02-minimum-transport-v2` cannot be passed to the old consumer as
+ an old-profile observation. A query-origin record is forbidden for any stage
+ whose `requiresNewAppFrame` istrue.
+ 
+-`e02-minimum-stage-publication-v1` binds profile/window/stage, attempt, intent,
++`e02-minimum-stage-publication-v2` binds profile/window/stage, attempt, intent,
+ gate, publicationWindow, actual publication, actual query and event, `actualNewAppFrameObserved`,
+ delivery ornull, validation, producerValidation, clientRetention,
+ validationOrigin and replayLimit. Forward/completion attempt and generation
+@@ -343,7 +343,7 @@
+ 
+ ## Whole-run witnesses and future qualification boundary
+ 
+-`e02-minimum-role-driver-result-v1` contains exactly schema, profileId, windowId,
++`e02-minimum-role-driver-result-v2` contains exactly schema, profileId, windowId,
+ ordinaryRole, runId, runConfig, runRelease, executionState (`PARTIAL`),
+ accountIdentityGUI, expectedAccountPubkey, accountIdentityQualification,
+ torConfigurationGUI, environmentAnrEvidence, allUICaptures, fixtureCalls, observations, limits
+@@ -380,3 +380,138 @@
+ criteria and reviewed integration are complete; the dependency gates and
+ architectural blockers remain unchanged. Ordinary JSON/chat UI understanding
+ does not assert invoice approval, payment capability or NBDP business dispatch.
++
++
++## Producer2 observer delta (SOURCE only; consumer3 is separate)
++
++This version refuses old profile/config/release/driver/fixture/transport/
++publication DTO schemas. The raw wire/proxy schema intentionally remains
++`e02-minimum-proxy-row-v1` with the exact original direction-specific fields.
++The original Amethyst/helper/source custody and complete two-role requirements
++above remain mandatory. New ordinary wraps come from the unchanged `T.wrap`
++procedure; opaque diagnostic frames and old failed rows are never contributors.
++
++`StagePublication` now additionally has exactly one `observation` object:
++
++```text
++ObservationRange = {schema:"e02-minimum-stage-observation-range-v2",
++ phaseStartSequence:PositiveSafe, phaseEndSequence:PositiveSafe,
++ proxyEndSequence:PositiveSafe, observer:ObserverState,
++ phaseTracePath:"/session/fixtures/phase-trace.jsonl",
++ proxyCapturePath:"/session/fixtures/capture.jsonl",
++ streamPins:"FINAL_WHOLE_WINDOW_MEMBER_PINS_REQUIRED_NOT_MUTABLE_STAGE_PINS"}
++ObserverState = {schema:"e02-minimum-observer-state-v2",
++ budget:BudgetState,phase:PhaseWriterState}
++BudgetState = {schema:"e02-minimum-aggregate-capture-budget-v2",limit:16777216,
++ intendedTotalBytes:NonnegativeSafe,acknowledgedTotalBytes:NonnegativeSafe,
++ streams:{proxy:{intended:NonnegativeSafe,acknowledged:NonnegativeSafe},
++          phase:{intended:NonnegativeSafe,acknowledged:NonnegativeSafe}},
++ poisoned:boolean,firstError:null|string,physicalBytes:null,
++ physicalMeaning:"ACKNOWLEDGED_PREFIX_IS_NOT_INDEPENDENT_PHYSICAL_ATTESTATION",
++ lastAttempt:null|{stream:"proxy"|"phase",intendedBytes:NonnegativeSafe,
++ writeInvoked:boolean,reportedCount:null|number|string,
++ acknowledgedBytes:null|NonnegativeSafe,acknowledgedPrefixSha256:null|hex64,
++ physicalBytes:null,error:null|string}}
++PhaseWriterState = {sequence:NonnegativeSafe,intendedTotalBytes:NonnegativeSafe,
++ acknowledgedTotalBytes:NonnegativeSafe,physicalBytes:null,
++ physicalMeaning:"NOT_INDEPENDENTLY_MEASURED_ACKNOWLEDGED_PREFIX_IS_NOT_PHYSICAL_ATTESTATION",
++ poisoned:boolean,firstError:null|string,lastAttempt:null|PhaseWriteAttempt}
++PhaseWriteAttempt = {sequence:PositiveSafe,phase:string,
++ intendedBytes:null|NonnegativeSafe,writeInvoked:boolean,
++ reportedCount:null|number|string,acknowledgedBytes:null|NonnegativeSafe,
++ acknowledgedPrefixBase64:null|string,physicalBytes:null,error:null|string}
++```
++
++The shared budget checks actual single-write returned counts. A zero/partial
++returned count proves an acknowledged prefix only; a thrown write or invalid
++count leaves its prefix UNKNOWN. No retry, repair, successful send/query or
++successful stage follows a poisoned stream. The unchanged accepted phase writer
++also has its own checked-count state; on a phase partial write its error string
++can differ from the first shared-budget error. Consumer3 must require both
++healthy for every contributor, not collapse the two states by string equality.
++Per-stream acknowledged sums equal shared acknowledged total; shared intended
++sum equals both stream intended sums. Successful exact stream bytes across the
++whole window are together <=16777216, never two separate16MiB ceilings. A stage
++snapshot binds a trace prefix; it does not claim to seal later callbacks.
++Complete late raw history is still mandatory. A failed whole window donates zero.
++
++All phase rows use the accepted `e02-transport-query-phase-v2` common fields:
++schema,sequence:PositiveSafe,utc:ISO-UTC,monotonicNanoseconds:canonical unsigned
++decimal string,phase:string, plus new context profileId,windowId,ordinaryRole and
++observedAttempt:Attempt|null. This is callback-time context, not a replacement
++for raw forward/completion attempt and generation joins. Nanoseconds are process
++monotonic observations, not host absolute int64Ns or measured CPU. Guard spans
++include synchronous guard wall time only. Startup/controller guards before the
++service observer exists still execute but are explicitly UNTRACED.
++
++Additional phase-specific keys are closed by this list (absent keys remain
++absent):
++
++```text
++GUARD_ENTRY: label:string
++GUARD_EXIT: label:string,ok:boolean,error:null|string
++EXCHANGE_START: label
++TIMER_ARMED: label,timeoutMilliseconds:10000
++SEND_INTENT: label,eventId:hex64|null,rawBase64
++SEND_INVOKE_ENTRY|SEND_INVOKE_RETURNED: label,eventId
++SEND_CALLBACK_ENTRY: label,eventId,error:null|string
++SEND_CALLBACK_GUARD_PASSED: label,eventId
++SOCKET_OPEN_CALLBACK_ENTRY: label
++RAW_BACKEND_CALLBACK_ENTRY: label,rawBase64
++BACKEND_MESSAGE_GUARD_PASSED: label,messageType:string
++SOCKET_ERROR_CALLBACK_ENTRY: label,error:string
++SOCKET_CLOSE_CALLBACK_ENTRY|TIMER_FIRED: label
++EXCHANGE_RESOLVED|EXCHANGE_REJECTED: label,elapsedNanoseconds:null|Safe[0..1800000000000],error:null|string
++PROXY_CONNECTION_CALLBACK_ENTRY: nextConnection:1..65
++PROXY_SOCKET_OPEN_CALLBACK_ENTRY: connection,origin:"RELAY"
++PROXY_RAW_CALLBACK_ENTRY: connection,origin:"APP"|"RELAY",rawBase64,binary:boolean
++PROXY_SEND_INVOKE_ENTRY: connection,target:"APP"|"RELAY",bufferHash:hex64,bytes:Safe[0..262144],sourceSequence?:Seq
++PROXY_SEND_INVOKE_RETURNED: connection,target,bufferHash,sourceSequence?:Seq
++PROXY_SEND_CALLBACK_ENTRY: connection,target,bufferHash,error:null|string,sourceSequence?:Seq
++PROXY_SEND_CALLBACK_COMPLETE: connection,target,bufferHash,sourceSequence?:Seq,sentSequence?:Seq
++PROXY_SOCKET_ERROR_CALLBACK_ENTRY: connection,origin,error:string
++PROXY_SOCKET_CLOSE_CALLBACK_ENTRY: connection,origin
++```
++
++`connection` is1..64. sourceSequence is present exactly for APP-target callbacks
++and joins the original RELAY_TO_APP row; APP completion additionally has
++sentSequence joining APP_SOCKET_SEND_COMPLETE. RELAY-target send callbacks are
++new observations only; they add no guard/protocol state/decode/forward action.
++Raw backend phase entry precedes the original guard. The original
++RELAY_TO_PRODUCER raw row still occurs after that guard and before strict JSON
++parse. Raw-entry context when a guard refuses is refusal evidence only, never
++accepted transport content. All known callbacks check terminal/fatal state;
++late callbacks make no new writes/actions. The accepted exchange terminal path
++settles once and attempts exact socket termination even if required retention
++fails; known protocol/guard/socket error stays first and retention is secondary.
++
++The phase trace includes original-label guard observations `original-unlabeled`,
++fixed `proxy:*` positions and `exchange:<fixed label>:<original position>`.
++Labels are source-defined and are not arbitrary authority or a substitute for
++actual guard replies. No guard is memoized or omitted. Original exchange
++positions remain entry/open/send-before/send-callback/backend-message. Original
++proxy positions remain connection/app-message/before-upstream-send/upstream-open/
++pending-before-send/upstream-message/before-app-send/app-send-callback. Whole
++source diff and carry matrix bind the actual labels/positions precisely.
++
++Exchange's additive `<label>-outcome.json` has exactly label,elapsedNanoseconds,
++ack,received,eose,sentFrames,error:null|string,secondaryRetentionErrors:[{stage,
++error:string}],observer:ObserverState. Required outcome retention failure rejects
++the exchange even on an otherwise successful protocol path; it cannot yield a
++stage. Outcome files may be missing on a failed sink; absence is preserved and
++unqualified, never filled later. Actual successful `Exchange` result keeps the
++unchanged ack/received/eose/sentFrames/elapsedNanoseconds object.
++
++Future consumer3 must join the final two stream member Pins from the actual
++whole-window inventory, per-stage observation ranges/states, actual command and
++UI history, immutable sent/outcome operands, exact installed-tree sources and
++actual nonauthor/nonoperator review origins. Complete original API response
++objects are external tool receipts, not inferred fields in a child journal.
++`observer-final-state.json` is produced only on actual delivered signal/fatal
++paths; do not require a fictional signal/Popen lifecycle after Docker rm -f.
++Mandatory operation/controller end inventory checks and host post-cleanup check
++remain real required source boundaries; raw file history is never silently
++truncated to the last stage. Any actual final-state/error file must be consumed
++and a poisoned/failed window refused. No current consumer2/completion1 pin may
++be retargeted. They remain preserved; consumer3 then completion2 require separate
++SOURCE definitions/reviews/controls and actual fresh qualified windows.
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/README.md
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/README.md
+@@ -1,55 +1,64 @@
+-# Adopted minimum ordinary-client SOURCE profile
++# Versioned minimum ordinary-client producer2 SOURCE
+ 
+-Profile `e02-ordinary-minimum-rs-two-role-v1` is a distinct two-window laboratory
+-method adopted by the coordinator after independent proposal review. This is
+-SOURCE preparation, not execution approval or E02 completion. The immutable old
+-eight-row contract and every failed API35/v3 observation remain preserved.
++Profile `e02-ordinary-minimum-rs-two-role-v2` preserves the adopted minimum
++method: two fresh sequential isolated account windows, two incoming stages and
++three archive stages, five real selected-note exports, three note contexts and
++two frozen inner rumor IDs. Only the existing JS adapter produces fresh wraps;
++both independent primary implementations/directions/relays remain mandatory
++separate evidence. Original v1 failed whole-window evidence donates zero rows.
++No experiment, test, imported prepared module, SDK operation or activation is
++authorized by this directory. The coordinator separately granted SOURCE work.
+ 
+-Incoming account B receives a business rumor from A and a distinct harmless
+-ordinary chat. Archive account A receives its own business self-wrap while the
+-original inner author A and recipient pB remain unchanged; the exact outer is
+-replayed and then a genuinely fresh wrap of the same frozen rumor is published.
+-These are two independently fresh sequential app/helper/AVD/rs-relay states,
+-with fixed per-role configs and separate finite original1800s grants. No failed
+-whole window can donate early rows. Only JS produces ordinary-client wraps;
+-current independent primary JS/Rust directions, both relays and every remaining
+-canonical criterion still require separate evidence.
++The accepted transport-query diagnostic v2 contributes byte-identical
++`exchange.mjs`, `phase-writer.mjs`, `dependency-tree.mjs` and tree inventory. Its
++successful synthetic no-Android PUB/REQ is supporting observer evidence only.
++The cause of the earlier client query timeout remains UNKNOWN. No original
++guard is removed, cached, shortened or optimized; 10s exchange/3s handshake,
++45s control/55s fixture command and original1800s role lease remain unchanged.
++New phases record callback entry, original guard entry/exit, send invocation and
++same-buffer callbacks. They do not measure kernel arrival, CPU, relay DB timing
++or network RTT. Late callbacks after terminal/fatal state perform no new action.
+ 
+-Every stage requires source-bound actual subscription/EOSE, actual publication
+-and wire lineage, selected-note PNG/XML, real foreground helper custody and an
+-exact whole six-field client-origin export with ordered private tags. An empty
+-unsigned representation sig is preserved and compared under the explicit
+-contract. Identical replay may have NO_NEW_APP_FRAME because the relay deduplicates;
+-its bounded absence, exact original sent Buffer, actual publication/query and
+-fresh post-replay client export remain mandatory. It is never evidence that the
+-app handled the same outer twice. Fresh-wrap replay requires a new app frame.
+-Visible text nodes are not global bubble counts or business-effect measurements.
++`capture-budget.mjs` supplies ONE shared16777216-byte ceiling for original
++`capture.jsonl` rows plus new `phase-trace.jsonl`. Every write is checked once;
++short/invalid/throw/overflow poisons both streams. It never retries or repairs a
++partial record. Acknowledged prefix/hash is recorded separately from UNKNOWN
++physical persistence. A poisoned observer cannot authorize another send/query
++or a success. First protocol/guard/socket fault remains primary when retention
++also fails. Exact owned socket cleanup is attempted independently of retention.
++Complete original tool receipts and child journals remain distinct evidence.
+ 
+-The frozen business oracle is an earlier producer EXPECTATION INPUT, not an
+-observation from a failed run. Historical inner and randomized NIP59 timestamps
+-need not lie inside the new lease; actual fresh preparation/wrapping/tool/window
+-custody establishes runtime freshness. Public scalar1 NSEC was encoded once by
+-a separately authorized pinned nip19 format-only operation, with raw lifecycle
+-and before/after inventory; no signing/encryption/transport test occurred.
++Host activation, guest pre-import, completed guest command/controller reply,
++failure/signal when delivered and host post-cleanup boundaries validate the full
++installed dependency tree, exact source/runtime mapping, directories, regular
++bytes and in-tree symlinks. Added nested optional modules, escapes and special
++files refuse before package evaluation. No optional `bufferutil` is imported by
++DATA controls. Forced container removal need not deliver a Node signal; the
++normal-operation end checks and host end check are mandatory independent bounds.
+ 
+-Source-audited navigation uses one exact expanded Feeds collapse under the
+-original scroll/action/capture budgets, then actual System/Relays; Relay Settings,
+-Local Relays, owned Add a Relay field/trailing Add, exact local text row and Save.
+-No invented row DM flags exist. Known/New Requests are role-bound, with Back and
+-the expected note plus either the empty Message composer or the precise read-only
+-missing-recipient-relays warning. More Options/Copy raw JSON are source-backed.
+-All new DOM exposure assumptions are NOT_RUNTIME_VALIDATED and must fail closed.
+-Pinned-source label/line mapping and frozen failed-v3 Feeds XML are in preparation.
++The four unused documentary scalar2 NSEC operands were newly encoded from the
++fixed public scalar, using stdlib format materialization with pinned primary
++encoding sources. They now equal the operative unchanged63-character driver
++operand. Scalar1 is also encoded and compared. The malformed65-character old
++literal/history remain untouched. This format work is not signing/encryption or
++runtime interoperability. Prepared checksum/payload/whole-value regressions and
++actual independent review remain required.
+ 
+-One source-backed Hide→Show visibility action, whole exact public NSEC and fresh
+-PNG/XML remain mandatory per role. Password accessibility metadata alone does not
+-prove masking; semantic class/package/resource-id shape never proves persistent
+-Android object identity. Tor saved/reopened Off, unknown/Quickstep refusal and
+-at most two known Settings/SystemUI Wait actions remain unchanged.
++Identity entry, exact whole shown public NSEC, Tor saved/reopened Off, local
++relay configuration, one known Feeds collapse, Known/New Requests attribution,
++selected-note GUI/helper export, six original fields/ordered tags and all ANR/
++action/capture/scroll/resource constraints retain their original UI logic.
++Archive outer p=A preserves original inner authorA/pB. Exact replay can honestly
++have no new APP frame when the relay deduplicates, but requires exact sent-byte
++query/interval/history and post-replay export. Fresh wrap requires a new actual
++APP frame in the current EOSE generation. Neither dispatch eligibility nor UI
++text-node counts measures actual business effects.
+ 
+-Read [EXPORT-CONTRACT.md](EXPORT-CONTRACT.md) for exact operands and evidence
+-origins, and [SUPERVISOR.md](SUPERVISOR.md) for authority/resource boundaries.
+-New whole-history aggregation/canonical integration is root-owned and absent.
+-All changed control suites are prepared, NOT RUN; only byte-identical guard29
+-has an explicit prior accepted scope link. Canonical E02 remains PARTIAL22;
+-Q01/Q08/Q13/Q15/Q27 remain BLOCKER. No production SDK/kind/NIP/deployment or merge.
++See [EXPORT-CONTRACT.md](EXPORT-CONTRACT.md), [SUPERVISOR.md](SUPERVISOR.md) and
++new preparation evidence for source/control/carry boundaries. Current changed
++20 observation-model,8 public-format and7 source-wiring controls are definitions
++only, NOT RUN. Prior byte-identical component results are explicitly scoped
++carry, not new tests or real client evidence. Syntax-only Node `--check` and
++Python AST parsing are separately recorded. Consumer3/completion2 are subsequent
++root-owned versioned work, not implemented or approved here. E02 stays PARTIAL22;
++Q01/Q08/Q13/Q15/Q27 remain BLOCKER. No SDK/kind/NIP/deployment/merge follows.
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/SUPERVISOR.md
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/SUPERVISOR.md
+@@ -3,11 +3,11 @@
+ This supervisor executes exactly one fixed incoming OR archive role, never two
+ windows automatically. Materialized DATA configs are not grants. The separately
+ external-hash-bound root release must name the exact config/profile/role/window
+-and fresh run ID; no v3 release/schema is accepted. Each role gets fresh exclusive
++and fresh run ID; no v1/v3 legacy release/schema is accepted. Each role gets fresh exclusive
+ output, app/helper/AVD/relay state and its own original1800s lease. A subsequent
+ role requires completed cleanup, fresh admission and a new separate grant.
+ 
+-Nine runtime source/data files are staged from exact config Pins. The fixed
++Sixteen runtime source/data files are staged from exact config Pins. The fixed
+ run-config SHA is passed and verified in owned containers and fixture service.
+ The original source/SDK/APK/helper/guard-bundle/installed dependency checks remain.
+ The unchanged lease guard binds UTC/BOOTTIME/MONOTONIC; closed commands, original
+@@ -39,3 +39,22 @@
+ Android, lease/grant or control test was executed by this SOURCE preparation.
+ Current runtime plans/configs remain candidates pending independent SOURCE review,
+ changed pure controls, new root consumer review and exact activation decisions.
++
++
++Producer2 adds the accepted full dependency-tree functions without changing
++Docker isolation, original source clock/lease core or resources. Host preflight
++and post-cleanup exact membership, guest pre-import and per-operation/controller
++end checks are distinct. Required actual child command lifecycle continues to
++come from the existing finite guard; no portable Popen claims are manufactured.
++The original source6GiB floor remains in code and coordinator8GiB disk margin
++remains a separately freshly measured grant prerequisite. Diagnostic-only2688MiB
++admission never transfers to Android. Exact runtime source Pins and new role
++runIds are prepared DATA, not leases. A current granted role must independently
++record all four owned cleanup identities/removals/absence.
++
++The normal service may be forcibly removed after UI completion; a SIGTERM/SIGINT
++handler is not evidence that this signal occurred. A signal/fatal final observer
++file, if present, must be joined honestly. The final complete raw proxy/phase
++files, per-stage snapshots, mandatory completed-command and host end checks,
++actual container logs/cleanup and original tools remain whole-history operands.
++No final observer state or success is fabricated when a path did not execute.
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/android_driver.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/android_driver.py
+@@ -12,7 +12,7 @@
+ HELPER = 'org.nbdp.clipboard.capture'
+ HELPER_COMPONENT = HELPER + '/.CaptureActivity'
+ CASE = 'minimum-two-role-rs'
+-PROFILE = 'e02-ordinary-minimum-rs-two-role-v1'
++PROFILE = 'e02-ordinary-minimum-rs-two-role-v2'
+ NSEC = 'nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpqptcfk2'
+ ACCOUNT = 'c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5'
+ PEER = '79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798'
+@@ -78,7 +78,7 @@
+     reply_pin = runtime.put_bytes('evidence/fixture-%02d-%s-reply.json' % (sequence, operation), raw)
+     value = loads(raw)
+     spec = ROLE_SPECS[runtime.plan['ordinaryRole']]
+-    need(value['schema'] == 'e02-minimum-fixture-command-v1' and value['operation'] == operation
++    need(value['schema'] == 'e02-minimum-fixture-command-v2' and value['operation'] == operation
+          and value['caseId'] == CASE and value['profileId'] == PROFILE
+          and value['windowId'] == spec['windowId'] and value['ok'] is True,
+          'Exact successful closed minimum fixture reply required')
+@@ -845,7 +845,7 @@
+                 'uiCaptures': ui.captures[ui_start:ui.serial]})
+         observations.append(observation)
+     runtime.check()
+-    return {'schema': 'e02-minimum-role-driver-result-v1', 'profileId': PROFILE,
++    return {'schema': 'e02-minimum-role-driver-result-v2', 'profileId': PROFILE,
+         'windowId': spec['windowId'], 'ordinaryRole': role, 'runId': runtime.plan['runId'],
+         'runConfig': runtime.plan_pin, 'runRelease': runtime.release_pin, 'executionState': 'PARTIAL',
+         'accountIdentityGUI': account_ui, 'expectedAccountPubkey': spec['account'],
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/capture-budget.mjs
+@@ -0,0 +1,52 @@
++// One aggregate budget for the original proxy rows and new phase observations.
++// No socket/guard/optional-module import. Model controls use fake fixed fs.
++import {createHash} from 'node:crypto';
++const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
++export function createCaptureBudget({fs,streams,limit}){
++ if(!Number.isSafeInteger(limit)||limit<=0||limit>16777216)throw Error('ORIGINAL_AGGREGATE_CAPTURE_BOUND');
++ if(!streams||Object.keys(streams).sort().join(',')!=='phase,proxy'||streams.phase===streams.proxy)throw Error('CLOSED_TWO_CAPTURE_STREAMS');
++ const byFd=new Map(Object.entries(streams).map(([name,fd])=>[fd,name]));
++ let intended=0,acknowledged=0,firstError=null,lastAttempt=null;
++ const totals={proxy:{intended:0,acknowledged:0},phase:{intended:0,acknowledged:0}};
++ function poison(error){if(firstError===null)firstError=error;return firstError;}
++ function healthy(){if(firstError!==null)throw firstError;}
++ function writeSync(fd,bytes){
++  healthy();
++  const stream=byFd.get(fd);if(!stream)throw poison(Error('UNKNOWN_CAPTURE_STREAM'));
++  if(!Buffer.isBuffer(bytes))throw poison(Error('FIXED_CAPTURE_BUFFER'));
++  lastAttempt={stream,intendedBytes:bytes.length,writeInvoked:false,reportedCount:null,
++   acknowledgedBytes:0,acknowledgedPrefixSha256:hash(Buffer.alloc(0)),physicalBytes:null,error:null};
++  intended+=bytes.length;totals[stream].intended+=bytes.length;
++  try{
++   if(intended>limit)throw Error('ORIGINAL_AGGREGATE_CAPTURE_BOUND');
++   lastAttempt.writeInvoked=true;lastAttempt.acknowledgedBytes=null;lastAttempt.acknowledgedPrefixSha256=null;
++   const count=fs.writeSync(fd,bytes); // One underlying call; never repair/rewrite.
++   lastAttempt.reportedCount=typeof count==='number'&&Number.isFinite(count)?count:String(count).slice(0,80);
++   if(!Number.isInteger(count)||count<0||count>bytes.length)throw Error('INVALID_CAPTURE_WRITE_COUNT');
++   acknowledged+=count;totals[stream].acknowledged+=count;
++   lastAttempt.acknowledgedBytes=count;lastAttempt.acknowledgedPrefixSha256=hash(bytes.subarray(0,count));
++   // Return the real short count to the unchanged phase writer. Its own checked
++   // count path can retain that known prefix. Every caller then checks healthy.
++   if(count!==bytes.length){const error=Error('SHORT_CAPTURE_WRITE');lastAttempt.error=String(error);poison(error);}
++   return count;
++  }catch(error){lastAttempt.error=String(error);throw poison(error);}
++ }
++ function state(){return {schema:'e02-minimum-aggregate-capture-budget-v2',limit,intendedTotalBytes:intended,
++  acknowledgedTotalBytes:acknowledged,streams:{proxy:{...totals.proxy},phase:{...totals.phase}},
++  poisoned:firstError!==null,firstError:firstError===null?null:String(firstError),
++  physicalBytes:null,physicalMeaning:'ACKNOWLEDGED_PREFIX_IS_NOT_INDEPENDENT_PHYSICAL_ATTESTATION',
++  lastAttempt:lastAttempt===null?null:{...lastAttempt}};}
++ return {writeSync,healthy,poison,state};
++}
++// A new observation never authorizes action after a failed original guard.
++// Preserve the actual guard fault over a secondary refusal-retention failure.
++export function observedGuard(core,phase,label){
++ phase('GUARD_ENTRY',{label});
++ try{core();}catch(error){
++  try{phase('GUARD_EXIT',{label,ok:false,error:String(error)});}catch(retention){
++   if(error&&typeof error==='object')try{Object.defineProperty(error,'guardObservationError',{value:String(retention),configurable:true});}catch{}
++  }
++  throw error;
++ }
++ phase('GUARD_EXIT',{label,ok:true,error:null});
++}
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/exchange-adapter.mjs
+@@ -0,0 +1,31 @@
++// Versioned adapter around accepted SOURCE2 exchange; protocol module unchanged.
++// Preserve original producer proxy-row schema and original guard positions.
++import {exchange} from './exchange.mjs';
++export async function observedExchange(base,events,filter,label){
++ let pendingRaw=null;
++ const pins=new Map();
++ const phase=(name,fields={})=>{
++  const row=base.phase(name,fields);
++  if(name==='SEND_INTENT'){
++   const bytes=Buffer.from(fields.rawBase64,'base64'),frame=pins.get(base.sha(bytes));
++   if(!frame||frame.bytes!==bytes.length)throw Error('ACTUAL_SENT_FRAME_PIN_REQUIRED');
++   base.log({direction:'PRODUCER_TO_RELAY',exchangeLabel:label,rawBase64:fields.rawBase64,frame});
++  }
++  if(name==='RAW_BACKEND_CALLBACK_ENTRY'){
++   if(pendingRaw!==null)throw Error('UNCONSUMED_BACKEND_CALLBACK_CONTEXT');
++   pendingRaw=fields.rawBase64;
++  }
++  return row;
++ };
++ phase.state=base.phase.state;
++ const check=position=>{
++  base.check('exchange:'+label+':'+position); // Exactly one original guard call.
++  if(position==='backend-message'){
++   if(pendingRaw===null)throw Error('RAW_BACKEND_CONTEXT_REQUIRED');
++   base.log({direction:'RELAY_TO_PRODUCER',exchangeLabel:label,rawBase64:pendingRaw});
++   pendingRaw=null; // Original raw row is after guard, before protocol parse.
++  }
++ };
++ const put=(name,bytes)=>{const descriptor=base.put(name,bytes);if(name.endsWith('-sent-frame.json'))pins.set(base.sha(bytes),descriptor);return descriptor;};
++ return await exchange({...base,phase,check,put},events,filter,label);
++}
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/fixture-plan.json
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/fixture-plan.json
+@@ -1,5 +1,5 @@
+ {
+-  "schema": "e02-ordinary-minimum-fixture-plan-v1",
++  "schema": "e02-ordinary-minimum-fixture-plan-v2",
+   "state": "SOURCE_ONLY_NOT_RELEASED",
+   "caseId": "minimum-two-role-rs",
+   "direction": "JS_TO_RUST",
+@@ -4953,14 +4953,14 @@
+     }
+   ],
+   "dependencyScope": "Installed regular-file tree used by the canonical JS adapter; .bin symlink launchers are not executed. No lockfile-only installed-code provenance claim.",
+-  "profileId": "e02-ordinary-minimum-rs-two-role-v1",
++  "profileId": "e02-ordinary-minimum-rs-two-role-v2",
+   "roles": {
+     "incoming": {
+       "windowId": "incoming-b",
+       "account": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
+       "peer": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+       "scalar": 2,
+-      "nsec": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpqptcfk2",
++      "nsec": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpqptcfk2",
+       "tab": "New Requests",
+       "stages": [
+         "incoming-business",
+@@ -4983,16 +4983,22 @@
+   },
+   "oracles": {
+     "business": {
+-      "source": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/business-rumor.json",
++      "source": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/business-rumor.json",
+       "path": "/input/business-rumor.json",
+       "bytes": 910,
+       "sha256": "8bb0efcf8cc5a503e8f653885503958520f1a069066e549cd60dec7128d25291"
+     },
+     "chat": {
+-      "source": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/chat-rumor.json",
++      "source": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/chat-rumor.json",
+       "path": "/input/chat-rumor.json",
+       "bytes": 384,
+       "sha256": "f796df4b3ad76f832248fb60bdfb0d134a830257e95c0559b44d4fce0a900dc5"
+     }
+-  }
++  },
++  "dependencyTree": {
++    "path": "/input/dependency-tree.json",
++    "bytes": 35599,
++    "sha256": "0536b9b0f6a127e3e43fd19bf5df0e3110b5c437e1a2c22c76e1a3e8dcc4f07f"
++  },
++  "captureScope": "ONE shared aggregate16777216-byte ceiling across capture.jsonl and phase-trace.jsonl; sticky poison, checked single writes, no retries."
+ }
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/fixture.mjs
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/fixture.mjs
+@@ -4,11 +4,16 @@
+ import crypto from 'node:crypto';
+ import {spawnSync} from 'node:child_process';
+ import {pathToFileURL} from 'node:url';
++import {verifyDependencyTree} from './dependency-tree.mjs';
++import {createPhaseWriter} from './phase-writer.mjs';
++import {createCaptureBudget,observedGuard} from './capture-budget.mjs';
++import {observedExchange} from './exchange-adapter.mjs';
++import {createCallbackBoundary,observedUpstreamSend} from './proxy-observer.mjs';
+ 
+ const DIR='/session/fixtures', PLAN='/input/fixture-plan.json';
+ const A='79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798';
+ const B='c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5';
+-const CASE='minimum-two-role-rs', PROFILE='e02-ordinary-minimum-rs-two-role-v1', SOCKET=DIR+'/control.sock';
++const CASE='minimum-two-role-rs', PROFILE='e02-ordinary-minimum-rs-two-role-v2', SOCKET=DIR+'/control.sock';
+ const sha=raw=>crypto.createHash('sha256').update(raw).digest('hex');
+ const same=(a,b)=>typeof a===typeof b&&(a===null||b===null?a===b:Array.isArray(a)||Array.isArray(b)?Array.isArray(a)&&Array.isArray(b)&&a.length===b.length&&a.every((x,i)=>same(x,b[i])):typeof a==='object'?Object.keys(a).length===Object.keys(b).length&&Object.keys(a).every(k=>Object.hasOwn(b,k)&&same(a[k],b[k])):a===b);
+ function need(v,why){if(!v)throw Error(why);}
+@@ -17,15 +22,21 @@
+ function doc(path){return JSON.parse(raw(path));}
+ function put(path,data){const b=Buffer.isBuffer(data)?data:Buffer.from(data);need(b.length<=16777216,'WRITE_BOUND');fs.writeFileSync(path,b,{flag:'wx',mode:0o600});return pin(path);}
+ function putJSON(name,value){return put(DIR+'/'+name,JSON.stringify(value,null,2)+'\n');}
+-function check(){
++function guardCheck(){
+  const expected=process.env.NBDP_LEASE_SHA256;need(/^[0-9a-f]{64}$/.test(expected??''),'EXTERNAL_LEASE_SHA');
+  const argv=['--inhibit-cache','--library-path','/guard-python/lib','/guard-python/bin/python3.11','-B','-P','-S','-s','/input/lease_guard.py','check',expected];
+  const r=spawnSync('/guard-python/lib/ld-linux-x86-64.so.2',argv,{env:process.env,timeout:5000,maxBuffer:1048576});
+  need(!r.error&&r.status===0&&r.signal===null,'FINITE_LEASE_DENIED:'+String(r.stderr??'').slice(0,2048));
+ }
++let servicePhase=null;
++function check(label='original-unlabeled'){
++ if(servicePhase!==null)return observedGuard(guardCheck,servicePhase,label);
++ return guardCheck(); // Startup/controller guards remain real but untraced.
++}
++
+ function plan(){
+  const b=raw(PLAN);need(sha(b)===process.env.NBDP_FIXTURE_PLAN_SHA256,'EXTERNAL_FIXTURE_PLAN_SHA');const p=JSON.parse(b);
+- need(p.schema==='e02-ordinary-minimum-fixture-plan-v1'&&p.caseId===CASE&&p.profileId===PROFILE&&p.direction==='JS_TO_RUST'&&p.relay==='rs-relay'&&p.proxyUrl==='ws://127.0.0.1:17777'&&p.backendUrl==='ws://127.0.0.1:8080'&&p.output===DIR,'FIXED_MINIMUM_PROFILE');
++ need(p.schema==='e02-ordinary-minimum-fixture-plan-v2'&&p.caseId===CASE&&p.profileId===PROFILE&&p.direction==='JS_TO_RUST'&&p.relay==='rs-relay'&&p.proxyUrl==='ws://127.0.0.1:17777'&&p.backendUrl==='ws://127.0.0.1:8080'&&p.output===DIR,'FIXED_MINIMUM_PROFILE');
+  const configRaw=raw('/input/run-config.json');
+  need(sha(configRaw)===process.env.NBDP_MINIMUM_RUN_CONFIG_SHA256,'EXTERNAL_ROLE_CONFIG_SHA');
+  const config=JSON.parse(configRaw);need(config.profileId===PROFILE&&['incoming','archive'].includes(config.ordinaryRole),'CLOSED_ROLE_CONFIG');
+@@ -33,6 +44,8 @@
+  p.ordinaryRole=config.ordinaryRole;p.roleSpec=spec;
+  for(const d of Object.values(p.oracles)){const q=pin(d.path);need(q.bytes===d.bytes&&q.sha256===d.sha256,'FROZEN_ORACLE_PIN');} 
+  need(Array.isArray(p.dependencyFiles)&&p.dependencyFiles.length>0&&p.dependencyFiles.length<=4096,'PINNED_INSTALLED_DEPENDENCIES');for(const d of [...Object.values(p.pins),...p.dependencyFiles]){const q=pin(d.path);need(q.bytes===d.bytes&&q.sha256===d.sha256,'CURRENT_SOURCE_BINARY_PIN');}
++ const tree=pin(p.dependencyTree.path);need(tree.bytes===p.dependencyTree.bytes&&tree.sha256===p.dependencyTree.sha256,'EXACT_DEPENDENCY_TREE_PIN');
++ verifyDependencyTree('/input/node_modules',doc(p.dependencyTree.path),p.dependencyFiles);
+  const e01=doc(p.pins.e01.path),e02=doc(p.pins.e02.path);
+  need(e01.status==='PASS'&&e01.environment.rust_binary_sha256===p.pins.rustBinary.sha256&&e02.status==='PARTIAL','CURRENT_CANONICAL_CANDIDATE');
+  for(const r of [e01,e02])need(r.source_sha256['shared/transport.mjs']===p.pins.transport.sha256&&r.source_sha256['shared/rust/src/main.rs']===p.pins.rustSource.sha256,'CURRENT_ADAPTER_SOURCE_JOIN');
+@@ -100,7 +113,7 @@
+  const mode=process.argv[2];need(process.argv.length===3&&['serve','prepare','status','publish'].includes(mode),'FIXED_CLI');check();const p=plan();
+  if(mode!=='serve'){
+   const response=await new Promise((resolve,reject)=>{const c=net.connect(SOCKET);let b=Buffer.alloc(0);const timer=setTimeout(()=>{c.destroy();reject(Error('CONTROL_TIMEOUT'));},45000);c.on('connect',()=>{check();c.end(JSON.stringify({op:mode})+'\n');});c.on('data',x=>{b=Buffer.concat([b,x]);if(b.length>1048576){c.destroy();reject(Error('CONTROL_REPLY_BOUND'));}});c.on('end',()=>{clearTimeout(timer);try{resolve(JSON.parse(b));}catch(e){reject(e);}});c.on('error',e=>{clearTimeout(timer);reject(e);});});
+-  check();need(response.ok===true,'FIXTURE_COMMAND_FAILED:'+response.error);process.stdout.write(JSON.stringify(response)+'\n');return;
++  check();verifyDependencyTree('/input/node_modules',doc(p.dependencyTree.path),p.dependencyFiles);need(response.ok===true,'FIXTURE_COMMAND_FAILED:'+response.error);process.stdout.write(JSON.stringify(response)+'\n');return;
+  }
+  const T=await import('./transport.mjs');check();
+  // The unchanged canonical adapter uses verifyEvent internally but does not export it.
+@@ -108,14 +121,19 @@
+  const {verifyEvent}=await import('nostr-tools/pure');check();need(typeof verifyEvent==='function','PINNED_VERIFY_EVENT_API');
+  const {default:WebSocket,WebSocketServer}=await import('ws');check();
+  need(!fs.existsSync(SOCKET),'FRESH_CONTROL_SOCKET');fs.mkdirSync(DIR,{recursive:true,mode:0o700});
+- const captureFd=fs.openSync(DIR+'/capture.jsonl','wx',0o600);let sequence=0,total=0,next=0,attempted=false,busy=false,closed=false,delivery=null,publicationGate=null,publicationInvalidated=false;
++ const captureFd=fs.openSync(DIR+'/capture.jsonl','wx',0o600),phaseFd=fs.openSync(DIR+'/phase-trace.jsonl','wx',0o600);
++ const budget=createCaptureBudget({fs,streams:{proxy:captureFd,phase:phaseFd},limit:p.limits.captureBytes});
++ const phaseWriter=createPhaseWriter({fs:{writeSync:budget.writeSync},fd:phaseFd,clock:()=>process.hrtime.bigint(),utc:()=>new Date().toISOString(),limit:p.limits.captureBytes});
++ const phase=(name,fields={})=>{if(closed)throw firstFailure??Error('SERVICE_CLOSED');try{budget.healthy();const row=phaseWriter(name,{profileId:PROFILE,windowId:p.roleSpec.windowId,ordinaryRole:p.ordinaryRole,observedAttempt:activeAttempt?{...activeAttempt}:null,...fields});budget.healthy();return row;}catch(error){throw budget.poison(error);}};
++ phase.state=()=>({schema:'e02-minimum-observer-state-v2',budget:budget.state(),phase:phaseWriter.state()});servicePhase=phase;
++ let sequence=0,next=0,attempted=false,busy=false,closed=false,delivery=null,publicationGate=null,publicationInvalidated=false;
+  const connections=new Map();let stageIndex=0,attemptEpoch=0,activeAttempt=null,publicationWindowOpen=false,attemptSawFrame=false;
+  const spec=p.roleSpec;
+  function selectedEvent(){return prepared().events[stageIndex];}
+  function selectedStage(){return stageSpec(p.ordinaryRole,stageIndex);}
+- function log(value){const row={schema:'e02-minimum-proxy-row-v1',sequence:++sequence,utc:new Date().toISOString(),...value};const b=Buffer.from(JSON.stringify(row)+'\n');total+=b.length;need(total<=p.limits.captureBytes,'CAPTURE_BOUND');fs.writeSync(captureFd,b);return row;}
++ function log(value){try{budget.healthy();const row={schema:'e02-minimum-proxy-row-v1',sequence:++sequence,utc:new Date().toISOString(),...value};const b=Buffer.from(JSON.stringify(row)+'\n');budget.writeSync(captureFd,b);budget.healthy();return row;}catch(error){throw budget.poison(error);}}
+  function prepared(){
+-  const d=doc(DIR+'/prepared.json');need(d.schema==='e02-minimum-prepared-v1'&&d.profileId===PROFILE&&d.windowId===spec.windowId,'FIXED_PREPARED_PROFILE');
++  const d=doc(DIR+'/prepared.json');need(d.schema==='e02-minimum-prepared-v2'&&d.profileId===PROFILE&&d.windowId===spec.windowId,'FIXED_PREPARED_PROFILE');
+   for(const name of ['business','chat'])need(exactInnerShape(d.rumors[name])&&d.rumors[name].id===T.getEventHash(d.rumors[name])&&same(d.rumors[name],doc(p.oracles[name].path)),'FROZEN_SHARED_INNER');
+   need(d.rumors.business.content===JSON.stringify(T.envelope(A,B,10))&&d.rumors.chat.content==='NBDP harmless ordinary chat control — faktúra 𐐀','FROZEN_CONTENT');
+   need(d.events.length===spec.stages.length&&d.events.every(e=>e.kind===1059&&verifyEvent(JSON.parse(JSON.stringify(e)))&&same(e.tags,[['p',spec.account]])),'ROLE_WRAPS');
+@@ -125,13 +143,61 @@
+  function gate(){if(!fs.existsSync(DIR+'/prepared.json')||stageIndex>=spec.stages.length)return null;return matchingSubscription(connections,selectedEvent(),spec.account);}
+  function invalidatePublication(c,id,reason){if(attempted&&publicationGate&&c.id===publicationGate.connection&&(id===null||id===publicationGate.subscription)){if(!publicationInvalidated)log({connection:c.id,direction:'PUBLICATION_GENERATION_INVALIDATED',reason,gate:publicationGate});publicationInvalidated=true;delivery=null;}}
+  function qualifiedDelivery(before,event){return !publicationInvalidated&&delivery!==null&&attemptLineageMatches(activeAttempt,delivery.forwardAttempt,delivery.completionAttempt)&&publicationGenerationMatches(connections,before,event,spec.account)&&publicationGenerationMatches(connections,delivery.forwardGeneration,event,spec.account)&&same(delivery.forwardGeneration,delivery.completionGeneration);}
+- function fatal(error){if(closed)return;closed=true;try{putJSON('serve-error.json',{error:String(error),sequence,scope:'UNQUALIFIED_NO_E02_PROMOTION'});}catch{}for(const c of connections.values()){c.app.terminate();c.upstream.terminate();}server.close();control.close();clearInterval(watchdog);process.exitCode=2;}
++ const terminated=new WeakSet(),exchangeSockets=new Set();let firstFailure=null,watchdog=null,control=null;
++ function terminateOwned(socket){if(!socket||terminated.has(socket))return;terminated.add(socket);socket.terminate();}
++ class OwnedWebSocket extends WebSocket{constructor(...args){super(...args);exchangeSockets.add(this);}terminate(){if(terminated.has(this))return;terminated.add(this);super.terminate();}}
++ // Exchange owns its exact sockets; proxy owns the paired app/backend sockets.
++ // Observation failure cannot skip cleanup or replace an incoming socket fault.
++ function fatal(error){
++  if(closed)return;closed=true;firstFailure=error;
++  const cleanupErrors=[];
++  const attempt=(label,fn)=>{try{fn();}catch(e){cleanupErrors.push({label,error:String(e)});}};
++  attempt('failure-retention',()=>putJSON('serve-error.json',{error:String(error),sequence,
++   observer:phase.state(),scope:'UNQUALIFIED_NO_E02_PROMOTION'}));
++  for(const c of connections.values())for(const socket of [c.app,c.upstream])attempt('terminate-owned-proxy',()=>terminateOwned(socket));
++  for(const socket of exchangeSockets)attempt('terminate-owned-exchange',()=>socket.terminate());
++  for(const fd of [captureFd,phaseFd]){attempt('fsync-stream',()=>fs.fsyncSync(fd));attempt('close-stream',()=>fs.closeSync(fd));}
++  attempt('close-proxy-server',()=>server.close());if(control)attempt('close-control-server',()=>control.close());
++  if(watchdog)attempt('clear-watchdog',()=>clearInterval(watchdog));
++  attempt('end-dependency-boundary',()=>verifyDependencyTree('/input/node_modules',doc(p.dependencyTree.path),p.dependencyFiles));
++  attempt('observer-state-retention',()=>putJSON('observer-final-state.json',{observer:phase.state(),error:String(firstFailure),secondaryErrors:cleanupErrors}));
++  process.exitCode=2;
++ }
++ const callback=createCallbackBoundary({isClosed:()=>closed,healthy:budget.healthy,fatal});
++ function proxyPhase(name,c,fields={}){return phase(name,{connection:c.id,...fields});}
++ function sendUpstream(c,bytes){return observedUpstreamSend({socket:c.upstream,bytes,sha,
++  phase:(name,fields)=>proxyPhase(name,c,fields),callback,isClosed:()=>closed});}
+  const server=new WebSocketServer({host:'127.0.0.1',port:17777,maxPayload:p.limits.messageBytes,perMessageDeflate:false});
+- server.on('connection',(app,request)=>{try{check();need(++next<=p.limits.connections,'CONNECTION_BOUND');const upstream=new WebSocket(p.backendUrl,{perMessageDeflate:false,handshakeTimeout:3000,maxPayload:p.limits.messageBytes});const c={id:next,active:true,app,upstream,subscriptions:new Map(),pending:[]};connections.set(c.id,c);log({connection:c.id,direction:'OPEN',userAgent:String(request.headers['user-agent']??'').slice(0,1024)});
+-  app.on('message',(data,binary)=>{try{check();need(!binary,'TEXT_ONLY_NOSTR');const bytes=Buffer.from(data);const f=T.strictJSON(bytes.toString('utf8'));const row=log({connection:c.id,direction:'APP_TO_RELAY',rawBase64:bytes.toString('base64')});if(Array.isArray(f)&&f[0]==='REQ'&&typeof f[1]==='string'){invalidatePublication(c,f[1],'REQ_REPLACED');c.subscriptions.set(f[1],{req:row.sequence,eose:null,filters:f.slice(2)});}if(Array.isArray(f)&&f[0]==='CLOSE'){invalidatePublication(c,f[1],'APP_CLOSE');c.subscriptions.delete(f[1]);}if(upstream.readyState===WebSocket.OPEN){check();upstream.send(bytes,{binary:false});}else{need(c.pending.length<64,'PENDING_FRAME_BOUND');c.pending.push(bytes);}}catch(e){fatal(e);}});
+-  upstream.on('open',()=>{try{check();for(const bytes of c.pending){check();upstream.send(bytes,{binary:false});}c.pending=[];}catch(e){fatal(e);}});
+-  upstream.on('message',(data,binary)=>{try{
+-   check();need(!binary,'TEXT_ONLY_NOSTR');const bytes=Buffer.from(data);const f=T.strictJSON(bytes.toString('utf8'));
++ server.on('connection',(app,request)=>{try{
++  if(closed){terminateOwned(app);return;}
++  phase('PROXY_CONNECTION_CALLBACK_ENTRY',{nextConnection:next+1});check('proxy:connection');
++  need(++next<=p.limits.connections,'CONNECTION_BOUND');
++  const upstream=new WebSocket(p.backendUrl,{perMessageDeflate:false,handshakeTimeout:3000,maxPayload:p.limits.messageBytes});
++  const c={id:next,active:true,app,upstream,subscriptions:new Map(),pending:[]};connections.set(c.id,c);
++  for(const [origin,socket] of [['APP',app],['RELAY',upstream]]){
++   socket.on('error',error=>callback(()=>{proxyPhase('PROXY_SOCKET_ERROR_CALLBACK_ENTRY',c,{origin,error:String(error)});throw error;},error));
++   socket.on('close',()=>callback(()=>{
++    proxyPhase('PROXY_SOCKET_CLOSE_CALLBACK_ENTRY',c,{origin});invalidatePublication(c,null,'CONNECTION_CLOSED');
++    c.active=false;c.subscriptions.clear();terminateOwned(app);terminateOwned(upstream);log({connection:c.id,direction:'CLOSE'});
++   }));
++  }
++  log({connection:c.id,direction:'OPEN',userAgent:String(request.headers['user-agent']??'').slice(0,1024)});
++  app.on('message',(data,binary)=>callback(()=>{
++   proxyPhase('PROXY_RAW_CALLBACK_ENTRY',c,{origin:'APP',rawBase64:Buffer.from(data).toString('base64'),binary});
++   check('proxy:app-message');need(!binary,'TEXT_ONLY_NOSTR');const bytes=Buffer.from(data);const f=T.strictJSON(bytes.toString('utf8'));
++   const row=log({connection:c.id,direction:'APP_TO_RELAY',rawBase64:bytes.toString('base64')});
++   if(Array.isArray(f)&&f[0]==='REQ'&&typeof f[1]==='string'){invalidatePublication(c,f[1],'REQ_REPLACED');c.subscriptions.set(f[1],{req:row.sequence,eose:null,filters:f.slice(2)});}
++   if(Array.isArray(f)&&f[0]==='CLOSE'){invalidatePublication(c,f[1],'APP_CLOSE');c.subscriptions.delete(f[1]);}
++   if(upstream.readyState===WebSocket.OPEN){check('proxy:app-before-upstream-send');sendUpstream(c,bytes);}
++   else{need(c.pending.length<64,'PENDING_FRAME_BOUND');c.pending.push(bytes);}
++  }));
++  upstream.on('open',()=>callback(()=>{
++   proxyPhase('PROXY_SOCKET_OPEN_CALLBACK_ENTRY',c,{origin:'RELAY'});check('proxy:upstream-open');
++   for(const bytes of c.pending){check('proxy:pending-before-upstream-send');sendUpstream(c,bytes);}c.pending=[];
++  }));
++  upstream.on('message',(data,binary)=>callback(()=>{
++   proxyPhase('PROXY_RAW_CALLBACK_ENTRY',c,{origin:'RELAY',rawBase64:Buffer.from(data).toString('base64'),binary});
++   check('proxy:upstream-message');need(!binary,'TEXT_ONLY_NOSTR');const bytes=Buffer.from(data);const f=T.strictJSON(bytes.toString('utf8'));
+    const candidate=attempted&&publicationWindowOpen&&Array.isArray(f)&&f[0]==='EVENT'&&stageIndex<spec.stages.length&&f[2]?.id===selectedEvent().id&&c.id===publicationGate?.connection&&f[1]===publicationGate?.subscription;
+    const forwardAttempt=candidate&&activeAttempt?{...activeAttempt}:null;
+    const forwardGeneration=candidate&&!publicationInvalidated&&publicationGenerationMatches(connections,publicationGate,f[2],spec.account)?currentGeneration(c,f[1]):null;
+@@ -139,62 +205,26 @@
+    const row=log({connection:c.id,direction:'RELAY_TO_APP',rawBase64:bytes.toString('base64'),publicationGeneration:forwardGeneration,publicationAttempt:forwardAttempt});
+    if(Array.isArray(f)&&f[0]==='EOSE'&&c.subscriptions.has(f[1]))c.subscriptions.get(f[1]).eose=row.sequence;
+    if(Array.isArray(f)&&f[0]==='CLOSED'){invalidatePublication(c,f[1],'RELAY_CLOSED');c.subscriptions.delete(f[1]);}
+-   check();app.send(bytes,{binary:false},error=>{try{
+-    check();if(error)throw error;
++   check('proxy:before-app-send');const bufferHash=sha(bytes);
++   proxyPhase('PROXY_SEND_INVOKE_ENTRY',c,{target:'APP',bufferHash,bytes:bytes.length,sourceSequence:row.sequence});
++   app.send(bytes,{binary:false},error=>callback(()=>{
++    proxyPhase('PROXY_SEND_CALLBACK_ENTRY',c,{target:'APP',bufferHash,sourceSequence:row.sequence,error:error?String(error):null});
++    check('proxy:app-send-callback');if(error)throw error;need(sha(bytes)===bufferHash,'ACTUAL_PROXY_BUFFER_MUTATION');
+     const completionAttempt=forwardAttempt&&activeAttempt?{...activeAttempt}:null;
+     const completionGeneration=forwardGeneration&&publicationWindowOpen&&attemptLineageMatches(activeAttempt,forwardAttempt,completionAttempt)&&!publicationInvalidated&&publicationGenerationMatches(connections,publicationGate,f[2],spec.account)?currentGeneration(c,f[1]):null;
+     const sent=log({connection:c.id,direction:'APP_SOCKET_SEND_COMPLETE',sourceSequence:row.sequence,publicationGeneration:completionGeneration,publicationAttempt:completionAttempt});
++    proxyPhase('PROXY_SEND_CALLBACK_COMPLETE',c,{target:'APP',bufferHash,sourceSequence:row.sequence,sentSequence:sent.sequence});
+     if(!delivery&&forwardGeneration&&completionGeneration&&same(forwardGeneration,completionGeneration))delivery={frame:bytes,event:f[2],connection:c.id,subscription:f[1],rowSequence:row.sequence,sentSequence:sent.sequence,forwardGeneration,completionGeneration,forwardAttempt,completionAttempt};
+-   }catch(e){fatal(e);}});
+-  }catch(e){fatal(e);}});
+-  for(const socket of [app,upstream]){socket.on('error',error=>fatal(error));socket.on('close',()=>{try{invalidatePublication(c,null,'CONNECTION_CLOSED');c.active=false;c.subscriptions.clear();app.terminate();upstream.terminate();log({connection:c.id,direction:'CLOSE'});}catch(e){fatal(e);}});}
+- }catch(e){fatal(e);}});
++   },error??null));
++   if(!closed)proxyPhase('PROXY_SEND_INVOKE_RETURNED',c,{target:'APP',bufferHash,sourceSequence:row.sequence});
++  }));
++
++ }catch(error){try{terminateOwned(app);}catch{}fatal(error);}});
+  server.on('error',fatal);
+  async function exchange(events,filter,label){
+-  check();need(typeof label==='string'&&/^[a-z0-9-]{1,48}$/.test(label),'FIXED_EXCHANGE_LABEL');
+-  const started=process.hrtime.bigint();
+-  return await new Promise((resolve,reject)=>{
+-   const ws=new WebSocket(p.backendUrl,{perMessageDeflate:false,handshakeTimeout:3000,maxPayload:p.limits.messageBytes});
+-   const ack=[],received=[],sentFrames=[];let settled=false,queryEnded=false,eose=null;
+-   const timer=setTimeout(()=>finish(Error('RELAY_TIMEOUT')),p.limits.networkTimeoutMilliseconds);
+-   function finish(error){
+-    if(settled)return;settled=true;clearTimeout(timer);ws.terminate();
+-    const elapsedNanoseconds=Number(process.hrtime.bigint()-started);
+-    if(error){reject(error);return;}
+-    resolve({ack,received,eose,sentFrames,elapsedNanoseconds});
+-   }
+-   function maybeComplete(){
+-    if(!sentFrames.length||!sentFrames.every(row=>row.sendCallbackCompleted))return;
+-    if(events&&events.every(event=>ack.some(row=>row.frame[1]===event.id&&row.frame[2]===true)))finish();
+-    else if(filter&&queryEnded)finish();
+-   }
+-   function sendKnown(frame,eventId){
+-    check();const bytes=Buffer.from(JSON.stringify(frame));
+-    const framePin=put(DIR+'/'+label+'-'+sentFrames.length+'-sent-frame.json',bytes);
+-    const row={frame:framePin,eventId,messageType:frame[0],sendInvoked:true,sendCallbackCompleted:false,callbackBufferHash:null};
+-    sentFrames.push(row);
+-    log({direction:'PRODUCER_TO_RELAY',exchangeLabel:label,rawBase64:bytes.toString('base64'),frame:framePin});
+-    ws.send(bytes,{binary:false},error=>{try{
+-     check();if(error)throw error;
+-     need(sha(bytes)===framePin.sha256,'ACTUAL_SENT_BUFFER_MUTATION');
+-     row.sendCallbackCompleted=true;row.callbackBufferHash=sha(bytes);maybeComplete();
+-    }catch(error){finish(error);}});
+-   }
+-   ws.on('open',()=>{try{
+-    check();for(const event of events??[])sendKnown(['EVENT',event],event.id);
+-    if(filter)sendKnown(['REQ','e02-owned-query',filter],null);
+-   }catch(error){finish(error);}});
+-   ws.on('message',data=>{try{
+-    check();const bytes=Buffer.from(data);
+-    log({direction:'RELAY_TO_PRODUCER',exchangeLabel:label,rawBase64:bytes.toString('base64')});
+-    const frame=T.strictJSON(bytes.toString('utf8'));
+-    if(frame[0]==='OK'){ack.push({rawBase64:bytes.toString('base64'),frame});need(frame[2]===true,'RELAY_REFUSAL');}
+-    if(frame[0]==='EVENT'&&frame[1]==='e02-owned-query')received.push({rawBase64:bytes.toString('base64'),frame});
+-    if(frame[0]==='EOSE'&&frame[1]==='e02-owned-query'){eose={rawBase64:bytes.toString('base64'),frame};queryEnded=true;}
+-    maybeComplete();
+-   }catch(error){finish(error);}});
+-   ws.on('error',finish);ws.on('close',()=>{if(!settled)finish(Error('EARLY_RELAY_CLOSE'));});
+-  });
++  return await observedExchange({WebSocket:OwnedWebSocket,p,check,phase,log,
++   put:(name,bytes)=>put(DIR+'/'+name,bytes),strictJSON:T.strictJSON,sha,
++   clock:()=>process.hrtime.bigint(),arm:setTimeout,clear:clearTimeout},events,filter,label);
+  }
+  async function prepare(){
+   check();need(!fs.existsSync(DIR+'/prepared.json'),'PREPARE_ONCE');
+@@ -204,20 +234,21 @@
+   check();const initial=T.wrap(rumors.business,from,spec.account);
+   const events=p.ordinaryRole==='incoming'?[initial,T.wrap(rumors.chat,from,B)]:[initial,initial,T.wrap(rumors.business,from,A)];
+   const expected={};for(let i=0;i<spec.stages.length;i++){const s=stageSpec(p.ordinaryRole,i);expected[s.id]={stage:s,rumor:putJSON(s.id+'-expected-rumor.json',rumors[s.oracle]),content:put(DIR+'/'+s.id+'-expected-content.txt',rumors[s.oracle].content)};}
+-  const preparedPin=putJSON('prepared.json',{schema:'e02-minimum-prepared-v1',profileId:PROFILE,windowId:spec.windowId,role:p.ordinaryRole,rumors,events,expected});
++  const preparedPin=putJSON('prepared.json',{schema:'e02-minimum-prepared-v2',profileId:PROFILE,windowId:spec.windowId,role:p.ordinaryRole,rumors,events,expected});
+   prepared();check();const now=Math.floor(Date.now()/1000),inboxes=[T.secret(1),T.secret(2)].map(sk=>T.finalizeEvent({kind:10050,created_at:now,tags:[['relay',p.proxyUrl]],content:''},sk));
+   const r=await exchange(inboxes,null,'prepare-inboxes');check();const inboxPin=putJSON('inboxes.json',{events:inboxes,...r});
+   return {profileId:PROFILE,windowId:spec.windowId,ordinaryRole:p.ordinaryRole,expected,prepared:preparedPin,inboxes:inboxPin};
+  }
+- function validateActual(frame,queried,stage,origin){check();const f=T.strictJSON(frame.toString('utf8'));need(f[0]==='EVENT'&&same(f[2],queried),'ACTUAL_VALIDATED_FRAME_QUERY_JOIN');const wire=JSON.stringify(f[2]);const request={op:'validate',wire,secret:String(spec.scalar).padStart(64,'0'),role:spec.validationRole,expectedSender:A};const framePin=put(DIR+'/'+stage.id+'-frame.json',frame),wirePin=put(DIR+'/'+stage.id+'-wire.json',wire);const jsRequest=putJSON(stage.id+'-js-request.json',request),rustRequest=putJSON(stage.id+'-rust-request.json',request);check();const js=T.validate(wire,T.secret(spec.scalar),{role:spec.validationRole,expectedSender:A});const jsResult=putJSON(stage.id+'-js-result.json',js);check();const requests=[{op:'source'},request],stdin=requests.map(x=>JSON.stringify(x)).join('\n')+'\n';const input=put(DIR+'/'+stage.id+'-Rust-stdin.jsonl',stdin);const native=spawnSync(p.pins.rustBinary.path,[],{input:stdin,timeout:p.limits.rustTimeoutMilliseconds,maxBuffer:1048576,env:{PATH:'/usr/bin:/bin',LANG:'C.UTF-8',LC_ALL:'C.UTF-8'}});const stdout=put(DIR+'/'+stage.id+'-Rust-stdout.jsonl',native.stdout??Buffer.alloc(0)),stderr=put(DIR+'/'+stage.id+'-Rust-stderr.bin',native.stderr??Buffer.alloc(0));check();need(!native.error&&native.status===0&&native.signal===null&&(native.stderr?.length??0)===0,'NATURAL_RUST_VALIDATION');const replies=String(native.stdout).trimEnd().split('\n').map(x=>T.strictJSON(x));need(replies.length===2&&replies[0].ok===true&&replies[0].value===fs.readFileSync(p.pins.rustSource.path,'utf8')&&replies[1].ok===true,'CURRENT_RUST_SOURCE_REPLY');const rust=replies[1].value,rustResult=putJSON(stage.id+'-rust-result.json',rust);need(same(js,rust)&&js.ok===true&&same(js.value.rumor,prepared().rumors[stage.oracle])&&js.value.dispatch===stage.dispatch&&js.value.role===stage.normalizedRole,'INDEPENDENT_VALIDATED_FRAME_ROLE_RESULT');const transport=putJSON(stage.id+'-consumer-transport.json',{schema:'e02-minimum-transport-v1',frame:framePin,wire:wirePin,jsRequest,rustRequest,jsResult,rustResult});const validation=putJSON(stage.id+'-validation.json',{schema:'e02-minimum-validated-wire-record-v1',profileId:PROFILE,windowId:spec.windowId,stageId:stage.id,origin,clientReceiptEstablished:origin==='ACTUAL_APP_SOCKET_FRAME',transport,rustBinary:p.pins.rustBinary,rustSource:p.pins.rustSource,rustInput:input,rustStdout:stdout,rustStderr:stderr,rustExit:native.status,rustSignal:native.signal,actualQueriedEvent:queried,js,rust,clientRetention:'NOT_ESTABLISHED_BY_TRANSPORT_VALIDATION'});return {transport,validation};}
++ function validateActual(frame,queried,stage,origin){check();const f=T.strictJSON(frame.toString('utf8'));need(f[0]==='EVENT'&&same(f[2],queried),'ACTUAL_VALIDATED_FRAME_QUERY_JOIN');const wire=JSON.stringify(f[2]);const request={op:'validate',wire,secret:String(spec.scalar).padStart(64,'0'),role:spec.validationRole,expectedSender:A};const framePin=put(DIR+'/'+stage.id+'-frame.json',frame),wirePin=put(DIR+'/'+stage.id+'-wire.json',wire);const jsRequest=putJSON(stage.id+'-js-request.json',request),rustRequest=putJSON(stage.id+'-rust-request.json',request);check();const js=T.validate(wire,T.secret(spec.scalar),{role:spec.validationRole,expectedSender:A});const jsResult=putJSON(stage.id+'-js-result.json',js);check();const requests=[{op:'source'},request],stdin=requests.map(x=>JSON.stringify(x)).join('\n')+'\n';const input=put(DIR+'/'+stage.id+'-Rust-stdin.jsonl',stdin);const native=spawnSync(p.pins.rustBinary.path,[],{input:stdin,timeout:p.limits.rustTimeoutMilliseconds,maxBuffer:1048576,env:{PATH:'/usr/bin:/bin',LANG:'C.UTF-8',LC_ALL:'C.UTF-8'}});const stdout=put(DIR+'/'+stage.id+'-Rust-stdout.jsonl',native.stdout??Buffer.alloc(0)),stderr=put(DIR+'/'+stage.id+'-Rust-stderr.bin',native.stderr??Buffer.alloc(0));check();need(!native.error&&native.status===0&&native.signal===null&&(native.stderr?.length??0)===0,'NATURAL_RUST_VALIDATION');const replies=String(native.stdout).trimEnd().split('\n').map(x=>T.strictJSON(x));need(replies.length===2&&replies[0].ok===true&&replies[0].value===fs.readFileSync(p.pins.rustSource.path,'utf8')&&replies[1].ok===true,'CURRENT_RUST_SOURCE_REPLY');const rust=replies[1].value,rustResult=putJSON(stage.id+'-rust-result.json',rust);need(same(js,rust)&&js.ok===true&&same(js.value.rumor,prepared().rumors[stage.oracle])&&js.value.dispatch===stage.dispatch&&js.value.role===stage.normalizedRole,'INDEPENDENT_VALIDATED_FRAME_ROLE_RESULT');const transport=putJSON(stage.id+'-consumer-transport.json',{schema:'e02-minimum-transport-v2',frame:framePin,wire:wirePin,jsRequest,rustRequest,jsResult,rustResult});const validation=putJSON(stage.id+'-validation.json',{schema:'e02-minimum-validated-wire-record-v2',profileId:PROFILE,windowId:spec.windowId,stageId:stage.id,origin,clientReceiptEstablished:origin==='ACTUAL_APP_SOCKET_FRAME',transport,rustBinary:p.pins.rustBinary,rustSource:p.pins.rustSource,rustInput:input,rustStdout:stdout,rustStderr:stderr,rustExit:native.status,rustSignal:native.signal,actualQueriedEvent:queried,js,rust,clientRetention:'NOT_ESTABLISHED_BY_TRANSPORT_VALIDATION'});return {transport,validation};}
+  async function publish(){
++  const phaseStartSequence=phaseWriter.state().sequence+1;
+   check();need(stageIndex<spec.stages.length&&!publicationInvalidated,'FINITE_ROLE_STAGE_OR_STICKY_FAILURE');
+   const d=prepared(),stage=selectedStage(),event=d.events[stageIndex],initial=d.events[0],before=gate();
+   need(before!==null&&replayBinding(stage,event,initial),'CURRENT_STAGE_BINDINGS_REQUIRED');
+   publicationGate=before;delivery=null;attempted=true;activeAttempt={epoch:++attemptEpoch,stageId:stage.id};
+   publicationWindowOpen=true;attemptSawFrame=false;const windowStarted=process.hrtime.bigint();
+   const intentRow=log({direction:'PUBLICATION_INTENT',stageId:stage.id,eventId:event.id,attempt:activeAttempt});
+-  const intent=putJSON(stage.id+'-publish-intent.json',{schema:'e02-minimum-publish-intent-v1',profileId:PROFILE,windowId:spec.windowId,stage,attempt:activeAttempt,intentSequence:intentRow.sequence,prepared:pin(DIR+'/prepared.json'),gate:before,issuedUTC:new Date().toISOString()});
++  const intent=putJSON(stage.id+'-publish-intent.json',{schema:'e02-minimum-publish-intent-v2',profileId:PROFILE,windowId:spec.windowId,stage,attempt:activeAttempt,intentSequence:intentRow.sequence,prepared:pin(DIR+'/prepared.json'),gate:before,issuedUTC:new Date().toISOString()});
+   check();const publication=await exchange([event],null,stage.id+'-publish');check();
+   const until=process.hrtime.bigint()+10000000000n;
+   while(!delivery&&!publicationInvalidated&&process.hrtime.bigint()<until){check();await new Promise(r=>setTimeout(r,100));}
+@@ -230,7 +261,7 @@
+   need(Number.isSafeInteger(elapsedNanoseconds)&&elapsedNanoseconds>=0&&elapsedNanoseconds<=1800000000000,'BOUNDED_MEASURED_WINDOW_TIME');
+   const closedRow=log({direction:'PUBLICATION_WINDOW_CLOSED',stageId:stage.id,eventId:event.id,attempt:activeAttempt,
+    intentSequence:intentRow.sequence,actualNewAppFrameObserved:observed,candidateAppFrameSeen:attemptSawFrame,elapsedNanoseconds});
+-  const publicationWindow=putJSON(stage.id+'-publication-window.json',{schema:'e02-minimum-publication-window-v1',
++  const publicationWindow=putJSON(stage.id+'-publication-window.json',{schema:'e02-minimum-publication-window-v2',
+    profileId:PROFILE,windowId:spec.windowId,stageId:stage.id,eventId:event.id,attempt:activeAttempt,
+    intentSequence:intentRow.sequence,closeSequence:closedRow.sequence,actualNewAppFrameObserved:observed,
+    candidateAppFrameSeen:attemptSawFrame,elapsedNanoseconds,clock:'NODE_PROCESS_HRTIME_MONOTONIC',
+@@ -239,18 +270,30 @@
+   const validation=validateActual(observed?delivery.frame:Buffer.from(query.received[0].rawBase64,'base64'),query.received[0].frame[2],stage,observed?'ACTUAL_APP_SOCKET_FRAME':'ACTUAL_RELAY_QUERY_NO_NEW_APP_FRAME');
+   const produced=JSON.stringify(event),producerResult=T.validate(produced,T.secret(spec.scalar),{role:spec.validationRole,expectedSender:A});
+   need(producerResult.ok===true&&same(producerResult.value.rumor,d.rumors[stage.oracle])&&producerResult.value.dispatch===stage.dispatch&&producerResult.value.role===stage.normalizedRole,'DECLARED_ROLE_DISPATCH_ELIGIBILITY');
+-  const producerValidation=putJSON(stage.id+'-producer-validation.json',{schema:'e02-minimum-producer-validation-v1',stageId:stage.id,actualPublishedEvent:event,result:producerResult,meaning:'Producer validation only; not a business effect or substitute for actual app wire/export.'});
++  const producerValidation=putJSON(stage.id+'-producer-validation.json',{schema:'e02-minimum-producer-validation-v2',stageId:stage.id,actualPublishedEvent:event,result:producerResult,meaning:'Producer validation only; not a business effect or substitute for actual app wire/export.'});
+   check();need(!publicationInvalidated&&publicationGenerationMatches(connections,before,event,spec.account),'CURRENT_GENERATION_BEFORE_STAGE_RECORD');
+-  const record=putJSON(stage.id+'-publication.json',{schema:'e02-minimum-stage-publication-v1',profileId:PROFILE,windowId:spec.windowId,stage,attempt:activeAttempt,intent,publicationWindow,gate:before,publication,query,event,
++  const observation={schema:'e02-minimum-stage-observation-range-v2',phaseStartSequence,phaseEndSequence:phaseWriter.state().sequence,proxyEndSequence:sequence,observer:phase.state(),phaseTracePath:DIR+'/phase-trace.jsonl',proxyCapturePath:DIR+'/capture.jsonl',streamPins:'FINAL_WHOLE_WINDOW_MEMBER_PINS_REQUIRED_NOT_MUTABLE_STAGE_PINS'};
++  const record=putJSON(stage.id+'-publication.json',{observation,schema:'e02-minimum-stage-publication-v2',profileId:PROFILE,windowId:spec.windowId,stage,attempt:activeAttempt,intent,publicationWindow,gate:before,publication,query,event,
+    actualNewAppFrameObserved:observed,delivery:observed?{connection:delivery.connection,subscription:delivery.subscription,rowSequence:delivery.rowSequence,sentSequence:delivery.sentSequence,forwardGeneration:delivery.forwardGeneration,completionGeneration:delivery.completionGeneration,forwardAttempt:delivery.forwardAttempt,completionAttempt:delivery.completionAttempt}:null,
+    validation,producerValidation,clientRetention:'UNVERIFIED_REQUIRES_FRESH_CLIENT_SELECTION_EXPORT',validationOrigin:observed?'ACTUAL_APP_SOCKET_FRAME':'ACTUAL_RELAY_QUERY_NO_NEW_APP_FRAME',
+    replayLimit:stage.identicalReplay&&!observed?'No new frame observed in bounded interval; retain honest publication/query/history and require post-replay real client export. No synthesized EVENT or earlier-frame donation.':null});
+   stageIndex++;attempted=false;activeAttempt=null;
+   return {profileId:PROFILE,windowId:spec.windowId,stage,publication:record,publicationWindow,validation,producerValidation,actualNewAppFrameObserved:observed};
+  }
+- const control=net.createServer({allowHalfOpen:true},socket=>{let b='';socket.on('data',chunk=>{b+=chunk.toString('utf8');if(Buffer.byteLength(b)>1024)socket.destroy();});socket.on('end',async()=>{let acquired=false;try{check();const q=JSON.parse(b);need(Object.keys(q).length===1&&['prepare','status','publish'].includes(q.op),'FIXED_CONTROL_OPERATION');need(!busy,'COMMAND_IN_PROGRESS');busy=true;acquired=true;let result;if(q.op==='prepare')result=await prepare();else if(q.op==='publish')result=await publish();else result={profileId:PROFILE,windowId:spec.windowId,stageId:stageIndex<spec.stages.length?selectedStage().id:null,stageIndex,complete:stageIndex===spec.stages.length,ready:gate()!==null,gate:gate(),captureSequence:sequence,scope:'SUBSCRIPTION_PREFLIGHT_NOT_CLIENT_RECEIPT'};check();socket.end(JSON.stringify({schema:'e02-minimum-fixture-command-v1',profileId:PROFILE,windowId:spec.windowId,operation:q.op,caseId:CASE,ok:true,result})+'\n');}catch(error){try{putJSON('command-error-'+Date.now()+'.json',{operation:'CONTROL',error:String(error)});}catch{}socket.end(JSON.stringify({ok:false,error:String(error)})+'\n');}finally{if(acquired)busy=false;}});});
++ control=net.createServer({allowHalfOpen:true},socket=>{let b='';socket.on('data',chunk=>{b+=chunk.toString('utf8');if(Buffer.byteLength(b)>1024)socket.destroy();});socket.on('end',async()=>{let acquired=false;try{check();const q=JSON.parse(b);need(Object.keys(q).length===1&&['prepare','status','publish'].includes(q.op),'FIXED_CONTROL_OPERATION');need(!busy,'COMMAND_IN_PROGRESS');busy=true;acquired=true;let result;if(q.op==='prepare')result=await prepare();else if(q.op==='publish')result=await publish();else result={profileId:PROFILE,windowId:spec.windowId,stageId:stageIndex<spec.stages.length?selectedStage().id:null,stageIndex,complete:stageIndex===spec.stages.length,ready:gate()!==null,gate:gate(),captureSequence:sequence,scope:'SUBSCRIPTION_PREFLIGHT_NOT_CLIENT_RECEIPT'};check();verifyDependencyTree('/input/node_modules',doc(p.dependencyTree.path),p.dependencyFiles);socket.end(JSON.stringify({schema:'e02-minimum-fixture-command-v2',profileId:PROFILE,windowId:spec.windowId,operation:q.op,caseId:CASE,ok:true,result})+'\n');}catch(error){if(budget.state().poisoned)fatal(error);try{putJSON('command-error-'+Date.now()+'.json',{operation:'CONTROL',error:String(error)});}catch{}socket.end(JSON.stringify({ok:false,error:String(error)})+'\n');}finally{if(acquired)busy=false;}});});
+  control.on('error',fatal);check();control.listen(SOCKET,()=>{fs.chmodSync(SOCKET,0o600);putJSON('serve-ready.json',{schema:'e02-fixture-service-ready-v1',caseId:CASE,proxy:p.proxyUrl,backend:p.backendUrl,scope:'NO_CLIENT_RECEIPT_OR_E02_PASS'});});
+- const watchdog=setInterval(()=>{try{check();}catch(e){fatal(e);}},1000);
+- for(const sig of ['SIGTERM','SIGINT'])process.on(sig,()=>{if(closed)return;closed=true;clearInterval(watchdog);for(const c of connections.values()){c.app.terminate();c.upstream.terminate();}server.close();control.close();try{fs.fsyncSync(captureFd);fs.closeSync(captureFd);}catch{}});
++ watchdog=setInterval(()=>{try{check();}catch(e){fatal(e);}},1000);
++ for(const sig of ['SIGTERM','SIGINT'])process.on(sig,()=>{
++  if(closed)return;closed=true;let error=null;const secondary=[];
++  const attempt=(name,fn)=>{try{fn();}catch(e){if(error===null)error=e;else secondary.push({name,error:String(e)});}};
++  clearInterval(watchdog);
++  for(const c of connections.values())for(const socket of [c.app,c.upstream])attempt('terminate-owned-proxy',()=>terminateOwned(socket));
++  for(const socket of exchangeSockets)attempt('terminate-owned-exchange',()=>socket.terminate());
++  attempt('close-server',()=>server.close());attempt('close-control',()=>control.close());
++  attempt('end-dependency-boundary',()=>verifyDependencyTree('/input/node_modules',doc(p.dependencyTree.path),p.dependencyFiles));
++  for(const fd of [captureFd,phaseFd]){attempt('fsync-stream',()=>fs.fsyncSync(fd));attempt('close-stream',()=>fs.closeSync(fd));}
++  attempt('observer-state-retention',()=>putJSON('observer-final-state.json',{observer:phase.state(),error:error===null?null:String(error),secondaryErrors:secondary}));
++  if(error!==null){process.exitCode=2;process.stderr.write(String(error)+'\n');}
++ });
+ }
+ if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href)main().catch(error=>{process.stderr.write(String(error)+'\n');process.exitCode=2;});
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/minimum-plan.json
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/minimum-plan.json
+@@ -1,6 +1,6 @@
+ {
+-  "schema": "e02-ordinary-minimum-profile-plan-v1",
+-  "profileId": "e02-ordinary-minimum-rs-two-role-v1",
++  "schema": "e02-ordinary-minimum-profile-plan-v2",
++  "profileId": "e02-ordinary-minimum-rs-two-role-v2",
+   "ordinaryProducer": "JS_ONLY",
+   "relay": "rs-relay",
+   "roles": {
+@@ -9,7 +9,7 @@
+       "account": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
+       "peer": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+       "scalar": 2,
+-      "nsec": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpqptcfk2",
++      "nsec": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpqptcfk2",
+       "tab": "New Requests",
+       "stages": [
+         "incoming-business",
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/proxy-observer.mjs
+@@ -0,0 +1,19 @@
++// Small observation-only helpers; production caller retains original guards and
++// original protocol actions. Fake callbacks/sinks are used by DATA definitions.
++export function createCallbackBoundary({isClosed,healthy,fatal}){
++ return (fn,incomingFault=null)=>{
++  if(isClosed())return;
++  try{healthy();fn();}catch(error){fatal(incomingFault??error);}
++ };
++}
++export function observedUpstreamSend({socket,bytes,sha,phase,callback,isClosed}){
++ const bufferHash=sha(bytes);
++ phase('PROXY_SEND_INVOKE_ENTRY',{target:'RELAY',bufferHash,bytes:bytes.length});
++ socket.send(bytes,{binary:false},error=>callback(()=>{
++  phase('PROXY_SEND_CALLBACK_ENTRY',{target:'RELAY',bufferHash,error:error?String(error):null});
++  if(error)throw error;if(sha(bytes)!==bufferHash)throw Error('ACTUAL_PROXY_BUFFER_MUTATION');
++  phase('PROXY_SEND_CALLBACK_COMPLETE',{target:'RELAY',bufferHash});
++  // Evidence-only callback: no new guard, decode, send or protocol state.
++ },error??null));
++ if(!isClosed())phase('PROXY_SEND_INVOKE_RETURNED',{target:'RELAY',bufferHash});
++}
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/runtime-plan.json
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/runtime-plan.json
+@@ -12,10 +12,10 @@
+     "bytes": 16787,
+     "sha256": "a680e513a9b36cab634620507b77bba36532ce13acb465a860c7bef60d23ec20"
+   },
+-  "schema": "e02-ordinary-minimum-role-runtime-plan-v1",
++  "schema": "e02-ordinary-minimum-role-runtime-plan-v2",
+   "state": "SOURCE_ONLY_PENDING_INDEPENDENT_REVIEW_CHANGED_CONTROLS_AND_SEPARATE_ROLE_GRANTS",
+-  "scope": "E02_ORDINARY_MINIMUM_RS_TWO_ROLE_WINDOW_ONLY",
+-  "profileId": "e02-ordinary-minimum-rs-two-role-v1",
++  "scope": "E02_ORDINARY_MINIMUM_RS_TWO_ROLE_V2_WINDOW_ONLY",
++  "profileId": "e02-ordinary-minimum-rs-two-role-v2",
+   "maximumOriginalLeaseSeconds": 1800,
+   "maximumConcurrentWindows": 1,
+   "ready": false,
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/supervisor.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/supervisor.py
+@@ -24,10 +24,10 @@
+ # Guest source is staged at /input/supervisor.py. Host-only helpers use this
+ # fixed authorized checkout; module initialization must also work in /input.
+ REPO = Path('/home/peterhorvath/apps/bitcoin/NBDP')
+-LAB = Path('/tmp/nbdp-e02-ordinary-minimum-v1')
++LAB = Path('/tmp/nbdp-e02-ordinary-minimum-v2')
+ OLD = Path('/tmp/nbdp-e02-minimal-rs-v7')
+-SCOPE = 'E02_ORDINARY_MINIMUM_RS_TWO_ROLE_WINDOW_ONLY'
+-PROFILE = 'e02-ordinary-minimum-rs-two-role-v1'
++SCOPE = 'E02_ORDINARY_MINIMUM_RS_TWO_ROLE_V2_WINDOW_ONLY'
++PROFILE = 'e02-ordinary-minimum-rs-two-role-v2'
+ RUNTIME = 'sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f'
+ RELAY = 'sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82'
+ PY = ['/guard-python/lib/ld-linux-x86-64.so.2', '--inhibit-cache', '--library-path',
+@@ -213,10 +213,59 @@
+     return module
+ 
+ 
++def dependency_relative(value):
++    need(type(value) is str and value and not value.startswith('/')
++         and all(part not in ('','.','..') for part in value.split('/')), 'Canonical dependency relative path')
++    return value
++
++
++def dependency_snapshot(root):
++    root=Path(root)
++    need(root.is_absolute() and root.resolve(strict=True)==root and not root.is_symlink(),'Canonical dependency root')
++    actual={'directories':[],'files':[],'symlinks':[]}
++    def walk(folder):
++        for p in sorted(folder.iterdir()):
++            rel=dependency_relative(p.relative_to(root).as_posix())
++            if p.is_symlink():
++                target=p.resolve(strict=True)
++                need(target.is_relative_to(root) and target!=root,'Dependency symlink escape')
++                actual['symlinks'].append({'path':rel,'link':str(p.readlink()),'target':dependency_relative(target.relative_to(root).as_posix())})
++            elif p.is_dir():actual['directories'].append(rel);walk(p)
++            elif p.is_file():actual['files'].append(rel)
++            else:raise RuntimeError('Dependency special file')
++    walk(root)
++    for name in ('directories','files'):actual[name].sort()
++    actual['symlinks'].sort(key=lambda v:v['path'])
++    return actual
++
++
++def verify_dependency_inventory(fixture,tree,root):
++    need(type(tree) is dict and set(tree)=={'schema','sourceRoot','runtimeRoot','directories','files','symlinks'},'Closed dependency tree keys')
++    need(tree['schema']=='e02-transport-dependency-tree-v2' and tree['runtimeRoot']=='/input/node_modules','Closed dependency tree')
++    actual=dependency_snapshot(root)
++    need(actual=={k:tree[k] for k in ('directories','files','symlinks')},'Dependency exact membership')
++    descriptors=fixture['dependencyFiles']
++    need(type(descriptors) is list and len(descriptors)==len(actual['files'])
++         and len({d['path'] for d in descriptors})==len(descriptors),'Dependency descriptor membership')
++    expected=[]
++    for d in descriptors:
++        need(set(d)=={'source','path','bytes','sha256'} and d['path'].startswith(tree['runtimeRoot']+'/'),'Closed runtime dependency descriptor')
++        rel=dependency_relative(d['path'][len(tree['runtimeRoot'])+1:]);expected.append(rel)
++        need(d['source']==tree['sourceRoot']+'/'+rel,'Dependency source/runtime mapping')
++        p=Path(root)/rel
++        checked({'path':str(p),'bytes':d['bytes'],'sha256':d['sha256']})
++    need(sorted(expected)==actual['files'],'All regular dependency members')
++    return {'schema':'e02-transport-dependency-check-v2','files':len(actual['files']),
++            'directories':len(actual['directories']),'symlinks':len(actual['symlinks']),'exact':True}
++
++
++
+ def source_pins():
+     return [pin(HERE / name) for name in ('supervisor.py', 'lease_guard.py',
+             'android_driver.py', 'ui-plan.json', 'fixture.mjs', 'fixture-plan.json',
+-            'minimum-plan.json', 'business-rumor.json', 'chat-rumor.json')]
++            'minimum-plan.json', 'business-rumor.json', 'chat-rumor.json',
++            'exchange.mjs', 'phase-writer.mjs', 'dependency-tree.mjs', 'dependency-tree.json',
++            'capture-budget.mjs', 'exchange-adapter.mjs', 'proxy-observer.mjs')]
+ 
+ 
+ def materialize(destination, run_id, seconds, ordinary_role):
+@@ -242,7 +291,7 @@
+ 
+ 
+ def verify_config(config):
+-    need(config['schema'] == 'e02-ordinary-minimum-role-runtime-plan-v1' and config['scope'] == SCOPE,
++    need(config['schema'] == 'e02-ordinary-minimum-role-runtime-plan-v2' and config['scope'] == SCOPE,
+          'Fixed first slice only')
+     need(config['profileId'] == PROFILE and config['ordinaryRole'] in ('incoming', 'archive'),
+          'Fixed adopted minimum profile and role required')
+@@ -283,19 +332,8 @@
+     for descriptor in [*fixture['pins'].values(), *fixture['oracles'].values()]:
+         checked({k: descriptor[k] if k != 'path' else descriptor['source']
+                  for k in ('path', 'bytes', 'sha256')})
+-    dependencies = REPO / 'experiments/node_modules'
+-    actual = set()
+-    for path in dependencies.rglob('*'):
+-        if path.is_symlink():
+-            need(path.resolve(strict=True).is_relative_to(dependencies), 'Dependency symlink escapes')
+-        elif path.is_file():
+-            actual.add(str(PurePosixPath('/input/node_modules') / path.relative_to(dependencies)))
+-        else:
+-            need(path.is_dir(), 'Dependency special file')
+-    need(actual == {d['path'] for d in fixture['dependencyFiles']}, 'Installed dependency inventory changed')
+-    for d in fixture['dependencyFiles']:
+-        relative = PurePosixPath(d['path']).relative_to('/input/node_modules')
+-        checked({'path': str(dependencies / relative), 'bytes': d['bytes'], 'sha256': d['sha256']})
++    verify_dependency_inventory(fixture, strict((HERE / 'dependency-tree.json').read_bytes()),
++                                REPO / 'experiments/node_modules')
+     # Preserve source-specific provenance. Historical PASS is not copied onto changes.
+     for record in ('E01.json', 'E02.json'):
+         value = strict((REPO / 'experiments/results' / record).read_bytes())
+@@ -688,7 +726,7 @@
+     need(config_pin['sha256'] == config_sha and release_pin['sha256'] == release_sha, 'External root pins required')
+     config, release = strict(config_path.read_bytes()), strict(release_path.read_bytes())
+     fixture = verify_config(config)  # All source/provenance checks before dependent imports.
+-    need(release['schema'] == 'e02-ordinary-minimum-role-release-v1' and release['executionAuthorized'] is True
++    need(release['schema'] == 'e02-ordinary-minimum-role-release-v2' and release['executionAuthorized'] is True
+          and release['runConfig'] == config_pin and release['scope'] == SCOPE
+          and release['runId'] == config['runId'] and release['profileId'] == PROFILE
+          and release['ordinaryRole'] == config['ordinaryRole']
+@@ -758,7 +796,15 @@
+         except BaseException as failure:
+             cleanup = {'ok': False, 'rows': [], 'evidence': None,
+                        'errors': ['Unexpected cleanup failure: ' + repr(failure)]}
+-        final_code = finalize(out, {'schema': 'e02-ordinary-minimum-role-supervisor-result-v1',
++        try:
++            verify_dependency_inventory(fixture, strict((HERE / 'dependency-tree.json').read_bytes()),
++                                        REPO / 'experiments/node_modules')
++        except BaseException as failure:
++            if error is None:
++                error = 'End dependency closure failed: ' + repr(failure)
++            else:
++                cleanup.setdefault('errors', []).append('End dependency closure failed: ' + repr(failure))
++        final_code = finalize(out, {'schema': 'e02-ordinary-minimum-role-supervisor-result-v2',
+             'runId': config['runId'], 'profileId': PROFILE,
+             'ordinaryRole': config['ordinaryRole'], 'windowId': config['windowId'], 'runConfig': config_pin, 'runRelease': release_pin,
+             'lease': lease_pin, 'canonicalE02Changed': False,
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/test_cleanup.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/test_cleanup.py
+@@ -384,7 +384,7 @@
+         for role in ('other', None, True):
+             with self.subTest(role=role), patch.object(subject, 'source_pins') as sources:
+                 with self.assertRaisesRegex(RuntimeError, 'Fixed adopted minimum profile and role'):
+-                    subject.verify_config({'schema': 'e02-ordinary-minimum-role-runtime-plan-v1',
++                    subject.verify_config({'schema': 'e02-ordinary-minimum-role-runtime-plan-v2',
+                         'scope': subject.SCOPE, 'profileId': subject.PROFILE, 'ordinaryRole': role})
+                 sources.assert_not_called()
+ 
+@@ -394,7 +394,7 @@
+                 root = Path(directory)
+                 config, release = root / 'config.json', root / 'release.json'
+                 config.write_text(json.dumps({'runId': 'a' * 32, 'ordinaryRole': 'incoming', 'windowId': 'incoming-b'}))
+-                release.write_text(json.dumps({'schema': 'e02-ordinary-minimum-role-release-v1',
++                release.write_text(json.dumps({'schema': 'e02-ordinary-minimum-role-release-v2',
+                     'executionAuthorized': True, 'runConfig': subject.pin(config), 'scope': subject.SCOPE,
+                     'runId': 'a' * 32, 'profileId': subject.PROFILE, 'ordinaryRole': role, 'windowId': window}))
+                 with patch.object(subject, 'verify_config', return_value={}), \
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/test_observation_model.mjs
+@@ -0,0 +1,53 @@
++// PREPARED ONLY until independent SOURCE review and root's separate release.
++// Fake fs, sockets/clock/guard. No real crypto primitive/network/lease/SDK/native.
++import assert from 'node:assert/strict';
++import {createHash} from 'node:crypto';
++import {createCaptureBudget,observedGuard} from './capture-budget.mjs';
++import {createPhaseWriter} from './phase-writer.mjs';
++import {createCallbackBoundary,observedUpstreamSend} from './proxy-observer.mjs';
++import {observedExchange} from './exchange-adapter.mjs';
++const cases=[];const test=async(name,fn)=>{await fn();cases.push(name);};
++const sha=b=>createHash('sha256').update(b).digest('hex');
++function budgetModel(options={}){
++ const calls=[];const fs={writeSync:(fd,bytes)=>{calls.push({fd,bytes:Buffer.from(bytes)});if(options.throw)throw Error('MODEL_SINK_THROW');return Object.hasOwn(options,'count')?options.count:bytes.length;}};
++ const budget=createCaptureBudget({fs,streams:{proxy:10,phase:11},limit:options.limit??4096});
++ return {budget,calls};
++}
++await test('one-shared-cap-across-two-streams',()=>{const m=budgetModel({limit:9});m.budget.writeSync(10,Buffer.from('12345'));assert.throws(()=>m.budget.writeSync(11,Buffer.from('67890')),/AGGREGATE_CAPTURE/);assert.equal(m.calls.length,1);assert.equal(m.budget.state().acknowledgedTotalBytes,5);});
++await test('exact-boundary-two-streams-acknowledged-not-physical',()=>{const m=budgetModel({limit:9});m.budget.writeSync(10,Buffer.from('12345'));m.budget.writeSync(11,Buffer.from('6789'));assert.equal(m.budget.state().acknowledgedTotalBytes,9);assert.equal(m.budget.state().physicalBytes,null);assert.deepEqual(m.budget.state().streams,{proxy:{intended:5,acknowledged:5},phase:{intended:4,acknowledged:4}});});
++await test('short-prefix-once-poisons-both-streams',()=>{const m=budgetModel({count:2});assert.equal(m.budget.writeSync(10,Buffer.from('abcd')),2);assert.throws(m.budget.healthy,/SHORT_CAPTURE/);assert.throws(()=>m.budget.writeSync(11,Buffer.from('ef')),/SHORT_CAPTURE/);assert.equal(m.calls.length,1);assert.equal(m.budget.state().lastAttempt.acknowledgedPrefixSha256,sha(Buffer.from('ab')));});
++await test('zero-prefix-known-zero-throw-prefix-unknown',()=>{const zero=budgetModel({count:0});zero.budget.writeSync(10,Buffer.from('a'));assert.equal(zero.budget.state().lastAttempt.acknowledgedBytes,0);const unknown=budgetModel({throw:true});assert.throws(()=>unknown.budget.writeSync(11,Buffer.from('a')),/MODEL_SINK_THROW/);assert.equal(unknown.budget.state().lastAttempt.acknowledgedBytes,null);assert.equal(unknown.budget.state().lastAttempt.physicalBytes,null);});
++await test('invalid-count-family-poison-no-second-write',()=>{for(const count of [-1,1.5,99,undefined,NaN]){const m=budgetModel({count});assert.throws(()=>m.budget.writeSync(10,Buffer.from('abc')),/INVALID_CAPTURE/);assert.throws(()=>m.budget.writeSync(11,Buffer.from('z')));assert.equal(m.calls.length,1);}});
++await test('closed-stream-fds-and-original-upper-bound',()=>{const m=budgetModel();assert.throws(()=>m.budget.writeSync(12,Buffer.from('x')),/UNKNOWN_CAPTURE/);assert.equal(m.calls.length,0);assert.throws(()=>createCaptureBudget({fs:{},streams:{phase:1,proxy:2},limit:16777217}),/ORIGINAL_AGGREGATE/);assert.throws(()=>createCaptureBudget({fs:{},streams:{phase:1,proxy:1},limit:100}),/CLOSED_TWO/);});
++await test('accepted-phase-writer-preserves-known-short-prefix',()=>{const m=budgetModel({count:3});const phase=createPhaseWriter({fs:{writeSync:m.budget.writeSync},fd:11,clock:()=>1n,utc:()=>'-'});assert.throws(()=>phase('MODEL'),/SHORT_PHASE/);assert.equal(phase.state().lastAttempt.acknowledgedBytes,3);assert.equal(m.budget.state().lastAttempt.acknowledgedBytes,3);assert.throws(()=>m.budget.writeSync(10,Buffer.from('x')));assert.equal(m.calls.length,1);});
++await test('phase-then-proxy-consumes-same-budget',()=>{const m=budgetModel({limit:200});const phase=createPhaseWriter({fs:{writeSync:m.budget.writeSync},fd:11,clock:()=>1n,utc:()=>'-'});phase('MODEL');assert.throws(()=>m.budget.writeSync(10,Buffer.alloc(200)),/AGGREGATE/);assert.equal(m.calls.length,1);});
++await test('guard-once-entry-exit-and-no-action-on-refusal',()=>{let guards=0,action=0;const rows=[];assert.throws(()=>{observedGuard(()=>{guards++;throw Error('MODEL_GUARD');},(p,f)=>rows.push([p,f]),'fixed');action++;},/MODEL_GUARD/);assert.equal(guards,1);assert.equal(action,0);assert.deepEqual(rows.map(x=>x[0]),['GUARD_ENTRY','GUARD_EXIT']);assert.equal(rows[1][1].ok,false);});
++await test('guard-refusal-preserved-over-retention-failure',()=>{const original=Error('MODEL_ORIGINAL_GUARD');assert.throws(()=>observedGuard(()=>{throw original;},name=>{if(name==='GUARD_EXIT')throw Error('SECONDARY_SINK');},'fixed'),error=>error===original&&/SECONDARY/.test(error.guardObservationError));});
++await test('entry-and-success-retention-failure-prevent-action',()=>{for(const failed of ['GUARD_ENTRY','GUARD_EXIT']){let calls=0,actions=0;assert.throws(()=>{observedGuard(()=>{calls++;},name=>{if(name===failed)throw Error('MODEL_PHASE');},'fixed');actions++;},/MODEL_PHASE/);assert.equal(calls,failed==='GUARD_ENTRY'?0:1);assert.equal(actions,0);}});
++await test('callback-first-fault-and-closed-late-inert',()=>{let closed=false,actions=0,errors=[];const callback=createCallbackBoundary({isClosed:()=>closed,healthy:()=>{throw Error('SINK');},fatal:e=>{errors.push(e);closed=true;}});const incoming=Error('SOCKET');callback(()=>actions++,incoming);callback(()=>actions++);assert.equal(actions,0);assert.deepEqual(errors,[incoming]);});
++await test('upstream-send-exact-buffer-callback-and-no-extra-guard',()=>{const bytes=Buffer.from('["REQ","synthetic"]'),phases=[],errors=[];let callback;const socket={send:(b,options,fn)=>{assert.equal(b,bytes);assert.equal(options.binary,false);callback=fn;}};const boundary=createCallbackBoundary({isClosed:()=>false,healthy:()=>{},fatal:e=>errors.push(e)});observedUpstreamSend({socket,bytes,sha,phase:(n,f)=>phases.push({n,...f}),callback:boundary,isClosed:()=>false});assert.equal(phases.some(x=>x.n==='PROXY_SEND_CALLBACK_COMPLETE'),false);callback(null);assert.deepEqual(errors,[]);assert.equal(phases.at(-1).bufferHash,sha(bytes));assert.equal(phases.some(x=>x.n==='GUARD_ENTRY'),false);});
++await test('proxy-send-error-kept-if-observation-sink-fails',()=>{let invoke,closed=false,error=null;const boundary=createCallbackBoundary({isClosed:()=>closed,healthy:()=>{},fatal:e=>{error=e;closed=true;}});observedUpstreamSend({socket:{send:(b,o,c)=>{invoke=c;}},bytes:Buffer.from('x'),sha,phase:n=>{if(n==='PROXY_SEND_CALLBACK_ENTRY')throw Error('SINK');},callback:boundary,isClosed:()=>closed});const incoming=Error('SEND');invoke(incoming);assert.equal(error,incoming);});
++await test('proxy-intent-write-failure-never-sends',()=>{let sends=0;assert.throws(()=>observedUpstreamSend({socket:{send:()=>sends++},bytes:Buffer.from('x'),sha,phase:()=>{throw Error('SINK');},callback:()=>{},isClosed:()=>false}),/SINK/);assert.equal(sends,0);});
++await test('proxy-mutated-buffer-refuses-callback-completion',()=>{let invoke,error=null;const bytes=Buffer.from('x'),phases=[];const boundary=createCallbackBoundary({isClosed:()=>false,healthy:()=>{},fatal:e=>error=e});observedUpstreamSend({socket:{send:(b,o,c)=>{invoke=c;}},bytes,sha,phase:n=>phases.push(n),callback:boundary,isClosed:()=>false});bytes[0]=121;invoke(null);assert.match(String(error),/BUFFER_MUTATION/);assert.equal(phases.includes('PROXY_SEND_CALLBACK_COMPLETE'),false);});
++function exchangeModel(options={}){
++ const order=[],logs=[],files=new Map(),sockets=[];let tick=0n;
++ class Socket{
++  constructor(){this.handlers={};this.sent=[];sockets.push(this);queueMicrotask(()=>this.emit('open'));}
++  on(n,f){(this.handlers[n]??=[]).push(f);}
++  emit(n,...args){for(const f of this.handlers[n]??[])f(...args);}
++  send(bytes,o,callback){this.sent.push(Buffer.from(bytes));order.push('send');queueMicrotask(()=>{callback(null);if(this.closed)return;const f=JSON.parse(bytes);if(f[0]==='EVENT')this.emit('message',Buffer.from(JSON.stringify(['OK',f[1].id,true,''])));else{this.emit('message',Buffer.from(JSON.stringify(['EVENT','e02-owned-query',{id:'a'.repeat(64)}])));this.emit('message',Buffer.from('["EOSE","e02-owned-query"]'));}});}
++  terminate(){this.closed=true;}
++ }
++ const phase=(name,fields)=>{order.push('phase:'+name);if(options.failPhase===name)throw Error('SINK_PHASE');return {name,...fields};};phase.state=()=>({MODEL:true});
++ const base={WebSocket:Socket,p:{backendUrl:'ws://127.0.0.1:8080',limits:{messageBytes:262144,networkTimeoutMilliseconds:10000}},sha,clock:()=>++tick,arm:()=>1,clear:()=>{},phase,
++  check:label=>{order.push('guard:'+label);if(options.deny&&label.endsWith(options.deny))throw Error('ORIGINAL_GUARD');},
++  put:(name,raw)=>{files.set(name,Buffer.from(raw));return {path:'/MODEL/'+name,bytes:raw.length,sha256:sha(raw)};},
++  log:row=>{order.push('log:'+row.direction);if(options.failLog===row.direction)throw Error('SINK_RAW');logs.push(row);return row;},
++  strictJSON:raw=>{order.push('parse');return JSON.parse(raw);}};
++ return {base,order,logs,files,sockets};
++}
++await test('adapter-query-preserves-exact112-byte-operands-and-raw-join',async()=>{const m=exchangeModel();const result=await observedExchange(m.base,null,{ids:['a'.repeat(64)],limit:1},'model-query');const bytes=m.sockets[0].sent[0];assert.equal(bytes.length,112);assert.deepEqual(JSON.parse(bytes),['REQ','e02-owned-query',{ids:['a'.repeat(64)],limit:1}]);const outgoing=m.logs.find(x=>x.direction==='PRODUCER_TO_RELAY');assert.equal(outgoing.frame.sha256,sha(bytes));assert.equal(outgoing.rawBase64,bytes.toString('base64'));assert.equal(result.eose.frame[1],'e02-owned-query');});
++await test('adapter-raw-is-after-original-guard-before-parse',async()=>{const m=exchangeModel();await observedExchange(m.base,null,{ids:['a'.repeat(64)],limit:1},'model-query');const i=m.order.indexOf('log:RELAY_TO_PRODUCER');assert.equal(m.order[i-1],'guard:exchange:model-query:backend-message');assert.equal(m.order[i+1],'parse');});
++await test('adapter-denied-backend-guard-context-no-raw-or-parse',async()=>{const m=exchangeModel({deny:'backend-message'});await assert.rejects(observedExchange(m.base,null,{ids:['a'.repeat(64)],limit:1},'model-query'),/ORIGINAL_GUARD/);assert.equal(m.logs.some(x=>x.direction==='RELAY_TO_PRODUCER'),false);assert.equal(m.order.includes('phase:RAW_BACKEND_CALLBACK_ENTRY'),true);assert.equal(m.order.includes('parse'),false);});
++await test('adapter-raw-sink-fault-before-send-or-before-parse-refuses',async()=>{for(const failLog of ['PRODUCER_TO_RELAY','RELAY_TO_PRODUCER']){const m=exchangeModel({failLog});await assert.rejects(observedExchange(m.base,null,{ids:['a'.repeat(64)],limit:1},'model-query'),/SINK_RAW/);assert.equal(m.order.includes('parse'),false);if(failLog==='PRODUCER_TO_RELAY')assert.equal(m.sockets[0].sent.length,0);}});
++process.stdout.write(JSON.stringify({schema:'e02-producer2-observation-model-controls-v1',ok:true,checks:cases.length,cases,scope:'SYNTHETIC_FS_SOCKET_GUARD_DATA_ONLY_NO_RUNTIME'})+'\n');
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/test_producer2_source.py
+@@ -0,0 +1,79 @@
++"""Prepared bounded SOURCE/DATA integration controls, no experiment execution.
++
++AST/source checks verify wiring not transport correctness. Original accepted
++component controls carry only on byte-identical functions/modules.
++"""
++import ast
++import hashlib
++import json
++from pathlib import Path
++import unittest
++HERE = Path(__file__).resolve().parent
++OLD = HERE.parent / 'e02_ordinary_minimum_v1'
++DIAG = HERE.parent / 'e02_transport_query_diagnostic_v2'
++
++
++def function_ast(path, name):
++    tree = ast.parse(path.read_text())
++    return ast.dump(next(node for node in tree.body if isinstance(node, ast.FunctionDef) and node.name == name), include_attributes=False)
++
++
++class Producer2SourceBindings(unittest.TestCase):
++    def test_all_three_accepted_modules_byte_identical(self):
++        for name in ['exchange.mjs', 'phase-writer.mjs', 'dependency-tree.mjs', 'dependency-tree.json', 'lease_guard.py']:
++            self.assertEqual((HERE / name).read_bytes(), (DIAG / name).read_bytes())
++
++    def test_host_full_inventory_functions_identical(self):
++        for name in ['dependency_relative', 'dependency_snapshot', 'verify_dependency_inventory']:
++            self.assertEqual(function_ast(HERE / 'supervisor.py', name), function_ast(DIAG / 'supervisor.py', name))
++
++    def test_preimport_and_end_dependency_boundaries_wired(self):
++        source = (HERE / 'fixture.mjs').read_text()
++        self.assertLess(source.index("verifyDependencyTree('/input/node_modules'"), source.index("await import('./transport.mjs')"))
++        self.assertIn("verifyDependencyTree('/input/node_modules',doc(p.dependencyTree.path),p.dependencyFiles);socket.end", source)
++        self.assertIn("check();verifyDependencyTree('/input/node_modules',doc(p.dependencyTree.path),p.dependencyFiles);need(response.ok", source)
++        tree = ast.parse((HERE / 'supervisor.py').read_text())
++        for name in ['verify_config', 'execute']:
++            fn = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == name)
++            self.assertTrue(any(isinstance(n, ast.Call) and isinstance(n.func, ast.Name) and n.func.id == 'verify_dependency_inventory' for n in ast.walk(fn)))
++
++    def test_complete_staged_modules_and_tree_pin(self):
++        tree = ast.parse((HERE / 'supervisor.py').read_text())
++        fn = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'source_pins')
++        names = {n.value for n in ast.walk(fn) if isinstance(n, ast.Constant) and type(n.value) is str}
++        for name in ['exchange.mjs', 'phase-writer.mjs', 'capture-budget.mjs', 'proxy-observer.mjs', 'exchange-adapter.mjs', 'dependency-tree.mjs', 'dependency-tree.json']:
++            self.assertIn(name, names)
++        plan = json.loads((HERE / 'fixture-plan.json').read_bytes())
++        raw = (HERE / 'dependency-tree.json').read_bytes()
++        self.assertEqual(plan['dependencyTree'], {'path': '/input/dependency-tree.json', 'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()})
++
++    def test_same_original_guard_invocation_body(self):
++        def body(source, name):
++            text = source.read_text(); start = text.index('function ' + name + '(){'); end = text.index('\n}', start)
++            return text[text.index('\n', start):end]
++        self.assertEqual(body(HERE / 'fixture.mjs', 'guardCheck'), body(OLD / 'fixture.mjs', 'check'))
++
++    def test_frozen_oracles_and_exact_query_no_baseline_payload(self):
++        for name in ['business-rumor.json', 'chat-rumor.json']:
++            self.assertEqual((HERE / name).read_bytes(), (OLD / name).read_bytes())
++        source = (HERE / 'fixture.mjs').read_text()
++        self.assertIn('const initial=T.wrap(rumors.business,from,spec.account)', source)
++        self.assertIn('T.wrap(rumors.chat,from,B)', source)
++        self.assertIn('T.wrap(rumors.business,from,A)', source)
++        self.assertIn("exchange(null,{ids:[event.id],limit:1},stage.id+'-query')", source)
++        self.assertNotIn('publish-frame.json', source)
++
++    def test_original_android_and_transport_limits(self):
++        old = ast.parse((OLD / 'supervisor.py').read_text()); new = ast.parse((HERE / 'supervisor.py').read_text())
++        for name in ['CONFIG', 'EMULATOR', 'LIMITS', 'ROLES', 'RUNTIME', 'RELAY', 'PY', 'LOG_OPTIONS']:
++            def assignment(tree):
++                return ast.dump(next(n.value for n in tree.body if isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and t.id == name for t in n.targets)), include_attributes=False)
++            self.assertEqual(assignment(old), assignment(new))
++        limits = json.loads((HERE / 'fixture-plan.json').read_bytes())['limits']
++        self.assertEqual(limits, json.loads((OLD / 'fixture-plan.json').read_bytes())['limits'])
++        self.assertEqual(limits['captureBytes'], 16777216)
++        self.assertEqual(limits['networkTimeoutMilliseconds'], 10000)
++
++
++if __name__ == '__main__':
++    unittest.main()
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/test_public_identity_metadata.py
+@@ -0,0 +1,98 @@
++"""Prepared DATA definitions only: public scalar NIP19 formatting consistency.
++
++No signing/encryption/curve operation, user key input, SDK, process or service.
++"""
++import ast
++import json
++from pathlib import Path
++import unittest
++HERE = Path(__file__).resolve().parent
++REPO = Path('/home/peterhorvath/apps/bitcoin/NBDP')
++PREP = REPO / 'docs/decisions/evidence/e02-ordinary-minimum-preparation-r2'
++ABC = 'qpzry9x8gf2tvdw0s3jn54khce6mua7l'
++
++
++def decode_public_nsec(value, scalar):
++    if type(value) is not str or len(value) != 63 or not value.startswith('nsec1'):
++        raise ValueError('Exact whole lowercase NIP19 nsec required')
++    try:
++        words = [ABC.index(c) for c in value[5:]]
++    except ValueError:
++        raise ValueError('Bech32 alphabet') from None
++    checksum = 1
++    for word in [3, 3, 3, 3, 0, 14, 19, 5, 3] + words:
++        top, checksum = checksum >> 25, ((checksum & 0x1ffffff) << 5) ^ word
++        for bit, generator in enumerate((0x3b6a57b2, 0x26508e6d, 0x1ea119fa, 0x3d4233dd, 0x2a1462b3)):
++            if top & (1 << bit):
++                checksum ^= generator
++    if checksum != 1:
++        raise ValueError('Bech32 checksum')
++    value_bits = 0
++    for word in words[:-6]:
++        value_bits = (value_bits << 5) | word
++    if value_bits & 15:
++        raise ValueError('Nonzero Bech32 padding')
++    payload = (value_bits >> 4).to_bytes(32, 'big')
++    if scalar not in (1, 2) or payload != scalar.to_bytes(32, 'big'):
++        raise ValueError('Fixed public scalar payload')
++    return payload
++
++
++class PublicIdentityMetadata(unittest.TestCase):
++    def setUp(self):
++        self.data = json.loads((PREP / 'public-scalar-format-data.json').read_bytes())['values']
++
++    def test_whole_checksum_payload_both_public_scalars(self):
++        for scalar in (1, 2):
++            value = self.data[str(scalar)]
++            self.assertEqual(decode_public_nsec(value['nsec'], scalar).hex(), value['scalarHex'])
++
++    def test_four_metadata_operands_equal_unchanged_driver(self):
++        tree = ast.parse((HERE / 'android_driver.py').read_text())
++        literals = {n.value for n in ast.walk(tree) if isinstance(n, ast.Constant) and type(n.value) is str}
++        for path in [HERE / 'minimum-plan.json', HERE / 'fixture-plan.json', HERE / 'ui-plan.json', PREP / 'oracle-provenance.json']:
++            roles = json.loads(path.read_bytes())['roles']
++            for role, scalar in [('incoming', 2), ('archive', 1)]:
++                operand = roles[role]['nsec']
++                self.assertEqual(operand, self.data[str(scalar)]['nsec'])
++                self.assertIn(operand, literals)
++                decode_public_nsec(operand, scalar)
++
++    def test_historical_65_character_operand_refused_preserved(self):
++        old = json.loads((HERE.parent / 'e02_ordinary_minimum_v1/minimum-plan.json').read_bytes())['roles']['incoming']['nsec']
++        self.assertEqual(len(old), 65)
++        with self.assertRaisesRegex(ValueError, 'Exact whole'):
++            decode_public_nsec(old, 2)
++
++    def test_checksum_corruption_refused(self):
++        value = self.data['2']['nsec']
++        with self.assertRaisesRegex(ValueError, 'checksum'):
++            decode_public_nsec(value[:-1] + ('q' if value[-1] != 'q' else 'p'), 2)
++
++    def test_valid_other_payload_refused(self):
++        with self.assertRaisesRegex(ValueError, 'payload'):
++            decode_public_nsec(self.data['1']['nsec'], 2)
++
++    def test_whitespace_case_truncation_never_normalized(self):
++        value = self.data['2']['nsec']
++        for wrong in [' ' + value, value.upper(), value[:-1], value + 'q', value.replace('nsec1', 'npub1')]:
++            with self.assertRaises(ValueError):
++                decode_public_nsec(wrong, 2)
++
++    def test_non_bech32_glyph_refused(self):
++        value = self.data['2']['nsec']
++        with self.assertRaisesRegex(ValueError, 'alphabet'):
++            decode_public_nsec(value[:8] + 'i' + value[9:], 2)
++
++    def test_new_plan_keeps_scalar_roles_and_whole_value(self):
++        plan = json.loads((HERE / 'minimum-plan.json').read_bytes())
++        self.assertEqual(plan['profileId'], 'e02-ordinary-minimum-rs-two-role-v2')
++        self.assertEqual(plan['roles']['incoming']['scalar'], 2)
++        self.assertEqual(plan['roles']['archive']['scalar'], 1)
++        self.assertEqual(plan['maximumRoleWindows'], 2)
++        self.assertEqual(plan['perWindowOriginalLeaseSeconds'], 1800)
++        self.assertFalse(plan['canonicalPass'])
++
++
++if __name__ == '__main__':
++    unittest.main()
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/ui-plan.json
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/ui-plan.json
+@@ -1,6 +1,6 @@
+ {
+-  "schema": "e02-ordinary-minimum-ui-plan-v1",
+-  "profileId": "e02-ordinary-minimum-rs-two-role-v1",
++  "schema": "e02-ordinary-minimum-ui-plan-v2",
++  "profileId": "e02-ordinary-minimum-rs-two-role-v2",
+   "clientCommit": "e6f464a1179def75274512b3c5bab921de3bf3d8",
+   "clientPackage": "com.vitorpamplona.amethyst.debug",
+   "localRelay": "ws://localhost:17777",
+@@ -10,7 +10,7 @@
+       "account": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
+       "peer": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+       "scalar": 2,
+-      "nsec": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpqptcfk2",
++      "nsec": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpqptcfk2",
+       "tab": "New Requests",
+       "stages": [
+         "incoming-business",

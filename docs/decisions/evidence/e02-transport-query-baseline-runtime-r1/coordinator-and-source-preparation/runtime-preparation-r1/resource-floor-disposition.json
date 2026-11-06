@@ -1,0 +1,35 @@
+{
+  "schema": "nbdp-preparation-only-resource-floor-correction-v1",
+  "actor": "/root",
+  "initialFailure": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/runtime-preparation-r1/initial-preflight-original-tool.json",
+    "bytes": 924,
+    "sha256": "55188b1cc74c133a474e1caf8a2b76d6934df9a1346abdbddece14260ccc75b3"
+  },
+  "initialSource": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/runtime-preparation-r1/initial-preflight-source.py",
+    "bytes": 5294,
+    "sha256": "289337519a7dce24330592eaef16ba1b9623dd7ebafd20dd94c8a7f202309de9"
+  },
+  "subsequentResourceInspection": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/runtime-preparation-r1/resource-inspection-original-tool.json",
+    "bytes": 1277,
+    "sha256": "d4b9b385ca256c580bfcbf05e81d3903b37f1f13d182c0402be8ba55c919740d"
+  },
+  "decision": "CORRECT_COORDINATOR_ONLY_NO_ANDROID_ADMISSION_IN_NEW_READ_ONLY_PREFLIGHT",
+  "initialError": "Coordinator reused Android12GiB MemAvailable floor for a noAndroid three-role transport diagnostic. Original combined assertion did not persist individual resource values before failure; do not reconstruct initial values from later inspection.",
+  "freshInspection": "8904179712free bytes/12607827968MemAvailable/22affinity. Only the inherited12GiB memory floor is unmet in that later sample.",
+  "sourceBoundRoleMemoryCapsMiB": {
+    "anchor": 128,
+    "rs-relay": 512,
+    "fixture": 1024
+  },
+  "newCoordinatorMemoryFloorMiB": 2688,
+  "reserveMiB": 1024,
+  "unchangedFloors": {
+    "diskBytes": 8589934592,
+    "affinityCpuCount": 8
+  },
+  "scope": "Read-only preflight correction only. No source/config/control assertion, canonical gate, Android12GiB admission, timeout, container cap, crypto/profile or blocker change. SOURCE2 controls remain unchanged. No experiment/container/lease executed.",
+  "next": "One fresh read-only preflight in runtime-preparation-r2 records resources before evaluation; runtime still requires a separate finite root release."
+}

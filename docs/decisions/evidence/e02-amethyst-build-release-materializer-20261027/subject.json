@@ -1,0 +1,90 @@
+{
+  "schema": "nbdp-amethyst-build-release-materializer-source-v1",
+  "author": "/root/consumer3_preparation",
+  "coordinator": "/root",
+  "preparedAtUtc": "2026-10-27T08:17:17.818350+00:00",
+  "state": "WRITES_STOPPED_PENDING_INDEPENDENT_SOURCE_QA_SECURITY",
+  "scope": "ONE_ALREADY_AUTHORIZED_FIXED_BUILD_TIME_FIELDS_ONLY_AT_ACTUAL_DISPATCH",
+  "sources": [
+    {
+      "path": "/tmp/nbdp-amethyst-build-release-materializer-20261027/README.md",
+      "bytes": 2687,
+      "sha256": "06774e414efd7be257e0e29af4433d6254f54e50d00284fa09381faf718d2e33"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-build-release-materializer-20261027/materialize.py",
+      "bytes": 6863,
+      "sha256": "31e2bf47bb99de73898559f6135b928b91d3bed7e2b6f6889907102938bdd087"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-build-release-materializer-20261027/model-plan.json",
+      "bytes": 1681,
+      "sha256": "edd8f1dff216342f7c73ca2c2a412ae1b65ce8e285ebdb26b7282c7952f3dce1"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-build-release-materializer-20261027/root-authorized-template.example.json",
+      "bytes": 1109,
+      "sha256": "5b995277e4ba43dd57f448f68dc9a6aa73fe3f8c331f8c0ce52eae1854c49bb3"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-build-release-materializer-20261027/source-inputs.json",
+      "bytes": 1575,
+      "sha256": "a9ef3f0a66bbb3666886e2423ea2539a83b637ed2adffd54663c37b11608fe89"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-build-release-materializer-20261027/syntax-only.json",
+      "bytes": 462,
+      "sha256": "49134d05314930b54e7830f407b70c562ded9cd80ba0df2fb1d8b2be4ff4c8ee"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-build-release-materializer-20261027/test_materializer.py",
+      "bytes": 4651,
+      "sha256": "a5fdaa78d299256427506ed3207375ec19ffc9e65f30779c050260ba0641772a"
+    }
+  ],
+  "script": {
+    "path": "/tmp/nbdp-amethyst-build-release-materializer-20261027/materialize.py",
+    "bytes": 6863,
+    "sha256": "31e2bf47bb99de73898559f6135b928b91d3bed7e2b6f6889907102938bdd087"
+  },
+  "modelPlan": {
+    "path": "/tmp/nbdp-amethyst-build-release-materializer-20261027/model-plan.json",
+    "bytes": 1681,
+    "sha256": "edd8f1dff216342f7c73ca2c2a412ae1b65ce8e285ebdb26b7282c7952f3dce1"
+  },
+  "modelsDefined": 14,
+  "modelsExecuted": 0,
+  "actualGrantCreated": false,
+  "actualTemplateCreated": false,
+  "dispatchMarkerCreated": false,
+  "supervisorImportedOrDispatched": false,
+  "toolsOrBuildExecuted": false,
+  "existingSupervisorSourcesChanged": false,
+  "windowSeconds": 2400,
+  "onlyMutableFields": [
+    "issuedAtUtcNs",
+    "notAfterUtcNs"
+  ],
+  "budgetsUnchanged": {
+    "outer": 2100,
+    "job": 1800,
+    "cleanupReserve": 120
+  },
+  "runtimeStatus": "NOT_READY_PENDING_REAL_TEMPLATE_INPUT_ACCEPTANCES_ROOT_AUTHORITY",
+  "selfApproval": false,
+  "futureInterface": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/tmp/nbdp-amethyst-build-release-materializer-20261027/materialize.py",
+    "--template-sha",
+    "EXACT_ROOT_REVIEWED_CONCRETE_TEMPLATE_SHA256"
+  ],
+  "requiredNext": [
+    "Independent exact SOURCE review",
+    "Separate bounded14-model release/result review",
+    "Fill genuine root-authorized concrete template after full source/data/input acceptance",
+    "Independent actual filled-template review and root approval",
+    "One hash-bound actual dispatch; failures consume once marker and never auto-retry"
+  ]
+}

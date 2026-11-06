@@ -1,0 +1,10 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer266-source-preparation-20261104/r2/source/current_controls.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source1/source/current_controls.py
+@@ -100,6 +100,6 @@
+         for tail in ('before','after'):
+             p=raw_index[str(root/('%02d-%s.json'%(i,tail)))];equal(files.doc(p),before,'ALL20_EXPECTED_SCOPE_CUSTODY_SNAPSHOTS')
+     api=c.decode_tool_origin(files.read(data['originalToolOrigin']))
+-    printed=c.validate_origin(api,c.expected_request(plan,data['rootAcknowledgement']['sha256'],str(Path(capture_pin['path']).parent)),ack['operators'])
++    printed=c.validate_origin(api,c.expected_request(plan,data['rootAcknowledgement']['sha256'],str(Path(capture_pin['path']).parent)),ack['operators'],family='PRODUCER_CAPTURE7')
+     equal(json.loads(printed.strip()),dict(result=data['execution'],rawManifest=raw_manifest['runtimeManifest'],exitCode=0),'GENUINE_CURRENT_OUTER_API_TERMINAL_SUMMARY')
+     return data

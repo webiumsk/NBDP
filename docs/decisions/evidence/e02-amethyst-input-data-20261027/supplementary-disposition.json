@@ -1,0 +1,44 @@
+{
+  "schema": "nbdp-build-input-report-concurrent-copy-disposition-v1",
+  "author": "/root/consumer3_preparation",
+  "report": {
+    "path": "/tmp/nbdp-amethyst-build-inputs-20261027/report.json",
+    "bytes": 19764,
+    "sha256": "a09b6f528c5d7e2b1fbef393f0324a0af80ec26e21244133421663910a886cd9"
+  },
+  "reportPreservedUnchanged": true,
+  "disposition": "CANONICAL_RECEIPT_ABSENCE_EXPECTATION_SUPERSEDED_BY_AUTHORIZED_EXACT_COPY",
+  "explanation": "The frozen optional report observed the canonical receipt present while its preparation-time canonical-state field still expected ABSENT. Root independently accepted the actual acquisition/source DATA before explicitly creating this byte-identical canonical build-input receipt. The report mismatch is an obsolete absence expectation, not an archive, tree, or source mismatch. This report is not an admission dependency.",
+  "rootDataAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/acceptance.json",
+    "bytes": 1369,
+    "sha256": "e33c4fb753622d1195b21db5f5eb45b28216ad10e9d8657da38fcd118957b143"
+  },
+  "rootCopyLineage": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/platform-build-input-copy.json",
+    "bytes": 1599,
+    "sha256": "65febbd03ac0d180875ca6aec0d50bac0182ddd65048c38694e7512cf98175d5"
+  },
+  "observedSource": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/acquisition/platform-extraction-r2.json",
+    "bytes": 4965623,
+    "sha256": "70d4aacb82da241411cc91e5cc5a9e3709bf58b1139852e10ba276981f1bc6e7"
+  },
+  "observedCanonicalCopy": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/acquisition/platform-extraction.json",
+    "bytes": 4965623,
+    "sha256": "70d4aacb82da241411cc91e5cc5a9e3709bf58b1139852e10ba276981f1bc6e7"
+  },
+  "observedByteEquality": true,
+  "originalPlatformFailurePreserved": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/acquisition/platform-extract-FAILED.json",
+    "bytes": 151,
+    "sha256": "2122cc0702830367ce5d144b4a45e1f493cbddea9b0a9b2f08b1c8ce4fea00bd"
+  },
+  "optionalCollectorExecuted": false,
+  "workerToolsExecuted": false,
+  "workerBuildExecuted": false,
+  "workerGrantCreated": false,
+  "workerIndependentAcceptance": false,
+  "remainingAuthority": "Independent concrete build-plan/template review and finite root release remain separate. E02 PARTIAL and runtime gates unchanged."
+}

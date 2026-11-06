@@ -1,0 +1,35 @@
+{
+  "schema": "nbdp-completion2-actual-data-acceptance-v1",
+  "actor": "/root",
+  "decision": "ACCEPT_COMPLETION2_ACTUAL59_41_DATA_ONLY",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-completion2-data-run-r1/execution.json",
+    "bytes": 2869,
+    "sha256": "635bbe44a1e365754565d05b4d1be13ce95a1ec99f465178fc594120a7f8ef9f"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-completion2-data-run-r1/actual-result-qa-review.json",
+      "bytes": 1211,
+      "sha256": "56c15efdc99de6cb5b6a38cb635512b15124979f182a9fc8962693487b3d7525"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-completion2-data-run-r1/actual-result-security-review.json",
+      "bytes": 1194,
+      "sha256": "f86b206a772a64b22d68e7b93c8a4d030e90ff7feb0830f9c2982d5e36e1f95e"
+    }
+  ],
+  "countsSeparate": [
+    59,
+    41
+  ],
+  "limits": [
+    "No realcurrentprimary/current()/consume/native/client/completionPASS/runtime or gate authority.",
+    "Runner-enforced input hashes before/after do not independently attest race-free custody.",
+    "Memorybuffered postcapture retention ceilings; no streaming memory limit or timeout-path assurance."
+  ],
+  "canonicalE02": "PARTIAL22_UNCHANGED",
+  "ordinaryRowsQualified": 0,
+  "runtimeAuthorized": false,
+  "next": "Recover Android SDK/client/helper artifacts and prepare exact reviewed source/config/native/input-profile rebind using separately accepted fresh E01 result; preserve full realconsume/currentprimary22/client-role requirements."
+}

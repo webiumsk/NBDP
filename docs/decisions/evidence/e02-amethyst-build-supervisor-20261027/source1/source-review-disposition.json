@@ -1,0 +1,30 @@
+{
+  "schema": "nbdp-build-supervisor-source1-disposition-v1",
+  "actor": "/root",
+  "subject": {
+    "path": "/tmp/nbdp-amethyst-build-supervisor-20261026/subject.json",
+    "bytes": 4601,
+    "sha256": "49977947bf254a1efb1989b63dc6f9fd410751796c5da3152b49567c69c5903e"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-build-supervisor-20261027/source1/actual-source-qa-review.json",
+      "bytes": 516,
+      "sha256": "a9ea83193c67f443af443e5d0e88639e37c8122f2b6d501ef548eb952f932f09"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-build-supervisor-20261027/source1/actual-source-security-review.json",
+      "bytes": 985,
+      "sha256": "5d1cfa341e962bfaff092a49cf30e3fd34720bc9c7cc19fee0394d68060c44ee"
+    }
+  ],
+  "decision": "HOLD_BUILD_METHOD_PRESERVE_SOURCE1_PREPARE_SOURCE2",
+  "finding": {
+    "severity": "MEDIUM",
+    "id": "BUILD-NETWORK-ID",
+    "evidence": "run authenticates releasednetworkID once;create selectsname andownedidentity checksHostConfigname withoutendpoint/releasedfullIDjoin; same-name replacement can pass.",
+    "requiredChange": "Bindcreate andeachownedinspectiontofullreleasedID; explicitprestartactualmetadata handling/regressions."
+  },
+  "modelsExecuted": 0,
+  "buildAuthorized": false
+}

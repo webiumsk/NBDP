@@ -1,0 +1,11 @@
+--- source3/outputs.py
++++ source4/outputs.py
+@@ -4,7 +4,7 @@
+ from explicit_inputs import decode_metadata
+ JS_SHAPES={
+  'test_guard_client.mjs':dict(scope='PRODUCER4_MOCK_FRESH_GUARD_SCHEDULER_ONLY',keys='scope definitions executed realHelperExecuted realClockOrSDKObserved clientRowsQualified',false=['realHelperExecuted','realClockOrSDKObserved'],zero=['clientRowsQualified']),
+- 'test_guard_transport_boundaries.mjs':dict(scope='PRODUCER4_MOCK_GUARD_TRANSPORT_BOUNDARIES_ONLY',keys='scope definitions executed realHelperExecuted realTimerObserved processReapAttested clientRowsQualified',false=['realHelperExecuted','realTimerObserved','processReapAttested'],zero=['clientRowsQualified']),
++ 'test_guard_transport_boundaries.mjs':dict(scope='PRODUCER4_ACTUAL_REGISTERED_HELPER_CALLBACKS_AND_OWNED_SIGNAL_MOCKS_ONLY',keys='scope definitions executed realHelperExecuted realTimerObserved processReapAttested clientRowsQualified',false=['realHelperExecuted','realTimerObserved','processReapAttested'],zero=['clientRowsQualified']),
+  'test_capture_allocation.mjs':dict(scope='PRODUCER4_PURE_CAPTURE_ALLOCATION_MODELS_ONLY',keys='scope definitions executed realWritesObserved realHelperExecuted wholeConsumerQualified atomicGlobalFenceClaimed',false=['realWritesObserved','realHelperExecuted','wholeConsumerQualified','atomicGlobalFenceClaimed'],zero=[]),
+  'test_controller_emission.mjs':dict(scope='ACTUAL_PRODUCTION_CONTROLLER_EMITTER_WITH_FAKE_WRITER_ONLY',keys='scope checks realHelperExecuted realStdoutWritten clientRowsQualified',false=['realHelperExecuted','realStdoutWritten'],zero=['clientRowsQualified'])}
+ 

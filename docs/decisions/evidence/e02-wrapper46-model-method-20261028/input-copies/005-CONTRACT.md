@@ -1,0 +1,43 @@
+# Completion-primary wrapper R3 — SOURCE only
+
+R3 remediates the actual independent R2 QA/security HOLD findings. All R2 source, archived bytes, packet pins, negative findings and zero-execution status remain historical. R3 is a separate SOURCE proposal, with `runtimeReady=false`, 21 NULL final/grant edges, no SOURCE acceptance and no model/concrete/runtime release. AST/JSON parsing is not a model execution or runtime qualification.
+
+## Strict phase completion
+
+Root explicitly selected completion by phase expiry, with unchanged child240+3, phase243, root600, setup120, cleanup90 and immediate root remaining243 admission. There is no new prelaunch reserve, phase extension, renewal or minimum240-second execution promise. Full input hashing and relay/proxy health inspections precede the one fresh phase release. Only finite local render/pin/request/capture operations follow it.
+
+`Replay.record_primary_process` calls the actual `Replay.run_primary_process` decision path. Immediately before Popen it requires root remaining243 and phase remaining>240. A new owned session/process group runs the exact timeout240+3 Node completion-primary command. Parent waiting is bounded by phase expiry minus the existing three-second termination grace, recalculated after Popen. This can shorten the child's available natural execution slightly below240, which is an explicit stricter maximum. Parent deadline expiration is always a qualification fault; it sends TERM only to the owned process group, waits within remaining phase grace, and, if necessary, sends KILL and observes bounded cleanup. Interrupted owned groups are retained for exact cleanup in finally. No signal targets a discovered or foreign PID/group.
+
+The actual child exit observation is timestamped immediately after wait, before hashing/receipt work. `finishedUtcNs` and its exact decimal `finishedUtcNsExact` refer to that observation. A late exit0 is recorded, then rejected by `phase_finished`; the child's own subject finish must also be within the same config/phase expiry. A separate `methodFinishedUtcNs` in the wrapper result describes later method/cleanup/bookkeeping completion. Source snapshots or receipt hashing cannot relabel a late bookkeeping timestamp as child execution.
+
+The JS adapter checks decimal `finishedUtcNsExact` using BigInt against the phase millisecond expiry, rejecting even a one-nanosecond overrun without relying on rounded JS Number nanoseconds. Other historical numeric nanosecond joins retain their stated representational limits. The adapter and launcher both retain current phase/config/release joins.
+
+## Actual DATA review independence
+
+Every actual model and concrete subject must directly declare nonempty `authors` and `operators` arrays. Before reviewing that DATA, `acceptance_reviews` unions those declarations with the recursive authored/operated subject-input closure and stable source participants. `/root`, `/root/completion_wrapper` and the actual known helper author `/root/r5_plan_fix` are always excluded from reviewing this work.
+
+`source_participants` follows explicit descriptor edges and all author/operator declarations. Independent-review envelopes and review/raw-session edges are excluded from participant traversal; a reviewer's actor is not automatically treated as a subject author/operator. The actual QA/security actors must still be distinct real sessions outside the full forbidden set, with exact subject/role/decision/raw-evidence joins. Missing declarations, direct author/operator self-review and nested helper self-review are refused for both model and concrete DATA.
+
+Review envelope remains closed `e02-wrapper-independent-review-v1`: `schema role actor subject decision findings rawSessionEvidence`. Acceptance remains closed `e02-wrapper-reviewed-acceptance-v1`: `schema decision sourceSubject subject reviews`. New actual model DATA schema is `e02-wrapper-pure-model-result-v2`, exact code subject, scopeVersion `E02_WRAPPER_R3_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN`, modelsExecuted46, exitCode0, plus actual author/operator declarations. Concrete subject schema remains `e02-wrapper-concrete-input-v1`, exact final plan/source/inventory and explicit declarations. No actual DATA or review envelope is created here.
+
+## Actual proxy completion
+
+The pinned proxy source installs a SIGTERM/SIGINT handler that closes its servers. R3 accepts only a requested stop through the owned handle, no KILL fallback, actual exit0, recorded reaping, nonempty stdout below4194304 bytes and empty stderr. It records `terminationRequested` and `killRequested` before validation. Already-exited, nonzero, stderr, capture ceiling and forced-KILL outcomes feed `fault` in launcher cleanup, so outer0 cannot accompany those invalid proxy outcomes. The JS adapter imposes the same contract. This does not grant blanket acceptance of signal/nonzero exits.
+
+## Targeted definitions and boundaries
+
+R3 defines35 Python models and11 JS models, total46, zero executed. Nineteen adapted helper definitions are retained from historical R2; sixteen new Python definitions exercise actual identity/mutate, source_participants/review/acceptance, dispatch authorization/exclusive render, primary process/receipt phase path and proxy cleanup. Eleven JS definitions call the actual staged wrapperPrimaryTool with in-memory DATA primitives. They cover direct/yielded positives, command/config/release/canonical-result/fabricated-inner-API/EOF/late-observation/late-subject/proxy negatives. The historical19 definitions and historical27 models/11-second runtime grant no successor execution or qualification.
+
+Mocks replace only I/O/process/clock operands and established DATA primitives; no filesystem fixture, service, process or Node execution is performed. JS's original primaryShape/wireFixtures semantics remain delegated established methods, not claims tested by the in-memory origin models. The source model scope/count is fixed in plan and fixed_plan before any future actual acceptance.
+
+All mutable relay stores/proxy state/cwd/HOME/TMPDIR remain private under the fresh owned attempt; the proxy source and child experiments cwd are absolute immutable inputs. Existing shared experiments/.runtime is preserved and checked, never used as mutable state. New result reads remain private primary-subject/raw report/sole four-wire pins, retaining22/PARTIAL/literal mandatory skip/current native/E01PASS140/original19 joins. CID/network/image/run-label/mount/resource ownership is rechecked before mutation; foreign/occupied paths/resources are refused. Regular-file custody is explicit: no fabricated inner API/PID/reap/pipeEOF attestation.
+
+The R3 adapter origin schema is `e02-completion-primary-wrapper-origin-v2`; inner completion schema is `e02-wrapper-inner-process-completion-v2`; wrapper root-release and plan schemas are v3. Staged completion runner/patch remain in this owned R3 directory and retain FINAL_SOURCE_PROFILE_READY=false. Coordinator final rendering must include the adapter in the exact integration closure. Trusted DATA primitives are explicitly supplied by that fixed runner; they are not external run inputs.
+
+## Acyclic graph and unresolved bindings
+
+The final wrapperSource subject is code-only and excludes final plan and post-plan acceptances. Completion profile may pin wrapperSource but must not pin wrapperPlan, which already pins completion profile. The actual origin binds wrapperPlan through actual dispatch/root/concrete evidence. Grant-only post-plan model/concrete acceptance pins stay outside the plan's hashed current operands.
+
+The selected inventory contains exact stable source/profile/producer/consumer/control/config roots and their recursive descriptor DAG, with later root-grant review/acceptance closures added to runtime before/after snapshots. Unrelated workspace files are not enumerated. The preparation packet's full input graph lists all currently known source edges and explicitly unresolved final operands; it is not the final concrete runtime DAG. The prior completion draft's stale amethyst-control-runbook descriptor is preserved as negative evidence, not silently repinned.
+
+Final completion/profile/source, producer/consumer, fresh35+3/consumer controls, ordinary manifest/origin, templates/inventory, actual independent reviews/model DATA/concrete acceptance and root grant are still NULL or absent. Independent R3 SOURCE review is next; implementation cannot approve itself. Q01/Q08/Q13/Q15/Q27 remain blockers and canonical E02 remains PARTIAL22. No SDK, production/Satflux work, deployment, real data/keys, new NIP/kind, Git/publication or merge occurs here.

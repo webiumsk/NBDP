@@ -1,0 +1,62 @@
+{
+  "schema": "e02-producer-source-acceptance-contract-v1",
+  "actor": "/root",
+  "state": "SCHEMA_ONLY_NOT_AN_ACCEPTANCE_OR_EXECUTION_AUTHORITY",
+  "rootAcceptance": {
+    "exactKeys": [
+      "schema",
+      "actor",
+      "decision",
+      "subject",
+      "reviews",
+      "modelsDefined",
+      "runtimeWorkerCount",
+      "modelsExecuted",
+      "helperExecutions",
+      "roleExecutions",
+      "runtimeReady",
+      "runtimeReleased",
+      "scope"
+    ],
+    "literals": {
+      "schema": "e02-root-current-producer4-source-acceptance-v1",
+      "actor": "/root",
+      "decision": "ACCEPT_PRODUCER4_SOURCE_AND_CONTROL_DEFINITIONS_ONLY",
+      "runtimeWorkerCount": 22,
+      "modelsExecuted": 0,
+      "helperExecutions": 0,
+      "roleExecutions": 0,
+      "runtimeReady": false,
+      "runtimeReleased": false,
+      "scope": "EXACT_CURRENT_SOURCE_AND_CONTROL_DEFINITIONS_ONLY"
+    },
+    "subject": "Exact externally pinned current producer SOURCE4 subject; no NULL or predecessor substitute.",
+    "reviews": "Ordered two exact raw review pins: qa then security; each read/hash verified.",
+    "modelsDefined": "Exact sum of ten CODE-selected current subject model group counts; integer, positive, no caller override."
+  },
+  "reviewEnvelope": {
+    "exactKeys": [
+      "role",
+      "session",
+      "decision",
+      "subject"
+    ],
+    "roles": [
+      "qa",
+      "security"
+    ],
+    "subject": "Byte-identical exact current source subject pin.",
+    "decision": "Exact string ACCEPT_PRODUCER4_SOURCE4_AND_<N>_CONTROL_DEFINITIONS_ONLY with canonical decimal N equal to current subject model sum.",
+    "sessions": "Distinct actual post-freeze current-source reviewers, outside full declared/known contributor/operator union; actual birth and Root lineage externally pinned."
+  },
+  "authority": "Root future ACK must externally pin exact acceptance, review, source, count and birth/context records; independent positive source reviews and Root acceptance must actually exist. This schema file alone supplies no approval.",
+  "forbidden": [
+    "ACCEPT_ prefix as sufficient approval",
+    "Caller-supplied arbitrary accepted decision literals",
+    "Missing/NULL records or normalized invented reviews",
+    "Prior source/control DATA acceptance transfer"
+  ],
+  "finalSourceAcceptance": null,
+  "finalSourceReviews": null,
+  "executionAuthorized": false
+}

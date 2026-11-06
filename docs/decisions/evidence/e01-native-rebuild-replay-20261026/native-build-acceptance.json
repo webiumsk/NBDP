@@ -1,0 +1,32 @@
+{
+  "schema": "nbdp-native-build-compilation-evidence-acceptance-v1",
+  "actor": "/root",
+  "decision": "ACCEPT_NEW_NATIVE_COMPILATION_ARTIFACT_ONLY",
+  "subject": {
+    "path": "/tmp/nbdp-rust-rebuild-20261026/records/result.json",
+    "bytes": 2914,
+    "sha256": "6102304f758a252a1cf184219658800f7409d90381528494169d593155fe10f6"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e01-native-rebuild-replay-20261026/initial-qa-review.json",
+      "bytes": 1629,
+      "sha256": "ec664aeeb4de392fb712c926daf349a8b12302bdb90666a8349e3f3aae5d3266"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e01-native-rebuild-replay-20261026/initial-security-review.json",
+      "bytes": 1572,
+      "sha256": "7a0fe5df4e0b7f025026cee91ba1de70fc647a48df85865211d1ce474438e140"
+    }
+  ],
+  "binary": {
+    "path": "/tmp/nbdp-rust-rebuild-20261026/target/debug/nbdp-experiment-rust",
+    "bytes": 24100272,
+    "sha256": "4ce385c5b1a713b35d58d787d94fbc298d139aa2e813daec15b2e99289cefd86"
+  },
+  "limits": [
+    "New build, not historical byte restoration; no native test/interop result.",
+    "Original launch-provenance gap preserved; additive evidence pending independent review.",
+    "No isolation/cleanup/peak measurement or E02/client qualification transfer."
+  ]
+}

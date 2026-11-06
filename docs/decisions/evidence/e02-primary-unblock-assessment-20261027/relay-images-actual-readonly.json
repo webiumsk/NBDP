@@ -1,0 +1,13 @@
+{
+  "args": {
+    "cmd": "python3 - <<'PY'\nimport subprocess,json\nids=['sha256:d72c7eb4e19562e22c24924ea51bc345ea5d22d03ada1429a46e0bb90ea97d40','sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82'];p=subprocess.run(['docker','image','inspect',*ids],capture_output=True,check=True);values=json.loads(p.stdout);rows=[]\nfor d in values:\n c=d.get('Config') or {};rows.append({'id':d['Id'],'tags':d.get('RepoTags'),'configUserFieldPresent':'User'in c,'configuredUser':c.get('User'),'entrypoint':c.get('Entrypoint'),'cmd':c.get('Cmd'),'workingDir':c.get('WorkingDir'),'size':d.get('Size')})\nassert {x['id'] for x in rows}==set(ids);print(json.dumps({'actualReadOnlyImageInspect':rows,'containersStarted':False}))\nPY",
+    "max_output_tokens": 2200
+  },
+  "result": {
+    "chunk_id": "dab284",
+    "wall_time_seconds": 0.000035283,
+    "exit_code": 0,
+    "original_token_count": 153,
+    "output": "{\"actualReadOnlyImageInspect\": [{\"id\": \"sha256:d72c7eb4e19562e22c24924ea51bc345ea5d22d03ada1429a46e0bb90ea97d40\", \"tags\": [\"nbdp-005-strfry:4cd3cf6\"], \"configUserFieldPresent\": false, \"configuredUser\": null, \"entrypoint\": [\"/src/strfry\"], \"cmd\": null, \"workingDir\": \"/src\", \"size\": 598955399}, {\"id\": \"sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82\", \"tags\": [\"nbdp-005-rs-relay:b5c1f64\"], \"configUserFieldPresent\": false, \"configuredUser\": null, \"entrypoint\": [\"/src/target/release/nostr-rs-relay\"], \"cmd\": null, \"workingDir\": \"/src\", \"size\": 3455132828}], \"containersStarted\": false}\n"
+  }
+}

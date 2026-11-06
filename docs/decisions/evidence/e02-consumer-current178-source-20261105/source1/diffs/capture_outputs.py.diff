@@ -1,0 +1,12 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer266-source-preparation-20261104/r2/source/capture_outputs.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source1/source/capture_outputs.py
+@@ -1,7 +1,7 @@
+ """Pure file-specific target output validators; no target execution."""
+ import re
+-from capture_contracts import need,closed
+-from strict import loads as decode_metadata
++from contracts import need,closed
++from explicit_inputs import decode_metadata
+ JS_SHAPES={
+  'test_guard_client.mjs':dict(scope='PRODUCER4_MOCK_FRESH_GUARD_SCHEDULER_ONLY',keys='scope definitions executed realHelperExecuted realClockOrSDKObserved clientRowsQualified',false=['realHelperExecuted','realClockOrSDKObserved'],zero=['clientRowsQualified']),
+  'test_guard_transport_boundaries.mjs':dict(scope='PRODUCER4_ACTUAL_REGISTERED_HELPER_CALLBACKS_AND_OWNED_SIGNAL_MOCKS_ONLY',keys='scope definitions executed realHelperExecuted realTimerObserved processReapAttested clientRowsQualified',false=['realHelperExecuted','realTimerObserved','processReapAttested'],zero=['clientRowsQualified']),

@@ -1,0 +1,123 @@
+--- /tmp/nbdp-amethyst-rebuild-20261026/preparation-r2/acquire.py
++++ /tmp/nbdp-e02-sdkmanager-install-20261027-preparation/acquire.py
+@@ -20,8 +20,8 @@
+ import urllib.request
+ import zipfile
+ 
+-ROOT = Path('/tmp/nbdp-amethyst-rebuild-20261026')
+-PLAN = ROOT / 'preparation/acquisition-plan.json'
++ROOT = Path('/tmp/nbdp-e02-sdkmanager-install-20261027-preparation')
++PLAN = ROOT / 'acquisition-plan.json'
+ RESULTS = ROOT / 'output/acquisition'
+ 
+ 
+@@ -189,6 +189,25 @@
+     return properties
+ 
+ 
++
++def commandline_properties(raw):
++    """Strict literal22.0 metadata only; this never invokes an acquired tool."""
++    require(type(raw) is bytes and 0 < len(raw) <= 65536, 'CMDLINE_PROPERTIES_BYTES')
++    text = raw.decode('utf-8', 'strict')
++    require(not any(ord(c) < 32 and c != '\n' for c in text), 'CMDLINE_PROPERTIES_CONTROL_FORMAT')
++    values = {}
++    for line in text.splitlines():
++        if not line or line.startswith('#'): continue
++        require(line == line.strip() and '=' in line, 'CMDLINE_PROPERTY_FORMAT')
++        key, value = line.split('=', 1)
++        require(re.fullmatch('[A-Za-z][A-Za-z0-9.]*', key) and key not in values, 'CMDLINE_PROPERTY_KEY_OR_DUPLICATE')
++        values[key] = value
++    require(values.get('Pkg.Revision') == '22.0', 'EXACT_CMDLINE_REVISION_22_0')
++    require(values.get('Pkg.Desc') == 'Android SDK Command-line Tools', 'EXACT_CMDLINE_DESCRIPTION')
++    require('Pkg.Path' not in values or values['Pkg.Path'] == 'cmdline-tools;22.0', 'EXACT_CMDLINE_PATH_IF_PRESENT')
++    return values
++
++
+ @contextmanager
+ def opened_archive(path, item, deadline):
+     fd = os.open(private(path), os.O_RDONLY | os.O_NOFOLLOW)
+@@ -221,7 +240,7 @@
+ def extract(item, limits):
+     deadline = time.monotonic() + limits['downloadSeconds']
+     archive_path = ROOT / 'cache' / (item['id'] + '.archive')
+-    stage = ROOT / 'tools' / ('.stage-platform-r2' if item['id'] == 'platform' else '.stage-' + item['id'])
++    stage = ROOT / 'bootstrap' / ('.stage-' + item['id'])
+     private(stage).mkdir(mode=0o700)
+     rows = []
+     with opened_archive(archive_path, item, deadline) as archive:
+@@ -269,26 +288,24 @@
+             if p.is_symlink(): require(p.resolve(strict=True).is_relative_to(base.resolve()), 'EXTRACTED_LINK_ESCAPE')
+     actual = inventory(base, deadline)
+     destination = ROOT / item['destination']
+-    properties = None
+-    if item['id'] == 'jdk':
+-        release = (base / 'release').read_text()
+-        require('JAVA_VERSION="21.0.13"' in release, 'EXPECTED_JDK_RELEASE')
+-    else:
+-        raw = (base / 'source.properties').read_text(); properties = {}
+-        for line in raw.splitlines():
+-            if '=' in line:
+-                key, value = line.split('=', 1); properties[key.strip()] = value.strip()
+-        if item['id'] == 'platform':
+-            properties = platform_properties((base / 'source.properties').read_bytes())
+-            require(properties.get('Pkg.Path', 'platforms;android-37.0') == 'platforms;android-37.0', 'EXACT_PLATFORM_PACKAGE_PATH')
+-            destination = destination / 'android-37.0'
+-        else: require(properties.get('Pkg.Revision') == ('36.0.0' if item['id'] == 'build-tools' else '30.0.16248370'), 'EXPECTED_SDK_PACKAGE_REVISION')
++    require(top == 'cmdline-tools', 'EXACT_CMDLINE_ARCHIVE_ROOT')
++    require((base / 'bin').is_dir() and not (base / 'bin').is_symlink()
++        and (base / 'lib').is_dir() and not (base / 'lib').is_symlink(), 'CMDLINE_BIN_LIB_DIRECTORIES')
++    for relative in ('source.properties', 'NOTICE.txt', 'bin/sdkmanager'):
++        path = base / relative
++        require(path.is_file() and not path.is_symlink(), 'CMDLINE_REQUIRED_REGULAR_FILE:'+relative)
++    require(stat.S_IMODE((base / 'bin/sdkmanager').stat().st_mode) & 0o111, 'CMDLINE_LAUNCHER_EXECUTABLE_MODE')
++    properties = commandline_properties((base / 'source.properties').read_bytes())
+     private(destination); destination.parent.mkdir(parents=True, exist_ok=True)
+     require(not destination.exists(), 'FRESH_TOOL_DESTINATION_REQUIRED')
+     os.rename(base, destination)
+-    receipt = item['id'] + ('-extraction-r2.json' if item['id'] == 'platform' else '-extraction.json')
++    receipt = item['id'] + '-extraction.json'
+     record(RESULTS / receipt, dict(archive=digest(archive_path),
+         destination=str(destination), properties=properties, inventory=actual, expandedBytes=expanded,
++        metadataOnly={'launchScripts':[r for r in actual if r['path'].startswith('bin/')],
++            'libraries':[r for r in actual if r['path'].startswith('lib/')],
++            'properties':[r for r in actual if r['path']=='source.properties']},
++        sdkmanagerInvoked=False, javaInvoked=False, classVersionInspected=False, licenseConsentPerformed=False,
+         archiveMembers=[dict(path=str(r['path']),kind=r['kind'],bytes=r['bytes'],mode=oct(r['mode']),target=r.get('target')) for r in rows],
+         modes='Directories private0700; regular modes archive &0755; links preserved safely; no tools executed', toolsExecuted=False))
+ 
+@@ -308,21 +325,24 @@
+ 
+ def main():
+     os.umask(0o077)
+-    p = argparse.ArgumentParser(description=__doc__); p.add_argument('phase',choices=('fetch','extract'))
+-    p.add_argument('artifact',choices=('jdk','platform','build-tools','ndk')); p.add_argument('--plan-sha',required=True)
++    p = argparse.ArgumentParser(description=__doc__); p.add_argument('--plan-sha',required=True)
+     args = p.parse_args(); require(digest(PLAN)['sha256'] == args.plan_sha, 'EXTERNAL_PLAN_SHA_REQUIRED')
+-    require((args.artifact, args.phase) in (('platform','extract'),('build-tools','fetch'),
+-        ('build-tools','extract'),('ndk','fetch'),('ndk','extract')), 'SOURCE2_REMAINING_PHASE_SCOPE_ONLY')
+     plan = json.loads(PLAN.read_bytes()); require(plan['root'] == str(ROOT), 'FIXED_ACQUISITION_ROOT')
+-    item = next(row for row in plan['artifacts'] if row['id'] == args.artifact)
+-    require(item['algorithm'] in ('sha1','sha256') and re.fullmatch('[0-9a-f]{'+str(40 if item['algorithm']=='sha1' else 64)+'}',item['digest']), 'EXPLICIT_DIGEST_ALGORITHM')
+-    private(RESULTS).mkdir(mode=0o700,exist_ok=True)
++    require(len(plan['artifacts']) == 1, 'ONE_FIXED_CMDLINE_ARTIFACT')
++    item = plan['artifacts'][0]
++    require(item['id'] == 'cmdline-tools' and item['url'] == 'https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip'
++        and item['bytes'] == 181833628 and item['algorithm'] == 'sha256'
++        and item['digest'] == '4e4c464f145a7512b57d088ac6c278c03c9eea610886b35a5e0804e74eedf583'
++        and item['format'] == 'zip' and item['destination'] == 'bootstrap/cmdline-tools/22.0'
++        and item['allowedHosts'] == ['dl.google.com'] and item['redirects'] == 0, 'FIXED_OFFICIAL_CMDLINE_22_0')
++    for path in (ROOT / 'cache', ROOT / 'bootstrap', RESULTS):private(path).mkdir(mode=0o700,parents=True,exist_ok=True)
++    phase = 'fetch'
+     try:
+-        (fetch if args.phase == 'fetch' else extract)(item,plan['limits'])
++        fetch(item,plan['limits'])
++        phase = 'extract'; extract(item,plan['limits'])
+     except Exception as error:
+         try:
+-            suffix = '-FAILED-r2.json' if args.artifact == 'platform' else '-FAILED.json'
+-            record(RESULTS / (args.artifact+'-'+args.phase+suffix),
++            record(RESULTS / ('cmdline-tools-'+phase+'-FAILED.json'),
+                 dict(error=type(error).__name__+':'+str(error)[:2048],state='FAILED_NO_RETRY',toolsExecuted=False,
+                      utc=datetime.now(timezone.utc).isoformat()))
+         except Exception as retention:

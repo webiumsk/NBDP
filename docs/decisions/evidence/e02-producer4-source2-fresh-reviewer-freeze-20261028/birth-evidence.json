@@ -1,0 +1,47 @@
+{
+  "schema": "e02-genuine-post-freeze-reviewer-birth-evidence-v1",
+  "actor": "/root",
+  "sourceFreeze": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-source2-fresh-reviewer-freeze-20261028/freeze.json",
+    "bytes": 115442,
+    "sha256": "52a2515afbb6e2cc897b01270b4f90f46c372a06635beb774d96c61b7495441e"
+  },
+  "clockBefore": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-source2-fresh-reviewer-freeze-20261028/clock-before-spawn.json",
+    "bytes": 229,
+    "sha256": "0b14e42426cbdb64bd77ed95b3161025fea4a0832c2d21002b3dc5acba8de0ce"
+  },
+  "actualSpawns": [
+    {
+      "role": "qa",
+      "toolName": "collaboration.spawn_agent",
+      "actualTaskNameArgument": "p4s2_fresh_qa_52a2515afbb6e2cc897b01270b4f90f4",
+      "actualAgentTypeArgument": "qa",
+      "actualForkTurnsArgument": "none",
+      "unmodifiedToolResponse": {
+        "task_name": "/root/p4s2_fresh_qa_52a2515afbb6e2cc897b01270b4f90f4"
+      },
+      "canonicalSession": "/root/p4s2_fresh_qa_52a2515afbb6e2cc897b01270b4f90f4",
+      "assignment": "Independent read-only frozen SOURCE2/206 definitions; no target imports/models/helper/services/SDK/native/Git mutations/writes."
+    },
+    {
+      "role": "security",
+      "toolName": "collaboration.spawn_agent",
+      "actualTaskNameArgument": "p4s2_fresh_security_52a2515afbb6e2cc897b01270b4f90f4",
+      "actualAgentTypeArgument": "security",
+      "actualForkTurnsArgument": "none",
+      "unmodifiedToolResponse": {
+        "task_name": "/root/p4s2_fresh_security_52a2515afbb6e2cc897b01270b4f90f4"
+      },
+      "canonicalSession": "/root/p4s2_fresh_security_52a2515afbb6e2cc897b01270b4f90f4",
+      "assignment": "Independent read-only frozen SOURCE2/206 definitions; no target imports/models/helper/services/SDK/native/Git mutations/writes."
+    }
+  ],
+  "clockAfter": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-source2-fresh-reviewer-freeze-20261028/clock-after-spawn.json",
+    "bytes": 228,
+    "sha256": "cb63442c62c091653ff86b19472882677153193fbda64a24e7b5fa4f0c625700"
+  },
+  "trustLimit": "Cooperative actual Root/session transcription only; exact postfreeze priornonauthorship, not reconstruction of unknown old authorship or future DATA independence.",
+  "actualExecutionsAuthorized": 0
+}

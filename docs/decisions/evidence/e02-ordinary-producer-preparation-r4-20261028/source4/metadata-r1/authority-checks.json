@@ -1,0 +1,41 @@
+{
+  "schema": "e02-focused-metadata-authority-checks-v1",
+  "checks": [
+    {
+      "name": "corrected-control-plan",
+      "result": "MATCH"
+    },
+    {
+      "name": "corrected-subject",
+      "result": "MATCH"
+    },
+    {
+      "name": "current-SOURCE4-terminal-audit",
+      "result": "MATCH"
+    },
+    {
+      "name": "historical-SOURCE3-terminal-audit",
+      "result": "MATCH"
+    },
+    {
+      "name": "wrong-size",
+      "result": "REFUSED_BEFORE_READ",
+      "reason": "CURRENT_AUTHORITY_DESCRIPTOR_MISMATCH"
+    },
+    {
+      "name": "stale-hash",
+      "result": "REFUSED_BEFORE_READ",
+      "reason": "CURRENT_AUTHORITY_DESCRIPTOR_MISMATCH"
+    },
+    {
+      "name": "predecessor-substitution",
+      "result": "REFUSED_BEFORE_READ",
+      "reason": "CURRENT_AUTHORITY_DESCRIPTOR_MISMATCH"
+    }
+  ],
+  "metadataOnly": true,
+  "descriptorReadPolicy": "Closed explicit text descriptors only; no recursion/dataPrerequisite/guest/binary/SDK reads.",
+  "targetModelsExecuted": 0,
+  "helperExecutions": 0,
+  "roleExecutions": 0
+}

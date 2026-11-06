@@ -1,0 +1,3 @@
+# Controller r4 — test-only RAW growth oracle
+
+Review review-entrypoint.json and the exact one-method delta. Both short/growth cases still require rejection and ownedclose, now with exact per-case diagnostics and semantic expected+1 consumption/bounded requests. Runtime3/guest8/HostR3/controller/finite are unchanged. Original104-observed/103-pass/1-fail plus Root issued-vs-actual cwd mismatch remain negative/unqualified; no positive transfer. All94 predecessor files preserved.104 definitions/0newexecutions,30copies=7new+23reused. All29 finalbindingsNULL/readiness=false. Focused review and newfull104 Rootrelease required; Root must submit the exact prepared request dictionary.

@@ -1,0 +1,45 @@
+{
+  "schema": "e02-one-cid-controller-r3-test-oracle-delta-v1",
+  "predecessorSubject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2/subject.json",
+    "bytes": 17382,
+    "sha256": "34017b0aa5e7e85f65e30a454112e2929ee867e3e1abae6e06a64e458a43db4b"
+  },
+  "predecessorSourceAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r2-source-acceptance-20261029/acceptance.json",
+    "bytes": 1213,
+    "sha256": "7e0c8d98e4c84420d140aca3038ef67bda1ee94a6d5c587b82c1667273d0dc7e"
+  },
+  "actualNegativeLineage": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r2-model104-actual-20261029/failure-summary.json",
+    "bytes": 854,
+    "sha256": "0e1cfd67961d06b731cfbe3b3c9052229c96bab0f6c06431aeeccb82768676ce"
+  },
+  "negativeAttemptStatus": "FAILED_STOPPED_NO_RETRY",
+  "findingSeverity": "LOW_TEST_ORACLE_DIAGNOSTIC",
+  "diagnosis": "Actual parser correctly rejects auditextra with BOUND_NODE_HELPER_AUDIT; previous CLOSED_ regex failed. Parent Root reports both independent QA/security diagnosed this test-only mismatch.",
+  "changedMethod": "HostControls.test_probe_closed_top_audit_observation_and_field_keys",
+  "sourceDiff": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r3/r2-r3-test.diff",
+    "bytes": 1535,
+    "sha256": "10306a0f8206e93ee9818b29113ced369622f6ab6293b42e5fdcb9189d1605af"
+  },
+  "sameFourMutationLambdaASTs": true,
+  "sameFourSubtestsAndRejectTrace": true,
+  "exactAnchoredExpectedCodes": [
+    "\\ACLOSED_GUEST_PROBE\\Z",
+    "\\ABOUND_NODE_HELPER_AUDIT\\Z",
+    "\\ACLOSED_SUCCESS_OBSERVATION\\Z",
+    "\\ACLOSED_OBSERVATION_FIELDS\\Z"
+  ],
+  "rejectTraceAndAssertRaisesUnchanged": true,
+  "allOtherASTNodesUnchanged": true,
+  "bootstrapExplicitR2HostPathUnchanged": true,
+  "productionBehaviorChanged": false,
+  "runtime3AndGuest8PinsUnchanged": true,
+  "prior39PassDataTransferred": false,
+  "definitionsUnchanged": 104,
+  "thisR3ModelsExecuted": 0,
+  "modelsRetryAuthorized": false,
+  "selfApproval": false
+}

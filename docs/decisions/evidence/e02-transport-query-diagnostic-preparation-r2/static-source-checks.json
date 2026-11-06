@@ -1,0 +1,36 @@
+{
+  "schema": "e02-transport-source2-static-checks-v1",
+  "guardBytesUnchanged": true,
+  "exactPublishAndQueryBytesUnchanged": true,
+  "sameOriginalLimits": {
+    "messageBytes": 262144,
+    "captureBytes": 16777216,
+    "networkTimeoutMilliseconds": 10000,
+    "handshakeTimeoutMilliseconds": 3000,
+    "controlTimeoutMilliseconds": 45000
+  },
+  "unchangedLeaseSeconds": 300,
+  "sameImages": {
+    "runtimeImage": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+    "relayImage": "sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82"
+  },
+  "dependencyTreeCounts": {
+    "files": 816,
+    "directories": 65,
+    "symlinks": 2
+  },
+  "allCurrentPythonSyntaxParsed": true,
+  "sixNodeCheckCommands": "Syntax only, original API responses retained separately; no project module evaluation/import or test/runtime.",
+  "syntaxToolReceipts": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/syntax-only-original-tool-receipts.json",
+    "bytes": 4475,
+    "sha256": "024f479c90ab485b029ca1e233d6ad679c47e61b4ac99d2d44c93217461995e0"
+  },
+  "preparedScopes": {
+    "pythonSourceCustody10PlusInventory8": 18,
+    "fakeSocketLegacy20PlusNewFaultFamilies7": 27,
+    "guestInventoryFamilies": 6
+  },
+  "controlsRuntimeImportsServicesLeasesExecuted": 0,
+  "lateCallbacks": "Version2 observer behavior: no writes/actions after terminal claim; no protocol timer/operand change."
+}

@@ -1,0 +1,56 @@
+{
+  "schema": "e02-helper-rebuild-pure-plan-models-v2",
+  "source": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v3/test_plan_models.py",
+    "bytes": 7167,
+    "sha256": "be044a3fe15616fa2f1ad985a156fe430293596bc4e0473106d0c6952d03b1ac"
+  },
+  "modelNames": [
+    "test_positive_shape_only_not_tool_authentication",
+    "test_not_ready_state_refuses",
+    "test_missing_tool_hash_refuses",
+    "test_null_tool_hash_refuses",
+    "test_duplicate_tool_alias_refuses",
+    "test_foreign_tool_path_refuses",
+    "test_old_source_path_cannot_substitute_new_builder",
+    "test_old_apk_identity_field_refuses",
+    "test_original_phase_deadline_cannot_increase",
+    "test_original_command_deadline_cannot_increase",
+    "test_jvm_environment_configuration_cannot_silently_change",
+    "test_old_output_root_refuses",
+    "test_all_eight_original_cli_commands_and_flags_are_preserved",
+    "test_observed_actual_wrapper_defaults_fit_source2_only",
+    "test_previous_512_1024_heap_admissions_are_preserved",
+    "test_unknown_or_noninteger_heap_refuses",
+    "test_larger_d8_heap_refuses",
+    "test_d8_exception_does_not_admit_apksigner_2048",
+    "test_2048_admission_still_requires_exact_wrapper_binding"
+  ],
+  "defined": 19,
+  "executed": 0,
+  "carriedOriginalFamilies": 13,
+  "newHeapPolicyFamilies": 6,
+  "priorAcceptedOnceOnly13": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-clipboard-helper-rebuild-20261027/model-acceptance.json",
+    "bytes": 1341,
+    "sha256": "a22b39ff2be8c18a8a0bfeccd88f08d8ee56d2869f0234d17cddac2ffc399205"
+  },
+  "sourceDerivedDataDependency": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-clipboard-helper-rebuild-20261027/wrapper-source-observation-r1.json",
+    "bytes": 17525,
+    "sha256": "37f8137bee5bf1acb611d1e0ddb4a785ce827a89f82f59065f280a489d925161"
+  },
+  "scope": "Pure DATA policy/path/CLI source only; no actual tool/JVM/compile/key/APK/Android",
+  "bounds": {
+    "maximumSeconds": 30,
+    "maximumStdoutBytes": 65536,
+    "maximumStderrBytes": 262144
+  },
+  "proposedCommand": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v3/test_plan_models.py"
+  ],
+  "rootReleaseRequired": true
+}

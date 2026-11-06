@@ -1,0 +1,41 @@
+{
+  "schema": "e02-ordinary-minimum-profile-plan-v2",
+  "profileId": "e02-ordinary-minimum-rs-two-role-v2",
+  "ordinaryProducer": "JS_ONLY",
+  "relay": "rs-relay",
+  "roles": {
+    "incoming": {
+      "windowId": "incoming-b",
+      "account": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
+      "peer": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+      "scalar": 2,
+      "nsec": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpqptcfk2",
+      "tab": "New Requests",
+      "stages": [
+        "incoming-business",
+        "incoming-ordinary-chat"
+      ]
+    },
+    "archive": {
+      "windowId": "archive-a",
+      "account": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+      "peer": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
+      "scalar": 1,
+      "nsec": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqsmhltgl",
+      "tab": "Known",
+      "stages": [
+        "archive-business",
+        "archive-identical-replay",
+        "archive-fresh-wrap-replay"
+      ]
+    }
+  },
+  "businessId": "e2b4accf597c65d5a3749f44551545f2be430a0ac3ddfb4cf694c9d12ae6df14",
+  "chatId": "f335fb5dbee6dda9fff841581bfa552584dd56782ff100ce0912a4708f0de71f",
+  "perWindowOriginalLeaseSeconds": 1800,
+  "maximumRoleWindows": 2,
+  "reuseV3Observation": false,
+  "sharedOracleMeaning": "Frozen v2 producer EXPECTATION INPUT only; never a failed-row donation. Both roles require genuine new client exports.",
+  "canonicalPass": false,
+  "maximumConcurrentWindows": 1
+}

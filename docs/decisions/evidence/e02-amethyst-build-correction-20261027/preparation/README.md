@@ -1,0 +1,3 @@
+# Working-directory correction preparation
+
+SOURCE ONLY, NOT READY. The prior actual attempt failed before Gradle because the image inherited `/work/source` as WorkingDir, creating the otherwise forbidden source workcopy. The new plan explicitly selects `/work`. The build_inside.py bytes, build command, tool/source read-only mounts, budgets, SDK policy and receipt names are unchanged. Only the preparation mount and fresh host user/work-r2, cache/build-r2 and output/build-r2 roots are rebound. No old failure, cache, user home, source archive, acquired input or output is changed. No models, tools or build were executed here. Acquisition SOURCE1/SOURCE2 are historical DATA inputs, not new acquisition instructions.

@@ -1,0 +1,59 @@
+{
+  "schema": "e02-root-capture-known-actors-v1",
+  "actor": "/root",
+  "scope": "CURRENT_PRODUCER4_PURE_CONTROL_CAPTURE_AND_ADMISSION",
+  "producerSource": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/subject.json",
+    "bytes": 41959,
+    "sha256": "d4229ef2ddf77e79a8f1a9990ea174db4c3dba9e7f2012ed42589d857be443b5"
+  },
+  "knownActors": [
+    "/root",
+    "/root/android_health_implementer",
+    "/root/collector_policy_security_553c5bfd",
+    "/root/completion3_final",
+    "/root/completion_wrapper",
+    "/root/consumer3_preparation",
+    "/root/helper_apk_binding_scope",
+    "/root/helper_controller_source6_env",
+    "/root/lease_fix_binding_scope",
+    "/root/native_rebuild_prepare",
+    "/root/ordinary_api35_source",
+    "/root/probe_r7_fresh_qa_8d291e97745f",
+    "/root/probe_r7_fresh_security_8d291e97745f",
+    "/root/producer3_capture",
+    "/root/producer4_nonblocking_source",
+    "/root/r5",
+    "/root/r5_plan_fix",
+    "/root/whole_consumer_fixture"
+  ],
+  "provenance": {
+    "baselineKnownActorAuthority": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifact-source-review-20261105/root-known-actors.json",
+      "bytes": 3310,
+      "sha256": "d1da5c4ec9c0d7b20144a082fa2327e1dc377db0baa1a3ffaf89b601e630468f"
+    },
+    "currentProducerSourceAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifact-source-review-20261105/acceptance.json",
+      "bytes": 1212,
+      "sha256": "277c4b31273e8e4c703a7fec54f5311ed159e4995d351a3c9017687006b51cdb"
+    },
+    "typedOriginDiagnosis": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-review-20261105/security-findings.json",
+      "bytes": 2547,
+      "sha256": "855a1ca8e562ead3403ef66d6c6a8e57d6d3fc1925e93fc02e2a941be973cf68"
+    },
+    "captureTypeSupplement": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-goal-resume-20261104/capture-request-type-preservation-supplement-20261105.json",
+      "bytes": 838,
+      "sha256": "06b449ed671c838da0a567cd2c464569e691ef272daf3a9178150d7c558eb92a"
+    },
+    "requiredKnownActorsPreserved": 17,
+    "newCurrentActors": [
+      "/root/collector_policy_security_553c5bfd"
+    ]
+  },
+  "semantics": "Current capture identity union adds actual typed-origin security diagnosis contributor before capture/admission/DATA reviewers. Producer17 authority/freeze stays immutable and valid for its earlier Source. This is identity authority only, not capture acceptance or execution.",
+  "sourceAccepted": false,
+  "executionAuthorized": false
+}

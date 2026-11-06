@@ -1,0 +1,48 @@
+{
+  "schema": "nbdp-helper-source2-once-model-release-v1",
+  "actor": "/root",
+  "decision": "RELEASE_ONE_FIXED19_PURE_MODEL_BATCH",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-clipboard-helper-rebuild-20261027-source2/subject.json",
+    "bytes": 4948,
+    "sha256": "31b5ee3c223a4c3d23f5dfe2aa72e86b70ee8bf1a516dae271fa334da3577319"
+  },
+  "modelPlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-clipboard-helper-rebuild-20261027-source2/model-plan.json",
+    "bytes": 2384,
+    "sha256": "77eca2d1246518026183cc5dcfe73da21d48ba6f22f289ceb2b57c9052d52635"
+  },
+  "interpreter": {
+    "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "bytes": 32959480,
+    "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-clipboard-helper-rebuild-20261027-source2/actual-source-qa-review.json",
+      "bytes": 1149,
+      "sha256": "e8ed08fb088b885caf7c0522985783d9188abe74da64e8a65a5f34a0f7392ab3"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-clipboard-helper-rebuild-20261027-source2/actual-source-security-review.json",
+      "bytes": 1086,
+      "sha256": "e4b46e9b8aa7c478086bbbacfed95d3e8ffe149415f323bab86eb6e1d40aebf8"
+    }
+  ],
+  "commands": [
+    [
+      "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "-I",
+      "-B",
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v3/test_plan_models.py"
+    ]
+  ],
+  "countsSeparate": [
+    19
+  ],
+  "timeoutSeconds": 30,
+  "stdoutRetainedBytes": 65536,
+  "stderrRetainedBytes": 262144,
+  "rerunsAuthorized": 0,
+  "compilationAuthorized": false
+}

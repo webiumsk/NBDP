@@ -1,0 +1,38 @@
+{
+  "schema": "e02-one-cid-controller-static-preparation-v1",
+  "version": "r3",
+  "actor": "/root/producer4_nonblocking_source",
+  "actualMetadataInterpreter": "/home/peterhorvath/.miniforge3/bin/python3",
+  "argv": [
+    "python3",
+    "-"
+  ],
+  "sourceAst": [
+    {
+      "source": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r3/test_host.py",
+        "bytes": 35720,
+        "sha256": "39e6c31027229e965d1a4d23fd9e83de3d9212a9abacf4a2dd09a8f8c82309e6"
+      },
+      "result": "PARSED_NO_EVALUATION"
+    }
+  ],
+  "staticAssertions": [
+    "Only one HostControls method differs",
+    "All four mutation lambda ASTs unchanged",
+    "All four exact anchored expectedcodes match Root instruction",
+    "reject_trace/assertRaises and every other AST node unchanged",
+    "All104 definition names preserved; no old39pass transfer",
+    "All76 originalR1/R2 files and currentruntime3/guest8 pins exact"
+  ],
+  "exitCode": 0,
+  "targetImports": 0,
+  "modelsExecuted": 0,
+  "helperExecutions": 0,
+  "dockerExecutions": 0,
+  "nodeExecutions": 0,
+  "roleExecutions": 0,
+  "binariesRead": 0,
+  "binariesCopied": 0,
+  "syntaxIsRuntimeEvidence": false
+}

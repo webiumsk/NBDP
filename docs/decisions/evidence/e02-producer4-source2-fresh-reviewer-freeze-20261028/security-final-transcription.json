@@ -1,0 +1,22 @@
+{
+  "role": "security",
+  "session": "/root/p4s2_fresh_security_52a2515afbb6e2cc897b01270b4f90f4",
+  "decision": {
+    "status": "HOLD",
+    "findings": [
+      {
+        "id": "P4S2-SEC-01",
+        "severity": "MEDIUM",
+        "evidence": "exchange.mjs15-29/66 terminal observation24 precedes ctx.fail(original)29; fixture.phase165 can fatal(captureError) first. Timer86 similarly observes TIMER_FIRED before claiming RELAY_TIMEOUT.",
+        "impact": "Wrong primary service/guard-owner fault; Promise can reject original while owner retains capture error. No unauthorized success demonstrated.",
+        "required": "Claim/fence original exchange socket/send/timeout failure before fallible observation. Actual exchange+service integration under fake sockets/clocks/sinks: short write, ENOSPC, capacity exhausted; original identity primary, secondary retained, queued/inflight reject, lateOK no success, bounded cleanup."
+      }
+    ],
+    "verification": "Read-only,391 unique source/history/method/prior pins checked twice; actual postfreeze birth and excluded union verified; no execution/writes/acceptance."
+  },
+  "subject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source2/subject.json",
+    "bytes": 26425,
+    "sha256": "e5f564bcdb3e945822924109a28db6c4f3dd35275b9266fc26b46d4bd697f74e"
+  }
+}

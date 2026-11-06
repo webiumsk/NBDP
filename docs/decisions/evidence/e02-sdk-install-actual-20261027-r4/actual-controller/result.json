@@ -1,0 +1,59 @@
+{
+  "schema": "nbdp-scoped-sdk-install-controller-result-v1",
+  "runId": "81aa1ae7aa77b492208d683a26eae81c",
+  "cid": "6a724938999f1fc9ff363cef1200afabf84e0550dac2b69f5a242d8b7b98e09a",
+  "state": "FAILED_OR_UNQUALIFIED_NO_RETRY",
+  "firstFault": "ValueError:ATTACHED_INSTALL_FAILED_OR_LOG_CEILING:NONZERO_2",
+  "secondaryErrors": [],
+  "cleanup": "EXACT_CID_ABSENCE_KNOWN",
+  "jobState": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 2,
+    "Error": "",
+    "StartedAt": "2026-10-27T19:29:18.148155531Z",
+    "FinishedAt": "2026-10-27T19:30:46.985459482Z"
+  },
+  "networkBindingStage": "ENDPOINT_FULL_NETWORK_ID_OBSERVED",
+  "innerEvidence": {
+    "installation-result.json": {
+      "path": "/Data/nbdp-e02-tooling-20261027/controller-r5/writable-r1/output/installation-result.json",
+      "bytes": 2222,
+      "sha256": "7cf3b06ff6bdabcf9e05ae52ed682939bf0a92fe8c1b9c0351d9301cc26ec1c6"
+    },
+    "consent-attempted.json": {
+      "path": "/Data/nbdp-e02-tooling-20261027/controller-r5/writable-r1/output/consent-attempted.json",
+      "bytes": 271,
+      "sha256": "d6e43cc5a5267ce8ee2e2d491a8febab276d2532b578d421d75616dbec941ed5"
+    },
+    "consent-sent.json": {
+      "path": "/Data/nbdp-e02-tooling-20261027/controller-r5/writable-r1/output/consent-sent.json",
+      "bytes": 330,
+      "sha256": "d0d1d5f9f3ee3fbe968f7b456f726e0da36366d124811e7436b0761197a03ae9"
+    }
+  },
+  "cliReceipts": 20,
+  "consentStatus": "INSPECT_INNER_JOURNALS_UNKNOWN_UNTIL_INDEPENDENT_REVIEW",
+  "configuredLimits": {
+    "wholeSeconds": 1200,
+    "cleanupReserveSeconds": 90,
+    "jobSeconds": 1050,
+    "attachSeconds": 1080,
+    "memoryBytes": 2147483648,
+    "cpus": 2,
+    "pids": 256,
+    "jobPerFileBytes": 2147483648,
+    "cliCapturePerFileBytes": 4194304
+  },
+  "limitsMeaning": "Configured bounds only; no aggregate diskquota, measured peak, hostile atomic custody or egress guarantee.",
+  "networkMutationPerformed": false,
+  "sdkQualificationClaimed": false,
+  "canonicalE02Changed": false,
+  "noHostNumericPidSignalsByController": true,
+  "hostileAtomicClosureClaimed": false
+}

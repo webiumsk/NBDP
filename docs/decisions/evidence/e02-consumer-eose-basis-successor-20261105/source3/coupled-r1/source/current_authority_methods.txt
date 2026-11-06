@@ -1,0 +1,139 @@
+# Fixed CODE membership; mutable authority/bindings are separate acyclic leaves.
+RUNTIME_FILES = ('consumer.py','strict.py','wire.py','gui.py','witness.py','observer.py',
+    'async_guard.py','parent_allocation.py','capture_contracts.py','capture_outputs.py',
+    'current_controls.py','probe_adapter.py')
+CONTROL_FILES = ('test_data_controls.py','test_async_guard.py','test_parent_allocation.py',
+    'test_observer_v3.py','test_source_bindings.py','test_current_controls.py',
+    'test_probe_adapter.py','test_whole_window.py','test_current_authority.py')
+CODE_FILES = tuple(sorted((*RUNTIME_FILES,*CONTROL_FILES,'model_stage.py','whole_window.py',
+    'prepare_consumer_edit.py','prepare_observer_edit.py','strict_raw_method.txt',
+    'whole_window_methods.txt','current_authority_methods.txt','README.md')))
+CONTROL_DATA_KEYS = 'schema authors operators consumerSource consumerSourceAcceptance controlPlan producerSource producerControlAcceptance execution originalToolOrigin rawArtifactManifest countsSeparate modelsDefined modelsExecuted modelsPassed modelsFailed skipped truncated inputsUnchanged helperExecutions dockerExecutions ordinaryRoleExecutions ordinaryRowsQualified'
+CONTROL_EXECUTION_KEYS = 'schema consumerSource controlPlan groups countsSeparate modelsExecuted modelsPassed modelsFailed skipped truncated inputsBefore inputsAfter inputsUnchanged scope innerPidReapEofAttested'
+CONTROL_GROUP_KEYS = 'name source count definitionNames request originalToolOrigin rawOutput exitCode scope innerPidReapEofAttested'
+
+
+def current_code_profile(files,descriptor):
+    """Verify external subject against actual current loaded CODE and test bytes."""
+    import ast
+    source=files.doc(descriptor)
+    equal(source['schema'],'e02-ordinary-consumer6-source-subject-v1');equal(source['version'],'SOURCE4')
+    here=Path(__file__).resolve().parent;equal(source['sourceRoot'],str(here),'RUNNING_CURRENT_CONSUMER_SOURCE_ROOT')
+    equal(source['sourceCount'],len(CODE_FILES));equal(source['runtimeSourceCount'],len(RUNTIME_FILES))
+    declared=source['sources'];need(type(declared) is list,'CLOSED_CURRENT_CODE_MEMBER_LIST')
+    by_name={Path(p['path']).name:p for p in declared}
+    equal(len(by_name),len(declared));equal(sorted(by_name),list(CODE_FILES),'EXACT_CURRENT_DECLARED_CODE_AND_MODELS')
+    bodies={}
+    for name in CODE_FILES:
+        p=by_name[name];pin_shape(p);equal(p['path'],str(here/name),'EXACT_CURRENT_MEMBER_PATH')
+        bodies[name]=files.read(p)
+    equal(source['runtimeSources'],[by_name[name] for name in RUNTIME_FILES],'EXACT_CURRENT12_RUNTIME_PINS')
+    for name in RUNTIME_FILES:
+        module=sys.modules[__name__] if name=='consumer.py' else sys.modules.get(name[:-3])
+        need(module is not None and Path(module.__file__).resolve()==here/name,'ACTUAL_LOADED_RUNTIME_MODULE_PATH:'+name)
+    equal(source['producerSource'],CURRENT_PRODUCER);equal(source['producerControlAcceptance'],CURRENT_PRODUCER_CONTROL_ACCEPTANCE)
+    equal(source['producerRuntimeWorkerCount'],22);equal(source['producerSourceMemberCount'],61)
+    plan=files.doc(source['controlPlan']);equal(plan['schema'],'e02-consumer6-model-control-plan-v1')
+    groups=plan['groups'];equal([g['name'] for g in groups],list(CONTROL_FILES),'ALL_CURRENT_ORDERED_CONTROL_GROUPS')
+    counts=[]
+    for group in groups:
+        closed(group,'name source count definitionNames argv cwd format definitionScope')
+        name=group['name'];equal(group['source'],by_name[name]);equal(group['cwd'],str(here))
+        equal(group['argv'],['/home/peterhorvath/.miniforge3/bin/python3.13','-I','-B',str(here/name),'-v'])
+        tree=ast.parse(bodies[name],filename=str(here/name))
+        methods=[cls.name+'.'+method.name for cls in tree.body if isinstance(cls,ast.ClassDef)
+            for method in cls.body if isinstance(method,ast.FunctionDef) and method.name.startswith('test_')]
+        equal(group['definitionNames'],methods,'ACTUAL_CURRENT_SOURCE_METHOD_PARTITION')
+        integer(group['count'],1,10000);equal(group['count'],len(methods))
+        equal(group['format'],'EXACT_VERBOSE_UNITTEST_NAMES');counts.append(group['count'])
+    total=sum(counts);equal(source['modelsDefined'],{g['name']:g['count'] for g in groups})
+    equal(source['modelDefinitions'],total);equal(source['modelGroups'],len(groups))
+    equal(plan['modelsDefined'],total);equal(plan['modelsExecuted'],0)
+    return source,plan,counts,total
+
+
+def named_unittest_output(raw,group):
+    """All named successes, exact count/trailer; skip/failure/truncation refuses."""
+    need(type(raw) is bytes and len(raw)<=1048576,'BOUNDED_MODEL_API_OUTPUT')
+    text_value=raw.decode('utf8','strict')
+    trailer=re.search(r'\n\n-{70}\nRan ([0-9]+) tests? in [0-9]+(?:\.[0-9]+)?s\n\nOK\n\Z',text_value)
+    need(trailer is not None and int(trailer[1])==group['count'],'EXACT_COMPLETE_NAMED_UNITTEST_TRAILER')
+    lines=text_value[:trailer.start()].splitlines();names=[]
+    for line in lines:
+        match=re.fullmatch(r'([A-Za-z_][A-Za-z_0-9]*) \(__main__\.([A-Za-z_][A-Za-z_0-9]*)\.([A-Za-z_][A-Za-z_0-9]*)\) \.\.\. ok',line)
+        need(match is not None and match[1]==match[3],'EVERY_CURRENT_MODEL_NAMED_SUCCESS')
+        names.append(match[2]+'.'+match[3])
+    equal(names,sorted(group['definitionNames']),'ALL_CURRENT_MODEL_NAMES_ONCE')
+
+
+def current_control_request(group):
+    import shlex
+    argv=['/usr/bin/env','-i','PATH=/usr/bin:/bin','LANG=C.UTF-8','LC_ALL=C.UTF-8',
+        '/usr/bin/timeout','--signal=KILL','63s',*group['argv']]
+    return dict(cmd=shlex.join(argv),workdir=group['cwd'],login=False,yield_time_ms=1000,max_output_tokens=20000)
+
+
+def control_actor_union(files,value):
+    from probe_adapter import source_actors,data_actors,participant_union
+    source=files.doc(value['consumerSource']);data=files.doc(value['consumerControlData'])
+    probe=files.doc(value['helperProbeData'])
+    triple={key:value[key] for key in ('controllerSource','controllerSourceAcceptance','controllerControlDataAcceptance')}
+    for key,expected in triple.items():pin_shape(expected);equal(probe[key],expected,'EXACT_EXTERNAL_CURRENT_CONTROLLER_TRIPLE')
+    union=set(CURRENT_CONTROL_ACTORS)|source_actors(source)|data_actors(data)
+    union|=participant_union(files,probe,union)
+    probe_adapter.validate_controller_authority(files,triple,CURRENT_PRODUCER,CURRENT_HELPER_CONTROLLER_ACCEPTANCE_CONTRACT,union)
+    return union
+
+
+def validate_current_consumer_authority(files,value):
+    """Actual current self/partition/typed acceptances before readiness activation."""
+    import capture_contracts as cc
+    contract=files.doc(CURRENT_CONSUMER_ACCEPTANCE_CONTRACT)
+    source,plan,counts,total=current_code_profile(files,value['consumerSource'])
+    source_acceptance=files.doc(value['consumerSourceAcceptance']);data=files.doc(value['consumerControlData']);acceptance=files.doc(value['consumerControlAcceptance'])
+    union=control_actor_union(files,value)  # Complete union BEFORE either pair.
+    src=contract['source'];closed(source_acceptance,' '.join(src['closedKeys']))
+    for k,v in src['literals'].items():equal(source_acceptance[k],v,'EXACT_CURRENT_CONSUMER_SOURCE_ACCEPTANCE')
+    for k,v in [('subject',value['consumerSource']),('producerSource',CURRENT_PRODUCER),('producerControlAcceptance',CURRENT_PRODUCER_CONTROL_ACCEPTANCE),('runtimeSourceCount',len(RUNTIME_FILES)),('sourceCount',source['sourceCount']),('modelsDefined',total)]:equal(source_acceptance[k],v,'CURRENT_SOURCE_PARTITION_JOIN')
+    cc.reviews([files.doc(p) for p in source_acceptance['reviews']],source_acceptance['reviews'],value['consumerSource'],src['reviewDecision'],union)
+    closed(data,CONTROL_DATA_KEYS);equal(data['schema'],contract['data']['subjectSchema'])
+    for k,v in [('consumerSource',value['consumerSource']),('consumerSourceAcceptance',value['consumerSourceAcceptance']),('controlPlan',source['controlPlan']),('producerSource',CURRENT_PRODUCER),('producerControlAcceptance',CURRENT_PRODUCER_CONTROL_ACCEPTANCE),('countsSeparate',counts),('modelsDefined',total),('modelsExecuted',total),('modelsPassed',total),('modelsFailed',0),('skipped',0),('truncated',False),('inputsUnchanged',True),('helperExecutions',0),('dockerExecutions',0),('ordinaryRoleExecutions',0),('ordinaryRowsQualified',0)]:equal(data[k],v,'CURRENT_COMPLETE_CONTROL_DATA_JOIN')
+    rule=contract['data'];closed(acceptance,' '.join(rule['closedKeys']))
+    for k,v in rule['literals'].items():equal(acceptance[k],v,'EXACT_CURRENT_CONSUMER_CONTROL_ACCEPTANCE')
+    for k,v in [('subject',value['consumerControlData']),('consumerSource',value['consumerSource']),('consumerSourceAcceptance',value['consumerSourceAcceptance']),('controlPlan',source['controlPlan']),('producerSource',CURRENT_PRODUCER),('producerControlAcceptance',CURRENT_PRODUCER_CONTROL_ACCEPTANCE),('countsSeparate',counts),('modelsDefined',total),('modelsExecuted',total),('modelsPassed',total)]:equal(acceptance[k],v,'CURRENT_ROOT_DATA_SOURCE_AND_PARTITION_JOIN')
+    cc.reviews([files.doc(p) for p in acceptance['reviews']],acceptance['reviews'],value['consumerControlData'],rule['reviewDecision'],union)
+    execution=files.doc(data['execution']);closed(execution,CONTROL_EXECUTION_KEYS)
+    for k,v in [('schema','e02-consumer6-control-execution-v1'),('consumerSource',value['consumerSource']),('controlPlan',source['controlPlan']),('countsSeparate',counts),('modelsExecuted',total),('modelsPassed',total),('modelsFailed',0),('skipped',0),('truncated',False),('inputsUnchanged',True),('scope','API_ONLY_MOCK_OR_READ_ONLY_MODELS_NO_TARGET_RUNTIME'),('innerPidReapEofAttested',False)]:equal(execution[k],v,'ACTUAL_CURRENT_MODEL_EXECUTION_JOIN')
+    before=files.doc(execution['inputsBefore']);after=files.doc(execution['inputsAfter']);equal(before,after,'EXACT_EXPECTED_INPUTS_UNCHANGED')
+    closed(before,'schema rows');equal(before['schema'],'e02-consumer6-current-inputs-v1')
+    need(type(before['rows']) is list and before['rows'],'EXPLICIT_EXPECTED_MODEL_INPUT_SNAPSHOT')
+    rows={r['pin']['path']:r for r in before['rows']};equal(len(rows),len(before['rows']))
+    for row in before['rows']:
+        closed(row,'pin mode uid gid device inode mtimeNs ctimeNs');pin_shape(row['pin']);integer(row['mode'],0,4095);integer(row['uid']);integer(row['gid'])
+        for field in ('device','inode','mtimeNs','ctimeNs'):need(type(row[field]) is str and re.fullmatch(r'[0-9]{1,24}',row[field]),'EXACT_SNAPSHOT_IDENTITY_DECIMAL')
+    declared_inputs=files.doc(source['inputManifest'])
+    required=[*source['sources'],source['controlPlan'],source['inputManifest'],value['consumerSource'],value['consumerSourceAcceptance'],*declared_inputs['fixedSourceAndCurrentDataOperands']]
+    for p in required:
+        need(p['path'] in rows,'EVERY_CURRENT_CODE_TEST_PLAN_INPUT_SNAPSHOTTED');equal(rows[p['path']]['pin'],p,'EXPECTED_INPUT_HASH_NOT_OBSERVED_BASELINE')
+    origin_index=files.doc(data['originalToolOrigin']);closed(origin_index,'schema origins')
+    equal(origin_index['schema'],'e02-consumer6-control-api-index-v1');equal(len(origin_index['origins']),len(plan['groups']))
+    groups=execution['groups'];equal(len(groups),len(plan['groups']))
+    manifest=files.doc(data['rawArtifactManifest']);closed(manifest,'schema files originalToolOrigin')
+    equal(manifest['schema'],'e02-consumer6-control-raw-manifest-v1');equal(manifest['originalToolOrigin'],data['originalToolOrigin'])
+    need(type(manifest['files']) is list and 1<=len(manifest['files'])<=20000,'FINITE_CURRENT_CONTROL_RAW_MANIFEST')
+    index={p['path']:p for p in manifest['files']};equal(len(index),len(manifest['files']))
+    need(data['rawArtifactManifest']['path'] not in index,'NO_CURRENT_CONTROL_MANIFEST_SELF_CYCLE')
+    for p in manifest['files']:files.read(p)
+    for p in [data['execution'],data['originalToolOrigin'],execution['inputsBefore'],execution['inputsAfter']]:equal(index.get(p['path']),p,'ALL_CURRENT_PROOF_MANIFEST_MEMBERS')
+    for expected,row,entry in zip(plan['groups'],groups,origin_index['origins']):
+        closed(row,CONTROL_GROUP_KEYS);closed(entry,'group origin')
+        for k,v in [('name',expected['name']),('source',expected['source']),('count',expected['count']),('definitionNames',expected['definitionNames']),('request',current_control_request(expected)),('exitCode',0),('scope','API_ONLY_MOCK_OR_READ_ONLY_MODELS_NO_TARGET_RUNTIME'),('innerPidReapEofAttested',False)]:equal(row[k],v,'ORDERED_CURRENT_API_MODEL_GROUP')
+        equal(entry['group'],row['name']);equal(entry['origin'],row['originalToolOrigin'])
+        for p in (row['originalToolOrigin'],row['rawOutput']):equal(index.get(p['path']),p,'COMPLETE_GROUP_RAW_MANIFEST_MEMBER')
+        api=cc.decode_tool_origin(files.read(row['originalToolOrigin']))
+        actual=cc.validate_origin(api,row['request'],data['operators']).encode('utf8')
+        equal(files.read(row['rawOutput']),actual,'COMPLETE_GENUINE_GROUP_API_OUTPUT')
+        named_unittest_output(actual,expected)
+    return source,plan,counts,total,union
+
+

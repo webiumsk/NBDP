@@ -1,0 +1,37 @@
+{
+  "schema": "e02-helper-component-source-preparation-execution-v1",
+  "operator": "/root",
+  "request": {
+    "cmd": "set -C\numask 077\nexec /usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 TZ=UTC /usr/bin/timeout --signal=TERM --kill-after=2s 60s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-component-basis-completion-20261105/source3/prepare_mapping.py --spec /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-component-basis-completion-20261105/root-source-preparation-r1/spec.json --spec-bytes 40653 --spec-sha256 af922c69a9175836cc857402cc2c50a92c0d45b0115ce4edda0c2f0f5597f8a8 --helper-source-bytes 1913 --helper-source-sha256 da9a85ff38ecc065a86a84a3cb110e0a7025777111bfb946ed04abf57d1acb5e > /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-component-basis-completion-20261105/root-source-preparation-r1/unissued-source-result.json 2> /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-component-basis-completion-20261105/root-source-preparation-r1/stderr.log",
+    "workdir": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-component-basis-completion-20261105/source3",
+    "login": false,
+    "yield_time_ms": 1000,
+    "max_output_tokens": 2000
+  },
+  "preparationSpec": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-component-basis-completion-20261105/root-source-preparation-r1/spec.json",
+    "bytes": 40653,
+    "sha256": "af922c69a9175836cc857402cc2c50a92c0d45b0115ce4edda0c2f0f5597f8a8"
+  },
+  "methodSource": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-component-basis-completion-20261105/source3/code-subject.json",
+    "bytes": 1913,
+    "sha256": "da9a85ff38ecc065a86a84a3cb110e0a7025777111bfb946ed04abf57d1acb5e"
+  },
+  "stdout": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-component-basis-completion-20261105/root-source-preparation-r1/unissued-source-result.json",
+    "bytes": 72198,
+    "sha256": "14747cb1bab51788277b2e534063ccb792844762b5b71087e3baf38da1a283fc"
+  },
+  "stderr": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-component-basis-completion-20261105/root-source-preparation-r1/stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "originalToolOrigin": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-component-basis-completion-20261105/root-source-preparation-r1/actual-tool-origin.json",
+    "bytes": 1994,
+    "sha256": "1de7cf1b0fd494c62bd74e7d0566d83415954a7f1e2b8cbd8d9ac1b0b6a15e4c"
+  },
+  "exitCode": 0
+}

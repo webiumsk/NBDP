@@ -1,0 +1,29 @@
+--- /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r7/materializer-source/materialize.py
++++ /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r8/materializer-source/materialize.py
+@@ -9,11 +9,11 @@
+ import sys
+ import time
+ 
+-HERE=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r7/materializer')
+-SOURCE=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r7/supervisor-source')
+-WORK=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r7/controller')
++HERE=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r8/materializer')
++SOURCE=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r8/supervisor-source')
++WORK=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r8/controller')
+ PYTHON='/home/peterhorvath/.miniforge3/bin/python3.13'
+-PINNED=[{'path': '/home/peterhorvath/.miniforge3/bin/python3.13', 'bytes': 32959480, 'sha256': '5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1'}, {'path': '/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r7/supervisor-source/supervise_build.py', 'bytes': 31753, 'sha256': '79dee6482e31a97040013f7ffa8f260f5dc5055c64cfbc17ad1ed4268b54d587'}, {'path': '/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r7/supervisor-source/subject.json', 'bytes': 3751, 'sha256': 'ea8632f334cd3afc77763ee95e534bf0f4c97a96c3464ef591cdc32be70a6146'}, {'path': '/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r7/supervisor-source/plan.json', 'bytes': 10669, 'sha256': 'bde6633c7735433717189ebc39635b7199415ece7f5e1115b704c837a5c42e8a'}]
++PINNED=[{'path': '/home/peterhorvath/.miniforge3/bin/python3.13', 'bytes': 32959480, 'sha256': '5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1'}, {'path': '/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r8/supervisor-source/supervise_build.py', 'bytes': 31753, 'sha256': '4664055e9563fe4cc1c3c50579990dfbdb5362bd7158a94ef487e21c80ad5677'}, {'path': '/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r8/supervisor-source/subject.json', 'bytes': 5376, 'sha256': 'b8ebc5f3f0cce4297c738b2b9b0ab0f1b966b3b1dc7edcab62f1550321261ded'}, {'path': '/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r8/supervisor-source/plan.json', 'bytes': 12314, 'sha256': '8ddc9312f7a642a9838b1b7bb5ee426d843415b260e2939e0ded9f8ab5d11360'}]
+ 
+ CLOCKS={'issuedAtUtcNs','notAfterUtcNs'}
+ RELEASE_KEYS=set('schema actor executionAuthorized scope runId issuedAtUtcNs notAfterUtcNs supervisorSubject buildPreparationSubject sourceReviews prerequisiteAcceptances sourceArchive sourceArchiveReceipt jdkExtraction installedSdkInventory installedSdkMetadata installedSdkConsent installedSdkAcceptance networkId networkLabels meaning'.split())
+@@ -93,8 +93,8 @@
+ 
+ 
+ def fresh(r,now):
+-    need(type(now) is int and 0<now<=9223372036854775807-4200*10**9,'EXACT_NS_CLOCK')
+-    live=dict(r,issuedAtUtcNs=now,notAfterUtcNs=now+4200*10**9)
++    need(type(now) is int and 0<now<=9223372036854775807-6000*10**9,'EXACT_NS_CLOCK')
++    live=dict(r,issuedAtUtcNs=now,notAfterUtcNs=now+6000*10**9)
+     need({k:v for k,v in live.items() if k not in CLOCKS}=={k:v for k,v in r.items() if k not in CLOCKS},'PAYLOAD_CHANGED')
+     return live
+ 

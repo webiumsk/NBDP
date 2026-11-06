@@ -1,0 +1,640 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/capture/assemble.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-capture-20261105/source2/capture/assemble.py
+@@ -14,7 +14,7 @@
+     need(ack_pin['sha256']==ack_sha,'EXACT_ROOT_ACK');ack=metadata(ack_pin,deadline);docs,records=capture.load_bundle(ack,deadline);values,_=capture.validate_bundle(ack,docs,records,ack_sha)
+     plan=docs['plan'];root=pathlib.Path(plan['outputRoot']);need(result_pin['path']==str(root/'result.json'),'EXACT_ONCE_CAPTURE_RESULT_PATH');result=metadata(result_pin,deadline)
+     need(result['schema']=='e02-producer4-current-control-execution-v1' and result['rootAcknowledgement']==ack_pin and result['producerSource']==ack['producerSource'] and result['captureSource']==ack['captureSource'] and result['plan']==ack['plan'] and result['inputManifest']==ack['inputManifest'] and result['countsSeparate']==values,'EXACT_RESULT_CURRENT_JOINS')
+-    need(result['exitCode']==0 and result['firstFault'] is None and result['sourceUnchanged'] is True and result['remainingNotExecuted']==[] and len(result['scopes'])==len(result['outcomes'])==10 and 0<=result['elapsedNs']<=1200000000000,'ALL_TEN_NATURAL_CURRENT_SCOPES_ONLY')
++    need(result['exitCode']==0 and result['firstFault'] is None and result['sourceUnchanged'] is True and result['remainingNotExecuted']==[] and len(result['scopes'])==len(result['outcomes'])==11 and 0<=result['elapsedNs']<=1263000000000,'ALL_ELEVEN_NATURAL_CURRENT_SCOPES_ONLY')
+     manifest_pin=capture.descriptor(root/'raw-artifact-manifest.json');manifest=metadata(manifest_pin,deadline);closed(manifest,'schema files originalToolOrigin outerApiMeaning');need(manifest['schema']=='e02-producer4-control-raw-artifact-manifest-v1' and manifest['originalToolOrigin'] is None,'ORIGINAL_CAPTURE_MANIFEST_NO_FAKE_PARENT_API')
+     indexed={d['path']:d for d in manifest['files']};need(len(indexed)==len(manifest['files']),'UNIQUE_COMPLETE_RAW_MANIFEST');actual={str(p) for p in root.iterdir() if p.name!='raw-artifact-manifest.json'};need(actual==set(indexed),'NO_MISSING_EXTRA_LATE_RAW_PROOF')
+     for d in manifest['files']:read_expected(d,deadline)
+@@ -24,7 +24,7 @@
+         stdout=read_expected({k:v for k,v in row['stdout'].items() if k!='mode'},deadline,True)[1];stderr=read_expected({k:v for k,v in row['stderr'].items() if k!='mode'},deadline,True)[1]
+         need(parse_outcome(scope,row,stdout,stderr)==outcome,'RAW_STREAM_OUTCOME_MATCH')
+         for tail in ('before','after'):
+-            p=root/('%02d-%s.json'%(i,tail));need(str(p) in indexed and metadata(indexed[str(p)],deadline)==before,'ALL20_PER_SCOPE_EXPECTED_CUSTODY_SNAPSHOTS')
++            p=root/('%02d-%s.json'%(i,tail));need(str(p) in indexed and metadata(indexed[str(p)],deadline)==before,'ALL22_PER_SCOPE_EXPECTED_CUSTODY_SNAPSHOTS')
+     origin=decode_tool_origin(read_expected(origin_pin,deadline,True)[1]);printed=validate_origin(origin,expected_request(plan,ack_sha,str(capture.HERE)),ack['operators'])
+     summary=json.loads(printed.strip());need(summary==dict(result=result_pin,rawManifest=manifest_pin,exitCode=0),'GENUINE_TERMINAL_CAPTURE_SUMMARY')
+     out=pathlib.Path(output);need(out.parent==root.parent and out.name=='assembled' and not out.exists() and not out.is_symlink(),'FRESH_FIXED_ASSEMBLY_ONLY');out.mkdir(mode=0o700)
+--- /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/capture/capture.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-capture-20261105/source2/capture/capture.py
+@@ -11,10 +11,10 @@
+     from input_authority import validate_expected_authority
+ finally:sys.path.pop(0)
+ CODE_READY=True
+-CURRENT_PRODUCER_SOURCE={'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/subject.json', 'bytes': 41959, 'sha256': 'd4229ef2ddf77e79a8f1a9990ea174db4c3dba9e7f2012ed42589d857be443b5'}
+-CURRENT_PRODUCER_ACCEPTANCE={'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifact-source-review-20261105/acceptance.json', 'bytes': 1212, 'sha256': '277c4b31273e8e4c703a7fec54f5311ed159e4995d351a3c9017687006b51cdb'}
+-CURRENT_SOURCE_LINEAGE={'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifact-source-review-20261105/acceptance-lineage.json', 'bytes': 2010, 'sha256': '7e5e7c5f1fe4232ca87035438c72440bb53d3d4bd4f1cd7e74757bb781db6183'}
+-CLOCK_SELECTION={'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-control-capture-preparation-20261028/root-clock-source-selection.json', 'bytes': 1389, 'sha256': '7d24541af6dab3cca55baf588ce4bc4daf03f31b5d2bc00f3fd76f897a6216c1'}
++CURRENT_PRODUCER_SOURCE={'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/subject.json', 'bytes': 48086, 'sha256': 'acbd539bba00aff05dd218d6c6323bf79904a4c14cfa3d0a9c89d32b3d4235a3'}
++CURRENT_PRODUCER_ACCEPTANCE={'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-source-review-20261105/r1/acceptance.json', 'bytes': 1203, 'sha256': '2e54ff60fe6026172913a28820f5f2c5e8a28fc2c33e89ad5e6abca7fbfa5ee3'}
++CURRENT_SOURCE_LINEAGE={'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-source-review-20261105/r1/acceptance-lineage.json', 'bytes': 1958, 'sha256': '764491c972fc3653d57dbdad5c73d11992ba873cfa82ddfacd793d214cdc01c2'}
++CLOCK_SELECTION={'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-capture-20261105/root-clock-source-selection.json', 'bytes': 2030, 'sha256': '9bc04002aaab49d6ee23ae61418dd8cf94e145dd19d6d3a538ddb8805c7172b3'}
+ ACTIVE_DEADLINE=None
+ 
+ def pin(p):
+@@ -25,11 +25,11 @@
+  return dict(path=str(p),bytes=len(raw),sha256=hashlib.sha256(raw).hexdigest(),mode=oct(stat.S_IMODE(first.st_mode)))
+ def descriptor(p):return {k:v for k,v in pin(p).items() if k!='mode'}
+ def put(root,name,value):
+- need(ACTIVE_DEADLINE is None or time.monotonic_ns()<ACTIVE_DEADLINE,'WHOLE1200_OUTPUT_DEADLINE')
++ need(ACTIVE_DEADLINE is None or time.monotonic_ns()<ACTIVE_DEADLINE,'WHOLE1263_OUTPUT_DEADLINE')
+  need(pathlib.Path(name).name==name,'FIXED_OUTPUT_NAME');raw=value if type(value) is bytes else (json.dumps(value,indent=2)+'\n').encode();need(len(raw)<=16777216,'OUTPUT_BOUND')
+  fd=os.open(root/name,os.O_WRONLY|os.O_CREAT|os.O_EXCL|os.O_NOFOLLOW,0o600)
+  with os.fdopen(fd,'wb') as f:checked_write(f.write,raw);f.flush()
+- need(ACTIVE_DEADLINE is None or time.monotonic_ns()<ACTIVE_DEADLINE,'WHOLE1200_OUTPUT_DEADLINE')
++ need(ACTIVE_DEADLINE is None or time.monotonic_ns()<ACTIVE_DEADLINE,'WHOLE1263_OUTPUT_DEADLINE')
+ 
+ 
+ def signal_owned_group(p,ownership):
+@@ -116,7 +116,7 @@
+ 
+ class SnapshotPool:
+     def __init__(self,start,clock=time.monotonic_ns):
+-        self.clock=clock;self.end=start+1200000000000;self.remaining=480000000000
++        self.clock=clock;self.end=start+1263000000000;self.remaining=480000000000
+     def deadline(self,remaining_scopes):
+         now=self.clock();reserve=remaining_scopes*63000000000+30000000000
+         need(self.remaining>0 and self.end-now>reserve,'FULL_REMAINING_SNAPSHOT_AND_CHILD_BUDGET')
+@@ -126,7 +126,7 @@
+         try:return fn(deadline)
+         finally:
+             elapsed=self.clock()-start;self.remaining-=elapsed
+-            need(elapsed>=0 and self.remaining>=0 and self.clock()<=self.end,'SHARED480_GLOBAL1200_EXHAUSTED')
++            need(elapsed>=0 and self.remaining>=0 and self.clock()<=self.end,'SHARED480_GLOBAL1263_EXHAUSTED')
+     def admit_child(self,remaining_scopes):
+         need(remaining_scopes>=1 and self.end-self.clock()>=remaining_scopes*63000000000+self.remaining+30000000000,'NO_SHORTENED_OR_RENEWED_CHILD_CLOCK')
+ 
+@@ -145,6 +145,8 @@
+         if s['scope'].endswith('.py'):
+             tree=ast.parse(raw.decode('utf8','strict'));names=[c.name+'.'+f.name for c in tree.body if isinstance(c,ast.ClassDef) for f in c.body if isinstance(f,ast.FunctionDef) and f.name.startswith('test_')]
+             need(names==s['definitionNames'] and len(names)==s['count'],'ACTUAL_FROZEN_PYTHON_AST_NAMES')
++        elif s['scope']=='fixtureEoseCaller':
++            validate_external_source_names(raw,s)
+         elif s['scope']=='test_observation_model.mjs':
+             names=re.findall(r"await test\('([^']+)'",raw.decode('utf8','strict'));need(names==s['definitionNames'] and len(names)==s['count'] and len(set(names))==len(names),'FROZEN_OBSERVATION_SOURCE_NAMES')
+     proofs=[]
+@@ -168,7 +170,7 @@
+     values,union=validate_acceptances(ack,source,docs['control'],method,docs['admissionPlan'],records,docs['actorContext'])
+     validate_plan(plan,ack,source,docs['control'],method,manifest,docs['clockSelection'])
+     need(docs['requestContract']==request_template(plan,str(HERE)),'EXACT_ACYCLIC_SEVEN_KEY_REQUEST_TEMPLATE')
+-    birth=docs['sourceBirth'];need(birth['schema']=='e02-root-producer4-source4-acceptance-lineage-v1' and birth['actor']=='/root' and birth['acceptance']==ack['producerSourceAcceptance'],'ROOT_PINNED_SOURCE_BIRTH_LINEAGE')
++    birth=docs['sourceBirth'];need(birth['schema']=='e02-root-producer-eose-source-acceptance-lineage-v1' and birth['actor']=='/root' and birth['acceptance']==ack['producerSourceAcceptance'],'ROOT_PINNED_SOURCE_BIRTH_LINEAGE')
+     need(manifest['requiredCoverage']==plan['requiredCoverage'],'EXACT_CLOSED_COVERAGE_GROUPS')
+     validate_expected_authority(docs['inputAuthority'],docs['baselineInputManifest'],manifest)
+     index={x['pin']['path']:x for x in manifest['files']}
+@@ -210,10 +212,10 @@
+     scopes=[];outcomes=[];first=None;secondary=[];after=None;authorities=expected_authorities(ack,docs)
+     try:
+         for i,s in enumerate(plan['scopes'],1):
+-            current=pool.run(11-i,lambda d:snapshot(docs['inputManifest'],authorities,d));need(current==before,'EVERY_EXPECTED_INPUT_BEFORE_EACH_SCOPE');put(root,'%02d-before.json'%i,current)
+-            pool.admit_child(11-i);row,stdout,stderr=capture_scope(root,s,i);scopes.append(row)
++            current=pool.run(len(plan['scopes'])+1-i,lambda d:snapshot(docs['inputManifest'],authorities,d));need(current==before,'EVERY_EXPECTED_INPUT_BEFORE_EACH_SCOPE');put(root,'%02d-before.json'%i,current)
++            pool.admit_child(len(plan['scopes'])+1-i);row,stdout,stderr=capture_scope(root,s,i);scopes.append(row)
+             first=row['fault'] if row['fault'] is not None else first
+-            current=pool.run(10-i,lambda d:snapshot(docs['inputManifest'],authorities,d));put(root,'%02d-after.json'%i,current);need(current==before,'EVERY_EXPECTED_INPUT_AFTER_EACH_SCOPE')
++            current=pool.run(len(plan['scopes'])-i,lambda d:snapshot(docs['inputManifest'],authorities,d));put(root,'%02d-after.json'%i,current);need(current==before,'EVERY_EXPECTED_INPUT_AFTER_EACH_SCOPE')
+             if first is not None:break
+             outcomes.append(parse_outcome(s,row,stdout,stderr))
+         if first is None:
+@@ -221,7 +223,7 @@
+     except BaseException as error:
+         if first is None:first=repr(error)
+         else:secondary.append(repr(error))
+-    result=dict(schema='e02-producer4-current-control-execution-v1',authors=docs['captureSource']['authors'],operators=ack['operators'],producerSource=ack['producerSource'],captureSource=ack['captureSource'],rootAcknowledgement=ack_pin,plan=ack['plan'],inputManifest=ack['inputManifest'],countsSeparate=values,scopes=scopes,outcomes=outcomes,remainingNotExecuted=[s['scope'] for s in plan['scopes'][len(scopes):]],firstFault=first,secondaryFaults=secondary,sourceUnchanged=after==before if after is not None else False,overallBefore=descriptor(root/'overall-before.json'),overallAfter=descriptor(root/'overall-after.json') if (root/'overall-after.json').exists() else None,elapsedNs=pool.clock()-(pool.end-1200000000000),exitCode=0 if first is None and len(outcomes)==10 else 2,outerApiOrigin='ACTUAL_ROOT_RESPONSES_MUST_BE_RETAINED_EXTERNALLY_NOT_INNER_PID_REAP_OR_EOF',ordinaryRowsQualified=0,canonicalE02='PARTIAL22_UNCHANGED')
++    result=dict(schema='e02-producer4-current-control-execution-v1',authors=docs['captureSource']['authors'],operators=ack['operators'],producerSource=ack['producerSource'],captureSource=ack['captureSource'],rootAcknowledgement=ack_pin,plan=ack['plan'],inputManifest=ack['inputManifest'],countsSeparate=values,scopes=scopes,outcomes=outcomes,remainingNotExecuted=[s['scope'] for s in plan['scopes'][len(scopes):]],firstFault=first,secondaryFaults=secondary,sourceUnchanged=after==before if after is not None else False,overallBefore=descriptor(root/'overall-before.json'),overallAfter=descriptor(root/'overall-after.json') if (root/'overall-after.json').exists() else None,elapsedNs=pool.clock()-(pool.end-1263000000000),exitCode=0 if first is None and len(outcomes)==len(FILES) else 2,outerApiOrigin='ACTUAL_ROOT_RESPONSES_MUST_BE_RETAINED_EXTERNALLY_NOT_INNER_PID_REAP_OR_EOF',ordinaryRowsQualified=0,canonicalE02='PARTIAL22_UNCHANGED')
+     put(root,'result.json',result)
+     # File list is exact flat owned proof output, never a recursive source DAG.
+     files=[]
+@@ -243,10 +245,10 @@
+     need(sys.flags.isolated and sys.dont_write_bytecode and argv[:2]==['--execute-once','--root-ack-sha'] and len(argv)==3 and re.fullmatch('[0-9a-f]{64}',argv[2]),'EXACT_ISOLATED_ONCE_INVOCATION')
+     start=time.monotonic_ns();pool=SnapshotPool(start);ACTIVE_DEADLINE=pool.end
+     ap=descriptor(HERE/'coordinator-acknowledgement.json');need(ap['sha256']==argv[2] and stat.S_IMODE((HERE/'coordinator-acknowledgement.json').stat().st_mode)==0o600,'ACTUAL_EXTERNAL_ROOT_ACK_SHA_MODE')
+-    ack=metadata(ap,pool.deadline(10));docs,records=pool.run(10,lambda d:load_bundle(ack,d));values,_=validate_bundle(ack,docs,records,argv[2]);authorities=expected_authorities(ack,docs)
++    ack=metadata(ap,pool.deadline(len(FILES)));docs,records=pool.run(len(FILES),lambda d:load_bundle(ack,d));values,_=validate_bundle(ack,docs,records,argv[2]);authorities=expected_authorities(ack,docs)
+     need(ack['runtimeBindings']==descriptor(local),'ROOT_ACK_PINS_ACTUAL_RUNTIME_BINDINGS')
+     out=pathlib.Path(docs['plan']['outputRoot']);need(not out.exists() and not out.is_symlink(),'NO_OUTPUT_OVERWRITE_OR_RETRY')
+     for item in docs['inputManifest']['files']:need(not pathlib.Path(item['pin']['path']).is_relative_to(out),'NO_OUTPUT_AS_PROTECTED_INPUT')
+-    before=pool.run(10,lambda d:snapshot(docs['inputManifest'],authorities,d));return execute(ack,ap,docs,values,pool,before)
++    before=pool.run(len(FILES),lambda d:snapshot(docs['inputManifest'],authorities,d));return execute(ack,ap,docs,values,pool,before)
+ 
+ if __name__=='__main__':sys.exit(main(sys.argv[1:]))
+--- /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/capture/contracts.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-capture-20261105/source2/capture/contracts.py
+@@ -1,20 +1,29 @@
+ """Pure closed capture contracts. No filesystem, clock, process or target imports."""
+-import json,math,re
++import hashlib,json,math,re
+ from decimal import Decimal
+ from pathlib import PurePosixPath
+ 
+-FILES=('test_guard_client.mjs','test_guard_transport_boundaries.mjs','test_capture_allocation.mjs','test_controller_emission.mjs','test_observation_model.mjs','test_guard_helper.py','test_capture_parent.py','test_public_identity_metadata.py','test_producer2_source.py','test_producer3_bindings.py')
+-MODEL_KEYS=('asyncGuard','transportBoundaries','captureAllocation','controllerEmission','observation','helperProtocolPythonMethods','parentCapturePythonMethods','publicIdentityPythonMethods','sourceWiringPythonMethods','rebuiltArtifactPythonMethods')
++FILES=('test_guard_client.mjs', 'test_guard_transport_boundaries.mjs', 'test_capture_allocation.mjs', 'test_controller_emission.mjs', 'test_observation_model.mjs', 'test_guard_helper.py', 'test_capture_parent.py', 'test_public_identity_metadata.py', 'test_producer2_source.py', 'test_producer3_bindings.py', 'fixtureEoseCaller')
++MODEL_KEYS=('asyncGuard', 'transportBoundaries', 'captureAllocation', 'controllerEmission', 'observation', 'helperProtocolPythonMethods', 'parentCapturePythonMethods', 'publicIdentityPythonMethods', 'sourceWiringPythonMethods', 'rebuiltArtifactPythonMethods', 'fixtureEoseCaller')
+ ENV={'PATH':'/usr/bin:/bin','LANG':'C.UTF-8','LC_ALL':'C.UTF-8'}
+-LIMITS={'childSeconds':60,'childAbsoluteReapSeconds':3,'stdoutBytes':1048576,'stderrBytes':262144,'rawFileBytes':2147483648,'parsedMetadataBytes':16777216,'hostFiles':20000,'controllerSeconds':1200,'outerSeconds':1203,'snapshotPoolSeconds':480}
+-LEDGER={'snapshots':480,'children':630,'metadataCleanup':30,'reserve':60}
+-SOURCE_DECISION='ACCEPT_PRODUCER4_SOURCE_AND_CONTROL_DEFINITIONS_ONLY'
++LIMITS={'childSeconds': 60, 'childAbsoluteReapSeconds': 3, 'stdoutBytes': 1048576, 'stderrBytes': 262144, 'rawFileBytes': 2147483648, 'parsedMetadataBytes': 16777216, 'hostFiles': 20000, 'controllerSeconds': 1263, 'outerSeconds': 1266, 'snapshotPoolSeconds': 480}
++LEDGER={'snapshots': 480, 'children': 693, 'metadataCleanup': 30, 'reserve': 60}
++SOURCE_DECISION='ACCEPT_PRODUCER_EOSE_SOURCE_AND_286_DEFINITIONS_ONLY'
+ CAPTURE_DECISION='ACCEPT_PRODUCER4_CAPTURE_SOURCE_AND_ADMISSION_DEFINITIONS_ONLY'
+ ADMISSION_DECISION='ACCEPT_PRODUCER4_CAPTURE_ADMISSION_DATA_ONLY'
+-REQUIRED_KNOWN_ACTORS=('/root', '/root/android_health_implementer', '/root/collector_policy_security_553c5bfd', '/root/completion3_final', '/root/completion_wrapper', '/root/consumer3_preparation', '/root/helper_apk_binding_scope', '/root/helper_controller_source6_env', '/root/lease_fix_binding_scope', '/root/native_rebuild_prepare', '/root/ordinary_api35_source', '/root/probe_r7_fresh_qa_8d291e97745f', '/root/probe_r7_fresh_security_8d291e97745f', '/root/producer3_capture', '/root/producer4_nonblocking_source', '/root/r5', '/root/r5_plan_fix', '/root/whole_consumer_fixture')
+-ROOT_KNOWN_ACTORS_PIN={'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-root-authority-20261105/root-known-actors.json', 'bytes': 2755, 'sha256': '94fd5716503e40b7472e8432e768e6e381bb71ded02bdae47523affc8fe25673'}
++REQUIRED_KNOWN_ACTORS=('/root', '/root/android_health_implementer', '/root/bridge_start_bootstrap_architecture', '/root/collector_policy_security_553c5bfd', '/root/completion3_final', '/root/completion_wrapper', '/root/consumer3_preparation', '/root/fixture_eose_queue_fix', '/root/helper_apk_binding_scope', '/root/helper_controller_source6_env', '/root/lease_fix_binding_scope', '/root/native_rebuild_prepare', '/root/ordinary_api35_source', '/root/ordinary_current266_templates', '/root/probe_r7_fresh_qa_8d291e97745f', '/root/probe_r7_fresh_security_8d291e97745f', '/root/producer286_capture_source', '/root/producer3_capture', '/root/producer4_nonblocking_source', '/root/producer_eose_successor', '/root/r5', '/root/r5_plan_fix', '/root/whole_consumer_fixture')
++ROOT_KNOWN_ACTORS_PIN={'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-capture-20261105/root-known-actors.json', 'bytes': 4110, 'sha256': 'a79d4482fba4ffbf1dc0a6e8719220ca74d430afd86842d6548b22a219ec20a2'}
+ REQUEST_KEYS=('cmd', 'workdir', 'login', 'yield_time_ms', 'max_output_tokens', 'sandbox_permissions', 'justification')
+-REQUEST_POLICY={'sandbox_permissions': 'require_escalated', 'justification': 'Môžem raz vykonať prijatých 266 syntetických kontrol E02 s výsledkami v izolovanom /Data adresári? Platí aktuálny Root ACK, pôvodné časové a vstupné limity a zákaz automatického opakovania.'}
++REQUEST_POLICY={'sandbox_permissions': 'require_escalated', 'justification': 'Jednorazové vykonanie prijatých 286 syntetických kontrol E02 s výsledkami v izolovanom /Data adresári podľa aktuálneho Root ACK; pôvodné limity a zákaz automatického opakovania zostávajú platné.'}
++EXTERNAL_SOURCE={'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/test_eose_queue.mjs', 'bytes': 10564, 'sha256': '8b85222b352e58feacc8d9a6cc78e9d41b6d74b931c5422384500cc91e5eac41'}
++EXTERNAL_CWD='/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1'
++EXTERNAL_NAMES=('baseline_actual_callback_reproduces_unrelated_eose_queue_failure', 'corrected_actual_callback_queued_eose_second', 'corrected_actual_callback_queued_eose_first', 'corrected_refuses_request_replacement', 'corrected_refuses_filter_mutation', 'corrected_refuses_subscription_close', 'corrected_refuses_subscription_added', 'corrected_refuses_extra_nonprogress_field', 'corrected_refuses_connection_close', 'corrected_refuses_connection_generation', 'corrected_refuses_app_receipt_generation', 'corrected_refuses_queued_raw_buffer_mutation', 'corrected_guard_enqueue_original_five_seconds', 'corrected_external_sticky_revocation', 'corrected_original_lease_expiry_Utc', 'corrected_original_lease_expiry_Mono', 'corrected_original_lease_expiry_Boot', 'corrected_original_owner_deadline', 'corrected_before_send_publication_invalidation_stays_fatal', 'publication_generation_still_binds_exact_eose_sequence')
++EXTERNAL_FAMILY_PIN={'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/caller-regression-family.json', 'bytes': 18495, 'sha256': 'b42e86124464fe9540a069f6437cf28aeb574703d51e538411c8940b4cf7d8e0'}
++EXTERNAL_CODE=[{'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/baseline/fixture.mjs', 'bytes': 45130, 'sha256': '7294668da0e4c1fe92efc11c9cc43eab8e3d1e5c1a83c9bed0d72a224463d256'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/capture-allocation.mjs', 'bytes': 7437, 'sha256': 'a86180100f6f4fee691bd177f557fbc3a4573ccc9d0f3f15ee66a32c1b8e57a7'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/capture-budget.mjs', 'bytes': 8963, 'sha256': '7e75aa2e0fcf1233a5d04cb899bde1ae6ff8a581bb8f57747e9115bf0993e312'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/dependency-tree.mjs', 'bytes': 2842, 'sha256': '0b574a14e591abc1908f4733908001d8ea1ab5698da8991e618ca26714eeded3'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/exchange-adapter.mjs', 'bytes': 1012, 'sha256': '4e03f6449defff4585b532572ca3f0ef254dc76f056079ce85c2266de9f50aef'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/exchange.mjs', 'bytes': 6662, 'sha256': 'e3e962230a7adc84c495c23b0724ad6a1c8f366dd0e0376fc53cbaf00f1eb5dc'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/fixture.mjs', 'bytes': 45613, 'sha256': '0d273eb11f9631e7be18e2cc959e3aa7f88f14441f7c6f7cfc05fa2448ee103b'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/guard-client-core.mjs', 'bytes': 8072, 'sha256': '14be5abb1ff953d2336e841e1364acdfd8275874ffed3aef88f9a9489fac1083'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/guard-client.mjs', 'bytes': 9308, 'sha256': '50d3dacdc0e3a008ea15bc510004ff2bf805f3de195785eb25a241f678a1dfb0'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/guard-transport-boundaries.mjs', 'bytes': 4978, 'sha256': 'c4c5cda6107cdead8715da8bdba917a31ebabadc0249d8fba0b343a718f98068'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/guard-wire.mjs', 'bytes': 1921, 'sha256': '8cf473b741d631f80ef785c86acf5caa9899d03206696a8f740db08878c02d8e'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/phase-writer.mjs', 'bytes': 2085, 'sha256': 'bcfb3338d1ab8cbb20709f6add09a2e7be01a270f48271112e3aa3a76743cead'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/proxy-observer.mjs', 'bytes': 4478, 'sha256': 'fb17d34d3dea46c62bf29ed537684936b3a2871643b6d4fe3c16c88ffa37d0a1'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/test_fixture.mjs', 'bytes': 3199, 'sha256': '11f9f9cd496885e6bf517a205b91cfe7dc9d95ab1451a31c21f09461d5c6d7f2'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/test_guard_client.mjs', 'bytes': 35675, 'sha256': 'dade2a486a9bfea5e89cafb2c0af33fc14c3956a0d78e456898d0c206df6efa5'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/test_minimum_fixture.mjs', 'bytes': 4852, 'sha256': 'f92aabd95b257cae2408a4e789eeb7ded8bf7979ec3723202f533f58fb92fc18'}, {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/test_eose_queue.mjs', 'bytes': 10564, 'sha256': '8b85222b352e58feacc8d9a6cc78e9d41b6d74b931c5422384500cc91e5eac41'}]
++EXTERNAL_TESTED_FIXTURE={'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/fixture.mjs', 'bytes': 45613, 'sha256': '0d273eb11f9631e7be18e2cc959e3aa7f88f14441f7c6f7cfc05fa2448ee103b'}
++EXTERNAL_FIXTURE_MODE=436
++EXTERNAL_MODES={'/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/baseline/fixture.mjs': 436, '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/capture-allocation.mjs': 436, '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/capture-budget.mjs': 436, '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/dependency-tree.mjs': 436, '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/exchange-adapter.mjs': 436, '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/exchange.mjs': 436, '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/fixture.mjs': 436, '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/guard-client-core.mjs': 436, '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/guard-client.mjs': 436, '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/guard-transport-boundaries.mjs': 436, '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/guard-wire.mjs': 436, '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/phase-writer.mjs': 436, '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/proxy-observer.mjs': 436, '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/test_fixture.mjs': 436, '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/test_guard_client.mjs': 436, '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/candidate/test_minimum_fixture.mjs': 436, '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-fixture-eose-queue-fix-20261105/source1/test_eose_queue.mjs': 436}
++
+ ACK_KEYS='schema actor executionAuthorized scope producerSource producerSourceAcceptance producerReviews captureSource captureSourceAcceptance captureReviews admissionPlan admissionData admissionDataAcceptance admissionReviews sourceBirth actorContext inputManifest plan clockSelection requestContract runtimeBindings authors operators noRetry'
+ 
+ def need(v,m):
+@@ -25,10 +34,18 @@
+ def actors(value):
+     need(type(value) is list and value and all(type(a) is str and (a=='/root' or a.startswith('/root/')) for a in value),'DECLARED_ACTORS');return set(value)
+ def counts(source,control):
+-    need(source['schema']=='e02-ordinary-producer4-source-subject-v1' and source['version']=='SOURCE4','CURRENT_SOURCE4_ONLY');need(source['runtimeSourceCount']==22 and len(source['runtimeSources'])==22,'EXACT22_RUNTIME_WORKERS');need(all(type(source[k]) is int and source[k]==0 for k in ('modelsExecuted','helperExecutions','roleExecutions','ordinaryRowsQualified')) and source['runtimeReady'] is False,'SOURCE_DEFINITIONS_NOT_PRIOR_EXECUTION')
+-    closed(source['modelsDefined'],' '.join(MODEL_KEYS));values=[source['modelsDefined'][k] for k in MODEL_KEYS];need(all(type(n) is int and 0<n<=10000 for n in values),'CURRENT_DECLARED_POSITIVE_COUNTS')
+-    js=control['selectedJavaScriptDefinitions'];py=control['pythonDefinitions'];need([r['file'] for r in js]==list(FILES[:5]),'EXACT_FIVE_JS_SELECTION');indexed={r['file']:r for r in py};need(len(indexed)==len(py),'UNIQUE_PYTHON_DECLARATION')
+-    need([r['expandedDefinitions'] for r in js]+[indexed[n]['methodDefinitions'] for n in FILES[5:]]==values,'SOURCE_CONTROL_COUNTS_JOIN');return values
++    need(source['schema']=='e02-ordinary-producer4-source-subject-v1' and source['version']=='SOURCE4' and source['runtimeSourceCount']==22,'EXACT_CURRENT_SOURCE4_HEADER')
++    need(all(type(source[k]) is int and source[k]==0 for k in ('modelsExecuted','helperExecutions','roleExecutions','ordinaryRowsQualified')) and source['runtimeReady'] is False,'SOURCE_DEFINITIONS_NOT_PRIOR_EXECUTION')
++    closed(source['modelsDefined'],' '.join(MODEL_KEYS));values=[source['modelsDefined'][k] for k in MODEL_KEYS]
++    need(all(type(n) is int and 0<n<=10000 for n in values),'CURRENT_DECLARED_POSITIVE_COUNTS')
++    js=control['selectedJavaScriptDefinitions'];py=control['pythonDefinitions']
++    need([r['file'] for r in js]==list(FILES[:5])+[EXTERNAL_SOURCE['path']],'EXACT_SIX_JS_SELECTION_WITH_EXTERNAL_SOURCE')
++    indexed={r['file']:r for r in py};need(len(indexed)==len(py),'UNIQUE_PYTHON_DECLARATION')
++    derived=[r['expandedDefinitions'] for r in js[:5]]+[indexed[n]['methodDefinitions'] for n in FILES[5:10]]+[js[5]['expandedDefinitions']]
++    need(derived==values and values[-1]==20,'SOURCE_CONTROL_ELEVEN_COUNTS_JOIN')
++    need(source['externalCallerRegressionFamily']==EXTERNAL_FAMILY_PIN and control['externalCallerRegressionFamily']==EXTERNAL_FAMILY_PIN,'EXACT_EXTERNAL_CALLER_FAMILY_AUTHORITY')
++    need(source['externalControlSources']==list(EXTERNAL_CODE) and source['externalControlSourceCount']==17,'EXACT_EXTERNAL_CODE_MEMBERSHIP')
++    return values
+ def reviews(records,pins,subject,decision,forbidden):
+     need(type(records) is list and type(pins) is list and len(records)==len(pins)==2 and pins[0]!=pins[1],'TWO_ORDERED_REVIEW_PINS');sessions=[]
+     for role,r,p in zip(('qa','security'),records,pins):
+@@ -36,23 +53,23 @@
+     need(sessions[0]!=sessions[1],'DISTINCT_QA_SECURITY')
+ 
+ def validate_acceptances(ack,source,control,method,admission_plan,records,context):
+-    closed(ack,ACK_KEYS);need(ack['schema']=='e02-producer4-control-capture-root-ack-v1' and ack['actor']=='/root' and ack['executionAuthorized'] is True and ack['scope']=='ONE_CURRENT_SOURCE4_TEN_SELECTED_PURE_CONTROL_GROUPS_ONLY' and ack['noRetry'] is True,'ONE_EXTERNAL_ROOT_ACK')
++    closed(ack,ACK_KEYS);need(ack['schema']=='e02-producer4-control-capture-root-ack-v1' and ack['actor']=='/root' and ack['executionAuthorized'] is True and ack['scope']=='ONE_CURRENT_EOSE_SUCCESSOR_ELEVEN_SELECTED_PURE_CONTROL_GROUPS_ONLY' and ack['noRetry'] is True,'ONE_EXTERNAL_ROOT_ACK')
+     for k in ('producerSource','producerSourceAcceptance','captureSource','captureSourceAcceptance','admissionPlan','admissionData','admissionDataAcceptance','sourceBirth','actorContext','inputManifest','plan','clockSelection','requestContract','runtimeBindings'):pin(ack[k])
+     values=counts(source,control);total=sum(values)
+     need(method['schema']=='e02-producer4-control-capture-code-subject-v1' and method['producerSource']==ack['producerSource'] and method['codeOnly'] is True,'EXACT_CAPTURE_CODE_SOURCE4_JOIN')
+     closed(context,'schema producerSource captureSource sourceBirth participants participantProofs');need(context['schema']=='e02-producer4-capture-current-actor-context-v1' and context['producerSource']==ack['producerSource'] and context['captureSource']==ack['captureSource'] and context['sourceBirth']==ack['sourceBirth'],'EXACT_EXTERNALLY_PINNED_ACTOR_CONTEXT')
+     known=records['knownActors'];closed(known,'schema actor scope producerSource knownActors provenance semantics sourceAccepted executionAuthorized')
+-    need(method['knownActors']==ROOT_KNOWN_ACTORS_PIN and known['schema']=='e02-root-capture-known-actors-v1' and known['actor']=='/root' and known['scope']=='CURRENT_PRODUCER4_PURE_CONTROL_CAPTURE_AND_ADMISSION' and known['producerSource']==ack['producerSource'],'EXACT_REQUIRED_ROOT_KNOWN_ACTOR_AUTHORITY')
+-    required=actors(known['knownActors']);need(required==set(REQUIRED_KNOWN_ACTORS),'COMPLETE_REQUIRED_EIGHTEEN_KNOWN_ACTORS')
++    need(method['knownActors']==ROOT_KNOWN_ACTORS_PIN and known['schema']=='e02-root-capture-known-actors-v1' and known['actor']=='/root' and known['scope']=='CURRENT_PRODUCER_EOSE_286_PURE_CONTROL_CAPTURE_AND_ADMISSION' and known['producerSource']==ack['producerSource'],'EXACT_REQUIRED_ROOT_KNOWN_ACTOR_AUTHORITY')
++    required=actors(known['knownActors']);need(required==set(REQUIRED_KNOWN_ACTORS),'COMPLETE_REQUIRED_ROOT_KNOWN_ACTORS')
+     need(required<=actors(context['participants']),'CONTEXT_INCLUDES_EVERY_ROOT_KNOWN_ACTOR')
+     # Close the complete union BEFORE accepting any of the three review pairs.
+     union=required|{'/root','/root/r5_plan_fix','/root/producer4_nonblocking_source','/root/completion_wrapper'}|actors(context['participants'])|actors(ack['authors'])|actors(ack['operators'])|actors(method['authors'])|actors(records['admissionSubject']['authors'])|actors(records['admissionSubject']['operators'])
+     union|=actors(source['sourceContributors'])|{source['author'],source['coordinator'],source['predecessorAuthor']}
+     need(type(context['participantProofs']) is list and context['participantProofs'],'ACTUAL_ACTOR_DERIVATION_PROOFS_REQUIRED')
+     s=records['producerAcceptance'];closed(s,'schema actor decision subject reviews modelsDefined runtimeWorkerCount modelsExecuted helperExecutions roleExecutions runtimeReady runtimeReleased scope')
+-    need(s['schema']=='e02-root-current-producer4-source-acceptance-v1' and s['actor']=='/root' and s['decision']==SOURCE_DECISION and s['subject']==ack['producerSource'] and s['reviews']==ack['producerReviews'],'EXACT_ISSUED_PRODUCER_ACCEPTANCE')
+-    need(s['modelsDefined']==total and type(s['modelsDefined']) is int and s['runtimeWorkerCount']==22 and all(type(s[k]) is int and s[k]==0 for k in ('modelsExecuted','helperExecutions','roleExecutions')) and s['runtimeReady'] is False and s['runtimeReleased'] is False and s['scope']=='EXACT_CURRENT_SOURCE_AND_CONTROL_DEFINITIONS_ONLY','SOURCE_ONLY_NOT_DATA_OR_RUNTIME')
+-    reviews(records['producerReviews'],ack['producerReviews'],ack['producerSource'],'ACCEPT_PRODUCER4_SOURCE4_AND_'+str(total)+'_CONTROL_DEFINITIONS_ONLY',union)
++    need(s['schema']=='e02-root-producer-eose-source-acceptance-v1' and s['actor']=='/root' and s['decision']==SOURCE_DECISION and s['subject']==ack['producerSource'] and s['reviews']==ack['producerReviews'],'EXACT_ISSUED_PRODUCER_ACCEPTANCE')
++    need(s['modelsDefined']==total and type(s['modelsDefined']) is int and s['runtimeWorkerCount']==22 and all(type(s[k]) is int and s[k]==0 for k in ('modelsExecuted','helperExecutions','roleExecutions')) and s['runtimeReady'] is False and s['runtimeReleased'] is False and s['scope']=='EXACT_ORDINARY_EOSE_SUCCESSOR_SOURCE_AND_CONTROL_DEFINITIONS_ONLY','SOURCE_ONLY_NOT_DATA_OR_RUNTIME')
++    reviews(records['producerReviews'],ack['producerReviews'],ack['producerSource'],SOURCE_DECISION,union)
+     c=records['captureAcceptance'];closed(c,'schema actor decision subject reviews admissionModelsDefined admissionModelsExecuted producerSource scope executionAuthorized')
+     n=len(admission_plan['caseNames']);need(type(n) is int and n>0 and len(set(admission_plan['caseNames']))==n and admission_plan['modelsDefined']==n and method['admissionModelsDefined']==n,'EXACT_FROZEN_ADMISSION_DEFINITIONS')
+     need(c['schema']=='e02-root-producer4-capture-source-acceptance-v1' and c['actor']=='/root' and c['decision']==CAPTURE_DECISION and c['subject']==ack['captureSource'] and c['reviews']==ack['captureReviews'] and c['producerSource']==ack['producerSource'] and c['admissionModelsDefined']==n and c['admissionModelsExecuted']==0 and type(c['admissionModelsExecuted']) is int and c['scope']=='EXACT_CAPTURE_SOURCE_AND_ADMISSION_DEFINITIONS_ONLY' and c['executionAuthorized'] is False,'EXACT_CAPTURE_SOURCE_ACCEPTANCE')
+@@ -67,20 +84,33 @@
+ 
+ def validate_plan(plan,ack,source,control,method,manifest,clock):
+     need(plan['schema']=='e02-producer4-control-capture-plan-v1' and plan['readiness'] is True and plan['producerSource']==ack['producerSource'] and plan['captureSource']==ack['captureSource'] and plan['inputManifest']==ack['inputManifest'] and plan['limits']==LIMITS and plan['deadlineLedger']==LEDGER,'EXACT_FINITE_CURRENT_PLAN')
+-    need(clock['schema']=='e02-root-control-capture-clock-source-selection-v1' and clock['actor']=='/root' and clock['controllerSeconds']==1200 and clock['outerKillSeconds']==1203 and clock['sharedInputSnapshotPoolSeconds']==480 and clock['maximumSerialScopes']==10 and clock['eachScopeSeconds']==60 and clock['eachOwnedTerminationReserveSeconds']==3 and clock['sumSeconds']==1200,'ROOT_SELECTED_CLOCK_SOURCE')
+-    need([s['scope'] for s in plan['scopes']]==list(FILES) and plan['countsSeparate']==counts(source,control),'TEN_CURRENT_SCOPES_NO_PREDECESSOR_TRANSFER')
+-    by_name={PurePosixPath(d['path']).name:d for d in source['sources']};need(len(by_name)==len(source['sources']),'UNIQUE_SOURCE_NAMES');node=plan['tools']['node'];python=plan['tools']['python']
++    need(clock['schema']=='e02-root-control-capture-clock-source-selection-v2' and clock['actor']=='/root' and clock['controllerSeconds']==1263 and clock['outerKillSeconds']==1266 and clock['sharedInputSnapshotPoolSeconds']==480 and clock['maximumSerialScopes']==11 and clock['eachScopeSeconds']==60 and clock['eachOwnedTerminationReserveSeconds']==3 and clock['metadataAndCleanupSeconds']==30 and clock['otherReserveSeconds']==60 and clock['sumSeconds']==1263,'ROOT_SELECTED_ELEVEN_CLOCK_SOURCE')
++    need([s['scope'] for s in plan['scopes']]==list(FILES) and plan['countsSeparate']==counts(source,control),'ELEVEN_CURRENT_SCOPES_NO_PREDECESSOR_TRANSFER')
++    by_name={PurePosixPath(d['path']).name:d for d in source['sources']};need(len(by_name)==len(source['sources']),'UNIQUE_SOURCE_NAMES')
++    node=plan['tools']['node'];python=plan['tools']['python']
+     need(node['path']=='/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node' and python['path']=='/home/peterhorvath/.miniforge3/bin/python3.13','FIXED_HOST_INTERPRETERS')
+     need(set(plan['tools'])=={'node','python','timeout','env'} and plan['tools']['timeout']['path']=='/usr/bin/timeout' and plan['tools']['env']['path']=='/usr/bin/env','CLOSED_TOOLS_NO_EXTRA_TARGET')
+-    roots={str(PurePosixPath(by_name[name]['path']).parent) for name in FILES};need(len(roots)==1,'ONE_EXPLICIT_SELECTED_MODEL_ROOT');model_root=next(iter(roots))
++    roots={str(PurePosixPath(by_name[name]['path']).parent) for name in FILES[:10]};need(len(roots)==1,'ONE_EXPLICIT_BASE_MODEL_ROOT')
++    model_root=next(iter(roots));groups=control['selectedGroups']
++    need(type(groups) is list and len(groups)==11 and [g['scope'] for g in groups]==list(FILES),'EXACT_REVIEWED_ELEVEN_GROUP_VECTOR')
+     for i,s in enumerate(plan['scopes']):
+-        closed(s,'scope source argv cwd count definitionNames format');need(s['source']==by_name[FILES[i]] and s['count']==plan['countsSeparate'][i] and s['cwd']==model_root,'CURRENT_SELECTED_SOURCE_COUNT_WORKDIR')
+-        need(s['argv']==([node['path'],s['source']['path']] if i<5 else [python['path'],'-I','-B',s['source']['path']]),'EXACT_CHILD_ARGV')
++        closed(s,'scope source argv cwd count definitionNames format')
++        external=i==10;expected=EXTERNAL_SOURCE if external else by_name[FILES[i]]
++        cwd=EXTERNAL_CWD if external else model_root
++        argv=[node['path'],expected['path']] if i<5 or external else [python['path'],'-I','-B',expected['path']]
++        need(s['source']==expected and s['count']==plan['countsSeparate'][i] and s['cwd']==cwd and s['argv']==argv,'EXACT_TYPED_SOURCE_COUNT_CWD_AND_INTERPRETER')
++        g=groups[i];need(g['source']==expected and g['cwd']==cwd and g['count']==s['count'] and g['definitionNames']==s['definitionNames'],'SOURCE_PLAN_DEFINITION_VECTOR_JOIN')
++        need(type(s['definitionNames']) is list and len(s['definitionNames'])==s['count'] and len(set(s['definitionNames']))==s['count'],'UNIQUE_ORDERED_DEFINITION_NAMES')
++        if external:need(g['externalSourceFamily']==EXTERNAL_FAMILY_PIN and s['definitionNames']==list(EXTERNAL_NAMES) and s['format']=='EXACT_EXTERNAL_EOSE20_NODE_JSON','EXACT_EXTERNAL_NAMED_NODE_FAMILY')
+     need(manifest['schema']=='e02-producer4-explicit-host-input-manifest-v1' and manifest['producerSource']==ack['producerSource'] and manifest['closedSourceSubjectKeys']==sorted(source) and manifest['controlPlan']==source['controlPlan'],'EXACT_CLOSED_SOURCE_INPUT_CONTRACT')
+-    index={x['pin']['path']:x['pin'] for x in manifest['files']};need(len(index)==len(manifest['files'])==manifest['actualInputCount'] and 1<=len(index)<=20000,'EXACT_CURRENT_INPUT_COUNT')
+-    for d in source['sources']+source['runtimeSources']+list(source['configurations'].values())+list(plan['tools'].values())+method['sources']:
+-        need(index.get(d['path'])==d,'ALL_DECLARED_CODE_WORKERS_CONFIGS_TOOLS_PROTECTED')
++    index={x['pin']['path']:x for x in manifest['files']};need(len(index)==len(manifest['files'])==manifest['actualInputCount'] and 1<=len(index)<=20000,'EXACT_CURRENT_INPUT_COUNT')
++    protected=source['sources']+source['runtimeSources']+source['externalControlSources']+list(source['configurations'].values())+list(plan['tools'].values())+method['sources']+[EXTERNAL_FAMILY_PIN]
++    for d in protected:need(index.get(d['path'],{}).get('pin')==d,'ALL_DECLARED_CODE_EXTERNAL_WORKERS_CONFIGS_TOOLS_PROTECTED')
+     need(set(source['configurations'])=={'incoming','archive'},'BOTH_ROLE_CONFIGURATIONS')
++    fixture=by_name['fixture.mjs'];tested=EXTERNAL_TESTED_FIXTURE
++    need(fixture['bytes']==tested['bytes'] and fixture['sha256']==tested['sha256'],'EXACT_TESTED_FIXTURE_BYTES_BIND_CURRENT_PRODUCER')
++    need(index[fixture['path']]['mode']==index[tested['path']]['mode']==EXTERNAL_FIXTURE_MODE,'EXACT_TESTED_AND_CURRENT_FIXTURE_MODES')
++    for d in EXTERNAL_CODE:need(index[d['path']]['mode']==EXTERNAL_MODES[d['path']],'EXACT_EXTERNAL_SOURCE_MODES')
+     need(plan['outputRoot'] is not None and type(plan['outputRoot']) is str and plan['outputRoot'].startswith('/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-'),'FRESH_OWNED_CAPTURE_OUTPUT_NAMESPACE')
+ 
+ def checked_write(writer,raw):
+@@ -88,7 +118,7 @@
+ 
+ def _request(plan,ack_sha,here):
+     import shlex
+-    argv=['/usr/bin/env','-i','PATH=/usr/bin:/bin','LANG=C.UTF-8','LC_ALL=C.UTF-8',plan['tools']['timeout']['path'],'--signal=KILL','1203s',plan['tools']['python']['path'],'-I','-B',here+'/capture.py','--execute-once','--root-ack-sha',ack_sha]
++    argv=['/usr/bin/env','-i','PATH=/usr/bin:/bin','LANG=C.UTF-8','LC_ALL=C.UTF-8',plan['tools']['timeout']['path'],'--signal=KILL','1266s',plan['tools']['python']['path'],'-I','-B',here+'/capture.py','--execute-once','--root-ack-sha',ack_sha]
+     return dict(cmd=shlex.join(argv),workdir=here,login=False,yield_time_ms=1000,max_output_tokens=2000,**REQUEST_POLICY)
+ def expected_request(plan,ack_sha,here):
+     need(type(ack_sha) is str and re.fullmatch('[0-9a-f]{64}',ack_sha),'ACTUAL_ACK_SHA');return _request(plan,ack_sha,here)
+@@ -139,3 +169,11 @@
+             need(type(r.get('session_id')) is int and r['session_id']>0,'REAL_YIELDED_SESSION');session=session or r['session_id'];need(session==r['session_id'],'SAME_SESSION_RESPONSE')
+         if 'output' in r:need(type(r['output']) is str and len(r['output'].encode())<=16777216,'BOUNDED_ACTUAL_API_OUTPUT');outputs.append(r['output'])
+     need(terminal,'COMPLETE_TERMINAL_ORIGIN_REQUIRED');return ''.join(outputs)
++
++def validate_external_source_names(raw,scope):
++    """Frozen literal declarations, no target import or source evaluation."""
++    need(type(raw) is bytes and scope['source']==EXTERNAL_SOURCE and scope['definitionNames']==list(EXTERNAL_NAMES),'EXACT_EXTERNAL_SOURCE_AND_NAMES')
++    need(len(raw)==EXTERNAL_SOURCE['bytes'] and hashlib.sha256(raw).hexdigest()==EXTERNAL_SOURCE['sha256'],'EXACT_EXTERNAL_SOURCE_BYTES')
++    # This exact script was independently inspected and SOURCE accepted; hash
++    # binds its closed literal expansion to the frozen twenty-name vector.
++    return list(EXTERNAL_NAMES)
+--- /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/capture/outputs.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-capture-20261105/source2/capture/outputs.py
+@@ -1,6 +1,6 @@
+ """Pure file-specific target output validators; no target execution."""
+ import re
+-from contracts import need,closed
++from contracts import need,closed,EXTERNAL_NAMES
+ from explicit_inputs import decode_metadata
+ JS_SHAPES={
+  'test_guard_client.mjs':dict(scope='PRODUCER4_MOCK_FRESH_GUARD_SCHEDULER_ONLY',keys='scope definitions executed realHelperExecuted realClockOrSDKObserved clientRowsQualified',false=['realHelperExecuted','realClockOrSDKObserved'],zero=['clientRowsQualified']),
+@@ -19,6 +19,13 @@
+         return dict(scope=name,count=count,membershipMeaning='QUIET_DOTS_COUNT_WITH_FROZEN_SOURCE_METHOD_NAMES_NOT_RAW_NAME_PRINTING',sourceNames=scope['definitionNames'],allOk=True)
+     need(stderr==b'' and stdout.endswith(b'\n') and stdout.count(b'\n')==1,'ONE_COMPLETE_NODE_JSON_LINE')
+     value=decode_metadata(stdout)
++    if name=='fixtureEoseCaller':
++        closed(value,'schema scope checks cases baselineFailureReproduced baselineFailure runtimeExecuted helperExecuted networkExecuted ordinaryRowsQualified canonicalE02')
++        need(value['schema']=='e02-fixture-eose-pure-regression-result-v1' and value['scope']=='EXACT_SOURCE_CALLBACK_AND_UNCHANGED_GUARD_CORE_WITH_FAKE_TRANSPORT_AND_CLOCKS','EXACT_EXTERNAL_EOSE20_SCHEMA')
++        need(type(value['checks']) is int and value['checks']==count==20 and value['cases']==scope['definitionNames']==list(EXTERNAL_NAMES),'EXACT_EXTERNAL_TWENTY_ORDERED_CASES')
++        need(value['baselineFailureReproduced'] is True and value['baselineFailure']=='QUEUED_CONTEXT_CHANGED','ACTUAL_BASELINE_FAILURE_REPRODUCER')
++        need(all(value[k] is False for k in ('runtimeExecuted','helperExecuted','networkExecuted')) and type(value['ordinaryRowsQualified']) is int and value['ordinaryRowsQualified']==0 and value['canonicalE02']=='PARTIAL22','EXTERNAL_PURE_LIMITS_NOT_RUNTIME')
++        return dict(scope=name,count=count,membershipMeaning='EXACT_REAL_CALLBACK_WITH_SYNTHETIC_TRANSPORT_CLOCKS_NOT_NETWORK_OR_RUNTIME',sourceNames=value['cases'],actualNodeSummary=value,allOk=True)
+     if name=='test_observation_model.mjs':
+         closed(value,'schema ok checks cases scope');need(value['schema']=='e02-producer4-observation-model-controls-v1' and value['scope']=='SYNTHETIC_FS_SOCKET_GUARD_DATA_ONLY_NO_RUNTIME' and value['ok'] is True and value['checks']==count,'EXACT_OBSERVATION_MODEL_SHAPE');need(value['cases']==scope['definitionNames'] and len(value['cases'])==count,'ALL_SOURCE_NAMED_OBSERVATION_CASES')
+     else:
+--- /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/capture/test_admission.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-capture-20261105/source2/capture/test_admission.py
+@@ -9,6 +9,7 @@
+  import contracts as c
+  import capture
+  import outputs
++ import artifact_validation
+  import explicit_inputs as inputs
+ finally:sys.path.pop(0)
+ 
+@@ -17,32 +18,40 @@
+ def p(name):return dict(path='/MOCK/'+name,bytes=1,sha256='a'*64)
+ def fixture():
+  source_pin=p('metadata-overlay/subject.json');method_pin=p('capture/code-subject.json');admission_pin=p('admission/subject.json');ap=p('admission/plan.json')
+- ack=dict(schema='e02-producer4-control-capture-root-ack-v1',actor='/root',executionAuthorized=True,scope='ONE_CURRENT_SOURCE4_TEN_SELECTED_PURE_CONTROL_GROUPS_ONLY',producerSource=source_pin,producerSourceAcceptance=p('source/accept.json'),producerReviews=[p('source/qa'),p('source/security')],captureSource=method_pin,captureSourceAcceptance=p('capture/accept.json'),captureReviews=[p('capture/qa'),p('capture/security')],admissionPlan=ap,admissionData=admission_pin,admissionDataAcceptance=p('admission/accept.json'),admissionReviews=[p('admission/qa'),p('admission/security')],sourceBirth=p('source/lineage'),actorContext=p('source/actors'),inputManifest=p('capture/inputs'),plan=p('capture/plan'),clockSelection=p('capture/clocks'),requestContract=p('capture/request'),runtimeBindings=p('capture/runtime-bindings'),authors=['/root/mock-coordinator'],operators=['/root/mock-operator'],noRetry=True)
+- testpins=[p('source4/'+n) for n in c.FILES];workers=[p('source4/worker%02d.py'%i) for i in range(22)];cfgs={'incoming':p('source4/incoming.json'),'archive':p('source4/archive.json')}
+- source=dict(schema='e02-ordinary-producer4-source-subject-v1',version='SOURCE4',runtimeSourceCount=22,runtimeSources=workers,sources=testpins+workers,configurations=cfgs,modelsDefined=dict.fromkeys(c.MODEL_KEYS,2),modelsExecuted=0,helperExecutions=0,roleExecutions=0,ordinaryRowsQualified=0,runtimeReady=False,author='/root/mock-source',coordinator='/root',predecessorAuthor='/root/mock-predecessor',sourceContributors=['/root/mock-source'],controlPlan=p('overlay/control-plan'))
+- control=dict(selectedJavaScriptDefinitions=[dict(file=n,expandedDefinitions=2) for n in c.FILES[:5]],pythonDefinitions=[dict(file=n,methodDefinitions=2) for n in c.FILES[5:]])
+- known=dict(schema='e02-root-capture-known-actors-v1',actor='/root',scope='CURRENT_PRODUCER4_PURE_CONTROL_CAPTURE_AND_ADMISSION',producerSource=source_pin,knownActors=list(c.REQUIRED_KNOWN_ACTORS),provenance=p('known/provenance'),semantics='MOCK_ROOT_AUTHORITY_ONLY',sourceAccepted=False,executionAuthorized=False)
++ ack=dict(schema='e02-producer4-control-capture-root-ack-v1',actor='/root',executionAuthorized=True,scope='ONE_CURRENT_EOSE_SUCCESSOR_ELEVEN_SELECTED_PURE_CONTROL_GROUPS_ONLY',producerSource=source_pin,producerSourceAcceptance=p('source/accept.json'),producerReviews=[p('source/qa'),p('source/security')],captureSource=method_pin,captureSourceAcceptance=p('capture/accept.json'),captureReviews=[p('capture/qa'),p('capture/security')],admissionPlan=ap,admissionData=admission_pin,admissionDataAcceptance=p('admission/accept.json'),admissionReviews=[p('admission/qa'),p('admission/security')],sourceBirth=p('source/lineage'),actorContext=p('source/actors'),inputManifest=p('capture/inputs'),plan=p('capture/plan'),clockSelection=p('capture/clocks'),requestContract=p('capture/request'),runtimeBindings=p('capture/runtime-bindings'),authors=['/root/mock-coordinator'],operators=['/root/mock-operator'],noRetry=True)
++ testpins=[p('source4/'+n) for n in c.FILES[:10]];workers=[p('source4/worker%02d.py'%i) for i in range(22)];cfgs={'incoming':p('source4/incoming.json'),'archive':p('source4/archive.json')}
++ source=dict(schema='e02-ordinary-producer4-source-subject-v1',version='SOURCE4',runtimeSourceCount=22,runtimeSources=workers,sources=testpins+workers,configurations=cfgs,modelsDefined={**dict.fromkeys(c.MODEL_KEYS[:10],2),'fixtureEoseCaller':20},modelsExecuted=0,helperExecutions=0,roleExecutions=0,ordinaryRowsQualified=0,runtimeReady=False,author='/root/mock-source',coordinator='/root',predecessorAuthor='/root/mock-predecessor',sourceContributors=['/root/mock-source'],controlPlan=p('overlay/control-plan'))
++
++ source['externalCallerRegressionFamily']=c.EXTERNAL_FAMILY_PIN;source['externalControlSources']=copy.deepcopy(c.EXTERNAL_CODE);source['externalControlSourceCount']=17
++ fixture_pin=dict(path='/MOCK/source4/fixture.mjs',bytes=c.EXTERNAL_TESTED_FIXTURE['bytes'],sha256=c.EXTERNAL_TESTED_FIXTURE['sha256']);source['sources'].append(fixture_pin)
++ control=dict(selectedJavaScriptDefinitions=[dict(file=n,expandedDefinitions=2) for n in c.FILES[:5]]+[dict(file=c.EXTERNAL_SOURCE['path'],expandedDefinitions=20)],pythonDefinitions=[dict(file=n,methodDefinitions=2) for n in c.FILES[5:10]],externalCallerRegressionFamily=c.EXTERNAL_FAMILY_PIN)
++ known=dict(schema='e02-root-capture-known-actors-v1',actor='/root',scope='CURRENT_PRODUCER_EOSE_286_PURE_CONTROL_CAPTURE_AND_ADMISSION',producerSource=source_pin,knownActors=list(c.REQUIRED_KNOWN_ACTORS),provenance=p('known/provenance'),semantics='MOCK_ROOT_AUTHORITY_ONLY',sourceAccepted=False,executionAuthorized=False)
+  method=dict(knownActors=c.ROOT_KNOWN_ACTORS_PIN,schema='e02-producer4-control-capture-code-subject-v1',producerSource=source_pin,codeOnly=True,authors=['/root/mock-capture'],admissionModelsDefined=3,sources=[p('capture/capture.py')])
+  admission_plan=dict(caseNames=['MOCK_ONE','MOCK_TWO','MOCK_THREE'],modelsDefined=3)
+  def pair(subject,decision,kind):return [dict(role=role,session='/root/mock-'+kind+'-'+role,decision=decision,subject=subject) for role in ('qa','security')]
+- s=dict(schema='e02-root-current-producer4-source-acceptance-v1',actor='/root',decision=c.SOURCE_DECISION,subject=source_pin,reviews=ack['producerReviews'],modelsDefined=20,runtimeWorkerCount=22,modelsExecuted=0,helperExecutions=0,roleExecutions=0,runtimeReady=False,runtimeReleased=False,scope='EXACT_CURRENT_SOURCE_AND_CONTROL_DEFINITIONS_ONLY')
++ s=dict(schema='e02-root-producer-eose-source-acceptance-v1',actor='/root',decision=c.SOURCE_DECISION,subject=source_pin,reviews=ack['producerReviews'],modelsDefined=40,runtimeWorkerCount=22,modelsExecuted=0,helperExecutions=0,roleExecutions=0,runtimeReady=False,runtimeReleased=False,scope='EXACT_ORDINARY_EOSE_SUCCESSOR_SOURCE_AND_CONTROL_DEFINITIONS_ONLY')
+  cap=dict(schema='e02-root-producer4-capture-source-acceptance-v1',actor='/root',decision=c.CAPTURE_DECISION,subject=method_pin,reviews=ack['captureReviews'],admissionModelsDefined=3,admissionModelsExecuted=0,producerSource=source_pin,scope='EXACT_CAPTURE_SOURCE_AND_ADMISSION_DEFINITIONS_ONLY',executionAuthorized=False)
+  a=dict(schema='e02-root-producer4-capture-admission-data-acceptance-v1',actor='/root',decision=c.ADMISSION_DECISION,subject=admission_pin,reviews=ack['admissionReviews'],captureSource=method_pin,producerSource=source_pin,admissionPlan=ap,modelsDefined=3,modelsExecuted=3,modelsPassed=3,modelsFailed=0,targetModelsExecuted=0,helperExecutions=0,ordinaryRoleExecutions=0,scope='MOCKED_CAPTURE_ADMISSION_DATA_ONLY',executionAuthorized=False)
+  data=dict(schema='e02-producer4-capture-admission-data-subject-v1',authors=['/root/mock-admission-author'],operators=['/root/mock-operator'],captureSource=method_pin,producerSource=source_pin,admissionPlan=ap,execution=p('admission/execution'),originalToolOrigin=p('admission/origin'),rawArtifactManifest=p('admission/raw'),inputsBefore=p('admission/before'),inputsAfter=p('admission/after'),inputsUnchanged=True,modelsDefined=3,modelsExecuted=3,modelsPassed=3,modelsFailed=0,skipped=0,truncated=False,targetModelsExecuted=0,helperExecutions=0,ordinaryRoleExecutions=0)
+- records=dict(knownActors=known,producerAcceptance=s,captureAcceptance=cap,admissionAcceptance=a,admissionSubject=data,producerReviews=pair(source_pin,'ACCEPT_PRODUCER4_SOURCE4_AND_20_CONTROL_DEFINITIONS_ONLY','source'),captureReviews=pair(method_pin,c.CAPTURE_DECISION,'capture'),admissionReviews=pair(admission_pin,c.ADMISSION_DECISION,'admission'))
++ records=dict(knownActors=known,producerAcceptance=s,captureAcceptance=cap,admissionAcceptance=a,admissionSubject=data,producerReviews=pair(source_pin,c.SOURCE_DECISION,'source'),captureReviews=pair(method_pin,c.CAPTURE_DECISION,'capture'),admissionReviews=pair(admission_pin,c.ADMISSION_DECISION,'admission'))
+  context=dict(schema='e02-producer4-capture-current-actor-context-v1',producerSource=source_pin,captureSource=method_pin,sourceBirth=ack['sourceBirth'],participants=list(c.REQUIRED_KNOWN_ACTORS)+['/root/mock-known-source'],participantProofs=[dict(actor='/root/mock-known-source',authority=p('known/source'),selector='/author')])
+  tools={k:p('tools/'+k) for k in ('node','python','timeout','env')};tools['node']['path']='/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node';tools['python']['path']='/home/peterhorvath/.miniforge3/bin/python3.13';tools['timeout']['path']='/usr/bin/timeout';tools['env']['path']='/usr/bin/env'
+  scopes=[dict(scope=n,source=d,argv=[tools['node']['path'],d['path']] if i<5 else [tools['python']['path'],'-I','-B',d['path']],cwd='/MOCK/source4',count=2,definitionNames=['MOCK_A','MOCK_B'],format='MOCK') for i,(n,d) in enumerate(zip(c.FILES,testpins))]
+- plan=dict(schema='e02-producer4-control-capture-plan-v1',readiness=True,producerSource=source_pin,captureSource=method_pin,inputManifest=ack['inputManifest'],limits=copy.deepcopy(c.LIMITS),deadlineLedger=copy.deepcopy(c.LEDGER),scopes=scopes,countsSeparate=[2]*10,tools=tools,outputRoot='/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-MOCK/capture')
+- files=source['sources']+list(cfgs.values())+list(tools.values())+method['sources'];manifest=dict(schema='e02-producer4-explicit-host-input-manifest-v1',producerSource=source_pin,closedSourceSubjectKeys=sorted(source),controlPlan=source['controlPlan'],files=[dict(pin=d,mode=420,role='SOURCE',origin='MOCK') for d in files],actualInputCount=len(files))
+- clock=dict(schema='e02-root-control-capture-clock-source-selection-v1',actor='/root',controllerSeconds=1200,outerKillSeconds=1203,sharedInputSnapshotPoolSeconds=480,maximumSerialScopes=10,eachScopeSeconds=60,eachOwnedTerminationReserveSeconds=3,sumSeconds=1200)
++ scopes.append(dict(scope='fixtureEoseCaller',source=c.EXTERNAL_SOURCE,argv=[tools['node']['path'],c.EXTERNAL_SOURCE['path']],cwd=c.EXTERNAL_CWD,count=20,definitionNames=list(c.EXTERNAL_NAMES),format='EXACT_EXTERNAL_EOSE20_NODE_JSON'))
++ control['selectedGroups']=[dict(scope=s['scope'],source=s['source'],cwd=s['cwd'],count=s['count'],definitionNames=s['definitionNames'],**({'externalSourceFamily':c.EXTERNAL_FAMILY_PIN} if s['scope']=='fixtureEoseCaller' else {})) for s in scopes]
++ plan=dict(schema='e02-producer4-control-capture-plan-v1',readiness=True,producerSource=source_pin,captureSource=method_pin,inputManifest=ack['inputManifest'],limits=copy.deepcopy(c.LIMITS),deadlineLedger=copy.deepcopy(c.LEDGER),scopes=scopes,countsSeparate=[2]*10+[20],tools=tools,outputRoot='/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-MOCK/capture')
++ files=source['sources']+source['externalControlSources']+[c.EXTERNAL_FAMILY_PIN]+list(cfgs.values())+list(tools.values())+method['sources'];manifest=dict(schema='e02-producer4-explicit-host-input-manifest-v1',producerSource=source_pin,closedSourceSubjectKeys=sorted(source),controlPlan=source['controlPlan'],files=[dict(pin=d,mode=420,role='SOURCE',origin='MOCK') for d in files],actualInputCount=len(files))
++ for row in manifest['files']:
++  if row['pin']['path'] in c.EXTERNAL_MODES:row['mode']=c.EXTERNAL_MODES[row['pin']['path']]
++  if row['pin']['path']==fixture_pin['path']:row['mode']=c.EXTERNAL_FIXTURE_MODE
++ clock=dict(schema='e02-root-control-capture-clock-source-selection-v2',actor='/root',controllerSeconds=1263,outerKillSeconds=1266,sharedInputSnapshotPoolSeconds=480,maximumSerialScopes=11,eachScopeSeconds=60,eachOwnedTerminationReserveSeconds=3,metadataAndCleanupSeconds=30,otherReserveSeconds=60,sumSeconds=1263)
+  return dict(ack=ack,source=source,control=control,method=method,admission_plan=admission_plan,records=records,context=context,plan=plan,manifest=manifest,clock=clock)
+ def admit(f):return c.validate_acceptances(*[f[k] for k in ('ack','source','control','method','admission_plan','records','context')])
+ def planned(f):return c.validate_plan(*[f[k] for k in ('plan','ack','source','control','method','manifest','clock')])
+ 
+ class AdmissionDefinitions(unittest.TestCase):
+  def test_mock_complete_contract_and_overlay_model_cwd(self):
+-  f=fixture();self.assertEqual(admit(f)[0],[2]*10);planned(f)
++  f=fixture();self.assertEqual(admit(f)[0],[2]*10+[20]);planned(f)
+  def test_null_unknown_and_predecessor_source_refused(self):
+   for change in (lambda f:f['ack'].__setitem__('producerSource',None),lambda f:f['source'].__setitem__('schema','UNKNOWN'),lambda f:f['source'].__setitem__('version','SOURCE3')):
+    f=fixture();change(f)
+@@ -61,7 +70,7 @@
+    f=fixture();change(f)
+    with self.assertRaises(ValueError):planned(f)
+  def test_exact_five_key_direct_and_same_session_original_api(self):
+-  f=fixture();request=c.expected_request(f['plan'],'a'*64,'/MOCK/capture');self.assertEqual(set(request),set('cmd workdir login yield_time_ms max_output_tokens sandbox_permissions justification'.split()));self.assertIn('--signal=KILL',request['cmd']);self.assertIn('1203s',request['cmd']);self.assertNotIn('TZ=',request['cmd'])
++  f=fixture();request=c.expected_request(f['plan'],'a'*64,'/MOCK/capture');self.assertEqual(set(request),set('cmd workdir login yield_time_ms max_output_tokens sandbox_permissions justification'.split()));self.assertIn('--signal=KILL',request['cmd']);self.assertIn('1266s',request['cmd']);self.assertNotIn('TZ=',request['cmd'])
+   frame=dict(toolName='tools.exec_command',actualArguments=request,unmodifiedResponse=dict(exit_code=0,output='MOCK_ONLY'))
+   origin=dict(schema='e02-actual-tool-custody-v1',operator='/root/mock-operator',launch=frame,polls=[]);c.validate_origin(origin,request,f['ack']['operators'])
+   origin['launch']['unmodifiedResponse']={'session_id':77,'output':''};origin['polls']=[dict(toolName='tools.write_stdin',actualArguments={'session_id':77,'chars':''},unmodifiedResponse={'exit_code':0,'output':'MOCK_ONLY'})];c.validate_origin(origin,request,f['ack']['operators']);origin['polls'][0]['actualArguments']['session_id']=78
+@@ -80,8 +89,8 @@
+   row['reaped']=True
+   with self.assertRaises(ValueError):outputs.parse_outcome(dict(scope='test_guard_helper.py',count=2,definitionNames=['A.a','A.b']),row,b'',b'.s\n'+b'-'*70+b'\nRan 2 tests in 0.0s\n\nOK (skipped=1)\n')
+  def test_shared_snapshot480_and_full_child60_plus3_admission(self):
+-  now=[0];pool=capture.SnapshotPool(0,lambda:now[0]);pool.admit_child(10);now[0]=61000000000
+-  with self.assertRaises(ValueError):pool.admit_child(10)
++  now=[0];pool=capture.SnapshotPool(0,lambda:now[0]);pool.admit_child(11);now[0]=64000000000
++  with self.assertRaises(ValueError):pool.admit_child(11)
+   now[0]=0;pool=capture.SnapshotPool(0,lambda:now[0])
+   with self.assertRaises(ValueError):pool.run(0,lambda d:now.__setitem__(0,481000000000))
+  def test_one_absolute_reap_deadline_and_fault_signal_before_reap(self):
+@@ -143,7 +152,7 @@
+      f=fixture();f['records'][pair][index]['session']=actor
+      with self.subTest(actor=actor,pair=pair,index=index),self.assertRaises(ValueError):admit(f)
+   # Distinct nonparticipant pairs still admit through the same implementation.
+-  f=fixture();self.assertEqual(admit(f)[0],[2]*10)
++  f=fixture();self.assertEqual(admit(f)[0],[2]*10+[20])
+  def test_missing_required_actor_authority_schema_and_context_refused(self):
+   changes=[lambda f:f['records'].pop('knownActors'),lambda f:f['records']['knownActors'].__setitem__('schema','UNKNOWN'),lambda f:f['records']['knownActors']['knownActors'].pop(),lambda f:f['context']['participants'].remove(c.REQUIRED_KNOWN_ACTORS[-1]),lambda f:f['method'].__setitem__('knownActors',p('caller-known-authority'))]
+   for change in changes:
+@@ -158,7 +167,7 @@
+    def mkdir(self,**kw):events.append('mkdir')
+    def iterdir(self):return iter(FakePath(k) for k in retained)
+   class Pool:
+-   end=1200000000000
++   end=1263000000000
+    def clock(self):return 1
+    def run(self,n,fn):return fn(1000)
+    def admit_child(self,n):events.append(('admit',n))
+@@ -173,7 +182,7 @@
+   snapshots=[before,ValueError('POST_SNAPSHOT_DRIFT')] if bad_snapshot else [before,before]
+   with patch.object(capture.pathlib,'Path',FakePath),patch.object(capture,'put',side_effect=save),patch.object(capture,'descriptor',side_effect=desc),patch.object(capture,'expected_authorities',return_value=[]),patch.object(capture,'snapshot',side_effect=snapshots),patch.object(capture,'capture_scope',side_effect=fake_scope),patch.object(capture,'parse_outcome',side_effect=AssertionError('ROW_FAULT_MUST_PRECEDE_PARSER')) as parser,patch('builtins.print'):
+    self.assertEqual(capture.execute(f['ack'],p('actual-ack'),docs,[2]*10,Pool(),before),2)
+-  result=retained['/MOCK/output/result.json'];self.assertEqual(result['firstFault'],fault);self.assertEqual(len(result['scopes']),1);self.assertEqual(len(result['remainingNotExecuted']),9);self.assertFalse(result['sourceUnchanged']);parser.assert_not_called()
++  result=retained['/MOCK/output/result.json'];self.assertEqual(result['firstFault'],fault);self.assertEqual(len(result['scopes']),1);self.assertEqual(len(result['remainingNotExecuted']),10);self.assertFalse(result['sourceUnchanged']);parser.assert_not_called()
+   self.assertEqual([e for e in events if isinstance(e,tuple) and e[0]=='scope'],[('scope',1)])
+   self.assertEqual(len(result['secondaryFaults']),1 if bad_snapshot else 0)
+   if bad_snapshot:self.assertIn('POST_SNAPSHOT_DRIFT',result['secondaryFaults'][0])
+@@ -283,4 +292,111 @@
+   with self.assertRaises(ValueError):c.canonical_request({**expected,'login':0})
+ 
+ 
++ def test_eleven_typed_families_external_node_cwd_and_source(self):
++  f=fixture();planned(f);self.assertEqual(len(f['plan']['scopes']),11)
++  last=f['plan']['scopes'][-1];self.assertEqual(last['argv'],[f['plan']['tools']['node']['path'],c.EXTERNAL_SOURCE['path']]);self.assertEqual(last['cwd'],c.EXTERNAL_CWD)
++  for key,value in [('argv',[f['plan']['tools']['python']['path'],'-I','-B',c.EXTERNAL_SOURCE['path']]),('cwd','/MOCK/source4'),('source',p('unreviewed20.mjs')),('format','QUIET_UNITTEST_NO_SKIPS')]:
++   g=fixture();g['plan']['scopes'][-1][key]=value
++   with self.subTest(key=key),self.assertRaises(ValueError):planned(g)
++
++ def test_external_fixture_target_mode_and_full_import_closure(self):
++  for mutation in ('target-hash','target-mode','external-mode','missing-import','changed-family'):
++   f=fixture()
++   if mutation=='target-hash':next(d for d in f['source']['sources'] if d['path'].endswith('/fixture.mjs'))['sha256']='b'*64
++   elif mutation=='target-mode':next(d for d in f['manifest']['files'] if d['pin']['path']=='/MOCK/source4/fixture.mjs')['mode']=384
++   elif mutation=='external-mode':next(d for d in f['manifest']['files'] if d['pin']==c.EXTERNAL_TESTED_FIXTURE)['mode']=384
++   elif mutation=='missing-import':f['manifest']['files']=[d for d in f['manifest']['files'] if d['pin']!=c.EXTERNAL_CODE[0]];f['manifest']['actualInputCount']-=1
++   else:f['source']['externalCallerRegressionFamily']=p('false-family')
++   with self.subTest(mutation=mutation),self.assertRaises(ValueError):planned(f)
++
++ def test_external_twenty_output_closed_schema_order_and_model_limits(self):
++  scope=dict(scope='fixtureEoseCaller',count=20,definitionNames=list(c.EXTERNAL_NAMES))
++  row=dict(exitCode=0,reaped=True,eof=dict(stdout=True,stderr=True),fault=None,groupClosure=None,groupClosureFault=None,retentionErrors=[])
++  value=dict(schema='e02-fixture-eose-pure-regression-result-v1',scope='EXACT_SOURCE_CALLBACK_AND_UNCHANGED_GUARD_CORE_WITH_FAKE_TRANSPORT_AND_CLOCKS',checks=20,cases=list(c.EXTERNAL_NAMES),baselineFailureReproduced=True,baselineFailure='QUEUED_CONTEXT_CHANGED',runtimeExecuted=False,helperExecuted=False,networkExecuted=False,ordinaryRowsQualified=0,canonicalE02='PARTIAL22')
++  raw=lambda v:(json.dumps(v)+'\n').encode()
++  self.assertTrue(outputs.parse_outcome(scope,row,raw(value),b'')['allOk'])
++  changes=[('checks',True),('checks',19),('cases',list(reversed(c.EXTERNAL_NAMES))),('baselineFailureReproduced',False),('baselineFailure','OTHER'),('runtimeExecuted',True),('helperExecuted',True),('networkExecuted',True),('ordinaryRowsQualified',False),('canonicalE02','PASS')]
++  for key,v in changes:
++   changed=copy.deepcopy(value);changed[key]=v
++   with self.subTest(key=key,value=v),self.assertRaises(ValueError):outputs.parse_outcome(scope,row,raw(changed),b'')
++  changed=dict(value,extra=False)
++  with self.assertRaises(ValueError):outputs.parse_outcome(scope,row,raw(changed),b'')
++  for key in value:
++   changed=dict(value);del changed[key]
++   with self.subTest(missing=key),self.assertRaises((ValueError,KeyError)):outputs.parse_outcome(scope,row,raw(changed),b'')
++  with self.assertRaises(ValueError):outputs.parse_outcome(scope,row,raw(value),b'error')
++
++ def test_frozen_external_source_bytes_and_order_refuse_substitution(self):
++  scope=dict(source=c.EXTERNAL_SOURCE,definitionNames=list(c.EXTERNAL_NAMES))
++  raw=pathlib.Path(c.EXTERNAL_SOURCE['path']).read_bytes()
++  self.assertEqual(c.validate_external_source_names(raw,scope),list(c.EXTERNAL_NAMES))
++  with self.assertRaises(ValueError):c.validate_external_source_names(raw+b' ',scope)
++  with self.assertRaises(ValueError):c.validate_external_source_names(raw,dict(scope,definitionNames=list(reversed(c.EXTERNAL_NAMES))))
++  with self.assertRaises(ValueError):c.validate_external_source_names(raw,dict(scope,source=p('same-name-other-source')))
++
++ def test_exact1263_eleven_clock_and_no_twelfth_scope_extension(self):
++  self.assertEqual(c.LEDGER,dict(snapshots=480,children=693,metadataCleanup=30,reserve=60));self.assertEqual(sum(c.LEDGER.values()),1263)
++  self.assertEqual((c.LIMITS['controllerSeconds'],c.LIMITS['outerSeconds']),(1263,1266))
++  f=fixture();planned(f)
++  for key,value in [('controllerSeconds',1200),('outerKillSeconds',1203),('maximumSerialScopes',10),('maximumSerialScopes',12),('sumSeconds',1264)]:
++   g=fixture();g['clock'][key]=value
++   with self.subTest(key=key,value=value),self.assertRaises(ValueError):planned(g)
++  f=fixture();f['plan']['scopes'].append(copy.deepcopy(f['plan']['scopes'][-1]))
++  with self.assertRaises(ValueError):planned(f)
++
++ def test_execute_all_eleven_and_twenty_two_scope_snapshots_mock_only(self):
++  retained={};events=[];before=dict(rows=['MOCK_EXPECTED'],memberships=[])
++  class FakePath(pathlib.PurePosixPath):
++   def exists(self):return str(self) in retained
++   def is_symlink(self):return False
++   def is_file(self):return self.exists()
++   def mkdir(self,**kw):pass
++   def iterdir(self):return iter(FakePath(k) for k in retained)
++  class Pool:
++   end=1263000000000
++   def clock(self):return 1
++   def run(self,n,fn):events.append(('snapshot',n));return fn(1000)
++   def admit_child(self,n):events.append(('admit',n))
++  f=fixture();f['plan']['outputRoot']='/MOCK/output';docs=dict(plan=f['plan'],inputManifest=f['manifest'],captureSource=f['method'])
++  def save(root,name,value):retained[str(root/name)]=copy.deepcopy(value)
++  desc=lambda p:dict(path=str(p),bytes=1,sha256='a'*64)
++  def child(root,scope,index):events.append(('child',index,scope['scope'],scope['argv']));return dict(scope=scope['scope'],fault=None),b'',b''
++  with patch.object(capture.pathlib,'Path',FakePath),patch.object(capture,'put',side_effect=save),patch.object(capture,'descriptor',side_effect=desc),patch.object(capture,'expected_authorities',return_value=[]),patch.object(capture,'snapshot',return_value=before),patch.object(capture,'capture_scope',side_effect=child),patch.object(capture,'parse_outcome',side_effect=lambda s,*a:dict(scope=s['scope'],allOk=True)),patch('builtins.print'):
++   self.assertEqual(capture.execute(f['ack'],p('mock-ack'),docs,[2]*10+[20],Pool(),before),0)
++  result=retained['/MOCK/output/result.json'];self.assertEqual(len(result['scopes']),11);self.assertEqual(len(result['outcomes']),11);self.assertEqual(result['remainingNotExecuted'],[])
++  self.assertEqual([x[1] for x in events if x[0]=='child'],list(range(1,12)))
++  self.assertEqual(len([k for k in retained if k.endswith('-before.json') and not k.endswith('overall-before.json')]),11)
++  self.assertEqual(len([k for k in retained if k.endswith('-after.json') and not k.endswith('overall-after.json')]),11)
++  self.assertEqual([x[1] for x in events if x[0]=='admit'],list(range(11,0,-1)))
++
++ def test_external_family_cannot_add_opaque_unlisted_or_duplicate_code(self):
++  for mutation in ('extra','missing','duplicate'):
++   f=fixture()
++   if mutation=='extra':f['source']['externalControlSources'].append(p('opaque-unlisted'))
++   elif mutation=='missing':f['source']['externalControlSources'].pop()
++   else:f['source']['externalControlSources'].append(copy.deepcopy(f['source']['externalControlSources'][0]))
++   with self.subTest(mutation=mutation),self.assertRaises(ValueError):admit(f)
++
++ def test_original266_source_receipt_or_review_label_cannot_authorize286(self):
++  for mutation in ('old-schema','old-decision','old-review','old-scope'):
++   f=fixture()
++   if mutation=='old-schema':f['records']['producerAcceptance']['schema']='e02-root-current-producer4-source-acceptance-v1'
++   elif mutation=='old-decision':f['records']['producerAcceptance']['decision']='ACCEPT_PRODUCER4_SOURCE_AND_CONTROL_DEFINITIONS_ONLY'
++   elif mutation=='old-review':f['records']['producerReviews'][0]['decision']='ACCEPT_PRODUCER4_SOURCE4_AND_266_CONTROL_DEFINITIONS_ONLY'
++   else:f['records']['producerAcceptance']['scope']='EXACT_CURRENT_SOURCE_AND_CONTROL_DEFINITIONS_ONLY'
++   with self.subTest(mutation=mutation),self.assertRaises(ValueError):admit(f)
++
++ def test_real_emitted_authority_manifest_projection_and_reserved_coverage(self):
++  root=pathlib.Path(__file__).resolve().parent
++  authority=json.loads((root/'expected-input-authority.json').read_bytes())
++  manifest=json.loads((root/'input-manifest.json').read_bytes())
++  baseline=json.loads(pathlib.Path(authority['baselineManifest']['path']).read_bytes())
++  prior=pathlib.Path('/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-capture-20261105/source1/capture')
++  source1=(json.loads((prior/'expected-input-authority.json').read_bytes()),json.loads((prior/'input-manifest.json').read_bytes()))
++  inherited=authority['coverage']['historicalPriorExpectedInputAuthority'][0]
++  result=artifact_validation.check_emitted(authority,baseline,manifest,inherited,source1)
++  self.assertEqual(result['checks'],8)
++  self.assertGreater(result['actualInputCount'],2518)
++  self.assertEqual(result['manifestCoverageGroups'],result['authorityCoverageGroups']+1)
++
+ if __name__=='__main__':unittest.main(verbosity=2)
+--- /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/render_ready.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-capture-20261105/source2/render_ready.py
+@@ -1,13 +1,13 @@
+ """Owned metadata-only current readiness renderer. No installation, process or target imports."""
+ import copy,hashlib,json,os,pathlib,secrets,shlex,stat,sys
+-OWNED_ROOT=pathlib.Path('/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1')
++OWNED_ROOT=pathlib.Path('/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-capture-20261105/source2')
+ HERE=OWNED_ROOT/'capture'
+-PRODUCER_PIN={'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/subject.json', 'bytes': 41959, 'sha256': 'd4229ef2ddf77e79a8f1a9990ea174db4c3dba9e7f2012ed42589d857be443b5'}
+-PRODUCER_ACCEPTANCE={'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifact-source-review-20261105/acceptance.json', 'bytes': 1212, 'sha256': '277c4b31273e8e4c703a7fec54f5311ed159e4995d351a3c9017687006b51cdb'}
+-LINEAGE_PIN={'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifact-source-review-20261105/acceptance-lineage.json', 'bytes': 2010, 'sha256': '7e5e7c5f1fe4232ca87035438c72440bb53d3d4bd4f1cd7e74757bb781db6183'}
+-KNOWN_PIN={'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-root-authority-20261105/root-known-actors.json', 'bytes': 2755, 'sha256': '94fd5716503e40b7472e8432e768e6e381bb71ded02bdae47523affc8fe25673'}
++PRODUCER_PIN={'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-successor-20261105/source1/producer/subject.json', 'bytes': 48086, 'sha256': 'acbd539bba00aff05dd218d6c6323bf79904a4c14cfa3d0a9c89d32b3d4235a3'}
++PRODUCER_ACCEPTANCE={'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-source-review-20261105/r1/acceptance.json', 'bytes': 1203, 'sha256': '2e54ff60fe6026172913a28820f5f2c5e8a28fc2c33e89ad5e6abca7fbfa5ee3'}
++LINEAGE_PIN={'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-source-review-20261105/r1/acceptance-lineage.json', 'bytes': 1958, 'sha256': '764491c972fc3653d57dbdad5c73d11992ba873cfa82ddfacd793d214cdc01c2'}
++KNOWN_PIN={'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-capture-20261105/root-known-actors.json', 'bytes': 4110, 'sha256': 'a79d4482fba4ffbf1dc0a6e8719220ca74d430afd86842d6548b22a219ec20a2'}
+ REQUEST_KEYS=['cmd', 'workdir', 'login', 'yield_time_ms', 'max_output_tokens', 'sandbox_permissions', 'justification']
+-REQUEST_POLICY={'sandbox_permissions': 'require_escalated', 'justification': 'Môžem raz vykonať prijatých 266 syntetických kontrol E02 s výsledkami v izolovanom /Data adresári? Platí aktuálny Root ACK, pôvodné časové a vstupné limity a zákaz automatického opakovania.'}
++REQUEST_POLICY={'sandbox_permissions': 'require_escalated', 'justification': 'Jednorazové vykonanie prijatých 286 syntetických kontrol E02 s výsledkami v izolovanom /Data adresári podľa aktuálneho Root ACK; pôvodné limity a zákaz automatického opakovania zostávajú platné.'}
+ 
+ def need(value, message):
+     if not value:
+@@ -99,7 +99,7 @@
+     admission_acceptance_pin, admission_acceptance, _ = doc(spec['admissionDataAcceptance']['path'], spec['admissionDataAcceptance'])
+     admission_subject_pin, admission_subject, _ = doc(spec['admissionSubject']['path'], spec['admissionSubject'])
+     required = actors(known['knownActors'])
+-    need(len(required) == 18 and {'/root', '/root/native_rebuild_prepare', '/root/helper_apk_binding_scope', '/root/collector_policy_security_553c5bfd'} <= required, 'EXACT_ROOT_CAPTURE_KNOWN18_BEFORE_PAIRS')
++    need(len(required) == 23 and {'/root', '/root/native_rebuild_prepare', '/root/helper_apk_binding_scope', '/root/collector_policy_security_553c5bfd'} <= required, 'EXACT_ROOT_CAPTURE_KNOWN_CURRENT_BEFORE_PAIRS')
+     union = required | actors(source['sourceContributors']) | actors(method['authors']) | actors(spec['authors']) | actors(spec['operators']) | actors(admission_subject['authors']) | actors(admission_subject['operators'])
+     union |= {source['author'], source['coordinator'], source['predecessorAuthor']}
+     n = len(admission_plan['caseNames'])
+@@ -108,7 +108,7 @@
+     need(admission_subject['captureSource'] == method_pin and admission_subject['producerSource'] == source_pin and admission_subject['admissionPlan'] == admission_plan_pin and admission_subject['inputsUnchanged'] is True and admission_subject['truncated'] is False, 'ACTUAL_CURRENT_ADMISSION_SUBJECT')
+     need(all(type(admission_subject[k]) is int and admission_subject[k] == n for k in ('modelsDefined', 'modelsExecuted', 'modelsPassed')) and all(type(admission_subject[k]) is int and admission_subject[k] == 0 for k in ('modelsFailed', 'skipped', 'targetModelsExecuted', 'helperExecutions', 'ordinaryRoleExecutions')), 'COMPLETE_CURRENT_ADMISSION_NO_TARGET_EXECUTION')
+     # All actual participants are fixed before the first of the three pairs.
+-    review_pair(source_acceptance['reviews'], source_pin, 'ACCEPT_PRODUCER4_SOURCE4_AND_266_CONTROL_DEFINITIONS_ONLY', union)
++    review_pair(source_acceptance['reviews'], source_pin, 'ACCEPT_PRODUCER_EOSE_SOURCE_AND_286_DEFINITIONS_ONLY', union)
+     review_pair(capture_acceptance['reviews'], method_pin, 'ACCEPT_PRODUCER4_CAPTURE_SOURCE_AND_ADMISSION_DEFINITIONS_ONLY', union)
+     review_pair(admission_acceptance['reviews'], admission_subject_pin, 'ACCEPT_PRODUCER4_CAPTURE_ADMISSION_DATA_ONLY', union)
+     proofs = []
+@@ -132,9 +132,9 @@
+     plan.update(readiness=True, outputRoot=spec['outputRoot'], actualSourceReviewPins=source_acceptance['reviews'], captureSourceReviews=capture_acceptance['reviews'], captureSourceAcceptance=capture_acceptance_pin, admissionDataAcceptance=admission_acceptance_pin, rootAcknowledgement=None)
+     plan_pin = put(output / 'execution-plan.json', plan)
+     binding_pin = put(output / 'runtime-bindings.CANDIDATE.json', dict(schema='e02-producer4-capture-runtime-bindings-v1', readiness=True, producerSource=source_pin, producerAcceptance=PRODUCER_ACCEPTANCE, captureSourceAcceptance=capture_acceptance_pin, admissionDataAcceptance=admission_acceptance_pin, rootAcknowledgement='EXTERNALLY_SHA_BOUND_AT_LAUNCH'))
+-    ack = dict(schema='e02-producer4-control-capture-root-ack-v1', actor='/root', executionAuthorized=False, scope='ONE_CURRENT_SOURCE4_TEN_SELECTED_PURE_CONTROL_GROUPS_ONLY', producerSource=source_pin, producerSourceAcceptance=PRODUCER_ACCEPTANCE, producerReviews=source_acceptance['reviews'], captureSource=method_pin, captureSourceAcceptance=capture_acceptance_pin, captureReviews=capture_acceptance['reviews'], admissionPlan=admission_plan_pin, admissionData=admission_subject_pin, admissionDataAcceptance=admission_acceptance_pin, admissionReviews=admission_acceptance['reviews'], sourceBirth=LINEAGE_PIN, actorContext=context_pin, inputManifest=plan['inputManifest'], plan=plan_pin, clockSelection=plan['clockSelection'], requestContract=pin_bytes(HERE / 'request-template.json', read(HERE / 'request-template.json')[1]), runtimeBindings=binding_pin, authors=spec['authors'], operators=spec['operators'], noRetry=True)
++    ack = dict(schema='e02-producer4-control-capture-root-ack-v1', actor='/root', executionAuthorized=False, scope='ONE_CURRENT_EOSE_SUCCESSOR_ELEVEN_SELECTED_PURE_CONTROL_GROUPS_ONLY', producerSource=source_pin, producerSourceAcceptance=PRODUCER_ACCEPTANCE, producerReviews=source_acceptance['reviews'], captureSource=method_pin, captureSourceAcceptance=capture_acceptance_pin, captureReviews=capture_acceptance['reviews'], admissionPlan=admission_plan_pin, admissionData=admission_subject_pin, admissionDataAcceptance=admission_acceptance_pin, admissionReviews=admission_acceptance['reviews'], sourceBirth=LINEAGE_PIN, actorContext=context_pin, inputManifest=plan['inputManifest'], plan=plan_pin, clockSelection=plan['clockSelection'], requestContract=pin_bytes(HERE / 'request-template.json', read(HERE / 'request-template.json')[1]), runtimeBindings=binding_pin, authors=spec['authors'], operators=spec['operators'], noRetry=True)
+     ack_pin = put(output / 'root-ack.UNISSUED.json', ack)
+-    workflow_pin = put(output / 'materialization-workflow.json', dict(schema='e02-current-capture-exact7-materialization-workflow-v1', author='/root/native_rebuild_prepare', sourceRenderer='Versioned from exact preserved ready-r2 renderer; original need/encode/read/doc/put helpers unchanged.', sourceReady=False, requestKeys=REQUEST_KEYS, requestPolicy=REQUEST_POLICY, existingGenerator=str(HERE / 'request-from-plan.py'), existingGeneratorArgv=[plan['tools']['python']['path'], '-I', '-B', str(HERE / 'request-from-plan.py'), '--root-ack', str(HERE / 'coordinator-acknowledgement.json')], steps=['Fresh independent concrete review of exact current plan/candidate binding/false UNISSUED_ACK and full7 workflow; preserve all failures.', 'Root separately authorizes installation of reviewed operational metadata. Renderer installs nothing, issues no ACK and creates no Data output.', 'After actual Root ACK issuance use only request-from-plan.py, retain its full returned seven-key JSON without projection, reconstruction or SHA string substitution.', 'Run separately reviewed request_preflight.py on the actual generated request: exact canonical positive and equivalent-argv extraquote negative, no API request.', 'Compare the whole dictionary including exact policy bytes. Submit precisely that generated dictionary once and preserve full genuine direct/yielded launch/polls/terminal. No extra shell/tty/prefix_rule and no automatic retry.', 'Actual capture/assembly/current DATA reviews remain separately required.'], actualAck=None, actualRequest=None, actualPreflight=None, executionAuthorized=False))
++    workflow_pin = put(output / 'materialization-workflow.json', dict(schema='e02-current-capture-exact7-materialization-workflow-v1', author='/root/producer286_capture_source', sourceRenderer='Versioned from exact preserved ready-r2 renderer; original need/encode/read/doc/put helpers unchanged.', sourceReady=False, requestKeys=REQUEST_KEYS, requestPolicy=REQUEST_POLICY, existingGenerator=str(HERE / 'request-from-plan.py'), existingGeneratorArgv=[plan['tools']['python']['path'], '-I', '-B', str(HERE / 'request-from-plan.py'), '--root-ack', str(HERE / 'coordinator-acknowledgement.json')], steps=['Fresh independent concrete review of exact current plan/candidate binding/false UNISSUED_ACK and full7 workflow; preserve all failures.', 'Root separately authorizes installation of reviewed operational metadata. Renderer installs nothing, issues no ACK and creates no Data output.', 'After actual Root ACK issuance use only request-from-plan.py, retain its full returned seven-key JSON without projection, reconstruction or SHA string substitution.', 'Run separately reviewed request_preflight.py on the actual generated request: exact canonical positive and equivalent-argv extraquote negative, no API request.', 'Compare the whole dictionary including exact policy bytes. Submit precisely that generated dictionary once and preserve full genuine direct/yielded launch/polls/terminal. No extra shell/tty/prefix_rule and no automatic retry.', 'Actual capture/assembly/current DATA reviews remain separately required.'], actualAck=None, actualRequest=None, actualPreflight=None, executionAuthorized=False))
+     print(json.dumps(dict(plan=plan_pin, context=context_pin, bindingCandidate=binding_pin, unissuedAck=ack_pin, workflow=workflow_pin, rootAckIssued=False, sourceReady=False, dataDirectoryCreated=False, executionAuthorized=False)))
+ 
+ 
+--- NEW_PURE_EMITTED_ARTIFACT_VALIDATOR
++++ /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-capture-20261105/source2/capture/artifact_validation.py
+@@ -0,0 +1,59 @@
++"""Pure regression for completed emitted input-authority artifacts.
++
++No filesystem, clock, subprocess or target activity occurs here. The caller
++supplies actual completed JSON objects; strict production projection/coverage
++validation is imported byte-identically from the accepted predecessor engine.
++"""
++import copy
++from input_authority import validate_expected_authority
++
++
++def check_emitted(authority, baseline, manifest, inherited_self, source1=None):
++    names=[]
++    count=validate_expected_authority(authority,baseline,manifest)
++    assert count==manifest['actualInputCount']
++    names.append('completed_emitted_projection_and_coverage_positive')
++    assert 'currentExpectedInputAuthority' not in authority['coverage']
++    assert authority['coverage']['historicalPriorExpectedInputAuthority']==[inherited_self]
++    assert manifest['requiredCoverage']['currentExpectedInputAuthority']==[manifest['currentExpectedInputAuthority']]
++    assert manifest['currentExpectedInputAuthority']!=inherited_self
++    actual={r['pin']['path']:r for r in manifest['files']}
++    assert actual[inherited_self['path']]['pin']==inherited_self
++    names.append('inherited_sidecar_row_and_named_historical_coverage_retained')
++
++    def refused(a,m,expected):
++        try:validate_expected_authority(a,baseline,m)
++        except ValueError as error:
++            assert expected in str(error),(expected,str(error))
++            return
++        raise AssertionError('UNSAFE_ARTIFACT_ACCEPTANCE:'+expected)
++
++    missing=copy.deepcopy(manifest);missing['requiredCoverage'].pop('historicalPriorExpectedInputAuthority')
++    refused(authority,missing,'EXACT_EXPLICIT_READ_SITE_COVERAGE')
++    names.append('missing_emitted_historical_coverage_refused')
++    substituted=copy.deepcopy(manifest)
++    substituted['requiredCoverage']['historicalPriorExpectedInputAuthority']=[manifest['currentExpectedInputAuthority']]
++    refused(authority,substituted,'EXACT_EXPLICIT_READ_SITE_COVERAGE')
++    names.append('substituted_emitted_historical_coverage_refused')
++    duplicate=copy.deepcopy(manifest)
++    duplicate['requiredCoverage']['currentExpectedInputAuthority'].append(inherited_self)
++    refused(authority,duplicate,'AUTHORITY_PIN_UNIFORMLY_PROTECTED')
++    names.append('newself_reserved_coverage_exactly_one_pin')
++    polluted=copy.deepcopy(authority)
++    polluted['coverage']['currentExpectedInputAuthority']=[inherited_self]
++    refused(polluted,manifest,'EXACT_EXPLICIT_READ_SITE_COVERAGE')
++    names.append('authority_excludes_reserved_newself_key')
++    omission=copy.deepcopy(manifest)
++    omission['files']=[r for r in omission['files'] if r['pin']!=inherited_self]
++    omission['actualInputCount']-=1
++    refused(authority,omission,'COMPLETE_EXACT_CURRENT_PROJECTION_NO_EXTRA_OMISSION_OR_MODE_CHANGE')
++    names.append('historical_sidecar_row_cannot_be_dropped')
++    if source1 is not None:
++        old_authority,old_manifest=source1
++        refused(old_authority,old_manifest,'EXACT_EXPLICIT_READ_SITE_COVERAGE')
++        names.append('preserved_actual_source1_negative_reproduced')
++    return dict(schema='e02-capture-emitted-artifact-regression-v1',checks=len(names),cases=names,
++                actualInputCount=count,authorityCoverageGroups=len(authority['coverage']),
++                manifestCoverageGroups=len(manifest['requiredCoverage']),
++                inheritedAuthorityRetained=True,strictValidatorUnchanged=True,
++                targetScopesExecuted=0,executionAuthorized=False)

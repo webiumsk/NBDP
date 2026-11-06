@@ -1,0 +1,71 @@
+2026-10-27T21:16:14.109+0000 [DEBUG] [org.gradle.launcher.daemon.bootstrap.DaemonMain] Assuming the daemon was started with following jvm opts: [-XX:MaxMetaspaceSize=768m, -Xmx3g, -Dfile.encoding=UTF-8, -Duser.country, -Duser.language=en, -Duser.variant]
+2026-10-27T21:16:14.618+0000 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface eth0
+2026-10-27T21:16:14.619+0000 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? false
+2026-10-27T21:16:14.620+0000 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding remote address /172.29.0.2
+2026-10-27T21:16:14.621+0000 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding IP addresses for network interface lo
+2026-10-27T21:16:14.621+0000 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Is this a loopback interface? true
+2026-10-27T21:16:14.621+0000 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding loopback address /0:0:0:0:0:0:0:1%lo
+2026-10-27T21:16:14.622+0000 [DEBUG] [org.gradle.internal.remote.internal.inet.InetAddresses] Adding loopback address /127.0.0.1
+2026-10-27T21:16:14.890+0000 [INFO] [org.gradle.launcher.daemon.server.Daemon] start() called on daemon - DefaultDaemonContext[uid=899c2536-85e9-40d0-aa5f-74bd7cebc6ab,javaHome=/jdk,javaVersion=21,javaVendor=Eclipse Adoptium,daemonRegistryDir=/cache/gradle/daemon,pid=69,idleTimeout=120000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=768m,-Xmx3g,-Dfile.encoding=UTF-8,-Duser.country,-Duser.language=en,-Duser.variant]
+2026-10-27T21:16:14.931+0000 [DEBUG] [org.gradle.internal.remote.internal.inet.TcpIncomingConnector] Listening on [8449bf3d-9688-4770-9ab5-b6a1860f4014 port:36659, addresses:[localhost/127.0.0.1]].
+2026-10-27T21:16:14.985+0000 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] Daemon starting at: Tue Oct 27 21:16:14 UTC 2026, with address: [8449bf3d-9688-4770-9ab5-b6a1860f4014 port:36659, addresses:[localhost/127.0.0.1]]
+2026-10-27T21:16:14.988+0000 [INFO] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Advertising the daemon address to the clients: [8449bf3d-9688-4770-9ab5-b6a1860f4014 port:36659, addresses:[localhost/127.0.0.1]]
+2026-10-27T21:16:14.992+0000 [DEBUG] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Advertised daemon context: DefaultDaemonContext[uid=899c2536-85e9-40d0-aa5f-74bd7cebc6ab,javaHome=/jdk,javaVersion=21,javaVendor=Eclipse Adoptium,daemonRegistryDir=/cache/gradle/daemon,pid=69,idleTimeout=120000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=768m,-Xmx3g,-Dfile.encoding=UTF-8,-Duser.country,-Duser.language=en,-Duser.variant]
+2026-10-27T21:16:14.995+0000 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Storing daemon address: [8449bf3d-9688-4770-9ab5-b6a1860f4014 port:36659, addresses:[localhost/127.0.0.1]], context: DefaultDaemonContext[uid=899c2536-85e9-40d0-aa5f-74bd7cebc6ab,javaHome=/jdk,javaVersion=21,javaVendor=Eclipse Adoptium,daemonRegistryDir=/cache/gradle/daemon,pid=69,idleTimeout=120000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=768m,-Xmx3g,-Dfile.encoding=UTF-8,-Duser.country,-Duser.language=en,-Duser.variant]
+2026-10-27T21:16:15.007+0000 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2026-10-27T21:16:15.011+0000 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2026-10-27T21:16:15.012+0000 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2026-10-27T21:16:15.014+0000 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2026-10-27T21:16:15.014+0000 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2026-10-27T21:16:15.016+0000 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2026-10-27T21:16:15.017+0000 [LIFECYCLE] [org.gradle.launcher.daemon.server.Daemon] Daemon server started.
+2026-10-27T21:16:15.041+0000 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] stopOnExpiration() called on daemon
+2026-10-27T21:16:15.048+0000 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] awaitExpiration() called on daemon
+2026-10-27T21:16:15.053+0000 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+2026-10-27T21:16:15.099+0000 [DEBUG] [org.gradle.internal.remote.internal.inet.TcpIncomingConnector] Accepted connection from /127.0.0.1:37986 to /127.0.0.1:36659.
+2026-10-27T21:16:15.293+0000 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 27: received class org.gradle.launcher.daemon.protocol.Build
+2026-10-27T21:16:15.293+0000 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] thread 27: Received non-IO message from client: Build{id=8a3229dc-2e91-4990-8faa-4c98807126e1, currentDir=/work/source}
+2026-10-27T21:16:15.294+0000 [INFO] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Received command: Build{id=8a3229dc-2e91-4990-8faa-4c98807126e1, currentDir=/work/source}.
+2026-10-27T21:16:15.294+0000 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Starting executing command: Build{id=8a3229dc-2e91-4990-8faa-4c98807126e1, currentDir=/work/source} with connection: socket connection from /127.0.0.1:36659 to /127.0.0.1:37986.
+2026-10-27T21:16:15.297+0000 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: started DaemonCommandExecution[command = Build{id=8a3229dc-2e91-4990-8faa-4c98807126e1, currentDir=/work/source}, connection = DefaultDaemonConnection: socket connection from /127.0.0.1:36659 to /127.0.0.1:37986] after 0.006483333333333333 minutes of idle
+2026-10-27T21:16:15.297+0000 [INFO] [org.gradle.launcher.daemon.server.DaemonRegistryUpdater] Marking the daemon as busy, address: [8449bf3d-9688-4770-9ab5-b6a1860f4014 port:36659, addresses:[localhost/127.0.0.1]]
+2026-10-27T21:16:15.297+0000 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Marking busy by address: [8449bf3d-9688-4770-9ab5-b6a1860f4014 port:36659, addresses:[localhost/127.0.0.1]]
+2026-10-27T21:16:15.298+0000 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+2026-10-27T21:16:15.299+0000 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired on daemon addresses registry.
+2026-10-27T21:16:15.300+0000 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+2026-10-27T21:16:15.300+0000 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] resetting idle timer
+2026-10-27T21:16:15.301+0000 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon is running. Sleeping until state changes.
+2026-10-27T21:16:15.301+0000 [INFO] [org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy] Daemon is about to start building Build{id=8a3229dc-2e91-4990-8faa-4c98807126e1, currentDir=/work/source}. Dispatching build started information...
+2026-10-27T21:16:15.302+0000 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 29: dispatching org.gradle.launcher.daemon.protocol.BuildStarted@207b7f36
+2026-10-27T21:16:15.304+0000 [DEBUG] [org.gradle.launcher.daemon.server.exec.LogToClient] About to start relaying all logs to the client via the connection.
+2026-10-27T21:16:15.305+0000 [INFO] [org.gradle.launcher.daemon.server.exec.LogToClient] The client will now receive all logging from the daemon (pid: 69). The daemon log file: /cache/gradle/daemon/9.8.0/daemon-69.out.log
+2026-10-27T21:16:15.306+0000 [DEBUG] [org.gradle.launcher.daemon.server.exec.ApplyClientEnvironmentVariables] Configuring env variables: [PATH, GRADLE_USER_HOME, LC_ALL, JAVA_TOOL_OPTIONS, JAVA_HOME, OLDPWD, ANDROID_USER_HOME, PWD, ANDROID_SDK_ROOT, LANG, ANDROID_HOME, TMPDIR]
+2026-10-27T21:16:15.310+0000 [DEBUG] [org.gradle.launcher.daemon.server.exec.RequestStopIfSingleUsedDaemon] Requesting daemon stop after processing Build{id=8a3229dc-2e91-4990-8faa-4c98807126e1, currentDir=/work/source}
+2026-10-27T21:16:15.311+0000 [LIFECYCLE] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Daemon will be stopped at the end of the build 
+2026-10-27T21:16:15.311+0000 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Stop as soon as idle requested. The daemon is busy
+2026-10-27T21:16:15.311+0000 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] daemon stop has been requested. Sleeping until state changes.
+2026-10-27T21:16:15.315+0000 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] The daemon has started executing the build.
+2026-10-27T21:16:15.316+0000 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] Executing build with daemon context: DefaultDaemonContext[uid=899c2536-85e9-40d0-aa5f-74bd7cebc6ab,javaHome=/jdk,javaVersion=21,javaVendor=Eclipse Adoptium,daemonRegistryDir=/cache/gradle/daemon,pid=69,idleTimeout=120000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=768m,-Xmx3g,-Dfile.encoding=UTF-8,-Duser.country,-Duser.language=en,-Duser.variant]
+w: ⚠️ Usage of Internal Kotlin Gradle Plugin Properties Detected
+ATTENTION! This build uses the following Kotlin Gradle Plugin properties:
+
+kotlin.internal.incremental.enableUnsafeOptimizationsForMultiplatform
+
+Internal properties are not recommended for production use.
+Stability and future compatibility of the build is not guaranteed.
+Solution: Please consider using the public API instead of internal properties.
+
+Loading local repository...                                                     
+Info: SDK Manager found the following installed packages: build-tools;36.0.0 ndk;30.0.16248370 platforms;android-37.0
+[=========                              ] 25% Loading local repository...       
+Checking the license for package Android SDK Platform-Tools in /sdk/licenses
+License for package Android SDK Platform-Tools accepted.
+Preparing "Install Android SDK Platform-Tools v.37.0.1".
+Warning: Failed to read or create install properties file.
+WARNING: platform-tools package is not installed, and automatic installation failed.
+Add android.sync.suppressAgpWarnings=MISSING_SDK_PACKAGE to the gradle.properties file to suppress this warning.
+w: ⚠️ Compilation in Kotlin daemon has failed
+Failed to compile with Kotlin daemon : Connection to the Kotlin daemon has been unexpectedly lost. This might be caused by the daemon being killed by another process or the operating system, or by JVM crash.
+Using fallback strategy (kotlin.daemon.useFallbackStrategy=true): Compile without Kotlin daemon.
+Solution: Check the Kotlin daemon or compiler error message for details about the failure and possible ways to fix it. If the problem persists, run './gradlew --stop' and try again. If the problem does not seem to be caused by your build configuration, please report it at https://kotl.in/issue and attach the logs.
+

@@ -1,0 +1,47 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer266-source-preparation-20261104/r2/source/test_current_authority.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source1/source/test_current_authority.py
+@@ -10,7 +10,7 @@
+ from strict import Refusal,json_bytes
+ from test_parent_allocation import MemoryFiles
+ 
+-CURRENT_R8_FIXTURE = {'source': {'path': '/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r8/subject.json', 'bytes': 33998, 'sha256': '40f39255c58784e3c62eefd66dbf539564135b0ad6e721ed707027698d950db9'}, 'sourceAcceptance': {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r8-source-acceptance-20261029/acceptance.json', 'bytes': 1217, 'sha256': '75f976bc5053351b7f3c894c10145899272a2c09436dc18b45e918812979b3c7'}, 'controlAcceptance': {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r8-model168-actual-20261029/acceptance.json', 'bytes': 2129, 'sha256': '147b232c1f41e37bb004f79a254c29dbfcd64b4f361d503a84065a439c80c7f3'}}
++CURRENT_R8_FIXTURE = {'source': {'path': '/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r10/subject.json', 'bytes': 65372, 'sha256': '20f3740d34dfac74d808857315ca338c49a836732bd95bf5315365fe94422855'}, 'sourceAcceptance': {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-controller-source-review-20261105/r10/acceptance.json', 'bytes': 1216, 'sha256': 'a06e93b82b3dcc32879d8584f463fc1e4fa42fefa843f2ee85a4487ed2829081'}, 'controlAcceptance': {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-controller-r10-model178-data-review-20261105/acceptance.json', 'bytes': 2125, 'sha256': '7be2187f5dfbabd8959e7fb75d0817b824921467b05fbe5626d8a2f5cd6327b2'}}
+ HISTORICAL_R5_FIXTURE = {'source': {'path': '/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r5/subject.json', 'bytes': 22404, 'sha256': '6259e4dae59b27839378ec03c96056c5efab1c21132ac0eda451dbed8d8e4a03'}, 'sourceAcceptance': {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r5-source-acceptance-20261029/acceptance.json', 'bytes': 1217, 'sha256': '378c47f2db9bb2cc445a418126c7f6d1d3faf7af29ae953d3966eb85723d6076'}, 'controlAcceptance': {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r5-model123-capture-r2-20261029/acceptance.json', 'bytes': 2125, 'sha256': 'e3938c437c8bfc80b58541df05e2eb7a6a1aa5a9cadd49b9ad036ce54ea15483'}}
+ 
+ class ReadyAuthorityModel(MemoryFiles):
+@@ -29,7 +29,7 @@
+         self.source_reviews=self.reviews('source',self.source,self.contract['source']['reviewDecision'])
+         sa=dict(self.contract['source']['literals'],subject=self.source,reviews=self.source_reviews,
+             producerSource=consumer.CURRENT_PRODUCER,producerControlAcceptance=consumer.CURRENT_PRODUCER_CONTROL_ACCEPTANCE,
+-            runtimeSourceCount=12,sourceCount=source['sourceCount'],modelsDefined=self.total)
++            runtimeSourceCount=len(consumer.RUNTIME_FILES),sourceCount=source['sourceCount'],modelsDefined=self.total)
+         source_acceptance=self.record('source-acceptance',sa)
+         triple=self.current_controller()
+         ctrl=triple['controllerSource'];ctrl_sa=triple['controllerSourceAcceptance'];ctrl_da=triple['controllerControlDataAcceptance']
+@@ -65,7 +65,7 @@
+         leaf=dict(schema='e02-consumer6-runtime-bindings-v1',actor='/root',producerSource=consumer.CURRENT_PRODUCER,producerSourceAcceptance=consumer.CURRENT_PRODUCER_SOURCE_ACCEPTANCE,producerControlData=consumer.CURRENT_PRODUCER_CONTROL_DATA,producerControlAcceptance=consumer.CURRENT_PRODUCER_CONTROL_ACCEPTANCE,helperProbeData=probe,helperProbeAcceptance=probe_acceptance,controllerSource=ctrl,controllerSourceAcceptance=ctrl_sa,controllerControlDataAcceptance=ctrl_da,consumerSource=self.source,consumerSourceAcceptance=source_acceptance,consumerControlData=data,consumerControlAcceptance=data_acceptance,incomingWindow=export,archiveWindow=export,ordinaryExports=[export]*5,readiness=True,issued=True,executionAuthorized=False)
+         self.record('leaf',leaf)
+     def current_controller(self):
+-        # Exact accepted R8 SOURCE and complete168 retained DATA are read-only
++        # Exact accepted current R10 SOURCE and complete178 retained DATA are read-only
+         # inputs. This copies bytes into a memory-only test graph; it issues no
+         # helper/consumer/runtime authority. Any change() is synthetic DATA.
+         source_pin=self.copy_expected(CURRENT_R8_FIXTURE['source'],'controller-source')
+@@ -94,7 +94,7 @@
+         if name is not None:self.named[name]=actual
+         return actual
+     def reviewed_predecessor_cwd(self):
+-        # Deliberately synthetic reviewed-plan variant over current R8 CODE.
++        # Deliberately synthetic reviewed-plan variant over current R10 CODE.
+         # R2 is an actual declared member root. No historical plan is rewritten.
+         predecessor='/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2'
+         self.change('controller-plan',lambda d:d['groups'][1].update(cwd=predecessor))
+@@ -207,7 +207,7 @@
+     def test_positive_full_current_ready_typed_authority_path(self):
+         f=self.model();result=consumer.bind_current_profile(f,f.named['leaf']);self.assertTrue(result['readiness']);self.assertEqual(consumer._ACTIVE_BINDINGS['consumerSource'],f.source);consumer.require_current_source_profile()
+     def test_current_actual_code_and_ast_partition_are_checked(self):
+-        f=self.model();s,p,counts,total=consumer.current_code_profile(f,f.source);self.assertEqual(total,sum(g['count'] for g in p['groups']));self.assertEqual(s['runtimeSourceCount'],12)
++        f=self.model();s,p,counts,total=consumer.current_code_profile(f,f.source);self.assertEqual(total,sum(g['count'] for g in p['groups']));self.assertEqual(s['runtimeSourceCount'],len(consumer.RUNTIME_FILES))
+     def test_stale139_control_authority_refused(self):self.reject('data-acceptance',lambda d:d.update(modelsDefined=139,modelsExecuted=139,modelsPassed=139))
+     def test_wrong_source_acceptance_scope(self):self.reject('source-acceptance',lambda d:d.update(scope='UNRELATED_SCOPE'))
+     def test_wrong_source_acceptance_decision(self):self.reject('source-acceptance',lambda d:d.update(decision='ACCEPT_UNRELATED_SOURCE'))

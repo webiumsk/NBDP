@@ -1,0 +1,13 @@
+{
+  "schema": "e02-preserved-review-finding-v1",
+  "finding": "CAP21-SEC-01",
+  "severity": "LOW",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-capture-admission21-actual-20261028/subject.json",
+    "bytes": 4698,
+    "sha256": "c7614848affcc2095d909dc153039c32aeeb2af5c7274efc3591bb4e4b0d1308"
+  },
+  "decision": "HOLD_CAP21_SEC_01_ADMISSION_DATA_SUBJECT_CONTRACT_MISMATCH",
+  "evidence": "Accepted contracts.py:47 requires admissionSubject.authors/operators; line61 requires exact closed DATA subject keys. Original actual summary lacks this contract.",
+  "remediation": "New canonical metadata-only DATA overlay; preserve original summary, execution, reviews and input evidence. No code change or repeated execution."
+}

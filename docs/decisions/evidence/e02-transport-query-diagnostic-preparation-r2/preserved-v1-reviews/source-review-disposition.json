@@ -1,0 +1,32 @@
+{
+  "schema": "nbdp-transport-query-source-hold-v1",
+  "actor": "/root",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r1/subject.json",
+    "bytes": 11531,
+    "sha256": "173b2fa59459b9e1fac04e21a56e84b6fb8ccaa35971c96d011648c0852d76b0"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r1/actual-source-qa-review.json",
+      "bytes": 986,
+      "sha256": "1326a9db93a0a01b328608b8ab4d3e3b5be489a79a24b0eed53f613aa6d274a1"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r1/actual-source-security-review.json",
+      "bytes": 1011,
+      "sha256": "3c87b498a65c332d38c5cac08a1e096b066aeff6180e49c9170e6cbcccb37794"
+    }
+  ],
+  "sourceControlsExecuted": 0,
+  "fakeSocketControlsExecuted": 0,
+  "runtimeExecuted": false,
+  "origin": "Structured coordinator transcription of actual separate independent reviews; summaries are not verbatim provider logs.",
+  "requiredRemediation": [
+    "Restore exact installed membership/canonical source-runtime mapping; reject extra optional modules/symlinks/specials before import or container activation.",
+    "Guarantee exact-once Promise settlement and exact-socket cleanup independent of evidence failures, preserve original first error, never success after required write failure.",
+    "Check one-write byte acknowledgements; poison after short/invalid/failed write, no rewriting or subsequent data actions.",
+    "New meaningful fault models and independent new-source review before controls/runtime."
+  ],
+  "next": "Separately frozen v2 sibling SOURCE preparation authorized; v1 unchanged, no retries or runtime grant."
+}

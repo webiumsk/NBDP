@@ -1,0 +1,2179 @@
+{
+  "consumerReachable": [
+    "async_guard",
+    "capture_contracts",
+    "capture_outputs",
+    "collector_contracts",
+    "consumer",
+    "current_controls",
+    "gui",
+    "observer",
+    "ordinary_capture_contracts",
+    "ordinary_capture_outputs",
+    "parent_allocation",
+    "probe_adapter",
+    "request_families",
+    "strict",
+    "wire",
+    "witness"
+  ],
+  "executed": false,
+  "finiteDynamicEdges": [
+    {
+      "function": "components",
+      "members": [
+        "strict",
+        "wire",
+        "gui",
+        "witness",
+        "observer",
+        "consumer",
+        "test_data_controls",
+        "model_stage"
+      ],
+      "source": "whole_window"
+    }
+  ],
+  "graph": {
+    "<isolated-program>": [
+      "capture_contracts",
+      "capture_outputs",
+      "consumer",
+      "current_controls",
+      "ordinary_capture_contracts",
+      "ordinary_capture_outputs",
+      "strict"
+    ],
+    "async_guard": [
+      "strict",
+      "wire"
+    ],
+    "capture_contracts": [
+      "request_families",
+      "strict"
+    ],
+    "capture_outputs": [
+      "capture_contracts",
+      "strict"
+    ],
+    "collector_contracts": [],
+    "consumer": [
+      "async_guard",
+      "capture_contracts",
+      "capture_outputs",
+      "collector_contracts",
+      "current_controls",
+      "gui",
+      "observer",
+      "ordinary_capture_contracts",
+      "ordinary_capture_outputs",
+      "parent_allocation",
+      "probe_adapter",
+      "request_families",
+      "strict",
+      "wire",
+      "witness"
+    ],
+    "current_controls": [
+      "capture_contracts",
+      "ordinary_capture_contracts",
+      "ordinary_capture_outputs",
+      "strict",
+      "witness"
+    ],
+    "gui": [
+      "strict",
+      "wire"
+    ],
+    "model_stage": [
+      "observer",
+      "strict",
+      "test_data_controls",
+      "wire"
+    ],
+    "observer": [
+      "async_guard",
+      "strict",
+      "wire"
+    ],
+    "ordinary_capture_contracts": [],
+    "ordinary_capture_outputs": [
+      "ordinary_capture_contracts",
+      "strict"
+    ],
+    "parent_allocation": [
+      "async_guard",
+      "strict"
+    ],
+    "prepare_consumer_edit": [],
+    "prepare_observer_edit": [],
+    "probe_adapter": [
+      "capture_contracts",
+      "collector_contracts",
+      "consumer",
+      "current_controls",
+      "request_families",
+      "strict",
+      "witness"
+    ],
+    "request_families": [
+      "collector_contracts",
+      "strict"
+    ],
+    "strict": [],
+    "test_async_guard": [
+      "async_guard",
+      "strict"
+    ],
+    "test_component_basis": [
+      "consumer",
+      "probe_adapter",
+      "strict"
+    ],
+    "test_current_authority": [
+      "consumer",
+      "probe_adapter",
+      "strict",
+      "test_parent_allocation"
+    ],
+    "test_current_controls": [
+      "consumer",
+      "current_controls",
+      "ordinary_capture_contracts",
+      "ordinary_capture_outputs",
+      "strict",
+      "test_parent_allocation"
+    ],
+    "test_data_controls": [
+      "consumer",
+      "gui",
+      "strict",
+      "wire",
+      "witness"
+    ],
+    "test_import_closure": [],
+    "test_mode_reader": [
+      "strict"
+    ],
+    "test_observer_v3": [
+      "async_guard",
+      "observer",
+      "strict"
+    ],
+    "test_parent_allocation": [
+      "async_guard",
+      "parent_allocation",
+      "strict",
+      "test_async_guard"
+    ],
+    "test_probe_adapter": [
+      "consumer",
+      "probe_adapter",
+      "strict",
+      "test_parent_allocation"
+    ],
+    "test_request_families": [
+      "capture_contracts",
+      "collector_contracts",
+      "consumer",
+      "probe_adapter",
+      "request_families",
+      "strict"
+    ],
+    "test_source_bindings": [
+      "async_guard",
+      "consumer",
+      "observer",
+      "strict",
+      "wire"
+    ],
+    "test_whole_window": [
+      "whole_window"
+    ],
+    "whole_window": [
+      "async_guard",
+      "consumer",
+      "gui",
+      "model_stage",
+      "observer",
+      "strict",
+      "test_async_guard",
+      "test_data_controls",
+      "wire",
+      "witness"
+    ],
+    "wire": [
+      "strict"
+    ],
+    "witness": [
+      "strict",
+      "wire"
+    ]
+  },
+  "imports": [
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 7,
+      "module": "hashlib",
+      "source": "async_guard"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 8,
+      "module": "re",
+      "source": "async_guard"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 9,
+      "module": "strict",
+      "source": "async_guard"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 10,
+      "module": "wire",
+      "source": "async_guard"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 1,
+      "module": "strict",
+      "source": "capture_contracts"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 3,
+      "module": "json",
+      "source": "capture_contracts"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 3,
+      "module": "math",
+      "source": "capture_contracts"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 3,
+      "module": "re",
+      "source": "capture_contracts"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 4,
+      "module": "decimal",
+      "source": "capture_contracts"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 5,
+      "module": "pathlib",
+      "source": "capture_contracts"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 137,
+      "module": "shlex",
+      "source": "capture_contracts"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 149,
+      "module": "request_families",
+      "source": "capture_contracts"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 172,
+      "module": "request_families",
+      "source": "capture_contracts"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "re",
+      "source": "capture_outputs"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 3,
+      "module": "capture_contracts",
+      "source": "capture_outputs"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 4,
+      "module": "strict",
+      "source": "capture_outputs"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "base64",
+      "source": "collector_contracts"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "binascii",
+      "source": "collector_contracts"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "hashlib",
+      "source": "collector_contracts"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "json",
+      "source": "collector_contracts"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "math",
+      "source": "collector_contracts"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "re",
+      "source": "collector_contracts"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "shlex",
+      "source": "collector_contracts"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 6,
+      "module": "argparse",
+      "source": "consumer"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 7,
+      "module": "ast",
+      "source": "consumer"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 8,
+      "module": "hashlib",
+      "source": "consumer"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 9,
+      "module": "ipaddress",
+      "source": "consumer"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 10,
+      "module": "pathlib",
+      "source": "consumer"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 11,
+      "module": "re",
+      "source": "consumer"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 12,
+      "module": "stat",
+      "source": "consumer"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 13,
+      "module": "sys",
+      "source": "consumer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 17,
+      "module": "strict",
+      "source": "consumer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 18,
+      "module": "gui",
+      "source": "consumer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 19,
+      "module": "wire",
+      "source": "consumer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 20,
+      "module": "observer",
+      "source": "consumer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 21,
+      "module": "strict",
+      "source": "consumer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 22,
+      "module": "async_guard",
+      "source": "consumer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 23,
+      "module": "parent_allocation",
+      "source": "consumer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 24,
+      "module": "capture_contracts",
+      "source": "consumer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 25,
+      "module": "capture_outputs",
+      "source": "consumer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 26,
+      "module": "current_controls",
+      "source": "consumer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 27,
+      "module": "ordinary_capture_contracts",
+      "source": "consumer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 28,
+      "module": "ordinary_capture_outputs",
+      "source": "consumer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 29,
+      "module": "probe_adapter",
+      "source": "consumer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 30,
+      "module": "request_families",
+      "source": "consumer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 31,
+      "module": "collector_contracts",
+      "source": "consumer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 32,
+      "module": "witness",
+      "source": "consumer"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 120,
+      "module": "ast",
+      "source": "consumer"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 174,
+      "module": "shlex",
+      "source": "consumer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 208,
+      "module": "probe_adapter",
+      "source": "consumer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 230,
+      "module": "capture_contracts",
+      "source": "consumer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 418,
+      "module": "probe_adapter",
+      "source": "consumer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 421,
+      "module": "current_controls",
+      "source": "consumer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 735,
+      "module": "parent_allocation",
+      "source": "consumer"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 8,
+      "module": "pathlib",
+      "source": "current_controls"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 9,
+      "module": "json",
+      "source": "current_controls"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 10,
+      "module": "strict",
+      "source": "current_controls"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 11,
+      "module": "capture_contracts",
+      "source": "current_controls"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 12,
+      "module": "ordinary_capture_outputs",
+      "source": "current_controls"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 13,
+      "module": "ordinary_capture_contracts",
+      "source": "current_controls"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 14,
+      "module": "witness",
+      "source": "current_controls"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "hashlib",
+      "source": "gui"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 3,
+      "module": "re",
+      "source": "gui"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 4,
+      "module": "xml.etree.ElementTree",
+      "source": "gui"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 5,
+      "module": "strict",
+      "source": "gui"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 6,
+      "module": "wire",
+      "source": "gui"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 7,
+      "module": "base64",
+      "source": "model_stage"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 8,
+      "module": "copy",
+      "source": "model_stage"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 9,
+      "module": "hashlib",
+      "source": "model_stage"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 10,
+      "module": "pathlib",
+      "source": "model_stage"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 11,
+      "module": "sys",
+      "source": "model_stage"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 12,
+      "module": "tempfile",
+      "source": "model_stage"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 13,
+      "module": "unittest",
+      "source": "model_stage"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 16,
+      "module": "strict",
+      "source": "model_stage"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 17,
+      "module": "wire",
+      "source": "model_stage"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 18,
+      "module": "observer",
+      "source": "model_stage"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 19,
+      "module": "test_data_controls",
+      "source": "model_stage"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 7,
+      "module": "datetime",
+      "source": "observer"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 8,
+      "module": "hashlib",
+      "source": "observer"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 9,
+      "module": "pathlib",
+      "source": "observer"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 10,
+      "module": "re",
+      "source": "observer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 12,
+      "module": "strict",
+      "source": "observer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 13,
+      "module": "wire",
+      "source": "observer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 14,
+      "module": "async_guard",
+      "source": "observer"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 86,
+      "module": "strict",
+      "source": "observer"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "hashlib",
+      "source": "ordinary_capture_contracts"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "json",
+      "source": "ordinary_capture_contracts"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "math",
+      "source": "ordinary_capture_contracts"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "re",
+      "source": "ordinary_capture_contracts"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 3,
+      "module": "decimal",
+      "source": "ordinary_capture_contracts"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 4,
+      "module": "pathlib",
+      "source": "ordinary_capture_contracts"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 120,
+      "module": "shlex",
+      "source": "ordinary_capture_contracts"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "re",
+      "source": "ordinary_capture_outputs"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 3,
+      "module": "ordinary_capture_contracts",
+      "source": "ordinary_capture_outputs"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 4,
+      "module": "strict",
+      "source": "ordinary_capture_outputs"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "hashlib",
+      "source": "parent_allocation"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 3,
+      "module": "pathlib",
+      "source": "parent_allocation"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 4,
+      "module": "strict",
+      "source": "parent_allocation"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 5,
+      "module": "async_guard",
+      "source": "parent_allocation"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "pathlib",
+      "source": "prepare_consumer_edit"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 3,
+      "module": "ast",
+      "source": "prepare_consumer_edit"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 3,
+      "module": "json",
+      "source": "prepare_consumer_edit"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 3,
+      "module": "hashlib",
+      "source": "prepare_consumer_edit"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "pathlib",
+      "source": "prepare_observer_edit"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 6,
+      "module": "shlex",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 7,
+      "module": "pathlib",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 8,
+      "module": "strict",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 9,
+      "module": "capture_contracts",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 10,
+      "module": "request_families",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 11,
+      "module": "witness",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 83,
+      "module": "current_controls",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 119,
+      "module": "ast",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 179,
+      "module": "re",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 180,
+      "module": "strict",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 227,
+      "module": "consumer",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 240,
+      "module": "collector_contracts",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 257,
+      "module": "ast",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 258,
+      "module": "re",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 410,
+      "module": "ast",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 423,
+      "module": "ast",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 424,
+      "module": "re",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 425,
+      "module": "sys",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 510,
+      "module": "ast",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 511,
+      "module": "hashlib",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 512,
+      "module": "strict",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 632,
+      "module": "strict",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 150,
+      "module": "re",
+      "source": "probe_adapter"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 6,
+      "module": "decimal",
+      "source": "request_families"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 7,
+      "module": "json",
+      "source": "request_families"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 7,
+      "module": "math",
+      "source": "request_families"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 7,
+      "module": "re",
+      "source": "request_families"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 8,
+      "module": "strict",
+      "source": "request_families"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 187,
+      "module": "collector_contracts",
+      "source": "request_families"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "hashlib",
+      "source": "strict"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 3,
+      "module": "json",
+      "source": "strict"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 4,
+      "module": "os",
+      "source": "strict"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 5,
+      "module": "pathlib",
+      "source": "strict"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 6,
+      "module": "re",
+      "source": "strict"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 7,
+      "module": "stat",
+      "source": "strict"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "base64",
+      "source": "test_async_guard"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "copy",
+      "source": "test_async_guard"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "hashlib",
+      "source": "test_async_guard"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "sys",
+      "source": "test_async_guard"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "unittest",
+      "source": "test_async_guard"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 3,
+      "module": "pathlib",
+      "source": "test_async_guard"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 5,
+      "module": "strict",
+      "source": "test_async_guard"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 6,
+      "module": "async_guard",
+      "source": "test_async_guard"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 36,
+      "module": "json",
+      "source": "test_async_guard"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 70,
+      "module": "json",
+      "source": "test_async_guard"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 90,
+      "module": "json",
+      "source": "test_async_guard"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "copy",
+      "source": "test_component_basis"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 3,
+      "module": "ast",
+      "source": "test_component_basis"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 4,
+      "module": "contextlib",
+      "source": "test_component_basis"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 5,
+      "module": "hashlib",
+      "source": "test_component_basis"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 6,
+      "module": "json",
+      "source": "test_component_basis"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 7,
+      "module": "sys",
+      "source": "test_component_basis"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 8,
+      "module": "unittest",
+      "source": "test_component_basis"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 9,
+      "module": "pathlib",
+      "source": "test_component_basis"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 12,
+      "module": "probe_adapter",
+      "source": "test_component_basis"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 13,
+      "module": "consumer",
+      "source": "test_component_basis"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 14,
+      "module": "strict",
+      "source": "test_component_basis"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 6,
+      "module": "copy",
+      "source": "test_current_authority"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 6,
+      "module": "hashlib",
+      "source": "test_current_authority"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 6,
+      "module": "json",
+      "source": "test_current_authority"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 6,
+      "module": "sys",
+      "source": "test_current_authority"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 6,
+      "module": "unittest",
+      "source": "test_current_authority"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 7,
+      "module": "pathlib",
+      "source": "test_current_authority"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 9,
+      "module": "consumer",
+      "source": "test_current_authority"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 9,
+      "module": "probe_adapter",
+      "source": "test_current_authority"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 10,
+      "module": "strict",
+      "source": "test_current_authority"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 11,
+      "module": "test_parent_allocation",
+      "source": "test_current_authority"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 252,
+      "module": "heapq",
+      "source": "test_current_authority"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 6,
+      "module": "copy",
+      "source": "test_current_controls"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 6,
+      "module": "json",
+      "source": "test_current_controls"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 6,
+      "module": "sys",
+      "source": "test_current_controls"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 6,
+      "module": "unittest",
+      "source": "test_current_controls"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 7,
+      "module": "pathlib",
+      "source": "test_current_controls"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 8,
+      "module": "types",
+      "source": "test_current_controls"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 10,
+      "module": "consumer",
+      "source": "test_current_controls"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 11,
+      "module": "ordinary_capture_contracts",
+      "source": "test_current_controls"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 12,
+      "module": "ordinary_capture_outputs",
+      "source": "test_current_controls"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 13,
+      "module": "current_controls",
+      "source": "test_current_controls"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 14,
+      "module": "strict",
+      "source": "test_current_controls"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 15,
+      "module": "test_parent_allocation",
+      "source": "test_current_controls"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 6,
+      "module": "base64",
+      "source": "test_data_controls"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 7,
+      "module": "copy",
+      "source": "test_data_controls"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 8,
+      "module": "hashlib",
+      "source": "test_data_controls"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 9,
+      "module": "json",
+      "source": "test_data_controls"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 10,
+      "module": "os",
+      "source": "test_data_controls"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 11,
+      "module": "pathlib",
+      "source": "test_data_controls"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 12,
+      "module": "sys",
+      "source": "test_data_controls"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 13,
+      "module": "tempfile",
+      "source": "test_data_controls"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 14,
+      "module": "unittest",
+      "source": "test_data_controls"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 15,
+      "module": "xml.etree.ElementTree",
+      "source": "test_data_controls"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 18,
+      "module": "strict",
+      "source": "test_data_controls"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 19,
+      "module": "wire",
+      "source": "test_data_controls"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 20,
+      "module": "gui",
+      "source": "test_data_controls"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 21,
+      "module": "witness",
+      "source": "test_data_controls"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 22,
+      "module": "consumer",
+      "source": "test_data_controls"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 388,
+      "module": "types",
+      "source": "test_data_controls"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 6,
+      "module": "ast",
+      "source": "test_import_closure"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 7,
+      "module": "json",
+      "source": "test_import_closure"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 8,
+      "module": "pathlib",
+      "source": "test_import_closure"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 9,
+      "module": "subprocess",
+      "source": "test_import_closure"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 10,
+      "module": "sys",
+      "source": "test_import_closure"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 11,
+      "module": "tempfile",
+      "source": "test_import_closure"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 12,
+      "module": "unittest",
+      "source": "test_import_closure"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 6,
+      "module": "hashlib",
+      "source": "test_mode_reader"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 7,
+      "module": "os",
+      "source": "test_mode_reader"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 8,
+      "module": "pathlib",
+      "source": "test_mode_reader"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 9,
+      "module": "stat",
+      "source": "test_mode_reader"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 10,
+      "module": "sys",
+      "source": "test_mode_reader"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 11,
+      "module": "tempfile",
+      "source": "test_mode_reader"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 12,
+      "module": "unittest",
+      "source": "test_mode_reader"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 13,
+      "module": "unittest.mock",
+      "source": "test_mode_reader"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 16,
+      "module": "strict",
+      "source": "test_mode_reader"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 17,
+      "module": "strict",
+      "source": "test_mode_reader"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "base64",
+      "source": "test_observer_v3"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "copy",
+      "source": "test_observer_v3"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "hashlib",
+      "source": "test_observer_v3"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "sys",
+      "source": "test_observer_v3"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "unittest",
+      "source": "test_observer_v3"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 3,
+      "module": "pathlib",
+      "source": "test_observer_v3"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 5,
+      "module": "strict",
+      "source": "test_observer_v3"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 6,
+      "module": "async_guard",
+      "source": "test_observer_v3"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 7,
+      "module": "observer",
+      "source": "test_observer_v3"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "copy",
+      "source": "test_parent_allocation"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "hashlib",
+      "source": "test_parent_allocation"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "sys",
+      "source": "test_parent_allocation"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "unittest",
+      "source": "test_parent_allocation"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 3,
+      "module": "pathlib",
+      "source": "test_parent_allocation"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 5,
+      "module": "strict",
+      "source": "test_parent_allocation"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 6,
+      "module": "async_guard",
+      "source": "test_parent_allocation"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 7,
+      "module": "parent_allocation",
+      "source": "test_parent_allocation"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 8,
+      "module": "test_async_guard",
+      "source": "test_parent_allocation"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 30,
+      "module": "base64",
+      "source": "test_parent_allocation"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 30,
+      "module": "json",
+      "source": "test_parent_allocation"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "copy",
+      "source": "test_probe_adapter"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "hashlib",
+      "source": "test_probe_adapter"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "json",
+      "source": "test_probe_adapter"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "sys",
+      "source": "test_probe_adapter"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "tempfile",
+      "source": "test_probe_adapter"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "unittest",
+      "source": "test_probe_adapter"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 3,
+      "module": "pathlib",
+      "source": "test_probe_adapter"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 4,
+      "module": "types",
+      "source": "test_probe_adapter"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 6,
+      "module": "consumer",
+      "source": "test_probe_adapter"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 7,
+      "module": "strict",
+      "source": "test_probe_adapter"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 8,
+      "module": "test_parent_allocation",
+      "source": "test_probe_adapter"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 9,
+      "module": "probe_adapter",
+      "source": "test_probe_adapter"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 6,
+      "module": "copy",
+      "source": "test_request_families"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 7,
+      "module": "json",
+      "source": "test_request_families"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 8,
+      "module": "pathlib",
+      "source": "test_request_families"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 9,
+      "module": "shlex",
+      "source": "test_request_families"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 10,
+      "module": "sys",
+      "source": "test_request_families"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 11,
+      "module": "unittest",
+      "source": "test_request_families"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 14,
+      "module": "consumer",
+      "source": "test_request_families"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 15,
+      "module": "capture_contracts",
+      "source": "test_request_families"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 16,
+      "module": "collector_contracts",
+      "source": "test_request_families"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 17,
+      "module": "probe_adapter",
+      "source": "test_request_families"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 18,
+      "module": "request_families",
+      "source": "test_request_families"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 19,
+      "module": "strict",
+      "source": "test_request_families"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 199,
+      "module": "json",
+      "source": "test_request_families"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "ast",
+      "source": "test_source_bindings"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "hashlib",
+      "source": "test_source_bindings"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "json",
+      "source": "test_source_bindings"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "sys",
+      "source": "test_source_bindings"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "unittest",
+      "source": "test_source_bindings"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 3,
+      "module": "pathlib",
+      "source": "test_source_bindings"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 5,
+      "module": "consumer",
+      "source": "test_source_bindings"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 5,
+      "module": "wire",
+      "source": "test_source_bindings"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 5,
+      "module": "async_guard",
+      "source": "test_source_bindings"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 5,
+      "module": "observer",
+      "source": "test_source_bindings"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 6,
+      "module": "strict",
+      "source": "test_source_bindings"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 7,
+      "module": "copy",
+      "source": "test_whole_window"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 8,
+      "module": "hashlib",
+      "source": "test_whole_window"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 9,
+      "module": "json",
+      "source": "test_whole_window"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 10,
+      "module": "os",
+      "source": "test_whole_window"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 11,
+      "module": "pathlib",
+      "source": "test_whole_window"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 12,
+      "module": "sys",
+      "source": "test_whole_window"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 13,
+      "module": "tempfile",
+      "source": "test_whole_window"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 14,
+      "module": "unittest",
+      "source": "test_whole_window"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 18,
+      "module": "whole_window",
+      "source": "test_whole_window"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 12,
+      "module": "base64",
+      "source": "whole_window"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 13,
+      "module": "copy",
+      "source": "whole_window"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 14,
+      "module": "hashlib",
+      "source": "whole_window"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 15,
+      "module": "importlib",
+      "source": "whole_window"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 16,
+      "module": "json",
+      "source": "whole_window"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 17,
+      "module": "os",
+      "source": "whole_window"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 18,
+      "module": "pathlib",
+      "source": "whole_window"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 19,
+      "module": "re",
+      "source": "whole_window"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 20,
+      "module": "sys",
+      "source": "whole_window"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 21,
+      "module": "xml.etree.ElementTree",
+      "source": "whole_window"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 131,
+      "module": "async_guard",
+      "source": "whole_window"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 458,
+      "module": "async_guard",
+      "source": "whole_window"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 544,
+      "module": "async_guard",
+      "source": "whole_window"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 545,
+      "module": "test_async_guard",
+      "source": "whole_window"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "base64",
+      "source": "wire"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 3,
+      "module": "hashlib",
+      "source": "wire"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 4,
+      "module": "strict",
+      "source": "wire"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 119,
+      "module": "re",
+      "source": "wire"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 7,
+      "module": "pathlib",
+      "source": "witness"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 8,
+      "module": "re",
+      "source": "witness"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 9,
+      "module": "strict",
+      "source": "witness"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 10,
+      "module": "wire",
+      "source": "witness"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 2,
+      "module": "json",
+      "source": "<isolated-program>"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 3,
+      "module": "pathlib",
+      "source": "<isolated-program>"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 4,
+      "module": "sys",
+      "source": "<isolated-program>"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 5,
+      "module": "sysconfig",
+      "source": "<isolated-program>"
+    },
+    {
+      "classification": "PYTHON_STDLIB",
+      "line": 6,
+      "module": "types",
+      "source": "<isolated-program>"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 20,
+      "module": "consumer",
+      "source": "<isolated-program>"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 34,
+      "module": "capture_outputs",
+      "source": "<isolated-program>"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 35,
+      "module": "capture_contracts",
+      "source": "<isolated-program>"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 36,
+      "module": "strict",
+      "source": "<isolated-program>"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 44,
+      "module": "ordinary_capture_outputs",
+      "source": "<isolated-program>"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 45,
+      "module": "ordinary_capture_contracts",
+      "source": "<isolated-program>"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 23,
+      "module": "current_controls",
+      "source": "<isolated-program>"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 26,
+      "module": "capture_outputs",
+      "source": "<isolated-program>"
+    },
+    {
+      "classification": "EXACT_DECLARED_LOCAL_CODE",
+      "line": 29,
+      "module": "ordinary_capture_outputs",
+      "source": "<isolated-program>"
+    }
+  ],
+  "nodes": [
+    "<isolated-program>",
+    "async_guard",
+    "capture_contracts",
+    "capture_outputs",
+    "collector_contracts",
+    "consumer",
+    "current_controls",
+    "gui",
+    "model_stage",
+    "observer",
+    "ordinary_capture_contracts",
+    "ordinary_capture_outputs",
+    "parent_allocation",
+    "prepare_consumer_edit",
+    "prepare_observer_edit",
+    "probe_adapter",
+    "request_families",
+    "strict",
+    "test_async_guard",
+    "test_component_basis",
+    "test_current_authority",
+    "test_current_controls",
+    "test_data_controls",
+    "test_import_closure",
+    "test_mode_reader",
+    "test_observer_v3",
+    "test_parent_allocation",
+    "test_probe_adapter",
+    "test_request_families",
+    "test_source_bindings",
+    "test_whole_window",
+    "whole_window",
+    "wire",
+    "witness"
+  ],
+  "runtime": [
+    "async_guard",
+    "capture_contracts",
+    "capture_outputs",
+    "collector_contracts",
+    "consumer",
+    "current_controls",
+    "gui",
+    "observer",
+    "ordinary_capture_contracts",
+    "ordinary_capture_outputs",
+    "parent_allocation",
+    "probe_adapter",
+    "request_families",
+    "strict",
+    "wire",
+    "witness"
+  ],
+  "runtimeCount": 16,
+  "schema": "e02-consumer-eose-static-import-closure-v1"
+}

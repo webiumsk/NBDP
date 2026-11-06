@@ -1,0 +1,148 @@
+{
+  "schema": "e02-producer2-component-evidence-carry-v1",
+  "state": "PROPOSED_SCOPE_MAPPING_REQUIRES_ACTUAL_INDEPENDENT_REVIEW_NOT_AUTHOR_ACCEPTANCE",
+  "modules": [
+    {
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/exchange.mjs",
+        "bytes": 5446,
+        "sha256": "1951d91b9d02e3ca2250fd19367748bc42d04ae724f0e8cbf862d2404dfaec80"
+      },
+      "current": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/exchange.mjs",
+        "bytes": 5446,
+        "sha256": "1951d91b9d02e3ca2250fd19367748bc42d04ae724f0e8cbf862d2404dfaec80"
+      },
+      "classification": "BYTE_IDENTICAL"
+    },
+    {
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/phase-writer.mjs",
+        "bytes": 2085,
+        "sha256": "bcfb3338d1ab8cbb20709f6add09a2e7be01a270f48271112e3aa3a76743cead"
+      },
+      "current": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/phase-writer.mjs",
+        "bytes": 2085,
+        "sha256": "bcfb3338d1ab8cbb20709f6add09a2e7be01a270f48271112e3aa3a76743cead"
+      },
+      "classification": "BYTE_IDENTICAL"
+    },
+    {
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/dependency-tree.mjs",
+        "bytes": 2842,
+        "sha256": "0b574a14e591abc1908f4733908001d8ea1ab5698da8991e618ca26714eeded3"
+      },
+      "current": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/dependency-tree.mjs",
+        "bytes": 2842,
+        "sha256": "0b574a14e591abc1908f4733908001d8ea1ab5698da8991e618ca26714eeded3"
+      },
+      "classification": "BYTE_IDENTICAL"
+    },
+    {
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/dependency-tree.json",
+        "bytes": 35599,
+        "sha256": "0536b9b0f6a127e3e43fd19bf5df0e3110b5c437e1a2c22c76e1a3e8dcc4f07f"
+      },
+      "current": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/dependency-tree.json",
+        "bytes": 35599,
+        "sha256": "0536b9b0f6a127e3e43fd19bf5df0e3110b5c437e1a2c22c76e1a3e8dcc4f07f"
+      },
+      "classification": "BYTE_IDENTICAL"
+    }
+  ],
+  "hostFunctions": [
+    {
+      "name": "dependency_relative",
+      "sourceSha256": "d44267bf09c09f3891fff986ff10173f3825eebd59ce3a0dba7b45a3c77342d8",
+      "classification": "BYTE_IDENTICAL_FUNCTION_AND_AST"
+    },
+    {
+      "name": "dependency_snapshot",
+      "sourceSha256": "8915667000171fed05170700fdda06a876cef3be799b35aec193e6f0509f97cb",
+      "classification": "BYTE_IDENTICAL_FUNCTION_AND_AST"
+    },
+    {
+      "name": "verify_dependency_inventory",
+      "sourceSha256": "2371a77a4b0f8dee10b08575af8e71b55f831fe6c519c162102b38c2db9de65a",
+      "classification": "BYTE_IDENTICAL_FUNCTION_AND_AST"
+    }
+  ],
+  "ordinaryBaseline": {
+    "source": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/subject.json",
+      "bytes": 35766,
+      "sha256": "296acf346bb034bcb8becc22562494e5f37e78c3f78537d061e83455135315b4"
+    },
+    "actualControls": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/current-controls-r1/results-r1/subject.json",
+      "bytes": 8133,
+      "sha256": "40ed7550b25869806b3203fdb40c5e8c0ff6286308aa9ff2303ef0daa1d5865a"
+    },
+    "actualAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/current-controls-r1/results-r1/acceptance.json",
+      "bytes": 1116,
+      "sha256": "072db6bad39fdb796b4fd4f03527638fdd86b268fb073249147d0f0593fde38e"
+    },
+    "bridgeAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-minimum-runtime-preparation-r1/bridge-acceptance.json",
+      "bytes": 2851,
+      "sha256": "7ea6f08b2245cae9dc383292cfe5004d4cfe4a80e087d8a55b6c248b1122feb4"
+    },
+    "scope": "Old29cleanup/49UI/21minimumUI/27filter/43rolemetadata definitions; only unchanged functions or explicit version-literal-normalized methods may carry. No full producer2/runtime acceptance, no new execution counts."
+  },
+  "diagnosticBaseline": {
+    "source": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/subject.json",
+      "bytes": 18185,
+      "sha256": "aece375c76f20d8c738d34e57feb19e50c2ccfc28cb09ffc9347481d2f526b85"
+    },
+    "actualControls": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/results-r1/subject.json",
+      "bytes": 11075,
+      "sha256": "2f1cca59c45346d7a4497727e6f20303fbd3460b77ea243a64fe8174eae0bbae"
+    },
+    "actualAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/results-r1/acceptance.json",
+      "bytes": 2696,
+      "sha256": "6ec805cf3752a9988cf8b19cb062c67cdc1aef917acc8ccd4ce9fd723d34e565"
+    },
+    "runtimeAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-baseline-runtime-r1/acceptance.json",
+      "bytes": 2651,
+      "sha256": "d4a6adc4b202364e95ef4199a00373abc4315c1642b59d2e8b83a6bb1272e819"
+    },
+    "scope": "Prior18 host/DATA,27 exchange/writer models and6 guest inventory controls; reuse only exact modules/three host functions. No new executions or ordinary-client rows."
+  },
+  "unchangedGuard": {
+    "current": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/lease_guard.py",
+      "bytes": 14846,
+      "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+    },
+    "original": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v1/lease_guard.py",
+      "bytes": 14846,
+      "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+    },
+    "scope": "Prior exact29guard scope referenced by original subject/bridge; no new guard test execution."
+  },
+  "functionProofs": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/python-function-carry.json",
+      "bytes": 13160,
+      "sha256": "d51479f3282e5ccef293dc6e6bb74347b1492d50bdc341e8cc1fc9260e42932e"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/javascript-function-source-carry.json",
+      "bytes": 5639,
+      "sha256": "f1793faa1f459130984b53b15ef534e8b8a5cc2ece30b7e4750efe1aafb40b46"
+    }
+  ],
+  "newControlsRequireCurrentResultReview": true,
+  "noFailedRowDonation": true
+}

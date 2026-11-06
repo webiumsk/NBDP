@@ -1,0 +1,49 @@
+{
+  "schema": "nbdp-producer2-actual35-scoped-data-acceptance-v1",
+  "actor": "/root",
+  "decision": "ACCEPT_HISTORICAL_PRODUCER2_ACTUAL35_DATA_ONLY",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/results-r1/subject.json",
+    "bytes": 6505,
+    "sha256": "aedd45eb01e6120856a8d97e8fa9811e750531ea5c3f23df8b65d302b8a8bd6c"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/results-r1/actual-result-qa-review.json",
+      "bytes": 3158,
+      "sha256": "c2dee186eab52aa282961b2d90fe89f68eba0ffe4ee2074f7c95161b514c1095"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/results-r1/actual-result-security-review.json",
+      "bytes": 2455,
+      "sha256": "f46cc2a5a63319980a54014a63e940bf085f88af9af19db7bf7fef05f4167830"
+    }
+  ],
+  "countsSeparate": [
+    20,
+    8,
+    7
+  ],
+  "missingCurrentInputs": [
+    {
+      "path": "/tmp/nbdp-005-rust-target/debug/nbdp-experiment-rust",
+      "bytes": 24117328,
+      "sha256": "ecd1c1ab446782e263ae9e606117486b25d79b16732de5c4fac97e78b31699d9"
+    },
+    {
+      "path": "/tmp/nbdp-e02-minimal-rs-v7/records/guard-bundle-manifest.json",
+      "bytes": 332736,
+      "sha256": "9de311222ef78e20fbe05bfef32898976d80737d5d932166d23431a04a73a454"
+    }
+  ],
+  "limits": [
+    "Historical once-only 20 observation models, 8 public identity format and 7 source wiring controls only.",
+    "Current complete 957-input closure and replay/runtime readiness are NOT established: two pinned external operands are absent. Restore exact operands or use a separately versioned reviewed binding.",
+    "No Android/client rows, real guard/network/native/sign/encrypt/decrypt execution, current primary22, E02 promotion, runtime release, E04/E06 unlock, SDK or blocker closure.",
+    "Capture retention limits are post-capture file/refusal limits, not streaming memory limits."
+  ],
+  "runtimeAuthorized": false,
+  "ordinaryRowsQualified": 0,
+  "canonicalE02": "PARTIAL22_UNCHANGED",
+  "next": "Versioned strict consumer3 SOURCE preparation, then independent SOURCE review and separately released DATA controls; completion2 sequential after consumer3 freeze."
+}

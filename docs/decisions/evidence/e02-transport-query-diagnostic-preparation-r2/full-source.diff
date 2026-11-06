@@ -1,0 +1,1707 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/CONTRACT.md
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/CONTRACT.md
+@@ -1,4 +1,4 @@
+-# Transport query diagnostic v1 — SOURCE only
++# Transport query diagnostic v2 — SOURCE remediation only
+ 
+ This is a separately versioned diagnostic of the retained minimum incoming
+ failure, not another ordinary-client attempt. It is limited to one baseline:
+@@ -6,7 +6,7 @@
+ 112-byte query by ID/limit1. There is no Android/Amethyst app/proxy, NSEC entry,
+ new key generation, signing/encrypt/decrypt, Rust native validator, file profile
+ or SDK. The malformed unused incoming plan NSEC is not copied or corrected.
+-Optional modeled APP REQ bursts are explicitly deferred beyond this v1 baseline.
++Optional modeled APP REQ bursts are explicitly deferred beyond this v2 baseline.
+ 
+ ## Frozen operands and isolation
+ 
+@@ -51,7 +51,7 @@
+ also remains. Instrumentation is not an asynchronous guard approximation, timer
+ restart, relaxed EOSE/query criterion or measured speed improvement.
+ 
+-Only source extraction/metadata AST/hash operations occurred here. Prepared
++Only source extraction/metadata AST/hash and six static Node --check parsing commands occurred here. Those commands did not import/evaluate project modules or execute tests/runtime. Prepared
+ fake-socket models never execute the actual guard; real guard behavior still
+ needs actual runtime qualification under a fresh grant. Existing unchanged
+ guard29 is an explicit prior byte-bound scope, not new execution. Source/cleanup
+@@ -67,7 +67,7 @@
+ whole-object equality functions are extracted unchanged; no crypto library is
+ imported to obtain them.
+ 
+-Each phase row has schema `e02-transport-query-phase-v1`, positive sequence,
++Each phase row has schema `e02-transport-query-phase-v2`, positive sequence,
+ ISO UTC string, `monotonicNanoseconds` as a canonical nonnegative decimal string,
+ phase name and only its source-emitted fields. Global capture cap16MiB and frame
+ cap262144 bytes remain. The monotonic string is process-local timing, never a
+@@ -78,7 +78,7 @@
+ entry/guard passed, socket error/close, timer firing and resolved/rejected outcome.
+ A raw callback-entry row is written before guard solely as refusal-context
+ evidence. It never authorizes a send, decode, forward, validation or contribution
+-after guard failure. Terminal callbacks are context only. The only post-failure
++after guard failure. After a terminal claim, late callbacks perform no writes or actions. The only post-failure
+ socket action is cleanup termination of that exact owned socket. First failed
+ control closes its own server/sockets; host command failure revokes the original
+ shared lease and executes exact-CID cleanup. No retry or later case follows.
+@@ -108,14 +108,14 @@
+ 
+ ## Source/config/release and result
+ 
+-Config is closed: schema `e02-transport-query-diagnostic-config-v1`, scope,
++Config is closed: schema `e02-transport-query-diagnostic-config-v2`, scope,
+ runId, originalLeaseSeconds, runtimeImage, relayImage, sourceAndDependencyPins,
+-guardBundleRoot, guardBundleInventory and relayConfig. All eight staged inputs
++guardBundleRoot, guardBundleInventory and relayConfig. All eleven staged inputs
+ remain fixed. The fixture plan has only scenario/backend/limits/public frame
+ pins/current installed dependency inventory and empty native mounts. No identity,
+ key/NSEC/nonce, arbitrary URL, stage or external event can arrive through control.
+ 
+-Root release is closed: schema `e02-transport-query-diagnostic-release-v1`,
++Root release is closed: schema `e02-transport-query-diagnostic-release-v2`,
+ runId, scope, config, sourceSubject, sourceQaReview, sourceSecurityReview,
+ controlAcceptance, freshAdmission, operator, issuedAtUtcNs and notAfterUtcNs.
+ The actual source/control/whole-run reviews and tool origins remain external
+@@ -129,7 +129,7 @@
+ failure rather than retry. Existing network operations contact only private
+ loopback8080 in the shared network-none namespace.
+ 
+-Baseline output `e02-transport-query-baseline-v1` reports
++Baseline output `e02-transport-query-baseline-v2` reports
+ BASELINE_PUB_QUERY_OBSERVED with real publication/query results and explicit
+ ordinaryClientObservedfalse/signEncryptDecryptExecutedfalse/nativeRustExecutedfalse.
+ This excludes NBDP crypto operations; standard WebSocket/hash internals and the
+@@ -143,3 +143,63 @@
+ source/dependency/admission receipts and exact finite root grant; actual raw
+ phase/command/process/cleanup evidence and independent nonoperator review. No
+ such experiment or grant exists in this SOURCE packet.
++
++
++## Version2 remediation and preserved HOLD
++
++Original SOURCE1 subject173b2fa..., both actual independent HOLD reports and its
++zero-control/runtime status are preserved unchanged. The following are SOURCE
++findings, not observed runtime vulnerabilities, leaks or failed diagnostics:
++
++- SEC-E02-TRANSPORT-DIAG-DEPENDENCY-CLOSURE-001 (MEDIUM): current host and guest
++  checks now close the **complete** installed tree:816 regular files,65 directory
++  paths and exactly two existing relative in-tree .bin symlinks. Each runtime
++  descriptor maps canonically to the frozen source-relative member. Additions,
++  including nested ws/node_modules/bufferutil, omissions, changed bytes, extra or
++  escaping/dangling symlinks, special files, malformed paths and source/runtime
++  aliases refuse. No optional module is imported in DATA models. Host validation
++  precedes helper import/container activation; guest validation precedes dynamic
++  ws import; guest completion and host post-cleanup end boundary recheck current
++  membership/bytes. Readonly bind mounts do not freeze the host tree. These
++  boundaries detect drift under the existing trusted-host assumptions, not a
++  hostile-host or portable module-load attestation.
++- QA-E02-QUERY-TERMINAL-EVIDENCE-001 and
++  SEC-E02-TRANSPORT-DIAG-TERMINAL-WRITE-002 (MEDIUM): one terminal claim prevents
++  reentry. The first incoming protocol/guard/timeout fault remains primary;
++  otherwise the first required observation failure becomes primary. Subsequent
++  phase/outcome/cleanup failures remain explicit secondary retention errors.
++  Every active timer/error/close/raw callback enters that boundary. Independent
++  finally cleanup terminates the exact socket once and settles the Promise once,
++  regardless of required sink failure; no outside timeout provides settlement.
++  Any required retention failure rejects and prevents a subsequent query/result.
++  Runtime socket cleanup has an idempotent wrapper across exchange/service paths.
++- QA-E02-QUERY-PHASE-WRITE-002 (MEDIUM): the writer makes exactly one writeSync
++  call per record and requires a full integer acknowledgement. Short/zero/invalid
++  counts, throw, overflow or serialization failure permanently poison observation.
++  No repair loop/rewrite/retry or subsequent guarded send/query/success follows.
++  State preserves intended bytes, actual reported count and acknowledged prefix
++  where known. On a throwing write the acknowledgement is UNKNOWN even if the
++  fake sink model physically wrote a prefix. Physical byte count always remains
++  null until an external actual artifact read measures it; acknowledgements are
++  not labelled physical-write attestation. Independent error/outcome files may
++  preserve failure context but cannot repair or qualify the phase trace.
++
++Late callbacks have no new observation writes/actions after terminal claim. This
++is an explicit versioned observer behavior, not a protocol deadline or operand
++change. Active raw entry still records refusal context only before guard. Known
++socket/timer faults survive a simultaneous phase failure; a real guard refusal
++survives a failed refusal-context write. Guard entry failure itself authorizes
++nothing. Successful-path original guard positions and10s/3s/45s/55s/1800s limits,
++images, public frame bytes, ownership and cleanup remain unchanged.
++
++Prepared controls are18 source/custody/inventory definitions,27 fake-socket/writer
++model cases and6 guest-inventory DATA families. Original ten Python test bodies
++remain unchanged. Nineteen original model bodies remain text-identical; the old
++late-callback-context expectation is retained in preserved v1 and replaced only
++for the explicit v2 inert-late-callback behavior. Fault families check terminal
++phase/outcome success/failure, raw/timer/error/close sink failures, no-followup
++query, one settlement/termination without firing an outer timeout, full/short/zero
++acknowledgements, invalid counts, throw-with-physical-prefix/unknown ack and
++poisoned/no-retry behavior. These are definitions, not executed or accepted tests.
++No author finding resolution, runtime grant or success is asserted. Independent
++new-source QA/security must determine whether the remediation is sufficient.
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/README.md
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/README.md
+@@ -1,19 +1,17 @@
+-# One-public-event relay query diagnostic — SOURCE only
++# One-public-event query diagnostic SOURCE2
+ 
+-The retained incoming failure published successfully and forwarded an actual APP
+-frame, then timed out on a separate ID query. Its whole window remains failed.
+-This minimal no-Android diagnostic publishes only the exact existing public
+-signed outer and its exact112-byte query to the pinned isolated rs-relay.
++SOURCE1 remains independently HOLD with zero controls/runtime. This preserved
++sibling restores exact installed-tree/source-runtime closure, makes terminal
++settlement/owned-socket cleanup independent of observation writes, and poisons
++observation after short/invalid/failed writes without retry or later actions.
+ 
+-It reuses the actual unchanged lease/finite custody/owned CID cleanup helpers
+-and original10s network/3s handshake/55s command/1800s maximum lease limits.
+-Instrumented phases distinguish intent, send return/callback, raw message entry,
+-EOSE, synchronous guard latency and timeout/refusal without weakening guards.
+-No signer/NSEC/crypto/native validator/SDK/app or new profile is introduced.
+-Modeled background REQ traffic remains deferred beyond this single baseline.
++The existing public event/query, guard, isolated three-role ownership and original
++10s/3s/45s/55s/1800s limits remain. Proposed300s config is DATA, not a grant. No
++Android/SDK/NSEC/key/nonce/signing/encryption/native Rust is introduced. Optional
++background burst remains deferred. See CONTRACT.md for exact source findings,
++first-fault/secondary evidence and acknowledged-vs-physical byte limits.
+ 
+-Read CONTRACT.md and the preparation source/control plan. All20 fake-socket
+-model and10 source/custody definitions are prepared, not run. No Node import,
+-Docker, service, probe, lease, diagnostic or test was executed in preparation.
+-Source AST/hash comparison is not runtime qualification. Existing failures,
+-nonoperative metadata finding, canonical statuses, gates and blockers remain.
++Prepared18 Python source/custody/inventory,27 fake-socket/writer and6 guest-tree
++DATA definitions remain unexecuted. No optional package is imported by models.
++Original sources/reviews/failure histories,449-pin graphs, gates and blockers
++remain unchanged. New independent SOURCE review precedes controls or runtime.
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/dependency-tree.json
+@@ -0,0 +1,902 @@
++{
++  "schema": "e02-transport-dependency-tree-v2",
++  "sourceRoot": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules",
++  "runtimeRoot": "/input/node_modules",
++  "directories": [
++    ".bin",
++    "@noble",
++    "@noble/ciphers",
++    "@noble/ciphers/src",
++    "@noble/curves",
++    "@noble/curves/abstract",
++    "@noble/curves/src",
++    "@noble/curves/src/abstract",
++    "@noble/hashes",
++    "@noble/hashes/src",
++    "@scure",
++    "@scure/base",
++    "@scure/bip32",
++    "@scure/bip39",
++    "@scure/bip39/src",
++    "@scure/bip39/wordlists",
++    "nostr-tools",
++    "nostr-tools/lib",
++    "nostr-tools/lib/cjs",
++    "nostr-tools/lib/esm",
++    "nostr-tools/lib/types",
++    "nostr-wasm",
++    "nostr-wasm/dist",
++    "nostr-wasm/dist/api",
++    "nostr-wasm/dist/gen",
++    "nostr-wasm/public",
++    "nostr-wasm/public/out",
++    "playwright",
++    "playwright-core",
++    "playwright-core/bin",
++    "playwright-core/lib",
++    "playwright-core/lib/entry",
++    "playwright-core/lib/server",
++    "playwright-core/lib/server/chromium",
++    "playwright-core/lib/server/electron",
++    "playwright-core/lib/tools",
++    "playwright-core/lib/tools/cli-client",
++    "playwright-core/lib/tools/cli-client/skill",
++    "playwright-core/lib/tools/cli-client/skill/references",
++    "playwright-core/lib/tools/dashboard",
++    "playwright-core/lib/tools/trace",
++    "playwright-core/lib/tools/utils",
++    "playwright-core/lib/vite",
++    "playwright-core/lib/vite/dashboard",
++    "playwright-core/lib/vite/dashboard/assets",
++    "playwright-core/lib/vite/htmlReport",
++    "playwright-core/lib/vite/recorder",
++    "playwright-core/lib/vite/recorder/assets",
++    "playwright-core/lib/vite/traceViewer",
++    "playwright-core/lib/vite/traceViewer/assets",
++    "playwright-core/types",
++    "playwright/lib",
++    "playwright/lib/agents",
++    "playwright/lib/cli",
++    "playwright/lib/common",
++    "playwright/lib/loader",
++    "playwright/lib/matchers",
++    "playwright/lib/mcp",
++    "playwright/lib/mcp/test",
++    "playwright/lib/runner",
++    "playwright/lib/transform",
++    "playwright/lib/worker",
++    "playwright/types",
++    "ws",
++    "ws/lib"
++  ],
++  "files": [
++    ".package-lock.json",
++    "@noble/ciphers/LICENSE",
++    "@noble/ciphers/README.md",
++    "@noble/ciphers/_arx.d.ts",
++    "@noble/ciphers/_arx.d.ts.map",
++    "@noble/ciphers/_arx.js",
++    "@noble/ciphers/_arx.js.map",
++    "@noble/ciphers/_poly1305.d.ts",
++    "@noble/ciphers/_poly1305.d.ts.map",
++    "@noble/ciphers/_poly1305.js",
++    "@noble/ciphers/_poly1305.js.map",
++    "@noble/ciphers/_polyval.d.ts",
++    "@noble/ciphers/_polyval.d.ts.map",
++    "@noble/ciphers/_polyval.js",
++    "@noble/ciphers/_polyval.js.map",
++    "@noble/ciphers/aes.d.ts",
++    "@noble/ciphers/aes.d.ts.map",
++    "@noble/ciphers/aes.js",
++    "@noble/ciphers/aes.js.map",
++    "@noble/ciphers/chacha.d.ts",
++    "@noble/ciphers/chacha.d.ts.map",
++    "@noble/ciphers/chacha.js",
++    "@noble/ciphers/chacha.js.map",
++    "@noble/ciphers/ff1.d.ts",
++    "@noble/ciphers/ff1.d.ts.map",
++    "@noble/ciphers/ff1.js",
++    "@noble/ciphers/ff1.js.map",
++    "@noble/ciphers/index.d.ts",
++    "@noble/ciphers/index.d.ts.map",
++    "@noble/ciphers/index.js",
++    "@noble/ciphers/index.js.map",
++    "@noble/ciphers/package.json",
++    "@noble/ciphers/salsa.d.ts",
++    "@noble/ciphers/salsa.d.ts.map",
++    "@noble/ciphers/salsa.js",
++    "@noble/ciphers/salsa.js.map",
++    "@noble/ciphers/src/_arx.ts",
++    "@noble/ciphers/src/_poly1305.ts",
++    "@noble/ciphers/src/_polyval.ts",
++    "@noble/ciphers/src/aes.ts",
++    "@noble/ciphers/src/chacha.ts",
++    "@noble/ciphers/src/ff1.ts",
++    "@noble/ciphers/src/index.ts",
++    "@noble/ciphers/src/salsa.ts",
++    "@noble/ciphers/src/utils.ts",
++    "@noble/ciphers/src/webcrypto.ts",
++    "@noble/ciphers/utils.d.ts",
++    "@noble/ciphers/utils.d.ts.map",
++    "@noble/ciphers/utils.js",
++    "@noble/ciphers/utils.js.map",
++    "@noble/ciphers/webcrypto.d.ts",
++    "@noble/ciphers/webcrypto.d.ts.map",
++    "@noble/ciphers/webcrypto.js",
++    "@noble/ciphers/webcrypto.js.map",
++    "@noble/curves/LICENSE",
++    "@noble/curves/README.md",
++    "@noble/curves/abstract/bls.d.ts",
++    "@noble/curves/abstract/bls.d.ts.map",
++    "@noble/curves/abstract/bls.js",
++    "@noble/curves/abstract/bls.js.map",
++    "@noble/curves/abstract/curve.d.ts",
++    "@noble/curves/abstract/curve.d.ts.map",
++    "@noble/curves/abstract/curve.js",
++    "@noble/curves/abstract/curve.js.map",
++    "@noble/curves/abstract/edwards.d.ts",
++    "@noble/curves/abstract/edwards.d.ts.map",
++    "@noble/curves/abstract/edwards.js",
++    "@noble/curves/abstract/edwards.js.map",
++    "@noble/curves/abstract/fft.d.ts",
++    "@noble/curves/abstract/fft.d.ts.map",
++    "@noble/curves/abstract/fft.js",
++    "@noble/curves/abstract/fft.js.map",
++    "@noble/curves/abstract/hash-to-curve.d.ts",
++    "@noble/curves/abstract/hash-to-curve.d.ts.map",
++    "@noble/curves/abstract/hash-to-curve.js",
++    "@noble/curves/abstract/hash-to-curve.js.map",
++    "@noble/curves/abstract/modular.d.ts",
++    "@noble/curves/abstract/modular.d.ts.map",
++    "@noble/curves/abstract/modular.js",
++    "@noble/curves/abstract/modular.js.map",
++    "@noble/curves/abstract/montgomery.d.ts",
++    "@noble/curves/abstract/montgomery.d.ts.map",
++    "@noble/curves/abstract/montgomery.js",
++    "@noble/curves/abstract/montgomery.js.map",
++    "@noble/curves/abstract/oprf.d.ts",
++    "@noble/curves/abstract/oprf.d.ts.map",
++    "@noble/curves/abstract/oprf.js",
++    "@noble/curves/abstract/oprf.js.map",
++    "@noble/curves/abstract/poseidon.d.ts",
++    "@noble/curves/abstract/poseidon.d.ts.map",
++    "@noble/curves/abstract/poseidon.js",
++    "@noble/curves/abstract/poseidon.js.map",
++    "@noble/curves/abstract/tower.d.ts",
++    "@noble/curves/abstract/tower.d.ts.map",
++    "@noble/curves/abstract/tower.js",
++    "@noble/curves/abstract/tower.js.map",
++    "@noble/curves/abstract/weierstrass.d.ts",
++    "@noble/curves/abstract/weierstrass.d.ts.map",
++    "@noble/curves/abstract/weierstrass.js",
++    "@noble/curves/abstract/weierstrass.js.map",
++    "@noble/curves/bls12-381.d.ts",
++    "@noble/curves/bls12-381.d.ts.map",
++    "@noble/curves/bls12-381.js",
++    "@noble/curves/bls12-381.js.map",
++    "@noble/curves/bn254.d.ts",
++    "@noble/curves/bn254.d.ts.map",
++    "@noble/curves/bn254.js",
++    "@noble/curves/bn254.js.map",
++    "@noble/curves/ed25519.d.ts",
++    "@noble/curves/ed25519.d.ts.map",
++    "@noble/curves/ed25519.js",
++    "@noble/curves/ed25519.js.map",
++    "@noble/curves/ed448.d.ts",
++    "@noble/curves/ed448.d.ts.map",
++    "@noble/curves/ed448.js",
++    "@noble/curves/ed448.js.map",
++    "@noble/curves/index.d.ts",
++    "@noble/curves/index.d.ts.map",
++    "@noble/curves/index.js",
++    "@noble/curves/index.js.map",
++    "@noble/curves/misc.d.ts",
++    "@noble/curves/misc.d.ts.map",
++    "@noble/curves/misc.js",
++    "@noble/curves/misc.js.map",
++    "@noble/curves/nist.d.ts",
++    "@noble/curves/nist.d.ts.map",
++    "@noble/curves/nist.js",
++    "@noble/curves/nist.js.map",
++    "@noble/curves/package.json",
++    "@noble/curves/secp256k1.d.ts",
++    "@noble/curves/secp256k1.d.ts.map",
++    "@noble/curves/secp256k1.js",
++    "@noble/curves/secp256k1.js.map",
++    "@noble/curves/src/abstract/bls.ts",
++    "@noble/curves/src/abstract/curve.ts",
++    "@noble/curves/src/abstract/edwards.ts",
++    "@noble/curves/src/abstract/fft.ts",
++    "@noble/curves/src/abstract/hash-to-curve.ts",
++    "@noble/curves/src/abstract/modular.ts",
++    "@noble/curves/src/abstract/montgomery.ts",
++    "@noble/curves/src/abstract/oprf.ts",
++    "@noble/curves/src/abstract/poseidon.ts",
++    "@noble/curves/src/abstract/tower.ts",
++    "@noble/curves/src/abstract/weierstrass.ts",
++    "@noble/curves/src/bls12-381.ts",
++    "@noble/curves/src/bn254.ts",
++    "@noble/curves/src/ed25519.ts",
++    "@noble/curves/src/ed448.ts",
++    "@noble/curves/src/index.ts",
++    "@noble/curves/src/misc.ts",
++    "@noble/curves/src/nist.ts",
++    "@noble/curves/src/secp256k1.ts",
++    "@noble/curves/src/utils.ts",
++    "@noble/curves/src/webcrypto.ts",
++    "@noble/curves/utils.d.ts",
++    "@noble/curves/utils.d.ts.map",
++    "@noble/curves/utils.js",
++    "@noble/curves/utils.js.map",
++    "@noble/curves/webcrypto.d.ts",
++    "@noble/curves/webcrypto.d.ts.map",
++    "@noble/curves/webcrypto.js",
++    "@noble/curves/webcrypto.js.map",
++    "@noble/hashes/LICENSE",
++    "@noble/hashes/README.md",
++    "@noble/hashes/_blake.d.ts",
++    "@noble/hashes/_blake.d.ts.map",
++    "@noble/hashes/_blake.js",
++    "@noble/hashes/_blake.js.map",
++    "@noble/hashes/_md.d.ts",
++    "@noble/hashes/_md.d.ts.map",
++    "@noble/hashes/_md.js",
++    "@noble/hashes/_md.js.map",
++    "@noble/hashes/_u64.d.ts",
++    "@noble/hashes/_u64.d.ts.map",
++    "@noble/hashes/_u64.js",
++    "@noble/hashes/_u64.js.map",
++    "@noble/hashes/argon2.d.ts",
++    "@noble/hashes/argon2.d.ts.map",
++    "@noble/hashes/argon2.js",
++    "@noble/hashes/argon2.js.map",
++    "@noble/hashes/blake1.d.ts",
++    "@noble/hashes/blake1.d.ts.map",
++    "@noble/hashes/blake1.js",
++    "@noble/hashes/blake1.js.map",
++    "@noble/hashes/blake2.d.ts",
++    "@noble/hashes/blake2.d.ts.map",
++    "@noble/hashes/blake2.js",
++    "@noble/hashes/blake2.js.map",
++    "@noble/hashes/blake3.d.ts",
++    "@noble/hashes/blake3.d.ts.map",
++    "@noble/hashes/blake3.js",
++    "@noble/hashes/blake3.js.map",
++    "@noble/hashes/eskdf.d.ts",
++    "@noble/hashes/eskdf.d.ts.map",
++    "@noble/hashes/eskdf.js",
++    "@noble/hashes/eskdf.js.map",
++    "@noble/hashes/hkdf.d.ts",
++    "@noble/hashes/hkdf.d.ts.map",
++    "@noble/hashes/hkdf.js",
++    "@noble/hashes/hkdf.js.map",
++    "@noble/hashes/hmac.d.ts",
++    "@noble/hashes/hmac.d.ts.map",
++    "@noble/hashes/hmac.js",
++    "@noble/hashes/hmac.js.map",
++    "@noble/hashes/index.d.ts",
++    "@noble/hashes/index.d.ts.map",
++    "@noble/hashes/index.js",
++    "@noble/hashes/index.js.map",
++    "@noble/hashes/legacy.d.ts",
++    "@noble/hashes/legacy.d.ts.map",
++    "@noble/hashes/legacy.js",
++    "@noble/hashes/legacy.js.map",
++    "@noble/hashes/package.json",
++    "@noble/hashes/pbkdf2.d.ts",
++    "@noble/hashes/pbkdf2.d.ts.map",
++    "@noble/hashes/pbkdf2.js",
++    "@noble/hashes/pbkdf2.js.map",
++    "@noble/hashes/scrypt.d.ts",
++    "@noble/hashes/scrypt.d.ts.map",
++    "@noble/hashes/scrypt.js",
++    "@noble/hashes/scrypt.js.map",
++    "@noble/hashes/sha2.d.ts",
++    "@noble/hashes/sha2.d.ts.map",
++    "@noble/hashes/sha2.js",
++    "@noble/hashes/sha2.js.map",
++    "@noble/hashes/sha3-addons.d.ts",
++    "@noble/hashes/sha3-addons.d.ts.map",
++    "@noble/hashes/sha3-addons.js",
++    "@noble/hashes/sha3-addons.js.map",
++    "@noble/hashes/sha3.d.ts",
++    "@noble/hashes/sha3.d.ts.map",
++    "@noble/hashes/sha3.js",
++    "@noble/hashes/sha3.js.map",
++    "@noble/hashes/src/_blake.ts",
++    "@noble/hashes/src/_md.ts",
++    "@noble/hashes/src/_u64.ts",
++    "@noble/hashes/src/argon2.ts",
++    "@noble/hashes/src/blake1.ts",
++    "@noble/hashes/src/blake2.ts",
++    "@noble/hashes/src/blake3.ts",
++    "@noble/hashes/src/eskdf.ts",
++    "@noble/hashes/src/hkdf.ts",
++    "@noble/hashes/src/hmac.ts",
++    "@noble/hashes/src/index.ts",
++    "@noble/hashes/src/legacy.ts",
++    "@noble/hashes/src/pbkdf2.ts",
++    "@noble/hashes/src/scrypt.ts",
++    "@noble/hashes/src/sha2.ts",
++    "@noble/hashes/src/sha3-addons.ts",
++    "@noble/hashes/src/sha3.ts",
++    "@noble/hashes/src/utils.ts",
++    "@noble/hashes/src/webcrypto.ts",
++    "@noble/hashes/utils.d.ts",
++    "@noble/hashes/utils.d.ts.map",
++    "@noble/hashes/utils.js",
++    "@noble/hashes/utils.js.map",
++    "@noble/hashes/webcrypto.d.ts",
++    "@noble/hashes/webcrypto.d.ts.map",
++    "@noble/hashes/webcrypto.js",
++    "@noble/hashes/webcrypto.js.map",
++    "@scure/base/LICENSE",
++    "@scure/base/README.md",
++    "@scure/base/index.d.ts",
++    "@scure/base/index.d.ts.map",
++    "@scure/base/index.js",
++    "@scure/base/index.js.map",
++    "@scure/base/index.ts",
++    "@scure/base/package.json",
++    "@scure/bip32/LICENSE",
++    "@scure/bip32/README.md",
++    "@scure/bip32/index.d.ts",
++    "@scure/bip32/index.d.ts.map",
++    "@scure/bip32/index.js",
++    "@scure/bip32/index.js.map",
++    "@scure/bip32/index.ts",
++    "@scure/bip32/package.json",
++    "@scure/bip39/LICENSE",
++    "@scure/bip39/README.md",
++    "@scure/bip39/index.d.ts",
++    "@scure/bip39/index.js",
++    "@scure/bip39/package.json",
++    "@scure/bip39/src/index.ts",
++    "@scure/bip39/wordlists/czech.d.ts",
++    "@scure/bip39/wordlists/czech.js",
++    "@scure/bip39/wordlists/english.d.ts",
++    "@scure/bip39/wordlists/english.js",
++    "@scure/bip39/wordlists/french.d.ts",
++    "@scure/bip39/wordlists/french.js",
++    "@scure/bip39/wordlists/italian.d.ts",
++    "@scure/bip39/wordlists/italian.js",
++    "@scure/bip39/wordlists/japanese.d.ts",
++    "@scure/bip39/wordlists/japanese.js",
++    "@scure/bip39/wordlists/korean.d.ts",
++    "@scure/bip39/wordlists/korean.js",
++    "@scure/bip39/wordlists/portuguese.d.ts",
++    "@scure/bip39/wordlists/portuguese.js",
++    "@scure/bip39/wordlists/simplified-chinese.d.ts",
++    "@scure/bip39/wordlists/simplified-chinese.js",
++    "@scure/bip39/wordlists/spanish.d.ts",
++    "@scure/bip39/wordlists/spanish.js",
++    "@scure/bip39/wordlists/traditional-chinese.d.ts",
++    "@scure/bip39/wordlists/traditional-chinese.js",
++    "nostr-tools/LICENSE",
++    "nostr-tools/README.md",
++    "nostr-tools/lib/cjs/abstract-pool.js",
++    "nostr-tools/lib/cjs/abstract-pool.js.map",
++    "nostr-tools/lib/cjs/abstract-relay.js",
++    "nostr-tools/lib/cjs/abstract-relay.js.map",
++    "nostr-tools/lib/cjs/core.js",
++    "nostr-tools/lib/cjs/core.js.map",
++    "nostr-tools/lib/cjs/fakejson.js",
++    "nostr-tools/lib/cjs/fakejson.js.map",
++    "nostr-tools/lib/cjs/filter.js",
++    "nostr-tools/lib/cjs/filter.js.map",
++    "nostr-tools/lib/cjs/index.js",
++    "nostr-tools/lib/cjs/index.js.map",
++    "nostr-tools/lib/cjs/kinds.js",
++    "nostr-tools/lib/cjs/kinds.js.map",
++    "nostr-tools/lib/cjs/nip04.js",
++    "nostr-tools/lib/cjs/nip04.js.map",
++    "nostr-tools/lib/cjs/nip05.js",
++    "nostr-tools/lib/cjs/nip05.js.map",
++    "nostr-tools/lib/cjs/nip06.js",
++    "nostr-tools/lib/cjs/nip06.js.map",
++    "nostr-tools/lib/cjs/nip07.js",
++    "nostr-tools/lib/cjs/nip07.js.map",
++    "nostr-tools/lib/cjs/nip10.js",
++    "nostr-tools/lib/cjs/nip10.js.map",
++    "nostr-tools/lib/cjs/nip11.js",
++    "nostr-tools/lib/cjs/nip11.js.map",
++    "nostr-tools/lib/cjs/nip13.js",
++    "nostr-tools/lib/cjs/nip13.js.map",
++    "nostr-tools/lib/cjs/nip17.js",
++    "nostr-tools/lib/cjs/nip17.js.map",
++    "nostr-tools/lib/cjs/nip18.js",
++    "nostr-tools/lib/cjs/nip18.js.map",
++    "nostr-tools/lib/cjs/nip19.js",
++    "nostr-tools/lib/cjs/nip19.js.map",
++    "nostr-tools/lib/cjs/nip21.js",
++    "nostr-tools/lib/cjs/nip21.js.map",
++    "nostr-tools/lib/cjs/nip22.js",
++    "nostr-tools/lib/cjs/nip22.js.map",
++    "nostr-tools/lib/cjs/nip25.js",
++    "nostr-tools/lib/cjs/nip25.js.map",
++    "nostr-tools/lib/cjs/nip27.js",
++    "nostr-tools/lib/cjs/nip27.js.map",
++    "nostr-tools/lib/cjs/nip28.js",
++    "nostr-tools/lib/cjs/nip28.js.map",
++    "nostr-tools/lib/cjs/nip29.js",
++    "nostr-tools/lib/cjs/nip29.js.map",
++    "nostr-tools/lib/cjs/nip30.js",
++    "nostr-tools/lib/cjs/nip30.js.map",
++    "nostr-tools/lib/cjs/nip39.js",
++    "nostr-tools/lib/cjs/nip39.js.map",
++    "nostr-tools/lib/cjs/nip40.js",
++    "nostr-tools/lib/cjs/nip40.js.map",
++    "nostr-tools/lib/cjs/nip42.js",
++    "nostr-tools/lib/cjs/nip42.js.map",
++    "nostr-tools/lib/cjs/nip44.js",
++    "nostr-tools/lib/cjs/nip44.js.map",
++    "nostr-tools/lib/cjs/nip45.js",
++    "nostr-tools/lib/cjs/nip45.js.map",
++    "nostr-tools/lib/cjs/nip46.js",
++    "nostr-tools/lib/cjs/nip46.js.map",
++    "nostr-tools/lib/cjs/nip47.js",
++    "nostr-tools/lib/cjs/nip47.js.map",
++    "nostr-tools/lib/cjs/nip49.js",
++    "nostr-tools/lib/cjs/nip49.js.map",
++    "nostr-tools/lib/cjs/nip54.js",
++    "nostr-tools/lib/cjs/nip54.js.map",
++    "nostr-tools/lib/cjs/nip55.js",
++    "nostr-tools/lib/cjs/nip55.js.map",
++    "nostr-tools/lib/cjs/nip57.js",
++    "nostr-tools/lib/cjs/nip57.js.map",
++    "nostr-tools/lib/cjs/nip58.js",
++    "nostr-tools/lib/cjs/nip58.js.map",
++    "nostr-tools/lib/cjs/nip59.js",
++    "nostr-tools/lib/cjs/nip59.js.map",
++    "nostr-tools/lib/cjs/nip75.js",
++    "nostr-tools/lib/cjs/nip75.js.map",
++    "nostr-tools/lib/cjs/nip77.js",
++    "nostr-tools/lib/cjs/nip77.js.map",
++    "nostr-tools/lib/cjs/nip94.js",
++    "nostr-tools/lib/cjs/nip94.js.map",
++    "nostr-tools/lib/cjs/nip98.js",
++    "nostr-tools/lib/cjs/nip98.js.map",
++    "nostr-tools/lib/cjs/nip99.js",
++    "nostr-tools/lib/cjs/nip99.js.map",
++    "nostr-tools/lib/cjs/nipad.js",
++    "nostr-tools/lib/cjs/nipad.js.map",
++    "nostr-tools/lib/cjs/nipb7.js",
++    "nostr-tools/lib/cjs/nipb7.js.map",
++    "nostr-tools/lib/cjs/package.json",
++    "nostr-tools/lib/cjs/pool.js",
++    "nostr-tools/lib/cjs/pool.js.map",
++    "nostr-tools/lib/cjs/pure.js",
++    "nostr-tools/lib/cjs/pure.js.map",
++    "nostr-tools/lib/cjs/references.js",
++    "nostr-tools/lib/cjs/references.js.map",
++    "nostr-tools/lib/cjs/relay.js",
++    "nostr-tools/lib/cjs/relay.js.map",
++    "nostr-tools/lib/cjs/signer.js",
++    "nostr-tools/lib/cjs/signer.js.map",
++    "nostr-tools/lib/cjs/utils.js",
++    "nostr-tools/lib/cjs/utils.js.map",
++    "nostr-tools/lib/cjs/wasm.js",
++    "nostr-tools/lib/cjs/wasm.js.map",
++    "nostr-tools/lib/esm/abstract-pool.js",
++    "nostr-tools/lib/esm/abstract-pool.js.map",
++    "nostr-tools/lib/esm/abstract-relay.js",
++    "nostr-tools/lib/esm/abstract-relay.js.map",
++    "nostr-tools/lib/esm/core.js",
++    "nostr-tools/lib/esm/core.js.map",
++    "nostr-tools/lib/esm/fakejson.js",
++    "nostr-tools/lib/esm/fakejson.js.map",
++    "nostr-tools/lib/esm/filter.js",
++    "nostr-tools/lib/esm/filter.js.map",
++    "nostr-tools/lib/esm/index.js",
++    "nostr-tools/lib/esm/index.js.map",
++    "nostr-tools/lib/esm/kinds.js",
++    "nostr-tools/lib/esm/kinds.js.map",
++    "nostr-tools/lib/esm/nip04.js",
++    "nostr-tools/lib/esm/nip04.js.map",
++    "nostr-tools/lib/esm/nip05.js",
++    "nostr-tools/lib/esm/nip05.js.map",
++    "nostr-tools/lib/esm/nip06.js",
++    "nostr-tools/lib/esm/nip06.js.map",
++    "nostr-tools/lib/esm/nip07.js",
++    "nostr-tools/lib/esm/nip07.js.map",
++    "nostr-tools/lib/esm/nip10.js",
++    "nostr-tools/lib/esm/nip10.js.map",
++    "nostr-tools/lib/esm/nip11.js",
++    "nostr-tools/lib/esm/nip11.js.map",
++    "nostr-tools/lib/esm/nip13.js",
++    "nostr-tools/lib/esm/nip13.js.map",
++    "nostr-tools/lib/esm/nip17.js",
++    "nostr-tools/lib/esm/nip17.js.map",
++    "nostr-tools/lib/esm/nip18.js",
++    "nostr-tools/lib/esm/nip18.js.map",
++    "nostr-tools/lib/esm/nip19.js",
++    "nostr-tools/lib/esm/nip19.js.map",
++    "nostr-tools/lib/esm/nip21.js",
++    "nostr-tools/lib/esm/nip21.js.map",
++    "nostr-tools/lib/esm/nip22.js",
++    "nostr-tools/lib/esm/nip22.js.map",
++    "nostr-tools/lib/esm/nip25.js",
++    "nostr-tools/lib/esm/nip25.js.map",
++    "nostr-tools/lib/esm/nip27.js",
++    "nostr-tools/lib/esm/nip27.js.map",
++    "nostr-tools/lib/esm/nip28.js",
++    "nostr-tools/lib/esm/nip28.js.map",
++    "nostr-tools/lib/esm/nip29.js",
++    "nostr-tools/lib/esm/nip29.js.map",
++    "nostr-tools/lib/esm/nip30.js",
++    "nostr-tools/lib/esm/nip30.js.map",
++    "nostr-tools/lib/esm/nip39.js",
++    "nostr-tools/lib/esm/nip39.js.map",
++    "nostr-tools/lib/esm/nip40.js",
++    "nostr-tools/lib/esm/nip40.js.map",
++    "nostr-tools/lib/esm/nip42.js",
++    "nostr-tools/lib/esm/nip42.js.map",
++    "nostr-tools/lib/esm/nip44.js",
++    "nostr-tools/lib/esm/nip44.js.map",
++    "nostr-tools/lib/esm/nip45.js",
++    "nostr-tools/lib/esm/nip45.js.map",
++    "nostr-tools/lib/esm/nip46.js",
++    "nostr-tools/lib/esm/nip46.js.map",
++    "nostr-tools/lib/esm/nip47.js",
++    "nostr-tools/lib/esm/nip47.js.map",
++    "nostr-tools/lib/esm/nip49.js",
++    "nostr-tools/lib/esm/nip49.js.map",
++    "nostr-tools/lib/esm/nip54.js",
++    "nostr-tools/lib/esm/nip54.js.map",
++    "nostr-tools/lib/esm/nip55.js",
++    "nostr-tools/lib/esm/nip55.js.map",
++    "nostr-tools/lib/esm/nip57.js",
++    "nostr-tools/lib/esm/nip57.js.map",
++    "nostr-tools/lib/esm/nip58.js",
++    "nostr-tools/lib/esm/nip58.js.map",
++    "nostr-tools/lib/esm/nip59.js",
++    "nostr-tools/lib/esm/nip59.js.map",
++    "nostr-tools/lib/esm/nip75.js",
++    "nostr-tools/lib/esm/nip75.js.map",
++    "nostr-tools/lib/esm/nip77.js",
++    "nostr-tools/lib/esm/nip77.js.map",
++    "nostr-tools/lib/esm/nip94.js",
++    "nostr-tools/lib/esm/nip94.js.map",
++    "nostr-tools/lib/esm/nip98.js",
++    "nostr-tools/lib/esm/nip98.js.map",
++    "nostr-tools/lib/esm/nip99.js",
++    "nostr-tools/lib/esm/nip99.js.map",
++    "nostr-tools/lib/esm/nipad.js",
++    "nostr-tools/lib/esm/nipad.js.map",
++    "nostr-tools/lib/esm/nipb7.js",
++    "nostr-tools/lib/esm/nipb7.js.map",
++    "nostr-tools/lib/esm/pool.js",
++    "nostr-tools/lib/esm/pool.js.map",
++    "nostr-tools/lib/esm/pure.js",
++    "nostr-tools/lib/esm/pure.js.map",
++    "nostr-tools/lib/esm/references.js",
++    "nostr-tools/lib/esm/references.js.map",
++    "nostr-tools/lib/esm/relay.js",
++    "nostr-tools/lib/esm/relay.js.map",
++    "nostr-tools/lib/esm/signer.js",
++    "nostr-tools/lib/esm/signer.js.map",
++    "nostr-tools/lib/esm/utils.js",
++    "nostr-tools/lib/esm/utils.js.map",
++    "nostr-tools/lib/esm/wasm.js",
++    "nostr-tools/lib/esm/wasm.js.map",
++    "nostr-tools/lib/nostr.bundle.js",
++    "nostr-tools/lib/nostr.bundle.js.map",
++    "nostr-tools/lib/types/abstract-pool.d.ts",
++    "nostr-tools/lib/types/abstract-relay.d.ts",
++    "nostr-tools/lib/types/benchmarks.d.ts",
++    "nostr-tools/lib/types/core.d.ts",
++    "nostr-tools/lib/types/core.test.d.ts",
++    "nostr-tools/lib/types/fakejson.d.ts",
++    "nostr-tools/lib/types/fakejson.test.d.ts",
++    "nostr-tools/lib/types/filter.d.ts",
++    "nostr-tools/lib/types/filter.test.d.ts",
++    "nostr-tools/lib/types/index.d.ts",
++    "nostr-tools/lib/types/kinds.d.ts",
++    "nostr-tools/lib/types/kinds.test.d.ts",
++    "nostr-tools/lib/types/nip04.d.ts",
++    "nostr-tools/lib/types/nip04.test.d.ts",
++    "nostr-tools/lib/types/nip05.d.ts",
++    "nostr-tools/lib/types/nip05.test.d.ts",
++    "nostr-tools/lib/types/nip06.d.ts",
++    "nostr-tools/lib/types/nip06.test.d.ts",
++    "nostr-tools/lib/types/nip07.d.ts",
++    "nostr-tools/lib/types/nip10.d.ts",
++    "nostr-tools/lib/types/nip10.test.d.ts",
++    "nostr-tools/lib/types/nip11.d.ts",
++    "nostr-tools/lib/types/nip11.test.d.ts",
++    "nostr-tools/lib/types/nip13.d.ts",
++    "nostr-tools/lib/types/nip13.test.d.ts",
++    "nostr-tools/lib/types/nip17.d.ts",
++    "nostr-tools/lib/types/nip17.test.d.ts",
++    "nostr-tools/lib/types/nip18.d.ts",
++    "nostr-tools/lib/types/nip18.test.d.ts",
++    "nostr-tools/lib/types/nip19.d.ts",
++    "nostr-tools/lib/types/nip19.test.d.ts",
++    "nostr-tools/lib/types/nip21.d.ts",
++    "nostr-tools/lib/types/nip21.test.d.ts",
++    "nostr-tools/lib/types/nip22.d.ts",
++    "nostr-tools/lib/types/nip22.test.d.ts",
++    "nostr-tools/lib/types/nip25.d.ts",
++    "nostr-tools/lib/types/nip25.test.d.ts",
++    "nostr-tools/lib/types/nip27.d.ts",
++    "nostr-tools/lib/types/nip27.test.d.ts",
++    "nostr-tools/lib/types/nip28.d.ts",
++    "nostr-tools/lib/types/nip28.test.d.ts",
++    "nostr-tools/lib/types/nip29.d.ts",
++    "nostr-tools/lib/types/nip29.test.d.ts",
++    "nostr-tools/lib/types/nip30.d.ts",
++    "nostr-tools/lib/types/nip30.test.d.ts",
++    "nostr-tools/lib/types/nip39.d.ts",
++    "nostr-tools/lib/types/nip39.test.d.ts",
++    "nostr-tools/lib/types/nip40.d.ts",
++    "nostr-tools/lib/types/nip40.test.d.ts",
++    "nostr-tools/lib/types/nip42.d.ts",
++    "nostr-tools/lib/types/nip42.test.d.ts",
++    "nostr-tools/lib/types/nip44.d.ts",
++    "nostr-tools/lib/types/nip44.test.d.ts",
++    "nostr-tools/lib/types/nip45.d.ts",
++    "nostr-tools/lib/types/nip45.test.d.ts",
++    "nostr-tools/lib/types/nip46.d.ts",
++    "nostr-tools/lib/types/nip46.test.d.ts",
++    "nostr-tools/lib/types/nip47.d.ts",
++    "nostr-tools/lib/types/nip47.test.d.ts",
++    "nostr-tools/lib/types/nip49.d.ts",
++    "nostr-tools/lib/types/nip49.test.d.ts",
++    "nostr-tools/lib/types/nip54.d.ts",
++    "nostr-tools/lib/types/nip54.test.d.ts",
++    "nostr-tools/lib/types/nip55.d.ts",
++    "nostr-tools/lib/types/nip55.test.d.ts",
++    "nostr-tools/lib/types/nip57.d.ts",
++    "nostr-tools/lib/types/nip57.test.d.ts",
++    "nostr-tools/lib/types/nip58.d.ts",
++    "nostr-tools/lib/types/nip58.test.d.ts",
++    "nostr-tools/lib/types/nip59.d.ts",
++    "nostr-tools/lib/types/nip59.test.d.ts",
++    "nostr-tools/lib/types/nip75.d.ts",
++    "nostr-tools/lib/types/nip75.test.d.ts",
++    "nostr-tools/lib/types/nip77.d.ts",
++    "nostr-tools/lib/types/nip77.test.d.ts",
++    "nostr-tools/lib/types/nip94.d.ts",
++    "nostr-tools/lib/types/nip94.test.d.ts",
++    "nostr-tools/lib/types/nip98.d.ts",
++    "nostr-tools/lib/types/nip98.test.d.ts",
++    "nostr-tools/lib/types/nip99.d.ts",
++    "nostr-tools/lib/types/nip99.test.d.ts",
++    "nostr-tools/lib/types/nipad.d.ts",
++    "nostr-tools/lib/types/nipb7.d.ts",
++    "nostr-tools/lib/types/nipb7.test.d.ts",
++    "nostr-tools/lib/types/pool.d.ts",
++    "nostr-tools/lib/types/pool.test.d.ts",
++    "nostr-tools/lib/types/pure.d.ts",
++    "nostr-tools/lib/types/pure.test.d.ts",
++    "nostr-tools/lib/types/references.d.ts",
++    "nostr-tools/lib/types/references.test.d.ts",
++    "nostr-tools/lib/types/relay.d.ts",
++    "nostr-tools/lib/types/relay.test.d.ts",
++    "nostr-tools/lib/types/signer.d.ts",
++    "nostr-tools/lib/types/test-helpers.d.ts",
++    "nostr-tools/lib/types/utils.d.ts",
++    "nostr-tools/lib/types/utils.test.d.ts",
++    "nostr-tools/lib/types/wasm.d.ts",
++    "nostr-tools/package.json",
++    "nostr-wasm/README.md",
++    "nostr-wasm/dist/api/emsimp.d.ts",
++    "nostr-wasm/dist/api/nostr.d.ts",
++    "nostr-wasm/dist/api/secp256k1-types.d.ts",
++    "nostr-wasm/dist/api/secp256k1.d.ts",
++    "nostr-wasm/dist/api/types.d.ts",
++    "nostr-wasm/dist/api/wasm-env.d.ts",
++    "nostr-wasm/dist/gen/wasm.d.ts",
++    "nostr-wasm/dist/generate.d.ts",
++    "nostr-wasm/dist/gzipped.d.ts",
++    "nostr-wasm/dist/gzipped.js",
++    "nostr-wasm/dist/headless.d.ts",
++    "nostr-wasm/dist/main.d.ts",
++    "nostr-wasm/dist/main.js",
++    "nostr-wasm/dist/nostr.js",
++    "nostr-wasm/dist/secp256k1.js",
++    "nostr-wasm/dist/types.d.ts",
++    "nostr-wasm/package.json",
++    "nostr-wasm/public/out/secp256k1.js",
++    "nostr-wasm/public/out/secp256k1.wasm",
++    "playwright-core/LICENSE",
++    "playwright-core/NOTICE",
++    "playwright-core/README.md",
++    "playwright-core/ThirdPartyNotices.txt",
++    "playwright-core/bin/install_media_pack.ps1",
++    "playwright-core/bin/install_webkit_wsl.ps1",
++    "playwright-core/bin/reinstall_chrome_beta_linux.sh",
++    "playwright-core/bin/reinstall_chrome_beta_mac.sh",
++    "playwright-core/bin/reinstall_chrome_beta_win.ps1",
++    "playwright-core/bin/reinstall_chrome_stable_linux.sh",
++    "playwright-core/bin/reinstall_chrome_stable_mac.sh",
++    "playwright-core/bin/reinstall_chrome_stable_win.ps1",
++    "playwright-core/bin/reinstall_msedge_beta_linux.sh",
++    "playwright-core/bin/reinstall_msedge_beta_mac.sh",
++    "playwright-core/bin/reinstall_msedge_beta_win.ps1",
++    "playwright-core/bin/reinstall_msedge_dev_linux.sh",
++    "playwright-core/bin/reinstall_msedge_dev_mac.sh",
++    "playwright-core/bin/reinstall_msedge_dev_win.ps1",
++    "playwright-core/bin/reinstall_msedge_stable_linux.sh",
++    "playwright-core/bin/reinstall_msedge_stable_mac.sh",
++    "playwright-core/bin/reinstall_msedge_stable_win.ps1",
++    "playwright-core/browsers.json",
++    "playwright-core/cli.js",
++    "playwright-core/index.d.ts",
++    "playwright-core/index.js",
++    "playwright-core/index.mjs",
++    "playwright-core/lib/bootstrap.js",
++    "playwright-core/lib/coreBundle.js",
++    "playwright-core/lib/entry/cliDaemon.js",
++    "playwright-core/lib/entry/dashboardApp.js",
++    "playwright-core/lib/entry/mcp.js",
++    "playwright-core/lib/entry/oopBrowserDownload.js",
++    "playwright-core/lib/package.js",
++    "playwright-core/lib/server/chromium/appIcon.png",
++    "playwright-core/lib/server/deviceDescriptorsSource.json",
++    "playwright-core/lib/server/electron/loader.js",
++    "playwright-core/lib/serverRegistry.js",
++    "playwright-core/lib/serverRegistry.js.LICENSE",
++    "playwright-core/lib/tools/cli-client/channelSessions.js",
++    "playwright-core/lib/tools/cli-client/cli.js",
++    "playwright-core/lib/tools/cli-client/help.json",
++    "playwright-core/lib/tools/cli-client/minimist.js",
++    "playwright-core/lib/tools/cli-client/output.js",
++    "playwright-core/lib/tools/cli-client/program.js",
++    "playwright-core/lib/tools/cli-client/registry.js",
++    "playwright-core/lib/tools/cli-client/session.js",
++    "playwright-core/lib/tools/cli-client/skill/SKILL.md",
++    "playwright-core/lib/tools/cli-client/skill/references/element-attributes.md",
++    "playwright-core/lib/tools/cli-client/skill/references/playwright-tests.md",
++    "playwright-core/lib/tools/cli-client/skill/references/request-mocking.md",
++    "playwright-core/lib/tools/cli-client/skill/references/running-code.md",
++    "playwright-core/lib/tools/cli-client/skill/references/session-management.md",
++    "playwright-core/lib/tools/cli-client/skill/references/spec-driven-testing.md",
++    "playwright-core/lib/tools/cli-client/skill/references/storage-state.md",
++    "playwright-core/lib/tools/cli-client/skill/references/test-generation.md",
++    "playwright-core/lib/tools/cli-client/skill/references/tracing.md",
++    "playwright-core/lib/tools/cli-client/skill/references/video-recording.md",
++    "playwright-core/lib/tools/dashboard/appIcon.png",
++    "playwright-core/lib/tools/trace/SKILL.md",
++    "playwright-core/lib/tools/utils/extension.js",
++    "playwright-core/lib/tools/utils/socketConnection.js",
++    "playwright-core/lib/utilsBundle.js",
++    "playwright-core/lib/utilsBundle.js.LICENSE",
++    "playwright-core/lib/vite/dashboard/assets/codicon-DCmgc-ay.ttf",
++    "playwright-core/lib/vite/dashboard/assets/firefox-1bWoP6pv.svg",
++    "playwright-core/lib/vite/dashboard/assets/firefox-beta-k3eOH_eK.svg",
++    "playwright-core/lib/vite/dashboard/assets/firefox-nightly-Cp5nfeDT.svg",
++    "playwright-core/lib/vite/dashboard/assets/index-BY2S1tHT.css",
++    "playwright-core/lib/vite/dashboard/assets/index-DpEq2p62.js",
++    "playwright-core/lib/vite/dashboard/assets/safari-na3_-uQk.svg",
++    "playwright-core/lib/vite/dashboard/index.html",
++    "playwright-core/lib/vite/dashboard/playwright-logo.svg",
++    "playwright-core/lib/vite/htmlReport/index.html",
++    "playwright-core/lib/vite/htmlReport/report.css",
++    "playwright-core/lib/vite/htmlReport/report.js",
++    "playwright-core/lib/vite/recorder/assets/codeMirrorModule-BHYmBp6h.js",
++    "playwright-core/lib/vite/recorder/assets/codeMirrorModule-DYBRYzYX.css",
++    "playwright-core/lib/vite/recorder/assets/codicon-DCmgc-ay.ttf",
++    "playwright-core/lib/vite/recorder/assets/index-4ZiSSCmn.css",
++    "playwright-core/lib/vite/recorder/assets/index-DA10QRaq.js",
++    "playwright-core/lib/vite/recorder/index.html",
++    "playwright-core/lib/vite/recorder/playwright-logo.svg",
++    "playwright-core/lib/vite/traceViewer/assets/codeMirrorModule-Ds_H_9Yq.js",
++    "playwright-core/lib/vite/traceViewer/assets/defaultSettingsView-D31xz8zv.js",
++    "playwright-core/lib/vite/traceViewer/assets/urlMatch-BYQrIQwR.js",
++    "playwright-core/lib/vite/traceViewer/assets/xtermModule-CsJ4vdCR.js",
++    "playwright-core/lib/vite/traceViewer/codeMirrorModule.DYBRYzYX.css",
++    "playwright-core/lib/vite/traceViewer/codicon.DCmgc-ay.ttf",
++    "playwright-core/lib/vite/traceViewer/defaultSettingsView.BDKsFU3c.css",
++    "playwright-core/lib/vite/traceViewer/index.BCnMPevh.js",
++    "playwright-core/lib/vite/traceViewer/index.CzXZzn5A.css",
++    "playwright-core/lib/vite/traceViewer/index.html",
++    "playwright-core/lib/vite/traceViewer/manifest.webmanifest",
++    "playwright-core/lib/vite/traceViewer/playwright-logo.svg",
++    "playwright-core/lib/vite/traceViewer/snapshot.html",
++    "playwright-core/lib/vite/traceViewer/snapshot.v8KI4P3m.js",
++    "playwright-core/lib/vite/traceViewer/sw.bundle.js",
++    "playwright-core/lib/vite/traceViewer/uiMode.Btcz36p_.css",
++    "playwright-core/lib/vite/traceViewer/uiMode.C2Efnu2P.js",
++    "playwright-core/lib/vite/traceViewer/uiMode.html",
++    "playwright-core/lib/vite/traceViewer/xtermModule.DYP7pi_n.css",
++    "playwright-core/lib/xdg-open",
++    "playwright-core/package.json",
++    "playwright-core/types/protocol.d.ts",
++    "playwright-core/types/structs.d.ts",
++    "playwright-core/types/types.d.ts",
++    "playwright/LICENSE",
++    "playwright/NOTICE",
++    "playwright/README.md",
++    "playwright/ThirdPartyNotices.txt",
++    "playwright/cli.js",
++    "playwright/index.d.ts",
++    "playwright/index.js",
++    "playwright/index.mjs",
++    "playwright/jsx-runtime.js",
++    "playwright/jsx-runtime.mjs",
++    "playwright/lib/agents/agentParser.js",
++    "playwright/lib/agents/copilot-setup-steps.yml",
++    "playwright/lib/agents/generateAgents.js",
++    "playwright/lib/agents/playwright-test-coverage.prompt.md",
++    "playwright/lib/agents/playwright-test-generate.prompt.md",
++    "playwright/lib/agents/playwright-test-generator.agent.md",
++    "playwright/lib/agents/playwright-test-heal.prompt.md",
++    "playwright/lib/agents/playwright-test-healer.agent.md",
++    "playwright/lib/agents/playwright-test-plan.prompt.md",
++    "playwright/lib/agents/playwright-test-planner.agent.md",
++    "playwright/lib/cli/reportActions.js",
++    "playwright/lib/cli/testActions.js",
++    "playwright/lib/common/index.js",
++    "playwright/lib/common/index.js.txt",
++    "playwright/lib/errorContext.js",
++    "playwright/lib/globals.js",
++    "playwright/lib/index.js",
++    "playwright/lib/isomorphic.js",
++    "playwright/lib/isomorphic.js.txt",
++    "playwright/lib/loader/loaderProcessEntry.js",
++    "playwright/lib/loader/loaderProcessEntry.js.txt",
++    "playwright/lib/matchers/expect.js",
++    "playwright/lib/matchers/expect.js.LICENSE",
++    "playwright/lib/matchers/expect.js.txt",
++    "playwright/lib/mcp/test/browserBackend.js",
++    "playwright/lib/mcp/test/generatorTools.js",
++    "playwright/lib/mcp/test/plannerTools.js",
++    "playwright/lib/mcp/test/seed.js",
++    "playwright/lib/mcp/test/streams.js",
++    "playwright/lib/mcp/test/testBackend.js",
++    "playwright/lib/mcp/test/testContext.js",
++    "playwright/lib/mcp/test/testTool.js",
++    "playwright/lib/mcp/test/testTools.js",
++    "playwright/lib/package.js",
++    "playwright/lib/program.js",
++    "playwright/lib/runner/index.js",
++    "playwright/lib/runner/index.js.txt",
++    "playwright/lib/transform/babelBundle.js",
++    "playwright/lib/transform/babelBundle.js.LICENSE",
++    "playwright/lib/transform/babelBundle.js.txt",
++    "playwright/lib/transform/esmLoader.js",
++    "playwright/lib/transform/esmLoader.js.LICENSE",
++    "playwright/lib/transform/esmLoader.js.txt",
++    "playwright/lib/util.js",
++    "playwright/lib/worker/workerProcessEntry.js",
++    "playwright/lib/worker/workerProcessEntry.js.txt",
++    "playwright/package.json",
++    "playwright/test.d.ts",
++    "playwright/test.js",
++    "playwright/test.mjs",
++    "playwright/types/test.d.ts",
++    "playwright/types/testReporter.d.ts",
++    "ws/LICENSE",
++    "ws/README.md",
++    "ws/browser.js",
++    "ws/index.js",
++    "ws/lib/buffer-util.js",
++    "ws/lib/constants.js",
++    "ws/lib/event-target.js",
++    "ws/lib/extension.js",
++    "ws/lib/limiter.js",
++    "ws/lib/permessage-deflate.js",
++    "ws/lib/receiver.js",
++    "ws/lib/sender.js",
++    "ws/lib/stream.js",
++    "ws/lib/subprotocol.js",
++    "ws/lib/validation.js",
++    "ws/lib/websocket-server.js",
++    "ws/lib/websocket.js",
++    "ws/package.json",
++    "ws/wrapper.mjs"
++  ],
++  "symlinks": [
++    {
++      "path": ".bin/playwright",
++      "link": "../playwright/cli.js",
++      "target": "playwright/cli.js"
++    },
++    {
++      "path": ".bin/playwright-core",
++      "link": "../playwright-core/cli.js",
++      "target": "playwright-core/cli.js"
++    }
++  ]
++}
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/dependency-tree.mjs
+@@ -0,0 +1,35 @@
++// Closed relative inventory only; no optional module import/evaluation.
++import fs from 'node:fs';
++import path from 'node:path';
++import {createHash} from 'node:crypto';
++const need=(v,m)=>{if(!v)throw Error(m);};
++function relative(s){need(typeof s==='string'&&s!==''&&!s.startsWith('/')&&s.split('/').every(x=>x!==''&&x!=='.'&&x!=='..'),'CANONICAL_DEPENDENCY_RELATIVE_PATH');return s;}
++export function verifyDependencyTree(root,tree,files){
++ need(path.isAbsolute(root)&&path.resolve(root)===root&&fs.realpathSync(root)===root,'CANONICAL_DEPENDENCY_ROOT');
++ need(tree&&typeof tree==='object'&&Object.keys(tree).sort().join(',')==='directories,files,runtimeRoot,schema,sourceRoot,symlinks','CLOSED_DEPENDENCY_TREE_KEYS');
++ need(tree.schema==='e02-transport-dependency-tree-v2'&&tree.runtimeRoot==='/input/node_modules','CLOSED_DEPENDENCY_TREE');
++ const actual={directories:[],files:[],symlinks:[]};
++ function walk(folder){for(const name of fs.readdirSync(folder).sort()){
++  const p=path.join(folder,name),rel=relative(path.relative(root,p)),s=fs.lstatSync(p);
++  if(s.isSymbolicLink()){
++   const link=fs.readlinkSync(p),resolved=fs.realpathSync(p);need(resolved.startsWith(root+'/'),'DEPENDENCY_SYMLINK_ESCAPE');
++   actual.symlinks.push({path:rel,link,target:relative(path.relative(root,resolved))});
++  }else if(s.isDirectory()){actual.directories.push(rel);walk(p);}
++  else if(s.isFile())actual.files.push(rel);
++  else throw Error('DEPENDENCY_SPECIAL_FILE');
++ }}walk(root);
++ const ordered=v=>JSON.stringify(v);for(const k of ['directories','files'])actual[k].sort();actual.symlinks.sort((a,b)=>a.path.localeCompare(b.path));
++ need(ordered(actual)===ordered({directories:tree.directories,files:tree.files,symlinks:tree.symlinks}),'DEPENDENCY_EXACT_MEMBERSHIP');
++ need(Array.isArray(files)&&files.length===actual.files.length&&new Set(files.map(d=>d.path)).size===files.length,'DEPENDENCY_DESCRIPTOR_MEMBERSHIP');
++ const expected=[];
++ for(const d of files){
++  need(Object.keys(d).sort().join(',')==='bytes,path,sha256,source','CLOSED_DEPENDENCY_DESCRIPTOR');
++  need(typeof d.path==='string'&&d.path.startsWith(tree.runtimeRoot+'/'),'DEPENDENCY_RUNTIME_PATH');
++  const rel=relative(d.path.slice(tree.runtimeRoot.length+1));expected.push(rel);
++  need(d.source===tree.sourceRoot+'/'+rel,'DEPENDENCY_SOURCE_RUNTIME_MAPPING');
++  const p=path.join(root,rel);need(fs.realpathSync(p)===p&&fs.lstatSync(p).isFile(),'REGULAR_CANONICAL_DEPENDENCY');
++  const raw=fs.readFileSync(p);need(raw.length===d.bytes&&createHash('sha256').update(raw).digest('hex')===d.sha256,'DEPENDENCY_BYTES_DRIFT');
++ }
++ expected.sort();need(ordered(expected)===ordered(actual.files),'DEPENDENCY_ALL_REGULAR_MEMBERS');
++ return {schema:'e02-transport-dependency-check-v2',files:actual.files.length,directories:actual.directories.length,symlinks:actual.symlinks.length,exact:true};
++}
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/exchange.mjs
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/exchange.mjs
+@@ -1,28 +1,40 @@
+-// SOURCE-only instrumented sibling of the exact original exchange.
+-// Dependencies are explicit for synthetic model tests; runtime binds only reviewed
+-// real ws, unchanged sync lease guard, process.hrtime, and built-in timers.
++// Version2: original guard/timer/query positions, deterministic terminal custody
++// independent of phase/outcome retention. Late callbacks do no writes/actions.
+ export async function exchange(ctx,events,filter,label){
+  const {WebSocket,p,check,phase,put,strictJSON,sha,clock,arm,clear}=ctx;
+  check('exchange-entry');
+  if(typeof label!=='string'||!/^[a-z0-9-]{1,48}$/.test(label))throw Error('FIXED_EXCHANGE_LABEL');
+  const started=clock();phase('EXCHANGE_START',{label});
+  return await new Promise((resolve,reject)=>{
+-  const ws=new WebSocket(p.backendUrl,{perMessageDeflate:false,handshakeTimeout:3000,maxPayload:p.limits.messageBytes});
+-  const ack=[],received=[],sentFrames=[];let settled=false,queryEnded=false,eose=null;
+-  const timer=arm(()=>{phase('TIMER_FIRED',{label});finish(Error('RELAY_TIMEOUT'));},p.limits.networkTimeoutMilliseconds);
+-  phase('TIMER_ARMED',{label,timeoutMilliseconds:p.limits.networkTimeoutMilliseconds});
+-  function finish(error){
+-   if(settled)return;settled=true;clear(timer);
+-   // Terminal evidence is retained even when a guard refused; cleanup touches
+-   // only this owned socket. No new send/forward/validation is authorized here.
+-   const elapsedNanoseconds=Number(clock()-started);
+-   const outcome={label,elapsedNanoseconds,ack,received,eose,sentFrames,error:error?String(error):null};
+-   phase(error?'EXCHANGE_REJECTED':'EXCHANGE_RESOLVED',{label,elapsedNanoseconds,error:error?String(error):null});
+-   put(label+'-outcome.json',Buffer.from(JSON.stringify(outcome,null,2)+'\n'));
+-   ws.terminate();
+-   if(error){reject(error);return;}
+-   resolve({ack,received,eose,sentFrames,elapsedNanoseconds});
++  let ws=null,timer=null,terminalClaimed=false,terminationAttempted=false;
++  const ack=[],received=[],sentFrames=[];let queryEnded=false,eose=null;
++  function finish(incomingError,priorSecondary=[]){
++   if(terminalClaimed)return;
++   terminalClaimed=true;
++   let first=incomingError??null;const secondary=[...priorSecondary];
++   const note=(stage,error)=>{if(first===null)first=error;else secondary.push({stage,error:String(error)});};
++   const attempt=(stage,fn)=>{try{return fn();}catch(error){note(stage,error);}};
++   let elapsedNanoseconds=null;
++   try{
++    attempt('terminal-clock',()=>{elapsedNanoseconds=Number(clock()-started);});
++    if(timer!==null)attempt('clear-timer',()=>clear(timer));
++    attempt('terminal-phase',()=>phase(first===null?'EXCHANGE_RESOLVED':'EXCHANGE_REJECTED',{
++     label,elapsedNanoseconds,error:first===null?null:String(first)}));
++    attempt('terminal-outcome',()=>put(label+'-outcome.json',Buffer.from(JSON.stringify({label,
++     elapsedNanoseconds,ack,received,eose,sentFrames,error:first===null?null:String(first),
++     secondaryRetentionErrors:secondary,observer:typeof phase.state==='function'?phase.state():null},null,2)+'\n')));
++   }catch(error){note('terminal-boundary',error);}
++   finally{
++    // No observation write can prevent exact owned-socket termination or Promise
++    // rejection. Reentrant/late close/error/timer callbacks are inert.
++    if(ws!==null&&!terminationAttempted){terminationAttempted=true;attempt('terminate-owned-socket',()=>ws.terminate());}
++    if(first!==null){
++     if(first&&typeof first==='object'){try{Object.defineProperty(first,'diagnosticSecondaryErrors',{value:secondary,configurable:true});}catch{}}
++     reject(first);
++    }else resolve({ack,received,eose,sentFrames,elapsedNanoseconds});
++   }
+   }
++  function active(fn,incomingFault=null){if(terminalClaimed)return;try{fn();}catch(error){finish(incomingFault??error,incomingFault!==null&&incomingFault!==error?[{stage:'callback-observation-or-guard',error:String(error)}]:[]);}}
+   function maybeComplete(){
+    if(!sentFrames.length||!sentFrames.every(row=>row.sendCallbackCompleted))return;
+    if(events&&events.every(event=>ack.some(row=>row.frame[1]===event.id&&row.frame[2]===true)))finish();
+@@ -33,36 +45,37 @@
+    const framePin=put(label+'-'+sentFrames.length+'-sent-frame.json',bytes);
+    const row={frame:framePin,eventId,messageType:frame[0],sendInvoked:false,sendCallbackCompleted:false,callbackBufferHash:null};
+    sentFrames.push(row);phase('SEND_INTENT',{label,eventId,rawBase64:bytes.toString('base64')});
+-   // An intent record is explicitly not a completed send callback/backend receipt.
+    phase('SEND_INVOKE_ENTRY',{label,eventId});
+-   ws.send(bytes,{binary:false},error=>{try{
++   ws.send(bytes,{binary:false},error=>active(()=>{
+     phase('SEND_CALLBACK_ENTRY',{label,eventId,error:error?String(error):null});
+-    if(settled){phase('TERMINAL_CALLBACK_CONTEXT_ONLY',{label});return;}
+     check('send-callback');if(error)throw error;
+     if(sha(bytes)!==framePin.sha256)throw Error('ACTUAL_SENT_BUFFER_MUTATION');
+     row.sendCallbackCompleted=true;row.callbackBufferHash=sha(bytes);
+     phase('SEND_CALLBACK_GUARD_PASSED',{label,eventId});maybeComplete();
+-   }catch(error){finish(error);}});
++   },error??null));
+    row.sendInvoked=true;phase('SEND_INVOKE_RETURNED',{label,eventId});
+   }
+-  ws.on('open',()=>{try{
+-   phase('SOCKET_OPEN_CALLBACK_ENTRY',{label});
+-   if(settled){phase('TERMINAL_CALLBACK_CONTEXT_ONLY',{label});return;}
+-   check('socket-open');for(const event of events??[])sendKnown(['EVENT',event],event.id);
+-   if(filter)sendKnown(['REQ','e02-owned-query',filter],null);
+-  }catch(error){finish(error);}});
+-  ws.on('message',data=>{try{
+-   const bytes=Buffer.from(data);
+-   phase('RAW_BACKEND_CALLBACK_ENTRY',{label,rawBase64:bytes.toString('base64')});
+-   if(settled){phase('TERMINAL_CALLBACK_CONTEXT_ONLY',{label});return;}
+-   check('backend-message');
+-   const frame=strictJSON(bytes.toString('utf8'));phase('BACKEND_MESSAGE_GUARD_PASSED',{label,messageType:frame[0]});
+-   if(frame[0]==='OK'){ack.push({rawBase64:bytes.toString('base64'),frame});if(frame[2]!==true)throw Error('RELAY_REFUSAL');}
+-   if(frame[0]==='EVENT'&&frame[1]==='e02-owned-query')received.push({rawBase64:bytes.toString('base64'),frame});
+-   if(frame[0]==='EOSE'&&frame[1]==='e02-owned-query'){eose={rawBase64:bytes.toString('base64'),frame};queryEnded=true;}
+-   maybeComplete();
+-  }catch(error){finish(error);}});
+-  ws.on('error',error=>{phase('SOCKET_ERROR_CALLBACK_ENTRY',{label,error:String(error)});finish(error);});
+-  ws.on('close',()=>{phase('SOCKET_CLOSE_CALLBACK_ENTRY',{label});if(!settled)finish(Error('EARLY_RELAY_CLOSE'));});
++  try{
++   ws=new WebSocket(p.backendUrl,{perMessageDeflate:false,handshakeTimeout:3000,maxPayload:p.limits.messageBytes});
++   // Install cleanup-safe error/close listeners before any diagnostic write.
++   ws.on('error',error=>active(()=>{phase('SOCKET_ERROR_CALLBACK_ENTRY',{label,error:String(error)});finish(error);},error));
++   ws.on('close',()=>{const error=Error('EARLY_RELAY_CLOSE');active(()=>{phase('SOCKET_CLOSE_CALLBACK_ENTRY',{label});finish(error);},error);});
++   timer=arm(()=>{const error=Error('RELAY_TIMEOUT');active(()=>{phase('TIMER_FIRED',{label});finish(error);},error);},p.limits.networkTimeoutMilliseconds);
++   phase('TIMER_ARMED',{label,timeoutMilliseconds:p.limits.networkTimeoutMilliseconds});
++   ws.on('open',()=>active(()=>{
++    phase('SOCKET_OPEN_CALLBACK_ENTRY',{label});check('socket-open');
++    for(const event of events??[])sendKnown(['EVENT',event],event.id);
++    if(filter)sendKnown(['REQ','e02-owned-query',filter],null);
++   }));
++   ws.on('message',data=>active(()=>{
++    const bytes=Buffer.from(data);phase('RAW_BACKEND_CALLBACK_ENTRY',{label,rawBase64:bytes.toString('base64')});
++    check('backend-message');const frame=strictJSON(bytes.toString('utf8'));
++    phase('BACKEND_MESSAGE_GUARD_PASSED',{label,messageType:frame[0]});
++    if(frame[0]==='OK'){ack.push({rawBase64:bytes.toString('base64'),frame});if(frame[2]!==true)throw Error('RELAY_REFUSAL');}
++    if(frame[0]==='EVENT'&&frame[1]==='e02-owned-query')received.push({rawBase64:bytes.toString('base64'),frame});
++    if(frame[0]==='EOSE'&&frame[1]==='e02-owned-query'){eose={rawBase64:bytes.toString('base64'),frame};queryEnded=true;}
++    maybeComplete();
++   }));
++  }catch(error){finish(error);}
+  });
+ }
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/fixture-plan.json
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/fixture-plan.json
+@@ -1,16 +1,16 @@
+ {
+-  "schema": "e02-transport-query-diagnostic-fixture-v1",
++  "schema": "e02-transport-query-diagnostic-fixture-v2",
+   "scenario": "BASELINE_ONE_PUB_THEN_EXACT_QUERY",
+   "backendUrl": "ws://127.0.0.1:8080",
+   "output": "/session/fixtures",
+   "eventId": "1203eaed1d1c6fd2d3fe9600209c3bc2036e68e9a7b79bb8b720989d06b844da",
+   "publish": {
+-    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/publish-frame.json",
++    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/publish-frame.json",
+     "bytes": 2907,
+     "sha256": "844e64e2790a9833880aedc3016e9da82130a29d9e415858d0d46fdcb8946494"
+   },
+   "query": {
+-    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/query-frame.json",
++    "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/query-frame.json",
+     "bytes": 112,
+     "sha256": "ae042185e892c9a385b7add6442e478834817d8ed310f8967e7dc3d4bd689389"
+   },
+@@ -4923,5 +4923,6 @@
+   "nodeVersion": "v22.18.0",
+   "wsVersion": "8.18.3",
+   "modeledBackgroundBurst": "DEFERRED_NOT_IMPLEMENTED_OR_GRANTED",
+-  "scope": "DIAGNOSTIC_ONLY_NO_ANDROID_APP_OR_E02_COMPLETION"
++  "scope": "DIAGNOSTIC_ONLY_NO_ANDROID_APP_OR_E02_COMPLETION",
++  "dependencyClosure": "EXACT_REGULAR_DIRECTORY_SYMLINK_SOURCE_RUNTIME_MAPPING_V2"
+ }
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/fixture.mjs
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/fixture.mjs
+@@ -5,6 +5,8 @@
+ import {spawnSync} from 'node:child_process';
+ import {pathToFileURL} from 'node:url';
+ import {exchange} from './exchange.mjs';
++import {createPhaseWriter} from './phase-writer.mjs';
++import {verifyDependencyTree} from './dependency-tree.mjs';
+ import {strictJSON,same} from './strict-json.mjs';
+ const DIR='/session/fixtures',PLAN='/input/fixture-plan.json',SOCKET=DIR+'/control.sock';
+ const sha=b=>createHash('sha256').update(b).digest('hex');
+@@ -24,36 +26,41 @@
+  guardCheck();
+  const pb=read(PLAN);need(sha(pb)===process.env.NBDP_FIXTURE_PLAN_SHA256,'EXACT_PLAN');const p=strictJSON(pb.toString());
+  need(process.version==='v22.18.0','PINNED_NODE_VERSION');
+- need(p.schema==='e02-transport-query-diagnostic-fixture-v1'&&p.scenario==='BASELINE_ONE_PUB_THEN_EXACT_QUERY'&&p.backendUrl==='ws://127.0.0.1:8080','CLOSED_BASELINE');
++ need(p.schema==='e02-transport-query-diagnostic-fixture-v2'&&p.scenario==='BASELINE_ONE_PUB_THEN_EXACT_QUERY'&&p.backendUrl==='ws://127.0.0.1:8080','CLOSED_BASELINE');
+  need(JSON.stringify(p.limits)===JSON.stringify({messageBytes:262144,captureBytes:16777216,networkTimeoutMilliseconds:10000,handshakeTimeoutMilliseconds:3000,controlTimeoutMilliseconds:45000}),'UNCHANGED_LIMITS');
++ const tree=strictJSON(read('/input/dependency-tree.json').toString());
++ verifyDependencyTree('/input/node_modules',tree,p.dependencyFiles);
+  const wsPackage=strictJSON(read('/input/node_modules/ws/package.json').toString());need(wsPackage.version==='8.18.3','PINNED_WS_VERSION');
+  const config=read('/input/run-config.json');need(sha(config)===process.env.NBDP_MINIMUM_RUN_CONFIG_SHA256,'EXACT_CONFIG');
+- for(const d of p.dependencyFiles)need(sha(read(d.path))===d.sha256&&read(d.path).length===d.bytes,'INSTALLED_DEPENDENCY_PIN');
+  if(process.argv[2]!=='serve'){
+   const response=await new Promise((resolve,reject)=>{const c=net.connect(SOCKET);let b=Buffer.alloc(0);const timer=setTimeout(()=>{c.destroy();reject(Error('CONTROL_TIMEOUT'));},45000);c.on('connect',()=>{guardCheck();c.end(JSON.stringify({op:process.argv[2]})+'\n');});c.on('data',x=>{b=Buffer.concat([b,x]);if(b.length>1048576){c.destroy();reject(Error('CONTROL_REPLY_BOUND'));}});c.on('end',()=>{clearTimeout(timer);try{resolve(strictJSON(b.toString()));}catch(error){reject(error);}});c.on('error',error=>{clearTimeout(timer);reject(error);});});
+   guardCheck();need(response.ok===true,'DIAGNOSTIC_COMMAND_FAILED:'+response.error);process.stdout.write(JSON.stringify(response)+'\n');return;
+  }
+  const {default:WebSocket}=await import('ws');guardCheck();
+- let sequence=0,total=0,closed=false,attempted=false,prepared=false,busy=false;
++ let closed=false,attempted=false,prepared=false,busy=false;
+  const sockets=new Set();const fd=fs.openSync(DIR+'/phase-trace.jsonl','wx',0o600);
+- function phase(phase,fields={}){
+-  const row={schema:'e02-transport-query-phase-v1',sequence:++sequence,utc:new Date().toISOString(),monotonicNanoseconds:process.hrtime.bigint().toString(),phase,...fields};
+-  const raw=Buffer.from(JSON.stringify(row)+'\n');total+=raw.length;need(total<=16777216,'ORIGINAL_CAPTURE_BOUND');fs.writeSync(fd,raw);
++ const phase=createPhaseWriter({fs,fd,clock:()=>process.hrtime.bigint(),utc:()=>new Date().toISOString()});
++ function check(label){
++  phase('GUARD_ENTRY',{label});
++  try{guardCheck();}
++  catch(error){try{phase('GUARD_EXIT_REFUSED',{label,error:String(error)});}catch(retentionError){try{Object.defineProperty(error,'guardRetentionError',{value:String(retentionError)});}catch{}}throw error;}
++  phase('GUARD_EXIT_OK',{label});
+  }
+- function check(label){phase('GUARD_ENTRY',{label});try{guardCheck();phase('GUARD_EXIT_OK',{label});}catch(error){phase('GUARD_EXIT_REFUSED',{label,error:String(error)});throw error;}}
+  const pub=read('/input/publish-frame.json'),query=read('/input/query-frame.json');
+  need(sha(pub)===p.publish.sha256&&pub.length===p.publish.bytes&&sha(query)===p.query.sha256&&query.length===112,'EXACT_FROZEN_PUBLIC_FRAMES');
+  const pf=strictJSON(pub.toString()),qf=strictJSON(query.toString());
+  need(pf[0]==='EVENT'&&pf.length===2&&pf[1].id===p.eventId&&pf[1].kind===1059,'ORIGINAL_SIGNED_OUTER');
+  need(JSON.stringify(qf)===JSON.stringify(['REQ','e02-owned-query',{ids:[p.eventId],limit:1}]),'UNCHANGED_EXACT_QUERY');
+  need(Buffer.from(JSON.stringify(pf)).equals(pub)&&Buffer.from(JSON.stringify(qf)).equals(query),'EXACT_SERIALIZED_BUFFERS');
+- const ctx={WebSocket:class extends WebSocket{constructor(...a){super(...a);sockets.add(this);}},p,check,phase,put,strictJSON,sha,clock:()=>process.hrtime.bigint(),arm:setTimeout,clear:clearTimeout};
++ const terminationAttempts=new WeakSet();
++ const ctx={WebSocket:class extends WebSocket{constructor(...a){super(...a);sockets.add(this);}terminate(){if(terminationAttempts.has(this))return;terminationAttempts.add(this);return super.terminate();}},p,check,phase,put,strictJSON,sha,clock:()=>process.hrtime.bigint(),arm:setTimeout,clear:clearTimeout};
+  async function baseline(){
+   check('baseline-entry');need(prepared&&!attempted,'ONE_PREPARED_BASELINE_ONLY');attempted=true;
+   const publication=await exchange(ctx,[pf[1]],null,'baseline-publish');check('after-publication');
+   const received=await exchange(ctx,null,qf[2],'baseline-query');check('after-query');
+   need(received.received.length===1&&same(received.received[0].frame[2],pf[1])&&received.eose?.frame[1]==='e02-owned-query','EXACT_REAL_QUERY_EVENT_AND_EOSE');
+-  const result=putJSON('baseline-result.json',{schema:'e02-transport-query-baseline-v1',state:'BASELINE_PUB_QUERY_OBSERVED',publication,query:received,diagnosticOnly:true,ordinaryClientObserved:false,signEncryptDecryptExecuted:false,nativeRustExecuted:false});
++  verifyDependencyTree('/input/node_modules',tree,p.dependencyFiles);
++  const result=putJSON('baseline-result.json',{schema:'e02-transport-query-baseline-v2',state:'BASELINE_PUB_QUERY_OBSERVED',publication,query:received,diagnosticOnly:true,ordinaryClientObserved:false,signEncryptDecryptExecuted:false,nativeRustExecuted:false});
+   return {state:'BASELINE_PUB_QUERY_OBSERVED',result};
+  }
+  const server=net.createServer({allowHalfOpen:true},socket=>{let b='';socket.on('data',x=>{b+=x.toString();if(Buffer.byteLength(b)>1024)socket.destroy();});socket.on('end',async()=>{let acquired=false;try{
+@@ -61,12 +68,12 @@
+   if(q.op==='prepare'){need(!prepared&&!attempted,'PREPARE_ONCE');prepared=true;result={ready:true,scenario:p.scenario};}
+   else if(q.op==='status')result={prepared,attempted,diagnosticOnly:true};
+   else result=await baseline();
+-  check('control-success');socket.end(JSON.stringify({schema:'e02-transport-query-control-v1',ok:true,operation:q.op,result})+'\n');
+- }catch(error){phase('CONTROL_REJECTED',{error:String(error)});putJSON('control-error.json',{error:String(error),sequence});socket.end(JSON.stringify({ok:false,error:String(error)})+'\n');closed=true;clearInterval(watchdog);for(const s of sockets)s.terminate();server.close();process.exitCode=2;
++  check('control-success');socket.end(JSON.stringify({schema:'e02-transport-query-control-v2',ok:true,operation:q.op,result})+'\n');
++ }catch(error){try{phase('CONTROL_REJECTED',{error:String(error)});}catch{}try{putJSON('control-error.json',{error:String(error),secondaryRetentionErrors:error?.diagnosticSecondaryErrors??[],guardRetentionError:error?.guardRetentionError??null,observer:phase.state()});}catch{}socket.end(JSON.stringify({ok:false,error:String(error)})+'\n');closed=true;clearInterval(watchdog);for(const s of sockets)s.terminate();server.close();process.exitCode=2;
+  }finally{if(acquired)busy=false;}});});
+- const watchdog=setInterval(()=>{if(closed)return;try{check('original-watchdog');}catch(error){phase('WATCHDOG_REFUSED',{error:String(error)});closed=true;for(const s of sockets)s.terminate();server.close();clearInterval(watchdog);process.exitCode=2;}},1000);
+- server.on('error',error=>{phase('CONTROL_SERVER_ERROR',{error:String(error)});closed=true;clearInterval(watchdog);for(const s of sockets)s.terminate();process.exitCode=2;});
+- check('control-listen-before');server.listen(SOCKET,()=>{fs.chmodSync(SOCKET,0o600);putJSON('serve-ready.json',{schema:'e02-transport-query-ready-v1',scope:'DIAGNOSTIC_ONLY_NO_APP_PROXY_OR_OBSERVATIONS',nodeVersion:process.version,nodeExecutable:process.execPath,wsVersion:wsPackage.version});});
++ const watchdog=setInterval(()=>{if(closed)return;try{check('original-watchdog');}catch(error){try{phase('WATCHDOG_REFUSED',{error:String(error)});}catch{}closed=true;for(const s of sockets)s.terminate();server.close();clearInterval(watchdog);process.exitCode=2;}},1000);
++ server.on('error',error=>{try{phase('CONTROL_SERVER_ERROR',{error:String(error)});}catch{}closed=true;clearInterval(watchdog);for(const s of sockets)s.terminate();process.exitCode=2;});
++ check('control-listen-before');server.listen(SOCKET,()=>{fs.chmodSync(SOCKET,0o600);putJSON('serve-ready.json',{schema:'e02-transport-query-ready-v2',scope:'DIAGNOSTIC_ONLY_NO_APP_PROXY_OR_OBSERVATIONS',nodeVersion:process.version,nodeExecutable:process.execPath,wsVersion:wsPackage.version});});
+  process.once('exit',()=>{try{fs.fsyncSync(fd);fs.closeSync(fd);}catch{}});
+  for(const signal of ['SIGTERM','SIGINT'])process.on(signal,()=>{if(closed)return;closed=true;clearInterval(watchdog);for(const s of sockets)s.terminate();server.close();fs.fsyncSync(fd);});
+ }
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/phase-writer.mjs
+@@ -0,0 +1,28 @@
++// Bounded observation writer; runtime supplies only the real fixed fs/fd/clocks.
++// Model tests supply fake fs. No socket, guard, module loader or service here.
++export function createPhaseWriter({fs,fd,clock,utc,limit=16777216}){
++ let sequence=0,intendedTotalBytes=0,acknowledgedTotalBytes=0,poisoned=false,firstError=null,lastAttempt=null;
++ function fail(error){poisoned=true;if(firstError===null)firstError=error;throw firstError;}
++ function write(phase,fields={}){
++  if(poisoned)throw firstError; // Never rewrite/retry a partial or unknown write.
++  lastAttempt={sequence:++sequence,phase,intendedBytes:null,writeInvoked:false,reportedCount:null,
++   acknowledgedBytes:0,acknowledgedPrefixBase64:'',physicalBytes:null,error:null};
++  try{
++   const row={schema:'e02-transport-query-phase-v2',sequence,utc:utc(),monotonicNanoseconds:clock().toString(),phase,...fields};
++   const raw=Buffer.from(JSON.stringify(row)+'\n');lastAttempt.intendedBytes=raw.length;intendedTotalBytes+=raw.length;
++   if(intendedTotalBytes>limit)throw Error('ORIGINAL_CAPTURE_BOUND');
++   lastAttempt.writeInvoked=true;lastAttempt.acknowledgedBytes=null;lastAttempt.acknowledgedPrefixBase64=null;
++   const count=fs.writeSync(fd,raw); // Exactly ONE call; no repairing write loop.
++   lastAttempt.reportedCount=typeof count==='number'&&Number.isFinite(count)?count:String(count).slice(0,80);
++   if(!Number.isInteger(count)||count<0||count>raw.length)throw Error('INVALID_PHASE_WRITE_COUNT');
++   lastAttempt.acknowledgedBytes=count;lastAttempt.acknowledgedPrefixBase64=raw.subarray(0,count).toString('base64');
++   acknowledgedTotalBytes+=count;
++   if(count!==raw.length)throw Error('SHORT_PHASE_WRITE');
++   return row;
++  }catch(error){lastAttempt.error=String(error);return fail(error);}
++ }
++ write.state=()=>({sequence,intendedTotalBytes,acknowledgedTotalBytes,physicalBytes:null,
++  physicalMeaning:'NOT_INDEPENDENTLY_MEASURED_ACKNOWLEDGED_PREFIX_IS_NOT_PHYSICAL_ATTESTATION',
++  poisoned,firstError:firstError===null?null:String(firstError),lastAttempt:lastAttempt===null?null:{...lastAttempt}});
++ return write;
++}
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/supervisor.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/supervisor.py
+@@ -13,14 +13,14 @@
+ import uuid
+ HERE=Path(__file__).resolve().parent
+ REPO=Path('/home/peterhorvath/apps/bitcoin/NBDP')
+-LAB=Path('/tmp/nbdp-e02-transport-query-diagnostic-v1')
++LAB=Path('/tmp/nbdp-e02-transport-query-diagnostic-v2')
+ ROLES=('anchor','rs-relay','fixture')
+ RUNTIME='sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f'
+ RELAY='sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82'
+ LIMITS={'anchor':(128,64,1),'rs-relay':(512,128,1),'fixture':(1024,128,1)}
+ PY=['/guard-python/lib/ld-linux-x86-64.so.2','--inhibit-cache','--library-path','/guard-python/lib','/guard-python/bin/python3.11','-B','-P','-S','-s']
+ LOG_OPTIONS=['--log-driver','local','--log-opt','max-size=16m','--log-opt','max-file=1','--log-opt','compress=false']
+-SCOPE='E02_TRANSPORT_QUERY_DIAGNOSTIC_ONLY_NO_ANDROID_NO_E02_COMPLETION'
++SCOPE='E02_TRANSPORT_QUERY_DIAGNOSTIC_V2_ONLY_NO_ANDROID_NO_E02_COMPLETION'
+ 
+ 
+ def need(value, message):
+@@ -404,15 +404,62 @@
+             evidence = None
+         return dict(summary, evidence=evidence)
+ 
++def dependency_relative(value):
++    need(type(value) is str and value and not value.startswith('/')
++         and all(part not in ('','.','..') for part in value.split('/')), 'Canonical dependency relative path')
++    return value
++
++
++def dependency_snapshot(root):
++    root=Path(root)
++    need(root.is_absolute() and root.resolve(strict=True)==root and not root.is_symlink(),'Canonical dependency root')
++    actual={'directories':[],'files':[],'symlinks':[]}
++    def walk(folder):
++        for p in sorted(folder.iterdir()):
++            rel=dependency_relative(p.relative_to(root).as_posix())
++            if p.is_symlink():
++                target=p.resolve(strict=True)
++                need(target.is_relative_to(root) and target!=root,'Dependency symlink escape')
++                actual['symlinks'].append({'path':rel,'link':str(p.readlink()),'target':dependency_relative(target.relative_to(root).as_posix())})
++            elif p.is_dir():actual['directories'].append(rel);walk(p)
++            elif p.is_file():actual['files'].append(rel)
++            else:raise RuntimeError('Dependency special file')
++    walk(root)
++    for name in ('directories','files'):actual[name].sort()
++    actual['symlinks'].sort(key=lambda v:v['path'])
++    return actual
++
++
++def verify_dependency_inventory(fixture,tree,root):
++    need(type(tree) is dict and set(tree)=={'schema','sourceRoot','runtimeRoot','directories','files','symlinks'},'Closed dependency tree keys')
++    need(tree['schema']=='e02-transport-dependency-tree-v2' and tree['runtimeRoot']=='/input/node_modules','Closed dependency tree')
++    actual=dependency_snapshot(root)
++    need(actual=={k:tree[k] for k in ('directories','files','symlinks')},'Dependency exact membership')
++    descriptors=fixture['dependencyFiles']
++    need(type(descriptors) is list and len(descriptors)==len(actual['files'])
++         and len({d['path'] for d in descriptors})==len(descriptors),'Dependency descriptor membership')
++    expected=[]
++    for d in descriptors:
++        need(set(d)=={'source','path','bytes','sha256'} and d['path'].startswith(tree['runtimeRoot']+'/'),'Closed runtime dependency descriptor')
++        rel=dependency_relative(d['path'][len(tree['runtimeRoot'])+1:]);expected.append(rel)
++        need(d['source']==tree['sourceRoot']+'/'+rel,'Dependency source/runtime mapping')
++        p=Path(root)/rel
++        checked({'path':str(p),'bytes':d['bytes'],'sha256':d['sha256']})
++    need(sorted(expected)==actual['files'],'All regular dependency members')
++    return {'schema':'e02-transport-dependency-check-v2','files':len(actual['files']),
++            'directories':len(actual['directories']),'symlinks':len(actual['symlinks']),'exact':True}
++
++
+ def source_pins():
+     return [pin(HERE/name) for name in ('supervisor.py','lease_guard.py','fixture.mjs',
+-        'exchange.mjs','strict-json.mjs','fixture-plan.json','publish-frame.json','query-frame.json')]
++        'exchange.mjs','strict-json.mjs','phase-writer.mjs','dependency-tree.mjs','dependency-tree.json',
++        'fixture-plan.json','publish-frame.json','query-frame.json')]
+ 
+ 
+ def verify_config(config):
+     need(set(config)=={'schema','scope','runId','originalLeaseSeconds','runtimeImage','relayImage',
+         'sourceAndDependencyPins','guardBundleRoot','guardBundleInventory','relayConfig'},'Closed diagnostic config')
+-    need(config['schema']=='e02-transport-query-diagnostic-config-v1' and config['scope']==SCOPE,'Diagnostic scope only')
++    need(config['schema']=='e02-transport-query-diagnostic-config-v2' and config['scope']==SCOPE,'Diagnostic scope only')
+     need(config['runtimeImage']==RUNTIME and config['relayImage']==RELAY,'Original exact images')
+     need(re.fullmatch('[0-9a-f]{32}',config['runId']) and type(config['originalLeaseSeconds']) is int
+         and 60<=config['originalLeaseSeconds']<=1800,'Original finite lease without renewal')
+@@ -425,11 +472,12 @@
+             and not p.is_symlink() and p.stat().st_size==d['bytes'] and digest(p)==d['sha256'],'Guard bundle drift')
+     checked(config['relayConfig'])
+     fixture=strict((HERE/'fixture-plan.json').read_bytes())
+-    need(fixture['schema']=='e02-transport-query-diagnostic-fixture-v1' and fixture['scenario']=='BASELINE_ONE_PUB_THEN_EXACT_QUERY'
++    need(fixture['schema']=='e02-transport-query-diagnostic-fixture-v2' and fixture['scenario']=='BASELINE_ONE_PUB_THEN_EXACT_QUERY'
+         and fixture['limits']=={'messageBytes':262144,'captureBytes':16777216,'networkTimeoutMilliseconds':10000,
+                               'handshakeTimeoutMilliseconds':3000,'controlTimeoutMilliseconds':45000},'Original fixed diagnostic limits')
+-    for d in fixture['dependencyFiles']:
+-        checked({'path':d['source'],'bytes':d['bytes'],'sha256':d['sha256']})
++    tree=strict((HERE/'dependency-tree.json').read_bytes())
++    need(tree['sourceRoot']==str(REPO/'experiments/node_modules'),'Fixed canonical installed dependency root')
++    verify_dependency_inventory(fixture,tree,REPO/'experiments/node_modules')
+     need(fixture['pins']=={},'No crypto/native/SDK mounts')
+     return fixture
+ 
+@@ -459,7 +507,7 @@
+     fixture=verify_config(config)
+     need(set(release)=={'schema','runId','scope','config','sourceSubject','sourceQaReview','sourceSecurityReview',
+         'controlAcceptance','freshAdmission','operator','issuedAtUtcNs','notAfterUtcNs'},'Closed root diagnostic release')
+-    need(release['schema']=='e02-transport-query-diagnostic-release-v1' and release['scope']==SCOPE
++    need(release['schema']=='e02-transport-query-diagnostic-release-v2' and release['scope']==SCOPE
+         and release['runId']==config['runId'] and release['config']==cp and release['operator']=='/root','Exact separately authorized root role')
+     for key in ('sourceSubject','sourceQaReview','sourceSecurityReview','controlAcceptance','freshAdmission'):checked(release[key])
+     need(type(release['issuedAtUtcNs']) is int and type(release['notAfterUtcNs']) is int
+@@ -502,11 +550,22 @@
+         try:lease.revoke('Diagnostic stopped: '+error)
+         except BaseException:pass
+     finally:
++        dependency_end=None;dependency_end_error=None
+         try:cleanup=runtime.cleanup()
+         except BaseException as exc:cleanup={'ok':False,'rows':[],'evidence':None,'errors':[repr(exc)]}
+-        return finalize(out,{'schema':'e02-transport-query-diagnostic-result-v1','runId':config['runId'],
++        try:
++            boundary=verify_dependency_inventory(fixture,strict((HERE/'dependency-tree.json').read_bytes()),REPO/'experiments/node_modules')
++            dependency_end=put(out/'dependency-end-boundary.json',jsonbytes({'ok':True,'result':boundary}))
++        except BaseException as boundary_error:
++            dependency_end_error=repr(boundary_error)
++            if error is None:error='Dependency end boundary: '+repr(boundary_error)
++            else:
++                try:put(out/'dependency-end-boundary-error.json',jsonbytes({'error':repr(boundary_error),'primaryErrorPreserved':error}))
++                except BaseException:pass
++        return finalize(out,{'schema':'e02-transport-query-diagnostic-result-v2','runId':config['runId'],
+             'config':cp,'release':rp,'lease':lp,'scope':SCOPE,'canonicalE02Changed':False,
+-            'ordinaryClientQualified':False},error,cleanup)
++            'ordinaryClientQualified':False,'dependencyEndBoundary':dependency_end,
++            'dependencyEndBoundaryError':dependency_end_error},error,cleanup)
+ 
+ 
+ def main():
+--- /dev/null
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/test_dependency_tree.mjs
+@@ -0,0 +1,26 @@
++// Prepared guest-inventory DATA controls. Standard fs only; generated optional
++// module names are inert text and are never imported/evaluated.
++import fs from 'node:fs';
++import path from 'node:path';
++import os from 'node:os';
++import assert from 'node:assert/strict';
++import {createHash} from 'node:crypto';
++import {verifyDependencyTree} from './dependency-tree.mjs';
++const cases=[];const test=(name,fn)=>{fn();cases.push(name);};
++function fixture(fn){const temp=fs.mkdtempSync(path.join(os.tmpdir(),'nbdp-dependency-data-')),root=path.join(temp,'node_modules');fs.mkdirSync(root);fs.mkdirSync(path.join(root,'ws'));const file=path.join(root,'ws/index.js');fs.writeFileSync(file,'INERT_NOT_IMPORTED');const raw=fs.readFileSync(file);const tree={schema:'e02-transport-dependency-tree-v2',sourceRoot:root,runtimeRoot:'/input/node_modules',directories:['ws'],files:['ws/index.js'],symlinks:[]};const files=[{source:file,path:'/input/node_modules/ws/index.js',bytes:raw.length,sha256:createHash('sha256').update(raw).digest('hex')}];try{fn({temp,root,file,tree,files,verify:()=>verifyDependencyTree(root,tree,files)});}finally{fs.rmSync(temp,{recursive:true});}}
++test('complete-unchanged-source-runtime-tree',()=>fixture(f=>assert.equal(f.verify().exact,true)));
++test('extra-member-and-nested-bufferutil-rejected-before-import',()=>{
++ for(const name of ['extra.js','ws/node_modules/bufferutil/index.js'])fixture(f=>{const p=path.join(f.root,name);fs.mkdirSync(path.dirname(p),{recursive:true});fs.writeFileSync(p,'INERT_NOT_IMPORTED');assert.throws(f.verify,/DEPENDENCY_EXACT_MEMBERSHIP/);});
++});
++test('missing-and-changed-file-rejected',()=>{
++ fixture(f=>{fs.unlinkSync(f.file);assert.throws(f.verify,/DEPENDENCY_EXACT_MEMBERSHIP/);});
++ fixture(f=>{fs.appendFileSync(f.file,'CHANGED');assert.throws(f.verify,/DEPENDENCY_BYTES_DRIFT/);});
++});
++test('safe-added-escape-and-dangling-symlink-rejected',()=>{
++ for(const target of ['ws/index.js','../outside','absent'])fixture(f=>{fs.writeFileSync(path.join(f.temp,'outside'),'OUTSIDE_NEVER_READ');fs.symlinkSync(target,path.join(f.root,'link'));assert.throws(f.verify);});
++});
++test('source-and-runtime-path-mapping-cannot-diverge',()=>{
++ for(const patch of [{source:'/wrong'},{path:'/other/index.js'},{path:'/input/node_modules/../ws/index.js'},{extra:true}])fixture(f=>{Object.assign(f.files[0],patch);assert.throws(f.verify);});
++});
++test('end-boundary-rechecks-added-directory',()=>fixture(f=>{assert.equal(f.verify().exact,true);fs.mkdirSync(path.join(f.root,'late'));assert.throws(f.verify,/DEPENDENCY_EXACT_MEMBERSHIP/);}));
++console.log(JSON.stringify({scope:'GUEST_DEPENDENCY_INVENTORY_DATA_ONLY',checks:cases.length,cases,optionalModuleImported:false,networkExecuted:false,containerExecuted:false}));
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/test_exchange_model.mjs
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/test_exchange_model.mjs
+@@ -4,28 +4,29 @@
+ import {createHash} from 'node:crypto';
+ import {exchange} from './exchange.mjs';
+ import {strictJSON,same} from './strict-json.mjs';
++import {createPhaseWriter} from './phase-writer.mjs';
+ const EVENT={id:'a'.repeat(64),kind:1059,tags:[['p','b'.repeat(64)]],content:'MODEL_NOT_CIPHERTEXT'};
+ const cases=[];const test=async(name,fn)=>{await fn();cases.push(name);};
+ function model(options={}){
+  const phases=[],files=new Map(),sockets=[],timers=[];let tick=0n,held=null;
+  const sha=b=>createHash('sha256').update(b).digest('hex');
+- const phase=(name,v={})=>phases.push({phase:name,...v});
++ const phase=(name,v={})=>{phases.push({phase:name,...v});if(options.failPhase===name)throw Error('MODEL_PHASE_WRITE_FAILURE:'+name);};
+  function responses(socket,frame){if(options.silent)return;
+   const values=frame[0]==='EVENT'?[['OK',EVENT.id,options.refusal!==true,'']]:[['EVENT','e02-owned-query',options.wrongEvent?{...EVENT,id:'c'.repeat(64)}:EVENT],['EOSE',options.wrongEose?'wrong-subscription':'e02-owned-query']];
+   for(const value of values)socket.emit('message',Buffer.from(JSON.stringify(value)));
+  }
+  class FakeSocket{
+-  constructor(url,settings){this.url=url;this.settings=settings;this.handlers={};this.sent=[];this.terminated=false;sockets.push(this);queueMicrotask(()=>this.emit('open'));}
++  constructor(url,settings){this.url=url;this.settings=settings;this.handlers={};this.sent=[];this.terminated=false;this.terminationCount=0;sockets.push(this);queueMicrotask(()=>{if(options.socketError)this.emit('error',Error('MODEL_SOCKET_ERROR'));else if(options.earlyClose)this.emit('close');else this.emit('open');});}
+   on(name,fn){(this.handlers[name]??=[]).push(fn);}
+   emit(name,...args){for(const f of this.handlers[name]??[])f(...args);}
+   send(bytes,settings,callback){this.sent.push(Buffer.from(bytes));const f=JSON.parse(bytes);if(options.mutate)bytes[0]=32;
+    queueMicrotask(()=>{if(options.holdCallback){held=()=>callback(null);responses(this,f);}else if(options.replyBeforeCallback){responses(this,f);callback(null);}else{callback(options.sendError?Error('MODEL_SEND_ERROR'):null);if(!this.terminated)responses(this,f);}});
+   }
+-  terminate(){this.terminated=true;queueMicrotask(()=>this.emit('close'));}
++  terminate(){this.terminationCount++;this.terminated=true;queueMicrotask(()=>this.emit('close'));}
+  }
+  const ctx={WebSocket:FakeSocket,p:{backendUrl:'ws://127.0.0.1:8080',limits:{messageBytes:262144,networkTimeoutMilliseconds:10000}},
+   check:label=>{phase('MODEL_GUARD_ENTRY',{label});if(options.deny===label){phase('MODEL_GUARD_REFUSED',{label});throw Error('MODEL_GUARD_DENIED');}phase('MODEL_GUARD_OK',{label});},phase,
+-  put:(name,raw)=>{assert.equal(files.has(name),false);files.set(name,Buffer.from(raw));return {path:'/MODEL_ONLY/'+name,bytes:raw.length,sha256:sha(raw)};},strictJSON,sha,clock:()=>{tick+=1000n;return tick;},
++  put:(name,raw)=>{if(options.failOutcome&&name.endsWith('-outcome.json'))throw Error('MODEL_OUTCOME_WRITE_FAILURE');assert.equal(files.has(name),false);files.set(name,Buffer.from(raw));return {path:'/MODEL_ONLY/'+name,bytes:raw.length,sha256:sha(raw)};},strictJSON,sha,clock:()=>{tick+=1000n;return tick;},
+   arm:(fn,ms)=>{const t={fn,ms,cleared:false};timers.push(t);return t;},clear:t=>{t.cleared=true;}};
+  return {ctx,phases,files,sockets,timers,fire:()=>{for(const t of timers)if(!t.cleared)t.fn();},release:()=>held(),drain:async()=>{await Promise.resolve();await Promise.resolve();await Promise.resolve();}};
+ }
+@@ -44,9 +45,63 @@
+ await test('same-buffer-mutation-refuses',async()=>{const m=model({mutate:true});await assert.rejects(exchange(m.ctx,[EVENT],null,'model-publish'),/ACTUAL_SENT_BUFFER_MUTATION/);});
+ await test('relay-negative-ack-refuses',async()=>{const m=model({refusal:true});await assert.rejects(exchange(m.ctx,[EVENT],null,'model-publish'),/RELAY_REFUSAL/);});
+ await test('wrong-eose-subscription-never-completes',async()=>{const m=model({wrongEose:true});const p=exchange(m.ctx,null,{ids:[EVENT.id],limit:1},'model-query');await m.drain();m.fire();await assert.rejects(p,/RELAY_TIMEOUT/);});
+-await test('late-message-after-terminal-is-context-only',async()=>{const m=model();await exchange(m.ctx,[EVENT],null,'model-publish');const before=m.phases.filter(x=>x.phase==='MODEL_GUARD_ENTRY').length;m.sockets[0].emit('message',Buffer.from('["EOSE","e02-owned-query"]'));assert.equal(m.phases.at(-1).phase,'TERMINAL_CALLBACK_CONTEXT_ONLY');assert.equal(m.phases.filter(x=>x.phase==='MODEL_GUARD_ENTRY').length,before);});
++await test('late-message-after-terminal-has-no-writes-actions',async()=>{const m=model();await exchange(m.ctx,[EVENT],null,'model-publish');const before=m.phases.length;m.sockets[0].emit('message',Buffer.from('["EOSE","e02-owned-query"]'));assert.equal(m.phases.length,before);assert.equal(m.sockets[0].terminationCount,1);});
+ await test('same-original-query-result-object-key-order-independent',()=>assert.equal(same({id:'x',kind:1059},{kind:1059,id:'x'}),true));
+ await test('same-query-result-content-change-refuses',()=>assert.equal(same(EVENT,{...EVENT,content:'changed'}),false));
+ await test('original-strict-json-duplicate-key-refuses',()=>assert.throws(()=>strictJSON('{"id":"x","id":"y"}')));
+ await test('unknown-exchange-label-refuses-before-socket',async()=>{const m=model();await assert.rejects(exchange(m.ctx,[EVENT],null,'../outside'),/FIXED_EXCHANGE_LABEL/);assert.equal(m.sockets.length,0);});
++// Focused new fault families exercise the real exchange with synthetic sinks;
++// microtask settlement checks deliberately do NOT fire an outer timeout.
++async function terminalFault(options,expected,{fire=false,query=false}={}){
++ const m=model(options);let settled=0,result=null,error=null;
++ const promise=exchange(m.ctx,query?null:[EVENT],query?{ids:[EVENT.id],limit:1}:null,query?'model-query':'model-publish');
++ promise.then(r=>{settled++;result=r;},e=>{settled++;error=e;});
++ await m.drain();await m.drain();if(fire){m.fire();await m.drain();}
++ assert.equal(settled,1,'must settle without an outer watchdog');assert.equal(result,null);assert.match(String(error),expected);
++ assert.equal(m.sockets[0].terminationCount,1);const n=m.phases.length;
++ m.sockets[0].emit('error',Error('LATE'));m.sockets[0].emit('close');m.sockets[0].emit('message',Buffer.from('[]'));m.timers[0]?.fn();await m.drain();
++ assert.equal(settled,1);assert.equal(m.sockets[0].terminationCount,1);assert.equal(m.phases.length,n);
++ return {m,error};
++}
++await test('terminal-phase-and-outcome-failure-success-path-rejects-once',async()=>{
++ await terminalFault({failPhase:'EXCHANGE_RESOLVED'},/MODEL_PHASE_WRITE_FAILURE/);
++ await terminalFault({failOutcome:true},/MODEL_OUTCOME_WRITE_FAILURE/);
++});
++await test('terminal-retention-failure-preserves-original-protocol-fault',async()=>{
++ for(const extra of [{failPhase:'EXCHANGE_REJECTED'},{failOutcome:true}]){
++  const {error}=await terminalFault({refusal:true,...extra},/RELAY_REFUSAL/);
++  assert.ok(error.diagnosticSecondaryErrors.length>0);
++ }
++});
++await test('raw-timer-error-close-callback-write-fault-boundaries',async()=>{
++ await terminalFault({failPhase:'RAW_BACKEND_CALLBACK_ENTRY'},/MODEL_PHASE_WRITE_FAILURE/);
++ await terminalFault({silent:true,failPhase:'TIMER_FIRED'},/RELAY_TIMEOUT/,{fire:true});
++ await terminalFault({socketError:true,failPhase:'SOCKET_ERROR_CALLBACK_ENTRY'},/MODEL_SOCKET_ERROR/);
++ await terminalFault({earlyClose:true,failPhase:'SOCKET_CLOSE_CALLBACK_ENTRY'},/EARLY_RELAY_CLOSE/);
++ await terminalFault({sendError:true,failPhase:'SEND_CALLBACK_ENTRY'},/MODEL_SEND_ERROR/);
++ await terminalFault({failPhase:'TIMER_ARMED'},/MODEL_PHASE_WRITE_FAILURE/);
++});
++await test('required-publication-write-failure-prevents-followup-query',async()=>{
++ const m=model({failOutcome:true});let queryStarted=false;
++ await assert.rejects((async()=>{await exchange(m.ctx,[EVENT],null,'model-publish');queryStarted=true;await exchange(m.ctx,null,{ids:[EVENT.id],limit:1},'model-query');})(),/MODEL_OUTCOME_WRITE_FAILURE/);
++ assert.equal(queryStarted,false);assert.equal(m.sockets.length,1);
++});
++function writerModel(write,limit=16777216){let calls=0,physical=Buffer.alloc(0);const fs={writeSync:(_fd,raw)=>{calls++;return write(raw,b=>{physical=Buffer.concat([physical,b]);});}};const writer=createPhaseWriter({fs,fd:123,clock:()=>1n,utc:()=> 'MODEL',limit});return {writer,calls:()=>calls,physical:()=>physical};}
++await test('writer-full-write-and-acknowledged-short-prefix-are-distinct',()=>{
++ const full=writerModel((raw,persist)=>{persist(raw);return raw.length;});full.writer('FULL');assert.equal(full.calls(),1);assert.equal(full.writer.state().poisoned,false);assert.equal(full.writer.state().physicalBytes,null);
++ for(const count of [0,3]){
++  const m=writerModel((raw,persist)=>{persist(raw.subarray(0,count));return count;});assert.throws(()=>m.writer('SHORT'),/SHORT_PHASE_WRITE/);
++  const state=m.writer.state();assert.equal(state.lastAttempt.acknowledgedBytes,count);assert.equal(m.physical().length,count);assert.equal(Buffer.from(state.lastAttempt.acknowledgedPrefixBase64,'base64').length,count);assert.equal(state.physicalBytes,null);
++  assert.throws(()=>m.writer('NO_RETRY'));assert.equal(m.calls(),1);
++ }
++});
++await test('writer-throw-invalid-count-overflow-poisons-with-no-retry',()=>{
++ const thrown=writerModel((raw,persist)=>{persist(raw.subarray(0,2));throw Error('MODEL_SINK_THROW');});assert.throws(()=>thrown.writer('THROW'),/MODEL_SINK_THROW/);assert.equal(thrown.writer.state().lastAttempt.acknowledgedBytes,null);assert.equal(thrown.writer.state().physicalBytes,null);assert.equal(thrown.physical().length,2);assert.throws(()=>thrown.writer('NO_RETRY'));assert.equal(thrown.calls(),1);
++ for(const count of [-1,1.5,'bad',999999,NaN]){const m=writerModel(()=>count);assert.throws(()=>m.writer('INVALID'),/INVALID_PHASE_WRITE_COUNT/);assert.equal(m.writer.state().lastAttempt.acknowledgedBytes,null);assert.throws(()=>m.writer('NO_RETRY'));assert.equal(m.calls(),1);}
++ const overflow=writerModel(()=>{throw Error('MUST_NOT_WRITE');},1);assert.throws(()=>overflow.writer('OVERFLOW'),/ORIGINAL_CAPTURE_BOUND/);assert.equal(overflow.calls(),0);assert.equal(overflow.writer.state().lastAttempt.acknowledgedBytes,0);assert.throws(()=>overflow.writer('NO_RETRY'));assert.equal(overflow.calls(),0);
++});
++await test('poisoned-real-writer-forces-exchange-reject-no-second-send',async()=>{
++ const m=model();let calls=0;const writer=createPhaseWriter({fs:{writeSync:(_fd,raw)=>{calls++;return calls===4?0:raw.length;}},fd:123,clock:()=>1n,utc:()=> 'MODEL'});
++ m.ctx.phase=writer;let settled=0,error=null;exchange(m.ctx,[EVENT],null,'model-publish').then(()=>settled++,e=>{settled++;error=e;});await m.drain();await m.drain();assert.equal(settled,1);assert.match(String(error),/SHORT_PHASE_WRITE/);assert.equal(m.sockets[0].terminationCount,1);assert.equal(m.sockets[0].sent.length,0);const n=calls;assert.throws(()=>writer('AFTER_POISON'));assert.equal(calls,n);
++});
+ console.log(JSON.stringify({scope:'TRANSPORT_QUERY_FAKE_SOCKET_PHASE_MODEL_ONLY',checks:cases.length,cases,realGuardExecuted:false,networkExecuted:false,cryptoExecuted:false,ordinaryClientQualified:false}));
+--- /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/test_source_controls.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/test_source_controls.py
+@@ -90,5 +90,63 @@
+   with tempfile.TemporaryDirectory() as tmp:
+    result,calls=self.cleanup_model(Path(tmp),absence=True);self.assertFalse(result['ok']);self.assertIn(['rm','-f',CID],calls);self.assertFalse(result['rows'][0]['absenceConfirmed'])
+ 
++class ClosedDependencyControls(unittest.TestCase):
++ def setUp(self):
++  self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
++  self.base=Path(self.temp.name);self.root=self.base/'node_modules';(self.root/'ws').mkdir(parents=True)
++  (self.root/'ws/index.js').write_text('SYNTHETIC_DATA_NEVER_IMPORTED')
++  self.tree={'schema':'e02-transport-dependency-tree-v2','sourceRoot':str(self.root),'runtimeRoot':'/input/node_modules',**subject.dependency_snapshot(self.root)}
++  p=self.root/'ws/index.js';self.fixture={'dependencyFiles':[{'source':str(p),'path':'/input/node_modules/ws/index.js','bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}]}
++
++ def verify(self):return subject.verify_dependency_inventory(self.fixture,self.tree,self.root)
++
++ def test_unchanged_complete_tree_accepted(self):
++  self.assertTrue(self.verify()['exact'])
++
++ def test_extra_regular_and_nested_optional_bufferutil_refused(self):
++  for name in ('extra.js','ws/node_modules/bufferutil/index.js'):
++   with self.subTest(name=name):
++    p=self.root/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text('DO_NOT_IMPORT')
++    with self.assertRaisesRegex(RuntimeError,'exact membership'):self.verify()
++    p.unlink()
++    for folder in (self.root/'ws/node_modules/bufferutil',self.root/'ws/node_modules'):
++     if folder.exists():folder.rmdir()
++
++ def test_missing_and_changed_regular_member_refused(self):
++  p=self.root/'ws/index.js';raw=p.read_bytes();p.unlink()
++  with self.assertRaises(RuntimeError):self.verify()
++  p.write_bytes(raw+b'changed')
++  with self.assertRaises(RuntimeError):self.verify()
++
++ def test_new_safe_escape_and_dangling_symlinks_refused(self):
++  for target in ('ws/index.js','../external','missing'):
++   with self.subTest(target=target):
++    (self.base/'external').write_text('OUTSIDE_NEVER_READ');p=self.root/'added-link';p.symlink_to(target)
++    with self.assertRaises((RuntimeError,OSError)):self.verify()
++    p.unlink()
++
++ def test_special_fifo_refused_without_read(self):
++  subject.os.mkfifo(self.root/'special')
++  with self.assertRaisesRegex(RuntimeError,'special file'):self.verify()
++
++ def test_source_runtime_canonical_mapping_and_unknown_fields_refused(self):
++  original=dict(self.fixture['dependencyFiles'][0])
++  for patcher in ({'source':str(self.root/'wrong')},{'path':'/input/node_modules/../ws/index.js'},{'path':'/other/ws/index.js'},{'extra':True}):
++   with self.subTest(patcher=patcher):
++    self.fixture['dependencyFiles'][0]={**original,**patcher}
++    with self.assertRaises(RuntimeError):self.verify()
++  self.fixture['dependencyFiles'][0]=original
++
++ def test_actual_inventory_gate_refuses_before_host_import_or_container(self):
++  p=self.root/'ws/node_modules/bufferutil/index.js';p.parent.mkdir(parents=True);p.write_text('NEVER_IMPORT')
++  config=self.base/'config.json';release=self.base/'release.json';config.write_text('{}');release.write_text('{}')
++  with patch.object(subject,'verify_config',side_effect=lambda _value:self.verify()),patch.object(subject,'load_module') as imports,patch.object(subject.Runtime,'start') as starts:
++   with self.assertRaises(RuntimeError):subject.execute(config,subject.digest(config),release,subject.digest(release),self.base/'out')
++   imports.assert_not_called();starts.assert_not_called()
++
++ def test_end_boundary_rechecks_current_membership_not_cached_success(self):
++  self.assertTrue(self.verify()['exact']);(self.root/'new.js').write_text('LATE_ADDITION')
++  with self.assertRaisesRegex(RuntimeError,'exact membership'):self.verify()
++
+ 
+ if __name__=='__main__':unittest.main(verbosity=2)

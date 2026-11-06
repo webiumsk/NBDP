@@ -1,0 +1,50 @@
+{
+  "schema": "nbdp-query-baseline-scoped-runtime-acceptance-v1",
+  "actor": "/root",
+  "decision": "ACCEPT_SCOPED_TRANSPORT_BASELINE_ONLY",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-baseline-runtime-r1/subject.json",
+    "bytes": 3995,
+    "sha256": "bc930d9edf5787d29cf0d46579be1fd1b0b9667511f0b7df70f553e1accd16a7"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-baseline-runtime-r1/actual-runtime-qa-review.json",
+      "bytes": 367,
+      "sha256": "ce51ac2b4055160b74f89dc1214a062eb960a12c63c2eced1afa263faaf5c1fe"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-baseline-runtime-r1/actual-runtime-security-review.json",
+      "bytes": 374,
+      "sha256": "43630becbe9da823c8808c4ff0bd45238d77594be4b8a8881a726c50d16ddf01"
+    }
+  ],
+  "findings": [],
+  "actualScope": "ONE_SOURCE2_NO_ANDROID_PUBLIC_OPAQUE_PUB_THEN_EXACT_REQ",
+  "originalSupervisorState": "PARTIAL",
+  "publicationElapsedNs": 2205955484,
+  "queryElapsedNs": 2065842584,
+  "observed": {
+    "commandReceipts": 13,
+    "phaseRows": 84,
+    "guardEntryOkPairs": 30,
+    "sendCallbacks": 2,
+    "queryWholeEventMatches": true,
+    "queryEose": true,
+    "ownedContainersRemoved": 3,
+    "mirroredFiles": 213
+  },
+  "ordinaryRowsQualified": 0,
+  "canonicalE02": "PARTIAL22_UNCHANGED",
+  "originalTimeoutCause": "UNKNOWN",
+  "scopeClarification": "SHA hashing, actual Python guard and native rs-relay with ordinary Nostr signature validation executed. No new NBDP sign/encrypt/decrypt, independent NBDP Rust validation, SDK or client observation.",
+  "limits": [
+    "No client/proxy/background traffic/render/export/private-tag/replay-window evidence; no actual five-export/two-role control or currentprimary22 reconciliation.",
+    "Guard wall spans include spawn/wait/instrumentation; notCPU/networkRTT/DB/kernelarrival or originalcausation proof.",
+    "Only exact current noAndroid baseline; no oldfailurefixed claim, Androidretry/archive/newdiagnostic grant or native/stockgate unlock.",
+    "First read-only preparation assertion and subsequent scoped resource correction retained; no actualruntime retry/sourcegatechange.",
+    "Admission/configuredcaps not measuredresourceusage/minima/peaks/OShealth.",
+    "Externaltool/dependency/SQLite/socket bodies excluded;213copies not portableexecutionimage."
+  ],
+  "origin": "Structured coordinator transcription of actual distinct nonauthor/nonoperator reviewer mailbox decisions; not verbatim authenticated provider logs."
+}

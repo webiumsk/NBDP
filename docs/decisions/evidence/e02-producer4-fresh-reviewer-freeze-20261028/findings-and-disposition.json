@@ -1,0 +1,58 @@
+{
+  "schema": "e02-producer4-final-source-review-findings-v1",
+  "transcribedBy": "/root",
+  "sourceSubject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4/subject.json",
+    "bytes": 23889,
+    "sha256": "e1c6148dd733d620decb129a522e52e651449ce32c915a5b25926ca818f20aa9"
+  },
+  "qaDecisionLiteral": "HOLD",
+  "securityDecisionShape": "Actual final decision is an object with status HOLD; detailed content above is a labelled Root transcription, not a normalized positive review envelope.",
+  "findings": [
+    {
+      "role": "qa",
+      "severity": "MEDIUM",
+      "file": "test_capture_parent.py:153",
+      "issue": "assertRaises RuntimeError but android_driver.fixture/read/need raises ValueError Evidence drift.",
+      "required": "Assert exact ValueError and retain no successful calls/no duplicate writes."
+    },
+    {
+      "role": "qa",
+      "severity": "MEDIUM",
+      "file": "test_producer3_bindings.py:136",
+      "issue": "Selected test asserts16 workers while source_pins/config/subject22.",
+      "required": "Exact22 membership/pins and incomplete/substitution rejection."
+    },
+    {
+      "role": "qa",
+      "severity": "MEDIUM",
+      "file": "EXPORT-CONTRACT.md:237,403,405",
+      "issue": "Closed commandv3 omits guardController; stale observerv2/twofields/16MiB differs actualv3/allocationAccount/proof8380416.",
+      "required": "Reconcile exact current schemas and budget split or explicit supersession preserving all unchanged business/UI/export criteria."
+    },
+    {
+      "role": "qa",
+      "severity": "LOW",
+      "file": "SUPERVISOR.md:10,18;guard-dto-contract.json:113",
+      "issue": "Stale16/20 workers and old APK5165/helpera680 versus22/368255/589031.",
+      "required": "Current accurate worker/artifact descriptors."
+    },
+    {
+      "id": "P4-SEC-12",
+      "severity": "MEDIUM",
+      "evidence": "fixture.mjs:234 calls proxyPhase before fatal(originalSocketError); phase165 calls fatal(captureError), fatal170-173 sets closed/firstFailure and the later original fault is ignored.",
+      "scenario": "Socket error plus ENOSPC, short-write or exhausted capture budget.",
+      "impact": "Wrong primary failure attribution; terminal refusal still occurs, no unauthorized protocol success demonstrated.",
+      "required": "Claim and fence original socket fault before fallible retention. Actual APP/RELAY production boundary tests for all three failures, queued/inflight rejection, lateOK no success and continued cleanup."
+    },
+    {
+      "id": "P4-SEC-13",
+      "severity": "LOW",
+      "evidence": "guard-dto-contract.json113 says exact20workers; subject/control-plan/configurations use22.",
+      "required": "Reconcile DTO and actual22-source graph; reject incomplete20 graph."
+    }
+  ],
+  "sourceAccepted": false,
+  "modelsExecuted": 0,
+  "runtimeReleased": false
+}

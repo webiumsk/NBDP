@@ -1,0 +1,29 @@
+--- original/android_driver.py
++++ producer2/android_driver.py
+@@ -66,7 +66,7 @@
+     Assign(
+       targets=[
+         Name(id='PROFILE', ctx=Store())],
+-      value=Constant(value='e02-ordinary-minimum-rs-two-role-v1')),
++      value=Constant(value='e02-ordinary-minimum-rs-two-role-v2')),
+     Assign(
+       targets=[
+         Name(id='NSEC', ctx=Store())],
+@@ -628,7 +628,7 @@
+                     ops=[
+                       Eq()],
+                     comparators=[
+-                      Constant(value='e02-minimum-fixture-command-v1')]),
++                      Constant(value='e02-minimum-fixture-command-v2')]),
+                   Compare(
+                     left=Subscript(
+                       value=Name(id='value', ctx=Load()),
+@@ -9793,7 +9793,7 @@
+               Constant(value='limits'),
+               Constant(value='canonicalE02Changed')],
+             values=[
+-              Constant(value='e02-minimum-role-driver-result-v1'),
++              Constant(value='e02-minimum-role-driver-result-v2'),
+               Name(id='PROFILE', ctx=Load()),
+               Subscript(
+                 value=Name(id='spec', ctx=Load()),

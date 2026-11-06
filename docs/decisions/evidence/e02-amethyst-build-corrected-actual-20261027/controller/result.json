@@ -1,0 +1,32 @@
+{
+  "schema": "nbdp-amethyst-build-supervisor-result-v1",
+  "runId": "ffc756528a71d1cb8c8c78b8aac166ad",
+  "cid": "6120bd05c927ccec8cb28ed61c7ddb4d52f5a2f8b34e55072a5ba96384a0d7dc",
+  "state": "FAILED_OR_UNQUALIFIED_NO_RETRY",
+  "firstFault": "ValueError:ATTACHED_JOB_FAILED_OR_LOG_CEILING:NONZERO_1",
+  "secondaryErrors": [],
+  "cleanup": "EXACT_CID_ABSENCE_KNOWN",
+  "jobState": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 1,
+    "Error": "",
+    "StartedAt": "2026-10-27T12:36:34.517498674Z",
+    "FinishedAt": "2026-10-27T12:43:01.494038647Z"
+  },
+  "jobStateMeaning": "Last successful exact-owned inspect after start attempt, including exit/OOM data when observed; UNKNOWN/null if unavailable.",
+  "networkBindingStage": "ENDPOINT_FULL_NETWORK_ID_OBSERVED",
+  "rebuiltApks": null,
+  "cliReceipts": 11,
+  "attachedCapturePerFileLimitBytes": 67108864,
+  "jobPerFileLimitBytes": 536870912,
+  "limitsMeaning": "Configured per-file/CPU/memory/PID/time limits; no aggregate diskquota or measured peak claim.",
+  "noHostNumericPidSignalsByController": true,
+  "hostileAtomicClosureClaimed": false,
+  "canonicalE02Changed": false
+}

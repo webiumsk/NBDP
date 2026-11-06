@@ -1,0 +1,29 @@
+{
+  "recordedBy": "/root",
+  "recordedUtcNs": 1793134017398561147,
+  "scope": "Actuallivefilesystemobservation, notcompleteafterinventory orclaimedbuildresult",
+  "beforeInventoryRows": 11085,
+  "beforeHasGitHooks": false,
+  "actualNewFiles": [
+    {
+      "path": ".git/hooks/pre-commit",
+      "absentFromBefore": true,
+      "bytes": 786,
+      "sha256": "3293b49e212154a26fe79f033cbbc68692971a37561e2c68c348fa61ae4271cc",
+      "mode": "0o777",
+      "equalsPinnedHookSource": ".git-hooks/pre-commit"
+    },
+    {
+      "path": ".git/hooks/pre-push",
+      "absentFromBefore": true,
+      "bytes": 1967,
+      "sha256": "f7bf3e82af7863d0cd8d06a8631b90ddb7f652cc71e15dd672dc90ab07c3c536",
+      "mode": "0o777",
+      "equalsPinnedHookSource": ".git-hooks/pre-push"
+    }
+  ],
+  "upstreamExplanation": "/tmp/nbdp-amethyst-rebuild-20261026/source/build.gradle.kts169-183 CopyinstallGitHook creates.git/hooks unconditionally forGit-free archive; dependencyamethystpreBuild",
+  "frozenGuard": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/preparation/build_inside.py103-116 onlymodulebuild/.gradle/.kotlin/.cxx outputs allowed; .git/hooks areunplanned andfailbeforeAPKexport",
+  "hooksExecutedByObservation": false,
+  "qualification": "Showsactualunplannedfiles whilejoblive; no source/guardmodification/newAPKacceptance; preserveactualnegativeevidence"
+}

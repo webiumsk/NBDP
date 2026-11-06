@@ -1,0 +1,328 @@
+{
+  "Id": "9b9e49ae279ae59b375106f6631d751e41e227ef805d7fba2cad0d021f508852",
+  "Created": "2026-10-28T05:08:57.575823814Z",
+  "Path": "/guard-python/lib/ld-linux-x86-64.so.2",
+  "Args": [
+    "--inhibit-cache",
+    "--library-path",
+    "/guard-python/lib",
+    "/guard-python/bin/python3.11",
+    "-B",
+    "-P",
+    "-S",
+    "-s",
+    "/input/supervisor.py",
+    "--guest",
+    "rs-relay"
+  ],
+  "State": {
+    "Status": "running",
+    "Running": true,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 261701,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-28T05:08:57.857877374Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "Image": "sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82",
+  "ResolvConfPath": "/var/lib/docker/containers/59a0ee36a50b86c32e23057f163bc945e9814ee1a83eb8026b6d4498541257c1/resolv.conf",
+  "HostnamePath": "/var/lib/docker/containers/59a0ee36a50b86c32e23057f163bc945e9814ee1a83eb8026b6d4498541257c1/hostname",
+  "HostsPath": "/var/lib/docker/containers/59a0ee36a50b86c32e23057f163bc945e9814ee1a83eb8026b6d4498541257c1/hosts",
+  "LogPath": "",
+  "Name": "/nbdp-e02-9d8bad6df86fc113f87e14e2974f9019-rs-relay",
+  "RestartCount": 0,
+  "Driver": "overlay2",
+  "Platform": "linux",
+  "MountLabel": "",
+  "ProcessLabel": "",
+  "AppArmorProfile": "docker-default",
+  "ExecIDs": null,
+  "HostConfig": {
+    "Binds": null,
+    "ContainerIDFile": "",
+    "LogConfig": {
+      "Type": "local",
+      "Config": {
+        "compress": "false",
+        "max-file": "1",
+        "max-size": "16m"
+      }
+    },
+    "NetworkMode": "container:59a0ee36a50b86c32e23057f163bc945e9814ee1a83eb8026b6d4498541257c1",
+    "PortBindings": {},
+    "RestartPolicy": {
+      "Name": "no",
+      "MaximumRetryCount": 0
+    },
+    "AutoRemove": false,
+    "VolumeDriver": "",
+    "VolumesFrom": null,
+    "ConsoleSize": [
+      0,
+      0
+    ],
+    "CapAdd": null,
+    "CapDrop": [
+      "ALL"
+    ],
+    "CgroupnsMode": "private",
+    "Dns": null,
+    "DnsOptions": [],
+    "DnsSearch": [],
+    "ExtraHosts": null,
+    "GroupAdd": null,
+    "IpcMode": "private",
+    "Cgroup": "",
+    "Links": null,
+    "OomScoreAdj": 0,
+    "PidMode": "",
+    "Privileged": false,
+    "PublishAllPorts": false,
+    "ReadonlyRootfs": true,
+    "SecurityOpt": [
+      "no-new-privileges"
+    ],
+    "Tmpfs": {
+      "/tmp": "rw,nosuid,nodev,size=256m"
+    },
+    "UTSMode": "",
+    "UsernsMode": "",
+    "ShmSize": 67108864,
+    "Runtime": "runc",
+    "Isolation": "",
+    "CpuShares": 0,
+    "Memory": 536870912,
+    "NanoCpus": 1000000000,
+    "CgroupParent": "",
+    "BlkioWeight": 0,
+    "BlkioWeightDevice": [],
+    "BlkioDeviceReadBps": [],
+    "BlkioDeviceWriteBps": [],
+    "BlkioDeviceReadIOps": [],
+    "BlkioDeviceWriteIOps": [],
+    "CpuPeriod": 0,
+    "CpuQuota": 0,
+    "CpuRealtimePeriod": 0,
+    "CpuRealtimeRuntime": 0,
+    "CpusetCpus": "",
+    "CpusetMems": "",
+    "Devices": [],
+    "DeviceCgroupRules": null,
+    "DeviceRequests": null,
+    "MemoryReservation": 0,
+    "MemorySwap": 536870912,
+    "MemorySwappiness": null,
+    "OomKillDisable": null,
+    "PidsLimit": 128,
+    "Ulimits": null,
+    "CpuCount": 0,
+    "CpuPercent": 0,
+    "IOMaximumIOps": 0,
+    "IOMaximumBandwidth": 0,
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/input",
+        "Target": "/input",
+        "ReadOnly": true
+      },
+      {
+        "Type": "bind",
+        "Source": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/session/lease.json",
+        "Target": "/session/lease.json",
+        "ReadOnly": true
+      },
+      {
+        "Type": "bind",
+        "Source": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/session/control",
+        "Target": "/session/control"
+      },
+      {
+        "Type": "bind",
+        "Source": "/tmp/nbdp-e02-minimal-rs-v7/guard-python",
+        "Target": "/guard-python",
+        "ReadOnly": true
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/docker/rs-relay.toml",
+        "Target": "/src/config.toml",
+        "ReadOnly": true
+      },
+      {
+        "Type": "bind",
+        "Source": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/relay-data",
+        "Target": "/data"
+      }
+    ],
+    "MaskedPaths": [
+      "/proc/acpi",
+      "/proc/asound",
+      "/proc/interrupts",
+      "/proc/kcore",
+      "/proc/keys",
+      "/proc/latency_stats",
+      "/proc/sched_debug",
+      "/proc/scsi",
+      "/proc/timer_list",
+      "/proc/timer_stats",
+      "/sys/devices/virtual/powercap",
+      "/sys/firmware",
+      "/sys/devices/system/cpu/cpu0/thermal_throttle",
+      "/sys/devices/system/cpu/cpu1/thermal_throttle",
+      "/sys/devices/system/cpu/cpu2/thermal_throttle",
+      "/sys/devices/system/cpu/cpu3/thermal_throttle",
+      "/sys/devices/system/cpu/cpu4/thermal_throttle",
+      "/sys/devices/system/cpu/cpu5/thermal_throttle",
+      "/sys/devices/system/cpu/cpu6/thermal_throttle",
+      "/sys/devices/system/cpu/cpu7/thermal_throttle",
+      "/sys/devices/system/cpu/cpu8/thermal_throttle",
+      "/sys/devices/system/cpu/cpu9/thermal_throttle",
+      "/sys/devices/system/cpu/cpu10/thermal_throttle",
+      "/sys/devices/system/cpu/cpu11/thermal_throttle",
+      "/sys/devices/system/cpu/cpu12/thermal_throttle",
+      "/sys/devices/system/cpu/cpu13/thermal_throttle",
+      "/sys/devices/system/cpu/cpu14/thermal_throttle",
+      "/sys/devices/system/cpu/cpu15/thermal_throttle",
+      "/sys/devices/system/cpu/cpu16/thermal_throttle",
+      "/sys/devices/system/cpu/cpu17/thermal_throttle",
+      "/sys/devices/system/cpu/cpu18/thermal_throttle",
+      "/sys/devices/system/cpu/cpu19/thermal_throttle",
+      "/sys/devices/system/cpu/cpu20/thermal_throttle",
+      "/sys/devices/system/cpu/cpu21/thermal_throttle"
+    ],
+    "ReadonlyPaths": [
+      "/proc/bus",
+      "/proc/fs",
+      "/proc/irq",
+      "/proc/sys",
+      "/proc/sysrq-trigger"
+    ],
+    "Init": true
+  },
+  "GraphDriver": {
+    "Data": {
+      "ID": "9b9e49ae279ae59b375106f6631d751e41e227ef805d7fba2cad0d021f508852",
+      "LowerDir": "/var/lib/docker/overlay2/79641a69f9aac65f04e94bddb7b4b03e0a38293d71df27185a2fb20a9c2d05e9-init/diff:/var/lib/docker/overlay2/sita73bpzwqckgtvqn1e2osho/diff:/var/lib/docker/overlay2/c0aws78tdaa9wilal1tahj889/diff:/var/lib/docker/overlay2/occfcxby5a9xbs6wydx4gi4wi/diff:/var/lib/docker/overlay2/tlyq6doif7z00k7ovbivrc3p9/diff:/var/lib/docker/overlay2/ut2ke3ayepy15cs21461vff9a/diff:/var/lib/docker/overlay2/1goz53pnzt3950pyvyfo93ys4/diff:/var/lib/docker/overlay2/e66ae59e5b66ec670bdaee503a26eebd87e9ed2dc3fe4860acb61502ed33d007/diff:/var/lib/docker/overlay2/c343df66df798ade019f29c2556e197e011564c251b84c925c65af30a6d80b68/diff:/var/lib/docker/overlay2/1aac3283da78f39134a35175f57d2a689ee3591675b7601b29fe0dc5ee1e450c/diff:/var/lib/docker/overlay2/057920cbd83369486d3516898c55994ede82701eeea1ee728062b3f1e8f49bdb/diff:/var/lib/docker/overlay2/8fed895ea662217ddedb009b8d551120f6855067ca7d85dc5477dc8bbfa25c6d/diff",
+      "MergedDir": "/var/lib/docker/overlay2/79641a69f9aac65f04e94bddb7b4b03e0a38293d71df27185a2fb20a9c2d05e9/merged",
+      "UpperDir": "/var/lib/docker/overlay2/79641a69f9aac65f04e94bddb7b4b03e0a38293d71df27185a2fb20a9c2d05e9/diff",
+      "WorkDir": "/var/lib/docker/overlay2/79641a69f9aac65f04e94bddb7b4b03e0a38293d71df27185a2fb20a9c2d05e9/work"
+    },
+    "Name": "overlay2"
+  },
+  "Mounts": [
+    {
+      "Type": "bind",
+      "Source": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/relay-data",
+      "Destination": "/data",
+      "Mode": "",
+      "RW": true,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/tmp/nbdp-e02-minimal-rs-v7/guard-python",
+      "Destination": "/guard-python",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/input",
+      "Destination": "/input",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/session/control",
+      "Destination": "/session/control",
+      "Mode": "",
+      "RW": true,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/session/lease.json",
+      "Destination": "/session/lease.json",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/docker/rs-relay.toml",
+      "Destination": "/src/config.toml",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    }
+  ],
+  "Config": {
+    "Hostname": "59a0ee36a50b",
+    "Domainname": "",
+    "User": "1000:1000",
+    "AttachStdin": false,
+    "AttachStdout": true,
+    "AttachStderr": true,
+    "Tty": false,
+    "OpenStdin": false,
+    "StdinOnce": false,
+    "Env": [
+      "PATH=/sdk/emulator:/sdk/platform-tools:/usr/local/bin:/usr/bin:/bin",
+      "LANG=C.UTF-8",
+      "HOME=/state/home",
+      "ANDROID_HOME=/sdk",
+      "TMPDIR=/tmp",
+      "OPENSSL_MODULES=/guard-python/lib/openssl-modules-disabled",
+      "NBDP_LEASE_SHA256=ce260b13c7de0cbb94e5de0d35e8f9cfa5ab55535e3e2093a0ce9fe860060d54",
+      "ANDROID_SDK_ROOT=/sdk",
+      "ANDROID_USER_HOME=/state/android",
+      "ANDROID_AVD_HOME=/state/avd",
+      "PYTHONHOME=/guard-python",
+      "OPENSSL_CONF=/dev/null",
+      "NBDP_FIXTURE_PLAN_SHA256=71e3716fe6cffa6c02c69149ece20b18816eb49fe51ee380bedfa356103f7917",
+      "NBDP_MINIMUM_RUN_CONFIG_SHA256=cec7ee4aa2701eb8430434345454526bbcdfd35d2fe500e8b766db52939f3023",
+      "RUSTUP_HOME=/usr/local/rustup",
+      "CARGO_HOME=/usr/local/cargo",
+      "RUST_VERSION=1.90.0"
+    ],
+    "Cmd": [
+      "--inhibit-cache",
+      "--library-path",
+      "/guard-python/lib",
+      "/guard-python/bin/python3.11",
+      "-B",
+      "-P",
+      "-S",
+      "-s",
+      "/input/supervisor.py",
+      "--guest",
+      "rs-relay"
+    ],
+    "Image": "sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82",
+    "Volumes": null,
+    "WorkingDir": "/src",
+    "Entrypoint": [
+      "/guard-python/lib/ld-linux-x86-64.so.2"
+    ],
+    "Labels": {
+      "nbdp.creation": "58cbb5ef198848d4b0b213ef23ed3733",
+      "nbdp.role": "rs-relay",
+      "nbdp.run": "9d8bad6df86fc113f87e14e2974f9019",
+      "org.opencontainers.image.source": "https://github.com/rust-lang/docker-rust"
+    }
+  },
+  "NetworkSettings": {
+    "SandboxID": "",
+    "SandboxKey": "",
+    "Ports": {},
+    "Networks": {}
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema": "e02-root-helper-probe-data-shape-contract-v1",
+  "actor": "/root",
+  "subjectClosedKeys": [
+    "schema",
+    "authors",
+    "operators",
+    "producerSource",
+    "producerDataAcceptance",
+    "controllerSource",
+    "controllerSourceAcceptance",
+    "controllerControlDataAcceptance",
+    "collectorSourceAcceptance",
+    "collectorControlDataAcceptance",
+    "rootRelease",
+    "concretePlan",
+    "execution",
+    "originalToolOrigin",
+    "rawArtifactManifest",
+    "qualified",
+    "ordinaryRowsQualified",
+    "backendCause"
+  ],
+  "subjectLiterals": {
+    "schema": "e02-one-cid-helper-probe-data-subject-v1",
+    "qualified": true,
+    "ordinaryRowsQualified": 0,
+    "backendCause": "UNKNOWN"
+  },
+  "subjectPinKeys": [
+    "producerSource",
+    "producerDataAcceptance",
+    "controllerSource",
+    "controllerSourceAcceptance",
+    "controllerControlDataAcceptance",
+    "collectorSourceAcceptance",
+    "collectorControlDataAcceptance",
+    "rootRelease",
+    "concretePlan",
+    "execution",
+    "originalToolOrigin",
+    "rawArtifactManifest"
+  ],
+  "rawManifestClosedKeys": [
+    "schema",
+    "files",
+    "originalToolOrigin",
+    "accounting"
+  ],
+  "rawManifestSchema": "e02-one-cid-helper-probe-raw-manifest-v1",
+  "files": "Unique exact3-key absolute expected pins for explicitly selected actual physical proof. Stream-hash each RAW member <=2GiB; no generic descriptor traversal. Execution and actual API origin are separately named typed operands.",
+  "accountingClosedKeys": [
+    "controllerChargedBytes",
+    "rootExternalReservationBytes"
+  ],
+  "controllerChargedBytesClosedKeys": [
+    "attached",
+    "metadata"
+  ],
+  "accountingBounds": {
+    "attached": 8388608,
+    "metadata": 8388608,
+    "total": 16777216,
+    "rootExternalReservationBytes": 65536
+  },
+  "semantics": "Controller metadata charge already includes65536 externalRoot slot. Exact external collector source/controlDATA/current-account evidence remains a prerequisite to Root actual probeDATA acceptance. Selected-proof manifest has no self-member; closure metadata is bounded and precharged in the same Root slot. No extra budget. Source contract is preparation, not proof of executed probe or permission.",
+  "executionAuthorized": false
+}

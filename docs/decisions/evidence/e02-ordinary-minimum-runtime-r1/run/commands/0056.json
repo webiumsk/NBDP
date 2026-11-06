@@ -1,0 +1,46 @@
+{
+  "argv": [
+    "/usr/bin/docker",
+    "exec",
+    "c1c6c3e0373f46945d0d15b3843f71b7c908253b1bdf796ca11857357fb3c61a",
+    "/guard-python/lib/ld-linux-x86-64.so.2",
+    "--inhibit-cache",
+    "--library-path",
+    "/guard-python/lib",
+    "/guard-python/bin/python3.11",
+    "-B",
+    "-P",
+    "-S",
+    "-s",
+    "/input/lease_guard.py",
+    "exec",
+    "353013682e52a8eaa51400f78c8ed189bd4ed837628549042b2cd7739c431912",
+    "adb",
+    "install",
+    "--no-streaming",
+    "/artifact.apk"
+  ],
+  "launchAttempt": true,
+  "pid": 3816173,
+  "exit": 0,
+  "reaped": true,
+  "forced": false,
+  "timedOut": false,
+  "error": null,
+  "stdout": {
+    "path": "/tmp/nbdp-e02-ordinary-minimum-v1/runs/1c09035e6a7e469a9449cdfa9764725a/commands/0056.stdout",
+    "bytes": 32,
+    "sha256": "8cfe21ca9831863004ad6eb25b313f8944786f7a01b291da8fbbe61cc0c847e5"
+  },
+  "stderr": {
+    "path": "/tmp/nbdp-e02-ordinary-minimum-v1/runs/1c09035e6a7e469a9449cdfa9764725a/commands/0056.stderr",
+    "bytes": 79,
+    "sha256": "c9c92fb92a30353b1cb2e3117b7bc1f214c04f2851709f50888caf8d2bc6138f"
+  },
+  "observedBytes": {
+    "stdout": 32,
+    "stderr": 79
+  },
+  "stdoutEOF": true,
+  "stderrEOF": true
+}

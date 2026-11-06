@@ -1,0 +1,39 @@
+{
+  "schema": "e02-minimum-frozen-oracle-input-provenance-v1",
+  "originalBusinessExpectedInput": {
+    "path": "/tmp/nbdp-e02-ordinary-client-api35-v2/runs/619a4fedff96433daa90a57ac5d5eb73/session/fixtures/expected-rumor.json",
+    "bytes": 910,
+    "sha256": "8bb0efcf8cc5a503e8f653885503958520f1a069066e549cd60dec7128d25291"
+  },
+  "business": "Exact six original fields/content/orderedtags retained, serialized as new own DATA. No failed UI/export row reused.",
+  "chat": "Fixed harmless UTF8 text; NIP01 identifier computed by stdlib SHA256 over frozen JSON array as SOURCE/DATA materialization, not an encryption/sign/transport test.",
+  "sourceOnly": true,
+  "activeOrFinishedV3RuntimeInputsUsed": false,
+  "roles": {
+    "incoming": {
+      "windowId": "incoming-b",
+      "account": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
+      "peer": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+      "scalar": 2,
+      "nsec": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpqptcfk2",
+      "tab": "New Requests",
+      "stages": [
+        "incoming-business",
+        "incoming-ordinary-chat"
+      ]
+    },
+    "archive": {
+      "windowId": "archive-a",
+      "account": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+      "peer": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
+      "scalar": 1,
+      "nsec": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqsmhltgl",
+      "tab": "Known",
+      "stages": [
+        "archive-business",
+        "archive-identical-replay",
+        "archive-fresh-wrap-replay"
+      ]
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "schema": "e02-capture-source-acceptance-contract-v1",
+  "actor": "/root",
+  "state": "SCHEMA_ONLY_NOT_ACCEPTANCE_OR_EXECUTION_AUTHORITY",
+  "reviewEnvelope": {
+    "exactKeys": [
+      "role",
+      "session",
+      "decision",
+      "subject"
+    ],
+    "roles": [
+      "qa",
+      "security"
+    ],
+    "decision": "ACCEPT_PRODUCER4_CAPTURE_SOURCE_AND_ADMISSION_DEFINITIONS_ONLY",
+    "subject": "Exact externally pinned frozen capture method CODE subject; not the execution plan, model result or producer subject.",
+    "sessions": "Distinct actual independent post-freeze capture-source reviewers outside declared/known source/operator/helper union; RootACK binds actual birth and current actor contract."
+  },
+  "rootAcceptance": {
+    "exactKeys": [
+      "schema",
+      "actor",
+      "decision",
+      "subject",
+      "reviews",
+      "admissionModelsDefined",
+      "admissionModelsExecuted",
+      "producerSource",
+      "scope",
+      "executionAuthorized"
+    ],
+    "literals": {
+      "schema": "e02-root-producer4-capture-source-acceptance-v1",
+      "actor": "/root",
+      "decision": "ACCEPT_PRODUCER4_CAPTURE_SOURCE_AND_ADMISSION_DEFINITIONS_ONLY",
+      "admissionModelsExecuted": 0,
+      "scope": "EXACT_CAPTURE_SOURCE_AND_ADMISSION_DEFINITIONS_ONLY",
+      "executionAuthorized": false
+    },
+    "reviews": "Ordered exact raw review Pins qa then security, each four-key envelope with the literal decision above.",
+    "subject": "Exact capture method subject pin matching both reviewers and frozen code manifest.",
+    "producerSource": "Exact independently accepted current producer SOURCE4 subject pin, also matching the producer acceptance contract and futureRootACK.",
+    "admissionModelsDefined": "Positive integer exactly matching frozen admission definition plan; never inferred from executed DATA."
+  },
+  "acyclicity": "Capture CODE subject/manifest excludes mutable execution plan, actual reviews, Root acceptance, grant/ACK and runtime output. Future RootACK externally pins actual CODE subject, producer+capture acceptances/reviews, admission DATA acceptance, closed input/actor/request/clock contracts and execution plan. Do not place own future review/acceptance hashes back into CODE.",
+  "limits": "This SOURCE acceptance is not admission DATA acceptance or execution authority. All exact current input/admission/model/lifecycle/concrete gates remain separate.",
+  "forbidden": [
+    "Prefix decision matching",
+    "Invented or normalized issued review",
+    "Caller self-selected accepted decision",
+    "CODE-plan-review selfhash cycle",
+    "Implicit runtime permission from SOURCE acceptance"
+  ],
+  "finalCaptureSourceAcceptance": null,
+  "finalCaptureReviews": null,
+  "executionAuthorized": false
+}

@@ -1,0 +1,267 @@
+{
+  "schema": "nbdp-amethyst-finite-tool-byte-acquisition-release-v1",
+  "actor": "/root",
+  "decision": "RELEASE_ONE_SERIAL_FETCH_EXTRACT_PER_FIXED_FOUR_ARTIFACTS",
+  "sourceSubject": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/subject.json",
+    "bytes": 4032,
+    "sha256": "c8c75541ccaa8614831cd9c3acd9f8bc1668462561f227aeca6f3ff209369e52"
+  },
+  "script": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/acquire.py",
+    "bytes": 16925,
+    "sha256": "b3d6844841b8f73f1caed186f7513eb0ee75135f502e3060776e391d847d9b07"
+  },
+  "plan": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/acquisition-plan.json",
+    "bytes": 3306,
+    "sha256": "82c8b19c869315f34151727469772f4336be0dc4d77b6fd07e4fe0332df48bf1"
+  },
+  "modelAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-rebuild-20261026/source1/model-acceptance.json",
+    "bytes": 1389,
+    "sha256": "02f94ad65015e73833122744c17bcc3c2757bb807be8bdb9c2be382589e042d1"
+  },
+  "tools": [
+    {
+      "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "bytes": 32959480,
+      "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+    },
+    {
+      "path": "/usr/bin/prlimit",
+      "bytes": 27536,
+      "sha256": "17064f67e650d6152a6902b013aab496b54c87587c8eea6f5023aafee6154069"
+    },
+    {
+      "path": "/usr/bin/timeout",
+      "bytes": 39880,
+      "sha256": "12690a043dfd555a6c14ccc1564f5649c18f1762c0d6ff66729948130898ec52"
+    },
+    {
+      "path": "/usr/bin/env",
+      "bytes": 48072,
+      "sha256": "886e5fa8be716b03eeda48856e0f04493f2969fc148fb7812594ffac647fa050"
+    }
+  ],
+  "commands": [
+    {
+      "phase": "fetch",
+      "artifact": "jdk",
+      "argv": [
+        "/usr/bin/env",
+        "-i",
+        "PATH=/usr/bin:/bin",
+        "LANG=C.UTF-8",
+        "LC_ALL=C.UTF-8",
+        "/usr/bin/prlimit",
+        "--as=4294967296:4294967296",
+        "/usr/bin/timeout",
+        "--signal=TERM",
+        "--kill-after=5s",
+        "1800s",
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/tmp/nbdp-amethyst-rebuild-20261026/preparation/acquire.py",
+        "fetch",
+        "jdk",
+        "--plan-sha",
+        "82c8b19c869315f34151727469772f4336be0dc4d77b6fd07e4fe0332df48bf1"
+      ]
+    },
+    {
+      "phase": "extract",
+      "artifact": "jdk",
+      "argv": [
+        "/usr/bin/env",
+        "-i",
+        "PATH=/usr/bin:/bin",
+        "LANG=C.UTF-8",
+        "LC_ALL=C.UTF-8",
+        "/usr/bin/prlimit",
+        "--as=4294967296:4294967296",
+        "/usr/bin/timeout",
+        "--signal=TERM",
+        "--kill-after=5s",
+        "1800s",
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/tmp/nbdp-amethyst-rebuild-20261026/preparation/acquire.py",
+        "extract",
+        "jdk",
+        "--plan-sha",
+        "82c8b19c869315f34151727469772f4336be0dc4d77b6fd07e4fe0332df48bf1"
+      ]
+    },
+    {
+      "phase": "fetch",
+      "artifact": "platform",
+      "argv": [
+        "/usr/bin/env",
+        "-i",
+        "PATH=/usr/bin:/bin",
+        "LANG=C.UTF-8",
+        "LC_ALL=C.UTF-8",
+        "/usr/bin/prlimit",
+        "--as=4294967296:4294967296",
+        "/usr/bin/timeout",
+        "--signal=TERM",
+        "--kill-after=5s",
+        "1800s",
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/tmp/nbdp-amethyst-rebuild-20261026/preparation/acquire.py",
+        "fetch",
+        "platform",
+        "--plan-sha",
+        "82c8b19c869315f34151727469772f4336be0dc4d77b6fd07e4fe0332df48bf1"
+      ]
+    },
+    {
+      "phase": "extract",
+      "artifact": "platform",
+      "argv": [
+        "/usr/bin/env",
+        "-i",
+        "PATH=/usr/bin:/bin",
+        "LANG=C.UTF-8",
+        "LC_ALL=C.UTF-8",
+        "/usr/bin/prlimit",
+        "--as=4294967296:4294967296",
+        "/usr/bin/timeout",
+        "--signal=TERM",
+        "--kill-after=5s",
+        "1800s",
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/tmp/nbdp-amethyst-rebuild-20261026/preparation/acquire.py",
+        "extract",
+        "platform",
+        "--plan-sha",
+        "82c8b19c869315f34151727469772f4336be0dc4d77b6fd07e4fe0332df48bf1"
+      ]
+    },
+    {
+      "phase": "fetch",
+      "artifact": "build-tools",
+      "argv": [
+        "/usr/bin/env",
+        "-i",
+        "PATH=/usr/bin:/bin",
+        "LANG=C.UTF-8",
+        "LC_ALL=C.UTF-8",
+        "/usr/bin/prlimit",
+        "--as=4294967296:4294967296",
+        "/usr/bin/timeout",
+        "--signal=TERM",
+        "--kill-after=5s",
+        "1800s",
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/tmp/nbdp-amethyst-rebuild-20261026/preparation/acquire.py",
+        "fetch",
+        "build-tools",
+        "--plan-sha",
+        "82c8b19c869315f34151727469772f4336be0dc4d77b6fd07e4fe0332df48bf1"
+      ]
+    },
+    {
+      "phase": "extract",
+      "artifact": "build-tools",
+      "argv": [
+        "/usr/bin/env",
+        "-i",
+        "PATH=/usr/bin:/bin",
+        "LANG=C.UTF-8",
+        "LC_ALL=C.UTF-8",
+        "/usr/bin/prlimit",
+        "--as=4294967296:4294967296",
+        "/usr/bin/timeout",
+        "--signal=TERM",
+        "--kill-after=5s",
+        "1800s",
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/tmp/nbdp-amethyst-rebuild-20261026/preparation/acquire.py",
+        "extract",
+        "build-tools",
+        "--plan-sha",
+        "82c8b19c869315f34151727469772f4336be0dc4d77b6fd07e4fe0332df48bf1"
+      ]
+    },
+    {
+      "phase": "fetch",
+      "artifact": "ndk",
+      "argv": [
+        "/usr/bin/env",
+        "-i",
+        "PATH=/usr/bin:/bin",
+        "LANG=C.UTF-8",
+        "LC_ALL=C.UTF-8",
+        "/usr/bin/prlimit",
+        "--as=4294967296:4294967296",
+        "/usr/bin/timeout",
+        "--signal=TERM",
+        "--kill-after=5s",
+        "1800s",
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/tmp/nbdp-amethyst-rebuild-20261026/preparation/acquire.py",
+        "fetch",
+        "ndk",
+        "--plan-sha",
+        "82c8b19c869315f34151727469772f4336be0dc4d77b6fd07e4fe0332df48bf1"
+      ]
+    },
+    {
+      "phase": "extract",
+      "artifact": "ndk",
+      "argv": [
+        "/usr/bin/env",
+        "-i",
+        "PATH=/usr/bin:/bin",
+        "LANG=C.UTF-8",
+        "LC_ALL=C.UTF-8",
+        "/usr/bin/prlimit",
+        "--as=4294967296:4294967296",
+        "/usr/bin/timeout",
+        "--signal=TERM",
+        "--kill-after=5s",
+        "1800s",
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/tmp/nbdp-amethyst-rebuild-20261026/preparation/acquire.py",
+        "extract",
+        "ndk",
+        "--plan-sha",
+        "82c8b19c869315f34151727469772f4336be0dc4d77b6fd07e4fe0332df48bf1"
+      ]
+    }
+  ],
+  "bounds": {
+    "perPhaseWallSeconds": 1800,
+    "killAfterSeconds": 5,
+    "addressSpaceBytes": 4294967296,
+    "maxPhases": 8,
+    "stopOnAnyFailure": true,
+    "rerunsAuthorized": 0
+  },
+  "scope": "Publicfixedarchive DATA only. No acquiredtool/SDKmanager/licenseconsent/JDK/Gradle/build/Android/client/protocol execution.",
+  "limits": [
+    "AS limit applies to each acquisition Python process; no measuredRSS/peakclaim.",
+    "8GiB disk admission is sampled beforefetch, notmaintainedreserve or aggregate diskquota.",
+    "Private single-writer check-then-rename publication, notatomicNOREPLACE.",
+    "No portable process-family/lifecycle/egress isolation claim.",
+    "Actualarchive/source/toolDATAacceptance and separately supervisedbuild grant required."
+  ],
+  "supportedNetworkApprovalRequiredForFetch": true,
+  "buildAuthorized": false
+}

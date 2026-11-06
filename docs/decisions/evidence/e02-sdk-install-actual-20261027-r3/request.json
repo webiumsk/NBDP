@@ -1,0 +1,30 @@
+{
+  "argv": [
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=3s",
+    "1197s",
+    "/usr/bin/python3.12",
+    "-I",
+    "-B",
+    "/Data/nbdp-e02-tooling-20261027/controller-r4/controller.py",
+    "--release",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-install-actual-20261027-r3/root-release.json",
+    "--release-sha",
+    "c9849fb6a5cfec8e379423821ff2906f128a77a236139a031031a383507b615f"
+  ],
+  "cwd": "/Data/nbdp-e02-tooling-20261027/controller-r4",
+  "environment": {
+    "PATH": "/usr/bin:/bin",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "TZ": "UTC"
+  },
+  "release": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-install-actual-20261027-r3/root-release.json",
+    "bytes": 3899,
+    "sha256": "c9849fb6a5cfec8e379423821ff2906f128a77a236139a031031a383507b615f"
+  },
+  "startedUtcNs": 1793127947311074107,
+  "retryAuthorized": false
+}

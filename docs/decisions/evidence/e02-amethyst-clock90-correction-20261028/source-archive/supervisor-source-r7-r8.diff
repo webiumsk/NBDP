@@ -1,0 +1,76 @@
+--- /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r7/supervisor-source/supervise_build.py
++++ /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r8/supervisor-source/supervise_build.py
+@@ -18,12 +18,12 @@
+ import subprocess
+ import time
+ 
+-SOURCE=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r7/supervisor-source')
+-WORK=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r7/controller')
+-ROOT=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r7')
++SOURCE=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r8/supervisor-source')
++WORK=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r8/controller')
++ROOT=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r8')
+ INPUT=Path('/tmp/nbdp-amethyst-rebuild-20261026')
+ SDK=Path('/Data/nbdp-e02-tooling-20261027/controller-r6/writable-r1/sdk')
+-PREP=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r7/preparation')
++PREP=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r8/preparation')
+ DOCKER='/usr/bin/docker';TIMEOUT='/usr/bin/timeout'
+ IMAGE='sha256:32bb6c4c58ee5fe85f1e7229fb15008accb137990093941d2f8e768efd91cf8c'
+ NAME='nbdp-amethyst-build-20261026'
+@@ -97,7 +97,7 @@
+     need(original[:4]==[DOCKER,'create','--name',NAME] and original[-2:]==['/usr/bin/python3','/prep/build_inside.py'],'EXACT_FIXED_BUILD_PLAN_ARGV')
+     need(original.count('--workdir')==1 and original[original.index('--workdir')+1]=='/work','EXPLICIT_FIXED_WORKDIR_REQUIRED')
+     need(original.count('--network')==1 and original[original.index('--network')+1]==NETWORK,'FIXED_ORIGINAL_NETWORK_NAME')
+-    argv=original[:-2]+[TIMEOUT,'--signal=TERM','--kill-after=5s','3600s',*original[-2:]]
++    argv=original[:-2]+[TIMEOUT,'--signal=TERM','--kill-after=5s','5400s',*original[-2:]]
+     argv[argv.index('--network')+1]=full_cid(network_id)
+     # Outer-only restrictions: no daemon log accumulation; fixed512MiB per-job
+     # file ceiling (including inner logs/APKs), and exact creation custody.
+@@ -158,7 +158,7 @@
+     need(all(labels.get(k)==v for k,v in {'nbdp.role':'amethyst-source-build','nbdp.owner':'nbdp-amethyst-rebuild-20261026','nbdp.buildRun':run_id}.items()),'EXACT_CREATION_LABELS')
+     need(config['User']=='1000:1000' and config['Entrypoint']==['/usr/bin/env'],'NONROOT_FIXED_ENTRYPOINT')
+     base=plan['proposedDockerCreateArgv'];command=base[base.index(IMAGE)+1:]
+-    need(config['Cmd']==command[:-2]+[TIMEOUT,'--signal=TERM','--kill-after=5s','3600s',*command[-2:]],'EXACT_INTERNAL_JOB_TIMEOUT_COMMAND')
++    need(config['Cmd']==command[:-2]+[TIMEOUT,'--signal=TERM','--kill-after=5s','5400s',*command[-2:]],'EXACT_INTERNAL_JOB_TIMEOUT_COMMAND')
+     host=d['HostConfig']
+     need(host['Privileged'] is False and host['ReadonlyRootfs'] is True and host['NetworkMode']==network_id,'EXACT_RELEASED_FULL_NETWORK_ID')
+     need(not host.get('CapAdd') and host['CapDrop']==['ALL'] and
+@@ -257,7 +257,7 @@
+         self.create_attempted=False
+         self.start_attempted=False
+         self.network_binding_stage='UNKNOWN'
+-        self.total_end=time.monotonic()+3900;self.work_end=self.total_end-120
++        self.total_end=time.monotonic()+5700;self.work_end=self.total_end-120
+ 
+     def fault(self,message):
+         if self.first_fault is None:self.first_fault=message
+@@ -368,7 +368,7 @@
+         need(type(self.run_id) is str and re.fullmatch('[0-9a-f]{32}',self.run_id) is not None,'FRESH_RUNID')
+         issued,end=self.release['issuedAtUtcNs'],self.release['notAfterUtcNs']
+         need(type(issued) is int and type(end) is int and issued<=time.time_ns()<end and
+-             0<end-issued<=4200*10**9 and end>=time.time_ns()+3900*10**9,'CURRENT_ROOT_RELEASE_COVERS_ORIGINAL_FINITE_SCOPE')
++             0<end-issued<=6000*10**9 and end>=time.time_ns()+5700*10**9,'CURRENT_ROOT_RELEASE_COVERS_ORIGINAL_FINITE_SCOPE')
+         method=doc(self.release['buildPreparationSubject'])
+         need(self.release['buildPreparationSubject']==self.plan_reference['buildPreparationSubject'],'EXACT_PREPARATION_SUBJECT')
+         for descriptor in method['sources']:checked(descriptor)
+@@ -415,7 +415,7 @@
+         for value in (ROOT/'user/work',ROOT/'cache/build',ROOT/'output/build'):
+             safe(value);need(not value.exists(),'FRESH_OWNED_BUILD_ROOT_REQUIRED');value.mkdir(mode=0o700)
+         need(os.statvfs(ROOT).f_bavail*os.statvfs(ROOT).f_frsize>=12884901888,'TWELVE_GIB_BUILD_ADMISSION')
+-        need(self.work_end-time.monotonic()>3645,'ENOUGH_ORIGINAL_BUDGET_FOR_JOB_AND_CLI')
++        need(self.work_end-time.monotonic()>5445,'ENOUGH_ORIGINAL_BUDGET_FOR_JOB_AND_CLI')
+ 
+     def run(self):
+         need(not self.root.exists(),'FRESH_SUPERVISOR_ATTEMPT_REQUIRED')
+@@ -438,9 +438,9 @@
+             need(created['exitCode']==0 and created['classification']=='NATURAL_ZERO','CREATE_FAILED_STOP')
+             current,_=self.inspect();need(current['State']['Status']=='created' and current['State']['Running'] is False and current['State']['Error']=='','CREATED_ONLY_BEFORE_START')
+             need(self.first_fault is None,'PRIOR_FAULT_STOP_BEFORE_START')
+-            need(self.work_end-time.monotonic()>=3645,'FULL_ORIGINAL_JOB_ATTACH_BUDGET_BEFORE_START')
++            need(self.work_end-time.monotonic()>=5445,'FULL_ORIGINAL_JOB_ATTACH_BUDGET_BEFORE_START')
+             self.start_attempted=True
+-            attached=self.cli([DOCKER,'start','--attach',self.cid],'start-attached',seconds=3645,attached=True)
++            attached=self.cli([DOCKER,'start','--attach',self.cid],'start-attached',seconds=5445,attached=True)
+             current,_=self.inspect();self.job_state=current['State']
+             need(attached['classification']=='NATURAL_ZERO','ATTACHED_JOB_FAILED_OR_LOG_CEILING:'+attached['classification'])
+             successful_job_state(current['State'],self.network_binding_stage)

@@ -1,0 +1,44 @@
+{
+  "scope": "DATA_CONFIG_ONLY_NO_LEASE_GRANT_OR_WORKERS",
+  "jobs": [
+    {
+      "role": "incoming",
+      "runId": "9d8bad6df86fc113f87e14e2974f9019",
+      "config": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/incoming-run-config.json",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/supervisor.py",
+        "--materialize",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/incoming-run-config.json",
+        "--ordinary-role",
+        "incoming",
+        "--run-id",
+        "9d8bad6df86fc113f87e14e2974f9019",
+        "--seconds",
+        "1800"
+      ]
+    },
+    {
+      "role": "archive",
+      "runId": "1f45958c9bc2c7394cb3df00276a3abb",
+      "config": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/archive-run-config.json",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/supervisor.py",
+        "--materialize",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/archive-run-config.json",
+        "--ordinary-role",
+        "archive",
+        "--run-id",
+        "1f45958c9bc2c7394cb3df00276a3abb",
+        "--seconds",
+        "1800"
+      ]
+    }
+  ],
+  "modelsExecuted": 0
+}

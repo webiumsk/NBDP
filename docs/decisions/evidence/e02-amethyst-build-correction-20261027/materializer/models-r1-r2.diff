@@ -1,0 +1,17 @@
+--- /tmp/nbdp-amethyst-build-release-materializer-20261027/test_materializer.py
++++ /tmp/nbdp-amethyst-build-release-materializer-20261027-r2/test_materializer.py
+@@ -77,5 +77,14 @@
+             self.assertEqual(m.checked(d,keep=True),b'one');p.write_bytes(b'two')
+             with self.assertRaises(ValueError):m.checked(d,keep=True)
+ 
++    def test_previous_supervisor_subject_refused(self):
++        t=template();t['release']['supervisorSubject']={'path':'/tmp/nbdp-amethyst-build-supervisor-20261026-r2/subject.json',
++            'bytes':5913,'sha256':'2a7401a8d9f05789e31a1e21e092be62c6da52e66f0332b74288218153df7876'}
++        with self.assertRaises(ValueError):m.validate(t)
++
++    def test_previous_attempt_output_refused(self):
++        t=template();t['expectedOutput']='/tmp/nbdp-amethyst-build-supervisor-20261026-r2/attempt-'+'1'*32
++        with self.assertRaises(ValueError):m.validate(t)
++
+ 
+ if __name__=='__main__':unittest.main(verbosity=2)

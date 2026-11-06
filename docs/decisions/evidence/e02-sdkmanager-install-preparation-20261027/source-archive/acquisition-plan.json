@@ -1,0 +1,91 @@
+{
+  "schema": "nbdp-cmdline22-acquisition-only-source-plan-v1",
+  "root": "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation",
+  "state": "SOURCE_ONLY_NOT_READY_NO_EXECUTION_AUTHORITY",
+  "metadata": {
+    "repository": {
+      "path": "/tmp/nbdp-e02-sdkmanager-research-20261027/repository2-3.xml",
+      "bytes": 426356,
+      "sha256": "d3678697ece7b7c3df6e3eed8363bf3944176931728af251268268a2d0d7d900"
+    },
+    "targetPackages": {
+      "path": "/tmp/nbdp-e02-sdkmanager-research-20261027/target-packages.json",
+      "bytes": 5343,
+      "sha256": "aa9d606e19de8ee225ebe2041d49080fb49128b7dc6002dbec961794781fec9a"
+    },
+    "actualMetadataReceipt": {
+      "path": "/tmp/nbdp-e02-sdkmanager-research-20261027/receipt.json",
+      "bytes": 591,
+      "sha256": "f8408d8d525f76fe90c690ea15c91bbff58c6b4a1fdc6241c6cc08d1ae919985"
+    },
+    "exactApprovedLicense": {
+      "id": "android-sdk-license",
+      "decodedUtf8Bytes": 16962,
+      "decodedTextSha256": "1f8729233617b193fd619213792ae16a41b95d2bbbf525dfe66998252ba68b16",
+      "date": "January 16, 2019"
+    },
+    "meaning": "Fresh exact primary repository metadata, not mutable-latest repin. Stage1 does not accept or write any license."
+  },
+  "artifacts": [
+    {
+      "id": "cmdline-tools",
+      "url": "https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip",
+      "bytes": 181833628,
+      "algorithm": "sha256",
+      "digest": "4e4c464f145a7512b57d088ac6c278c03c9eea610886b35a5e0804e74eedf583",
+      "officialXmlSha1": "040d3996a65543d22ec4bf73e4c37aa37a8d4af4",
+      "officialSha1Meaning": "Retained primary XML digest; active acquisition pin is official SHA256. Independently verify both archive-body digests during DATA review.",
+      "format": "zip",
+      "destination": "bootstrap/cmdline-tools/22.0",
+      "expandedBytes": 1073741824,
+      "singleFileBytes": 268435456,
+      "allowedHosts": [
+        "dl.google.com"
+      ],
+      "redirects": 0
+    }
+  ],
+  "limits": {
+    "downloadSeconds": 1800,
+    "httpOperationSeconds": 30,
+    "chunkBytes": 1048576,
+    "archiveMembers": 200000,
+    "pathCharacters": 1024,
+    "linkTargetBytes": 4096,
+    "linkHops": 16,
+    "freeDiskBeforeAcquisition": 8589934592
+  },
+  "wholeCommandBudget": {
+    "seconds": 1800,
+    "killGraceSeconds": 3,
+    "meaning": "One conservative finite external command for BOTH fetch+extract; inherited per-function1800 maxima cannot extend this whole-command ceiling. No success promise or retry."
+  },
+  "proposedArgv": [
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=3s",
+    "1800s",
+    "/usr/bin/python3.12",
+    "-I",
+    "-B",
+    "/tmp/nbdp-e02-sdkmanager-install-20261027-preparation/acquire.py",
+    "--plan-sha",
+    "EXACT_FROZEN_PLAN_SHA256"
+  ],
+  "futureOnly": [
+    "Independent actual archive-body/inventory/properties/launchscript/library DATA review",
+    "Relevant SdkManagerCli class/header inspection as DATA",
+    "Separately prepared/reviewed bounded sdkmanager --version probe against existing read-only JDK21",
+    "Only then new install/prompt SOURCE with explicit separate --sdk_root and exact3 requested packages"
+  ],
+  "forbidden": [
+    "SDKmanager/java/bin execution",
+    "consent/license files/manual package.xml",
+    "SDKmanager --licenses or blanket yes",
+    "old SDK/tool/source/cache/failure edits",
+    "Gradle/client/Android/Git/state/runtime"
+  ],
+  "toolsExecuted": false,
+  "licenseConsentPerformed": false,
+  "sdkInstalled": false
+}

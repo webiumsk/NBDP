@@ -1,0 +1,87 @@
+{
+  "actor": "/root",
+  "executionAuthorized": true,
+  "scope": "Exactly once fixed8 pure controller models; no Docker/realconsent/SDK/runtime",
+  "argv": [
+    "/usr/bin/python3.12",
+    "-I",
+    "-B",
+    "/Data/nbdp-e02-tooling-20261027/controller-r3/test_controller_interfaces.py"
+  ],
+  "inputsBefore": [
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/controller-r3/subject.json",
+      "bytes": 5345,
+      "sha256": "cca9789bb1a9589f202a0bbb49c347e6249a0137c45a6b678708e456a4a7fb57",
+      "mode": "0o664"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/controller-r3/controller.py",
+      "bytes": 33553,
+      "sha256": "55931103290f1218d271b1edf76040a0c68c059eed77c06bbd785161c7ab1218",
+      "mode": "0o664"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/controller-r3/plan.json",
+      "bytes": 3302,
+      "sha256": "1e0729b3c709ff50e42a6cecdb0fe8c70068a6eecd2f751cfa2d437cef999208",
+      "mode": "0o664"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/controller-r3/test_controller_interfaces.py",
+      "bytes": 6753,
+      "sha256": "d5bc5227f4b80973cd1c1b0c5190ec5d24721f15bbf62cc897d4ac165223c6ec",
+      "mode": "0o664"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/controller-r3/model-plan.json",
+      "bytes": 1253,
+      "sha256": "858020243e4e230e7883c5fce88a203a5a70b5118e7227caf07564cd6e701115",
+      "mode": "0o664"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/controller-r3/function-preservation.json",
+      "bytes": 2149,
+      "sha256": "9a84b7496e98f665ff56824141efc175ed2b70867cc0c50b6890ec5fe88898e9",
+      "mode": "0o664"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/controller-r3/root-release.example.json",
+      "bytes": 2160,
+      "sha256": "d6a0bad9c1880525b7380c364145d15011392127e9b02e43eaeee6231f7d3e7f",
+      "mode": "0o664"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/controller-r3/README.md",
+      "bytes": 7627,
+      "sha256": "1ff5256a24eafe2ab3fad8f41556bdb6cd9079a0f41a75f16c9c547a5fa9a868",
+      "mode": "0o664"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/controller-r3/source-r2-r3.diff",
+      "bytes": 944,
+      "sha256": "d5b0479e586f15e082bbd5fd11b6790ca895b4a109c3ee2109efed084eace5cc",
+      "mode": "0o664"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/controller-r3/syntax-only.json",
+      "bytes": 626,
+      "sha256": "934bd6e2141625c5815784e66b51509a47cb56ecef7fa86c7481bf18747eea73",
+      "mode": "0o664"
+    },
+    {
+      "path": "/usr/bin/python3.12",
+      "bytes": 8020928,
+      "sha256": "e50d468e8b0adfb05733f5b87b3cff34829c4a8c1aea50c865aa8bdfe4bb150f",
+      "mode": "0o755"
+    }
+  ],
+  "seconds": 15,
+  "stdoutBytes": 65536,
+  "stderrBytes": 262144,
+  "sourceReviews": [
+    "source-qa.json",
+    "source-security.json"
+  ],
+  "snapshotNotRaceFree": true
+}

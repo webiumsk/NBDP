@@ -1,0 +1,674 @@
+{
+  "schema": "e02-producer4-current-control-execution-v1",
+  "authors": [
+    "/root",
+    "/root/collector_policy_security_553c5bfd",
+    "/root/completion_wrapper",
+    "/root/helper_apk_binding_scope",
+    "/root/native_rebuild_prepare",
+    "/root/r5_plan_fix"
+  ],
+  "operators": [
+    "/root"
+  ],
+  "producerSource": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/subject.json",
+    "bytes": 41959,
+    "sha256": "d4229ef2ddf77e79a8f1a9990ea174db4c3dba9e7f2012ed42589d857be443b5"
+  },
+  "captureSource": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/capture/code-subject.json",
+    "bytes": 8987,
+    "sha256": "1a2bfdc92a68270d0712d7ad0f2107d407847c633d78869cdb0ed09bd343a719"
+  },
+  "rootAcknowledgement": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/capture/coordinator-acknowledgement.json",
+    "bytes": 5775,
+    "sha256": "ac0ed148dd57978fbfde25df40882e701b8326ded298629323e4c6303e7e3507"
+  },
+  "plan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/ready-r1/execution-plan.json",
+    "bytes": 130492,
+    "sha256": "8e049f9f10eb846b08c0975b6cd2ede8e8a1f15640f49689b66151caef9c47a8"
+  },
+  "inputManifest": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/capture/input-manifest.json",
+    "bytes": 1221271,
+    "sha256": "31d7a021c79884e73c2420c019ae3ca403bc3129c1d6f7ad3bdcd991f93b2abf"
+  },
+  "countsSeparate": [
+    129,
+    33,
+    29,
+    16,
+    20,
+    10,
+    11,
+    8,
+    7,
+    3
+  ],
+  "scopes": [
+    {
+      "scope": "test_guard_client.mjs",
+      "argv": [
+        "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/test_guard_client.mjs"
+      ],
+      "eof": {
+        "stdout": true,
+        "stderr": true
+      },
+      "elapsedNs": 410903743,
+      "stdout": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/01-test_guard_client.mjs.stdout.raw",
+        "bytes": 169,
+        "sha256": "dde56e67ffe510b08c319f2abd22e7607e0e4b13a2611eccc54d7e54f25ff777",
+        "mode": "0o600"
+      },
+      "stderr": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/01-test_guard_client.mjs.stderr.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mode": "0o600"
+      },
+      "pipeEofScope": "ACTUAL_OWNED_CHILD_PIPES_ONLY_NOT_OUTER_API",
+      "ownership": {
+        "pid": 1507325,
+        "groupId": 1507325,
+        "sessionId": 1507325,
+        "startNewSession": true,
+        "ownedPopenHandle": true,
+        "leaderOwnership": "RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL",
+        "observedGroupId": 1507325,
+        "observedSessionId": 1507325
+      },
+      "retentionErrors": [],
+      "exitCode": 0,
+      "reaped": true,
+      "fault": null,
+      "reapDeadlineMonotonicNs": 116713385300197,
+      "groupClosure": null,
+      "groupClosureFault": null
+    },
+    {
+      "scope": "test_guard_transport_boundaries.mjs",
+      "argv": [
+        "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/test_guard_transport_boundaries.mjs"
+      ],
+      "eof": {
+        "stdout": true,
+        "stderr": true
+      },
+      "elapsedNs": 88698529,
+      "stdout": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/02-test_guard_transport_boundaries.mjs.stdout.raw",
+        "bytes": 221,
+        "sha256": "973078e4f8b231f39327cb9cf320d22a92d685979b1a3904fb552ee7b35d44f1",
+        "mode": "0o600"
+      },
+      "stderr": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/02-test_guard_transport_boundaries.mjs.stderr.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mode": "0o600"
+      },
+      "pipeEofScope": "ACTUAL_OWNED_CHILD_PIPES_ONLY_NOT_OUTER_API",
+      "ownership": {
+        "pid": 1507573,
+        "groupId": 1507573,
+        "sessionId": 1507573,
+        "startNewSession": true,
+        "ownedPopenHandle": true,
+        "leaderOwnership": "RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL",
+        "observedGroupId": 1507573,
+        "observedSessionId": 1507573
+      },
+      "retentionErrors": [],
+      "exitCode": 0,
+      "reaped": true,
+      "fault": null,
+      "reapDeadlineMonotonicNs": 116724503484056,
+      "groupClosure": null,
+      "groupClosureFault": null
+    },
+    {
+      "scope": "test_capture_allocation.mjs",
+      "argv": [
+        "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/test_capture_allocation.mjs"
+      ],
+      "eof": {
+        "stdout": true,
+        "stderr": true
+      },
+      "elapsedNs": 68002387,
+      "stdout": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/03-test_capture_allocation.mjs.stdout.raw",
+        "bytes": 207,
+        "sha256": "41a4ea3fb5ad5541bcdf7073646bf5aee99b6d6e747f20287140f70f5ad82252",
+        "mode": "0o600"
+      },
+      "stderr": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/03-test_capture_allocation.mjs.stderr.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mode": "0o600"
+      },
+      "pipeEofScope": "ACTUAL_OWNED_CHILD_PIPES_ONLY_NOT_OUTER_API",
+      "ownership": {
+        "pid": 1507703,
+        "groupId": 1507703,
+        "sessionId": 1507703,
+        "startNewSession": true,
+        "ownedPopenHandle": true,
+        "leaderOwnership": "RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL",
+        "observedGroupId": 1507703,
+        "observedSessionId": 1507703
+      },
+      "retentionErrors": [],
+      "exitCode": 0,
+      "reaped": true,
+      "fault": null,
+      "reapDeadlineMonotonicNs": 116733969008348,
+      "groupClosure": null,
+      "groupClosureFault": null
+    },
+    {
+      "scope": "test_controller_emission.mjs",
+      "argv": [
+        "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/test_controller_emission.mjs"
+      ],
+      "eof": {
+        "stdout": true,
+        "stderr": true
+      },
+      "elapsedNs": 87074093,
+      "stdout": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/04-test_controller_emission.mjs.stdout.raw",
+        "bytes": 160,
+        "sha256": "2b0243810b8eb4b24c118b23919a2951faef42f6685adc08115c72a02470e137",
+        "mode": "0o600"
+      },
+      "stderr": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/04-test_controller_emission.mjs.stderr.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mode": "0o600"
+      },
+      "pipeEofScope": "ACTUAL_OWNED_CHILD_PIPES_ONLY_NOT_OUTER_API",
+      "ownership": {
+        "pid": 1507791,
+        "groupId": 1507791,
+        "sessionId": 1507791,
+        "startNewSession": true,
+        "ownedPopenHandle": true,
+        "leaderOwnership": "RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL",
+        "observedGroupId": 1507791,
+        "observedSessionId": 1507791
+      },
+      "retentionErrors": [],
+      "exitCode": 0,
+      "reaped": true,
+      "fault": null,
+      "reapDeadlineMonotonicNs": 116743626282190,
+      "groupClosure": null,
+      "groupClosureFault": null
+    },
+    {
+      "scope": "test_observation_model.mjs",
+      "argv": [
+        "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/test_observation_model.mjs"
+      ],
+      "eof": {
+        "stdout": true,
+        "stderr": true
+      },
+      "elapsedNs": 120750599,
+      "stdout": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/05-test_observation_model.mjs.stdout.raw",
+        "bytes": 1132,
+        "sha256": "a3e8eab001178090d5fd75265e0ae12ed2a245aa174b1ee2c0252d5594cd9175",
+        "mode": "0o600"
+      },
+      "stderr": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/05-test_observation_model.mjs.stderr.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mode": "0o600"
+      },
+      "pipeEofScope": "ACTUAL_OWNED_CHILD_PIPES_ONLY_NOT_OUTER_API",
+      "ownership": {
+        "pid": 1507895,
+        "groupId": 1507895,
+        "sessionId": 1507895,
+        "startNewSession": true,
+        "ownedPopenHandle": true,
+        "leaderOwnership": "RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL",
+        "observedGroupId": 1507895,
+        "observedSessionId": 1507895
+      },
+      "retentionErrors": [],
+      "exitCode": 0,
+      "reaped": true,
+      "fault": null,
+      "reapDeadlineMonotonicNs": 116754070300195,
+      "groupClosure": null,
+      "groupClosureFault": null
+    },
+    {
+      "scope": "test_guard_helper.py",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/test_guard_helper.py"
+      ],
+      "eof": {
+        "stdout": true,
+        "stderr": true
+      },
+      "elapsedNs": 75025747,
+      "stdout": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/06-test_guard_helper.py.stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mode": "0o600"
+      },
+      "stderr": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/06-test_guard_helper.py.stderr.raw",
+        "bytes": 109,
+        "sha256": "38eeff1237d74275801617a271eced659e08b1cad8069897d18e659ae40641d8",
+        "mode": "0o600"
+      },
+      "pipeEofScope": "ACTUAL_OWNED_CHILD_PIPES_ONLY_NOT_OUTER_API",
+      "ownership": {
+        "pid": 1508016,
+        "groupId": 1508016,
+        "sessionId": 1508016,
+        "startNewSession": true,
+        "ownedPopenHandle": true,
+        "leaderOwnership": "RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL",
+        "observedGroupId": 1508016,
+        "observedSessionId": 1508016
+      },
+      "retentionErrors": [],
+      "exitCode": 0,
+      "reaped": true,
+      "fault": null,
+      "reapDeadlineMonotonicNs": 116764596111490,
+      "groupClosure": null,
+      "groupClosureFault": null
+    },
+    {
+      "scope": "test_capture_parent.py",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/test_capture_parent.py"
+      ],
+      "eof": {
+        "stdout": true,
+        "stderr": true
+      },
+      "elapsedNs": 202114492,
+      "stdout": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/07-test_capture_parent.py.stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mode": "0o600"
+      },
+      "stderr": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/07-test_capture_parent.py.stderr.raw",
+        "bytes": 110,
+        "sha256": "1716b47a03188bc918a0e69af2d063dbf3f51ded577934827cd953a60bd6070d",
+        "mode": "0o600"
+      },
+      "pipeEofScope": "ACTUAL_OWNED_CHILD_PIPES_ONLY_NOT_OUTER_API",
+      "ownership": {
+        "pid": 1508085,
+        "groupId": 1508085,
+        "sessionId": 1508085,
+        "startNewSession": true,
+        "ownedPopenHandle": true,
+        "leaderOwnership": "RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL",
+        "observedGroupId": 1508085,
+        "observedSessionId": 1508085
+      },
+      "retentionErrors": [],
+      "exitCode": 0,
+      "reaped": true,
+      "fault": null,
+      "reapDeadlineMonotonicNs": 116773362946324,
+      "groupClosure": null,
+      "groupClosureFault": null
+    },
+    {
+      "scope": "test_public_identity_metadata.py",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/test_public_identity_metadata.py"
+      ],
+      "eof": {
+        "stdout": true,
+        "stderr": true
+      },
+      "elapsedNs": 89465312,
+      "stdout": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/08-test_public_identity_metadata.py.stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mode": "0o600"
+      },
+      "stderr": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/08-test_public_identity_metadata.py.stderr.raw",
+        "bytes": 106,
+        "sha256": "5b8a3ccb28c32f172271a641e8142fdb66c37cd396f681ca016266abfdb51bb3",
+        "mode": "0o600"
+      },
+      "pipeEofScope": "ACTUAL_OWNED_CHILD_PIPES_ONLY_NOT_OUTER_API",
+      "ownership": {
+        "pid": 1508325,
+        "groupId": 1508325,
+        "sessionId": 1508325,
+        "startNewSession": true,
+        "ownedPopenHandle": true,
+        "leaderOwnership": "RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL",
+        "observedGroupId": 1508325,
+        "observedSessionId": 1508325
+      },
+      "retentionErrors": [],
+      "exitCode": 0,
+      "reaped": true,
+      "fault": null,
+      "reapDeadlineMonotonicNs": 116783891123683,
+      "groupClosure": null,
+      "groupClosureFault": null
+    },
+    {
+      "scope": "test_producer2_source.py",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/test_producer2_source.py"
+      ],
+      "eof": {
+        "stdout": true,
+        "stderr": true
+      },
+      "elapsedNs": 463472041,
+      "stdout": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/09-test_producer2_source.py.stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mode": "0o600"
+      },
+      "stderr": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/09-test_producer2_source.py.stderr.raw",
+        "bytes": 105,
+        "sha256": "dedfd774897541baa2bb849048f921e9944e601396e856e9c8c210f206eb36ad",
+        "mode": "0o600"
+      },
+      "pipeEofScope": "ACTUAL_OWNED_CHILD_PIPES_ONLY_NOT_OUTER_API",
+      "ownership": {
+        "pid": 1508431,
+        "groupId": 1508431,
+        "sessionId": 1508431,
+        "startNewSession": true,
+        "ownedPopenHandle": true,
+        "leaderOwnership": "RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL",
+        "observedGroupId": 1508431,
+        "observedSessionId": 1508431
+      },
+      "retentionErrors": [],
+      "exitCode": 0,
+      "reaped": true,
+      "fault": null,
+      "reapDeadlineMonotonicNs": 116794241435384,
+      "groupClosure": null,
+      "groupClosureFault": null
+    },
+    {
+      "scope": "test_producer3_bindings.py",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-artifacts-20261105/source1/producer/test_producer3_bindings.py"
+      ],
+      "eof": {
+        "stdout": true,
+        "stderr": true
+      },
+      "elapsedNs": 28451099299,
+      "stdout": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/10-test_producer3_bindings.py.stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mode": "0o600"
+      },
+      "stderr": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/10-test_producer3_bindings.py.stderr.raw",
+        "bytes": 102,
+        "sha256": "2243a2625d08591f35fb581a757415f9b73737731ec22e1e64a176ee6ae8e970",
+        "mode": "0o600"
+      },
+      "pipeEofScope": "ACTUAL_OWNED_CHILD_PIPES_ONLY_NOT_OUTER_API",
+      "ownership": {
+        "pid": 1508581,
+        "groupId": 1508581,
+        "sessionId": 1508581,
+        "startNewSession": true,
+        "ownedPopenHandle": true,
+        "leaderOwnership": "RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL",
+        "observedGroupId": 1508581,
+        "observedSessionId": 1508581
+      },
+      "retentionErrors": [],
+      "exitCode": 0,
+      "reaped": true,
+      "fault": null,
+      "reapDeadlineMonotonicNs": 116832789809397,
+      "groupClosure": null,
+      "groupClosureFault": null
+    }
+  ],
+  "outcomes": [
+    {
+      "scope": "test_guard_client.mjs",
+      "count": 129,
+      "membershipMeaning": "FROZEN_SCRIPT_ALL_BODIES_SUCCESS_LOOP_PLUS_EXACT_STDOUT_NOT_INDEPENDENT_PER_BODY_ATTESTATION",
+      "actualNodeSummary": {
+        "scope": "PRODUCER4_MOCK_FRESH_GUARD_SCHEDULER_ONLY",
+        "definitions": 129,
+        "executed": 129,
+        "realHelperExecuted": false,
+        "realClockOrSDKObserved": false,
+        "clientRowsQualified": 0
+      },
+      "allOk": true
+    },
+    {
+      "scope": "test_guard_transport_boundaries.mjs",
+      "count": 33,
+      "membershipMeaning": "FROZEN_SCRIPT_ALL_BODIES_SUCCESS_LOOP_PLUS_EXACT_STDOUT_NOT_INDEPENDENT_PER_BODY_ATTESTATION",
+      "actualNodeSummary": {
+        "scope": "PRODUCER4_ACTUAL_REGISTERED_HELPER_CALLBACKS_AND_OWNED_SIGNAL_MOCKS_ONLY",
+        "definitions": 33,
+        "executed": 33,
+        "realHelperExecuted": false,
+        "realTimerObserved": false,
+        "processReapAttested": false,
+        "clientRowsQualified": 0
+      },
+      "allOk": true
+    },
+    {
+      "scope": "test_capture_allocation.mjs",
+      "count": 29,
+      "membershipMeaning": "FROZEN_SCRIPT_ALL_BODIES_SUCCESS_LOOP_PLUS_EXACT_STDOUT_NOT_INDEPENDENT_PER_BODY_ATTESTATION",
+      "actualNodeSummary": {
+        "scope": "PRODUCER4_PURE_CAPTURE_ALLOCATION_MODELS_ONLY",
+        "definitions": 29,
+        "executed": 29,
+        "realWritesObserved": false,
+        "realHelperExecuted": false,
+        "wholeConsumerQualified": false,
+        "atomicGlobalFenceClaimed": false
+      },
+      "allOk": true
+    },
+    {
+      "scope": "test_controller_emission.mjs",
+      "count": 16,
+      "membershipMeaning": "FROZEN_SCRIPT_ALL_BODIES_SUCCESS_LOOP_PLUS_EXACT_STDOUT_NOT_INDEPENDENT_PER_BODY_ATTESTATION",
+      "actualNodeSummary": {
+        "scope": "ACTUAL_PRODUCTION_CONTROLLER_EMITTER_WITH_FAKE_WRITER_ONLY",
+        "checks": 16,
+        "realHelperExecuted": false,
+        "realStdoutWritten": false,
+        "clientRowsQualified": 0
+      },
+      "allOk": true
+    },
+    {
+      "scope": "test_observation_model.mjs",
+      "count": 20,
+      "membershipMeaning": "FROZEN_SCRIPT_ALL_BODIES_SUCCESS_LOOP_PLUS_EXACT_STDOUT_NOT_INDEPENDENT_PER_BODY_ATTESTATION",
+      "actualNodeSummary": {
+        "schema": "e02-producer4-observation-model-controls-v1",
+        "ok": true,
+        "checks": 20,
+        "cases": [
+          "one-shared-cap-across-two-streams",
+          "exact-boundary-two-streams-acknowledged-not-physical",
+          "short-prefix-once-poisons-both-streams",
+          "zero-prefix-known-zero-throw-prefix-unknown",
+          "invalid-count-family-poison-no-second-write",
+          "closed-stream-fds-and-original-upper-bound",
+          "accepted-phase-writer-preserves-known-short-prefix",
+          "phase-then-proxy-consumes-same-budget",
+          "guard-once-entry-exit-and-no-action-on-refusal",
+          "guard-refusal-preserved-over-retention-failure",
+          "entry-and-success-retention-failure-prevent-action",
+          "callback-first-fault-and-closed-late-inert",
+          "upstream-send-exact-buffer-callback-and-no-extra-guard",
+          "proxy-send-error-kept-if-observation-sink-fails",
+          "proxy-intent-write-failure-never-sends",
+          "proxy-mutated-buffer-refuses-callback-completion",
+          "adapter-query-preserves-exact112-byte-operands-and-raw-join",
+          "adapter-raw-is-after-original-guard-before-parse",
+          "adapter-denied-backend-guard-context-no-raw-or-parse",
+          "adapter-raw-sink-fault-before-send-or-before-parse-refuses"
+        ],
+        "scope": "SYNTHETIC_FS_SOCKET_GUARD_DATA_ONLY_NO_RUNTIME"
+      },
+      "allOk": true
+    },
+    {
+      "scope": "test_guard_helper.py",
+      "count": 10,
+      "membershipMeaning": "QUIET_DOTS_COUNT_WITH_FROZEN_SOURCE_METHOD_NAMES_NOT_RAW_NAME_PRINTING",
+      "sourceNames": [
+        "HelperProtocol.test_exact_check_and_close_domains",
+        "HelperProtocol.test_foreign_context_identity_schema_and_operation",
+        "HelperProtocol.test_extra_missing_typed_fields",
+        "HelperProtocol.test_sequence_never_duplicate_decrease_wrap_or_skip",
+        "HelperProtocol.test_complete_bounded_utf8_line",
+        "HelperProtocol.test_duplicate_negative_zero_nonfinite_fraction_refused",
+        "HelperProtocol.test_one_fresh_call_per_check_same_lease_instance",
+        "HelperProtocol.test_source_drift_prevents_core_and_reply",
+        "HelperProtocol.test_core_denial_produces_no_ok_reply_or_reused_success",
+        "HelperProtocol.test_close_is_not_an_authorization_check"
+      ],
+      "allOk": true
+    },
+    {
+      "scope": "test_capture_parent.py",
+      "count": 11,
+      "membershipMeaning": "QUIET_DOTS_COUNT_WITH_FROZEN_SOURCE_METHOD_NAMES_NOT_RAW_NAME_PRINTING",
+      "sourceNames": [
+        "ParentCaptureAllocation.test_all_sixty_four_attempts_consumed_and_sixty_fifth_before_inspect",
+        "ParentCaptureAllocation.test_actual_fixture_reserves_before_inspect_and_failed_launch_keeps_slot",
+        "ParentCaptureAllocation.test_partial_or_failed_ledger_poison_before_any_child_or_retry",
+        "ParentCaptureAllocation.test_missing_parent_initialization_refuses_before_new_proof",
+        "ParentCaptureAllocation.test_ledger_status_combined_four_kib_bound_and_no_refund",
+        "ParentCaptureAllocation.test_parent_header_footer_exact_precharge_before_write",
+        "ParentCaptureAllocation.test_header_write_failure_sticky_and_not_repaired",
+        "ParentCaptureAllocation.test_global_math_and_nonatomic_owner_failure_truthful",
+        "ParentCaptureAllocation.test_actual_parent_exclusive_writer_short_write_not_repaired",
+        "ParentCaptureAllocation.test_actual_driver_reuses_verified_command_stdout_pin_no_copy",
+        "ParentCaptureAllocation.test_actual_driver_corrupt_retained_stdout_refuses_before_call_success"
+      ],
+      "allOk": true
+    },
+    {
+      "scope": "test_public_identity_metadata.py",
+      "count": 8,
+      "membershipMeaning": "QUIET_DOTS_COUNT_WITH_FROZEN_SOURCE_METHOD_NAMES_NOT_RAW_NAME_PRINTING",
+      "sourceNames": [
+        "PublicIdentityMetadata.test_whole_checksum_payload_both_public_scalars",
+        "PublicIdentityMetadata.test_four_metadata_operands_equal_unchanged_driver",
+        "PublicIdentityMetadata.test_historical_65_character_operand_refused_preserved",
+        "PublicIdentityMetadata.test_checksum_corruption_refused",
+        "PublicIdentityMetadata.test_valid_other_payload_refused",
+        "PublicIdentityMetadata.test_whitespace_case_truncation_never_normalized",
+        "PublicIdentityMetadata.test_non_bech32_glyph_refused",
+        "PublicIdentityMetadata.test_new_plan_keeps_scalar_roles_and_whole_value"
+      ],
+      "allOk": true
+    },
+    {
+      "scope": "test_producer2_source.py",
+      "count": 7,
+      "membershipMeaning": "QUIET_DOTS_COUNT_WITH_FROZEN_SOURCE_METHOD_NAMES_NOT_RAW_NAME_PRINTING",
+      "sourceNames": [
+        "Producer4SourceBindings.test_original_guard_and_dependency_boundaries_unchanged",
+        "Producer4SourceBindings.test_original_isolation_and_transport_limits",
+        "Producer4SourceBindings.test_fresh_source_closure_twenty_two_not_old_sixteen",
+        "Producer4SourceBindings.test_oracles_and_original_role_replay_criteria_preserved",
+        "Producer4SourceBindings.test_no_sync_python_spawn_or_cached_authorization_in_fixture",
+        "Producer4SourceBindings.test_flow_checkpoints_preserve_all_fifteen_original_internal_guards",
+        "Producer4SourceBindings.test_phase_and_controller_semantic_version_explicit"
+      ],
+      "allOk": true
+    },
+    {
+      "scope": "test_producer3_bindings.py",
+      "count": 3,
+      "membershipMeaning": "QUIET_DOTS_COUNT_WITH_FROZEN_SOURCE_METHOD_NAMES_NOT_RAW_NAME_PRINTING",
+      "sourceNames": [
+        "Producer3RebuiltBindings.test_current_accepted_rebuilt_artifacts_and_exact_e01_native",
+        "Producer3RebuiltBindings.test_missing_apk_wrong_native_e01_and_build_sdk_substitution_refused",
+        "Producer3RebuiltBindings.test_preflight_before_materialize_verify_and_exact22_worker_membership"
+      ],
+      "allOk": true
+    }
+  ],
+  "remainingNotExecuted": [],
+  "firstFault": null,
+  "secondaryFaults": [],
+  "sourceUnchanged": true,
+  "overallBefore": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/overall-before.json",
+    "bytes": 1291604,
+    "sha256": "936baf3b3b955e8fc8c7d3e8e48b17a51569f4b0f1bf58bcb4b3667fa4759fa1"
+  },
+  "overallAfter": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/overall-after.json",
+    "bytes": 1291604,
+    "sha256": "936baf3b3b955e8fc8c7d3e8e48b17a51569f4b0f1bf58bcb4b3667fa4759fa1"
+  },
+  "elapsedNs": 140957092047,
+  "exitCode": 0,
+  "outerApiOrigin": "ACTUAL_ROOT_RESPONSES_MUST_BE_RETAINED_EXTERNALLY_NOT_INNER_PID_REAP_OR_EOF",
+  "ordinaryRowsQualified": 0,
+  "canonicalE02": "PARTIAL22_UNCHANGED"
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 297s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r3/test_capture_lifecycle_models.py",
+      "workdir": "/Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r3",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 4000,
+      "login": false
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "e8179a",
+      "wall_time_seconds": 0.347386664,
+      "exit_code": 0,
+      "original_token_count": 409,
+      "output": "test_actual_absent_owned_group_is_recorded_still_negative (__main__.CaptureLifecycleAdmission.test_actual_absent_owned_group_is_recorded_still_negative) ... ok\ntest_actual_cap_exited_unreaped_leader_held_pipe_group_killed_first (__main__.CaptureLifecycleAdmission.test_actual_cap_exited_unreaped_leader_held_pipe_group_killed_first) ... ok\ntest_actual_capture_fault_stops_before_any_later_scope (__main__.CaptureLifecycleAdmission.test_actual_capture_fault_stops_before_any_later_scope) ... ok\ntest_actual_fault_wait_retry_never_gets_a_second_three_seconds (__main__.CaptureLifecycleAdmission.test_actual_fault_wait_retry_never_gets_a_second_three_seconds) ... ok\ntest_actual_full_pipe_eof_is_required_even_with_natural_zero (__main__.CaptureLifecycleAdmission.test_actual_full_pipe_eof_is_required_even_with_natural_zero) ... ok\ntest_actual_multiple_waits_share_one_absolute_three_second_deadline (__main__.CaptureLifecycleAdmission.test_actual_multiple_waits_share_one_absolute_three_second_deadline) ... ok\ntest_actual_reaped_or_foreign_identity_never_signals_arbitrary_group (__main__.CaptureLifecycleAdmission.test_actual_reaped_or_foreign_identity_never_signals_arbitrary_group) ... ok\ntest_actual_selector_constructor_failure_precedes_popen (__main__.CaptureLifecycleAdmission.test_actual_selector_constructor_failure_precedes_popen) ... ok\ntest_actual_timeout_exited_unreaped_leader_held_pipe_group_killed_first (__main__.CaptureLifecycleAdmission.test_actual_timeout_exited_unreaped_leader_held_pipe_group_killed_first) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.097s\n\nOK\n"
+    }
+  },
+  "polls": []
+}

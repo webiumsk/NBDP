@@ -1,0 +1,29 @@
+{
+  "tool": "functions.exec / tools.exec_command then tools.write_stdin",
+  "launch": {
+    "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 TZ=UTC /usr/bin/timeout --signal=TERM --kill-after=3s 177s /usr/bin/python3.12 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/post-checks-r2.py",
+    "result": {
+      "chunk_id": "a53b3a",
+      "wall_time_seconds": 1.001865693,
+      "session_id": 69740,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "terminal": {
+    "args": {
+      "session_id": 69740,
+      "chars": "",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 3500
+    },
+    "result": {
+      "chunk_id": "c5ddbd",
+      "wall_time_seconds": 0.000079327,
+      "exit_code": 0,
+      "original_token_count": 239,
+      "output": "{\"actor\": \"/root\", \"state\": \"POST_BUILD_DATA_CAPTURED_PENDING_INDEPENDENT_REVIEW\", \"sourceEquality\": {\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/post-checks-r2/external-source-equality.json\", \"bytes\": 605, \"sha256\": \"bbd4a16c4d32ef0a1f8746cb609d51cc1d7c794aee6026e7bb6ce7eebd6c3460\"}, \"sdkCompleteInventoryBytesModesLinksAndUidsUnchanged\": true, \"sdkMembers\": 24590, \"jdkCompleteInventoryUnchanged\": true, \"sourceArchiveAndReceiptUnchanged\": true, \"acceptedSdkEvidenceUnchanged\": true, \"privateDebugKeyDescriptors\": [{\"relativePath\": \"work/user/.android/debug.keystore\", \"bytes\": 2618, \"sha256\": \"1ac45498f2dd0319ec86ae1ec832c249e3de12af8fa469aa8fdc3daf930f9c47\", \"mode\": \"0o600\"}], \"privateKeysCopied\": false, \"elapsedSeconds\": 145.88902959000552, \"qualification\": \"Pure root read-only source/input reconciliation; actual artifact and terminal lifecycle reviewed separately\"}\n"
+    }
+  },
+  "provenance": "Faithful original launch and exact structured terminal result; same session69740, no rerun; intermediate empty polls retained in conversation."
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "e02-genuine-post-freeze-reviewer-birth-evidence-v1",
+  "actor": "/root",
+  "sourceFreeze": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-source4-fresh-reviewer-freeze-20261028/freeze.json",
+    "bytes": 209320,
+    "sha256": "d91e963f939268937a13cec948826d675bd5d07b9ed44a4422e8f4d1c637416a"
+  },
+  "clockBefore": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-source4-fresh-reviewer-freeze-20261028/clock-before-spawn.json",
+    "bytes": 229,
+    "sha256": "8a1320b52a7c3d4c56397716ebaa6e8b2455bdc060868b9830affa465f2b7eef"
+  },
+  "actualSpawns": [
+    {
+      "role": "qa",
+      "toolName": "collaboration.spawn_agent",
+      "actualTaskNameArgument": "p4s4_fresh_qa_d91e963f939268937a13cec948826d67",
+      "actualAgentTypeArgument": "qa",
+      "actualForkTurnsArgument": "none",
+      "unmodifiedToolResponse": {
+        "task_name": "/root/p4s4_fresh_qa_d91e963f939268937a13cec948826d67"
+      },
+      "canonicalSession": "/root/p4s4_fresh_qa_d91e963f939268937a13cec948826d67",
+      "assignment": "Independent read-only exact SOURCE4/260 definitions, focused successor diff using preserved prior reviews and whole frozen integrity; no imports/models/helper/services/SDK/native/Git/writes."
+    },
+    {
+      "role": "security",
+      "toolName": "collaboration.spawn_agent",
+      "actualTaskNameArgument": "p4s4_fresh_security_d91e963f939268937a13cec948826d67",
+      "actualAgentTypeArgument": "security",
+      "actualForkTurnsArgument": "none",
+      "unmodifiedToolResponse": {
+        "task_name": "/root/p4s4_fresh_security_d91e963f939268937a13cec948826d67"
+      },
+      "canonicalSession": "/root/p4s4_fresh_security_d91e963f939268937a13cec948826d67",
+      "assignment": "Independent read-only exact SOURCE4/260 definitions, focused successor diff using preserved prior reviews and whole frozen integrity; no imports/models/helper/services/SDK/native/Git/writes."
+    }
+  ],
+  "clockAfter": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-source4-fresh-reviewer-freeze-20261028/clock-after-spawn.json",
+    "bytes": 228,
+    "sha256": "df27c6d075a7079b169a9b61d77b8e68b6087b57f09781183f1ad65b7204f63d"
+  },
+  "trustLimit": "Cooperative actual Root/session transcription; exact postfreeze priornonauthorship only, not unknownoldauthors reconstruction or future DATA independence.",
+  "actualExecutionsAuthorized": 0
+}

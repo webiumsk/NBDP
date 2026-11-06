@@ -1,0 +1,14 @@
+{
+  "toolName": "tools.exec_command",
+  "actualArguments": {
+    "cmd": "python - <<'PY'\nfrom pathlib import Path\nimport ast,hashlib,json,subprocess,time,base64,os\nP=Path('/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2');E=Path('/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2')\nnode='/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node'\ndef pin(p):\n p=Path(p);raw=p.read_bytes();return {'path':str(p),'bytes':len(raw),'sha256':hashlib.sha256(raw).hexdigest()}\nsourceBefore=[pin(p) for p in sorted(P.iterdir()) if p.is_file()];interpreterBefore=pin(node);rows=[]\nfor p in sorted(P.glob('*.mjs')):\n argv=[node,'--check',str(p)];start=time.monotonic_ns();r=subprocess.run(argv,capture_output=True,timeout=20,env={'PATH':'/usr/bin:/bin','LANG':'C.UTF-8','LC_ALL':'C.UTF-8'});rows.append({'argv':argv,'durationNanoseconds':time.monotonic_ns()-start,'returncode':r.returncode,'stdoutBase64':base64.b64encode(r.stdout).decode(),'stderrBase64':base64.b64encode(r.stderr).decode(),'meaning':'SYNTAX_ONLY_NO_MODULE_EVALUATION_NO_PROJECT_TEST'});\n if r.returncode!=0:break\npy=[]\nfor p in sorted(P.glob('*.py')):\n ast.parse(p.read_text(),filename=str(p));py.append(pin(p))\nresult={'schema':'e02-producer2-syntax-only-checks-v1','actor':'/root/ordinary_api35_source','sourceBefore':sourceBefore,'sourceAfter':[pin(p) for p in sorted(P.iterdir()) if p.is_file()],'interpreterBefore':interpreterBefore,'interpreterAfter':pin(node),'nodeSyntaxCommands':rows,'pythonAstParsed':py,'projectTestsExecuted':0,'moduleEvaluation':False,'experimentsExecuted':0,'note':'Actual Node --check processes ran. They parsed syntax only; no prepared module or project test was evaluated. Python stdlib source/data generation and AST parsing are not runtime interoperability.'}\n(E/'syntax-only-checks.json').write_text(json.dumps(result,indent=2)+'\\n')\nprint(json.dumps({'nodeSyntaxCommands':len(rows),'returncodes':[r['returncode'] for r in rows],'pythonAstParsed':len(py),'sourceUnchanged':result['sourceBefore']==result['sourceAfter'],'projectTestsExecuted':0}))\nPY",
+    "max_output_tokens": 3000
+  },
+  "unmodifiedResponse": {
+    "chunk_id": "f19284",
+    "wall_time_seconds": 2.559291358,
+    "exit_code": 0,
+    "original_token_count": 37,
+    "output": "{\"nodeSyntaxCommands\": 10, \"returncodes\": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], \"pythonAstParsed\": 9, \"sourceUnchanged\": true, \"projectTestsExecuted\": 0}\n"
+  }
+}

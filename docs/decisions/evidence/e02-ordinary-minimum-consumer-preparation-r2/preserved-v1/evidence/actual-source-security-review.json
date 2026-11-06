@@ -1,0 +1,36 @@
+{
+  "schema": "nbdp-actual-independent-review-transcription-v1",
+  "transcribedBy": "/root",
+  "reviewer": "/root/minimum_producer_security",
+  "role": "security",
+  "decision": "HOLD",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r1/subject.json",
+    "bytes": 5247,
+    "sha256": "2c6568a5a837584a6208680fecfb749c72873edf7c5e0b9425d25828dace2c62"
+  },
+  "findings": [
+    {
+      "id": "SEC-E02-MIN-CONSUMER-COMPOSER-002",
+      "severity": "MEDIUM",
+      "evidence": "Consumer searches EditText descendants of Message label; frozen producer uses owning EditText ancestors.",
+      "requiredFix": "Unique owned enabled empty EditText ancestor plus positive and detached/foreign/nonempty/ambiguous negatives."
+    },
+    {
+      "id": "SEC-E02-MIN-CONSUMER-RPC-001",
+      "severity": "MEDIUM",
+      "evidence": "Consumer compares raw second Rust RPC reply to normalized result; actual Rust replies wrap it as exact{ok:true,value:normalized}. Synthetic positive incorrectly unwrapped.",
+      "requiredFix": "Exact successful closed RPC wrapper then.value comparison; realistic positive/unwrapped/error/extra/wrongvalue/count negatives."
+    }
+  ],
+  "verified": [
+    "15subjectdescriptors and28protectedrows match;6Pythonmodules ASTparsed;54DATAdefinitions unexecuted.",
+    "Producer remains296acf... frozen; source/control/inventory/review/wholewindow/wire/role integerboundaries inspected."
+  ],
+  "coverageGap": "No fullpositivewholeconsume graph. Later genuine complete runtime can exercisepositive integration withindependentreview; no new normativegate implied.",
+  "limits": [
+    "Sourceanalysis only; no imports/tests/runtime/edits byreviewer.",
+    "No observedexploitation/wrongaccount/cryptovulnerability orAndroid/canonicalPASS/gateapproval.",
+    "Preservev1; correctnarrow siblingbefore spendingcontrolqualification."
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "nbdp-amethyst-planstate-model-plan-v1",
+  "state": "DEFINED_NOT_EXECUTED",
+  "source": {
+    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r5/test_plan_state.py",
+    "bytes": 1916,
+    "sha256": "993584634522385ad6f7652b8801914f400eb7cdd4688bc1fca5b6cca2a128af"
+  },
+  "definitions": [
+    "test_actual_plan_state_matches_unchanged_supervisor_admission"
+  ],
+  "definedCount": 1,
+  "executed": 0,
+  "command": [
+    "/usr/bin/python3.12",
+    "-I",
+    "-B",
+    "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r5/test_plan_state.py"
+  ],
+  "limits": {
+    "seconds": 15,
+    "stdoutBytes": 65536,
+    "stderrBytes": 262144
+  },
+  "directFileOperands": [
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/supervisor-source/supervise_build.py",
+      "bytes": 31753,
+      "sha256": "65cc14b76eeb3585371e239b9e5985f56a149d1b33d69987a2499271e39fc094"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/supervisor-source/plan.json",
+      "bytes": 8902,
+      "sha256": "1f8da03c67408154979b017b208caf9547804bf5a6940c44b1d43cfb94c3dd70"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r5/supervisor-source/supervise_build.py",
+      "bytes": 31753,
+      "sha256": "673cf4d3514b412f3c229997bbd64e99b936753759f978a206ccc624264da181"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r5/supervisor-source/plan.json",
+      "bytes": 8891,
+      "sha256": "39601a2c5d5633b464ee9e4946dcb5f7e357376bae84582ed517ff5ce44bd994"
+    }
+  ],
+  "scope": "One AST/source-read regression joins actual plan state to unchanged supervisor main literal and preserves prior wrong state as rejected. No executable module imports, Docker, Gradle, SDK, keys or runtime. Prior7/3/52/16 suites not rerun."
+}

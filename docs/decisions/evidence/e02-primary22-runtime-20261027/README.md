@@ -1,0 +1,11 @@
+# Fresh original E02 primary component — 2026-10-27
+
+One independently source-reviewed foreground attempt used the rebuilt Rust native, accepted fresh E01 PASS140 and unchanged canonical E02 runner/test/proxy with two pinned isolated relay implementations. All27 admission models passed before the concrete one-use release. No Android or SDK licence operation occurred.
+
+Actual outer exit0 in11.075161s (dispatcher printed completion bracket11.077205s); raw E02 duration2718ms, PARTIAL,22 checks passed,0 failed, original mandatory Amethyst rendering skip retained. Four original bidirectional wire fixtures are preserved byte-for-byte. These are synthetic lab exchanges between JavaScript and Rust adapters; zero ordinary-client rows qualify. No completion2 report rewriting, integration claim, canonical replacement, E04/E06 unlock or architectural blocker closure follows.
+
+`original-tool-receipt.json` retains actual tool arguments, initial session and completion. `outer-request.json`/`outer-result.json` record the precise invocation and process result. `actual-copy-manifest.json` pins198 copied actual files, including raw report/wires and45 CLI receipt groups. Source-after records protected input closure/native/E01 unchanged; cleanup receipts record removal of both full container IDs and the owned network, plus reaping of the owned proxy. [Independent actual QA/security acceptance](acceptance.json) accepts this component and its owned lifecycle with no findings.
+
+`release-template.json` is the frozen concrete SOURCE template; `root-release.json` is its once-only materialized600s UTC lease. Outer597+3 begins at a different spawn bracket; no exact600s end-to-end guarantee is claimed. Per-file4MiB limits do not establish aggregate disk or peak-memory bounds. Hard interruption or missing final completion would require exact-owned reconciliation. Snapshots are not race-free custody. File-backed captures carry no pipe EOF claim.
+
+The original failures and earlier published R2 evidence remain immutable. The exact2019 Android SDK licence decision and a reviewed supported package installation/metadata method remain prerequisites for the Amethyst build route. A new final-profile primary replay after actual APK and ordinary-window bindings remains preferred for eventual integration.

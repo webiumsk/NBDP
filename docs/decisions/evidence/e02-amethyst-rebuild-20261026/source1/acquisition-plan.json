@@ -1,0 +1,93 @@
+{
+  "schema": "nbdp-amethyst-tool-acquisition-plan-v1",
+  "root": "/tmp/nbdp-amethyst-rebuild-20261026",
+  "state": "SOURCE_ONLY_NO_EXECUTION_AUTHORITY",
+  "metadata": {
+    "url": "https://dl.google.com/android/repository/repository2-3.xml",
+    "bytes": 426356,
+    "algorithm": "sha256",
+    "digest": "1f0ca6d8b3109ab83afc3e409d53626659b8a233a908e477ac83017919339296",
+    "meaning": "Researcher primary metadata reference; not fetched by this preparation"
+  },
+  "artifacts": [
+    {
+      "id": "jdk",
+      "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_x64_linux_hotspot_21.0.13_9.tar.gz",
+      "bytes": 207858352,
+      "algorithm": "sha256",
+      "digest": "d7f5d5cf865a2902b70ff549b97586a7d3f234e016f041ab447ea740c7d66d1c",
+      "format": "tar",
+      "destination": "tools/jdk",
+      "expandedBytes": 805306368,
+      "singleFileBytes": 268435456,
+      "allowedHosts": [
+        "github.com",
+        "release-assets.githubusercontent.com"
+      ],
+      "redirects": 3
+    },
+    {
+      "id": "platform",
+      "url": "https://dl.google.com/android/repository/platform-37.0_r02.zip",
+      "bytes": 67281901,
+      "algorithm": "sha1",
+      "digest": "ed8ebf7f8822a4de5686d427f237d2fa30ff7410",
+      "format": "zip",
+      "destination": "tools/sdk/platforms",
+      "expandedBytes": 536870912,
+      "singleFileBytes": 268435456,
+      "allowedHosts": [
+        "dl.google.com"
+      ],
+      "redirects": 0
+    },
+    {
+      "id": "build-tools",
+      "url": "https://dl.google.com/android/repository/build-tools_r36_linux.zip",
+      "bytes": 63737259,
+      "algorithm": "sha1",
+      "digest": "b0b6376977657e8ad9b969bacf4093601da2c6fb",
+      "format": "zip",
+      "destination": "tools/sdk/build-tools/36.0.0",
+      "expandedBytes": 805306368,
+      "singleFileBytes": 268435456,
+      "allowedHosts": [
+        "dl.google.com"
+      ],
+      "redirects": 0
+    },
+    {
+      "id": "ndk",
+      "url": "https://dl.google.com/android/repository/android-ndk-r30-linux.zip",
+      "bytes": 738633529,
+      "algorithm": "sha1",
+      "digest": "5107f898313790e449e87eee2183d9a20602dee9",
+      "format": "zip",
+      "destination": "tools/sdk/ndk/30.0.16248370",
+      "expandedBytes": 4294967296,
+      "singleFileBytes": 536870912,
+      "allowedHosts": [
+        "dl.google.com"
+      ],
+      "redirects": 0
+    }
+  ],
+  "limits": {
+    "downloadSeconds": 1800,
+    "httpOperationSeconds": 30,
+    "chunkBytes": 1048576,
+    "archiveMembers": 200000,
+    "pathCharacters": 1024,
+    "linkTargetBytes": 4096,
+    "linkHops": 16,
+    "freeDiskBeforeAcquisition": 8589934592
+  },
+  "policy": [
+    "Fixed public HTTPS URLs, no authentication/cookies/proxy environment; cross-host redirect only declared JDK hosts",
+    "One fresh fetch/extract per artifact per root release; no resume, retry or overwrite",
+    "Google SHA1 is the published digest; measured SHA256 is separate new inventory evidence",
+    "No tools/JDK/SDK-manager/license operation or build executes during acquisition",
+    "Private fresh roots, checked archives and complete normalized trees; source checkout never written",
+    "Exact primary-metadata platform package platforms/android-37.0; no android-37 alias or silent SDK layout change"
+  ]
+}

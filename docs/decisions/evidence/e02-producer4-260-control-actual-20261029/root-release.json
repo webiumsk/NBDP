@@ -1,0 +1,49 @@
+{
+  "schema": "e02-root-one-use-producer4-260-control-release-v1",
+  "actor": "/root",
+  "issuedAt": "2026-10-28T23:13:52.217736+00:00",
+  "startAllowanceSeconds": 120,
+  "candidate": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-final-bindings-preparation-r1/candidate.json",
+    "bytes": 4722,
+    "sha256": "fd0d5c0b509c7f4fa85aa1b1b06ff893680d227599e84938e9c18da0bd93f34b"
+  },
+  "concreteReviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-260-control-actual-20261029/concrete-qa.json",
+      "bytes": 399,
+      "sha256": "0769e46a93df742085f5406e3a88bab663dd0d1b60fb4c02b46eec339673742d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-260-control-actual-20261029/concrete-security.json",
+      "bytes": 411,
+      "sha256": "ed565126688ab2445da864767ad77c82310ce20791546b1214375718d023e720"
+    }
+  ],
+  "exactRequest": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-260-control-actual-20261029/exact-request.json",
+    "bytes": 523,
+    "sha256": "057dc748a6f8fd36d66330934244374167f84d577f4efbede59253eeac8879bd"
+  },
+  "issuedAckCandidate": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-final-bindings-preparation-r1/root-ack.UNISSUED.json",
+    "bytes": 5516,
+    "sha256": "59896c68718e0c341c8c8e7034ff7e8f6870748368deabe197c672375b76dedc"
+  },
+  "installedAckPath": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-preparation-r1/source4/coordinator-acknowledgement.json",
+  "scope": "ONE_CURRENT_SOURCE4_TEN_SELECTED_PURE_CONTROL_GROUPS_ONLY",
+  "modelsDefined": 260,
+  "maximumExecutions": 1,
+  "noRetry": true,
+  "limits": {
+    "controllerSeconds": 1200,
+    "outerKillSeconds": 1203,
+    "sharedSnapshotPoolSeconds": 480,
+    "childSeconds": 60,
+    "childReapSeconds": 3
+  },
+  "helperExecutionsAuthorized": 0,
+  "ordinaryRoleExecutionsAuthorized": 0,
+  "executionAuthorized": true,
+  "originalArchitectureAndCanonicalGatesUnchanged": true
+}

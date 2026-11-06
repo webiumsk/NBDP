@@ -1,0 +1,22 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 63s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_parent_allocation.py -v",
+      "workdir": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 20000
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "05d512",
+      "wall_time_seconds": 0.199588704,
+      "exit_code": 0,
+      "original_token_count": 476,
+      "output": "test_attempt65_refused (__main__.ParentAllocationControls.test_attempt65_refused) ... ok\ntest_child_cannot_assign_capacity (__main__.ParentAllocationControls.test_child_cannot_assign_capacity) ... ok\ntest_controller_forced_lifecycle (__main__.ParentAllocationControls.test_controller_forced_lifecycle) ... ok\ntest_controller_nonnatural_exit (__main__.ParentAllocationControls.test_controller_nonnatural_exit) ... ok\ntest_duplicate_reply_copy_refused (__main__.ParentAllocationControls.test_duplicate_reply_copy_refused) ... ok\ntest_extra_unaccounted_ledger_file (__main__.ParentAllocationControls.test_extra_unaccounted_ledger_file) ... ok\ntest_fixture_writable_ledger_location (__main__.ParentAllocationControls.test_fixture_writable_ledger_location) ... ok\ntest_global_budget_not_expanded (__main__.ParentAllocationControls.test_global_budget_not_expanded) ... ok\ntest_missing_ledger_result (__main__.ParentAllocationControls.test_missing_ledger_result) ... ok\ntest_nonrefundable_slot (__main__.ParentAllocationControls.test_nonrefundable_slot) ... ok\ntest_positive_whole_parent_controller_join (__main__.ParentAllocationControls.test_positive_whole_parent_controller_join) ... ok\ntest_truncated_controller_stdout_eof (__main__.ParentAllocationControls.test_truncated_controller_stdout_eof) ... ok\ntest_wrong_current_source_binding (__main__.ParentAllocationControls.test_wrong_current_source_binding) ... ok\ntest_wrong_encoded_audit_charge (__main__.ParentAllocationControls.test_wrong_encoded_audit_charge) ... ok\ntest_wrong_helper_instance (__main__.ParentAllocationControls.test_wrong_helper_instance) ... ok\ntest_wrong_original_lease (__main__.ParentAllocationControls.test_wrong_original_lease) ... ok\ntest_wrong_slot_precharge (__main__.ParentAllocationControls.test_wrong_slot_precharge) ... ok\n\n----------------------------------------------------------------------\nRan 17 tests in 0.060s\n\nOK\n"
+    }
+  },
+  "polls": []
+}

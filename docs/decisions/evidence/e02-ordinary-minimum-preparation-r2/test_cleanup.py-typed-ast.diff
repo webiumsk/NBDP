@@ -1,0 +1,20 @@
+--- original/test_cleanup.py
++++ producer2/test_cleanup.py
+@@ -4476,7 +4476,7 @@
+                                   Constant(value='profileId'),
+                                   Constant(value='ordinaryRole')],
+                                 values=[
+-                                  Constant(value='e02-ordinary-minimum-role-runtime-plan-v1'),
++                                  Constant(value='e02-ordinary-minimum-role-runtime-plan-v2'),
+                                   Attribute(
+                                     value=Name(id='subject', ctx=Load()),
+                                     attr='SCOPE',
+@@ -4615,7 +4615,7 @@
+                                   Constant(value='ordinaryRole'),
+                                   Constant(value='windowId')],
+                                 values=[
+-                                  Constant(value='e02-ordinary-minimum-role-release-v1'),
++                                  Constant(value='e02-ordinary-minimum-role-release-v2'),
+                                   Constant(value=True),
+                                   Call(
+                                     func=Attribute(

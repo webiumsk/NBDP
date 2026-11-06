@@ -1,0 +1,32 @@
+{
+  "scope": "ONE_FIXED_ISOLATED_AMETHYST_BUILD_ONLY",
+  "reviewedTemplate": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/review-template.json",
+    "bytes": 8672,
+    "sha256": "64c44a328343b29330e179fa38e079f0f0346b8c43cfbf9f89534b1294caa520"
+  },
+  "materializerTemplate": "/Data/nbdp-e02-tooling-20261027/amethyst-build-r7/materializer/root-authorized-template.json",
+  "argv": [
+    "/usr/bin/env",
+    "-i",
+    "PATH=/usr/bin:/bin",
+    "LANG=C.UTF-8",
+    "LC_ALL=C.UTF-8",
+    "TZ=UTC",
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=3s",
+    "4197s",
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r7/materializer-source/materialize.py",
+    "--template-sha",
+    "64c44a328343b29330e179fa38e079f0f0346b8c43cfbf9f89534b1294caa520"
+  ],
+  "copyPolicy": "After concrete independent QA/security ACCEPT only, root exact bytes O_EXCL0600 + file/directory fsync; separate coordinator authorization",
+  "clockPolicy": "Materializer fills only two UTC fields now/+4200; outer4197+3 has different spawn bracket",
+  "interruption": "UNKNOWN until exact owned CID/journals reconciliation, never automatic retry",
+  "rootAuthorized": false,
+  "qualification": "Actual APK/source/input immutability/private key exclusion/cleanup independent DATA required; ordinary rows remain0"
+}

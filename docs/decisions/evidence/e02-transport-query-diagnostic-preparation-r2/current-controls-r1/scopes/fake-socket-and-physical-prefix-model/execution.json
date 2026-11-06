@@ -1,0 +1,68 @@
+{
+  "schema": "e02-transport-source2-pure-scope-execution-v1",
+  "actor": "/root/ordinary_api35_source",
+  "parentCoordinator": "/root",
+  "argv": [
+    "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+    "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/test_exchange_model.mjs"
+  ],
+  "cwd": "/home/peterhorvath/apps/bitcoin/NBDP",
+  "expectedCount": 27,
+  "startedUtc": "2026-10-24T06:58:24.067751+00:00",
+  "timeoutSeconds": 60,
+  "retentionBytes": {
+    "stdout": 1048576,
+    "stderr": 262144
+  },
+  "retentionMeaning": "POST_CAPTURE_FILE_PREFIX_LIMIT_NOT_STREAMING_MEMORY_CAP",
+  "pid": 4,
+  "exitCode": 0,
+  "signal": null,
+  "reaped": true,
+  "naturalExit": true,
+  "stdoutEOF": true,
+  "stderrEOF": true,
+  "forceRequested": false,
+  "forceReason": null,
+  "firstError": null,
+  "secondaryErrors": [],
+  "sourceUnchanged": true,
+  "observedCount": 27,
+  "countAndOutputShapeMatched": true,
+  "captureMatched": true,
+  "controlResultAcceptedByAuthor": false,
+  "independentResultReview": "PENDING_ACTUAL_OTHER_AGENTS",
+  "environment": {
+    "PATH": "/usr/bin:/bin",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "TMPDIR": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/scopes/fake-socket-and-physical-prefix-model/tmp"
+  },
+  "finishedUtc": "2026-10-24T06:58:25.824780+00:00",
+  "elapsedNanoseconds": 1756951519,
+  "observedStreamBytes": {
+    "stdout": 1516,
+    "stderr": 0
+  },
+  "truncated": {
+    "stdout": false,
+    "stderr": false
+  },
+  "stdout": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/scopes/fake-socket-and-physical-prefix-model/data.stdout",
+    "bytes": 1516,
+    "sha256": "fe8b9fd564aa6bbfcd5082b7198ab8bc514e0854f6753877b306bd1dad225293"
+  },
+  "stderr": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/scopes/fake-socket-and-physical-prefix-model/data.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "observedPartitions": {
+    "priorScopeCasesIncludingVersionedLateBehavior": 20,
+    "newFaultFamilies": 7
+  },
+  "state": "WRITES_STOPPED",
+  "result": "SCOPED_DATA_CAPTURE_MATCHED_PENDING_INDEPENDENT_REVIEW",
+  "meaning": "Synthetic DATA only; no primary/consumer/runtime/crypto/native/client execution or external/canonicalPASS, SDK or experiment authority."
+}

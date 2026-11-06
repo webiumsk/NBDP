@@ -1,0 +1,23 @@
+{
+  "schema": "e02-producer3-fixed-artifact-acceptance-contract-v1",
+  "state": "SOURCE_CONTRACT_ONLY_REAL_AMETHYST_DATA_ABSENT",
+  "amethyst": {
+    "schema": "nbdp-actual-rebuilt-amethyst-artifact-acceptance-v1",
+    "decision": "ACCEPT_REBUILT_AMETHYST_ARTIFACT_ONLY",
+    "artifactQualified": true,
+    "requiredSubjectJoin": "acceptance.subject == bindings.amethystProvenance; provenance.apk == bindings.amethystApk; binding decision equals fixed success"
+  },
+  "helper": {
+    "schema": "nbdp-actual-artifact-data-acceptance-v1",
+    "decision": "ACCEPT_REBUILT_HELPER_ARTIFACT_ONLY",
+    "artifactQualified": true,
+    "existingActualAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-clipboard-helper-rebuild-20261027-source2/actual-artifact/acceptance.json",
+      "bytes": 1075,
+      "sha256": "c322c5eaad333ccaf74301bac07ff2645978c2505c68b5cfdfa3dca95f6a0a5a"
+    }
+  },
+  "qualification": "is True checks exactbool; HOLD/FAIL/PARTIAL/NULL and truthy integer values rejected. Artifact acceptance never ordinary-client qualification.",
+  "authority": "Root task and actual independent security design confirmation; not acceptance of this implementation/SOURCE or an actual Amethyst artifact",
+  "realAmethystPinsStillNull": true
+}

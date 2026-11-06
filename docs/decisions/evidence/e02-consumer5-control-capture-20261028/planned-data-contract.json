@@ -1,0 +1,178 @@
+{
+  "schema": "e02-consumer5-planned-control-data-contract-v1",
+  "state": "NORMATIVE_PLANNED_FORMAT_NO_ACTUAL_139_DATA",
+  "actualExecutions": 0,
+  "execution": {
+    "schema": "e02-consumer5-current-control-capture-result-v1",
+    "requiredKeys": [
+      "schema",
+      "consumerSource",
+      "consumerPacket",
+      "captureSource",
+      "controlPlan",
+      "rootAcknowledgement",
+      "authors",
+      "operators",
+      "state",
+      "scopeCounts",
+      "expectedCounts",
+      "captures",
+      "outcomes",
+      "fault",
+      "elapsedNs",
+      "inputsBefore",
+      "inputsAfter",
+      "inputsUnchanged",
+      "exitCode",
+      "snapshotNotRaceFree",
+      "scope",
+      "outerApiOrigin",
+      "runtimeAuthorized",
+      "ordinaryRowsQualified",
+      "canonicalE02"
+    ],
+    "successState": "WRITES_STOPPED_PENDING_INDEPENDENT_DATA_QA_SECURITY",
+    "failureState": "FAILED_OR_UNQUALIFIED_NO_RETRY",
+    "expectedCounts": [
+      86,
+      36,
+      8,
+      9
+    ],
+    "scopeCounts": "Exactseparategroupsonlyaftereachactualverboseoutput/count/member/noskip/raw/childEOF/reap/ownership/sourcechecks",
+    "captures": "Exact capture_scope return journals from9465; mode-bearing stdout/stderr pins are typed legacy capture rows, not 3key aliases",
+    "captureKeys": [
+      "scope",
+      "argv",
+      "eof",
+      "elapsedNs",
+      "stdout",
+      "stderr",
+      "pipeEofScope",
+      "ownership",
+      "exitCode",
+      "reaped",
+      "fault",
+      "reapDeadlineMonotonicNs",
+      "groupClosure",
+      "groupClosureFault"
+    ],
+    "outcomeKeys": [
+      "scope",
+      "count",
+      "names",
+      "allOk"
+    ],
+    "snapshotRows": [
+      "path",
+      "bytes",
+      "sha256",
+      "mode"
+    ],
+    "noFloatResult": true,
+    "rawManifestSchema": "e02-consumer5-control-raw-artifact-manifest-v1"
+  },
+  "dataSubject": {
+    "schema": "e02-consumer5-current-control-data-subject-v1",
+    "requiredKeys": [
+      "schema",
+      "authors",
+      "operators",
+      "coordinator",
+      "state",
+      "consumerSource",
+      "captureSource",
+      "controlPlan",
+      "rootAcknowledgement",
+      "execution",
+      "originalToolOrigin",
+      "rawArtifactManifest",
+      "sourceReviews",
+      "captureReviews",
+      "countsSeparate",
+      "knownInputCount",
+      "inputsUnchanged",
+      "runtimeAuthorized",
+      "ordinaryRowsQualified",
+      "canonicalE02"
+    ],
+    "state": "WRITES_STOPPED_PENDING_INDEPENDENT_DATA_QA_SECURITY",
+    "sourceReviews": "OrderedQA/security3keypins, envelopes exact4keys role/session/decision/subject",
+    "captureReviews": "OrderedQA/security3keypins",
+    "countsSeparate": [
+      86,
+      36,
+      8,
+      9
+    ],
+    "knownInputCount": "Actualunique60knowninputs plus5methodleaves/currentexternalACK/reviews; deriveactualruntimecount,noSDK/fullclientclaim",
+    "runtimeAuthorized": false,
+    "ordinaryRowsQualified": 0,
+    "canonicalE02": "PARTIAL22_UNCHANGED"
+  },
+  "acceptance": {
+    "schema": "e02-consumer5-current-control-data-acceptance-v1",
+    "requiredKeys": [
+      "schema",
+      "actor",
+      "decision",
+      "subject",
+      "reviews",
+      "consumerSource",
+      "countsSeparate",
+      "runtimeAuthorized",
+      "ordinaryRowsQualified",
+      "canonicalE02"
+    ],
+    "actor": "/root",
+    "decision": "ACCEPT_CURRENT_CONSUMER5_86_36_8_9_DATA_ONLY",
+    "reviews": "OrderedlistQA/security3keypins; actual4keyreviewrecords exactsame decision/actualDATA subject anddistinctnonauthor/nonoperators",
+    "countsSeparate": [
+      86,
+      36,
+      8,
+      9
+    ],
+    "runtimeAuthorized": false,
+    "ordinaryRowsQualified": 0,
+    "canonicalE02": "PARTIAL22_UNCHANGED"
+  },
+  "rootRelease": {
+    "schema": "e02-consumer5-control-capture-root-ack-v1",
+    "template": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer5-control-capture-20261028/root-ack-template.json",
+      "bytes": 2322,
+      "sha256": "5db56f1f9f00af29a04c5792d58bbafdcb0e2edf3a4dfe8b174d3ff13aa2c9b5"
+    },
+    "actualGrant": null
+  },
+  "originalToolOrigin": {
+    "schema": "e02-actual-tool-custody-v1",
+    "requiredKeys": [
+      "schema",
+      "operator",
+      "launch",
+      "polls"
+    ],
+    "frameKeys": [
+      "toolName",
+      "actualArguments",
+      "unmodifiedResponse"
+    ],
+    "binding": "Exactall5requestfields+fullKILL297/noTZ/ACKdigesttokens fromfrozenJSON; directterminal0 ORsamegenuinesession+allpolls; nofakeinnerAPI/outerEOF/PID",
+    "actualRecord": null
+  },
+  "independentActors": "Unionallconsumer/capture/helper/root/source/DATAauthors+operatorsbeforeeveryreview; no selfapproval",
+  "currentConsumerSource": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r5/source2/subject.json",
+    "bytes": 13952,
+    "sha256": "bb99b3b11db70a19cd5b6266dbdea381d84bb7f1ccc9ed58a463f01120e20178"
+  },
+  "currentCaptureSource": {
+    "path": "/Data/nbdp-e02-tooling-20261027/consumer5-control-capture-preparation-r1/method-source.json",
+    "bytes": 2178,
+    "sha256": "61fa7f0165e790ce5e646cbcb8e7bff75713a45a0937f2e7e761f25999c7d6bb"
+  },
+  "actualDataSubject": null,
+  "actualDataAcceptance": null
+}

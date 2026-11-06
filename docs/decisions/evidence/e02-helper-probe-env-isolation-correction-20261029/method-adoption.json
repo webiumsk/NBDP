@@ -1,0 +1,52 @@
+{
+  "schema": "e02-root-helper-environment-isolation-source-method-v1",
+  "actor": "/root",
+  "decision": "AUTHORIZE_NARROW_VERSIONED_SOURCE6_ENVIRONMENT_REMOVAL_CORRECTION_ONLY",
+  "authors": [
+    "/root"
+  ],
+  "designContributors": [
+    "/root/collector_r5_fresh_qa_c05985fce1ea",
+    "/root/collector_r5_fresh_security_c05985fce1ea",
+    "/root/helper_env_removal_sources"
+  ],
+  "failedRunId": "774675cbeebc22ae6a87b8b20795f539",
+  "failedSubject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-actual/774675cbeebc22ae6a87b8b20795f539/gate--helper-subject.json",
+    "bytes": 3039,
+    "sha256": "add5550b60c250c8337b55ecf855df9500ca5bfa38cf242d3d90b22654ec6f25"
+  },
+  "failureEvidence": "Existing charged creation-intent.json and cli-3-stdout.raw prove exact declared image defaults plus overrides; the legacy forbidden-key predicate is incompatible with those defaults. No target start/injection occurred.",
+  "primaryEvidence": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-probe-env-removal-research-20261029/source-evidence.json",
+    "bytes": 4854,
+    "sha256": "b82963666bf351797777b57f683bc938431296ab6f8c7514254173621b048a72"
+  },
+  "selectedMethod": [
+    "Keep the exact cached image, guest Source8, guard bundle, isolation mounts/resources/network/custody/time/lease limits.",
+    "Declare the exact four removed image keys: ANDROID_HOME, ANDROID_SDK_ROOT, ANDROID_AVD_HOME, ANDROID_USER_HOME.",
+    "Use four bare --env KEY create flags only with every such KEY absent from the explicit Docker CLI child environment; a present empty CLI value is not absence.",
+    "Preserve exact stored Config.Env semantics: require all four authorized bare markers exactly once; reject unknown bare markers, duplicates, and every Android KEY=value including empty.",
+    "Remove the markers when deriving effective OCI process environment and preserve exact equality of all other configured values plus all existing SDK/UI forbidden-key checks; include ANDROID_USER_HOME in effective absence.",
+    "Preserve the legacy failure as an actual negative fixture by reference to existing charged files; do not make physical operational copies after F.",
+    "Version only affected controller/Host/test/constants metadata; retain the unchanged finite child and all guest8 bytes. Update fixed self/runtime path bindings explicitly.",
+    "Define focused exact-pinned-image, correct removal, omitted/reintroduced/empty/duplicate/unknown marker, wrong ordinary override, clean CLI environment and pre-start refusal/cleanup regressions; retain all prior guard coverage.",
+    "Model tests may read declared immutable actual failure/input files by pin. No target/code/import/model execution is authorized by SOURCE preparation."
+  ],
+  "runtimeSourceTarget": {
+    "controller": "NEW r6/controller.py",
+    "host": "NEW r6/host.py",
+    "finiteChild": "UNCHANGED r1/finite_child.py"
+  },
+  "independence": "All creators and design contributors must be excluded from the new independent source/control review pairs. An implementation author cannot approve their own security findings.",
+  "remainingGates": [
+    "Preserved negative DATA and independent review remain separate from source remediation.",
+    "Freeze full current Source6 and its dynamically derived complete model partition; obtain genuinely fresh independent QA/security.",
+    "One separate current full-model release, actual named control DATA and independent acceptance; no123 transfer.",
+    "Exact current environment/daemon semantics/input/byte-fit/concrete review and a fresh runId/lease/one-use helper release. No old grant reuse."
+  ],
+  "modelsExecuted": 0,
+  "helperExecutionsAuthorized": 0,
+  "ordinaryRoleExecutionsAuthorized": 0,
+  "executionAuthorized": false
+}

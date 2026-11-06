@@ -1,0 +1,68 @@
+{
+  "schema": "e02-producer4-owned-helper-probe-source-recipe-v1",
+  "actor": "/root/producer4_nonblocking_source",
+  "state": "SOURCE_RECIPE_ONLY_CONCRETE_NOT_PREPARED",
+  "target": [
+    "/usr/local/bin/node",
+    "/input/probe-guard-helper.mjs"
+  ],
+  "runtimeImage": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+  "environment": "Ownednetwork-nonecontainer with exact productionguest paths and pinned readonlyguard522 bundle. HostNode22.18 is syntaxparseronly, hostPy3.13 not probe/interpreter performance evidence.",
+  "guardExecutable": "/guard-python/lib/ld-linux-x86-64.so.2",
+  "guardArguments": [
+    "--inhibit-cache",
+    "--library-path",
+    "/guard-python/lib",
+    "/guard-python/bin/python3.11",
+    "-B",
+    "-P",
+    "-S",
+    "-s",
+    "/input/guard-helper.py",
+    "FRESH_INSTANCE",
+    "ROOT_LEASE_SHA",
+    "EXACT_HELPER_BYTES",
+    "EXACT_HELPER_SHA"
+  ],
+  "candidateHardCaps": {
+    "cpus": 1,
+    "memoryMiB": 1024,
+    "pids": 128,
+    "network": "none",
+    "sdkMounted": false,
+    "kvmExposed": false,
+    "android": false,
+    "relay": false
+  },
+  "scope": "64 actual fresh corechecks in one ownedhelper plus bounded10ms timer observations; no performance guarantee, clients, relay/backendcause or generalnonblockingfixture claim.",
+  "clocks": {
+    "commandSeconds": 55,
+    "cleanupReserveInsideCommandSeconds": 2,
+    "guardDecisionSeconds": 5,
+    "proposalOriginalLeaseSeconds": 60,
+    "maximumOriginalLeaseSeconds": 1800,
+    "originalObservationGapSeconds": 15
+  },
+  "requiredConcrete": {
+    "rootRelease": null,
+    "exactOwnedContainerName": null,
+    "outputDirectory": null,
+    "exactMounts": null,
+    "immutableInputInventory": null,
+    "originalLease": null,
+    "oneUseGrant": null,
+    "reviewedOuterRequest": null,
+    "independentQA": null,
+    "independentSecurity": null
+  },
+  "requireBeforeExecution": [
+    "Accepted exact producer4 SOURCE and meaningful pure controls",
+    "Exact current input/custody/image/readonlymount/resource/profile/Rootsubject review",
+    "Finite originalclock controller/cleanup using existing accepted ownershiphelpers",
+    "Separate one-use Root release; no stale role grant reuse"
+  ],
+  "helperExecutions": 0,
+  "modelExecutions": 0,
+  "roleExecutions": 0,
+  "ordinaryRowsQualified": 0
+}

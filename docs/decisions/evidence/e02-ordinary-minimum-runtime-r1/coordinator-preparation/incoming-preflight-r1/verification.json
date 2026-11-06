@@ -1,0 +1,104 @@
+{
+  "schema": "nbdp-minimum-current-input-verification-v1",
+  "actor": "/root",
+  "context": "SUPPORTED_HOST",
+  "role": "incoming",
+  "startedUtcNs": 1792819792398920340,
+  "finishedUtcNs": 1792819798854330228,
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/subject.json",
+    "bytes": 35766,
+    "sha256": "296acf346bb034bcb8becc22562494e5f37e78c3f78537d061e83455135315b4"
+  },
+  "configuration": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/proposed-incoming-run-config.json",
+    "bytes": 4138,
+    "sha256": "9403036b52608929f4be45a5998b6b134dfbdc9454887dcac9be0646848cce5e"
+  },
+  "sdkIndex": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-api35-fixture-preparation-r2/sdk-tree.json",
+    "bytes": 89738,
+    "sha256": "5c996f67fd8aba0ea618adc7f7f9e6a2c27c641cc95910deb07bdfa8a10562a8"
+  },
+  "sdkRegularFiles": 434,
+  "sdkHashModeMembershipMatched": true,
+  "apk": {
+    "path": "/tmp/nbdp-e02-android-artifact/source/amethyst/build/outputs/apk/fdroid/debug/amethyst-fdroid-debug.apk",
+    "bytes": 165860063,
+    "sha256": "5165a9f79326524c494108b8ab728fb173ac14fa16bf67ebbd86364c895e98b5"
+  },
+  "helper": {
+    "path": "/tmp/nbdp-e02-ordinary-client-v1/helper-build-20261023a/clipboard-capture.apk",
+    "bytes": 16787,
+    "sha256": "a680e513a9b36cab634620507b77bba36532ce13acb465a860c7bef60d23ec20"
+  },
+  "images": [
+    {
+      "argv": [
+        "/usr/bin/docker",
+        "--host",
+        "unix:///var/run/docker.sock",
+        "image",
+        "inspect",
+        "--format",
+        "{{.Id}}",
+        "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f"
+      ],
+      "exitCode": 0,
+      "stdout": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "/usr/bin/docker",
+        "--host",
+        "unix:///var/run/docker.sock",
+        "image",
+        "inspect",
+        "--format",
+        "{{.Id}}",
+        "sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82"
+      ],
+      "exitCode": 0,
+      "stdout": "sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82\n",
+      "stderr": ""
+    }
+  ],
+  "kvmReadWriteOpened": true,
+  "kvmVmCreated": false,
+  "actualOutput": "/tmp/nbdp-e02-ordinary-minimum-v1/runs/1c09035e6a7e469a9449cdfa9764725a",
+  "measuredFilesystemAncestor": "/tmp/nbdp-e02-ordinary-minimum-v1",
+  "filesystemDevice": 64513,
+  "availableDiskBytes": 9092468736,
+  "memAvailableBytes": 13668966400,
+  "affinityCpus": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "resourceRequirementsMet": true,
+  "roleGrantIssued": false,
+  "limits": [
+    "Read/hash/inspect/open-existing-device only; no Android guest, new Docker container, VM, relay, identity or experiment was started.",
+    "Current input/admission probe only, not minimum/peak or guest-health proof. Grant issuance requires a separate fresh resource measurement."
+  ]
+}

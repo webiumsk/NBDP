@@ -1,0 +1,89 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 1203s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/capture/capture.py --execute-once --root-ack-sha ac0ed148dd57978fbfde25df40882e701b8326ded298629323e4c6303e7e3507",
+      "workdir": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/capture",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2000,
+      "sandbox_permissions": "require_escalated",
+      "justification": "Môžem raz vykonať prijatých 266 syntetických kontrol E02 s výsledkami v izolovanom /Data adresári? Platí aktuálny Root ACK, pôvodné časové a vstupné limity a zákaz automatického opakovania."
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "89d77f",
+      "wall_time_seconds": 1.001854338,
+      "session_id": 31029,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "polls": [
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 31029,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "52db00",
+        "wall_time_seconds": 5.000859416,
+        "session_id": 31029,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 31029,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "a15cd3",
+        "wall_time_seconds": 5.001090504,
+        "session_id": 31029,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 31029,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "949715",
+        "wall_time_seconds": 5.000614691,
+        "session_id": 31029,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 31029,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "768017",
+        "wall_time_seconds": 0.000020355,
+        "exit_code": 0,
+        "original_token_count": 136,
+        "output": "{\"result\": {\"path\": \"/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/result.json\", \"bytes\": 28038, \"sha256\": \"c1838b55035c68024e26b4cd031ca3733247ca52a2a1a6bc6e7e0b0dda4fac7f\"}, \"rawManifest\": {\"path\": \"/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-current-artifacts-20261105-2804cbcefff388b9c01ca81df5cc0959/raw-artifact-manifest.json\", \"bytes\": 21625, \"sha256\": \"736eb8a45a90b52feb9c292f7e1538d97c39f6d9f53f2f8f5f1d5dcc2e9c4586\"}, \"exitCode\": 0}\n"
+      }
+    }
+  ]
+}

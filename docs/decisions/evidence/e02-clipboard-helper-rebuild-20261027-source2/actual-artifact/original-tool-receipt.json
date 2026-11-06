@@ -1,0 +1,32 @@
+{
+  "schema": "nbdp-original-helper-artifact-tool-api-v1",
+  "launch": {
+    "args": {
+      "cmd": "umask 077\nset -C\n/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=TERM --kill-after=5s 180s /usr/bin/prlimit --as=4294967296:4294967296 -- /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v3/build_helper.py /home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_clipboard_helper_rebuild_v3/helper-build-plan-effective-r2.json 92f3fd858a6efd88d262b812fb5eb53a8ee1e32097cc946f0866d3ae4905081d > /tmp/nbdp-helper-compile-capture-20261027/outer.stdout 2> /tmp/nbdp-helper-compile-capture-20261027/outer.stderr",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 1500
+    },
+    "result": {
+      "chunk_id": "cbb88b",
+      "wall_time_seconds": 1.00287018,
+      "session_id": 21761,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "completion": {
+    "args": {
+      "session_id": 21761,
+      "chars": "",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 1500
+    },
+    "result": {
+      "chunk_id": "13cd38",
+      "wall_time_seconds": 0.000013119,
+      "exit_code": 0,
+      "original_token_count": 0,
+      "output": ""
+    }
+  }
+}

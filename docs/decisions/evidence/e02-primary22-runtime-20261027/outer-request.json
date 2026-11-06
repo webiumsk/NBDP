@@ -1,0 +1,32 @@
+{
+  "argv": [
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=3s",
+    "597s",
+    "/usr/bin/python3.12",
+    "-I",
+    "-B",
+    "/tmp/nbdp-e02-primary-replay-20261027-preparation/launch.py",
+    "--plan-sha",
+    "977689700e5f5ff6f2b58b85d1f3fe915465afc1c316d3f0ab00a898f624deaf",
+    "--release",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-primary22-runtime-20261027/root-release.json",
+    "--release-sha",
+    "f334991aa61c760b20cc8cab5151994a8f48c6319a3487d53792aae1bba6e692"
+  ],
+  "cwd": "/tmp/nbdp-e02-primary-replay-20261027-preparation",
+  "environment": {
+    "PATH": "/usr/bin:/bin",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "TZ": "UTC"
+  },
+  "release": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-primary22-runtime-20261027/root-release.json",
+    "bytes": 1715,
+    "sha256": "f334991aa61c760b20cc8cab5151994a8f48c6319a3487d53792aae1bba6e692"
+  },
+  "startedUtcNs": 1793113212098685352,
+  "retryAuthorized": false
+}

@@ -1,0 +1,32 @@
+{
+  "actor": "/root",
+  "evidenceType": "ACTUAL_READ_ONLY_PATH_AND_MODE_DIAGNOSTIC_NO_CONTENT_REHASH",
+  "trees": [
+    {
+      "root": "/tmp/nbdp-e02-api35-fixture-r2/sdk",
+      "actualCount": 434,
+      "expectedCount": 434,
+      "sameSet": true,
+      "expectedStringSorted": true,
+      "actualOrderEqual": false,
+      "firstOrderDifference": {
+        "index": 349,
+        "actual": "/tmp/nbdp-e02-api35-fixture-r2/sdk/emulator/qemu/linux-x86_64/qemu-system-aarch64",
+        "expected": "/tmp/nbdp-e02-api35-fixture-r2/sdk/emulator/qemu-img"
+      },
+      "modeMismatches": []
+    },
+    {
+      "root": "/tmp/nbdp-e02-minimal-rs-v7/guard-python",
+      "actualCount": 522,
+      "expectedCount": 522,
+      "sameSet": true,
+      "expectedStringSorted": true,
+      "actualOrderEqual": true,
+      "firstOrderDifference": null,
+      "modeMismatches": []
+    }
+  ],
+  "roleGrantIssued": false,
+  "ordinaryRowsQualified": 0
+}

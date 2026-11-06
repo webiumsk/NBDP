@@ -1,0 +1,89 @@
+{
+  "schema": "e02-producer4-capture-final-binding-candidate-v1",
+  "author": "/root/r5_plan_fix",
+  "status": "READY_CANDIDATE_REQUIRES_INDEPENDENT_CONCRETE_REVIEW_AND_ROOT_RELEASE",
+  "captureSource": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-preparation-r1/source4/code-subject.json",
+    "bytes": 4759,
+    "sha256": "eff0594e20268670588e03948dd6bc7f9b14a6b91b55e7eb11e9ad11fe61e822"
+  },
+  "producerSource": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4-metadata-r1/subject.json",
+    "bytes": 30532,
+    "sha256": "34802f702c863e5cd81e865eec5de7736615ceffc683a8a9f9eb4192e857e66e"
+  },
+  "captureSourceAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-capture-source4-acceptance-20261028/acceptance.json",
+    "bytes": 1332,
+    "sha256": "59e8cf818cd5e367b85de5e63c86d84e6c88395f75d29187ecffa9601d1894c4"
+  },
+  "admissionDataAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-capture-admission21-canonical-r1-20261028/acceptance.json",
+    "bytes": 1955,
+    "sha256": "5c2cd0767fba10bf5196591887db61aa54566cec24ebe7cda38e248680ed9700"
+  },
+  "actorContext": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-final-bindings-preparation-r1/actor-context.json",
+    "bytes": 15939,
+    "sha256": "af627f8bb5fc276b2ba6dd50eda13b616578df1278300834748bf58148a0e204"
+  },
+  "inputManifest": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-final-bindings-preparation-r1/input-manifest.json",
+    "bytes": 1109695,
+    "sha256": "b64de51fbbe960f399526431b7c5fd543a83087b79515862675aa218c175acd5"
+  },
+  "executionPlan": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-final-bindings-preparation-r1/execution-plan.json",
+    "bytes": 118982,
+    "sha256": "a996b7fb56fe501359af8a585de815523e3aef1f615374a0e5b601a1c2282251"
+  },
+  "runtimeBindingCandidate": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-final-bindings-preparation-r1/runtime-bindings.CANDIDATE.json",
+    "bytes": 1208,
+    "sha256": "142db207ee88c2db286b0adedee36989232518340b24fae7bb8498771ce90603"
+  },
+  "projectedInstalledRuntimeBinding": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-preparation-r1/source4/runtime-bindings.json",
+    "bytes": 1208,
+    "sha256": "142db207ee88c2db286b0adedee36989232518340b24fae7bb8498771ce90603"
+  },
+  "rootAckUnissuedCandidate": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-final-bindings-preparation-r1/root-ack.UNISSUED.json",
+    "bytes": 5516,
+    "sha256": "59896c68718e0c341c8c8e7034ff7e8f6870748368deabe197c672375b76dedc"
+  },
+  "rootAckInstalledPath": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-preparation-r1/source4/coordinator-acknowledgement.json",
+  "originalRuntimeBindingPreserved": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-preparation-r1/source4/runtime-bindings.json",
+    "bytes": 689,
+    "sha256": "fc201d5d9fdccc6267411c706604c66702104ed0c6864fd51239497e82c33440"
+  },
+  "requestContract": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-preparation-r1/source4/request-template.json",
+    "bytes": 485,
+    "sha256": "4efffdc2c36e5488295ea52c4c1936952785f0732efb2046c4c24a7df41e4c88"
+  },
+  "outputParent": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e",
+  "outputParentMode": "0o700",
+  "runDirectoryAbsent": true,
+  "originalApiPath": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/original-tool-origin.json",
+  "assembledSibling": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/assembled",
+  "staticInputs": 2103,
+  "staticInputBytes": 3140387756,
+  "declaredRawTreeBytesFreshlyRevalidated": false,
+  "metadataInputsHashChecked": true,
+  "admissionModelsPreviouslyPassed": 21,
+  "targetControlsExecutedByRenderer": 0,
+  "helperExecutions": 0,
+  "ordinaryRoles": 0,
+  "actualGrant": null,
+  "actualApi": null,
+  "grantIssued": false,
+  "installationPerformed": false,
+  "originalFrozenCodeChanged": false,
+  "notes": [
+    "The UNISSUED ACK candidate intentionally contains executionAuthorized true for concrete review; it is not installed or issued.",
+    "Projected runtime descriptor is not claimed actual until Root installs and verifies exact candidate bytes.",
+    "Root alone creates actual ACK0600/O_EXCL, derives its actual SHA once and substitutes the exact request sentinel; no manual flags/TZ/TERM overrides."
+  ]
+}

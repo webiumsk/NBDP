@@ -1,0 +1,75 @@
+{
+  "schema": "e02-root-consumer-unbound-preparation-review-record-v1",
+  "recordedBy": "/root",
+  "entrypoint": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/entrypoint.UNBOUND.json",
+    "bytes": 2862,
+    "sha256": "82f905b4d20099f18c6b4218dfa5cfcbc134549e700e52f6cb62c2c9415d02d7"
+  },
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source/subject.json",
+    "bytes": 20272,
+    "sha256": "fbc839af74bdbb9886f52e4c29ebb594fcc54a36c83f4106bf22ced5aa2a2056"
+  },
+  "archive": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/source.UNBOUND.tar",
+    "bytes": 1177600,
+    "sha256": "0f8293cc238742118591abbd06113f7a0e558d26acfb3c7967fa5ce3ebf8b869"
+  },
+  "recommendation": "READY_FOR_LATER_COUPLED_PREPARATION_ONLY",
+  "reviewReports": [
+    {
+      "role": "qa",
+      "session": "/root/consumer_unbound_qa",
+      "materialCodeFindings": 0,
+      "independentPureTests": 77,
+      "partition": [
+        23,
+        54
+      ],
+      "nativeEvidence": [
+        "50de5b/0",
+        "668eb5/0",
+        "24774d/0"
+      ],
+      "recommendation": "Accept UNBOUND preparation for later coupling; final SOURCE/DATA acceptance remains unissued."
+    },
+    {
+      "role": "security",
+      "session": "/root/consumer_unbound_security",
+      "materialFindings": 0,
+      "nativeEvidence": [
+        "811d86/0",
+        "2681a2/0"
+      ],
+      "recommendation": "Ready for continued coupled preparation only; no final SOURCE, DATA, completed-basis or runtime authority."
+    }
+  ],
+  "verifiedDefinitionCounts": {
+    "code": 37,
+    "runtime": 16,
+    "groups": 13,
+    "definitions": 440,
+    "predecessorMethods": 352
+  },
+  "developmentEvidenceLimit": {
+    "severity": "LOW",
+    "reportedAuthorCases": 228,
+    "completeOriginalNativeFramesPreserved": false,
+    "independentQaCases": 77,
+    "canonicalCasesExecuted": 0,
+    "mayReplaceCanonicalData": false
+  },
+  "finalSelectorsNull": 6,
+  "finalSourceAcceptanceIssued": false,
+  "completedBasisIssued": false,
+  "runtimeAuthorized": false,
+  "executionAuthorized": false,
+  "requiredNextInputs": [
+    "Accepted current admission42 DATA",
+    "Genuine current286 DATA and Root acceptance",
+    "Root completed component basis and Source mapping verification",
+    "Final consumer coupled typed fixed-input closure and SOURCE QA/security",
+    "Canonical440 DATA, currentcompletion, two ordinary windows/five exports and final integration"
+  ]
+}

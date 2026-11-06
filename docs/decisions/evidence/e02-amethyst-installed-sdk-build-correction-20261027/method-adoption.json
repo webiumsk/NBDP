@@ -1,0 +1,41 @@
+{
+  "recordedBy": "/root",
+  "decision": "ADOPT_NARROW_GRADLE_TASK_EXCLUSION_FOR_SOURCE_PREPARATION_ONLY",
+  "negativeAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-actual-20261027/failure-acceptance.json",
+    "bytes": 3705,
+    "sha256": "f56932a850f6e149f0c3a39de3e980f3e3df40b6aadf3e04c59b05b69c73d1a1"
+  },
+  "authority": "Persistentuserauthorizedisolatedartifactfixes; exactscopecommand-only remediation, noarchitecture/gate/SDKpackageexpansion",
+  "oldAttemptPreserved": true,
+  "plannedOnlyArgvAdditions": [
+    "-x",
+    "spotlessApply",
+    "-x",
+    ":installGitHook"
+  ],
+  "reason": "RootinstallGitHook created2actualunplannedfiles; SpotlessApply iswrite-capableformattingnotrequiredforAPKcompilation. Noobservedoriginalbyte/modechangeinpriorattempt; do notclaimotherwise.",
+  "guardsPreserved": "Originalsourcefilebyte/mode equality and unplannedoutputallowlist stayunchanged; sameSDK/JDK/sourcearchive/UID1000/readonlymount/resources/times/floor/cleanup.",
+  "primaryEvidence": [
+    {
+      "url": "https://github.com/gradle/gradle/blob/a927be5e08efe79e0b87ada06c762dde6bb9f8b8/subprojects/core/src/main/java/org/gradle/execution/selection/DefaultBuildTaskSelector.java#L62",
+      "type": "PINNED_IMPLEMENTATION_SOURCE",
+      "claim": "Gradle9.8 bareexcludednameincludesdefaultproject/subprojects; qualifiedpathselectsroot"
+    },
+    {
+      "url": "https://github.com/gradle/gradle/blob/a927be5e08efe79e0b87ada06c762dde6bb9f8b8/subprojects/core/src/main/java/org/gradle/execution/DefaultTaskSelector.java#L49",
+      "type": "PINNED_IMPLEMENTATION_SOURCE",
+      "claim": "Exclusionfilter matchesnamedtask withinselectedhierarchy"
+    },
+    {
+      "url": "https://github.com/diffplug/spotless/blob/gradle/8.10.3/plugin-gradle/src/main/java/com/diffplug/gradle/spotless/SpotlessExtensionImpl.java#L80",
+      "type": "VERSION_TAG_IMPLEMENTATION_SOURCE_NOT_COMMIT_PIN",
+      "claim": "Spotless aggregateapplydependsindividualapply; checkordering alone doesnotforceapply"
+    }
+  ],
+  "localPinnedSourceCommit": "e6f464a1179def75274512b3c5bab921de3bf3d8",
+  "upstreamReadOnlyResearch": "/root/primary22_path inspected19Gradle/settings/appliedscripts; onlypreBuild/fallback\u2192spotlessApply andamethystpreBuild\u2192installGitHook edges, nootherfoundbypass",
+  "evidenceLimits": "SOURCE-supported semantics, not executednewtaskgraph/build/sourceequality. Futureactualguardremainsdecisive; separateSOURCE/targetedDATA/concretegrant required.",
+  "buildExecutionAuthorized": false,
+  "actualNewGrantCreated": false
+}

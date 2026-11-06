@@ -1,0 +1,29 @@
+{
+  "schema": "e02-producer4-source2-review-disposition-v1",
+  "transcribedBy": "/root",
+  "sourceSubject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source2/subject.json",
+    "bytes": 26425,
+    "sha256": "e5f564bcdb3e945822924109a28db6c4f3dd35275b9266fc26b46d4bd697f74e"
+  },
+  "decisions": "Both HOLD; security object decision retained as labelled Root transcription.",
+  "findings": [
+    {
+      "id": "P4S2-SEC-01",
+      "severity": "MEDIUM",
+      "evidence": "exchange.mjs15-29/66 terminal observation24 precedes ctx.fail(original)29; fixture.phase165 can fatal(captureError) first. Timer86 similarly observes TIMER_FIRED before claiming RELAY_TIMEOUT.",
+      "impact": "Wrong primary service/guard-owner fault; Promise can reject original while owner retains capture error. No unauthorized success demonstrated.",
+      "required": "Claim/fence original exchange socket/send/timeout failure before fallible observation. Actual exchange+service integration under fake sockets/clocks/sinks: short write, ENOSPC, capacity exhausted; original identity primary, secondary retained, queued/inflight reject, lateOK no success, bounded cleanup."
+    },
+    {
+      "id": "P4S2-QA-01",
+      "severity": "MEDIUM",
+      "evidence": "fixture420-423 orderly final file adds normalOwnedHelperClose:true; EXPORT96/597-600 and DTO229-234 declare only observer,snapshotTiming,error,secondaryErrors.",
+      "impact": "Faithful strict consumer rejects actual orderly-close output.",
+      "required": "Closed normal/fatal union with exact flag/domain/branch and actual production emission/extraction tests; reject extras/wrong types/fatal forged normalclose. Preserve source2 bytes."
+    }
+  ],
+  "source1Corrections": "Otherwise source-consistent by both independent reviews; all206 definitions unexecuted. No SOURCE/DATA/runtime acceptance.",
+  "modelsExecuted": 0,
+  "runtimeReleased": false
+}

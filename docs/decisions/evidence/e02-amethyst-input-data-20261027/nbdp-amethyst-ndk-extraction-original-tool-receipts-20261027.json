@@ -1,0 +1,32 @@
+{
+  "schema": "nbdp-original-tool-api-receipts-v1",
+  "launch": {
+    "args": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/prlimit --as=4294967296:4294967296 /usr/bin/timeout --signal=TERM --kill-after=5s 1800s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /tmp/nbdp-amethyst-rebuild-20261026/preparation-r2/acquire.py extract ndk --plan-sha 82c8b19c869315f34151727469772f4336be0dc4d77b6fd07e4fe0332df48bf1",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2000
+    },
+    "result": {
+      "chunk_id": "1d0802",
+      "wall_time_seconds": 1.00145329,
+      "session_id": 7698,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "completion": {
+    "args": {
+      "session_id": 7698,
+      "chars": "",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 1200
+    },
+    "result": {
+      "chunk_id": "d075d9",
+      "wall_time_seconds": 0.000020654,
+      "exit_code": 0,
+      "original_token_count": 0,
+      "output": ""
+    }
+  }
+}

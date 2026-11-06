@@ -1,0 +1,974 @@
+Module(
+  body=[
+    Expr(
+      value=Constant(value='Prepared bounded SOURCE/DATA integration controls, no experiment execution.\n\nAST/source checks verify wiring not transport correctness. Original accepted\ncomponent controls carry only on byte-identical functions/modules.\n')),
+    Import(
+      names=[
+        alias(name='ast')]),
+    Import(
+      names=[
+        alias(name='hashlib')]),
+    Import(
+      names=[
+        alias(name='json')]),
+    ImportFrom(
+      module='pathlib',
+      names=[
+        alias(name='Path')],
+      level=0),
+    Import(
+      names=[
+        alias(name='unittest')]),
+    Assign(
+      targets=[
+        Name(id='HERE', ctx=Store())],
+      value=Attribute(
+        value=Call(
+          func=Attribute(
+            value=Call(
+              func=Name(id='Path', ctx=Load()),
+              args=[
+                Name(id='__file__', ctx=Load())]),
+            attr='resolve',
+            ctx=Load())),
+        attr='parent',
+        ctx=Load())),
+    Assign(
+      targets=[
+        Name(id='OLD', ctx=Store())],
+      value=BinOp(
+        left=Attribute(
+          value=Name(id='HERE', ctx=Load()),
+          attr='parent',
+          ctx=Load()),
+        op=Div(),
+        right=Constant(value='e02_ordinary_minimum_v1'))),
+    Assign(
+      targets=[
+        Name(id='DIAG', ctx=Store())],
+      value=BinOp(
+        left=Attribute(
+          value=Name(id='HERE', ctx=Load()),
+          attr='parent',
+          ctx=Load()),
+        op=Div(),
+        right=Constant(value='e02_transport_query_diagnostic_v2'))),
+    FunctionDef(
+      name='function_ast',
+      args=arguments(
+        args=[
+          arg(arg='path'),
+          arg(arg='name')]),
+      body=[
+        Assign(
+          targets=[
+            Name(id='tree', ctx=Store())],
+          value=Call(
+            func=Attribute(
+              value=Name(id='ast', ctx=Load()),
+              attr='parse',
+              ctx=Load()),
+            args=[
+              Call(
+                func=Attribute(
+                  value=Name(id='path', ctx=Load()),
+                  attr='read_text',
+                  ctx=Load()))])),
+        Return(
+          value=Call(
+            func=Attribute(
+              value=Name(id='ast', ctx=Load()),
+              attr='dump',
+              ctx=Load()),
+            args=[
+              Call(
+                func=Name(id='next', ctx=Load()),
+                args=[
+                  GeneratorExp(
+                    elt=Name(id='node', ctx=Load()),
+                    generators=[
+                      comprehension(
+                        target=Name(id='node', ctx=Store()),
+                        iter=Attribute(
+                          value=Name(id='tree', ctx=Load()),
+                          attr='body',
+                          ctx=Load()),
+                        ifs=[
+                          BoolOp(
+                            op=And(),
+                            values=[
+                              Call(
+                                func=Name(id='isinstance', ctx=Load()),
+                                args=[
+                                  Name(id='node', ctx=Load()),
+                                  Attribute(
+                                    value=Name(id='ast', ctx=Load()),
+                                    attr='FunctionDef',
+                                    ctx=Load())]),
+                              Compare(
+                                left=Attribute(
+                                  value=Name(id='node', ctx=Load()),
+                                  attr='name',
+                                  ctx=Load()),
+                                ops=[
+                                  Eq()],
+                                comparators=[
+                                  Name(id='name', ctx=Load())])])],
+                        is_async=0)])])],
+            keywords=[
+              keyword(
+                arg='include_attributes',
+                value=Constant(value=False))]))]),
+    ClassDef(
+      name='Producer2SourceBindings',
+      bases=[
+        Attribute(
+          value=Name(id='unittest', ctx=Load()),
+          attr='TestCase',
+          ctx=Load())],
+      body=[
+        FunctionDef(
+          name='test_all_three_accepted_modules_byte_identical',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            For(
+              target=Name(id='name', ctx=Store()),
+              iter=List(
+                elts=[
+                  Constant(value='exchange.mjs'),
+                  Constant(value='phase-writer.mjs'),
+                  Constant(value='dependency-tree.mjs'),
+                  Constant(value='dependency-tree.json'),
+                  Constant(value='lease_guard.py')],
+                ctx=Load()),
+              body=[
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Attribute(
+                          value=BinOp(
+                            left=Name(id='HERE', ctx=Load()),
+                            op=Div(),
+                            right=Name(id='name', ctx=Load())),
+                          attr='read_bytes',
+                          ctx=Load())),
+                      Call(
+                        func=Attribute(
+                          value=BinOp(
+                            left=Name(id='DIAG', ctx=Load()),
+                            op=Div(),
+                            right=Name(id='name', ctx=Load())),
+                          attr='read_bytes',
+                          ctx=Load()))]))])]),
+        FunctionDef(
+          name='test_host_full_inventory_functions_identical',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            For(
+              target=Name(id='name', ctx=Store()),
+              iter=List(
+                elts=[
+                  Constant(value='dependency_relative'),
+                  Constant(value='dependency_snapshot'),
+                  Constant(value='verify_dependency_inventory')],
+                ctx=Load()),
+              body=[
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Name(id='function_ast', ctx=Load()),
+                        args=[
+                          BinOp(
+                            left=Name(id='HERE', ctx=Load()),
+                            op=Div(),
+                            right=Constant(value='supervisor.py')),
+                          Name(id='name', ctx=Load())]),
+                      Call(
+                        func=Name(id='function_ast', ctx=Load()),
+                        args=[
+                          BinOp(
+                            left=Name(id='DIAG', ctx=Load()),
+                            op=Div(),
+                            right=Constant(value='supervisor.py')),
+                          Name(id='name', ctx=Load())])]))])]),
+        FunctionDef(
+          name='test_preimport_and_end_dependency_boundaries_wired',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            Assign(
+              targets=[
+                Name(id='source', ctx=Store())],
+              value=Call(
+                func=Attribute(
+                  value=BinOp(
+                    left=Name(id='HERE', ctx=Load()),
+                    op=Div(),
+                    right=Constant(value='fixture.mjs')),
+                  attr='read_text',
+                  ctx=Load()))),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertLess',
+                  ctx=Load()),
+                args=[
+                  Call(
+                    func=Attribute(
+                      value=Name(id='source', ctx=Load()),
+                      attr='index',
+                      ctx=Load()),
+                    args=[
+                      Constant(value="verifyDependencyTree('/input/node_modules'")]),
+                  Call(
+                    func=Attribute(
+                      value=Name(id='source', ctx=Load()),
+                      attr='index',
+                      ctx=Load()),
+                    args=[
+                      Constant(value="await import('./transport.mjs')")])])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertIn',
+                  ctx=Load()),
+                args=[
+                  Constant(value="verifyDependencyTree('/input/node_modules',doc(p.dependencyTree.path),p.dependencyFiles);socket.end"),
+                  Name(id='source', ctx=Load())])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertIn',
+                  ctx=Load()),
+                args=[
+                  Constant(value="check();verifyDependencyTree('/input/node_modules',doc(p.dependencyTree.path),p.dependencyFiles);need(response.ok"),
+                  Name(id='source', ctx=Load())])),
+            Assign(
+              targets=[
+                Name(id='tree', ctx=Store())],
+              value=Call(
+                func=Attribute(
+                  value=Name(id='ast', ctx=Load()),
+                  attr='parse',
+                  ctx=Load()),
+                args=[
+                  Call(
+                    func=Attribute(
+                      value=BinOp(
+                        left=Name(id='HERE', ctx=Load()),
+                        op=Div(),
+                        right=Constant(value='supervisor.py')),
+                      attr='read_text',
+                      ctx=Load()))])),
+            For(
+              target=Name(id='name', ctx=Store()),
+              iter=List(
+                elts=[
+                  Constant(value='verify_config'),
+                  Constant(value='execute')],
+                ctx=Load()),
+              body=[
+                Assign(
+                  targets=[
+                    Name(id='fn', ctx=Store())],
+                  value=Call(
+                    func=Name(id='next', ctx=Load()),
+                    args=[
+                      GeneratorExp(
+                        elt=Name(id='n', ctx=Load()),
+                        generators=[
+                          comprehension(
+                            target=Name(id='n', ctx=Store()),
+                            iter=Attribute(
+                              value=Name(id='tree', ctx=Load()),
+                              attr='body',
+                              ctx=Load()),
+                            ifs=[
+                              BoolOp(
+                                op=And(),
+                                values=[
+                                  Call(
+                                    func=Name(id='isinstance', ctx=Load()),
+                                    args=[
+                                      Name(id='n', ctx=Load()),
+                                      Attribute(
+                                        value=Name(id='ast', ctx=Load()),
+                                        attr='FunctionDef',
+                                        ctx=Load())]),
+                                  Compare(
+                                    left=Attribute(
+                                      value=Name(id='n', ctx=Load()),
+                                      attr='name',
+                                      ctx=Load()),
+                                    ops=[
+                                      Eq()],
+                                    comparators=[
+                                      Name(id='name', ctx=Load())])])],
+                            is_async=0)])])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertTrue',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Name(id='any', ctx=Load()),
+                        args=[
+                          GeneratorExp(
+                            elt=BoolOp(
+                              op=And(),
+                              values=[
+                                Call(
+                                  func=Name(id='isinstance', ctx=Load()),
+                                  args=[
+                                    Name(id='n', ctx=Load()),
+                                    Attribute(
+                                      value=Name(id='ast', ctx=Load()),
+                                      attr='Call',
+                                      ctx=Load())]),
+                                Call(
+                                  func=Name(id='isinstance', ctx=Load()),
+                                  args=[
+                                    Attribute(
+                                      value=Name(id='n', ctx=Load()),
+                                      attr='func',
+                                      ctx=Load()),
+                                    Attribute(
+                                      value=Name(id='ast', ctx=Load()),
+                                      attr='Name',
+                                      ctx=Load())]),
+                                Compare(
+                                  left=Attribute(
+                                    value=Attribute(
+                                      value=Name(id='n', ctx=Load()),
+                                      attr='func',
+                                      ctx=Load()),
+                                    attr='id',
+                                    ctx=Load()),
+                                  ops=[
+                                    Eq()],
+                                  comparators=[
+                                    Constant(value='verify_dependency_inventory')])]),
+                            generators=[
+                              comprehension(
+                                target=Name(id='n', ctx=Store()),
+                                iter=Call(
+                                  func=Attribute(
+                                    value=Name(id='ast', ctx=Load()),
+                                    attr='walk',
+                                    ctx=Load()),
+                                  args=[
+                                    Name(id='fn', ctx=Load())]),
+                                is_async=0)])])]))])]),
+        FunctionDef(
+          name='test_complete_staged_modules_and_tree_pin',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            Assign(
+              targets=[
+                Name(id='tree', ctx=Store())],
+              value=Call(
+                func=Attribute(
+                  value=Name(id='ast', ctx=Load()),
+                  attr='parse',
+                  ctx=Load()),
+                args=[
+                  Call(
+                    func=Attribute(
+                      value=BinOp(
+                        left=Name(id='HERE', ctx=Load()),
+                        op=Div(),
+                        right=Constant(value='supervisor.py')),
+                      attr='read_text',
+                      ctx=Load()))])),
+            Assign(
+              targets=[
+                Name(id='fn', ctx=Store())],
+              value=Call(
+                func=Name(id='next', ctx=Load()),
+                args=[
+                  GeneratorExp(
+                    elt=Name(id='n', ctx=Load()),
+                    generators=[
+                      comprehension(
+                        target=Name(id='n', ctx=Store()),
+                        iter=Attribute(
+                          value=Name(id='tree', ctx=Load()),
+                          attr='body',
+                          ctx=Load()),
+                        ifs=[
+                          BoolOp(
+                            op=And(),
+                            values=[
+                              Call(
+                                func=Name(id='isinstance', ctx=Load()),
+                                args=[
+                                  Name(id='n', ctx=Load()),
+                                  Attribute(
+                                    value=Name(id='ast', ctx=Load()),
+                                    attr='FunctionDef',
+                                    ctx=Load())]),
+                              Compare(
+                                left=Attribute(
+                                  value=Name(id='n', ctx=Load()),
+                                  attr='name',
+                                  ctx=Load()),
+                                ops=[
+                                  Eq()],
+                                comparators=[
+                                  Constant(value='source_pins')])])],
+                        is_async=0)])])),
+            Assign(
+              targets=[
+                Name(id='names', ctx=Store())],
+              value=SetComp(
+                elt=Attribute(
+                  value=Name(id='n', ctx=Load()),
+                  attr='value',
+                  ctx=Load()),
+                generators=[
+                  comprehension(
+                    target=Name(id='n', ctx=Store()),
+                    iter=Call(
+                      func=Attribute(
+                        value=Name(id='ast', ctx=Load()),
+                        attr='walk',
+                        ctx=Load()),
+                      args=[
+                        Name(id='fn', ctx=Load())]),
+                    ifs=[
+                      BoolOp(
+                        op=And(),
+                        values=[
+                          Call(
+                            func=Name(id='isinstance', ctx=Load()),
+                            args=[
+                              Name(id='n', ctx=Load()),
+                              Attribute(
+                                value=Name(id='ast', ctx=Load()),
+                                attr='Constant',
+                                ctx=Load())]),
+                          Compare(
+                            left=Call(
+                              func=Name(id='type', ctx=Load()),
+                              args=[
+                                Attribute(
+                                  value=Name(id='n', ctx=Load()),
+                                  attr='value',
+                                  ctx=Load())]),
+                            ops=[
+                              Is()],
+                            comparators=[
+                              Name(id='str', ctx=Load())])])],
+                    is_async=0)])),
+            For(
+              target=Name(id='name', ctx=Store()),
+              iter=List(
+                elts=[
+                  Constant(value='exchange.mjs'),
+                  Constant(value='phase-writer.mjs'),
+                  Constant(value='capture-budget.mjs'),
+                  Constant(value='proxy-observer.mjs'),
+                  Constant(value='exchange-adapter.mjs'),
+                  Constant(value='dependency-tree.mjs'),
+                  Constant(value='dependency-tree.json')],
+                ctx=Load()),
+              body=[
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertIn',
+                      ctx=Load()),
+                    args=[
+                      Name(id='name', ctx=Load()),
+                      Name(id='names', ctx=Load())]))]),
+            Assign(
+              targets=[
+                Name(id='plan', ctx=Store())],
+              value=Call(
+                func=Attribute(
+                  value=Name(id='json', ctx=Load()),
+                  attr='loads',
+                  ctx=Load()),
+                args=[
+                  Call(
+                    func=Attribute(
+                      value=BinOp(
+                        left=Name(id='HERE', ctx=Load()),
+                        op=Div(),
+                        right=Constant(value='fixture-plan.json')),
+                      attr='read_bytes',
+                      ctx=Load()))])),
+            Assign(
+              targets=[
+                Name(id='raw', ctx=Store())],
+              value=Call(
+                func=Attribute(
+                  value=BinOp(
+                    left=Name(id='HERE', ctx=Load()),
+                    op=Div(),
+                    right=Constant(value='dependency-tree.json')),
+                  attr='read_bytes',
+                  ctx=Load()))),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Subscript(
+                    value=Name(id='plan', ctx=Load()),
+                    slice=Constant(value='dependencyTree'),
+                    ctx=Load()),
+                  Dict(
+                    keys=[
+                      Constant(value='path'),
+                      Constant(value='bytes'),
+                      Constant(value='sha256')],
+                    values=[
+                      Constant(value='/input/dependency-tree.json'),
+                      Call(
+                        func=Name(id='len', ctx=Load()),
+                        args=[
+                          Name(id='raw', ctx=Load())]),
+                      Call(
+                        func=Attribute(
+                          value=Call(
+                            func=Attribute(
+                              value=Name(id='hashlib', ctx=Load()),
+                              attr='sha256',
+                              ctx=Load()),
+                            args=[
+                              Name(id='raw', ctx=Load())]),
+                          attr='hexdigest',
+                          ctx=Load()))])]))]),
+        FunctionDef(
+          name='test_same_original_guard_invocation_body',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            FunctionDef(
+              name='body',
+              args=arguments(
+                args=[
+                  arg(arg='source'),
+                  arg(arg='name')]),
+              body=[
+                Assign(
+                  targets=[
+                    Name(id='text', ctx=Store())],
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='source', ctx=Load()),
+                      attr='read_text',
+                      ctx=Load()))),
+                Assign(
+                  targets=[
+                    Name(id='start', ctx=Store())],
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='text', ctx=Load()),
+                      attr='index',
+                      ctx=Load()),
+                    args=[
+                      BinOp(
+                        left=BinOp(
+                          left=Constant(value='function '),
+                          op=Add(),
+                          right=Name(id='name', ctx=Load())),
+                        op=Add(),
+                        right=Constant(value='(){'))])),
+                Assign(
+                  targets=[
+                    Name(id='end', ctx=Store())],
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='text', ctx=Load()),
+                      attr='index',
+                      ctx=Load()),
+                    args=[
+                      Constant(value='\n}'),
+                      Name(id='start', ctx=Load())])),
+                Return(
+                  value=Subscript(
+                    value=Name(id='text', ctx=Load()),
+                    slice=Slice(
+                      lower=Call(
+                        func=Attribute(
+                          value=Name(id='text', ctx=Load()),
+                          attr='index',
+                          ctx=Load()),
+                        args=[
+                          Constant(value='\n'),
+                          Name(id='start', ctx=Load())]),
+                      upper=Name(id='end', ctx=Load())),
+                    ctx=Load()))]),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Call(
+                    func=Name(id='body', ctx=Load()),
+                    args=[
+                      BinOp(
+                        left=Name(id='HERE', ctx=Load()),
+                        op=Div(),
+                        right=Constant(value='fixture.mjs')),
+                      Constant(value='guardCheck')]),
+                  Call(
+                    func=Name(id='body', ctx=Load()),
+                    args=[
+                      BinOp(
+                        left=Name(id='OLD', ctx=Load()),
+                        op=Div(),
+                        right=Constant(value='fixture.mjs')),
+                      Constant(value='check')])]))]),
+        FunctionDef(
+          name='test_frozen_oracles_and_exact_query_no_baseline_payload',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            For(
+              target=Name(id='name', ctx=Store()),
+              iter=List(
+                elts=[
+                  Constant(value='business-rumor.json'),
+                  Constant(value='chat-rumor.json')],
+                ctx=Load()),
+              body=[
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Attribute(
+                          value=BinOp(
+                            left=Name(id='HERE', ctx=Load()),
+                            op=Div(),
+                            right=Name(id='name', ctx=Load())),
+                          attr='read_bytes',
+                          ctx=Load())),
+                      Call(
+                        func=Attribute(
+                          value=BinOp(
+                            left=Name(id='OLD', ctx=Load()),
+                            op=Div(),
+                            right=Name(id='name', ctx=Load())),
+                          attr='read_bytes',
+                          ctx=Load()))]))]),
+            Assign(
+              targets=[
+                Name(id='source', ctx=Store())],
+              value=Call(
+                func=Attribute(
+                  value=BinOp(
+                    left=Name(id='HERE', ctx=Load()),
+                    op=Div(),
+                    right=Constant(value='fixture.mjs')),
+                  attr='read_text',
+                  ctx=Load()))),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertIn',
+                  ctx=Load()),
+                args=[
+                  Constant(value='const initial=T.wrap(rumors.business,from,spec.account)'),
+                  Name(id='source', ctx=Load())])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertIn',
+                  ctx=Load()),
+                args=[
+                  Constant(value='T.wrap(rumors.chat,from,B)'),
+                  Name(id='source', ctx=Load())])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertIn',
+                  ctx=Load()),
+                args=[
+                  Constant(value='T.wrap(rumors.business,from,A)'),
+                  Name(id='source', ctx=Load())])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertIn',
+                  ctx=Load()),
+                args=[
+                  Constant(value="exchange(null,{ids:[event.id],limit:1},stage.id+'-query')"),
+                  Name(id='source', ctx=Load())])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertNotIn',
+                  ctx=Load()),
+                args=[
+                  Constant(value='publish-frame.json'),
+                  Name(id='source', ctx=Load())]))]),
+        FunctionDef(
+          name='test_original_android_and_transport_limits',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            Assign(
+              targets=[
+                Name(id='old', ctx=Store())],
+              value=Call(
+                func=Attribute(
+                  value=Name(id='ast', ctx=Load()),
+                  attr='parse',
+                  ctx=Load()),
+                args=[
+                  Call(
+                    func=Attribute(
+                      value=BinOp(
+                        left=Name(id='OLD', ctx=Load()),
+                        op=Div(),
+                        right=Constant(value='supervisor.py')),
+                      attr='read_text',
+                      ctx=Load()))])),
+            Assign(
+              targets=[
+                Name(id='new', ctx=Store())],
+              value=Call(
+                func=Attribute(
+                  value=Name(id='ast', ctx=Load()),
+                  attr='parse',
+                  ctx=Load()),
+                args=[
+                  Call(
+                    func=Attribute(
+                      value=BinOp(
+                        left=Name(id='HERE', ctx=Load()),
+                        op=Div(),
+                        right=Constant(value='supervisor.py')),
+                      attr='read_text',
+                      ctx=Load()))])),
+            For(
+              target=Name(id='name', ctx=Store()),
+              iter=List(
+                elts=[
+                  Constant(value='CONFIG'),
+                  Constant(value='EMULATOR'),
+                  Constant(value='LIMITS'),
+                  Constant(value='ROLES'),
+                  Constant(value='RUNTIME'),
+                  Constant(value='RELAY'),
+                  Constant(value='PY'),
+                  Constant(value='LOG_OPTIONS')],
+                ctx=Load()),
+              body=[
+                FunctionDef(
+                  name='assignment',
+                  args=arguments(
+                    args=[
+                      arg(arg='tree')]),
+                  body=[
+                    Return(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='ast', ctx=Load()),
+                          attr='dump',
+                          ctx=Load()),
+                        args=[
+                          Call(
+                            func=Name(id='next', ctx=Load()),
+                            args=[
+                              GeneratorExp(
+                                elt=Attribute(
+                                  value=Name(id='n', ctx=Load()),
+                                  attr='value',
+                                  ctx=Load()),
+                                generators=[
+                                  comprehension(
+                                    target=Name(id='n', ctx=Store()),
+                                    iter=Attribute(
+                                      value=Name(id='tree', ctx=Load()),
+                                      attr='body',
+                                      ctx=Load()),
+                                    ifs=[
+                                      BoolOp(
+                                        op=And(),
+                                        values=[
+                                          Call(
+                                            func=Name(id='isinstance', ctx=Load()),
+                                            args=[
+                                              Name(id='n', ctx=Load()),
+                                              Attribute(
+                                                value=Name(id='ast', ctx=Load()),
+                                                attr='Assign',
+                                                ctx=Load())]),
+                                          Call(
+                                            func=Name(id='any', ctx=Load()),
+                                            args=[
+                                              GeneratorExp(
+                                                elt=BoolOp(
+                                                  op=And(),
+                                                  values=[
+                                                    Call(
+                                                      func=Name(id='isinstance', ctx=Load()),
+                                                      args=[
+                                                        Name(id='t', ctx=Load()),
+                                                        Attribute(
+                                                          value=Name(id='ast', ctx=Load()),
+                                                          attr='Name',
+                                                          ctx=Load())]),
+                                                    Compare(
+                                                      left=Attribute(
+                                                        value=Name(id='t', ctx=Load()),
+                                                        attr='id',
+                                                        ctx=Load()),
+                                                      ops=[
+                                                        Eq()],
+                                                      comparators=[
+                                                        Name(id='name', ctx=Load())])]),
+                                                generators=[
+                                                  comprehension(
+                                                    target=Name(id='t', ctx=Store()),
+                                                    iter=Attribute(
+                                                      value=Name(id='n', ctx=Load()),
+                                                      attr='targets',
+                                                      ctx=Load()),
+                                                    is_async=0)])])])],
+                                    is_async=0)])])],
+                        keywords=[
+                          keyword(
+                            arg='include_attributes',
+                            value=Constant(value=False))]))]),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Name(id='assignment', ctx=Load()),
+                        args=[
+                          Name(id='old', ctx=Load())]),
+                      Call(
+                        func=Name(id='assignment', ctx=Load()),
+                        args=[
+                          Name(id='new', ctx=Load())])]))]),
+            Assign(
+              targets=[
+                Name(id='limits', ctx=Store())],
+              value=Subscript(
+                value=Call(
+                  func=Attribute(
+                    value=Name(id='json', ctx=Load()),
+                    attr='loads',
+                    ctx=Load()),
+                  args=[
+                    Call(
+                      func=Attribute(
+                        value=BinOp(
+                          left=Name(id='HERE', ctx=Load()),
+                          op=Div(),
+                          right=Constant(value='fixture-plan.json')),
+                        attr='read_bytes',
+                        ctx=Load()))]),
+                slice=Constant(value='limits'),
+                ctx=Load())),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Name(id='limits', ctx=Load()),
+                  Subscript(
+                    value=Call(
+                      func=Attribute(
+                        value=Name(id='json', ctx=Load()),
+                        attr='loads',
+                        ctx=Load()),
+                      args=[
+                        Call(
+                          func=Attribute(
+                            value=BinOp(
+                              left=Name(id='OLD', ctx=Load()),
+                              op=Div(),
+                              right=Constant(value='fixture-plan.json')),
+                            attr='read_bytes',
+                            ctx=Load()))]),
+                    slice=Constant(value='limits'),
+                    ctx=Load())])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Subscript(
+                    value=Name(id='limits', ctx=Load()),
+                    slice=Constant(value='captureBytes'),
+                    ctx=Load()),
+                  Constant(value=16777216)])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Subscript(
+                    value=Name(id='limits', ctx=Load()),
+                    slice=Constant(value='networkTimeoutMilliseconds'),
+                    ctx=Load()),
+                  Constant(value=10000)]))])]),
+    If(
+      test=Compare(
+        left=Name(id='__name__', ctx=Load()),
+        ops=[
+          Eq()],
+        comparators=[
+          Constant(value='__main__')]),
+      body=[
+        Expr(
+          value=Call(
+            func=Attribute(
+              value=Name(id='unittest', ctx=Load()),
+              attr='main',
+              ctx=Load())))])])

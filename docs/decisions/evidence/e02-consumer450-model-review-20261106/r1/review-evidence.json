@@ -1,0 +1,59 @@
+{
+  "schema": "e02-root-current-consumer450-data-review-evidence-v1",
+  "actor": "/root",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer450-model-actual-20261106/r1/subject.json",
+    "bytes": 2741,
+    "sha256": "ccd33342e74e25f22dd9fd4cc8c6b2f069ce95b260624f3d711f88f5f3bfe3f5"
+  },
+  "acceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer450-model-review-20261106/r1/acceptance.json",
+    "bytes": 2820,
+    "sha256": "544dee3b5732a0869082212a3f07ab158c571496ad1c50e5c72c6690843207a6"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer450-model-review-20261106/r1/qa.json",
+      "bytes": 378,
+      "sha256": "8ca4e2bbc1358523763874c56846a97603cd572fda19daca88582441d3be33a9"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer450-model-review-20261106/r1/security.json",
+      "bytes": 390,
+      "sha256": "d41dc8aa32a0928a364122430f9782a9e84efbbe98a6a1996cb6ef0c8d84d5c7"
+    }
+  ],
+  "findings": [],
+  "qaNative": [
+    "1ceeb2/session36170\u2192bba0c8/0"
+  ],
+  "securityNative": [
+    "2122db/session87756\u2192bcee30/0",
+    "5b7182/0",
+    "b09011/0"
+  ],
+  "productionCompatibility": "Actual unchanged Source5 code profile and Source/DATA/execution/snapshot/manifest/13-MODEL5/named-output statements; future runtime/helper union excluded without fabricated activation.",
+  "verified": {
+    "modelsPassed": 450,
+    "groups": 13,
+    "nativeFrames": 38,
+    "namedOutputs": 450,
+    "rawManifestMembers": 49,
+    "protectedInputs": 1601,
+    "safeCurrentPhysicalInputsRechecked": 1599,
+    "historicalBodyReopensDuringReview": 0,
+    "sourceCount": 37,
+    "runtimeSourceCount": 16,
+    "sourceDataSubjectClosedKeys": 23,
+    "rootDataAcceptanceClosedKeys": 24,
+    "inputsBeforeAfterByteIdentical": true,
+    "modelReruns": 0
+  },
+  "focusedPostIssuanceQa": {
+    "native": "e79794/0",
+    "actualProductionRootDataStatementsAccepted": true,
+    "metadataReads": 11,
+    "rawSuiteRepeated": false
+  },
+  "runtimeAuthorized": false
+}

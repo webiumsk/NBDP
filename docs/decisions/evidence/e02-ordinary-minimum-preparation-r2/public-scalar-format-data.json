@@ -1,0 +1,31 @@
+{
+  "schema": "e02-producer2-public-scalar-format-data-v1",
+  "operation": "STDLIB_FIXED_PUBLIC_SCALAR_NIP19_FORMAT_ONLY",
+  "inputs": [
+    1,
+    2
+  ],
+  "values": {
+    "1": {
+      "scalarHex": "0000000000000000000000000000000000000000000000000000000000000001",
+      "nsec": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqsmhltgl"
+    },
+    "2": {
+      "scalarHex": "0000000000000000000000000000000000000000000000000000000000000002",
+      "nsec": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpqptcfk2"
+    }
+  },
+  "implementationSources": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/nostr-tools/lib/esm/nip19.js",
+      "bytes": 6052,
+      "sha256": "0fd1c924ea19cf4a7286b52a52c1ad3a800178c623f13f0ceb7e5dec06924af4"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules/@scure/base/index.js",
+      "bytes": 24445,
+      "sha256": "7ade170fdb1b949d44cf9ed58ebb62539a2f0be4f16a3eb0da68f39fcc3179c7"
+    }
+  ],
+  "crossCheck": "Exact existing scalar1 format DATA and unchanged actual driver scalar1/scalar2 operands; not crypto/runtime interoperability"
+}

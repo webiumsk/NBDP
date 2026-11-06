@@ -1,0 +1,29 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/request-policy.json
++++ /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/request-policy.json
+@@ -1,4 +1,5 @@
+ {
++  "actualAndExpectedBothUseCompleteCommandValidation": true,
+   "closed": true,
+   "dockerArgumentsOrEnvironment": false,
+   "executionAuthorized": false,
+@@ -22,10 +23,18 @@
+     "justification"
+   ],
+   "outerApiMetadataOnly": true,
++  "pollTypes": {
++    "chars": "Existing empty chars route and permitted fieldset unchanged",
++    "max_output_tokens": "Existing exact-int/count-cap guard unchanged",
++    "session_id": "Exact positive int; same previously established session",
++    "yield_time_ms": "Optional exact int; omission/default and prior clock allowances unchanged"
++  },
++  "rawOriginMutation": false,
+   "sandbox_permissions": "require_escalated",
+-  "schema": "e02-collector-actual-request7-policy-v1",
++  "schema": "e02-collector-actual-request7-typed-origin-policy-v2",
+   "shellTtyPrefixRuleRequireNewReviewedWholeShape": true,
+   "sourceAcceptance": null,
++  "terminalResponseSession": "Absent/null or exact int equal to the established yielded session",
+   "unknownExtrasAllowed": false,
+-  "wholeExpectedActualEquality": true
++  "wholeExpectedActualEquality": "Exact canonical encoded JSON bytes; preserves type distinctions"
+ }

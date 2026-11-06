@@ -1,0 +1,27 @@
+{
+  "schema": "nbdp-actual-staged-source-doc-whitespace-check-v1",
+  "actor": "/root",
+  "recordType": "Coordinator transcription of actual tool result, not provider-attested audit log.",
+  "argv": [
+    "git",
+    "-C",
+    "/tmp/nbdp-review-20261027",
+    "diff",
+    "--cached",
+    "--check",
+    "--",
+    "docs/PROJECT_STATE.md",
+    "docs/ROADMAP.md",
+    "experiments/prototypes"
+  ],
+  "toolChunkId": "8eb694",
+  "exitCode": 2,
+  "reportedFindings": [
+    {
+      "path": "experiments/prototypes/e02_ordinary_minimum_v2/fixture.mjs",
+      "line": 45,
+      "finding": "Trailing whitespace at the end of the frozen oracle-pin validation line."
+    }
+  ],
+  "meaning": "The frozen producer2 file remains byte-identical to its accepted subject/control evidence. No source edit or assertion waiver was made. This check failed and remains disclosed; no all-green claim."
+}

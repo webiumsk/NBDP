@@ -1,0 +1,1064 @@
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/EXPORT-CONTRACT.md
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/EXPORT-CONTRACT.md
+@@ -566,7 +566,7 @@
+ 
+ ### Closed terminal retention after original service/helper failure
+ 
+-Current SOURCE3 first claims the original proxy/exchange socket, send or timeout
++Current SOURCE4 first claims the original proxy/exchange socket, send or timeout
+ error, sets its local closed/firstFailure fence and cancels/fences its guard owner
+ and queued/inflight continuations BEFORE fallible error-clock sampling, phase,
+ outcome or queue work. Only these denial phases may follow that original claim:
+@@ -590,6 +590,42 @@
+ streams are closed, no phase row is admitted. Missing refusal retention on a
+ failed sink stays missing; it never changes the failed whole-window outcome.
+ 
++### Actual registered helper and service-control fault paths
++
++Current production registerHelperTerminalCallbacks binds the owned child's stderr
++`data`, stdout/stderr `end`, child `exit`/`close`/`error` and stdin `error` handlers.
++Regressions dispatch those actual handlers through fake child/stream events and
++the actual capture-budget/phase-writer functions. Naming six aliases which all
++call the same retention helper/phase is not coverage of six production paths.
++The guard-core DENY and service-control data/error paths likewise require their
++actual production response/registered callbacks in separate current controls.
++
++The private state records ended/stdoutEOF/stderrEOF/exitSeen/closeSeen from their
++actual paths. Known stderr/unexpected-stdoutEOF/abnormal-exit/invalid-close faults
++are claimed via bad(original) BEFORE framer/observation fallibility. On retention
++failure the corresponding helper-stderr-retention/helper-stdout-eof-retention/
++helper-exit-retention/helper-close-retention row is appended as exact {label,error}
++secondary evidence, then bad(secondary) is notified without replacing the original.
++Stderr EOF alone does not manufacture helper death. onClose executes in finally
++after close retention; controller normal close cannot establish a separate helper's
++EOF/exit/close history. No portable reaping or atomic process closure is claimed.
++
++Each local helper/core secondary collection retains at most64 rows, with label
++bounded to128 and error to2048 JavaScript string code units. This is a memory
++bound, not a new diagnostic/capture allowance or a claim of an exhaustive global
++error list after truncation. Combining local collections does not invent a shared
++64-row global count. Every retained encoded representation remains within the
++same adopted allocations and strict final observer union; no retry/repair/refund.
++
++The actual service-control oversized-data callback creates CONTROL_REQUEST_BOUND,
++claims/fences that original service/guard failure and only then calls the exact
++owned socket.destroy. A throwing destroy becomes a bounded secondary row labelled
++destroy-oversized-service-control; failure completion/owned cleanup still runs.
++The original error cannot be displaced by destroy, short-write, ENOSPC or exhausted
++retention. Late OK/callbacks cannot advance protocol actions or success evidence.
++This correction adds no ordinary-success phase, general post-terminal writer,
++worker/schema expansion, deadline extension or source/consumer gate waiver.
++
+ Exchange's additive `<label>-outcome.json` has exactly label,elapsedNanoseconds,
+ ack,received,eose,sentFrames,error:null|string,secondaryRetentionErrors:[{stage,
+ error:string}],observer:ObserverState. Required outcome retention failure rejects
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/PRODUCER4-CONTRACT.md
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/PRODUCER4-CONTRACT.md
+@@ -171,3 +171,28 @@
+ and closed secondary rows. Extra/wrong-typed flags and fatal forged normal-close
+ records reject. Existing nested reader/business/UI/export criteria stay intact.
+ All production-path regressions still have zero executions at SOURCE freeze.
++
++## SOURCE4 registered callback correction
++
++SOURCE3 remains HOLD. The actual service-control data registration creates the
++CONTROL_REQUEST_BOUND Error, synchronously claims/fences service and guard
++owners, then attempts exact owned socket destroy. Destroy failure is a contained
++secondary and the original cleanup continues; late data/OK is inert. Ordinary
++control errors use the actual registered error callback.
++
++Helper terminal wiring now lives in registerHelperTerminalCallbacks, called by
++the production child factory and by fake child/stream controls. STDERR, unexpected
++stdout EOF, nonzero exit and invalid close have distinct registered triggers,
++observable lifecycle state and original fault messages. Core denial goes through
++the real response parser. The18 prior alias-labelled shared-utility rows are
++superseded by18 distinct callback/response paths;3 actual oversized-control rows
++exercise throwing destroy and short/ENOSPC/exhausted retention. These are still
++memory-fake definitions, not executed helper lifecycle evidence.
++
++Core and helper retention errors use bounded collections (at most64 closed
++label/error rows each) that are included in the already specified fatal observer
++secondaryErrors. Those diagnostic representations compete within the same
++service proof allocation when retained. They grant no extra capture allowance,
++normal-success branch or crossprocess atomicity. Existing22 workers, schemas,
++original guard core/clocks/resources/partition and business/UI/export criteria
++remain unchanged. SOURCE4 requires new independent SOURCE and DATA review.
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/README.md
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/README.md
+@@ -1,36 +1,23 @@
+-# Producer4 SOURCE3 preparation
++# Producer4 SOURCE4 preparation
+ 
+-This is a separately owned, unexecuted SOURCE3 successor of the frozen producer4 SOURCE1 HOLD. Read
+-PRODUCER4-CONTRACT.md, guard-dto-contract.json and guard-effect-coverage.json.
+-The exact predecessor SOURCE and all14 failed ordinary attempts are preserved.
++This is the narrow successor of the preserved SOURCE1/SOURCE2/SOURCE3 HOLDs.
++The original SOURCE3 security positive is retained historically; its reliance
++was explicitly superseded by the additive HOLD. No preceding model DATA or
++runtime qualification transfers to this successor.
+ 
+-The new producer4 profile is e02-ordinary-minimum-rs-two-role-v3. It retains the
+-same synthetic accounts, five stages, exact oracles, original clocks, resource
+-limits, independent JS/Rust validation, client selection/export criteria and
+-four-container ownership/cleanup. Fresh role configurations do not grant a run.
++The actual registered service-control data callback now creates and claims the
++original CONTROL_REQUEST_BOUND fault before owned socket destroy. Cleanup
++failure is secondary. Actual helper stream/child registrations, core negative
++response and service-control error/data paths are exercised by distinct fake
++callback definitions, replacing prior label-only simulations.
+ 
+-Independent SOURCE review, meaningful current control DATA, actual owned-helper
+-clock/IO/lifecycle/latency evidence, versioned consumer/completion bindings and
+-concrete one-use Root release remain required. No helper, model, Node target,
+-SDK/native tool, service, Android window or client qualification has run here.
+-Node --check receipts are syntax preparation only. PARTIAL22 and all five
+-architectural blockers remain unchanged.
++Read PRODUCER4-CONTRACT.md, EXPORT-CONTRACT.md, guard-dto-contract.json,
++terminal-alias-audit.json and control-plan.json. The same22 workers, original
++lease core/clocks/resources,16MiB partition, normal/fatal schemas and unchanged
++business/UI/two-role/five-export requirements remain. No production SDK or
++architecture gate is approved here.
+ 
+-The anticipatory baselines retain material negative SOURCE findings. Root and
+-independent security adopted the8MiB+64x128KiB partition for SOURCE remediation;
+-its current implementation remains unreviewed and unexecuted. Runtime readiness
+-is false. Current CODE has22 operational source members.
+-
+-SOURCE3 corrects the actual APP/RELAY socket-error boundary so the original
+-socket fault is claimed and queues fenced before fallible observation. Six
+-production-boundary regressions use the actual guard/capture/cleanup functions
+-with fake sinks/commands. It also corrects the exact corrupted-stdout rejection,
+-22-worker membership/substitution checks and current closed export/DTO/supervisor
+-contracts. SOURCE1 files and both independent HOLD reviews remain preserved.
+-No adopted method, business/UI/five-export criterion or execution gate changes.
+-
+-SOURCE3 addresses SOURCE2 HOLD: known exchange, helper, guard and control terminal
+-aliases claim the original owner fault before fallible retention. The exact
+-normal/fatal final-observer union is emitted and validated by shared production
+-utilities. All SOURCE1/SOURCE2 bytes and reviews remain preserved; no model or
+-helper has run and no method/clock/capture/business/UI criterion is widened.
++All checks are definitions until separate Root release. Fixed Node --check,
++Python AST and JSON parsing are source preparation only. Models, helper, probe,
++Docker/SDK/native tools, ordinary roles and qualified rows remain0. Independent
++SOURCE/control DATA/current consumer/completion/concrete gates remain required.
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/archive-run-config.json
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/archive-run-config.json
+@@ -19,116 +19,116 @@
+   "windowId": "archive-a",
+   "account": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+   "peer": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
+-  "runId": "0f50cd9c465bc93507ff1f660890c60d",
++  "runId": "e9a8e270605e8bfd26a08637bb04d5eb",
+   "originalLeaseSeconds": 1800,
+   "sourceAndDependencyPins": [
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/supervisor.py",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/supervisor.py",
+       "bytes": 58020,
+       "sha256": "211c06f76625c59f2980ef3a9e3c57d03c5aca37474ae530837f728269eed0c9"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/lease_guard.py",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/lease_guard.py",
+       "bytes": 14846,
+       "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/android_driver.py",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/android_driver.py",
+       "bytes": 49174,
+       "sha256": "6db92e1232eaf88860ab39a0ba1d027c330c6ac0917ec530f18754d3e0e97d85"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/ui-plan.json",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/ui-plan.json",
+       "bytes": 1482,
+       "sha256": "5beed690b07722aaa6a4bb3115b3b62da1c8b079d581325f26ad53bd66727f3a"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/fixture.mjs",
+-      "bytes": 45050,
+-      "sha256": "b28e9304443d7e3eaa53e9d1de5f07e042a584bb3cfea0103bb09b12314a5f4f"
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/fixture.mjs",
++      "bytes": 45130,
++      "sha256": "7294668da0e4c1fe92efc11c9cc43eab8e3d1e5c1a83c9bed0d72a224463d256"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/fixture-plan.json",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/fixture-plan.json",
+       "bytes": 251668,
+-      "sha256": "1974d8c540bdda2f33eb54d4441589f152ba0758cf860946c69f54cda52f4fe8"
++      "sha256": "bfbabc2e4b2dcf9d08ec08ac6dccdf82cad91e97eacc80b70ddee7317f84324a"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/minimum-plan.json",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/minimum-plan.json",
+       "bytes": 1562,
+       "sha256": "f82b59a6fadf311da81916b85e8e9ec399ad94004e54c07fbc4cfbed46d9205c"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/business-rumor.json",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/business-rumor.json",
+       "bytes": 910,
+       "sha256": "8bb0efcf8cc5a503e8f653885503958520f1a069066e549cd60dec7128d25291"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/chat-rumor.json",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/chat-rumor.json",
+       "bytes": 384,
+       "sha256": "f796df4b3ad76f832248fb60bdfb0d134a830257e95c0559b44d4fce0a900dc5"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/exchange.mjs",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/exchange.mjs",
+       "bytes": 6662,
+       "sha256": "e3e962230a7adc84c495c23b0724ad6a1c8f366dd0e0376fc53cbaf00f1eb5dc"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/phase-writer.mjs",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/phase-writer.mjs",
+       "bytes": 2085,
+       "sha256": "bcfb3338d1ab8cbb20709f6add09a2e7be01a270f48271112e3aa3a76743cead"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/dependency-tree.mjs",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/dependency-tree.mjs",
+       "bytes": 2842,
+       "sha256": "0b574a14e591abc1908f4733908001d8ea1ab5698da8991e618ca26714eeded3"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/dependency-tree.json",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/dependency-tree.json",
+       "bytes": 35599,
+       "sha256": "0536b9b0f6a127e3e43fd19bf5df0e3110b5c437e1a2c22c76e1a3e8dcc4f07f"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/capture-budget.mjs",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/capture-budget.mjs",
+       "bytes": 8963,
+       "sha256": "7e75aa2e0fcf1233a5d04cb899bde1ae6ff8a581bb8f57747e9115bf0993e312"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/exchange-adapter.mjs",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/exchange-adapter.mjs",
+       "bytes": 1012,
+       "sha256": "4e03f6449defff4585b532572ca3f0ef254dc76f056079ce85c2266de9f50aef"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/proxy-observer.mjs",
+-      "bytes": 3584,
+-      "sha256": "ce40d630380491af6af3bc275ece224bc7087fe93833d8bbb7a6eeb4c2567a17"
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/proxy-observer.mjs",
++      "bytes": 4478,
++      "sha256": "fb17d34d3dea46c62bf29ed537684936b3a2871643b6d4fe3c16c88ffa37d0a1"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/guard-helper.py",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-helper.py",
+       "bytes": 6219,
+       "sha256": "743e0ed269445a4d59407336e399d1c7bd46c5337408b157e9ef85773e2157cf"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/guard-wire.mjs",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-wire.mjs",
+       "bytes": 1921,
+       "sha256": "8cf473b741d631f80ef785c86acf5caa9899d03206696a8f740db08878c02d8e"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/guard-client-core.mjs",
+-      "bytes": 7822,
+-      "sha256": "b317a7ad00027ffdb01320781eb6219faf38818b71b8e0cab4e2b6994ba3ad4e"
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-client-core.mjs",
++      "bytes": 8072,
++      "sha256": "14be5abb1ff953d2336e841e1364acdfd8275874ffed3aef88f9a9489fac1083"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/guard-client.mjs",
+-      "bytes": 10008,
+-      "sha256": "23db88e5b8156748cb38cbecdbd584d77607031eacd9eb556978764f7b1dba5d"
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-client.mjs",
++      "bytes": 9176,
++      "sha256": "1d4e99056ec8c16f9222cfebc060d171ee5e723748ac303d4d525dd7b43b5fc5"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/guard-transport-boundaries.mjs",
+-      "bytes": 2564,
+-      "sha256": "1bd950cf8acc7b22410dac255d826d48692ac641f04b3412174af450ae04050f"
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-transport-boundaries.mjs",
++      "bytes": 4978,
++      "sha256": "c4c5cda6107cdead8715da8bdba917a31ebabadc0249d8fba0b343a718f98068"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/capture-allocation.mjs",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/capture-allocation.mjs",
+       "bytes": 7437,
+       "sha256": "a86180100f6f4fee691bd177f557fbc3a4573ccc9d0f3f15ee66a32c1b8e57a7"
+     }
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/control-plan.json
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/control-plan.json
+@@ -56,13 +56,13 @@
+   "selectedJavaScriptDefinitions": [
+     {
+       "file": "test_guard_client.mjs",
+-      "expandedDefinitions": 120,
+-      "scope": "Actual guard/core/proxy/flow/exchange+servicebridge and known helper/guard/control terminal aliases withfake sockets/clocks/sinks; no realhelper/SDK/runtime"
++      "expandedDefinitions": 123,
++      "scope": "Actualexchange/servicebridge +distinctregisteredhelper/coreDENY/controlerror/data callbacks, pending/lateOK andactualsecondarycollection underfake sinks"
+     },
+     {
+       "file": "test_guard_transport_boundaries.mjs",
+-      "expandedDefinitions": 20,
+-      "scope": "Actualpureproductioncleanup/stderr/terminal boundaries withfakeclock/child"
++      "expandedDefinitions": 33,
++      "scope": "14ownedcleanup/signal definitions plus19actualregisteredhelper stream/child paths withfake emitters andactual budget/phasewriter"
+     },
+     {
+       "file": "test_capture_allocation.mjs",
+@@ -87,7 +87,7 @@
+     "Two genuine incoming/archive windows/five actualexports/wholeconsume/currentprimary/finalintegration"
+   ],
+   "originalGuardCoreByteIdentical": {
+-    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/lease_guard.py",
++    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/lease_guard.py",
+     "bytes": 14846,
+     "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+   },
+@@ -98,11 +98,13 @@
+   "helperExecutions": 0,
+   "roleExecutions": 0,
+   "clientRowsQualified": 0,
+-  "version": "SOURCE3",
++  "version": "SOURCE4",
+   "source1ControlDataTransferClaimed": false,
+   "source3TerminalAliasAudit": {
+-    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/terminal-alias-audit.json",
++    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/terminal-alias-audit.json",
+     "bytes": 2766,
+     "sha256": "f110833ba5c72972b9da813c5c5ab97a57a358d23a5316a242634157a7147848"
+-  }
++  },
++  "weakSource3AliasLabelsNotTransferred": true,
++  "selectedDefinitionCount": 260
+ }
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/fixture-plan.json
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/fixture-plan.json
+@@ -49,7 +49,7 @@
+       "path": "/input/rebuilt-artifact-bindings.json",
+       "bytes": 5086,
+       "sha256": "e5788952a6a1a99edb8a8fa7b0ddef4e3fabff6a7beb4b6b33143dc56789237d",
+-      "source": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/rebuilt-artifact-bindings.json"
++      "source": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/rebuilt-artifact-bindings.json"
+     }
+   },
+   "limits": {
+@@ -4989,13 +4989,13 @@
+   },
+   "oracles": {
+     "business": {
+-      "source": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/business-rumor.json",
++      "source": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/business-rumor.json",
+       "path": "/input/business-rumor.json",
+       "bytes": 910,
+       "sha256": "8bb0efcf8cc5a503e8f653885503958520f1a069066e549cd60dec7128d25291"
+     },
+     "chat": {
+-      "source": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/chat-rumor.json",
++      "source": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/chat-rumor.json",
+       "path": "/input/chat-rumor.json",
+       "bytes": 384,
+       "sha256": "f796df4b3ad76f832248fb60bdfb0d134a830257e95c0559b44d4fce0a900dc5"
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/fixture.mjs
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/fixture.mjs
+@@ -10,7 +10,7 @@
+ import {ALLOCATION,createByteAccount} from './capture-allocation.mjs';
+ import {createProductionGuard,productionSample} from './guard-client.mjs';
+ import {observedExchange} from './exchange-adapter.mjs';
+-import {createCallbackBoundary,observedUpstreamSend,proxyContinuationValid,flowContinuationValid,createProxySocketErrorBoundary,createServiceFaultBridge} from './proxy-observer.mjs';
++import {createCallbackBoundary,observedUpstreamSend,proxyContinuationValid,flowContinuationValid,createProxySocketErrorBoundary,createServiceFaultBridge,registerServiceControlFaultCallbacks} from './proxy-observer.mjs';
+ 
+ const HELPER_SOURCE_PIN={"path":"/input/guard-helper.py","bytes":6219,"sha256":"743e0ed269445a4d59407336e399d1c7bd46c5337408b157e9ef85773e2157cf"};
+ const ORIGINAL_GUARD_PIN={"path":"/input/lease_guard.py","bytes":14846,"sha256":"d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"};
+@@ -186,6 +186,7 @@
+   attempt('end-dependency-boundary',()=>verifyDependencyTree('/input/node_modules',doc(p.dependencyTree.path),p.dependencyFiles));
+   process.exitCode=2;
+   owner.shutdownAfterFailure(error).catch(failure=>{cleanupErrors.push({label:'helper-owned-drain',error:String(failure)});}).finally(()=>{
++   cleanupErrors.push(...owner.secondaryErrors());
+    attempt('observer-state-retention',()=>emitFinalObserverRecord({kind:'fatal',observer:phase.state(),error:String(firstFailure),secondaryErrors:cleanupErrors,put:putJSON}));
+    closeProofStreams(attempt);
+   });
+@@ -385,8 +386,8 @@
+  }
+  control=net.createServer({allowHalfOpen:true},socket=>{
+   controlSockets.add(socket);let b='',terminal=false;
+-  socket.on('close',()=>{terminal=true;controlSockets.delete(socket);});socket.on('error',fatal);
+-  socket.on('data',chunk=>{if(closed||terminal)return;b+=chunk.toString('utf8');if(Buffer.byteLength(b)>1024){terminal=true;socket.destroy();fatal(Error('CONTROL_REQUEST_BOUND'));}});
++  socket.on('close',()=>{terminal=true;controlSockets.delete(socket);});
++  registerServiceControlFaultCallbacks({socket,isClosed:()=>closed,getTerminal:()=>terminal,setTerminal:value=>{terminal=value;},getBuffer:()=>b,setBuffer:value=>{b=value;},fault:serviceFaultBridge});
+   socket.on('end',()=>callback(async()=>{
+    let acquired=false;try{
+     let q;
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/guard-client-core.mjs
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-client-core.mjs
+@@ -1,11 +1,13 @@
+ // Pure dependency-injected finite scheduler. Production effects are synchronous.
+ import {createHash} from 'node:crypto';
++import {appendRetentionSecondary} from './guard-transport-boundaries.mjs';
+ import {strictGuardJSON} from './guard-wire.mjs';
+ const sha=raw=>createHash('sha256').update(raw).digest('hex');
+ const need=(x,why)=>{if(!x)throw Error(why);};
+ const keys=(o,expected)=>o&&typeof o==='object'&&!Array.isArray(o)&&Object.keys(o).sort().join(',')===expected.sort().join(',');
+ const REPLY_KEYS=['schema','operation','instance','runId','leaseSha256','sequence','label','contextSha256','requestSha256','ok','clocks'];
+ export function createGuardClient({transport,clock,lease,leaseSha256,instance,observe=()=>{},onFatal=()=>{},ownerDeadlines=()=>[],isRevoked=()=>false}){
++ const retentionSecondary=[];
+  let epoch=0,firstFault=null,sequence=0,active=null,queue=[],closing=false,closed=false,queuedBytes=0;
+  const needLive=()=>{if(firstFault)throw firstFault;need(!closed&&!closing,'GUARD_OWNER_CLOSED');};
+  function record(name,fields){observe(name,{helperInstance:instance,...fields});}
+@@ -15,7 +17,7 @@
+   for(const item of pending){clock.clear(item.timer);item.reject(firstFault);}
+   // Fencing/rejection precedes observation and cancellation. Never enter queue.
+   try{onFatal(firstFault);}catch{} // Claim owner original fault BEFORE fallible terminal retention.
+-  try{record('GUARD_TERMINAL',{error:String(firstFault),epoch});}catch{}
++  try{record('GUARD_TERMINAL',{error:String(firstFault),epoch});}catch(error){appendRetentionSecondary(retentionSecondary,'guard-terminal-retention',error);}
+   try{transport.abort(firstFault);}catch{}
+   return firstFault;
+  }
+@@ -90,6 +92,6 @@
+  return {
+   run:(label,context,effect,{valid=()=>true,deadlines=[]}={})=>submit('CHECK',label,context,effect,valid,deadlines),
+   close:()=>{need(!active&&queue.length===0,'CLOSE_REQUIRES_ZERO_PENDING');return submit('CLOSE','owner-close',Buffer.alloc(0),()=>null,()=>closing,[]);},
+-  cancel:fatal,state:()=>({epoch,firstFault:firstFault===null?null:String(firstFault),pending:queue.length+(active?1:0),closed,closing,sequence})
++  cancel:fatal,secondaryErrors:()=>retentionSecondary.map(row=>({...row})),state:()=>({epoch,firstFault:firstFault===null?null:String(firstFault),pending:queue.length+(active?1:0),closed,closing,sequence})
+  };
+ }
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/guard-client.mjs
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-client.mjs
+@@ -5,7 +5,7 @@
+ import {createGuardClient} from './guard-client-core.mjs';
+ import {strictGuardJSON,createGuardFramer} from './guard-wire.mjs';
+ import {ALLOCATION,createAuditStaging} from './capture-allocation.mjs';
+-import {cleanupPlan,dispatchOwnedSignal,observeStderr,terminalValid,retainAfterFailure} from './guard-transport-boundaries.mjs';
++import {cleanupPlan,dispatchOwnedSignal,registerHelperTerminalCallbacks} from './guard-transport-boundaries.mjs';
+ const need=(x,s)=>{if(!x)throw Error(s);};
+ const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+ const GUARD_SHA='d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf';
+@@ -38,7 +38,8 @@
+  need(proofAccount&&typeof proofAccount.charge==='function'&&proofAccount.state().limit<=ALLOCATION.service-ALLOCATION.serviceHeader-ALLOCATION.serviceDiagnostics,'PREHELPER_OWNED_PROOF_ACCOUNT');
+  if(reservationIndex!==null)need(Number.isInteger(reservationIndex)&&reservationIndex>=1&&reservationIndex<=64&&proofAccount.state().limit===ALLOCATION.proof,'EXACT_ASSIGNED_CONTROLLER_SLOT');
+  const expected=process.env.NBDP_LEASE_SHA256,lease=originalLease(expected),instance=crypto.randomBytes(16).toString('hex');
+- let child=null,handlers=null,framer=createGuardFramer(),closedExpected=false,ended=false,exitSeen=false,closeSeen=false,stdoutEOF=false,stderrEOF=false;
++ let child=null,handlers=null,framer=createGuardFramer(),closedExpected=false;
++ const life={ended:false,exitSeen:false,closeSeen:false,stdoutEOF:false,stderrEOF:false,secondaryErrors:[]};
+  let observer=null,drainResolve=null,cleanupTimer=null,killTimer=null,failureDrain=null;
+  const configurationSha256=process.env.NBDP_MINIMUM_RUN_CONFIG_SHA256;
+  need(/^[0-9a-f]{64}$/.test(configurationSha256??''),'EXACT_EXTERNAL_CONFIGURATION_SHA');
+@@ -56,23 +57,16 @@
+    record('GUARD_HELPER_LAUNCH',{executable:'/guard-python/lib/ld-linux-x86-64.so.2',argv});
+    child=spawn('/guard-python/lib/ld-linux-x86-64.so.2',argv,{env:process.env,stdio:['pipe','pipe','pipe'],detached:false,shell:false});
+    record('GUARD_HELPER_CREATED',{pid:child.pid??null});
+-   child.on('error',bad);child.stdin.on('error',bad);
+    child.stdout.on('data',chunk=>{
+     try{
+-     need(!ended,'EXTRA_GUARD_STDOUT_AFTER_CLOSE');const raw=framer.accept(chunk);if(raw===null)return;
+-     const close=closedExpected;handlers.response(raw);if(close){ended=true;child.stdin.end();}
++     need(!life.ended,'EXTRA_GUARD_STDOUT_AFTER_CLOSE');const raw=framer.accept(chunk);if(raw===null)return;
++     const close=closedExpected;handlers.response(raw);if(close){life.ended=true;child.stdin.end();}
+     }catch(error){bad(error);}
+    });
+-   child.stderr.on('data',chunk=>observeStderr({record,bad,chunk}));
+-   child.stdout.on('end',()=>{stdoutEOF=true;const retain=()=>{framer.end();record('GUARD_HELPER_STDOUT_EOF',{});};if(!ended)retainAfterFailure({original:Error('UNEXPECTED_GUARD_STDOUT_EOF'),bad,retain});else try{retain();}catch(error){bad(error);}});
+-   child.stderr.on('end',()=>{stderrEOF=true;try{record('GUARD_HELPER_STDERR_EOF',{});}catch(e){bad(e);}});
+-   child.on('exit',(code,signal)=>{exitSeen=true;const retain=()=>record('GUARD_HELPER_EXIT',{code,signal});if(!ended||code!==0||signal!==null)retainAfterFailure({original:Error('GUARD_HELPER_UNEXPECTED_EXIT'),bad,retain});else try{retain();}catch(error){bad(error);}});
+-   child.on('close',(code,signal)=>{
+-    closeSeen=true;const retain=()=>record('GUARD_HELPER_CLOSE',{code,signal,stdoutEOF,stderrEOF,exitSeen});
+-    if(!terminalValid({ended,code,signal,stdoutEOF,stderrEOF,exitSeen}))retainAfterFailure({original:Error('GUARD_HELPER_LIFECYCLE_NEGATIVE'),bad,retain});else try{retain();}catch(error){bad(error);}
++   registerHelperTerminalCallbacks({child,state:life,record,bad,framer,onClose:()=>{
+     if(cleanupTimer)clearTimeout(cleanupTimer);if(killTimer)clearTimeout(killTimer);
+     if(drainResolve){const done=drainResolve;drainResolve=null;done();}
+-   });
++   }});
+   },
+   send(raw){
+    if(strictGuardJSON(raw.toString('utf8')).operation==='CLOSE')closedExpected=true;
+@@ -80,7 +74,7 @@
+    child.stdin.write(raw,error=>{if(error)bad(error);});
+   },
+   abort(error){
+-   if(!child||closeSeen)return;
++   if(!child||life.closeSeen)return;
+    // This exact ChildProcess handle owns signaling; no PID/group lookup.
+    try{child.stdin.end();}catch{}
+    const now=productionSample().Mono;
+@@ -89,35 +83,35 @@
+    const dispatch=signal=>dispatchOwnedSignal({sample:()=>productionSample().Mono,end,child,signal,record:(name,fields)=>record(name,{...fields,reason:String(error)})});
+    if(plan.signal===null){dispatch('SIGKILL');return;}
+    dispatch(plan.signal);
+-   if(plan.escalationDelayMs!==null&&!killTimer)killTimer=setTimeout(()=>{if(!closeSeen)dispatch('SIGKILL');},plan.escalationDelayMs);
++   if(plan.escalationDelayMs!==null&&!killTimer)killTimer=setTimeout(()=>{if(!life.closeSeen)dispatch('SIGKILL');},plan.escalationDelayMs);
+ 
+   }
+  };
+  const core=createGuardClient({transport,clock:{sample:productionSample,arm:setTimeout,clear:clearTimeout},lease,leaseSha256:expected,instance,observe:record,onFatal,ownerDeadlines:effectiveDeadlines,isRevoked:()=>{try{fs.lstatSync('/session/control/REVOKED');return true;}catch(error){if(error.code==='ENOENT')return false;throw error;}}});
+- return {...core,effectDeadlineMonoNs:effectiveDeadlines().reduce((a,b)=>a<b?a:b),
++ return {...core,secondaryErrors:()=>[...core.secondaryErrors(),...life.secondaryErrors].map(row=>({...row})),effectDeadlineMonoNs:effectiveDeadlines().reduce((a,b)=>a<b?a:b),
+   attachObserver(fn){need(observer===null&&typeof fn==='function','ONE_GUARD_OBSERVER');observer=fn;for(const row of audit.rows())fn(row.name,row.fields);},
+   async shutdownAfterFailure(error){
+    core.cancel(error);
+    if(failureDrain!==null)return await failureDrain;
+    failureDrain=(async()=>{
+-    if(!child||closeSeen)return;
++    if(!child||life.closeSeen)return;
+     const now=productionSample().Mono,end=cleanupDeadlines().reduce((a,b)=>a<b?a:b,lease.deadlineMonoNs);
+     if(end<=now)throw Error('OWNED_HELPER_DRAIN_DEADLINE_EXHAUSTED');
+     await new Promise((resolve,reject)=>{drainResolve=resolve;cleanupTimer=setTimeout(()=>reject(Error('OWNED_HELPER_DRAIN_NOT_OBSERVED')),Math.min(2000,Number((end-now)/1000000n)));});
+-    need(closeSeen&&exitSeen&&stdoutEOF&&stderrEOF,'ACTUAL_OWNED_HELPER_DRAIN_REQUIRED');
++    need(life.closeSeen&&life.exitSeen&&life.stdoutEOF&&life.stderrEOF,'ACTUAL_OWNED_HELPER_DRAIN_REQUIRED');
+    })();
+    return await failureDrain;
+   },
+   async finish(){
+    await core.close();
+-   if(!closeSeen)await new Promise((resolve,reject)=>{
++   if(!life.closeSeen)await new Promise((resolve,reject)=>{
+     drainResolve=resolve;
+     // Two seconds, within original owner deadline; terminal already closed to use.
+     const now=productionSample().Mono,deadlines=[...cleanupDeadlines(),lease.deadlineMonoNs],end=deadlines.reduce((a,b)=>a<b?a:b,now+2000000000n);
+     const ms=Number((end-now)/1000000n);if(ms<=0){transport.abort(Error('GUARD_CLEANUP_OWNER_DEADLINE'));reject(Error('GUARD_CLEANUP_OWNER_DEADLINE'));return;}
+     cleanupTimer=setTimeout(()=>{transport.abort(Error('GUARD_CLEANUP_DEADLINE'));reject(Error('GUARD_CLEANUP_DEADLINE'));},ms);
+    });
+-   need(core.state().firstFault===null&&stdoutEOF&&stderrEOF&&exitSeen&&closeSeen,'NATURAL_GUARD_HELPER_LIFECYCLE');return observer===null?audit.emit():null;
++   need(core.state().firstFault===null&&life.stdoutEOF&&life.stderrEOF&&life.exitSeen&&life.closeSeen,'NATURAL_GUARD_HELPER_LIFECYCLE');return observer===null?audit.emit():null;
+   }
+  };
+ }
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/guard-dto-contract.json
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-dto-contract.json
+@@ -141,7 +141,7 @@
+   "otherServiceProofLocations": "Existing Node-service proof files and derived accounting metadata use same8MiB share; no separate allowance.",
+   "controllerEmitPath": "createControllerStdoutEmitter consumes exact immutable bound encodings once; Booleanwrite return is backpressure, not bytecount; actual parentEOF/natural/capture remains required.",
+   "parentLedgerRoot": "Host role output/controller-audit-reservations outside every fixture-writable mount",
+-  "declarationRevision": "SOURCE3_CLOSED_NORMAL_FATAL_FINAL_OBSERVER_UNION",
++  "declarationRevision": "SOURCE4_ACTUAL_REGISTERED_CALLBACK_AND_ORIGINAL_CONTROL_FAULT_ORDERING",
+   "runtimeWorkerCount": 22,
+   "runtimeWorkerNames": [
+     "supervisor.py",
+@@ -281,7 +281,9 @@
+       "TIMER_FIRED"
+     ],
+     "helperFaultOrder": "Core onFatal precedes GUARD_TERMINAL observation; known STDERR/unexpectedEOF/exit/close calls bad(original) before fallible retention. Secondary observation/cleanup failure does not replace the original.",
+-    "noGenericPostTerminalWriter": true
++    "noGenericPostTerminalWriter": true,
++    "controlRequestBoundOrder": "Actual registered service-control data callback creates CONTROL_REQUEST_BOUND and synchronously claims/fences original service+guard owner BEFORE owned socket.destroy; throwing destroy is closed secondary evidence, fault completion and cleanup still run.",
++    "secondaryCollection": "Actual helper/core callback retention failure appends bounded exact {label,error} rows (local collection max64, label128/error2048 JavaScript code units) before bad(secondary). Original firstFault remains. Aggregate owner exposes core+helper collection copies; the64 bound is per local collection, not an invented global completeness claim. Encoding/writes still consume existing allocation."
+   },
+   "finalObserverRecordUnion": {
+     "selection": "normalOwnedHelperClose own-key present selects normal; absence selects fatal; unknown keys always reject",
+@@ -303,5 +305,41 @@
+     ],
+     "emission": "Builder inserts literal keys/flag/snapshot, validates before exactly one put(observer-final-state.json,value); write failure propagates, no retry/repair",
+     "normalFlagScope": "Actual owned helper orderly CLOSE only, not Popen/waitpid or whole-window/canonical qualification"
+-  }
++  },
++  "registeredHelperTerminalCallbacks": {
++    "productionUtility": "registerHelperTerminalCallbacks({child,state,record,bad,framer,onClose})",
++    "registrations": [
++      "child.stderr.data",
++      "child.stdout.end",
++      "child.stderr.end",
++      "child.exit",
++      "child.close",
++      "child.error",
++      "child.stdin.error"
++    ],
++    "privateStateFields": [
++      "ended",
++      "stdoutEOF",
++      "stderrEOF",
++      "exitSeen",
++      "closeSeen",
++      "secondaryErrors"
++    ],
++    "knownPrimaryCodes": {
++      "child.stderr.data": "GUARD_HELPER_STDERR",
++      "child.stdout.end before ended": "UNEXPECTED_GUARD_STDOUT_EOF",
++      "child.exit abnormal": "GUARD_HELPER_UNEXPECTED_EXIT",
++      "child.close invalid lifecycle": "GUARD_HELPER_LIFECYCLE_NEGATIVE"
++    },
++    "retentionLabels": [
++      "helper-stderr-retention",
++      "helper-stdout-eof-retention",
++      "helper-exit-retention",
++      "helper-close-retention"
++    ],
++    "stateObservation": "Only actual registered event path updates corresponding EOF/exit/close flags; known primary is claimed before framer/record fallibility. Stderr end alone is not fabricated helper death.",
++    "closeCompletion": "onClose runs in finally after close retention, even if retention fails; this is local callback cleanup, not Python waitpid/reap attestation.",
++    "controls": "Actual registered fake-child/stream event handlers under actual capture-budget/phase-writer short-write/ENOSPC/exhausted sinks; label-only retainAfterFailure aliases are not distinct path coverage."
++  },
++  "controlSocketCallbacks": "Production registerServiceControlFaultCallbacks handles actual socket data/error; oversized request claim/fence precedes owned destroy. Pending/inflight/lateOK checks use actual guard core in separate current controls. No extra phase/schema/stream or capacity is introduced."
+ }
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/guard-transport-boundaries.mjs
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-transport-boundaries.mjs
+@@ -31,15 +31,45 @@
+ }
+ 
+ // Known helper failure is primary before any fallible diagnostic/EOF retention.
+-export function retainAfterFailure({original,bad,retain}){
++export function retainAfterFailure({original,bad,retain,secondaryErrors=null,label='helper-retention'}){
+  try{bad(original);}catch{}
+- try{retain();}catch(error){const secondary=error instanceof Error?error:Error('HELPER_FAILURE_RETENTION_ERROR',{cause:error});try{bad(secondary);}catch{}}
++ try{retain();}catch(error){const secondary=error instanceof Error?error:Error('HELPER_FAILURE_RETENTION_ERROR',{cause:error});if(secondaryErrors!==null)appendRetentionSecondary(secondaryErrors,label,secondary);try{bad(secondary);}catch{}}
+  return false;
+ }
+-export function observeStderr({record,bad,chunk}){
+- return retainAfterFailure({original:Error('GUARD_HELPER_STDERR'),bad,retain:()=>record('GUARD_HELPER_STDERR',{rawBase64:Buffer.from(chunk).subarray(0,2048).toString('base64')})});
++export function observeStderr({record,bad,chunk,secondaryErrors=null}){
++ return retainAfterFailure({original:Error('GUARD_HELPER_STDERR'),bad,secondaryErrors,label:'helper-stderr-retention',retain:()=>record('GUARD_HELPER_STDERR',{rawBase64:Buffer.from(chunk).subarray(0,2048).toString('base64')})});
+ }
+ 
+ export function terminalValid({ended,code,signal,stdoutEOF,stderrEOF,exitSeen}){
+  return ended===true&&code===0&&signal===null&&stdoutEOF===true&&stderrEOF===true&&exitSeen===true;
+ }
++
++// Bounded secondary diagnostics; these are not a success or extra capture budget.
++export function appendRetentionSecondary(rows,label,error){
++ if(rows.length>=64)return false;
++ let message;try{message=String(error).slice(0,2048);}catch{message='UNPRINTABLE_RETENTION_ERROR';}
++ rows.push(Object.freeze({label:String(label).slice(0,128),error:message}));return true;
++}
++// ACTUAL registration used by production transport and memory-fake regressions.
++export function registerHelperTerminalCallbacks({child,state,record,bad,framer,onClose}){
++ child.on('error',bad);child.stdin.on('error',bad);
++ child.stderr.on('data',chunk=>observeStderr({record,bad,chunk,secondaryErrors:state.secondaryErrors}));
++ child.stdout.on('end',()=>{
++  state.stdoutEOF=true;const retain=()=>{framer.end();record('GUARD_HELPER_STDOUT_EOF',{});};
++  if(!state.ended)retainAfterFailure({original:Error('UNEXPECTED_GUARD_STDOUT_EOF'),bad,retain,secondaryErrors:state.secondaryErrors,label:'helper-stdout-eof-retention'});
++  else try{retain();}catch(error){bad(error);}
++ });
++ child.stderr.on('end',()=>{state.stderrEOF=true;try{record('GUARD_HELPER_STDERR_EOF',{});}catch(error){bad(error);}});
++ child.on('exit',(code,signal)=>{
++  state.exitSeen=true;const retain=()=>record('GUARD_HELPER_EXIT',{code,signal});
++  if(!state.ended||code!==0||signal!==null)retainAfterFailure({original:Error('GUARD_HELPER_UNEXPECTED_EXIT'),bad,retain,secondaryErrors:state.secondaryErrors,label:'helper-exit-retention'});
++  else try{retain();}catch(error){bad(error);}
++ });
++ child.on('close',(code,signal)=>{
++  state.closeSeen=true;const retain=()=>record('GUARD_HELPER_CLOSE',{code,signal,stdoutEOF:state.stdoutEOF,stderrEOF:state.stderrEOF,exitSeen:state.exitSeen});
++  try{
++   if(!terminalValid({ended:state.ended,code,signal,stdoutEOF:state.stdoutEOF,stderrEOF:state.stderrEOF,exitSeen:state.exitSeen}))retainAfterFailure({original:Error('GUARD_HELPER_LIFECYCLE_NEGATIVE'),bad,retain,secondaryErrors:state.secondaryErrors,label:'helper-close-retention'});
++   else try{retain();}catch(error){bad(error);}
++  }finally{try{onClose(code,signal);}catch(error){appendRetentionSecondary(state.secondaryErrors,'helper-close-hooks',error);try{bad(error);}catch{}}}
++ });
++}
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/incoming-run-config.json
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/incoming-run-config.json
+@@ -19,116 +19,116 @@
+   "windowId": "incoming-b",
+   "account": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
+   "peer": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+-  "runId": "ab6d370746284d6ec7c865038d42aa34",
++  "runId": "f0afd54dab0d41321e01e8502c07cd2b",
+   "originalLeaseSeconds": 1800,
+   "sourceAndDependencyPins": [
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/supervisor.py",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/supervisor.py",
+       "bytes": 58020,
+       "sha256": "211c06f76625c59f2980ef3a9e3c57d03c5aca37474ae530837f728269eed0c9"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/lease_guard.py",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/lease_guard.py",
+       "bytes": 14846,
+       "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/android_driver.py",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/android_driver.py",
+       "bytes": 49174,
+       "sha256": "6db92e1232eaf88860ab39a0ba1d027c330c6ac0917ec530f18754d3e0e97d85"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/ui-plan.json",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/ui-plan.json",
+       "bytes": 1482,
+       "sha256": "5beed690b07722aaa6a4bb3115b3b62da1c8b079d581325f26ad53bd66727f3a"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/fixture.mjs",
+-      "bytes": 45050,
+-      "sha256": "b28e9304443d7e3eaa53e9d1de5f07e042a584bb3cfea0103bb09b12314a5f4f"
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/fixture.mjs",
++      "bytes": 45130,
++      "sha256": "7294668da0e4c1fe92efc11c9cc43eab8e3d1e5c1a83c9bed0d72a224463d256"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/fixture-plan.json",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/fixture-plan.json",
+       "bytes": 251668,
+-      "sha256": "1974d8c540bdda2f33eb54d4441589f152ba0758cf860946c69f54cda52f4fe8"
++      "sha256": "bfbabc2e4b2dcf9d08ec08ac6dccdf82cad91e97eacc80b70ddee7317f84324a"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/minimum-plan.json",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/minimum-plan.json",
+       "bytes": 1562,
+       "sha256": "f82b59a6fadf311da81916b85e8e9ec399ad94004e54c07fbc4cfbed46d9205c"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/business-rumor.json",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/business-rumor.json",
+       "bytes": 910,
+       "sha256": "8bb0efcf8cc5a503e8f653885503958520f1a069066e549cd60dec7128d25291"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/chat-rumor.json",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/chat-rumor.json",
+       "bytes": 384,
+       "sha256": "f796df4b3ad76f832248fb60bdfb0d134a830257e95c0559b44d4fce0a900dc5"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/exchange.mjs",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/exchange.mjs",
+       "bytes": 6662,
+       "sha256": "e3e962230a7adc84c495c23b0724ad6a1c8f366dd0e0376fc53cbaf00f1eb5dc"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/phase-writer.mjs",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/phase-writer.mjs",
+       "bytes": 2085,
+       "sha256": "bcfb3338d1ab8cbb20709f6add09a2e7be01a270f48271112e3aa3a76743cead"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/dependency-tree.mjs",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/dependency-tree.mjs",
+       "bytes": 2842,
+       "sha256": "0b574a14e591abc1908f4733908001d8ea1ab5698da8991e618ca26714eeded3"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/dependency-tree.json",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/dependency-tree.json",
+       "bytes": 35599,
+       "sha256": "0536b9b0f6a127e3e43fd19bf5df0e3110b5c437e1a2c22c76e1a3e8dcc4f07f"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/capture-budget.mjs",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/capture-budget.mjs",
+       "bytes": 8963,
+       "sha256": "7e75aa2e0fcf1233a5d04cb899bde1ae6ff8a581bb8f57747e9115bf0993e312"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/exchange-adapter.mjs",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/exchange-adapter.mjs",
+       "bytes": 1012,
+       "sha256": "4e03f6449defff4585b532572ca3f0ef254dc76f056079ce85c2266de9f50aef"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/proxy-observer.mjs",
+-      "bytes": 3584,
+-      "sha256": "ce40d630380491af6af3bc275ece224bc7087fe93833d8bbb7a6eeb4c2567a17"
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/proxy-observer.mjs",
++      "bytes": 4478,
++      "sha256": "fb17d34d3dea46c62bf29ed537684936b3a2871643b6d4fe3c16c88ffa37d0a1"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/guard-helper.py",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-helper.py",
+       "bytes": 6219,
+       "sha256": "743e0ed269445a4d59407336e399d1c7bd46c5337408b157e9ef85773e2157cf"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/guard-wire.mjs",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-wire.mjs",
+       "bytes": 1921,
+       "sha256": "8cf473b741d631f80ef785c86acf5caa9899d03206696a8f740db08878c02d8e"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/guard-client-core.mjs",
+-      "bytes": 7822,
+-      "sha256": "b317a7ad00027ffdb01320781eb6219faf38818b71b8e0cab4e2b6994ba3ad4e"
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-client-core.mjs",
++      "bytes": 8072,
++      "sha256": "14be5abb1ff953d2336e841e1364acdfd8275874ffed3aef88f9a9489fac1083"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/guard-client.mjs",
+-      "bytes": 10008,
+-      "sha256": "23db88e5b8156748cb38cbecdbd584d77607031eacd9eb556978764f7b1dba5d"
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-client.mjs",
++      "bytes": 9176,
++      "sha256": "1d4e99056ec8c16f9222cfebc060d171ee5e723748ac303d4d525dd7b43b5fc5"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/guard-transport-boundaries.mjs",
+-      "bytes": 2564,
+-      "sha256": "1bd950cf8acc7b22410dac255d826d48692ac641f04b3412174af450ae04050f"
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-transport-boundaries.mjs",
++      "bytes": 4978,
++      "sha256": "c4c5cda6107cdead8715da8bdba917a31ebabadc0249d8fba0b343a718f98068"
+     },
+     {
+-      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/capture-allocation.mjs",
++      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/capture-allocation.mjs",
+       "bytes": 7437,
+       "sha256": "a86180100f6f4fee691bd177f557fbc3a4573ccc9d0f3f15ee66a32c1b8e57a7"
+     }
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/proxy-observer.mjs
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/proxy-observer.mjs
+@@ -1,3 +1,4 @@
++import {appendRetentionSecondary} from './guard-transport-boundaries.mjs';
+ // Small observation-only helpers; production caller retains original guards and
+ // original protocol actions. Fake callbacks/sinks are used by DATA definitions.
+ export function createCallbackBoundary({isClosed,healthy,fatal}){
+@@ -56,3 +57,18 @@
+   }
+  });
+ }
++// ACTUAL service socket registrations, shared with fake-socket regressions.
++export function registerServiceControlFaultCallbacks({socket,isClosed,getTerminal,setTerminal,getBuffer,setBuffer,fault}){
++ socket.on('data',chunk=>{
++  if(isClosed()||getTerminal())return;
++  const buffer=getBuffer()+chunk.toString('utf8');setBuffer(buffer);
++  if(Buffer.byteLength(buffer)<=1024)return;
++  const original=Error('CONTROL_REQUEST_BOUND');setTerminal(true);
++  const token=fault.claim(original); // Synchronous global/core fence BEFORE destroy.
++  const secondary=[];
++  try{socket.destroy();}
++  catch(error){appendRetentionSecondary(secondary,'destroy-oversized-service-control',error);}
++  finally{fault.complete(token,secondary);}
++ });
++ socket.on('error',original=>{const token=fault.claim(original);fault.complete(token,[]);});
++}
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/requirements-coverage.json
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/requirements-coverage.json
+@@ -960,7 +960,7 @@
+     "LOWinvalidwriterstickyfirstfault"
+   ],
+   "actualHelperProbeRecipe": {
+-    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/probe-source-recipe.json",
++    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/probe-source-recipe.json",
+     "bytes": 2314,
+     "sha256": "3c236054560935bf161fbbe4307a7c0d885753d1bbfa35a742d8a5b1dae592c9"
+   },
+@@ -977,5 +977,11 @@
+     "Known exchange/socket/send/timeout original service/guard fault claims beforefallible terminalretention; sharedproductionservicebridge",
+     "Core.onFatal beforeGUARD_TERMINAL; helperknownSTDERR/EOF/exit/close beforebadretention; controlcancelbeforecleanup",
+     "Actualclosednormal/fatal finalobserverunion, actualemission+extraction regressions; no genericJSONrelaxation"
++  ],
++  "source4Remediation": [
++    "Actualregisteredservicecontrol oversize claimsCONTROL_REQUEST_BOUND/core/globalowner beforeowned destroy; cleanupthrowissecondary and cannotescapeevent",
++    "Replace18same-utilitylabelcases withdistinctactualregisteredhelpercallbacks/coreDENY/controlsocketerror under3sinkfailures",
++    "Actualsecondarycollection asserted and includedfatalobserverwithclosedexistingrows, unchangedpartition",
++    "No newruntimeworkers/groups/methods orbusiness/UI/fiveexportcriteria"
+   ]
+ }
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/terminal-alias-audit.json
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/terminal-alias-audit.json
+@@ -1,5 +1,5 @@
+ {
+-  "schema": "e02-producer4-source3-terminal-alias-audit-v1",
++  "schema": "e02-producer4-source4-terminal-alias-audit-v1",
+   "author": "/root/producer4_nonblocking_source",
+   "scope": "Known terminal fault callback ordering only; unchanged originalcore/clocks/capture/criteria",
+   "aliases": [
+@@ -62,10 +62,23 @@
+   "newProductionRegressions": {
+     "exchangeAliases4TimesSinks3": 12,
+     "helperGuardControlAliases6TimesSinks3": 18,
+-    "existingProxyAPPRelayTimesSinks3": 6
++    "existingProxyAPPRelayTimesSinks3": 6,
++    "registeredOversizeControlSinks3": 3
+   },
+   "sourceOnly": true,
+   "modelsExecuted": 0,
+   "helperExecutions": 0,
+-  "roleExecutions": 0
++  "roleExecutions": 0,
++  "weakSource3LabelOnlyRowsSuperseded": true,
++  "actualRegisteredPaths": {
++    "stderr": "registerHelperTerminalCallbacks \u2192 child.stderr data \u2192 observeStderr",
++    "unexpectedEOF": "registered child.stdout end with endedfalse",
++    "nonzeroExit": "registered child exit(code1,null)",
++    "invalidClose": "registered child close(code1,null) missingnaturalEOF",
++    "coreDENY": "actual createGuardClient.response okfalse",
++    "controlError": "registered service socket error \u2192 actual bridge claim",
++    "controlOversize": "registered service socket data1025bytes \u2192 original CONTROL_REQUEST_BOUND claim before throwingdestroy"
++  },
++  "retentionSecondaries": "Actualcore guard-terminal-retention getter and registeredhelper state.secondaryErrors (eachbounded64 closedrows) are collected in fatal final observer, sameexistingproofbudget. No extra proof allowance.",
++  "coverageLimit": "Source definitions only; registered fakes are not livehelper/clock/SDK/client evidence."
+ }
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/test_guard_client.mjs
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/test_guard_client.mjs
+@@ -3,11 +3,11 @@
+ import crypto from 'node:crypto';
+ import {createGuardClient} from './guard-client-core.mjs';
+ import {strictGuardJSON,createGuardFramer} from './guard-wire.mjs';
+-import {proxyContinuationValid,flowContinuationValid,createProxySocketErrorBoundary,createServiceFaultBridge} from './proxy-observer.mjs';
++import {proxyContinuationValid,flowContinuationValid,createProxySocketErrorBoundary,createServiceFaultBridge,registerServiceControlFaultCallbacks} from './proxy-observer.mjs';
+ import {createCaptureBudget} from './capture-budget.mjs';
+ import {createPhaseWriter} from './phase-writer.mjs';
+ import {createByteAccount} from './capture-allocation.mjs';
+-import {cleanupPlan,dispatchOwnedSignal,retainAfterFailure,observeStderr} from './guard-transport-boundaries.mjs';
++import {cleanupPlan,dispatchOwnedSignal,retainAfterFailure,observeStderr,registerHelperTerminalCallbacks} from './guard-transport-boundaries.mjs';
+ 
+ import {exchange} from './exchange.mjs';
+ const NS=1000000000n,sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+@@ -171,13 +171,48 @@
+  await flushJobs();assert.equal(m.f.records.length,after);assert.equal(m.owner().error,expected);assert.equal(m.owner().cleanupCalls,1);
+  assert.equal(m.f.records.slice(after).some(row=>row.name==='GUARD_EXIT'&&row.fields.ok),false);
+ });
+-for(const alias of ['stderr','unexpected-eof','exit','close','guard-denial','control-error'])for(const mode of ['short-write','ENOSPC','exhausted-budget'])model('actual_known_owner_fault_'+alias+'_'+mode,async()=>{
++function fakeEventTarget(){return {handlers:Object.create(null),on(name,fn){(this.handlers[name]??=[]).push(fn);return this;},emit(name,...args){for(const fn of this.handlers[name]??[])fn(...args);}};}
++for(const alias of ['stderr','unexpected-eof','exit','close','guard-denial','control-error'])for(const mode of ['short-write','ENOSPC','exhausted-budget'])model('registered_production_owner_fault_'+alias+'_'+mode,async()=>{
+  const m=terminalIntegration(mode);m.holdReplies();
+- const inflight=m.f.run('known-inflight'),queued=m.f.run('known-queued');inflight.catch(()=>{});queued.catch(()=>{});const held=m.f.reply();m.armFailure();
+- const original=Error('ORIGINAL_'+alias);
+- retainAfterFailure({original,bad:error=>m.f.client.cancel(error),retain:()=>m.phase('GUARD_HELPER_EXIT',{alias,terminalRetention:true})});
+- await assert.rejects(inflight,error=>error===original);await assert.rejects(queued,error=>error===original);assert.equal(m.owner().error,original);assert.equal(m.owner().cleanupCalls,1);
+- const after=m.f.records.length;m.f.deliver(held);assert.equal(m.f.records.length,after);assert.deepEqual(m.signals,['SIGTERM']);
++ const inflight=m.f.run('known-inflight'),queued=m.f.run('known-queued');inflight.catch(()=>{});queued.catch(()=>{});const held=m.f.reply();
++ const child=fakeEventTarget();child.stdin=fakeEventTarget();child.stdout=fakeEventTarget();child.stderr=fakeEventTarget();
++ const state={ended:false,stdoutEOF:false,stderrEOF:false,exitSeen:false,closeSeen:false,secondaryErrors:[]};let closeHooks=0;
++ registerHelperTerminalCallbacks({child,state,record:(name,fields)=>m.phase(name,fields),bad:error=>m.f.client.cancel(error),framer:{end:()=>{}},onClose:()=>{closeHooks++;}});
++ assert.equal(child.handlers.exit.length,1);assert.equal(child.stdout.handlers.end.length,1);m.armFailure();
++ const expectedMessage={stderr:'GUARD_HELPER_STDERR','unexpected-eof':'UNEXPECTED_GUARD_STDOUT_EOF',exit:'GUARD_HELPER_UNEXPECTED_EXIT',close:'GUARD_HELPER_LIFECYCLE_NEGATIVE','guard-denial':'GUARD_RESPONSE_SHAPE','control-error':'ORIGINAL_CONTROL_ERROR'}[alias];
++ if(alias==='stderr')child.stderr.emit('data',Buffer.from('actual stderr event'));
++ if(alias==='unexpected-eof')child.stdout.emit('end');
++ if(alias==='exit')child.emit('exit',1,null);
++ if(alias==='close')child.emit('close',1,null);
++ if(alias==='guard-denial')m.f.deliver({...held,ok:false});
++ if(alias==='control-error'){
++  const socket=fakeEventTarget();socket.destroy=()=>{throw Error('should not destroy on ordinary error registration');};let terminal=false,buffer='';
++  registerServiceControlFaultCallbacks({socket,isClosed:()=>m.owner().closed,getTerminal:()=>terminal,setTerminal:value=>{terminal=value;},getBuffer:()=>buffer,setBuffer:value=>{buffer=value;},fault:m.bridge});
++  socket.emit('error',Error('ORIGINAL_CONTROL_ERROR'));
++ }
++ const original=m.owner().error;assert.equal(original.message,expectedMessage);
++ await assert.rejects(inflight,error=>error===original);await assert.rejects(queued,error=>error===original);
++ assert.equal(m.owner().cleanupCalls,1);assert.deepEqual(m.signals,['SIGTERM']);assert.equal(m.f.state().aborted,1);
++ const collected=[...state.secondaryErrors,...m.f.client.secondaryErrors(),...m.secondary];
++ assert(collected.some(row=>/SHORT|ENOSPC|CAPTURE|ALLOCATION/.test(String(row.error))));
++ if(alias==='stderr')assert(state.secondaryErrors.some(row=>row.label==='helper-stderr-retention'));
++ if(alias==='unexpected-eof'){assert(state.stdoutEOF);assert(state.secondaryErrors.some(row=>row.label==='helper-stdout-eof-retention'));}
++ if(alias==='exit'){assert(state.exitSeen);assert(state.secondaryErrors.some(row=>row.label==='helper-exit-retention'));}
++ if(alias==='close'){assert(state.closeSeen);assert.equal(closeHooks,1);assert(state.secondaryErrors.some(row=>row.label==='helper-close-retention'));}
++ if(alias==='guard-denial')assert(m.f.client.secondaryErrors().some(row=>row.label==='guard-terminal-retention'));
++ const after=m.f.records.length;m.f.deliver(held);assert.equal(m.f.records.length,after);assert.equal(m.owner().error,original);
++});
++for(const mode of ['short-write','ENOSPC','exhausted-budget'])model('registered_service_control_oversize_claims_before_throwing_destroy_'+mode,async()=>{
++ const m=terminalIntegration(mode);m.holdReplies();const inflight=m.f.run('control-inflight'),queued=m.f.run('control-queued');inflight.catch(()=>{});queued.catch(()=>{});const held=m.f.reply();
++ const socket=fakeEventTarget(),destroyError=Error('OWNED_DESTROY_FAILED');let terminal=false,buffer='',destroys=0;
++ socket.destroy=()=>{destroys++;assert(m.owner().closed);assert.equal(m.owner().error.message,'CONTROL_REQUEST_BOUND');assert.equal(m.f.client.state().pending,0);throw destroyError;};
++ registerServiceControlFaultCallbacks({socket,isClosed:()=>m.owner().closed,getTerminal:()=>terminal,setTerminal:value=>{terminal=value;},getBuffer:()=>buffer,setBuffer:value=>{buffer=value;},fault:m.bridge});
++ assert.equal(socket.handlers.data.length,1);m.armFailure();assert.doesNotThrow(()=>socket.emit('data',Buffer.alloc(1025,65)));
++ const original=m.owner().error;assert.equal(original.message,'CONTROL_REQUEST_BOUND');assert.equal(terminal,true);assert.equal(destroys,1);
++ await assert.rejects(inflight,error=>error===original);await assert.rejects(queued,error=>error===original);
++ assert.equal(m.owner().cleanupCalls,1);assert.deepEqual(m.signals,['SIGTERM']);assert(m.secondary.some(row=>row.label==='destroy-oversized-service-control'&&row.error.includes('OWNED_DESTROY_FAILED')));
++ assert(m.f.client.secondaryErrors().some(row=>/SHORT|ENOSPC|CAPTURE|ALLOCATION/.test(row.error)));
++ const after=m.f.records.length;m.f.deliver(held);socket.emit('data',Buffer.alloc(1025,66));assert.equal(destroys,1);assert.equal(m.f.records.length,after);assert.equal(m.owner().error,original);
+ });
+ // Every definition below executes only when this file receives a separate grant.
+ for(const {name,fn} of definitions){try{await fn();}catch(error){throw Error('MODEL '+name+': '+String(error),{cause:error});}}
+--- /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/test_guard_transport_boundaries.mjs
++++ /Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/test_guard_transport_boundaries.mjs
+@@ -1,7 +1,11 @@
+ // SOURCE definitions only; this file has not been imported or executed in preparation.
+ // Every child/event/clock/observer operand below is memory-only. No real helper or timer.
+ import assert from 'node:assert/strict';
+-import {cleanupPlan,dispatchOwnedSignal,observeStderr,terminalValid} from './guard-transport-boundaries.mjs';
++import {EventEmitter} from 'node:events';
++import {createCaptureBudget} from './capture-budget.mjs';
++import {createPhaseWriter} from './phase-writer.mjs';
++import {createByteAccount,ALLOCATION} from './capture-allocation.mjs';
++import {cleanupPlan,dispatchOwnedSignal,terminalValid,registerHelperTerminalCallbacks} from './guard-transport-boundaries.mjs';
+ export const definitions=[];
+ const model=(name,fn)=>definitions.push({name,fn});
+ const NS=1000000000n;
+@@ -58,32 +62,72 @@
+ model('owned_child_signal_false_or_throw_cannot_report_success',()=>{
+  for(const throwing of [false,true]){const f=fixture();f.child.kill=()=>{if(throwing)throw Error('OWNED_CHILD_SIGNAL_ERROR');return false;};assert.equal(f.dispatch('SIGKILL'),false);}
+ });
+-model('stderr_claims_terminal_fault_before_bounded_retention',()=>{
+- const rows=[],faults=[],order=[];assert.equal(observeStderr({record:(name,fields)=>{order.push('record');rows.push({name,fields});},bad:error=>{order.push('claim');faults.push(error);},chunk:Buffer.alloc(4096,65)}),false);
+- assert.deepEqual(order,['claim','record']);assert.equal(rows[0].name,'GUARD_HELPER_STDERR');assert.equal(Buffer.from(rows[0].fields.rawBase64,'base64').length,2048);assert.equal(faults.length,1);assert.equal(faults[0].message,'GUARD_HELPER_STDERR');
++// Actual registered helper handlers and actual budget/phase writer. Only the
++// child/streams/fs/clock callbacks are fakes; no copied handler implementation.
++function helperFixture({sink='healthy',original=null,framerError=null,ended=false}={}){
++ const child=new EventEmitter();child.stdout=new EventEmitter();child.stderr=new EventEmitter();child.stdin=new EventEmitter();
++ const state={ended,stdoutEOF:false,stderrEOF:false,exitSeen:false,closeSeen:false,secondaryErrors:[]},trace=[],records=[],writes=[],notified=[];
++ let first=original,closeCalls=0,framerEnds=0;
++ const account=createByteAccount(ALLOCATION.service-ALLOCATION.serviceHeader-ALLOCATION.serviceDiagnostics,'helper-retention');if(sink==='exhausted')account.charge(account.state().limit);
++ const fs={writeSync:(fd,raw)=>{trace.push('write');writes.push({fd,bytes:raw.length});if(sink==='ENOSPC')throw Error('MODEL_ENOSPC');return sink==='short'?raw.length-1:raw.length;}};
++ const budget=createCaptureBudget({fs,streams:{phase:1,proxy:2},limit:account.state().limit,account});
++ const phase=createPhaseWriter({fs:{writeSync:budget.writeSync},fd:1,clock:()=>1n,utc:()=> '2026-10-28T00:00:00.000Z',limit:account.state().limit});
++ const bad=error=>{trace.push('bad:'+error.message);notified.push(error);if(first===null)first=error;};
++ const record=(name,fields)=>{trace.push('record:'+name);records.push({name,fields});const row=phase(name,fields);budget.healthy();return row;};
++ const framer={end(){trace.push('framer.end');framerEnds++;if(framerError)throw framerError;}};
++ registerHelperTerminalCallbacks({child,state,record,bad,framer,onClose:(code,signal)=>{trace.push('onClose');closeCalls++;assert.equal(typeof code==='number'||code===null,true);assert.equal(signal===null||typeof signal==='string',true);}});
++ const emit={stderr:()=>child.stderr.emit('data',Buffer.from('actual fake-child stderr')),stdoutEOF:()=>child.stdout.emit('end'),exit:()=>child.emit('exit',2,null),close:()=>child.emit('close',2,null)};
++ return {child,state,trace,records,writes,budget,phase,account,notified,emit,first:()=>first,closeCalls:()=>closeCalls,framerEnds:()=>framerEnds};
++}
++function helperFailureCase(event,sink){
++ const f=helperFixture({sink}),expected={stderr:['GUARD_HELPER_STDERR','helper-stderr-retention','GUARD_HELPER_STDERR'],stdoutEOF:['UNEXPECTED_GUARD_STDOUT_EOF','helper-stdout-eof-retention','GUARD_HELPER_STDOUT_EOF'],exit:['GUARD_HELPER_UNEXPECTED_EXIT','helper-exit-retention','GUARD_HELPER_EXIT'],close:['GUARD_HELPER_LIFECYCLE_NEGATIVE','helper-close-retention','GUARD_HELPER_CLOSE']}[event];
++ assert.doesNotThrow(f.emit[event]);assert.equal(f.first().message,expected[0]);assert.equal(f.trace[0],'bad:'+expected[0]);assert.equal(f.records[0].name,expected[2]);assert(f.trace.indexOf('bad:'+expected[0])<f.trace.indexOf('record:'+expected[2]));
++ assert.equal(f.state.secondaryErrors.length,1);assert.deepEqual(Object.keys(f.state.secondaryErrors[0]).sort(),['error','label']);assert.equal(f.state.secondaryErrors[0].label,expected[1]);assert(f.state.secondaryErrors[0].error.includes(sink==='short'?'SHORT_PHASE_WRITE':sink==='ENOSPC'?'MODEL_ENOSPC':'CAPTURE_ALLOCATION_EXCEEDED'));
++ assert.equal(f.notified.length,2);assert.equal(f.notified[0],f.first());assert.equal(f.budget.state().poisoned,true);assert.equal(f.phase.state().poisoned,true);assert.equal(f.writes.length,sink==='exhausted'?0:1);
++ assert.equal(f.state.stdoutEOF,event==='stdoutEOF');assert.equal(f.state.exitSeen,event==='exit');assert.equal(f.state.closeSeen,event==='close');assert.equal(f.framerEnds(),event==='stdoutEOF'?1:0);
++ if(event==='stderr')assert.equal(Buffer.from(f.records[0].fields.rawBase64,'base64').toString(),'actual fake-child stderr');
++ if(event==='exit')assert.deepEqual(f.records[0].fields,{code:2,signal:null});
++ if(event==='close')assert.deepEqual(f.records[0].fields,{code:2,signal:null,stdoutEOF:false,stderrEOF:false,exitSeen:false});
++ const original=f.first();if(event!=='close')assert.doesNotThrow(()=>f.child.emit('close',2,null));assert.equal(f.closeCalls(),1);assert.equal(f.first(),original);assert.equal(f.trace.at(-1),'onClose');assert.equal(f.writes.length,sink==='exhausted'?0:1);
++}
++model('registered_stderr_short_retention_original_then_secondary',()=>helperFailureCase('stderr','short'));
++model('registered_stderr_enospc_retention_original_then_secondary',()=>helperFailureCase('stderr','ENOSPC'));
++model('registered_stderr_exhausted_retention_original_then_secondary',()=>helperFailureCase('stderr','exhausted'));
++model('registered_natural_helper_close_all_events_and_flags_actual_path',()=>{
++ const f=helperFixture({ended:true});assert.equal(f.child.listenerCount('close'),1);assert.equal(f.child.stdout.listenerCount('end'),1);f.child.stdout.emit('end');f.child.stderr.emit('end');f.child.emit('exit',0,null);f.child.emit('close',0,null);
++ assert.equal(f.first(),null);assert.deepEqual(f.records.map(row=>row.name),['GUARD_HELPER_STDOUT_EOF','GUARD_HELPER_STDERR_EOF','GUARD_HELPER_EXIT','GUARD_HELPER_CLOSE']);assert.equal(f.writes.length,4);assert.equal(f.framerEnds(),1);assert.equal(f.closeCalls(),1);assert.equal(terminalValid({...f.state,code:0,signal:null}),true);
+ });
+-model('stderr_record_poison_routes_first_fault_without_uncaught_event_throw',()=>{
+- const poison=Error('CAPTURE_POISON'),primary=Error('ORIGINAL_SOCKET_FAULT');let first=primary;const observed=[];
+- assert.doesNotThrow(()=>observeStderr({record:()=>{throw poison;},bad:error=>{observed.push(error);if(first===null)first=error;},chunk:Buffer.from('stderr')}));
+- assert.equal(first,primary);assert.equal(observed.length,2);assert.equal(observed[0].message,'GUARD_HELPER_STDERR');assert.equal(observed[1],poison);
++model('registered_close_rejects_unexpected_or_missing_lifecycle_events',()=>{
++ for(const change of [{ended:false},{stdoutEOF:false},{stderrEOF:false},{exitSeen:false},{code:1},{signal:'SIGTERM'},{code:null}]){const f=helperFixture({ended:true});Object.assign(f.state,{stdoutEOF:true,stderrEOF:true,exitSeen:true},change);assert.doesNotThrow(()=>f.child.emit('close',Object.hasOwn(change,'code')?change.code:0,Object.hasOwn(change,'signal')?change.signal:null));assert.equal(f.first().message,'GUARD_HELPER_LIFECYCLE_NEGATIVE');assert.equal(f.closeCalls(),1);assert.equal(f.state.closeSeen,true);}
+ });
+-model('stderr_fatal_observer_throw_also_stays_inside_event_boundary',()=>{
+- assert.doesNotThrow(()=>observeStderr({record:()=>{},bad:()=>{throw Error('FATAL_OBSERVER_POISON');},chunk:Buffer.from('stderr')}));
+- const poison={toString(){throw Error('POISON_STRINGIFICATION');}};let reported=null;assert.doesNotThrow(()=>observeStderr({record:()=>{throw poison;},bad:error=>{reported=error;},chunk:Buffer.from('stderr')}));assert(reported instanceof Error);assert.equal(reported.cause,poison);
++model('registered_controller_close_cannot_establish_separate_helper_events',()=>{
++ const controller=helperFixture({ended:true}),service=helperFixture();controller.child.stdout.emit('end');controller.child.stderr.emit('end');controller.child.emit('exit',0,null);controller.child.emit('close',0,null);
++ assert.equal(controller.first(),null);assert.equal(controller.closeCalls(),1);assert.equal(service.state.ended,false);assert.equal(service.state.stdoutEOF,false);assert.equal(service.state.exitSeen,false);assert.equal(service.closeCalls(),0);
++ service.child.emit('close',0,null);assert.equal(service.first().message,'GUARD_HELPER_LIFECYCLE_NEGATIVE');assert.equal(controller.first(),null);
+ });
+-model('natural_close_requires_end_zero_null_signal_both_eof_and_exit',()=>{
+- assert.equal(terminalValid(natural()),true);
++model('registered_stdout_eof_short_retention_original_then_secondary',()=>helperFailureCase('stdoutEOF','short'));
++model('registered_stdout_eof_enospc_retention_original_then_secondary',()=>helperFailureCase('stdoutEOF','ENOSPC'));
++model('registered_stdout_eof_exhausted_retention_original_then_secondary',()=>helperFailureCase('stdoutEOF','exhausted'));
++model('registered_exit_short_retention_original_then_secondary',()=>helperFailureCase('exit','short'));
++model('registered_exit_enospc_retention_original_then_secondary',()=>helperFailureCase('exit','ENOSPC'));
++model('registered_exit_exhausted_retention_original_then_secondary',()=>helperFailureCase('exit','exhausted'));
++model('registered_close_short_retention_original_then_secondary',()=>helperFailureCase('close','short'));
++model('registered_close_enospc_retention_original_then_secondary',()=>helperFailureCase('close','ENOSPC'));
++model('registered_close_exhausted_retention_original_then_secondary',()=>helperFailureCase('close','exhausted'));
++model('registered_child_and_stdin_error_deliver_exact_original_without_observation',()=>{
++ for(const source of ['child','stdin']){const f=helperFixture(),original=Error('ORIGINAL_'+source);assert.doesNotThrow(()=>source==='child'?f.child.emit('error',original):f.child.stdin.emit('error',original));assert.equal(f.first(),original);assert.equal(f.records.length,0);assert.equal(f.writes.length,0);assert.equal(f.state.secondaryErrors.length,0);}
+ });
+-model('unexpected_eof_exit_signal_death_or_missing_event_refuses_terminal',()=>{
+- for(const change of [{ended:false},{code:1},{code:null},{signal:'SIGTERM'},{signal:undefined},{stdoutEOF:false},{stderrEOF:false},{exitSeen:false},{ended:1},{code:'0'}])assert.equal(terminalValid({...natural(),...change}),false);
++model('registered_stderr_eof_observation_failure_is_primary_not_fake_known_death',()=>{
++ const f=helperFixture({sink:'ENOSPC'});assert.doesNotThrow(()=>f.child.stderr.emit('end'));assert.equal(f.state.stderrEOF,true);assert.equal(f.first().message,'MODEL_ENOSPC');assert.equal(f.records[0].name,'GUARD_HELPER_STDERR_EOF');assert.equal(f.state.secondaryErrors.length,0);assert.equal(f.writes.length,1);
+ });
+-model('controller_normal_close_does_not_establish_separate_helper_terminal',()=>{
+- const controller=natural(),helper={ended:false,code:null,signal:null,stdoutEOF:false,stderrEOF:false,exitSeen:false};
+- assert.equal(terminalValid(controller),true);assert.equal(terminalValid(helper),false);
+- Object.assign(helper,natural());assert.equal(terminalValid(helper),true);controller.code=2;assert.equal(terminalValid(helper),true);assert.equal(terminalValid(controller),false);
++model('registered_stdout_framer_failure_distinguishes_unexpected_eof_from_closed_owner',()=>{
++ for(const ended of [false,true]){const framing=Error('ORIGINAL_FRAMER_FAILURE'),f=helperFixture({ended,framerError:framing});assert.doesNotThrow(()=>f.child.stdout.emit('end'));assert.equal(f.framerEnds(),1);assert.equal(f.records.length,0);assert.equal(f.writes.length,0);assert.equal(f.first().message,ended?'ORIGINAL_FRAMER_FAILURE':'UNEXPECTED_GUARD_STDOUT_EOF');assert.equal(f.state.secondaryErrors.length,ended?0:1);if(!ended)assert.equal(f.state.secondaryErrors[0].label,'helper-stdout-eof-retention');}
++});
++model('registered_repeated_retention_poison_bounded_secondaries_no_repair',()=>{
++ const f=helperFixture({sink:'ENOSPC'});for(let i=0;i<65;i++)assert.doesNotThrow(f.emit.stderr);assert.equal(f.state.secondaryErrors.length,64);assert.equal(f.first().message,'GUARD_HELPER_STDERR');assert.equal(f.writes.length,1);for(const row of f.state.secondaryErrors){assert.deepEqual(Object.keys(row).sort(),['error','label']);assert.equal(row.label,'helper-stderr-retention');assert(row.label.length<=128&&row.error.length<=2048);}
+ });
+ 
+ // A separate actual grant is required before invoking this file. Syntax --check
+ // does not run this loop and establishes no helper/model/runtime evidence.
+ for(const {name,fn} of definitions){try{await fn();}catch(error){throw Error('MODEL '+name+': '+String(error),{cause:error});}}
+-console.log(JSON.stringify({scope:'PRODUCER4_MOCK_GUARD_TRANSPORT_BOUNDARIES_ONLY',definitions:definitions.length,executed:definitions.length,realHelperExecuted:false,realTimerObserved:false,processReapAttested:false,clientRowsQualified:0}));
++console.log(JSON.stringify({scope:'PRODUCER4_ACTUAL_REGISTERED_HELPER_CALLBACKS_AND_OWNED_SIGNAL_MOCKS_ONLY',definitions:definitions.length,executed:definitions.length,realHelperExecuted:false,realTimerObserved:false,processReapAttested:false,clientRowsQualified:0}));

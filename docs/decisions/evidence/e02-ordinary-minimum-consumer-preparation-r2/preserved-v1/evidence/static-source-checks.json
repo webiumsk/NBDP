@@ -1,0 +1,176 @@
+{
+  "schema": "e02-minimum-consumer-static-source-v1",
+  "author": "/root/android_health_implementer",
+  "operation": "STDLIB_AST_HASH_ONLY",
+  "files": [
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v1/consumer.py",
+        "bytes": 40019,
+        "sha256": "a80ef1dbf1428c8587efdd143db0983d5ec1d71842736e11efea7d42a572e1f4"
+      },
+      "astParsed": true,
+      "imports": [
+        "argparse",
+        "gui",
+        "hashlib",
+        "ipaddress",
+        "pathlib",
+        "re",
+        "stat",
+        "strict",
+        "sys",
+        "wire",
+        "witness"
+      ]
+    },
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v1/gui.py",
+        "bytes": 14279,
+        "sha256": "b7d3854e3f0e81dae9b398d517438684e1ef22f7b70d902238ef4e71545d4f48"
+      },
+      "astParsed": true,
+      "imports": [
+        "hashlib",
+        "re",
+        "strict",
+        "wire",
+        "xml.etree.ElementTree"
+      ]
+    },
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v1/strict.py",
+        "bytes": 8218,
+        "sha256": "8efb94edf747fb8b0f78dcfca6a6396a6d69553ab9c75a503865edf65d161f2d"
+      },
+      "astParsed": true,
+      "imports": [
+        "hashlib",
+        "json",
+        "os",
+        "pathlib",
+        "re",
+        "stat"
+      ]
+    },
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v1/test_data_controls.py",
+        "bytes": 27328,
+        "sha256": "87e10e89d96f0e9f61dcec89bcf283cc6e4fd081843a5e54771f9c903b74132d"
+      },
+      "astParsed": true,
+      "imports": [
+        "base64",
+        "consumer",
+        "copy",
+        "gui",
+        "hashlib",
+        "json",
+        "os",
+        "pathlib",
+        "strict",
+        "sys",
+        "tempfile",
+        "unittest",
+        "wire",
+        "witness"
+      ]
+    },
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v1/wire.py",
+        "bytes": 19429,
+        "sha256": "ccbfbee0ac544e109733f2f2757bec318185de8b6b1874eca9d2c2b6d3e02bb3"
+      },
+      "astParsed": true,
+      "imports": [
+        "base64",
+        "hashlib",
+        "re",
+        "strict"
+      ]
+    },
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v1/witness.py",
+        "bytes": 19710,
+        "sha256": "0a7f956c09314e29a9106c5599f9c0ed0e36945f725385035d131be3086df066"
+      },
+      "astParsed": true,
+      "imports": [
+        "pathlib",
+        "re",
+        "strict",
+        "wire"
+      ]
+    }
+  ],
+  "preparedTestMethods": [
+    "test_positive_exact_six_field_unicode_export",
+    "test_positive_empty_sig_client_representation_only",
+    "test_nonempty_sig_refused",
+    "test_extra_client_field_refused",
+    "test_changed_content_even_with_recomputed_id_refused",
+    "test_changed_ordered_tags_refused",
+    "test_unicode_normalization_is_not_applied",
+    "test_duplicate_json_keys_refused",
+    "test_invalid_utf8_refused",
+    "test_nonfinite_float_and_negative_zero_refused",
+    "test_boolean_is_not_integer",
+    "test_selection_i64_positive_exact_path",
+    "test_lease_all_six_i64_fields_positive",
+    "test_ns_name_does_not_widen_wire",
+    "test_nested_schema_cannot_widen_parent",
+    "test_unrelated_field_in_registered_schema_stays_safe",
+    "test_i64_overflow_refused",
+    "test_wire_timestamp_not_widened",
+    "test_file_positive_then_drift_refused",
+    "test_duplicate_pin_alias_refused",
+    "test_symlink_file_and_component_refused",
+    "test_guest_mapping_positive_and_crosswindow_refusal",
+    "test_guest_binding_conflict_refused",
+    "test_unbound_input_and_outside_root_refused",
+    "test_raw_base64_positive_and_invalid_refused",
+    "test_proxy_sequence_omission_refused",
+    "test_proxy_unknown_direction_refused",
+    "test_role_stage_contract_and_archive_inner_recipient",
+    "test_actual_public_api35_nprofile_vector",
+    "test_nprofile_checksum_and_truncation_refused",
+    "test_fixture_json_text_and_clipboard_inputs_refused",
+    "test_crossrole_helper_case_refused",
+    "test_exact_synthetic_identity_allowed_but_wrong_role_refused",
+    "test_unknown_json_schema_cannot_claim_window",
+    "test_actor_union_and_same_session_review_refused",
+    "test_missing_entire_history_witness_refused",
+    "test_failed_window_no_partial_export_contribution",
+    "test_positive_app_wire_and_native_data_joins",
+    "test_positive_identical_query_origin_is_not_client_receipt",
+    "test_query_origin_for_required_initial_stage_refused",
+    "test_query_origin_for_required_fresh_wrap_refused",
+    "test_stale_delivery_attempt_refused",
+    "test_stale_delivery_eose_generation_refused",
+    "test_send_callback_buffer_hash_mismatch_refused",
+    "test_send_callback_not_completed_refused",
+    "test_copied_forward_frame_without_current_callback_refused",
+    "test_wrong_archive_outer_recipient_refused",
+    "test_positive_history_union_includes_failed_and_legacy_operators",
+    "test_omitted_failed_attempt_rejected_by_external_inventory",
+    "test_omitted_legacy_context_rejected",
+    "test_failed_attempt_row_donation_refused",
+    "test_positive_actual_command_record_data_and_force_failure",
+    "test_known_nonoperative_low_preserved_with_actual_disposition_operand",
+    "test_medium_source_finding_cannot_use_nonoperative_exception"
+  ],
+  "preparedTestCount": 54,
+  "executedTestCount": 0,
+  "projectModulesImported": false,
+  "androidNodeCryptoNetworkSdkServicesExecuted": false,
+  "limitations": [
+    "AST validity is not runtime correctness or independent review.",
+    "Targeted positives do not construct a full positive consume() graph.",
+    "Externally authenticated actual session/tool origins remain future inputs."
+  ]
+}

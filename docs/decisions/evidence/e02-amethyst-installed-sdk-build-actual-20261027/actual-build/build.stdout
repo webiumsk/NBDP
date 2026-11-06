@@ -1,0 +1,201 @@
+Downloading https://services.gradle.org/distributions/gradle-9.8.0-bin.zip
+..............10%..............20%...............30%..............40%...............50%..............60%...............70%..............80%...............90%..............100%
+
+Welcome to Gradle 9.8.0!
+
+Here are the highlights of this release:
+ - Java 27 support
+ - Maven mirror settings reuse
+ - Linked problem locations in build output
+
+For more details see https://docs.gradle.org/9.8.0/release-notes.html
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.8.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :cli
+w: ⚠️ Usage of Internal Kotlin Gradle Plugin Properties Detected
+ATTENTION! This build uses the following Kotlin Gradle Plugin properties:
+
+kotlin.internal.incremental.enableUnsafeOptimizationsForMultiplatform
+
+Internal properties are not recommended for production use.
+Stability and future compatibility of the build is not guaranteed.
+Solution: Please consider using the public API instead of internal properties.
+
+Loading local repository...                                                     
+Info: SDK Manager found the following installed packages: build-tools;36.0.0 ndk;30.0.16248370 platforms;android-37.0
+[=========                              ] 25% Loading local repository...       
+Checking the license for package Android SDK Platform-Tools in /sdk/licenses
+License for package Android SDK Platform-Tools accepted.
+Preparing "Install Android SDK Platform-Tools v.37.0.1".
+Warning: Failed to read or create install properties file.
+WARNING: platform-tools package is not installed, and automatic installation failed.
+Add android.sync.suppressAgpWarnings=MISSING_SDK_PACKAGE to the gradle.properties file to suppress this warning.
+
+> Task :commons:androidPreBuild UP-TO-DATE
+> Task :commonsUI:androidPreBuild UP-TO-DATE
+> Task :marmotQuic:androidPreBuild UP-TO-DATE
+> Task :nestsClient:androidPreBuild UP-TO-DATE
+> Task :quartz:androidPreBuild UP-TO-DATE
+> Task :quic:androidPreBuild UP-TO-DATE
+> Task :amethyst:verifyNativeAbis
+> Task :amethyst:processFdroidDebugGoogleServices
+> Task :installGitHook
+> Task :nestsClient:kmpPartiallyResolvedDependenciesChecker
+> Task :nestsClient:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :spotlessInternalRegisterDependencies
+> Task :commons:kmpPartiallyResolvedDependenciesChecker
+> Task :quartz:kmpPartiallyResolvedDependenciesChecker
+> Task :amethyst:spotlessKotlin
+> Task :commonsUI:spotlessKotlin
+> Task :amethyst:spotlessKotlinApply
+> Task :amethyst:spotlessKotlinGradle
+> Task :amethyst:spotlessKotlinGradleApply
+> Task :amethyst:spotlessApply
+> Task :amethyst:preBuild
+> Task :amethyst:preFdroidDebugBuild
+> Task :amethyst:mergeFdroidDebugNativeDebugMetadata NO-SOURCE
+> Task :amethyst:generateFdroidDebugBuildConfig
+> Task :amethyst:generateFdroidDebugResValues
+> Task :amethyst:generateFdroidDebugResources
+> Task :commons:spotlessKotlin
+> Task :amethyst:packageFdroidDebugResources
+> Task :marmotQuic:spotlessKotlin
+> Task :marmotQuic:spotlessKotlinApply
+> Task :marmotQuic:spotlessKotlinGradle
+> Task :marmotQuic:spotlessKotlinGradleApply
+> Task :marmotQuic:spotlessApply
+> Task :marmotQuic:preAndroidMainBuild
+> Task :marmotQuic:generateAndroidMainEmptyResourceFiles
+> Task :nappletHost:spotlessKotlin
+> Task :nappletHost:spotlessKotlinApply
+> Task :nappletHost:spotlessKotlinGradle
+> Task :nappletHost:spotlessKotlinGradleApply
+> Task :nappletHost:spotlessApply
+> Task :nappletHost:preBuild
+> Task :nappletHost:preDebugBuild
+> Task :nappletHost:processDebugNavigationResources
+> Task :nestsClient:spotlessKotlin
+> Task :nestsClient:spotlessKotlinApply
+> Task :nestsClient:spotlessKotlinGradle
+> Task :nestsClient:spotlessKotlinGradleApply
+> Task :nestsClient:spotlessApply
+> Task :nestsClient:preAndroidMainBuild
+> Task :nestsClient:generateAndroidMainEmptyResourceFiles
+> Task :quartz:spotlessKotlin
+> Task :commons:spotlessKotlinApply
+> Task :commons:spotlessKotlinGradle
+> Task :commons:spotlessKotlinGradleApply
+> Task :commons:spotlessApply
+> Task :commons:preAndroidMainBuild
+> Task :commons:generateAndroidMainEmptyResourceFiles
+> Task :quic:spotlessKotlin
+> Task :quic:spotlessKotlinApply
+> Task :quic:spotlessKotlinGradle
+> Task :quic:spotlessKotlinGradleApply
+> Task :quic:spotlessApply
+> Task :quic:preAndroidMainBuild
+> Task :quic:generateAndroidMainEmptyResourceFiles
+> Task :commons:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :commons:packageAndroidMainResources
+> Task :commons:parseAndroidMainLocalResources
+> Task :commons:generateAndroidMainRFile
+> Task :quic:kmpPartiallyResolvedDependenciesChecker
+> Task :quic:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :marmotQuic:kmpPartiallyResolvedDependenciesChecker
+> Task :marmotQuic:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :nappletHost:generateDebugResources
+> Task :nappletHost:packageDebugResources
+> Task :nappletHost:parseDebugLocalResources
+> Task :nappletHost:generateDebugRFile
+> Task :nappletHost:javaPreCompileDebug
+> Task :amethyst:javaPreCompileFdroidDebug FROM-CACHE
+> Task :amethyst:generateFdroidDebugAssets UP-TO-DATE
+> Task :commons:generateAndroidMainAssets UP-TO-DATE
+> Task :commons:mergeAndroidMainAssets
+> Task :nappletHost:generateDebugAssets UP-TO-DATE
+> Task :nappletHost:mergeDebugAssets
+> Task :amethyst:generateFdroidDebugGlobalSynthetics
+> Task :commonsUI:spotlessKotlinApply
+> Task :commonsUI:spotlessKotlinGradle
+> Task :commonsUI:spotlessKotlinGradleApply
+> Task :commonsUI:spotlessApply
+> Task :commonsUI:preAndroidMainBuild
+> Task :commonsUI:generateAndroidMainEmptyResourceFiles
+> Task :amethyst:checkFdroidDebugDuplicateClasses
+> Task :commonsUI:kmpPartiallyResolvedDependenciesChecker
+> Task :amethyst:desugarFdroidDebugFileDependencies
+> Task :commonsUI:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :commonsUI:convertXmlValueResourcesForAndroidMain NO-SOURCE
+> Task :commonsUI:copyNonXmlValueResourcesForAndroidMain NO-SOURCE
+> Task :commonsUI:prepareComposeResourcesTaskForAndroidMain NO-SOURCE
+> Task :commonsUI:generateResourceAccessorsForAndroidMain NO-SOURCE
+> Task :commonsUI:convertXmlValueResourcesForCommonMain
+> Task :commonsUI:copyNonXmlValueResourcesForCommonMain
+> Task :commonsUI:prepareComposeResourcesTaskForCommonMain
+> Task :amethyst:mergeExtDexFdroidDebug
+> Task :commonsUI:generateResourceAccessorsForCommonMain
+> Task :commonsUI:convertXmlValueResourcesForJvmAndroid NO-SOURCE
+> Task :commonsUI:copyNonXmlValueResourcesForJvmAndroid NO-SOURCE
+> Task :commonsUI:prepareComposeResourcesTaskForJvmAndroid NO-SOURCE
+> Task :commonsUI:generateResourceAccessorsForJvmAndroid NO-SOURCE
+> Task :commonsUI:generateActualResourceCollectorsForAndroidMain
+> Task :commonsUI:copyAndroidMainComposeResourcesToAndroidAssets
+> Task :commonsUI:packageAndroidMainResources
+> Task :quartz:spotlessKotlinApply
+> Task :quartz:spotlessKotlinGradle
+> Task :quartz:spotlessKotlinGradleApply
+> Task :quartz:spotlessApply
+> Task :quartz:preAndroidMainBuild
+> Task :quartz:generateAndroidMainEmptyResourceFiles
+> Task :quartz:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :commonsUI:parseAndroidMainLocalResources
+> Task :quartz:compileAndroidMain
+> Task :commonsUI:generateAndroidMainRFile
+> Task :commonsUI:generateComposeResClass
+> Task :commonsUI:generateExpectResourceCollectorsForCommonMain
+> Task :commonsUI:generateAndroidMainAssets UP-TO-DATE
+> Task :commonsUI:mergeAndroidMainAssets
+> Task :commons:writeAndroidMainAarMetadata
+> Task :commonsUI:writeAndroidMainAarMetadata
+> Task :marmotQuic:writeAndroidMainAarMetadata
+> Task :nappletHost:writeDebugAarMetadata
+> Task :nestsClient:writeAndroidMainAarMetadata
+> Task :quartz:writeAndroidMainAarMetadata
+> Task :quic:writeAndroidMainAarMetadata
+> Task :commons:processAndroidMainManifest
+> Task :commonsUI:processAndroidMainManifest
+> Task :marmotQuic:processAndroidMainManifest
+> Task :nappletHost:extractDeepLinksDebug
+> Task :nappletHost:processDebugManifest
+> Task :nestsClient:processAndroidMainManifest
+> Task :quartz:processAndroidMainManifest
+> Task :quic:processAndroidMainManifest
+> Task :commons:mapAndroidMainSourceSetPaths
+> Task :commons:compileAndroidMainLibraryResources
+> Task :commonsUI:mapAndroidMainSourceSetPaths
+> Task :commonsUI:compileAndroidMainLibraryResources
+> Task :nappletHost:mapDebugSourceSetPaths
+> Task :nappletHost:compileDebugLibraryResources
+> Task :commons:mergeAndroidMainJniLibFolders
+> Task :commons:mergeAndroidMainNativeLibs NO-SOURCE
+> Task :commons:copyAndroidMainJniLibsProjectOnly
+> Task :commonsUI:mergeAndroidMainJniLibFolders
+> Task :commonsUI:mergeAndroidMainNativeLibs NO-SOURCE
+> Task :commonsUI:copyAndroidMainJniLibsProjectOnly
+> Task :marmotQuic:mergeAndroidMainJniLibFolders
+> Task :marmotQuic:mergeAndroidMainNativeLibs NO-SOURCE
+> Task :marmotQuic:copyAndroidMainJniLibsProjectOnly
+> Task :nappletHost:mergeDebugJniLibFolders
+> Task :nappletHost:mergeDebugNativeLibs NO-SOURCE
+> Task :nappletHost:copyDebugJniLibsProjectOnly
+> Task :nestsClient:mergeAndroidMainJniLibFolders
+> Task :nestsClient:mergeAndroidMainNativeLibs NO-SOURCE
+> Task :nestsClient:copyAndroidMainJniLibsProjectOnly
+> Task :quartz:mergeAndroidMainJniLibFolders
+> Task :quartz:mergeAndroidMainNativeLibs NO-SOURCE
+> Task :quartz:copyAndroidMainJniLibsProjectOnly
+> Task :quic:mergeAndroidMainJniLibFolders
+> Task :quic:mergeAndroidMainNativeLibs NO-SOURCE
+> Task :quic:copyAndroidMainJniLibsProjectOnly

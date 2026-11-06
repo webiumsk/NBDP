@@ -1,0 +1,68 @@
+--- /tmp/nbdp-amethyst-build-release-materializer-20261027-r2/materialize.py
++++ /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/materializer-source/materialize.py
+@@ -9,15 +9,15 @@
+ import sys
+ import time
+ 
+-HERE=Path('/tmp/nbdp-amethyst-build-release-materializer-20261027-r2')
+-WORK=Path('/tmp/nbdp-amethyst-build-supervisor-20261027-r3')
++HERE=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/materializer')
++SOURCE=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/supervisor-source')
++WORK=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/controller')
+ PYTHON='/home/peterhorvath/.miniforge3/bin/python3.13'
+-PINNED=[dict(path=PYTHON,bytes=32959480,sha256='5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1'),
+- dict(path=str(WORK/'supervise_build.py'),bytes=26933,sha256='20b2fada9cfd4c42d6ea71e6a7d8f110474477f7e6a3abdb2c7a8e1c8feb9a7f'),
+- dict(path=str(WORK/'subject.json'),bytes=3926,sha256='4acf99f8fddc703719d0d2ff5bcb3777700de1c4f6409142315572475d806ac7'),
+- dict(path=str(WORK/'plan.json'),bytes=6403,sha256='2f201482e4331deee9cfa37132496420ee3ded9770283e38094f9554f1f71b66')]
++PINNED=[{'path': '/home/peterhorvath/.miniforge3/bin/python3.13', 'bytes': 32959480, 'sha256': '5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1'}, {'path': '/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/supervisor-source/supervise_build.py', 'bytes': 31753, 'sha256': '41d8951bae82784fcd90716bdbcbc84956072186eb3e1bd9ff280d437768572c'}, {'path': '/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/supervisor-source/subject.json', 'bytes': 2547, 'sha256': 'e820646bdf28b6180d6e84a95332674441eae12fad41aa5d749671c86f3524c9'}, {'path': '/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/supervisor-source/plan.json', 'bytes': 8387, 'sha256': 'e8af73c1d8dd146a964a3cdcb4f1fbb3af76f19d5cb0aef6edfe4f16593190b4'}]
++
+ CLOCKS={'issuedAtUtcNs','notAfterUtcNs'}
+-RELEASE_KEYS=set('schema actor executionAuthorized scope runId issuedAtUtcNs notAfterUtcNs supervisorSubject buildPreparationSubject sourceReviews prerequisiteAcceptances sourceArchive sourceArchiveReceipt extractions networkId networkLabels meaning'.split())
++RELEASE_KEYS=set('schema actor executionAuthorized scope runId issuedAtUtcNs notAfterUtcNs supervisorSubject buildPreparationSubject sourceReviews prerequisiteAcceptances sourceArchive sourceArchiveReceipt jdkExtraction installedSdkInventory installedSdkMetadata installedSdkConsent installedSdkAcceptance networkId networkLabels meaning'.split())
++SDK_RELEASE_FIELDS=('jdkExtraction','installedSdkInventory','installedSdkMetadata','installedSdkConsent','installedSdkAcceptance')
+ 
+ 
+ def need(ok,message):
+@@ -65,6 +65,13 @@
+         for v in value:yield from pins(v)
+ 
+ 
++def sdk_release_shape(release):
++    need('extractions' not in release and all(key in release for key in SDK_RELEASE_FIELDS),'INSTALLED_SDK_RELEASE_MEMBERSHIP')
++    for key in SDK_RELEASE_FIELDS:pin_shape(release[key])
++    need(release['installedSdkAcceptance'] in release['prerequisiteAcceptances'],'WHOLE_SDK_DATA_ACCEPTANCE_MANDATORY')
++    need(len({release[key]['path'] for key in SDK_RELEASE_FIELDS})==len(SDK_RELEASE_FIELDS),'DISTINCT_JDK_SDK_EVIDENCE_SUBJECTS')
++
++
+ def validate(t):
+     need(type(t) is dict and set(t)=={'schema','actor','decision','expectedOutput','release','metadata'},'FIXED_TEMPLATE_KEYS')
+     need(t['schema']=='nbdp-amethyst-one-build-dispatch-template-v1' and t['actor']=='/root'
+@@ -79,8 +86,9 @@
+     need(concrete({k:v for k,v in r.items() if k not in CLOCKS}) and concrete(t['metadata']),'CONCRETE_PREREQUISITES_REQUIRED')
+     need(type(r['sourceReviews']) is list and len(r['sourceReviews'])==2 and type(r['prerequisiteAcceptances']) is list
+         and len(r['prerequisiteAcceptances'])>=3 and type(t['metadata']) is list and len(t['metadata'])>=3,'REAL_REVIEW_DATA_PINS_REQUIRED')
+-    need(set(r['extractions'])=={'jdk','platform','build-tools','ndk'} and re.fullmatch('[0-9a-f]{64}',r['networkId']),'FIXED_INPUT_MEMBERSHIP')
+-    for d in [r[k] for k in ('supervisorSubject','buildPreparationSubject','sourceArchive','sourceArchiveReceipt')]+r['sourceReviews']+r['prerequisiteAcceptances']+list(r['extractions'].values())+t['metadata']:pin_shape(d)
++    need(re.fullmatch('[0-9a-f]{64}',r['networkId']),'FIXED_NETWORK_ID')
++    sdk_release_shape(r)
++    for d in [r[k] for k in ('supervisorSubject','buildPreparationSubject','sourceArchive','sourceArchiveReceipt')]+r['sourceReviews']+r['prerequisiteAcceptances']+[r[k] for k in ('jdkExtraction','installedSdkInventory','installedSdkMetadata','installedSdkConsent','installedSdkAcceptance')]+t['metadata']:pin_shape(d)
+     return r
+ 
+ 
+@@ -97,6 +105,7 @@
+ 
+ 
+ def main():
++    need(PINNED is not None,'INSTALLED_SDK_SOURCE_DATA_BINDING_NOT_READY')
+     os.umask(0o077);p=argparse.ArgumentParser(description=__doc__);p.add_argument('--template-sha',required=True);a=p.parse_args()
+     need(str(Path(sys.executable).resolve())==PYTHON and sys.flags.isolated and sys.dont_write_bytecode,'FIXED_ISOLATED_INTERPRETER')
+     path=HERE/'root-authorized-template.json';need(path.stat().st_size<=4194304,'TEMPLATE_SIZE_BOUND')
+@@ -108,7 +117,7 @@
+     live=fresh(r,time.time_ns());raw=(json.dumps(live,indent=2)+'\n').encode();write_once(HERE/'live-release.json',raw)
+     fd=os.open(HERE,os.O_RDONLY|os.O_DIRECTORY);os.fsync(fd);os.close(fd)
+     sha=hashlib.sha256(raw).hexdigest()
+-    os.execve(PYTHON,[PYTHON,'-I','-B',str(WORK/'supervise_build.py'),'--release',str(HERE/'live-release.json'),'--release-sha',sha],
++    os.execve(PYTHON,[PYTHON,'-I','-B',str(SOURCE/'supervise_build.py'),'--release',str(HERE/'live-release.json'),'--release-sha',sha],
+         {'PATH':'/usr/bin:/bin','LANG':'C.UTF-8','LC_ALL':'C.UTF-8'})
+ 
+ 

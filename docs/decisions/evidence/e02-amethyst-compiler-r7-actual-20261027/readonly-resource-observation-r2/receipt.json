@@ -1,0 +1,21 @@
+{
+  "actor": "/root",
+  "scope": "Second separate read-only point during long commonsUI compilation; not a peak or causal diagnosis",
+  "argv": [
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=3s",
+    "12s",
+    "/usr/bin/docker",
+    "--config",
+    "/Data/nbdp-e02-tooling-20261027/amethyst-build-r7/controller/attempt-c06de076c3b29a23362a55b46326a403/docker-config",
+    "stats",
+    "--no-stream",
+    "--format",
+    "{{json .}}",
+    "8664804ac809e62400069632cef817e05903596407f601ca8db99a27a2341e29"
+  ],
+  "exitCode": 0,
+  "wallSeconds": 1.069856665970292,
+  "recordedUtcNs": 1793141217037106586
+}

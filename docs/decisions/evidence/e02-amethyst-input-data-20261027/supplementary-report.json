@@ -1,0 +1,418 @@
+{
+  "schema": "nbdp-amethyst-build-input-data-report-v1",
+  "author": "/root/consumer3_preparation",
+  "preparedAtUtc": "2026-10-27T09:02:51.831399+00:00",
+  "state": "METADATA_MISMATCH",
+  "artifacts": [
+    {
+      "id": "jdk",
+      "official": {
+        "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_x64_linux_hotspot_21.0.13_9.tar.gz",
+        "bytes": 207858352,
+        "algorithm": "sha256",
+        "digest": "d7f5d5cf865a2902b70ff549b97586a7d3f234e016f041ab447ea740c7d66d1c"
+      },
+      "archive": {
+        "path": "/tmp/nbdp-amethyst-rebuild-20261026/cache/jdk.archive",
+        "bytes": 207858352,
+        "sha256": "d7f5d5cf865a2902b70ff549b97586a7d3f234e016f041ab447ea740c7d66d1c"
+      },
+      "fetchReceipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/jdk-fetch.json",
+        "bytes": 639,
+        "sha256": "3d35b0b8ce35ef08fcac43f4e772b23f20f7430e96ecce122932dfdaf3cb416d"
+      },
+      "extractionReceipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/jdk-extraction.json",
+        "bytes": 178456,
+        "sha256": "a2547e5989af52335e1a03d853797e0e1efa57b55d782214620ee56ca80b0db2"
+      },
+      "destination": "/tmp/nbdp-amethyst-rebuild-20261026/tools/jdk",
+      "properties": null,
+      "retainedFullInventoryReceipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/jdk-extraction.json",
+        "bytes": 178456,
+        "sha256": "a2547e5989af52335e1a03d853797e0e1efa57b55d782214620ee56ca80b0db2"
+      },
+      "inventoryRows": 541,
+      "counts": {
+        "file": 249,
+        "dir": 87,
+        "symlink": 205
+      },
+      "regularFileBytes": 361757417,
+      "archiveMemberRows": 542,
+      "normalization": "Directories private0700; regular modes archive &0755; links preserved safely; no tools executed",
+      "metadataCrossChecksMatch": true,
+      "actualVerification": {
+        "origin": "Coordinator reports both actual independent QA/security directly completed all four current trees, archives and sourcearchive with no mismatch before this report freeze",
+        "scope": "Full membership/bytes/hash/modes/links plus archive bodies; no acquired tool execution",
+        "workerDuplicatedFullBodyVerification": false
+      },
+      "toolsExecuted": false
+    },
+    {
+      "id": "platform",
+      "official": {
+        "url": "https://dl.google.com/android/repository/platform-37.0_r02.zip",
+        "bytes": 67281901,
+        "algorithm": "sha1",
+        "digest": "ed8ebf7f8822a4de5686d427f237d2fa30ff7410"
+      },
+      "archive": {
+        "path": "/tmp/nbdp-amethyst-rebuild-20261026/cache/platform.archive",
+        "bytes": 67281901,
+        "sha256": "840b23e827f96e64aea4c89a1194aac3dc5f6bad37edb231c5c795d890330e8d"
+      },
+      "fetchReceipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/platform-fetch.json",
+        "bytes": 431,
+        "sha256": "e5ec90f76ea4b63c36f67fdb8284954ca652538fdc7dc231e049581064ac3b55"
+      },
+      "extractionReceipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/platform-extraction-r2.json",
+        "bytes": 4965623,
+        "sha256": "70d4aacb82da241411cc91e5cc5a9e3709bf58b1139852e10ba276981f1bc6e7"
+      },
+      "destination": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/platforms/android-37.0",
+      "properties": {
+        "Pkg.Desc": "Android SDK Platform 17",
+        "Pkg.UserSrc": "false",
+        "Platform.Version": "17",
+        "Platform.CodeName": "",
+        "Pkg.Revision": "2",
+        "AndroidVersion.ApiLevel": "37.0",
+        "AndroidVersion.CodeName": "",
+        "AndroidVersion.ExtensionLevel": "22",
+        "AndroidVersion.IsBaseSdk": "true",
+        "AndroidVersion.PreviewSdkInt": "0",
+        "AndroidVersion.BetaVersion": "",
+        "Layoutlib.Api": "15",
+        "Layoutlib.Revision": "1",
+        "Platform.MinToolsRev": "22"
+      },
+      "retainedFullInventoryReceipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/platform-extraction-r2.json",
+        "bytes": 4965623,
+        "sha256": "70d4aacb82da241411cc91e5cc5a9e3709bf58b1139852e10ba276981f1bc6e7"
+      },
+      "inventoryRows": 14250,
+      "counts": {
+        "file": 11384,
+        "dir": 2866,
+        "symlink": 0
+      },
+      "regularFileBytes": 124986304,
+      "archiveMemberRows": 11384,
+      "normalization": "Directories private0700; regular modes archive &0755; links preserved safely; no tools executed",
+      "metadataCrossChecksMatch": true,
+      "actualVerification": {
+        "origin": "Coordinator reports both actual independent QA/security directly completed all four current trees, archives and sourcearchive with no mismatch before this report freeze",
+        "scope": "Full membership/bytes/hash/modes/links plus archive bodies; no acquired tool execution",
+        "workerDuplicatedFullBodyVerification": false
+      },
+      "toolsExecuted": false
+    },
+    {
+      "id": "build-tools",
+      "official": {
+        "url": "https://dl.google.com/android/repository/build-tools_r36_linux.zip",
+        "bytes": 63737259,
+        "algorithm": "sha1",
+        "digest": "b0b6376977657e8ad9b969bacf4093601da2c6fb"
+      },
+      "archive": {
+        "path": "/tmp/nbdp-amethyst-rebuild-20261026/cache/build-tools.archive",
+        "bytes": 63737259,
+        "sha256": "5d9ac77fb6ff43d9da518a337b4fcf8f9097113df531d99ccefe80ef7ce8250b"
+      },
+      "fetchReceipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/build-tools-fetch.json",
+        "bytes": 434,
+        "sha256": "1a6a9db6fce347d04b45f95052eb8d7ccb1d04e8479233c30716c3dbfaf22c45"
+      },
+      "extractionReceipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/build-tools-extraction.json",
+        "bytes": 68005,
+        "sha256": "6b49825e7b1c6adc3a784ed64527d02b921fd34f7a9096a988b1b720aaf11df3"
+      },
+      "destination": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/build-tools/36.0.0",
+      "properties": {
+        "Pkg.UserSrc": "false",
+        "Pkg.Revision": "36.0.0",
+        "#Pkg.Revision": "36.0.0 rc5"
+      },
+      "retainedFullInventoryReceipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/build-tools-extraction.json",
+        "bytes": 68005,
+        "sha256": "6b49825e7b1c6adc3a784ed64527d02b921fd34f7a9096a988b1b720aaf11df3"
+      },
+      "inventoryRows": 195,
+      "counts": {
+        "file": 168,
+        "dir": 27,
+        "symlink": 0
+      },
+      "regularFileBytes": 153141817,
+      "archiveMemberRows": 168,
+      "normalization": "Directories private0700; regular modes archive &0755; links preserved safely; no tools executed",
+      "metadataCrossChecksMatch": true,
+      "actualVerification": {
+        "origin": "Coordinator reports both actual independent QA/security directly completed all four current trees, archives and sourcearchive with no mismatch before this report freeze",
+        "scope": "Full membership/bytes/hash/modes/links plus archive bodies; no acquired tool execution",
+        "workerDuplicatedFullBodyVerification": false
+      },
+      "toolsExecuted": false
+    },
+    {
+      "id": "ndk",
+      "official": {
+        "url": "https://dl.google.com/android/repository/android-ndk-r30-linux.zip",
+        "bytes": 738633529,
+        "algorithm": "sha1",
+        "digest": "5107f898313790e449e87eee2183d9a20602dee9"
+      },
+      "archive": {
+        "path": "/tmp/nbdp-amethyst-rebuild-20261026/cache/ndk.archive",
+        "bytes": 738633529,
+        "sha256": "753611f410d002cfcd3f3dc2ef49aad532089d3180b436c060a90bf0fcb64df2"
+      },
+      "fetchReceipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/ndk-fetch.json",
+        "bytes": 427,
+        "sha256": "b5200a43ebb0969d177d876cf5176a9fdb6cb281ba201339aa7954b1d625b7d7"
+      },
+      "extractionReceipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/ndk-extraction.json",
+        "bytes": 4844325,
+        "sha256": "8a50bfaadadb13dc6b7a7bfe2239824ced781e8ecd0471b31bf820f00b38d43d"
+      },
+      "destination": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/ndk/30.0.16248370",
+      "properties": {
+        "Pkg.Desc": "Android NDK",
+        "Pkg.Revision": "30.0.16248370",
+        "Pkg.BaseRevision": "30.0.16248370",
+        "Pkg.ReleaseName": "r30"
+      },
+      "retainedFullInventoryReceipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/ndk-extraction.json",
+        "bytes": 4844325,
+        "sha256": "8a50bfaadadb13dc6b7a7bfe2239824ced781e8ecd0471b31bf820f00b38d43d"
+      },
+      "inventoryRows": 10133,
+      "counts": {
+        "file": 9493,
+        "dir": 601,
+        "symlink": 39
+      },
+      "regularFileBytes": 2347518944,
+      "archiveMemberRows": 10134,
+      "normalization": "Directories private0700; regular modes archive &0755; links preserved safely; no tools executed",
+      "metadataCrossChecksMatch": true,
+      "actualVerification": {
+        "origin": "Coordinator reports both actual independent QA/security directly completed all four current trees, archives and sourcearchive with no mismatch before this report freeze",
+        "scope": "Full membership/bytes/hash/modes/links plus archive bodies; no acquired tool execution",
+        "workerDuplicatedFullBodyVerification": false
+      },
+      "toolsExecuted": false
+    }
+  ],
+  "sourceArchive": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/source.tar",
+    "bytes": 345579520,
+    "sha256": "a2b4b590456e5fc78dccbcbd5d732127b3f1280812bf4734ee2d741dfcf3cf75"
+  },
+  "sourceArchiveReceipt": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/source-archive.json",
+    "bytes": 664,
+    "sha256": "ee9f42d3b1af79b49d41ae7673fdd1176aadd20e3abcd37fa43dfb4c8a38c6e0"
+  },
+  "recordedSourceBefore": {
+    "commit": "e6f464a1179def75274512b3c5bab921de3bf3d8",
+    "tree": "11a90777c85c71912594612f42d9807004834f67",
+    "status": ""
+  },
+  "recordedSourceAfter": {
+    "commit": "e6f464a1179def75274512b3c5bab921de3bf3d8",
+    "tree": "11a90777c85c71912594612f42d9807004834f67",
+    "status": ""
+  },
+  "sourceOriginalChangesReported": false,
+  "gitExecutedByThisTask": false,
+  "source1Subject": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/subject.json",
+    "bytes": 4032,
+    "sha256": "c8c75541ccaa8614831cd9c3acd9f8bc1668462561f227aeca6f3ff209369e52"
+  },
+  "source2Subject": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation-r2/subject.json",
+    "bytes": 5075,
+    "sha256": "6d9d25dfbd62a8bee3dd35d995777f95217bd6b157884bb43b15fa60c6fa7fd2"
+  },
+  "platformLineage": {
+    "originalFailure": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/platform-extract-FAILED.json",
+      "bytes": 151,
+      "sha256": "2122cc0702830367ce5d144b4a45e1f493cbddea9b0a9b2f08b1c8ce4fea00bd"
+    },
+    "originalFailureError": "ValueError:EXPECTED_PLATFORM_API",
+    "originalFailedStage": "/tmp/nbdp-amethyst-rebuild-20261026/tools/.stage-platform",
+    "originalStageProperties": {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/.stage-platform/android-37.0/source.properties",
+      "bytes": 343,
+      "sha256": "fa89029fc0cee414cb5e44a37cd3033771217eeecb5086577bb6d9b1b03b5b5f"
+    },
+    "source1FailurePreserved": true,
+    "correctedActualApiLiteral": "37.0",
+    "correctedExtrationReceipt": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/platform-extraction-r2.json",
+      "bytes": 4965623,
+      "sha256": "70d4aacb82da241411cc91e5cc5a9e3709bf58b1139852e10ba276981f1bc6e7"
+    },
+    "canonicalPlatformReceiptCopy": {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/acquisition/platform-extraction.json",
+      "state": "ABSENT",
+      "createdByThisTask": false,
+      "futureMeaning": "Only separately authorized exact bytecopy of accepted r2receipt; no SDK alias or package-byte edit"
+    },
+    "android37DirectoryAlias": {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/tools/sdk/platforms/android-37",
+      "exists": false,
+      "isSymlink": false,
+      "createdByThisTask": false
+    }
+  },
+  "originalApiReceiptCopies": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/nbdp-amethyst-acquisition-original-tool-receipts-20261027.json",
+      "bytes": 12725,
+      "sha256": "a48f003e56a68613530d2dc2367a4df90876a2bf3c303c1e97d3fb0c629bb66b"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/nbdp-amethyst-ndk-extraction-original-tool-receipts-20261027.json",
+      "bytes": 1013,
+      "sha256": "b352941472882179061764b97ff5c7ea9045af08cf16efbf08e86d5a4bcf0140"
+    }
+  ],
+  "allPreservedReceiptCopyDescriptors": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/acceptance.json",
+      "bytes": 1369,
+      "sha256": "e33c4fb753622d1195b21db5f5eb45b28216ad10e9d8657da38fcd118957b143"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/actual-qa-review.json",
+      "bytes": 2778,
+      "sha256": "9463d40f5a0d14e5599369886ea3bb723b22f47f07c49e3412b5d3bddd18d548"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/actual-qa-subject-binding-addendum.json",
+      "bytes": 932,
+      "sha256": "4b2623bc33044ebfe9d3a02a979d6018f73d5bda38a2b13a946cdc1b8d0221e1"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/actual-security-review.json",
+      "bytes": 1479,
+      "sha256": "a240282a604947e7d1d953a5d0a5f948a8c806ac6c30aab9b7698eaa8ee474f3"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/build-tools-extraction.json",
+      "bytes": 68005,
+      "sha256": "6b49825e7b1c6adc3a784ed64527d02b921fd34f7a9096a988b1b720aaf11df3"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/build-tools-fetch.json",
+      "bytes": 434,
+      "sha256": "1a6a9db6fce347d04b45f95052eb8d7ccb1d04e8479233c30716c3dbfaf22c45"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/jdk-extraction.json",
+      "bytes": 178456,
+      "sha256": "a2547e5989af52335e1a03d853797e0e1efa57b55d782214620ee56ca80b0db2"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/jdk-fetch.json",
+      "bytes": 639,
+      "sha256": "3d35b0b8ce35ef08fcac43f4e772b23f20f7430e96ecce122932dfdaf3cb416d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/nbdp-amethyst-acquisition-original-tool-receipts-20261027.json",
+      "bytes": 12725,
+      "sha256": "a48f003e56a68613530d2dc2367a4df90876a2bf3c303c1e97d3fb0c629bb66b"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/nbdp-amethyst-ndk-extraction-original-tool-receipts-20261027.json",
+      "bytes": 1013,
+      "sha256": "b352941472882179061764b97ff5c7ea9045af08cf16efbf08e86d5a4bcf0140"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/ndk-extraction.json",
+      "bytes": 4844325,
+      "sha256": "8a50bfaadadb13dc6b7a7bfe2239824ced781e8ecd0471b31bf820f00b38d43d"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/ndk-fetch.json",
+      "bytes": 427,
+      "sha256": "b5200a43ebb0969d177d876cf5176a9fdb6cb281ba201339aa7954b1d625b7d7"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/platform-build-input-copy.json",
+      "bytes": 1599,
+      "sha256": "65febbd03ac0d180875ca6aec0d50bac0182ddd65048c38694e7512cf98175d5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/platform-extract-FAILED.json",
+      "bytes": 151,
+      "sha256": "2122cc0702830367ce5d144b4a45e1f493cbddea9b0a9b2f08b1c8ce4fea00bd"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/platform-extraction-r2.json",
+      "bytes": 4965623,
+      "sha256": "70d4aacb82da241411cc91e5cc5a9e3709bf58b1139852e10ba276981f1bc6e7"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/platform-fetch.json",
+      "bytes": 431,
+      "sha256": "e5ec90f76ea4b63c36f67fdb8284954ca652538fdc7dc231e049581064ac3b55"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/preserved-data-copies.json",
+      "bytes": 4009,
+      "sha256": "87dc84e3cb3c7fa7f425f9bb3511b0d690fd5ccef94c528b51db0a1334ed17a7"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/source-archive.json",
+      "bytes": 664,
+      "sha256": "ee9f42d3b1af79b49d41ae7673fdd1176aadd20e3abcd37fa43dfb4c8a38c6e0"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/subject.json",
+      "bytes": 2582,
+      "sha256": "e9e550009bc0b07d99317b4b6e49b5bce287f548ea4b26732ce669cc0ea6be9c"
+    }
+  ],
+  "verificationAttribution": "Actual completed independent QA/security direct-data checks as reported by coordinator. No independent acceptance is manufactured here; Root will bind actual reviewer records to this frozen report.",
+  "mismatches": [
+    "canonical platform receipt is already present"
+  ],
+  "independentlyAccepted": false,
+  "grantCreated": false,
+  "toolsExecuted": false,
+  "buildExecuted": false,
+  "canonicalE02": "PARTIAL22_UNCHANGED",
+  "optionalFullCollector": {
+    "source": {
+      "path": "/tmp/nbdp-amethyst-build-inputs-20261027/collect.py",
+      "bytes": 12113,
+      "sha256": "a42458918a642e1ba3d3dc5588fac92e4f527bd7ec52b86c79bc8bae41290db8"
+    },
+    "executed": false,
+    "meaning": "Prepared read-only duplicate verifier deliberately not run because independent reviewers already completed the full physical checks."
+  },
+  "limits": [
+    "Counts and descriptors are derived from exact retained actual extraction/fetch/source receipts; no new decompression or acquired executable was invoked.",
+    "Full actual physical archive/tree/source equality was checked by the independent reviewers; this worker avoids duplicating their completed work.",
+    "Canonical platform RECEIPT remains absent; no android-37 directory alias or copy was created.",
+    "No SDK/tool/client/build/runtime qualification, root grant or automatic merge follows."
+  ]
+}

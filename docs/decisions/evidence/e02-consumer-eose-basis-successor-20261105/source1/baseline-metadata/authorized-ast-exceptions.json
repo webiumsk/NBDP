@@ -1,0 +1,25 @@
+{
+  "schema": "e02-consumer-source3-authorized-test-fixture-exceptions-v1",
+  "actor": "/root/consumer_current178_source",
+  "rootScope": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-goal-resume-20261104/consumer-current178-source3-root-scope-20261105.json",
+    "bytes": 7437,
+    "sha256": "d4b653b43273aabf9a17b1970e6a1d039ea643e93c3e5e623053eed746a11c7b"
+  },
+  "testMethods": [
+    "test_current_authority.py:CurrentReadyAuthorityControls.test_current266_exact_accepted_r8_168_full_ready_production_validator",
+    "test_current_authority.py:CurrentReadyAuthorityControls.test_current_controller_actual_api_cwd_cannot_be_rewritten_to_script_parent",
+    "test_current_authority.py:CurrentReadyAuthorityControls.test_current_controller_future_revision_cwd_refused",
+    "test_current_authority.py:CurrentReadyAuthorityControls.test_fresh_source5_current_n_external_controller_triple_is_valid",
+    "test_current_authority.py:CurrentReadyAuthorityControls.test_unmodified_source5_mixed_script_roots_and_reviewed_cwds_full_ready"
+  ],
+  "nonTestHelpers": [
+    "WholeWindowDataControls.setUpClass",
+    "CurrentReadyAuthorityControls.reject_controller_api_cwd"
+  ],
+  "newExpectationHelper": "current_controller_expectations",
+  "reason": "Actual immutable producer selector and selected current Source/plan-derived expectations; exact same whole-request negative mutations retained. Production validation is unchanged.",
+  "allOther350MethodASTIdentical": true,
+  "modelsExecuted": 0,
+  "executionAuthorized": false
+}

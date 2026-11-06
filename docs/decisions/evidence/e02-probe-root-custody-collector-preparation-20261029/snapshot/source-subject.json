@@ -1,0 +1,66 @@
+{
+  "schema": "e02-probe-root-custody-collector-source-subject-v1",
+  "authors": [
+    "/root/r5_plan_fix"
+  ],
+  "scope": "ONE_EXTERNAL_ROOT65536_SLOT_INSIDE_EXISTING_METADATA8MIB_ONLY",
+  "codeOnly": true,
+  "sources": [
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-collector-preparation-r1/collector.py",
+      "bytes": 13989,
+      "sha256": "1ed8f332cd2b6f6248efc37a6ffdfa7e0641b74e8d35958f05db4f09345e160f"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-collector-preparation-r1/test_collector.py",
+      "bytes": 10440,
+      "sha256": "c04d9d06e65a4ffa5f2601f79e5ae01e1349e981cd4ca88cfc228f409e20dc75"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-collector-preparation-r1/CONTRACT.md",
+      "bytes": 6312,
+      "sha256": "505f02593a94bd93328cca89fb4b30b86d79b3b3114cc29502da68a2cd8d9741"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-collector-preparation-r1/control-plan.json",
+      "bytes": 2884,
+      "sha256": "3f9e19f9ca2a69d340b4d9fb4197a6cb60ca57975c193a4e07bdddc6bb920a67"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-collector-preparation-r1/budget-contract.json",
+      "bytes": 1271,
+      "sha256": "23fbbf156f796547c9a2888ab08651c17fe2e39058df5a8eaeb637bd5c2cc75f"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-collector-preparation-r1/static-preparation.json",
+      "bytes": 835,
+      "sha256": "98fb21ee3a883ed23b53f0e82a500d5f9d199a37e30e74227c7b6e7cb36c9bf0"
+    }
+  ],
+  "controlPlan": {
+    "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-collector-preparation-r1/control-plan.json",
+    "bytes": 2884,
+    "sha256": "3f9e19f9ca2a69d340b4d9fb4197a6cb60ca57975c193a4e07bdddc6bb920a67"
+  },
+  "budgetContract": {
+    "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-collector-preparation-r1/budget-contract.json",
+    "bytes": 1271,
+    "sha256": "23fbbf156f796547c9a2888ab08651c17fe2e39058df5a8eaeb637bd5c2cc75f"
+  },
+  "modelsDefined": 20,
+  "modelsExecuted": 0,
+  "collectorCommandsExecuted": 0,
+  "helperExecutions": 0,
+  "ordinaryRoles": 0,
+  "sourceApproval": null,
+  "dataApproval": null,
+  "concreteRelease": null,
+  "executionAuthorized": false,
+  "selfApproval": false,
+  "remainingGates": [
+    "Fresh independent QA/security SOURCE review",
+    "Separately Root-released actual20 temp-FS/mocked controls with genuine API/raw output and current input custody",
+    "Independent DATA review and acceptance",
+    "Root exact concrete reservation/controller same-account/genuine-custody size/ownership/gate review before one actual probe"
+  ]
+}

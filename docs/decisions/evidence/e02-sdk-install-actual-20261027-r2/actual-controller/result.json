@@ -1,0 +1,51 @@
+{
+  "schema": "nbdp-scoped-sdk-install-controller-result-v1",
+  "runId": "248d43a8cd83d0b0e2e1fd75c89aec04",
+  "cid": "0fa744eb87aadadb12c8e7982b44237e26354ac71b6c0217cd121b89b6ff24ae",
+  "state": "FAILED_OR_UNQUALIFIED_NO_RETRY",
+  "firstFault": "ValueError:ATTACHED_INSTALL_FAILED_OR_LOG_CEILING:NONZERO_2",
+  "secondaryErrors": [],
+  "cleanup": "EXACT_CID_ABSENCE_KNOWN",
+  "jobState": {
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 2,
+    "Error": "",
+    "StartedAt": "2026-10-27T18:51:26.970222222Z",
+    "FinishedAt": "2026-10-27T18:51:51.020861557Z"
+  },
+  "networkBindingStage": "ENDPOINT_FULL_NETWORK_ID_OBSERVED",
+  "innerEvidence": {
+    "installation-result.json": {
+      "path": "/Data/nbdp-e02-tooling-20261027/controller-r3/writable-r1/output/installation-result.json",
+      "bytes": 1862,
+      "sha256": "9db29725b1608bd04bc16c3c50931e1a46f81d2cdaeb2d5c6c70bd3701cfbccb"
+    },
+    "consent-attempted.json": null,
+    "consent-sent.json": null
+  },
+  "cliReceipts": 20,
+  "consentStatus": "INSPECT_INNER_JOURNALS_UNKNOWN_UNTIL_INDEPENDENT_REVIEW",
+  "configuredLimits": {
+    "wholeSeconds": 1200,
+    "cleanupReserveSeconds": 90,
+    "jobSeconds": 1050,
+    "attachSeconds": 1080,
+    "memoryBytes": 2147483648,
+    "cpus": 2,
+    "pids": 256,
+    "jobPerFileBytes": 2147483648,
+    "cliCapturePerFileBytes": 4194304
+  },
+  "limitsMeaning": "Configured bounds only; no aggregate diskquota, measured peak, hostile atomic custody or egress guarantee.",
+  "networkMutationPerformed": false,
+  "sdkQualificationClaimed": false,
+  "canonicalE02Changed": false,
+  "noHostNumericPidSignalsByController": true,
+  "hostileAtomicClosureClaimed": false
+}
