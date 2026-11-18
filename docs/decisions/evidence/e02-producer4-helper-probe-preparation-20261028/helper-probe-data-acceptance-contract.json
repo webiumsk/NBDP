@@ -1,0 +1,98 @@
+{
+  "schema": "e02-root-helper-probe-data-acceptance-contract-v1",
+  "actor": "/root",
+  "scope": "Fixed future helper-only DATA envelope; no acceptance issued and no probe executed.",
+  "closedKeys": [
+    "schema",
+    "actor",
+    "decision",
+    "subject",
+    "reviews",
+    "producerSource",
+    "producerDataAcceptance",
+    "controllerSource",
+    "controllerSourceAcceptance",
+    "controllerControlDataAcceptance",
+    "collectorSourceAcceptance",
+    "collectorControlDataAcceptance",
+    "rootRelease",
+    "concretePlan",
+    "execution",
+    "originalToolOrigin",
+    "rawArtifactManifest",
+    "qualified",
+    "helperProbeExecutions",
+    "ordinaryRoleExecutions",
+    "ordinaryRowsQualified",
+    "backendCause",
+    "scope",
+    "executionAuthorized"
+  ],
+  "literals": {
+    "schema": "e02-root-helper-probe-data-acceptance-v1",
+    "actor": "/root",
+    "decision": "ACCEPT_ONE_CURRENT_HELPER_PROBE_DATA_ONLY",
+    "qualified": true,
+    "helperProbeExecutions": 1,
+    "ordinaryRoleExecutions": 0,
+    "ordinaryRowsQualified": 0,
+    "backendCause": "UNKNOWN",
+    "scope": "ONE_OWNED_HELPER_PROBE_DATA_ONLY",
+    "executionAuthorized": false
+  },
+  "pinKeys": [
+    "subject",
+    "producerSource",
+    "producerDataAcceptance",
+    "controllerSource",
+    "controllerSourceAcceptance",
+    "controllerControlDataAcceptance",
+    "collectorSourceAcceptance",
+    "collectorControlDataAcceptance",
+    "rootRelease",
+    "concretePlan",
+    "execution",
+    "originalToolOrigin",
+    "rawArtifactManifest"
+  ],
+  "reviews": {
+    "order": [
+      "qa",
+      "security"
+    ],
+    "closedKeys": [
+      "role",
+      "session",
+      "decision",
+      "subject"
+    ],
+    "decision": "ACCEPT_ONE_CURRENT_HELPER_PROBE_DATA_ONLY",
+    "subject": "Exact actual e02-one-cid-helper-probe-data-subject-v1; independent distinct sessions outside complete author/operator union."
+  },
+  "dataSubjectMinimumJoins": {
+    "schema": "e02-one-cid-helper-probe-data-subject-v1",
+    "authors": "Actual declared author actor list",
+    "operators": "Actual declared operator actor list",
+    "qualified": true,
+    "producerSource": "Exact accepted current SOURCE4 subject",
+    "producerDataAcceptance": "Exact accepted current260 DATA operand",
+    "controllerSource": "Exact independently accepted controller subject",
+    "execution": "Exact actual e02-one-cid-helper-probe-result-v1",
+    "originalToolOrigin": "Complete genuine Root API launch/allpolls and terminal only; distinct from inner lifecycle",
+    "rawArtifactManifest": "Exact selected actual physical proof and Root prepaid65536 account including copies",
+    "ordinaryRowsQualified": 0,
+    "backendCause": "UNKNOWN"
+  },
+  "evidenceRequirements": [
+    "Current controller/source mockcontrols and externalRootcollector source/mockcontrols independently accepted before grant.",
+    "Exact current source8/guard522/tools/image/lease/privatepaths and independent concrete input acceptance.",
+    "One fresh owned CID, networknone/resources/fourmounts; original30/55including2/136/156/180/183/1800 clock and fresh5s bounds unchanged.",
+    "Actual64freshCHECKs+oneCLOSE and closed266observations with rawcontext/hash/clock/consumed causal joins; true actualchildEOF/exit/close observations.",
+    "Expected current input hashes/identity and originalLease unchanged, cleanup exactownedCIDremoved/absent; no unknownidentity deletion.",
+    "Whole physicalproof16MiB partition8+8, externalRoot65536 inside metadata8MiB prepaid before original lease/plan/gate/grant/API/copy writes; no truncation/refund or retrospective precharge.",
+    "No inference about relay/backend cause, SDK runtime, ordinary-client role or canonical E02 qualification."
+  ],
+  "modelsExecutedByThisContract": 0,
+  "acceptanceIssued": false,
+  "executionAuthorized": false
+}

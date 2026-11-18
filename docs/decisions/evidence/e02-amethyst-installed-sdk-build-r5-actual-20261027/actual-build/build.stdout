@@ -1,0 +1,205 @@
+Downloading https://services.gradle.org/distributions/gradle-9.8.0-bin.zip
+..............10%..............20%...............30%..............40%...............50%..............60%...............70%..............80%...............90%..............100%
+
+Welcome to Gradle 9.8.0!
+
+Here are the highlights of this release:
+ - Java 27 support
+ - Maven mirror settings reuse
+ - Linked problem locations in build output
+
+For more details see https://docs.gradle.org/9.8.0/release-notes.html
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.8.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :cli
+w: ⚠️ Usage of Internal Kotlin Gradle Plugin Properties Detected
+ATTENTION! This build uses the following Kotlin Gradle Plugin properties:
+
+kotlin.internal.incremental.enableUnsafeOptimizationsForMultiplatform
+
+Internal properties are not recommended for production use.
+Stability and future compatibility of the build is not guaranteed.
+Solution: Please consider using the public API instead of internal properties.
+
+Loading local repository...                                                     
+Info: SDK Manager found the following installed packages: build-tools;36.0.0 ndk;30.0.16248370 platforms;android-37.0
+[=========                              ] 25% Loading local repository...       
+Checking the license for package Android SDK Platform-Tools in /sdk/licenses
+License for package Android SDK Platform-Tools accepted.
+Preparing "Install Android SDK Platform-Tools v.37.0.1".
+Warning: Failed to read or create install properties file.
+WARNING: platform-tools package is not installed, and automatic installation failed.
+Add android.sync.suppressAgpWarnings=MISSING_SDK_PACKAGE to the gradle.properties file to suppress this warning.
+
+> Task :commonsUI:androidPreBuild UP-TO-DATE
+> Task :commons:androidPreBuild UP-TO-DATE
+> Task :commonsUI:preAndroidMainBuild
+> Task :commons:preAndroidMainBuild
+> Task :amethyst:verifyNativeAbis
+> Task :amethyst:preBuild
+> Task :amethyst:preFdroidDebugBuild
+> Task :amethyst:mergeFdroidDebugNativeDebugMetadata NO-SOURCE
+> Task :commons:generateAndroidMainEmptyResourceFiles
+> Task :commonsUI:generateAndroidMainEmptyResourceFiles
+> Task :nappletHost:preBuild
+> Task :marmotQuic:androidPreBuild UP-TO-DATE
+> Task :nappletHost:preDebugBuild
+> Task :marmotQuic:preAndroidMainBuild
+> Task :amethyst:generateFdroidDebugBuildConfig
+> Task :marmotQuic:generateAndroidMainEmptyResourceFiles
+> Task :nappletHost:processDebugNavigationResources
+> Task :quartz:androidPreBuild UP-TO-DATE
+> Task :nestsClient:androidPreBuild UP-TO-DATE
+> Task :quartz:preAndroidMainBuild
+> Task :nestsClient:preAndroidMainBuild
+> Task :quartz:generateAndroidMainEmptyResourceFiles
+> Task :quic:androidPreBuild UP-TO-DATE
+> Task :quic:preAndroidMainBuild
+> Task :nestsClient:generateAndroidMainEmptyResourceFiles
+> Task :amethyst:generateFdroidDebugResValues
+> Task :quic:generateAndroidMainEmptyResourceFiles
+> Task :amethyst:generateFdroidDebugResources
+> Task :amethyst:processFdroidDebugGoogleServices
+> Task :amethyst:packageFdroidDebugResources
+> Task :nestsClient:kmpPartiallyResolvedDependenciesChecker
+> Task :nestsClient:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :commons:kmpPartiallyResolvedDependenciesChecker
+> Task :amethyst:processFdroidDebugNavigationResources
+> Task :quartz:kmpPartiallyResolvedDependenciesChecker
+> Task :quartz:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :quartz:compileAndroidMain
+> Task :amethyst:parseFdroidDebugLocalResources
+> Task :amethyst:generateFdroidDebugRFile
+> Task :quic:kmpPartiallyResolvedDependenciesChecker
+> Task :quic:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :commons:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :commons:packageAndroidMainResources
+> Task :commons:parseAndroidMainLocalResources
+> Task :commons:generateAndroidMainRFile
+> Task :marmotQuic:kmpPartiallyResolvedDependenciesChecker
+> Task :marmotQuic:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :nappletHost:generateDebugResources
+> Task :nappletHost:packageDebugResources
+> Task :nappletHost:parseDebugLocalResources
+> Task :nappletHost:generateDebugRFile
+> Task :nappletHost:javaPreCompileDebug
+> Task :amethyst:javaPreCompileFdroidDebug FROM-CACHE
+> Task :amethyst:generateFdroidDebugAssets UP-TO-DATE
+> Task :commons:generateAndroidMainAssets UP-TO-DATE
+> Task :commons:mergeAndroidMainAssets
+> Task :nappletHost:generateDebugAssets UP-TO-DATE
+> Task :nappletHost:mergeDebugAssets
+> Task :commonsUI:kmpPartiallyResolvedDependenciesChecker
+> Task :amethyst:generateFdroidDebugGlobalSynthetics
+> Task :amethyst:checkFdroidDebugDuplicateClasses
+> Task :amethyst:desugarFdroidDebugFileDependencies
+> Task :commonsUI:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :commonsUI:convertXmlValueResourcesForAndroidMain NO-SOURCE
+> Task :commonsUI:copyNonXmlValueResourcesForAndroidMain NO-SOURCE
+> Task :commonsUI:prepareComposeResourcesTaskForAndroidMain NO-SOURCE
+> Task :commonsUI:generateResourceAccessorsForAndroidMain NO-SOURCE
+> Task :commonsUI:convertXmlValueResourcesForCommonMain
+> Task :commonsUI:copyNonXmlValueResourcesForCommonMain
+> Task :commonsUI:prepareComposeResourcesTaskForCommonMain
+> Task :amethyst:mergeExtDexFdroidDebug
+> Task :commonsUI:generateResourceAccessorsForCommonMain
+> Task :commonsUI:convertXmlValueResourcesForJvmAndroid NO-SOURCE
+> Task :commonsUI:copyNonXmlValueResourcesForJvmAndroid NO-SOURCE
+> Task :commonsUI:prepareComposeResourcesTaskForJvmAndroid NO-SOURCE
+> Task :commonsUI:generateResourceAccessorsForJvmAndroid NO-SOURCE
+> Task :commonsUI:generateActualResourceCollectorsForAndroidMain
+> Task :commonsUI:copyAndroidMainComposeResourcesToAndroidAssets
+> Task :commonsUI:packageAndroidMainResources
+> Task :commonsUI:parseAndroidMainLocalResources
+
+> Task :quartz:compileAndroidMain
+w: ⚠️ Compilation in Kotlin daemon has failed
+Failed to compile with Kotlin daemon : Connection to the Kotlin daemon has been unexpectedly lost. This might be caused by the daemon being killed by another process or the operating system, or by JVM crash.
+Using fallback strategy (kotlin.daemon.useFallbackStrategy=true): Compile without Kotlin daemon.
+Solution: Check the Kotlin daemon or compiler error message for details about the failure and possible ways to fix it. If the problem persists, run './gradlew --stop' and try again. If the problem does not seem to be caused by your build configuration, please report it at https://kotl.in/issue and attach the logs.
+
+
+> Task :commonsUI:generateAndroidMainRFile
+> Task :commonsUI:generateComposeResClass
+> Task :commonsUI:generateExpectResourceCollectorsForCommonMain
+> Task :commonsUI:generateAndroidMainAssets UP-TO-DATE
+> Task :commonsUI:mergeAndroidMainAssets
+> Task :commons:writeAndroidMainAarMetadata
+> Task :commonsUI:writeAndroidMainAarMetadata
+> Task :marmotQuic:writeAndroidMainAarMetadata
+> Task :nappletHost:writeDebugAarMetadata
+> Task :nestsClient:writeAndroidMainAarMetadata
+> Task :quartz:writeAndroidMainAarMetadata
+> Task :quic:writeAndroidMainAarMetadata
+> Task :commons:processAndroidMainManifest
+> Task :amethyst:mergeFdroidDebugAssets
+> Task :amethyst:compressFdroidDebugAssets
+> Task :amethyst:checkFdroidDebugAarMetadata
+> Task :amethyst:mapFdroidDebugSourceSetPaths
+> Task :amethyst:compileFdroidDebugNavigationResources
+> Task :amethyst:mergeFdroidDebugResources
+> Task :amethyst:createFdroidDebugCompatibleScreenManifests
+> Task :amethyst:extractDeepLinksFdroidDebug
+> Task :commonsUI:processAndroidMainManifest
+> Task :marmotQuic:processAndroidMainManifest
+> Task :nappletHost:extractDeepLinksDebug
+> Task :nappletHost:processDebugManifest
+> Task :nestsClient:processAndroidMainManifest
+> Task :quartz:processAndroidMainManifest
+> Task :quic:processAndroidMainManifest
+> Task :amethyst:processFdroidDebugMainManifest
+> Task :amethyst:processFdroidDebugManifest
+> Task :amethyst:processFdroidDebugManifestForPackage
+> Task :commons:mapAndroidMainSourceSetPaths
+> Task :commons:compileAndroidMainLibraryResources
+> Task :commonsUI:mapAndroidMainSourceSetPaths
+> Task :commonsUI:compileAndroidMainLibraryResources
+> Task :nappletHost:mapDebugSourceSetPaths
+> Task :nappletHost:compileDebugLibraryResources
+> Task :commons:mergeAndroidMainJniLibFolders
+> Task :commons:mergeAndroidMainNativeLibs NO-SOURCE
+> Task :commons:copyAndroidMainJniLibsProjectOnly
+> Task :commonsUI:mergeAndroidMainJniLibFolders
+> Task :commonsUI:mergeAndroidMainNativeLibs NO-SOURCE
+> Task :commonsUI:copyAndroidMainJniLibsProjectOnly
+> Task :marmotQuic:mergeAndroidMainJniLibFolders
+> Task :marmotQuic:mergeAndroidMainNativeLibs NO-SOURCE
+> Task :marmotQuic:copyAndroidMainJniLibsProjectOnly
+> Task :nappletHost:mergeDebugJniLibFolders
+> Task :nappletHost:mergeDebugNativeLibs NO-SOURCE
+> Task :nappletHost:copyDebugJniLibsProjectOnly
+> Task :nestsClient:mergeAndroidMainJniLibFolders
+> Task :nestsClient:mergeAndroidMainNativeLibs NO-SOURCE
+> Task :nestsClient:copyAndroidMainJniLibsProjectOnly
+> Task :quartz:mergeAndroidMainJniLibFolders
+> Task :quartz:mergeAndroidMainNativeLibs NO-SOURCE
+> Task :quartz:copyAndroidMainJniLibsProjectOnly
+> Task :quic:mergeAndroidMainJniLibFolders
+> Task :quic:mergeAndroidMainNativeLibs NO-SOURCE
+> Task :quic:copyAndroidMainJniLibsProjectOnly
+> Task :amethyst:mergeFdroidDebugJniLibFolders
+> Task :amethyst:processFdroidDebugResources
+> Task :amethyst:mergeFdroidDebugNativeLibs
+> Task :amethyst:validateSigningFdroidDebug
+> Task :amethyst:writeFdroidDebugAppMetadata
+> Task :amethyst:writeFdroidDebugSigningConfigVersions
+> Task :amethyst:stripFdroidDebugDebugSymbols
+> Task :quartz:processAndroidMainJavaRes
+> Task :quartz:bundleAndroidMainClassesToCompileJar
+> Task :quartz:bundleLibRuntimeToDirAndroidMain
+> Task :quic:compileAndroidMain
+> Task :quic:bundleAndroidMainClassesToCompileJar
+> Task :quic:processAndroidMainJavaRes
+> Task :marmotQuic:compileAndroidMain
+> Task :marmotQuic:bundleAndroidMainClassesToCompileJar
+> Task :marmotQuic:processAndroidMainJavaRes
+> Task :marmotQuic:bundleLibRuntimeToDirAndroidMain
+> Task :quic:bundleLibRuntimeToDirAndroidMain
+> Task :nestsClient:compileAndroidMain
+> Task :nestsClient:processAndroidMainJavaRes
+> Task :nestsClient:bundleAndroidMainClassesToCompileJar
+> Task :nestsClient:bundleLibRuntimeToDirAndroidMain
+> Task :commons:compileAndroidMain
+

@@ -1,0 +1,19 @@
+{
+  "actor": "/root",
+  "evidenceType": "READ_ONLY_DESIGN_ASSESSMENTS_NOT_EXECUTION_APPROVAL",
+  "state": "DEFERRED_NOT_ADOPTED_NO_COPY_OR_RUNTIME",
+  "architect": "/root/artifact_budget_boundary",
+  "security": "/root/r4_security",
+  "researcher": "/root/kotlin_build_sources",
+  "scope": "Potential own-R7 state-seeded offline completion; rejected as current implementation choice in favour of a clock-only cold method.",
+  "findings": [
+    "Cache contains executable compiler/DSL/plugin/transform inputs; copied hashes prove custody, not general compiler correctness.",
+    "R7 all eight actual compiler invocations selected full nonincremental path before unsafeMP branch.",
+    "kotlin.incremental=false changes declaredtask input and mayforceexecution; unsafeMPfalse is Internal anddoesnotguaranteecache invalidation.",
+    "Newseedmethod wouldrequireclosedselection/context/taskdisposition/partialDEX exclusions/distZIPjoin/networkNONE/freshhome+key/copyDATA/independentreview beforeexecution."
+  ],
+  "primaryUnsafeFlag": "https://github.com/vitorpamplona/amethyst/blob/e6f464a1179def75274512b3c5bab921de3bf3d8/gradle.properties#L34",
+  "primaryCompilerPath": "https://github.com/JetBrains/kotlin/blob/890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/compiler/incremental-compilation-impl/src/org/jetbrains/kotlin/incremental/IncrementalCompilerRunner.kt#L160",
+  "primaryTaskInput": "https://github.com/JetBrains/kotlin/blob/890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/tasks/AbstractKotlinCompile.kt#L94",
+  "provenance": "Faithful coordinator summary of actual independent specialist mailbox results; none authorized execution or changed files."
+}

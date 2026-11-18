@@ -1,0 +1,132 @@
+{
+  "schema": "e02-transport-query-source2-function-diff-v1",
+  "method": "stdlib AST parse/dump only; no worker import/test execution",
+  "files": [
+    {
+      "file": "lease_guard.py",
+      "before": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/lease_guard.py",
+        "bytes": 14846,
+        "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+      },
+      "after": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/lease_guard.py",
+        "bytes": 14846,
+        "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+      },
+      "unchangedFunctions": [
+        "LeaseDenied",
+        "strict",
+        "sample",
+        "issue",
+        "allowed_adb",
+        "adb_timeout",
+        "Lease",
+        "Lease.__init__",
+        "Lease.revoke",
+        "Lease.check",
+        "Lease.sleep",
+        "Lease.dispatch",
+        "Lease.run_checked",
+        "main"
+      ],
+      "changedOrAddedFunctions": [],
+      "removedFunctions": []
+    },
+    {
+      "file": "supervisor.py",
+      "before": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/supervisor.py",
+        "bytes": 28127,
+        "sha256": "55d0ef4c49b4fcb3220deaf6e5f49bac947257ea8e1e9bb7837caa9f3d7209f8"
+      },
+      "after": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/supervisor.py",
+        "bytes": 31814,
+        "sha256": "641ec9941e671512af67520574cb5fea7724d205c2b8aa731879970cad5cb47a"
+      },
+      "unchangedFunctions": [
+        "need",
+        "strict",
+        "digest",
+        "pin",
+        "checked",
+        "put",
+        "jsonbytes",
+        "exact_cid_absent",
+        "load_module",
+        "finalize",
+        "run_service",
+        "Runtime",
+        "Runtime.__init__",
+        "Runtime.check",
+        "Runtime.sleep",
+        "Runtime.put_bytes",
+        "Runtime.put_json",
+        "Runtime.command",
+        "Runtime.record_command",
+        "Runtime.guest",
+        "Runtime.fixture",
+        "Runtime.inspect",
+        "Runtime.validate_identity",
+        "Runtime.validate_owned",
+        "Runtime.start",
+        "Runtime.cleanup",
+        "guest",
+        "main"
+      ],
+      "changedOrAddedFunctions": [
+        "dependency_relative",
+        "dependency_snapshot",
+        "verify_dependency_inventory",
+        "source_pins",
+        "verify_config",
+        "execute"
+      ],
+      "removedFunctions": []
+    },
+    {
+      "file": "test_source_controls.py",
+      "before": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v1/test_source_controls.py",
+        "bytes": 5627,
+        "sha256": "6f4f4b1da7041147d1ac3b66b2e8a07518c0b561e125f16f6be51fb9938e70cc"
+      },
+      "after": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/test_source_controls.py",
+        "bytes": 9156,
+        "sha256": "20d2a13402fb79f2dd9e04eec7a671ee76c952bec189fc39f2ec3f4c90a74a14"
+      },
+      "unchangedFunctions": [
+        "function_ast",
+        "SourceCustodyControls",
+        "SourceCustodyControls.test_guard_is_exact_original_unchanged_bytes",
+        "SourceCustodyControls.test_original_clock_command_identity_cleanup_methods_unchanged",
+        "SourceCustodyControls.test_original_owned_child_lifecycle_forwarding_unchanged",
+        "SourceCustodyControls.test_only_three_roles_no_adb_snapshot_or_sdk_route",
+        "SourceCustodyControls.test_signed_public_input_and_query_exact_frozen_hashes",
+        "SourceCustodyControls.test_no_signing_key_or_nonce_input_in_diagnostic_plan",
+        "SourceCustodyControls.test_closed_cid_absence_is_not_generic_exit1",
+        "SourceCustodyControls.runtime",
+        "SourceCustodyControls.cleanup_model",
+        "SourceCustodyControls.test_exact_owned_cleanup_remove_and_absence_positive",
+        "SourceCustodyControls.test_foreign_creation_identity_never_removed",
+        "SourceCustodyControls.test_uncertain_absence_remains_failure"
+      ],
+      "changedOrAddedFunctions": [
+        "ClosedDependencyControls",
+        "ClosedDependencyControls.setUp",
+        "ClosedDependencyControls.verify",
+        "ClosedDependencyControls.test_unchanged_complete_tree_accepted",
+        "ClosedDependencyControls.test_extra_regular_and_nested_optional_bufferutil_refused",
+        "ClosedDependencyControls.test_missing_and_changed_regular_member_refused",
+        "ClosedDependencyControls.test_new_safe_escape_and_dangling_symlinks_refused",
+        "ClosedDependencyControls.test_special_fifo_refused_without_read",
+        "ClosedDependencyControls.test_source_runtime_canonical_mapping_and_unknown_fields_refused",
+        "ClosedDependencyControls.test_actual_inventory_gate_refuses_before_host_import_or_container",
+        "ClosedDependencyControls.test_end_boundary_rechecks_current_membership_not_cached_success"
+      ],
+      "removedFunctions": []
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "actor": "/root",
+  "state": "PRE_EXECUTION_CONSTRUCTOR_JOIN_CORRECTION",
+  "before": {
+    "path": "/tmp/nbdp-r8-artifact-subject-before-metadata-join-fix-20261028.py",
+    "bytes": 3952,
+    "sha256": "df4052ab5da26f46c817c533b81af787910c3e39dbb41a3e1939a91bd935f9c7"
+  },
+  "after": {
+    "path": "/tmp/nbdp-r8-artifact-subject-20261028.py",
+    "bytes": 4196,
+    "sha256": "b1197f2e9466fc494a55f37a6ad43aa9d4aed731145f364b79682084e8cbbddb"
+  },
+  "reason": "Actual controller.rebuiltApks is the pinned original metadata file descriptor, not parsed metadata contents. Constructor now joins exact descriptor and copied byte/hash equality before parsing.",
+  "executionsBeforeCorrection": 0,
+  "notBuildOrControlFailure": true,
+  "buildOutcomeUnchanged": true
+}

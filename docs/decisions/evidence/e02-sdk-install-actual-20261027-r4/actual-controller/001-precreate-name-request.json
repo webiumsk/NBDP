@@ -1,0 +1,23 @@
+{
+  "schema": "nbdp-amethyst-actual-cli-request-v1",
+  "argv": [
+    "/usr/bin/docker",
+    "container",
+    "inspect",
+    "nbdp-sdk-install-20261027"
+  ],
+  "wrappedArgv": [
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=5s",
+    "30s",
+    "/usr/bin/docker",
+    "container",
+    "inspect",
+    "nbdp-sdk-install-20261027"
+  ],
+  "startedUtcNs": 1793129357202142099,
+  "maximumSeconds": 30,
+  "capturePerFileLimitBytes": 4194304,
+  "limitMeaning": "RLIMIT_FSIZE on CLI/attach capture files only; inner install job file limit is2GiB."
+}

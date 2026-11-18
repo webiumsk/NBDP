@@ -1,0 +1,34 @@
+{
+  "toolName": "tools.exec_command",
+  "actualArguments": {
+    "cmd": "/home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source2/development_clock_controls.py",
+    "login": false,
+    "yield_time_ms": 1000,
+    "max_output_tokens": 4000
+  },
+  "unmodifiedResponse": {
+    "chunk_id": "1bf416",
+    "wall_time_seconds": 1.001534213,
+    "session_id": 60140,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "polls": [
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 60140,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 4000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "79b37e",
+        "wall_time_seconds": 0.000027302,
+        "exit_code": 0,
+        "original_token_count": 273,
+        "output": "test_root_selected_authority_clock_is120_seconds_once (clock_binding_predicates.CurrentSourceBindings.test_root_selected_authority_clock_is120_seconds_once) ... ok\ntest_other_twelve_pure_group_clocks_remain63_seconds (clock_binding_predicates.CurrentSourceBindings.test_other_twelve_pure_group_clocks_remain63_seconds) ... ok\ntest_clock_metadata_duplicates_omissions_substitution_and_authority_refused (clock_binding_predicates.CurrentSourceBindings.test_clock_metadata_duplicates_omissions_substitution_and_authority_refused) ... ok\ntest_unknown_control_group_cannot_inherit_another_clock (clock_binding_predicates.CurrentSourceBindings.test_unknown_control_group_cannot_inherit_another_clock) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 0.011s\n\nOK\n{\"schema\": \"e02-consumer-source2-clock-development-result-v1\", \"checks\": 4, \"scope\": \"TEMPORARY_READER_SOURCE_AND_PURE_REQUEST_PREDICATES_ONLY\", \"actualToolRequests\": 0, \"canonicalModelsExecuted\": 0, \"finalFreezeIssued\": false, \"operationalHelperBodiesRead\": 0, \"runtimeAuthorized\": false}\n"
+      }
+    }
+  ]
+}

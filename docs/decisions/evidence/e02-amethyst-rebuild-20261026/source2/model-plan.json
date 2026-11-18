@@ -1,0 +1,92 @@
+{
+  "schema": "nbdp-amethyst-platform-source2-model-plan-v1",
+  "scopes": [
+    {
+      "source": {
+        "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation-r2/test_acquisition_models.py",
+        "bytes": 3568,
+        "sha256": "89593ab786483590517d4fb4b885e5b3b679fb0efc90773bbd21811b4e11c798"
+      },
+      "definedCount": 20,
+      "definedNames": [
+        "ArchivePolicyModels.test_regular_tree_positive",
+        "ArchivePolicyModels.test_internal_symlink_positive",
+        "ArchivePolicyModels.test_internal_hardlink_positive",
+        "ArchivePolicyModels.test_absolute_path_refused",
+        "ArchivePolicyModels.test_traversal_refused",
+        "ArchivePolicyModels.test_normalized_alias_refused",
+        "ArchivePolicyModels.test_duplicate_member_refused",
+        "ArchivePolicyModels.test_special_member_refused",
+        "ArchivePolicyModels.test_symlink_escape_refused",
+        "ArchivePolicyModels.test_link_cycle_refused",
+        "ArchivePolicyModels.test_link_as_directory_parent_refused",
+        "ArchivePolicyModels.test_single_file_ceiling_refused",
+        "ArchivePolicyModels.test_total_expansion_ceiling_refused",
+        "ArchivePolicyModels.test_missing_link_target_refused",
+        "ArchivePolicyModels.test_hardlink_to_symlink_refused",
+        "ArchivePolicyModels.test_fixed_https_host_positive",
+        "ArchivePolicyModels.test_http_refused",
+        "ArchivePolicyModels.test_foreign_redirect_host_refused",
+        "ArchivePolicyModels.test_userinfo_refused",
+        "ArchivePolicyModels.test_nonstandard_port_refused"
+      ]
+    },
+    {
+      "source": {
+        "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation-r2/test_platform_properties.py",
+        "bytes": 3675,
+        "sha256": "343014f1ac6aa459e4b823850b6da83dac1eec6d3c436ff08730b7ba441804db"
+      },
+      "definedCount": 24,
+      "definedNames": [
+        "ExactPlatformProperties.test_observed_exact_stable37_0_positive",
+        "ExactPlatformProperties.test_wrong_major_refused",
+        "ExactPlatformProperties.test_wrong_minor_refused",
+        "ExactPlatformProperties.test_legacy_integer_api_refused",
+        "ExactPlatformProperties.test_extra_component_refused",
+        "ExactPlatformProperties.test_leading_zero_major_refused",
+        "ExactPlatformProperties.test_leading_zero_minor_refused",
+        "ExactPlatformProperties.test_exponent_api_refused",
+        "ExactPlatformProperties.test_spaced_api_refused",
+        "ExactPlatformProperties.test_future_or_preview_codename_refused",
+        "ExactPlatformProperties.test_platform_codename_refused",
+        "ExactPlatformProperties.test_preview_sdk_refused",
+        "ExactPlatformProperties.test_preview_format_refused",
+        "ExactPlatformProperties.test_wrong_revision_refused",
+        "ExactPlatformProperties.test_revision_float_format_refused",
+        "ExactPlatformProperties.test_wrong_platform_version_refused",
+        "ExactPlatformProperties.test_nonbase_extension_package_refused",
+        "ExactPlatformProperties.test_different_extension_refused",
+        "ExactPlatformProperties.test_beta_field_refused",
+        "ExactPlatformProperties.test_duplicate_api_key_refused",
+        "ExactPlatformProperties.test_missing_version_refused",
+        "ExactPlatformProperties.test_escaped_key_format_refused",
+        "ExactPlatformProperties.test_control_line_format_refused",
+        "ExactPlatformProperties.test_nonbytes_input_refused"
+      ]
+    }
+  ],
+  "expectedCountsSeparate": [
+    20,
+    24
+  ],
+  "proposedCommands": [
+    [
+      "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "-I",
+      "-B",
+      "/tmp/nbdp-amethyst-rebuild-20261026/preparation-r2/test_acquisition_models.py"
+    ],
+    [
+      "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "-I",
+      "-B",
+      "/tmp/nbdp-amethyst-rebuild-20261026/preparation-r2/test_platform_properties.py"
+    ]
+  ],
+  "eachTimeoutSeconds": 30,
+  "stdoutRetainedBytes": 65536,
+  "stderrRetainedBytes": 262144,
+  "modelsExecuted": 0,
+  "authorization": "Requires actual independent SOURCE review and separate reviewed bounded capture/root release; no test execution here"
+}

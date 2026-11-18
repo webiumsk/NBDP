@@ -1,0 +1,21 @@
+{
+  "schema": "nbdp-complete-native-development-origin-v1",
+  "disposition": "Audit selector error: current_control_request is generated text, not a top-level recipe function. No preservation file written. Corrected audit verifies enclosing install_clock_source unchanged.",
+  "frames": [
+    {
+      "toolName": "tools.exec_command",
+      "actualArguments": {
+        "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport hashlib,json,ast\nroot=Path('docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source3').resolve()\ndef pin(p):\n raw=p.read_bytes();return dict(path=str(p),bytes=len(raw),sha256=hashlib.sha256(raw).hexdigest())\nold=root.parent/'source2';a=ast.parse((old/'prepare_coupled.py').read_bytes());b=ast.parse((root/'prepare_coupled.py').read_bytes())\noldf={n.name:ast.dump(n,include_attributes=False) for n in a.body if isinstance(n,(ast.FunctionDef,ast.ClassDef))}\nnewf={n.name:ast.dump(n,include_attributes=False) for n in b.body if isinstance(n,(ast.FunctionDef,ast.ClassDef))}\nunchanged=['methods','assignments','adapt_request_fixture','install_clock_source','current_control_request','add_clock_controls','install_failed_inventory_source','add_failed_inventory_controls','static_import_closure']\nassert all(oldf[n]==newf[n] for n in unchanged)\nproof=dict(schema='e02-consumer-source3-recipe-preservation-v1',predecessorRecipe=pin(old/'prepare_coupled.py'),recipe=pin(root/'prepare_coupled.py'),unchangedRuntimeGeneratorFunctions=unchanged,changedRecipeFunctions=[n for n in oldf if oldf[n]!=newf[n]],runtime450DerivedAudit=pin(root/'draft-static-audit.json'),source1AndSource2Edited=False,canonicalModelsExecuted=0,actualFinalBuilderInvoked=False)\n(root/'recipe-preservation.json').write_text(json.dumps(proof,indent=2)+'\\n')\nprint(json.dumps(proof))\nPY",
+        "login": false,
+        "max_output_tokens": 2000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "fe4338",
+        "wall_time_seconds": 0.386679479,
+        "exit_code": 1,
+        "original_token_count": 38,
+        "output": "Traceback (most recent call last):\n  File \"<stdin>\", line 10, in <module>\n  File \"<stdin>\", line 10, in <genexpr>\nKeyError: 'current_control_request'\n"
+      }
+    }
+  ]
+}

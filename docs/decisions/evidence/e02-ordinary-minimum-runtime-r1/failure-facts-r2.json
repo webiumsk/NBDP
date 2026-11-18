@@ -1,0 +1,137 @@
+{
+  "schema": "e02-minimum-incoming-actual-failure-facts-v1",
+  "runId": "1c09035e6a7e469a9449cdfa9764725a",
+  "supervisor": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-runtime-r1/run/supervisor-result.json",
+    "bytes": 3112,
+    "sha256": "37764f34a1d372f1ca62be9355175147c618056fff4689a0c131feeafb609b69"
+  },
+  "actualExecutionState": "FAILED_UNQUALIFIED",
+  "actualSupervisorError": "LeaseDenied('owned command exited unsuccessfully')",
+  "actualSecondaryErrors": [],
+  "actualCommandReceipts": 360,
+  "actualPngCount": 36,
+  "actualXmlCount": 36,
+  "nonzeroCommandReceipts": [
+    {
+      "receipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-runtime-r1/run/commands/0360.json",
+        "bytes": 876,
+        "sha256": "9a3086cce6cdd82e5ef8068b1f08a6ffa3096860329d06f75d796a6c70c5af91"
+      },
+      "exit": 2,
+      "receiptSequence": 360,
+      "stdout": {
+        "path": "/tmp/nbdp-e02-ordinary-minimum-v1/runs/1c09035e6a7e469a9449cdfa9764725a/commands/0360.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "/tmp/nbdp-e02-ordinary-minimum-v1/runs/1c09035e6a7e469a9449cdfa9764725a/commands/0360.stderr",
+        "bytes": 51,
+        "sha256": "d11851c053be569dbafa3d9a9964ad4ce65f8a8719955dbc59d8ed3e9fa37d0e"
+      },
+      "reaped": true,
+      "forced": false,
+      "timedOut": false,
+      "error": null,
+      "stdoutEOF": true,
+      "stderrEOF": true
+    }
+  ],
+  "actualCleanup": {
+    "ok": true,
+    "rows": [
+      {
+        "role": "android",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "c1c6c3e0373f46945d0d15b3843f71b7c908253b1bdf796ca11857357fb3c61a",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "fixture",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "ea76a85bc9a4b32f375b8dfb1494e9cf996ac4a766deb3f8d6a891ef3057e207",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "rs-relay",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "be740f7ead4c15c649dec6b380463625c1b8477e0e506b5375f3ab143bd96ce5",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "anchor",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "f38562a1a5805992f2c9ba969960254044dd329a233e8270d61108d1780ca02a",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      }
+    ],
+    "errors": [],
+    "evidence": {
+      "path": "/tmp/nbdp-e02-ordinary-minimum-v1/runs/1c09035e6a7e469a9449cdfa9764725a/cleanup/result.json",
+      "bytes": 1393,
+      "sha256": "5fae8e01ff1f4b935e0b7d1304187818ebc5f5e4251f58d306f2f3582b50edd0"
+    }
+  },
+  "driverResultPresent": false,
+  "ordinaryContribution": "ZERO_FAILED_WHOLE_WINDOW_CANNOT_DONATE_EARLY_STEPS",
+  "archiveExecuted": false,
+  "canonicalE02": "PARTIAL22_UNCHANGED",
+  "stockE04E06Unlocked": false,
+  "independentFailureReview": "PENDING_ACTUAL_NONAUTHOR_NONOPERATOR_QA_SECURITY",
+  "runtimeActionByPreserver": false,
+  "actualExitDistribution": {
+    "0": 359,
+    "2": 1
+  },
+  "summaryCorrection": {
+    "initialFacts": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-runtime-r1/failure-facts.json",
+      "bytes": 2729,
+      "sha256": "836e129a9e841f2035e787cf0edcabc02276324a44ee140bef9b7a2c820c9f69"
+    },
+    "error": "Initial DATA collector looked for exitCode; actual immutable command receipts use exit. Initial empty nonzero list was a collector summary error, not an all-exit0 finding. Raw receipts were copied correctly and unchanged.",
+    "actualCorrectField": "exit",
+    "commandSchemaSource": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-runtime-r1/producer-source/lease_guard.py",
+      "bytes": 14846,
+      "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+    },
+    "initialSubject": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-runtime-r1/subject.json",
+      "bytes": 2706,
+      "sha256": "a9fa7e36e5ae52c9a58f96cca2085b877f63214ef0747da3ae732daa0c0f3f88"
+    },
+    "initialManifest": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-runtime-r1/artifact-manifest.json",
+      "bytes": 331523,
+      "sha256": "65c97f3c148b128d657d3f1e8f2690d58b5762f5ec9ca659848a44c1dd3df116"
+    },
+    "sourceRuntimeOrExperimentChanges": false
+  }
+}

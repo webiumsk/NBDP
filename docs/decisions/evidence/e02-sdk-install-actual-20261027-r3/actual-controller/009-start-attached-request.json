@@ -1,0 +1,23 @@
+{
+  "schema": "nbdp-amethyst-actual-cli-request-v1",
+  "argv": [
+    "/usr/bin/docker",
+    "start",
+    "--attach",
+    "f2cbffbceceafff4601b7ea0ee9188a6b593c46f8b1b3974931141842ebd5c8a"
+  ],
+  "wrappedArgv": [
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=5s",
+    "1080s",
+    "/usr/bin/docker",
+    "start",
+    "--attach",
+    "f2cbffbceceafff4601b7ea0ee9188a6b593c46f8b1b3974931141842ebd5c8a"
+  ],
+  "startedUtcNs": 1793127956070906794,
+  "maximumSeconds": 1080,
+  "capturePerFileLimitBytes": 4194304,
+  "limitMeaning": "RLIMIT_FSIZE on CLI/attach capture files only; inner install job file limit is2GiB."
+}

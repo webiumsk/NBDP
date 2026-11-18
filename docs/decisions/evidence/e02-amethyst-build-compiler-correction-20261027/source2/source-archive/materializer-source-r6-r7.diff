@@ -1,0 +1,18 @@
+--- /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r6/materializer-source/materialize.py
++++ /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r7/materializer-source/materialize.py
+@@ -9,11 +9,11 @@
+ import sys
+ import time
+ 
+-HERE=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r6/materializer')
+-SOURCE=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r6/supervisor-source')
+-WORK=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r6/controller')
++HERE=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r7/materializer')
++SOURCE=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r7/supervisor-source')
++WORK=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r7/controller')
+ PYTHON='/home/peterhorvath/.miniforge3/bin/python3.13'
+-PINNED=[{'path': '/home/peterhorvath/.miniforge3/bin/python3.13', 'bytes': 32959480, 'sha256': '5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1'}, {'path': '/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r6/supervisor-source/supervise_build.py', 'bytes': 31753, 'sha256': '671f2f77c9ec99f525ca7107ffeca2864c7f5cd45479360de714cc85c6959cc5'}, {'path': '/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r6/supervisor-source/subject.json', 'bytes': 3448, 'sha256': '0a29d98e2957934486fc7d934e1ce794d3f833a0e8a6d2f2d48fa02d1a0c7ce7'}, {'path': '/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r6/supervisor-source/plan.json', 'bytes': 10356, 'sha256': '87556254883aa01158eba3d5f5a5b00507eec9bc40434b695a619412ec888817'}]
++PINNED=[{'path': '/home/peterhorvath/.miniforge3/bin/python3.13', 'bytes': 32959480, 'sha256': '5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1'}, {'path': '/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r7/supervisor-source/supervise_build.py', 'bytes': 31753, 'sha256': '79dee6482e31a97040013f7ffa8f260f5dc5055c64cfbc17ad1ed4268b54d587'}, {'path': '/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r7/supervisor-source/subject.json', 'bytes': 3751, 'sha256': 'ea8632f334cd3afc77763ee95e534bf0f4c97a96c3464ef591cdc32be70a6146'}, {'path': '/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r7/supervisor-source/plan.json', 'bytes': 10669, 'sha256': 'bde6633c7735433717189ebc39635b7199415ece7f5e1115b704c837a5c42e8a'}]
+ 
+ CLOCKS={'issuedAtUtcNs','notAfterUtcNs'}
+ RELEASE_KEYS=set('schema actor executionAuthorized scope runId issuedAtUtcNs notAfterUtcNs supervisorSubject buildPreparationSubject sourceReviews prerequisiteAcceptances sourceArchive sourceArchiveReceipt jdkExtraction installedSdkInventory installedSdkMetadata installedSdkConsent installedSdkAcceptance networkId networkLabels meaning'.split())

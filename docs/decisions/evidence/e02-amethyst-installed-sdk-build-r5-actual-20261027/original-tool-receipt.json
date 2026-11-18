@@ -1,0 +1,20 @@
+{
+  "tool": "functions.exec / tools.exec_command",
+  "calls": [
+    {
+      "args": {
+        "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 TZ=UTC /usr/bin/timeout --signal=TERM --kill-after=3s 2397s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r5/materializer-source/materialize.py --template-sha 764b0aab9be00c595cbbeed76239b39c5f15e20cf06020d3f6537e3b90971f45",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2000
+      },
+      "result": {
+        "chunk_id": "f8f54c",
+        "wall_time_seconds": 1.00086091,
+        "session_id": 43860,
+        "original_token_count": 0,
+        "output": ""
+      }
+    }
+  ],
+  "provenance": "Exact structured original tool arguments/result retained by root; no rerun or provider attestation."
+}

@@ -1,0 +1,129 @@
+{
+  "schema": "e02-root-consumer-current178-source3-fixture-remediation-scope-v1",
+  "actor": "/root",
+  "owner": "/root/consumer_current178_source",
+  "ownedRoot": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source3",
+  "references": [
+    "E02",
+    "Q06",
+    "Q07",
+    "Q09",
+    "Q24"
+  ],
+  "negativeSource2": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/subject.json",
+    "bytes": 30381,
+    "sha256": "8a6f98af142db2d81107cac62e4c3a08df6ba88cc8f2d3c5a330b90fa87c5eac"
+  },
+  "negativeSource2Freeze": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-review-20261105/source2/complete-freeze.json",
+    "bytes": 231594,
+    "sha256": "70b3698402d858048792d07bafd9e4ec3bd806e3069a2be51e29edad91e0dfae"
+  },
+  "source2AcceptedSourceReceipt": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-review-20261105/source2/acceptance.json",
+    "bytes": 1767,
+    "sha256": "63030d582af0b3b538163f057eccdca60e94bb28d48afdd9c0e10c36f71c5cbc"
+  },
+  "failedActualBatch": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer350-model-actual-20261105/r1/failed-batch-subject.json",
+    "bytes": 8382,
+    "sha256": "34b5126aca5b3e9389ab0516bbd6fd33a851841a5e3a95e05dbf9aa662e652e4"
+  },
+  "actualNegativeReviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer350-model-review-20261105/r1/qa-failed-data-review.json",
+      "bytes": 387,
+      "sha256": "a7ae5ff489e8d8d65c6b8f434e5c6fa27ed0016457b20509db1e7b75ae42a974"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer350-model-review-20261105/r1/security-failed-data-review.json",
+      "bytes": 399,
+      "sha256": "a93d9af21471180a6f815ad148a184b867c7c9505002a09a0a24b65e2f1864f9"
+    }
+  ],
+  "actualFindings": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer350-model-review-20261105/r1/qa-failed-data-findings.json",
+      "bytes": 2356,
+      "sha256": "192e0fc706700e9069abbad1c95c5ac8dd020c559da1c606be2b08457ceb22ca"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer350-model-review-20261105/r1/security-failed-data-findings.json",
+      "bytes": 2368,
+      "sha256": "46d54cad77c4e9c33044449b6e6bf50a6c5f6eebeb72a67b9feffa0b89783ae1"
+    }
+  ],
+  "reviewerExclusions": [
+    "/root",
+    "/root/android_health_implementer",
+    "/root/collector_policy_security_553c5bfd",
+    "/root/collector_r4_fresh_security_bcf7ccfa57b4",
+    "/root/collector_r5_fresh_qa_c05985fce1ea",
+    "/root/collector_r5_fresh_security_c05985fce1ea",
+    "/root/collector_typed_qa_1592707b",
+    "/root/collector_typed_security_1592707b",
+    "/root/completion3_final",
+    "/root/completion_wrapper",
+    "/root/consumer266_source",
+    "/root/consumer3_preparation",
+    "/root/consumer6_s4_fresh_qa_6716777dfdd7",
+    "/root/consumer6_s4_fresh_security_6716777dfdd7",
+    "/root/consumer6_source",
+    "/root/consumer_current178_source",
+    "/root/consumer_source2_qa_70b36984",
+    "/root/consumer_source2_security_70b36984",
+    "/root/consumer_source_qa_e0e55c4e",
+    "/root/consumer_source_security_e0e55c4e",
+    "/root/controller_current_source_r9",
+    "/root/controller_model_metadata_source2",
+    "/root/controller_r9_qa_e7c43daa",
+    "/root/controller_r9_security_e7c43daa",
+    "/root/guard_recovery_source",
+    "/root/helper_apk_binding_scope",
+    "/root/helper_controller_source6_env",
+    "/root/helper_current178_source",
+    "/root/helper_env_removal_sources",
+    "/root/helper_policy_source7",
+    "/root/helper_r6_binding",
+    "/root/lease_fix_binding_scope",
+    "/root/native_rebuild_prepare",
+    "/root/ordinary_api35_source",
+    "/root/probe_concrete_path_composition",
+    "/root/probe_r6_fresh_qa_d81b6f3ae5d8",
+    "/root/probe_r6_fresh_security_d81b6f3ae5d8",
+    "/root/probe_r7_fresh_qa_8d291e97745f",
+    "/root/probe_r7_fresh_security_8d291e97745f",
+    "/root/producer3_capture",
+    "/root/producer4_nonblocking_source",
+    "/root/producer_lease_fresh_qa_7569bcc497a2",
+    "/root/producer_lease_fresh_security_7569bcc497a2",
+    "/root/r5",
+    "/root/r5_plan_fix",
+    "/root/root_failstop_bridge_source",
+    "/root/whole_consumer_fixture"
+  ],
+  "permittedChanges": [
+    "Create new Source3 only; preserve all798Source2 pins/all695Source1 pins and complete consumed release/failed batch.",
+    "test_whole_window producer selector must name complete immutable current accepted producer root/configs; source/current accepted metadata authority chooses it. Keep production CURRENT_HELPER_APK and all validation unchanged. Do not rewrite just helper field or fake genuine approval.",
+    "Correct confirmed test_current_authority current-positive source revision/cwd/scriptroot/178partition expectations from immutable selected current Source/plan. Future-revision negative must be strictly beyond selected current revision and exercise same source/member bound.",
+    "Explicitly correct the two changed-whole-request negative expected reasons to exact WHOLE_ACTUAL_REQUEST_FAMILY, only after preserving same mutation and proving refusal occurs at intended current boundary. No widening regex or unrelated earlier refusal.",
+    "Preserve all350 predecessor test names and semantics. Record exact authorized AST exceptions for these diagnosed currentfixture expectations only; keep all unrelated methods AST-identical and historical negative vectors unchanged.",
+    "Add meaningful current producer/fullwindows positive and deliberate historical-helper refusal controls; current178 mixed scripts/allR10cwd positive and genuine future-domain/changed-whole-request controls where not already sufficient. FinalN derives actual final AST, never assumed.",
+    "Update explicit paths/pins/contracts/archive/importclosure/readmap/diffs/creatorunion and metadata to truthful current Source3 namespace/counts, retaining Source15/Data24 unchanged closed schema/literals. Keep production algorithms/eight business modules unchanged aside from reviewed necessary own-namespace descriptors.",
+    "All actual helper/currentconsumer/roles/window/export/account/lease/grants remain null; no completion/wrapper implementation."
+  ],
+  "prohibited": [
+    "No Source1/Source2/failedbatch/accepted266/178/81 changes",
+    "No target imports/models/processes/TTY/collector/helper/Docker/network/Git/state edits",
+    "No rerun or reuse consumed release/no partial222PASS transfer",
+    "No weakened production validation, fabricated actualhelper/currentconsumer approval or altered resource/lease/finalF gates"
+  ],
+  "acceptanceCriteria": [
+    "Complete explicit Source3 packet/archive/provenance/staticmethod preservation/importgraph and all old negative inputs unchanged",
+    "Both observedgroup8 and statically provedgroup9 fixture/domain contradictions resolved while intended negative boundaries remain meaningful",
+    "Stop writes, return exactentry/subject/plan/archive/finalAST counts; Rootfreeze then genuinely fresh independent QA/security outside all47exclusions before any full successor batch"
+  ],
+  "modelsExecuted": 0,
+  "executionAuthorized": false
+}

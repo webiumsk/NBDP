@@ -1,0 +1,30 @@
+{
+  "actor": "/root",
+  "reviewer": "/root/r4_qa",
+  "decision": "ACCEPT_R7_TIMEOUT_NEGATIVE_SOURCE_INPUT_PRIVACY_AND_EXACT_CID_CLEANUP_ONLY",
+  "controller": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-controller/result.json",
+    "bytes": 1264,
+    "sha256": "f79b300c37a11de8c9e3301d62e2eb77e7df76e62ecf87f621e2c9e44f304bb1"
+  },
+  "postcheck": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/post-checks-r1/result.json",
+    "bytes": 824,
+    "sha256": "ce3233a61d4b730d56b28a2a03f605f4773a711e057a33db1b6189e67260e47c"
+  },
+  "copies": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/actual-copy-manifest.json",
+    "bytes": 30894,
+    "sha256": "981f2707eb4704e1e045ffd5cf7fa7ee59d18b237c3ca9c519255e3929733bc7"
+  },
+  "findings": [
+    {
+      "severity": "MEDIUM",
+      "category": "AVAILABILITY",
+      "finding": "Whole artifact job timed out124/OOMfalse without APK or complete inner result; R7 remains failed/unqualified."
+    }
+  ],
+  "verified": "50 origin/copy pairs;11CLI; current exactCIDabsence;11085originals unchanged in62283afterrows with no unplannedfiles; wholeSDK/JDK/archive unchanged; empty keyscan/no copiedprivatekeys;8successful IN_PROCESS compilerinvocations in terminal log",
+  "limits": "Compiler invocations only, not whole-build/APK success or independent compiler correctness. No progress percentage/remaining-time/peak claims. Any seed continuation separately reviewed and root authorized.",
+  "provenance": "Faithful coordinator transcription of actual independent DATA mailbox acceptance; no reviewer builds/reruns/writes"
+}

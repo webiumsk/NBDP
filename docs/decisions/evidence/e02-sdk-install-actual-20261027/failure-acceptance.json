@@ -1,0 +1,44 @@
+{
+  "recordedBy": "/root",
+  "decision": "ACCEPT_ACTUAL_PRE_DOCKER_RESOURCE_ADMISSION_FAILURE_ONLY",
+  "qa": {
+    "reviewer": "/root/status_evidence",
+    "decision": "ACCEPT_NEGATIVE_ADMISSION_DATA_ONLY"
+  },
+  "security": {
+    "reviewer": "/root/producer2_result_security",
+    "decision": "ACCEPT_ACTUAL_SDK_ATTEMPT_PRE_DOCKER_RESOURCE_ADMISSION_FAILURE_ONLY"
+  },
+  "result": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-install-actual-20261027/result.json",
+    "bytes": 851,
+    "sha256": "9a07021849a44b87ca1b81538c6e77233394c54ad7c44313beb97c39be46a916"
+  },
+  "controller": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-install-actual-20261027/actual-controller/result.json",
+    "bytes": 1185,
+    "sha256": "b1a4b14d1faa750d327d3de55ad883e71404bf1fa1224cc6e23e8bc71dcdf925"
+  },
+  "readonlyAfter": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-install-actual-20261027/actual-controller/readonly-inputs-after.json",
+    "bytes": 96,
+    "sha256": "ae341f528e68c21a5ad3a48bfeff445a7678a29fb2983fbc19905be33bdc9432"
+  },
+  "observation": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-install-actual-20261027/resource-failure-observation.json",
+    "bytes": 1291,
+    "sha256": "e806bebfeb945212446dd9c417f3ae3ceb8eb160ac4e7a357f6a30f731675991"
+  },
+  "firstFault": "SIXTEEN_GIB_INSTALL_ADMISSION",
+  "cliReceipts": 0,
+  "containerCreated": false,
+  "sdkmanagerExecuted": false,
+  "licenseResponseSent": false,
+  "limits": [
+    "Guarddidnotrecorditsnumericmeasurement",
+    "Observed13298380800Bislateravailabilitysnapshot against17179869184required; earliernumbersaresnapshots, causeunproven",
+    "NoSDKsuccess/retry/grant"
+  ],
+  "findings": [],
+  "provenance": "Faithful coordinator record of actual independent QA/security mailbox decisions"
+}

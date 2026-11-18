@@ -1,0 +1,140 @@
+{
+  "schema": "e02-guard-eventloop-required-control-vectors-v1",
+  "author": "/root/completion3_final",
+  "state": "PROPOSED_REQUIREMENTS_NOT_EXECUTABLE_DEFINITIONS",
+  "proposedCases": [
+    {
+      "name": "fresh_check_one_to_one_no_cached_OK",
+      "criterion": "EveryoriginalcheckrequestsonefreshunchangedLease.check; repeatedeffectsamecontextstillnewRPC; countsandrequestdigestsjoin."
+    },
+    {
+      "name": "persistent_previous_clock_history",
+      "criterion": "ONELeaseinstance preserved; validmonotonicsequencepasses; rollback/drift/bootchange/original15sgaprevokesusingoriginalcore."
+    },
+    {
+      "name": "original_lease_sha_and_revocation_each_request",
+      "criterion": "Mutateleasebytes/hash,symlink/revokeafterearlierOK; nextfreshcheckdenieswithnoeffect."
+    },
+    {
+      "name": "original_1800_expiry",
+      "criterion": "FinalclockssampleatorafteranyoriginalUTC/MONO/BOOTdeadline denies; no reset/reissue/restart."
+    },
+    {
+      "name": "warm_guard_burst_with_live_timers",
+      "criterion": "Boundedrealhelperfreshcheckburstwithnetworktimerdispatchalive; retainactualthroughputanddelaysunderoriginal5/10/55caps; timeoutremainsnegative."
+    },
+    {
+      "name": "queue_deadline_includes_wait",
+      "criterion": "Requestwaitingbehindotherchecksdoesnotgetnew5swhenwritten; expiryfenceswithoutsend."
+    },
+    {
+      "name": "startup_and_first_check_share_five_seconds",
+      "criterion": "Slowimport/READY/checkcannotobtaintwo5sbudgets; READYnotauthorization."
+    },
+    {
+      "name": "queue_entry_or_payload_overflow",
+      "criterion": "Atbounded64entries/originalaggregatebytes reject, do notdrop/coalesce/reorder/retrychecks."
+    },
+    {
+      "name": "request_response_sequence_binding",
+      "criterion": "Duplicate/decreasing/foreignhelper/run/lease/id/context/hash/unknownextra fields refusedeffects."
+    },
+    {
+      "name": "partial_oversize_or_extra_stdio",
+      "criterion": "Fragmentedvalidlinehandledboundedly; missingnewline/multipleunexpectedlines/limit/duplicateJSON/nonfinite/-0/unknownschemarefused."
+    },
+    {
+      "name": "helper_stderr_or_child_death",
+      "criterion": "Unexpectedstderr,nonzero/signal/EOF/exitbeforematchingreply immediatelyterminal; noautorestart."
+    },
+    {
+      "name": "late_success_after_timeout",
+      "criterion": "HelperOKafter5s/terminal/cancelcannotresolveorappendprotocolsuccess/effects."
+    },
+    {
+      "name": "deny_after_previous_ok",
+      "criterion": "ValidearlierRPCcannotauthorizecurrentpointafterdenial/revocation; allqueuedworkcancelled."
+    },
+    {
+      "name": "current_generation_changed_during_await",
+      "criterion": "Close/newREQ/subscriptiongeneration/stage/attempt/publicationinvalidationscannotuseoldsnapshotsatcommit."
+    },
+    {
+      "name": "send_before_guard_success_forbidden",
+      "criterion": "NoWebSocketconstructor/send orprotectedstate/writeatapplicablepointbeforefreshRPCcompletion."
+    },
+    {
+      "name": "no_async_yield_between_ok_and_effect",
+      "criterion": "Matchedreplyconsumedonceinshortcontinuationwithlivecontext/epoch/deadline, noanotherawait/reusedpermit."
+    },
+    {
+      "name": "query_timer_not_blocked_by_guard_wait",
+      "criterion": "TIMER_FIRED immediatelyfencesterminaloutsidequeue; no freshguardrequiredtodenyorclose."
+    },
+    {
+      "name": "handshake_and_command_deadline_not_extended",
+      "criterion": "Keep3000ms/10000ms/55s/control45s/original1800; queue/helperstartup/cleanupchargedwithinnativebudgets."
+    },
+    {
+      "name": "publish_exchange_no_global_lock_deadlock",
+      "criterion": "Publishdoesnotholdexecutorwhilenetworkawaits; replycallbacks canrunthroughfreshguardedsegments."
+    },
+    {
+      "name": "app_and_backend_callback_burst_order",
+      "criterion": "FIFOshortsegmentsretainactualrawbytes/subscription/attempt/EOSE/sendcallbackorder; noearlydeliveryclaim."
+    },
+    {
+      "name": "incoming_socket_fault_precedence",
+      "criterion": "Socketerrorfirstremainsprimaryoverguard/observation/retentionsecondary; firstfaultclaimedonce."
+    },
+    {
+      "name": "capture_poison_cancels_all",
+      "criterion": "Shortwrite/ENOSPC/phaseerror/shared16MiBoverflow preventsfutureeffects; cleanupalwaysattempted."
+    },
+    {
+      "name": "late_callback_no_success_mutation",
+      "criterion": "Afterterminalnocallbacksend/stageadvance/proofsuccesswrite; separatelyidentifiedownedcleanupretentiononly."
+    },
+    {
+      "name": "watchdog_tick_not_coalesced",
+      "criterion": "Everyactual1stickchecksfreshorqueueboundfails; pendingticknotreusedorignored."
+    },
+    {
+      "name": "normal_controller_close_does_not_revoke_service",
+      "criterion": "CLOSEonly0pending/nofuturecontinuation; naturalhelperEOF/exitwhileotherservicehelperseparateleaseinstancecontinues."
+    },
+    {
+      "name": "unexpected_eof_sticky_failure_truthful",
+      "criterion": "UnexpectedEOFdoesnotmasqueradeasCLOSE; livehelperusesoriginalrevoke; deadhelperrevocationnotfabricated; hostfaultpropagationretained."
+    },
+    {
+      "name": "cancel_owned_child_stdio_and_reap",
+      "criterion": "Rejectpendingfirst; closeownedstdin, boundedterminate/killonlyownhandle; retainactualEOF/exit/close evidence; unknowngroupnevermutated."
+    },
+    {
+      "name": "helper_or_guard_source_drift",
+      "criterion": "Pinnedhelper/runtime/originalguardreadonlycodehashdrift rejectsstartup/request; no changedLeaseclassaccepted."
+    },
+    {
+      "name": "independent_helpers_no_response_crossuse",
+      "criterion": "serveandCLIhelperIDs/streams/requestdomainsdistinct; noresultbroker/sharedpermits."
+    },
+    {
+      "name": "raw_guard_custody_clock_precision",
+      "criterion": "Realrequest/rawresponse/checksamples/timing/cancelIDs/capsretained; nsnotrounded; no fabricatedPopen/pipeEOF/innerAPIproof."
+    },
+    {
+      "name": "changed_source_rebind_all_consumers",
+      "criterion": "Producer4/newconfigs/newcontrolsourcecaptures/currentconsumer/completionmustbindexactnewgraph; old14failuresremainNO_CONTRIBUTION."
+    },
+    {
+      "name": "synchronous_native_path_limit_honest",
+      "criterion": "Rustvalidationcap8sunchangedandoccursafterquery; nogeneralnonblockingguaranteeorinventedcausalrepair."
+    }
+  ],
+  "proposedCaseCount": 32,
+  "executableModelsDefined": 0,
+  "modelsExecuted": 0,
+  "runtimeExecutions": 0,
+  "requiredEvidence": "IndependentlyreviewversionedSOURCEandmeaningfulactualfreshmock/realownedhelperregressionsinfiniteisolatedscopeafterseparateauthorization. Recordactualcounts/rawstreams/sourcebeforeafter/deadlines/EOF/exit/cleanup. Neverlabelmodelthroughputasclientinterop."
+}

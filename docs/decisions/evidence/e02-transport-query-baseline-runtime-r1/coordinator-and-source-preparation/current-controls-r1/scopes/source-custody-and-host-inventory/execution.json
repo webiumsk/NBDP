@@ -1,0 +1,70 @@
+{
+  "schema": "e02-transport-source2-pure-scope-execution-v1",
+  "actor": "/root/ordinary_api35_source",
+  "parentCoordinator": "/root",
+  "argv": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/test_source_controls.py"
+  ],
+  "cwd": "/home/peterhorvath/apps/bitcoin/NBDP",
+  "expectedCount": 18,
+  "startedUtc": "2026-10-24T06:58:20.406429+00:00",
+  "timeoutSeconds": 60,
+  "retentionBytes": {
+    "stdout": 1048576,
+    "stderr": 262144
+  },
+  "retentionMeaning": "POST_CAPTURE_FILE_PREFIX_LIMIT_NOT_STREAMING_MEMORY_CAP",
+  "pid": 3,
+  "exitCode": 0,
+  "signal": null,
+  "reaped": true,
+  "naturalExit": true,
+  "stdoutEOF": true,
+  "stderrEOF": true,
+  "forceRequested": false,
+  "forceReason": null,
+  "firstError": null,
+  "secondaryErrors": [],
+  "sourceUnchanged": true,
+  "observedCount": 18,
+  "countAndOutputShapeMatched": true,
+  "captureMatched": true,
+  "controlResultAcceptedByAuthor": false,
+  "independentResultReview": "PENDING_ACTUAL_OTHER_AGENTS",
+  "environment": {
+    "PATH": "/usr/bin:/bin",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "TMPDIR": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/scopes/source-custody-and-host-inventory/tmp"
+  },
+  "finishedUtc": "2026-10-24T06:58:22.350358+00:00",
+  "elapsedNanoseconds": 1943910775,
+  "observedStreamBytes": {
+    "stdout": 0,
+    "stderr": 2719
+  },
+  "truncated": {
+    "stdout": false,
+    "stderr": false
+  },
+  "stdout": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/scopes/source-custody-and-host-inventory/data.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/scopes/source-custody-and-host-inventory/data.stderr",
+    "bytes": 2719,
+    "sha256": "b8f0d4b1163dd5dcb6128515bd47ed0896dd87e42b2e6647022d43e0a7458842"
+  },
+  "observedPartitions": {
+    "SourceCustodyControls": 10,
+    "ClosedDependencyControls": 8
+  },
+  "state": "WRITES_STOPPED",
+  "result": "SCOPED_DATA_CAPTURE_MATCHED_PENDING_INDEPENDENT_REVIEW",
+  "meaning": "Synthetic DATA only; no primary/consumer/runtime/crypto/native/client execution or external/canonicalPASS, SDK or experiment authority."
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "set -C\numask 077\nexec /usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 TZ=UTC /usr/bin/timeout --signal=TERM --kill-after=2s 120s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source3/prepare_coupled.py --spec /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/root-final-preparation-r1/spec.UNRELEASED.json --spec-bytes 410989 --spec-sha256 89e7f042dd24afe868d3a75f7b550ff54803cf88e9c07c5b0d6733eb04be36d8 --output /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source3/coupled-r1 > /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/root-final-preparation-r1/builder.stdout.json 2> /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/root-final-preparation-r1/builder.stderr.raw",
+      "workdir": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source3",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2000
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "cb30d7",
+      "wall_time_seconds": 1.001511877,
+      "session_id": 44336,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "polls": [
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 44336,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "636ca3",
+        "wall_time_seconds": 3.21645206,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    }
+  ]
+}

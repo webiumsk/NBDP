@@ -1,0 +1,35 @@
+{
+  "schema": "nbdp-e02-ordinary-artifact-route-assessment-v1",
+  "actor": "/root",
+  "researcher": "/root/android37_license",
+  "recordType": "Coordinator transcription of actual read-only specialist result; primary API observations retained separately.",
+  "exactCommit": "e6f464a1179def75274512b3c5bab921de3bf3d8",
+  "tree": "11a90777c85c71912594612f42d9807004834f67",
+  "officialRun": {
+    "id": 38089604980,
+    "url": "https://github.com/vitorpamplona/amethyst/actions/runs/38089604980",
+    "event": "push",
+    "branch": "main",
+    "status": "completed",
+    "conclusion": "success",
+    "attempt": 1,
+    "artifactsObserved": 7
+  },
+  "onlyApkArtifact": {
+    "id": 11684387024,
+    "name": "FDroid Benchmark APK",
+    "bytes": 64485707,
+    "archiveSha256": "7240f410f2281ae2b15517bcae347359a85eab7e9d09f96cdbd8655b91b5b4d5",
+    "expiredAtObservation": false,
+    "expiresAt": "2027-01-08T21:57:42Z"
+  },
+  "sourceObservation": "Pinned workflow assembles benchmark; pinned build config assigns .benchmark/initWith(release), while required debug variant has .debug. Debug signing does not make benchmark the required build type/package.",
+  "otherCheckedRoutes": "Second exact-commit Crowdin run38089604982 has0artifacts. Relevant releasev1.17.0 annotatedtag resolves differentcommit917ec124590eb92ab104e83d9b94350b09713686.",
+  "decision": "NO_QUALIFIED_FDROID_DEBUG_ARTIFACT_FOUND_IN_CHECKED_OFFICIAL_METADATA",
+  "limits": [
+    "No APK/ZIP downloaded or executed; archive SHA is not the inner APK hash/signature.",
+    "This bounded lookup does not prove global artifact nonexistence.",
+    "No benchmark/release substitution, guard relaxation or licence consent."
+  ],
+  "nextAlignedAction": "Assess direct original canonical E02 primary-only replay independent of APK/SDK, preserving PARTIAL/ordinary skip and all22 primary assertions."
+}

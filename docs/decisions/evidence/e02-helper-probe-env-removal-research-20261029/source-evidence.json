@@ -1,0 +1,98 @@
+{
+  "schema": "e02-helper-environment-removal-source-evidence-v1",
+  "actor": "/root",
+  "researcher": "/root/helper_env_removal_sources",
+  "sourceEvidence": [
+    {
+      "url": "https://github.com/docker/cli/blob/f415da838bed6a0e12ca6cb86ba198fdac6beb9c/opts/env.go",
+      "repo": "docker/cli",
+      "commit": "f415da838bed6a0e12ca6cb86ba198fdac6beb9c",
+      "path": "opts/env.go",
+      "bytes": 896,
+      "sha256": "1939428acc7915772f8f1583a62195aff7f3b77cc71ad8c718a72b7f3051e937",
+      "evidenceType": "PINNED_PRIMARY_SOURCE_READ_BY_RESEARCHER"
+    },
+    {
+      "url": "https://github.com/docker/cli/blob/f415da838bed6a0e12ca6cb86ba198fdac6beb9c/docs/reference/commandline/container_run.md",
+      "repo": "docker/cli",
+      "commit": "f415da838bed6a0e12ca6cb86ba198fdac6beb9c",
+      "path": "docs/reference/commandline/container_run.md",
+      "bytes": 107836,
+      "sha256": "58c8042179da1f210735848cd8353c582a1ebf2edab0f31909adfe60b886fe2b",
+      "evidenceType": "PINNED_PRIMARY_SOURCE_READ_BY_RESEARCHER"
+    },
+    {
+      "url": "https://github.com/moby/moby/blob/a5b58c94d334674eae3a3207d4f05417643a90d0/daemon/commit.go",
+      "repo": "moby/moby",
+      "commit": "a5b58c94d334674eae3a3207d4f05417643a90d0",
+      "path": "daemon/commit.go",
+      "bytes": 5569,
+      "sha256": "2e96269633364c317b4ce6a94c3b666d559d4d7c54720ee92774c4e0ec6f04ac",
+      "evidenceType": "PINNED_PRIMARY_SOURCE_READ_BY_RESEARCHER"
+    },
+    {
+      "url": "https://github.com/moby/moby/blob/a5b58c94d334674eae3a3207d4f05417643a90d0/daemon/inspect.go",
+      "repo": "moby/moby",
+      "commit": "a5b58c94d334674eae3a3207d4f05417643a90d0",
+      "path": "daemon/inspect.go",
+      "bytes": 8051,
+      "sha256": "84412d4ebb5a95c9cbb4f9d9b32132955787af0f22385817341b19000157f370",
+      "evidenceType": "PINNED_PRIMARY_SOURCE_READ_BY_RESEARCHER"
+    },
+    {
+      "url": "https://github.com/moby/moby/blob/a5b58c94d334674eae3a3207d4f05417643a90d0/daemon/container/env.go",
+      "repo": "moby/moby",
+      "commit": "a5b58c94d334674eae3a3207d4f05417643a90d0",
+      "path": "daemon/container/env.go",
+      "bytes": 998,
+      "sha256": "80aac877620d3619e8cda3cc93e402da2238fa2576b5d9748ef524edfd29eecf",
+      "evidenceType": "PINNED_PRIMARY_SOURCE_READ_BY_RESEARCHER"
+    },
+    {
+      "url": "https://github.com/moby/moby/blob/a5b58c94d334674eae3a3207d4f05417643a90d0/daemon/container/container.go",
+      "repo": "moby/moby",
+      "commit": "a5b58c94d334674eae3a3207d4f05417643a90d0",
+      "path": "daemon/container/container.go",
+      "bytes": 29288,
+      "sha256": "2c09be6fd122ec50b335feaaf2117ff92f08d62e21d87b97e4d3af9799cf210e",
+      "evidenceType": "PINNED_PRIMARY_SOURCE_READ_BY_RESEARCHER"
+    },
+    {
+      "url": "https://github.com/moby/moby/blob/a5b58c94d334674eae3a3207d4f05417643a90d0/daemon/container/env_test.go",
+      "repo": "moby/moby",
+      "commit": "a5b58c94d334674eae3a3207d4f05417643a90d0",
+      "path": "daemon/container/env_test.go",
+      "bytes": 1478,
+      "sha256": "983f0822256023444f4cdda5eda48e06d6d04571946b52e33ddc369ebd5d31c1",
+      "evidenceType": "PINNED_PRIMARY_SOURCE_READ_BY_RESEARCHER"
+    }
+  ],
+  "officialDocs": "https://docs.docker.com/reference/cli/docker/container/run/#set-environment-variables--e---env---env-file",
+  "reportedReadonlyVersionObservation": {
+    "chunk": "063576",
+    "exitCode": 0,
+    "clientVersion": "29.9.0",
+    "clientCommit": "f415da838bed6a0e12ca6cb86ba198fdac6beb9c",
+    "engineVersion": "29.9.0",
+    "engineCommit": "a5b58c94d334674eae3a3207d4f05417643a90d0",
+    "api": "1.56",
+    "scope": "Researcher-reported read-only version metadata, not reproducible-build proof or a container experiment."
+  },
+  "conclusions": [
+    "Bare --env KEY removes inherited image value only when KEY is absent from Docker CLI process environment. KEY= remains a present empty value.",
+    "Pinned Engine retains bare KEY markers in stored Config.Env; inspect returns that stored configuration.",
+    "Pinned Engine removes markers when constructing OCI process environment. A Config.Env parser requiring '=' in every row would incorrectly reject the valid removal representation.",
+    "Require exactly four authorized Android bare markers once each; reject unknown bare markers, duplicate keys and every Android KEY=value including empty.",
+    "Compare all other configuration values exactly and derive effective environment by removing authorized markers. Keep SDK/UI absence guards.",
+    "Keep clean explicit Docker CLI child environment and private empty Docker config; do not infer absence of SDK files from environment removal."
+  ],
+  "sdkKeys": [
+    "ANDROID_HOME",
+    "ANDROID_SDK_ROOT",
+    "ANDROID_AVD_HOME",
+    "ANDROID_USER_HOME"
+  ],
+  "containerExperimentsByResearcher": 0,
+  "projectImportsByResearcher": 0,
+  "executionAuthorized": false
+}

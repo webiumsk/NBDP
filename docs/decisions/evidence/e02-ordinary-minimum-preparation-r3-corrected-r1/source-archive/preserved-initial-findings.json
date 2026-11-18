@@ -1,0 +1,17 @@
+{
+  "schema": "e02-producer3-original-findings-retention-v1",
+  "actualIndependentQa": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-anticipatory-review-20261028/qa-findings.json",
+    "bytes": 1803,
+    "sha256": "606cc53ec84190a2fca3e914aa4c394cc2722b69cb3a74eabcb2fa0193fe92dd"
+  },
+  "initialFindingCount": 2,
+  "initialFindingsPreserved": true,
+  "additionalSecurityFinding": {
+    "severity": "MEDIUM",
+    "origin": "Actual root task mailbox and /root/r4_security direct design-feedback mailbox",
+    "finding": "Caller-controlled relayConfig/sdkInventory/guardBundleInventory could self-certify substituted metadata/current tree or empty guard manifest; bind to immutable reviewed SOURCE descriptors first.",
+    "sourceApprovalClaimed": false
+  },
+  "scope": "These are retained source findings/design feedback, not an exploit, runtime release or approval of remediation. Four NULL APK fields still refuse; no controls executed."
+}

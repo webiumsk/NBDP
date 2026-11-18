@@ -1,0 +1,218 @@
+{
+  "schema": "e02-producer4-helper-probe-command-source-template-v1",
+  "state": "NONEXECUTABLE_NULL_OPERANDS_SOURCE_PROPOSAL",
+  "dockerCreate": {
+    "argvTemplate": [
+      "/usr/bin/docker",
+      "create",
+      "--pull=never",
+      "--name",
+      null,
+      "--cidfile",
+      null,
+      "--network",
+      "none",
+      "--ipc",
+      "private",
+      "--read-only",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--user",
+      null,
+      "--cpus",
+      "1",
+      "--memory",
+      "1024m",
+      "--memory-swap",
+      "1024m",
+      "--pids-limit",
+      "128",
+      "--init",
+      "--log-driver",
+      "none",
+      "--tmpfs",
+      "/tmp:rw,nosuid,nodev,noexec,size=16m",
+      "--workdir",
+      "/input",
+      "--entrypoint",
+      "/usr/local/bin/node",
+      "--label",
+      null,
+      "--label",
+      null,
+      "--label",
+      null,
+      "--mount",
+      null,
+      "--mount",
+      "type=bind,src=/tmp/nbdp-e02-minimal-rs-v7/guard-python,dst=/guard-python,readonly",
+      "--mount",
+      null,
+      "--mount",
+      null,
+      "--env",
+      "PATH=/usr/local/bin:/usr/bin:/bin",
+      "--env",
+      "HOME=/tmp",
+      "--env",
+      "TMPDIR=/tmp",
+      "--env",
+      "LANG=C.UTF-8",
+      "--env",
+      "LC_ALL=C.UTF-8",
+      "--env",
+      "TZ=UTC",
+      "--env",
+      "PYTHONHOME=/guard-python",
+      "--env",
+      "OPENSSL_CONF=/dev/null",
+      "--env",
+      "OPENSSL_MODULES=/guard-python/lib/openssl-modules-disabled",
+      "--env",
+      null,
+      "--env",
+      null,
+      "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+      "/input/probe-guard-helper.mjs"
+    ],
+    "nullOperands": [
+      {
+        "index": 4,
+        "binding": "privateContainerName"
+      },
+      {
+        "index": 6,
+        "binding": "freshCidFile"
+      },
+      {
+        "index": 17,
+        "binding": "hostUidGid"
+      },
+      {
+        "index": 36,
+        "binding": "labelNbdpRun"
+      },
+      {
+        "index": 38,
+        "binding": "labelNbdpRoleHelperProbe"
+      },
+      {
+        "index": 40,
+        "binding": "labelNbdpCreation"
+      },
+      {
+        "index": 42,
+        "binding": "readonlyExactEightFileInputMount"
+      },
+      {
+        "index": 46,
+        "binding": "readonlyLeaseMount"
+      },
+      {
+        "index": 48,
+        "binding": "writableOwnedControlMount"
+      },
+      {
+        "index": 68,
+        "binding": "NBDP_LEASE_SHA256"
+      },
+      {
+        "index": 70,
+        "binding": "NBDP_MINIMUM_RUN_CONFIG_SHA256"
+      }
+    ],
+    "subprocessShell": false,
+    "timeoutSeconds": 8,
+    "reapAbsoluteSeconds": 3
+  },
+  "initialInspect": {
+    "argvTemplate": [
+      "/usr/bin/docker",
+      "inspect",
+      null
+    ],
+    "cid": null,
+    "timeoutSeconds": 8,
+    "reapAbsoluteSeconds": 3
+  },
+  "startAttach": {
+    "argvTemplate": [
+      "/usr/bin/docker",
+      "start",
+      "--attach",
+      null
+    ],
+    "cid": null,
+    "jobSeconds": 55,
+    "reapAbsoluteSeconds": 3,
+    "stdoutBytes": 8384512,
+    "stderrBytes": 4096,
+    "retainedStreams": "Actual owned Docker CLI pipes; no inference that outer API EOF is helper EOF."
+  },
+  "terminalInspect": {
+    "argvTemplate": [
+      "/usr/bin/docker",
+      "inspect",
+      null
+    ],
+    "cid": null,
+    "timeoutSeconds": 8,
+    "reapAbsoluteSeconds": 3
+  },
+  "removeExactOwned": {
+    "argvTemplate": [
+      "/usr/bin/docker",
+      "rm",
+      "--force",
+      null
+    ],
+    "cid": null,
+    "timeoutSeconds": 8,
+    "reapAbsoluteSeconds": 3,
+    "condition": "Fresh complete immutableCID+image+name+three ownership labels+mounts/UID/resource/network predicates prove ownership; uncertain identity never reaches removal."
+  },
+  "confirmAbsence": {
+    "argvTemplate": [
+      "/usr/bin/docker",
+      "inspect",
+      null
+    ],
+    "cid": null,
+    "timeoutSeconds": 8,
+    "reapAbsoluteSeconds": 3,
+    "acceptedNegativeShape": "Original Docker29 exact absence predicate/actual rawstdout+stderr+exit; never exit-code-only"
+  },
+  "outerApiTemplate": {
+    "cmd": null,
+    "workdir": null,
+    "login": false,
+    "yield_time_ms": 1000,
+    "max_output_tokens": 2000
+  },
+  "outerTokensTemplate": [
+    "/usr/bin/env",
+    "-i",
+    "PATH=/usr/bin:/bin",
+    "LANG=C.UTF-8",
+    "LC_ALL=C.UTF-8",
+    "/usr/bin/timeout",
+    "--signal=KILL",
+    "183s",
+    null,
+    "-I",
+    "-B",
+    null,
+    "--plan",
+    null,
+    "--plan-sha",
+    null,
+    "--root-release",
+    null,
+    "--root-release-sha",
+    null
+  ],
+  "outerStatus": "Explicit operational183s proposal; not approved/executable. Pinned host interpreter/controller/plan/release must replace NULLs after independent reviews and Root adoption.",
+  "logDriverProposal": "none: attached raw streams are sole retained child output, avoiding an unbounded duplicate/proof-budget ambiguity; this is an explicit probe-only operational choice requiring SOURCE/concrete review, not a silent alteration of ordinary-role logging."
+}

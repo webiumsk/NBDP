@@ -1,0 +1,52 @@
+{
+  "schema": "nbdp-fixed-primary22-admission-model-plan-v1",
+  "source": {
+    "path": "/tmp/nbdp-e02-primary-replay-20261027-preparation/test_admission_models.py",
+    "bytes": 10240,
+    "sha256": "38e31a5ddd0aea56ad674b0d6c3203d7612f6b27c27b3f74bf12cd087b5f02ab"
+  },
+  "definitions": [
+    "test_exact_synthetic_ownership",
+    "test_wrong_native_e01_hash_refused",
+    "test_e01_failure_skip_or_source_omission_refused",
+    "test_closed_source_membership_and_hash_drift_refused",
+    "test_runtime_prefix_does_not_hide_extra_dependency",
+    "test_occupied_or_symlink_outputs_refused",
+    "test_foreign_full_cid_refused",
+    "test_wrong_relay_image_refused",
+    "test_foreign_owner_run_refused",
+    "test_root_user_refused",
+    "test_config_writable_or_changed_path_refused",
+    "test_weaker_resource_limit_refused",
+    "test_cap_drop_and_nnp_required",
+    "test_foreign_network_or_endpoint_refused",
+    "test_unowned_network_member_and_noninternal_refused",
+    "test_only_exact_absence_is_admitted",
+    "test_job_reserve_refuses_insufficient_deadline",
+    "test_first_fault_survives_cleanup_error",
+    "test_owned_inspect_precedes_every_mutation",
+    "test_unknown_identity_prevents_mutation",
+    "test_no_owned_objects_never_causes_cleanup_mutation",
+    "test_exact_inherited_labels_union_and_unknown_labels_refused",
+    "test_changed_entrypoint_or_workdir_refused",
+    "test_unknown_network_prevents_mutation",
+    "test_fixed_plan_rejects_phase_change_and_ambient_loader",
+    "test_root_lease_never_widens_and_rejects_clock_domain",
+    "test_setup_and_cleanup_reserves_begin_before_preflight"
+  ],
+  "definedCount": 27,
+  "executed": 0,
+  "command": [
+    "/usr/bin/python3.12",
+    "-I",
+    "-B",
+    "/tmp/nbdp-e02-primary-replay-20261027-preparation/test_admission_models.py"
+  ],
+  "limits": {
+    "seconds": 30,
+    "stdoutBytes": 65536,
+    "stderrBytes": 262144
+  },
+  "scope": "Synthetic DATA predicates, closed source-plan metadata and owned temporary files only; no Docker/network/native/proxy/tests/Android/real grants",
+  "requires": "Independent SOURCE QA/security followed by separately released bounded capture and actual independent result review"
+}

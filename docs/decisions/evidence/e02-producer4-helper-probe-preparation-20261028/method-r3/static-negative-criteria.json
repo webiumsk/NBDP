@@ -1,0 +1,110 @@
+{
+  "schema": "e02-helper-probe-method-r3-static-criteria-v1",
+  "state": "PLANNING_ACCEPTANCE_CRITERIA_NOT_EXECUTABLE_MODELS",
+  "criteria": [
+    {
+      "name": "owned_isolation_mount_mismatch",
+      "identity": "MATCH",
+      "admission": "FAIL_MOUNT",
+      "expected": [
+        "NO_START",
+        "UNQUALIFIED",
+        "EXACT_OWNED_REMOVE_ELIGIBLE",
+        "CONFIRM_ABSENCE"
+      ]
+    },
+    {
+      "name": "owned_uid_cgroup_network_or_flags_mismatch",
+      "identity": "MATCH",
+      "admission": "FAIL_ANY_ORIGINAL_ISOLATION_CHECK",
+      "expected": [
+        "NO_START",
+        "UNQUALIFIED",
+        "EXACT_OWNED_REMOVE_ELIGIBLE",
+        "CONFIRM_ABSENCE"
+      ]
+    },
+    {
+      "name": "unknown_or_changed_identity",
+      "identity": "UNKNOWN_OR_ANY_CID_NAME_IMAGE_LABEL_MISMATCH",
+      "expected": [
+        "NO_REMOVE",
+        "NO_START",
+        "UNQUALIFIED_UNKNOWN",
+        "ROOT_RECONCILIATION"
+      ]
+    },
+    {
+      "name": "retention_or_log_failure",
+      "identity": "MATCH",
+      "retention": "ERROR_OR_SHORT_WRITE",
+      "expected": [
+        "NO_POSITIVE_RESULT",
+        "STILL_ATTEMPT_EXACT_OWNED_REMOVE",
+        "STILL_ATTEMPT_ABSENCE"
+      ]
+    },
+    {
+      "name": "first_phase_three_nominal_cli_maxima",
+      "remaining": "30seconds minusrealstaging",
+      "steps": "3 times nominal8+3 is33 evenwithoutstaging",
+      "expected": [
+        "NO_ASSUME_FIT",
+        "CLAMP_EACH_USING_FRESH_REMAINING",
+        "REFUSE_OR_FAIL_BEFORE30",
+        "CLEANUP_RESERVE_NOT_BORROWED"
+      ]
+    },
+    {
+      "name": "remaining_phase_at_or_below_reap_reserve",
+      "remainingSeconds": "<=3",
+      "expected": [
+        "NO_NEW_CLI_SPAWN",
+        "NO_START_ATTACH",
+        "NEGATIVE_OR_UNKNOWN",
+        "OWNED_CLEANUP_STILL_RESERVED"
+      ]
+    },
+    {
+      "name": "remaining_phase_less_than_eleven",
+      "remainingSeconds": "3<R<11",
+      "expected": [
+        "RUN_TIMEOUT_AT_MOST_R_MINUS3",
+        "REAP_DEADLINE_AT_MOST_PHASE_END",
+        "NO_RENEWAL"
+      ]
+    },
+    {
+      "name": "phase_deadline_crosses_during_hash_or_inspect",
+      "expected": [
+        "NO_NEXT_STAGE",
+        "NO_START_ATTACH",
+        "PROBE_UNQUALIFIED",
+        "EXACT_OWNED_CLEANUP_ALLOWED"
+      ]
+    },
+    {
+      "name": "target_and_cleanup_bounds",
+      "expected": [
+        "TARGET55_INCLUDES2",
+        "CONTROLLER180",
+        "OUTER183",
+        "CLEANUP48_NOT_STAGING_ALLOWANCE"
+      ]
+    },
+    {
+      "name": "known_source_substitution",
+      "supplied": "oldWIPsnapshot_or_metadataoverlay_ascode_root",
+      "expected": [
+        "REFUSE_EXPECTED_SOURCE_ADMISSION",
+        "USE_EXACT_ACCEPTED_SOURCE4_EIGHTFILES",
+        "NO_FINAL_BINDING_INFERENCE"
+      ]
+    }
+  ],
+  "criteriaCount": 10,
+  "modelsDefined": 0,
+  "modelsExecuted": 0,
+  "probeExecutions": 0,
+  "controllerImplementation": null
+}

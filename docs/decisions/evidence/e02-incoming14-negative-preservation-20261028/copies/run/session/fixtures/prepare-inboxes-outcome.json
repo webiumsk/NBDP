@@ -1,0 +1,107 @@
+{
+  "label": "prepare-inboxes",
+  "elapsedNanoseconds": 3995248379,
+  "ack": [
+    {
+      "rawBase64": "WyJPSyIsIjFiZGJmYTlmOWY0ZTk4OWZkMjNmMDc0Y2FhYzdjNTA4ZWFjYTY5NWFjMTQ2Y2Y3NWVlMWY5ZGNiOWFiYzZjMzUiLHRydWUsIiJd",
+      "frame": [
+        "OK",
+        "1bdbfa9f9f4e989fd23f074caac7c508eaca695ac146cf75ee1f9dcb9abc6c35",
+        true,
+        ""
+      ]
+    },
+    {
+      "rawBase64": "WyJPSyIsImY1Zjk2MjY0ZWZkNzE4NGFhZWZjMWJjMzc0MGVkNDg3MTRiZTQ1Zjg2NzVkNWEyNTgyOWQ2ZTFkNDcxZDg1MTgiLHRydWUsIiJd",
+      "frame": [
+        "OK",
+        "f5f96264efd7184aaefc1bc3740ed48714be45f8675d5a25829d6e1d471d8518",
+        true,
+        ""
+      ]
+    }
+  ],
+  "received": [],
+  "eose": null,
+  "sentFrames": [
+    {
+      "frame": {
+        "path": "/session/fixtures/prepare-inboxes-0-sent-frame.json",
+        "bytes": 388,
+        "sha256": "021a13a937a7dab9a2b52d839d5e173182718948e849d12e629be65a86d3fc2b"
+      },
+      "eventId": "1bdbfa9f9f4e989fd23f074caac7c508eaca695ac146cf75ee1f9dcb9abc6c35",
+      "messageType": "EVENT",
+      "sendInvoked": true,
+      "sendCallbackCompleted": true,
+      "callbackBufferHash": "021a13a937a7dab9a2b52d839d5e173182718948e849d12e629be65a86d3fc2b"
+    },
+    {
+      "frame": {
+        "path": "/session/fixtures/prepare-inboxes-1-sent-frame.json",
+        "bytes": 388,
+        "sha256": "10e2e6f5a7beb399d3d4f0ff509e264569b24b24c294417e412ea47c048a2036"
+      },
+      "eventId": "f5f96264efd7184aaefc1bc3740ed48714be45f8675d5a25829d6e1d471d8518",
+      "messageType": "EVENT",
+      "sendInvoked": true,
+      "sendCallbackCompleted": true,
+      "callbackBufferHash": "10e2e6f5a7beb399d3d4f0ff509e264569b24b24c294417e412ea47c048a2036"
+    }
+  ],
+  "error": null,
+  "secondaryRetentionErrors": [],
+  "observer": {
+    "schema": "e02-minimum-observer-state-v2",
+    "budget": {
+      "schema": "e02-minimum-aggregate-capture-budget-v2",
+      "limit": 16777216,
+      "intendedTotalBytes": 130347,
+      "acknowledgedTotalBytes": 130347,
+      "streams": {
+        "proxy": {
+          "intended": 2234,
+          "acknowledged": 2234
+        },
+        "phase": {
+          "intended": 128113,
+          "acknowledged": 128113
+        }
+      },
+      "poisoned": false,
+      "firstError": null,
+      "physicalBytes": null,
+      "physicalMeaning": "ACKNOWLEDGED_PREFIX_IS_NOT_INDEPENDENT_PHYSICAL_ATTESTATION",
+      "lastAttempt": {
+        "stream": "phase",
+        "intendedBytes": 353,
+        "writeInvoked": true,
+        "reportedCount": 353,
+        "acknowledgedBytes": 353,
+        "acknowledgedPrefixSha256": "be419558a752ab7959f207151d13ecc34c196ddacb0c255ed80771417e5e83d6",
+        "physicalBytes": null,
+        "error": null
+      }
+    },
+    "phase": {
+      "sequence": 398,
+      "intendedTotalBytes": 128113,
+      "acknowledgedTotalBytes": 128113,
+      "physicalBytes": null,
+      "physicalMeaning": "NOT_INDEPENDENTLY_MEASURED_ACKNOWLEDGED_PREFIX_IS_NOT_PHYSICAL_ATTESTATION",
+      "poisoned": false,
+      "firstError": null,
+      "lastAttempt": {
+        "sequence": 398,
+        "phase": "EXCHANGE_RESOLVED",
+        "intendedBytes": 353,
+        "writeInvoked": true,
+        "reportedCount": 353,
+        "acknowledgedBytes": 353,
+        "acknowledgedPrefixBase64": "eyJzY2hlbWEiOiJlMDItdHJhbnNwb3J0LXF1ZXJ5LXBoYXNlLXYyIiwic2VxdWVuY2UiOjM5OCwidXRjIjoiMjAyNi0xMC0yOFQwNToxMjowOC4zMjNaIiwibW9ub3RvbmljTmFub3NlY29uZHMiOiIzMzI2Njk3NjI3MjQzNDIiLCJwaGFzZSI6IkVYQ0hBTkdFX1JFU09MVkVEIiwicHJvZmlsZUlkIjoiZTAyLW9yZGluYXJ5LW1pbmltdW0tcnMtdHdvLXJvbGUtdjIiLCJ3aW5kb3dJZCI6ImluY29taW5nLWIiLCJvcmRpbmFyeVJvbGUiOiJpbmNvbWluZyIsIm9ic2VydmVkQXR0ZW1wdCI6bnVsbCwibGFiZWwiOiJwcmVwYXJlLWluYm94ZXMiLCJlbGFwc2VkTmFub3NlY29uZHMiOjM5OTUyNDgzNzksImVycm9yIjpudWxsfQo=",
+        "physicalBytes": null,
+        "error": null
+      }
+    }
+  }
+}

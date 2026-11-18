@@ -1,0 +1,55 @@
+{
+  "schema": "e02-wrapper-capture-admission9-root-release-v1",
+  "actor": "/root",
+  "executionAuthorized": true,
+  "scope": "NINE_SYNTHETIC_CAPTURE_LIFECYCLE_MODELS_ONLY_NOT_TARGET46",
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-wrapper46-model-method-20261028/source3/source-packet.json",
+    "bytes": 7227,
+    "sha256": "9bfe5c35e99b632efd73ee3e85a9b292953fb0db376cd2f2ecb573915d8131c0"
+  },
+  "sourceReviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-wrapper46-model-method-20261028/source3/source-qa.json",
+      "bytes": 385,
+      "sha256": "9fb0d3ef987158ca1ef6e44867b7b01e7ad73a0c9514d0d57b5439a1394e548c"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-wrapper46-model-method-20261028/source3/source-security.json",
+      "bytes": 404,
+      "sha256": "8c94c9eefdb82d367d219a72733ced890d6373fdb94a96738b32160ea405b604"
+    }
+  ],
+  "plan": {
+    "path": "/Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r3/admission-model-plan.json",
+    "bytes": 4945,
+    "sha256": "1b06a042a4dcaf8aade648304e38095aa2b4405587bc97c5011f372d40e17303"
+  },
+  "manifest": {
+    "path": "/Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r3/admission-code-manifest.json",
+    "bytes": 2048,
+    "sha256": "cda4a770e9f894e662217bbbd9995abd32899bc5a47831da029221f94199834a"
+  },
+  "outerRequest": {
+    "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 297s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r3/test_capture_lifecycle_models.py",
+    "workdir": "/Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r3",
+    "yield_time_ms": 1000,
+    "max_output_tokens": 4000,
+    "login": false
+  },
+  "countsSeparate": [
+    9
+  ],
+  "authors": [
+    "/root/completion_wrapper"
+  ],
+  "operators": [
+    "/root"
+  ],
+  "issuedAtUtcNs": 1793157396053614133,
+  "runtimeAuthorized": false,
+  "target46Authorized": false,
+  "stopOnAnyFailure": true,
+  "automaticRetry": false,
+  "custodyLimit": "DIRECT_ACTUAL_OUTER_API_ONLY; no inner capture harness, PID/reap, pipe EOF or separate stream attestations invented"
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "e02-incoming14-preservation-preparation-failure-v1",
+  "command": "python3 docs/decisions/evidence/e02-incoming14-negative-preservation-20261028/preserve.py",
+  "toolChunk": "5493bd",
+  "exitCode": 1,
+  "error": "UNEXPECTED_NONEMPTY_UNSELECTED_INPUT",
+  "cause": "Exclusion assertion classified input/node_modules directory metadata size as if it were a nonempty regular placeholder. No traversal or copying of that directory occurred.",
+  "partialCopies": 1372,
+  "originalScript": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming14-negative-preservation-20261028/preserve.py",
+    "bytes": 11331,
+    "sha256": "bf393713a6bf13254c0881f6d8e1c65a87cdc3ae656625f22e1aea5f896c606d"
+  },
+  "preservedScript": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming14-negative-preservation-20261028/preserve-first-attempt.py",
+    "bytes": 11331,
+    "sha256": "bf393713a6bf13254c0881f6d8e1c65a87cdc3ae656625f22e1aea5f896c606d"
+  },
+  "scope": "Preservation preparation failure only; no new role/model/runtime execution or change to negative run state."
+}

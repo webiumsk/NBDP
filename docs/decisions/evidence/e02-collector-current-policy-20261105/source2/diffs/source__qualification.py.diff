@@ -1,0 +1,24 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/qualification.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source/qualification.py
+@@ -56,14 +56,18 @@
+  session=None;terminal=False;parts=[];total=0
+  for i,frame in enumerate([origin['launch'],*origin['polls']]):
+   need(not terminal,'NO_FRAMES_AFTER_TERMINAL');closed(frame,'toolName actualArguments unmodifiedResponse');args=frame['actualArguments'];response=frame['unmodifiedResponse'];need(type(response) is dict,'ACTUAL_UNMODIFIED_RESPONSE')
+-  if i==0:need(frame['toolName']=='tools.exec_command' and args==expected,'EXACT_PINNED_LAUNCH')
++  if i==0:
++   need(frame['toolName']=='tools.exec_command','EXACT_PINNED_LAUNCH')
++   expected_words,_route=command_words(expected);need(len(expected_words)>=7,'COMPLETE_PINNED_EXPECTED_REQUEST')
++   command(expected,expected_words[6]);command(args,expected_words[6])
++   need(encoded(args)==encoded(expected),'EXACT_TYPED_WHOLE_PINNED_LAUNCH')
+   else:
+-   need(frame['toolName']=='tools.write_stdin' and type(args) is dict and set(args)<=set('session_id chars yield_time_ms max_output_tokens'.split()) and args.get('session_id')==session and args.get('chars','')=='','SAME_SESSION_ALL_POLLS')
++   need(frame['toolName']=='tools.write_stdin' and type(args) is dict and set(args)<=set('session_id chars yield_time_ms max_output_tokens'.split()) and type(args.get('session_id')) is int and args['session_id']>0 and args['session_id']==session and args.get('chars','')=='' and ('yield_time_ms' not in args or type(args['yield_time_ms']) is int),'SAME_SESSION_ALL_POLLS')
+   cap=args.get('max_output_tokens',10000);count=response.get('original_token_count');wall=response.get('wall_time_seconds')
+   need(type(cap) is int and type(count) is int and 0<=count<=cap and type(wall) in (int,float) and math.isfinite(wall) and wall>=0,'NO_UNKNOWN_OR_TRUNCATED_FRAME_METADATA')
+   need(type(response.get('output')) is str and not any(response.get(k) for k in ('truncated','output_truncated','interrupted','error','isError')),'COMPLETE_NO_ERROR_OUTPUT')
+   out=response['output'];need(not any(s in out for s in ('tokens truncated','Warning: truncated output','Output exceeded the available','[output truncated]')),'NO_TRUNCATION_MARKER');total+=len(out.encode());need(total<=65536,'FINITE_RAW_API_OUTPUT');parts.append(out)
+-  if response.get('exit_code') is not None:need(type(response['exit_code']) is int and response['exit_code']==0 and ('session_id' not in response or response['session_id'] is None or response['session_id']==session),'ACTUAL_TERMINAL0');terminal=True
++  if response.get('exit_code') is not None:need(type(response['exit_code']) is int and response['exit_code']==0 and ('session_id' not in response or response['session_id'] is None or (type(response['session_id']) is int and response['session_id']==session)),'ACTUAL_TERMINAL0');terminal=True
+   else:
+    observed=response.get('session_id');need(type(observed) is int and observed>0,'ACTUAL_YIELDED_SESSION');session=session or observed;need(session==observed,'SAME_RESPONSE_SESSION')
+  need(terminal,'MISSING_OR_UNKNOWN_TERMINAL');return output_object(''.join(parts))

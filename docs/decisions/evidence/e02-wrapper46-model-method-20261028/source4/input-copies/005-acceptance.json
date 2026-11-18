@@ -1,0 +1,30 @@
+{
+  "schema": "e02-wrapper-capture-admission9-data-acceptance-v1",
+  "actor": "/root",
+  "decision": "ACCEPT_ACTUAL_CAPTURE_LIFECYCLE9_DATA_ONLY",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-wrapper-capture-admission9-actual-20261028/subject.json",
+    "bytes": 3369,
+    "sha256": "4a2c4fa52f7455b10b2a6530804aea38844998b3212ec3db9cb0472895ec3793"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-wrapper-capture-admission9-actual-20261028/data-qa.json",
+      "bytes": 363,
+      "sha256": "faf48af76de079c35f6c648d9d7ddc71baffa8b5dbcfee82afd609c7daa29321"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-wrapper-capture-admission9-actual-20261028/data-security.json",
+      "bytes": 382,
+      "sha256": "8cbfedf2757d433ee58543d1801aee7301b9483cbc87f21d8d51a818ecaa5213"
+    }
+  ],
+  "countsSeparate": [
+    9
+  ],
+  "custodyLimit": "DIRECT_ACTUAL_OUTER_API_ONLY; no inner capture harness, PID/reap, pipe EOF or separate stream attestations invented",
+  "target46ModelsExecuted": 0,
+  "runtimeAuthorized": false,
+  "ordinaryRowsQualified": 0,
+  "canonicalE02": "PARTIAL22_UNCHANGED"
+}

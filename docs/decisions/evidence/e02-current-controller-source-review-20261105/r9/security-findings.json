@@ -1,0 +1,23 @@
+{
+  "schema": "e02-current-controller-r9-independent-source-findings-v1",
+  "role": "security",
+  "session": "/root/controller_r9_security_e7c43daa",
+  "subject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r9/subject.json",
+    "bytes": 53716,
+    "sha256": "54ec422c8174262b5ac1c85571dbdfd770953863b7b6f94056237c7990ddcf9d"
+  },
+  "decision": "HOLD",
+  "severity": "MEDIUM",
+  "finding": {
+    "id": "SEC-R9-01",
+    "issue": "Upstream producer count copied as partition dictionary instead of plain integer266",
+    "evidence": "subject.upstreamProducerModelsDefined and constants.producerModelsDefined are dicts copied by prepare_source.py258/439 from producer.modelsDefined. Current consumer probe_adapter.controller_profile requires scalar266.",
+    "impact": "Exact current controller SOURCE cannot pass required consumer even if all174 future models pass. No privilege bypass or actual runtime failure alleged.",
+    "remediation": "Preserve exact54ec/freeze/negative; separately version scalar selectedDefinitionCount266 with partition/currentaccepted266 cross-check. Preserve producer and consumer predicates. Add actual generated scalar/type-boundary positive/negative regression, derive new fullN and fresh independent Source review before models."
+  },
+  "positiveEvidence": "All156pins/80repo/20Data/76=74+2/75copies767745B exact;168oldmethodAST preserved+6=174; core unchanged, Host onlyHERE; currentproducer/accepted266/typedcollectorSource2+81 joins exact; source0664/staged0600 enforced; HOST7/MODEL5 distinct; futuregatesunissued.",
+  "reviewMethod": "Actual independent read-only stdlib hashing/JSON/AST inspection; no imports/models/writes/Docker/network/Git.",
+  "designContributorAfterAdoption": true,
+  "provenance": "Coordinator preservation of actual independent agent mailbox verdict/findings; not raw API evidence."
+}

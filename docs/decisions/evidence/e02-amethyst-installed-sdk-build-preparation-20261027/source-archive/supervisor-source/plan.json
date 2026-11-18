@@ -1,0 +1,165 @@
+{
+  "schema": "nbdp-installed-sdk-amethyst-build-source-plan-v1",
+  "state": "SOURCE_ONLY_REQUIRES_INDEPENDENT_REVIEW_AND_ROOT_RELEASE",
+  "buildPreparationSubject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/preparation/subject.json",
+    "bytes": 2638,
+    "sha256": "c63d31d0a562fd512b61ebcac012aadd336b9e1213b7d7058c8e29ac15f3d169"
+  },
+  "buildPlan": {
+    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/preparation/build-plan.json",
+    "bytes": 4992,
+    "sha256": "97bb6e92f4ab0ccde47b3327a94b6ae3cce3978458ab3155d33c6abb0abfb424"
+  },
+  "buildInside": {
+    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/preparation/build_inside.py",
+    "bytes": 8176,
+    "sha256": "2ecf91a0f9959931075d4b8ac3e4f7e2337054fbcb9b9b58f53707cd1375d405"
+  },
+  "sourceInputs": [
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/preparation/subject.json",
+      "bytes": 2638,
+      "sha256": "c63d31d0a562fd512b61ebcac012aadd336b9e1213b7d7058c8e29ac15f3d169"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/preparation/build-plan.json",
+      "bytes": 4992,
+      "sha256": "97bb6e92f4ab0ccde47b3327a94b6ae3cce3978458ab3155d33c6abb0abfb424"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/preparation/build_inside.py",
+      "bytes": 8176,
+      "sha256": "2ecf91a0f9959931075d4b8ac3e4f7e2337054fbcb9b9b58f53707cd1375d405"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/source-input-pins.json",
+      "bytes": 2396,
+      "sha256": "0327e6ec448e39cd80b0ea65de14443d08f39095a0358ac35b164ef69c6510e4"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/prepare_source.py",
+      "bytes": 3029,
+      "sha256": "f6cd2084886a4051682ffd0992b9bc69817fe5dbb26a7ff22723bf62bc995e7a"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/acquisition-plan.json",
+      "bytes": 3306,
+      "sha256": "82c8b19c869315f34151727469772f4336be0dc4d77b6fd07e4fe0332df48bf1"
+    }
+  ],
+  "image": "sha256:32bb6c4c58ee5fe85f1e7229fb15008accb137990093941d2f8e768efd91cf8c",
+  "fixedContainerName": "nbdp-amethyst-build-20261026",
+  "fixedNetworkName": "nbdp-amethyst-build-20261026",
+  "limits": {
+    "outerSeconds": 2100,
+    "cleanupReserveSeconds": 120,
+    "rootReleaseMaximumSeconds": 2400,
+    "jobSeconds": 1800,
+    "jobKillGraceSeconds": 5,
+    "attachedCliSeconds": 1845,
+    "ordinaryCliSeconds": 30,
+    "stopSeconds": 20,
+    "stopGraceSeconds": 10,
+    "killSeconds": 15,
+    "removeSeconds": 20,
+    "cliCapturePerFileBytes": 67108864,
+    "jobPerFileBytes": 536870912,
+    "memoryBytes": 6442450944,
+    "cpus": 4,
+    "pids": 512,
+    "minimumFreeBuildDiskBytes": 12884901888
+  },
+  "additionalRestrictions": {
+    "cidfile": "Fresh private attempt directory; full64CID agrees with actual create stdout when present",
+    "creationLabel": "nbdp.buildRun=<fresh root runId>",
+    "logging": "Docker log driver none; private CLI captures with64MiB RLIMIT_FSIZE",
+    "jobFileLimit": "Docker ulimit fsize512MiB perfile applies to every job write, not aggregate disk; root explicitly authorized this execution limit",
+    "jobTimeout": "1800s GNU timeout+5s kill grace inserted before original python command; original build_inside unchanged",
+    "networkBinding": "Full root-released ID at Dockercreate and HostConfig; actual staged endpoint joins; prior name-only binding held."
+  },
+  "qualification": "Compilation/source-linked rebuilt candidate only; independent final DATA review required, no runtime/client/canonical evidence",
+  "sourceOnly": true,
+  "modelsAuthorized": false,
+  "buildAuthorized": false,
+  "networkProbe": {
+    "raw": {
+      "path": "/tmp/nbdp-amethyst-build-supervisor-20261026-r2/actual-prestart-probe.json",
+      "bytes": 808,
+      "sha256": "a17fcd76b49c18cf636c90bd58112b0237e9b66fe2763071116aff40fa51a13d"
+    },
+    "originalToolReceipts": {
+      "path": "/tmp/nbdp-amethyst-build-supervisor-20261026-r2/actual-prestart-tool-receipts.json",
+      "bytes": 4443,
+      "sha256": "8d45e7223cf14601fa0953140e716a41c3c0d54fbce15f397cefbc7ac41bbb76"
+    },
+    "rawOrigin": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-network-probe-20261027/container-inspect.json",
+      "bytes": 808,
+      "sha256": "a17fcd76b49c18cf636c90bd58112b0237e9b66fe2763071116aff40fa51a13d"
+    },
+    "toolReceiptOriginAtCopy": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-network-probe-20261027/original-tool-receipts.json",
+      "bytes": 4443,
+      "sha256": "8d45e7223cf14601fa0953140e716a41c3c0d54fbce15f397cefbc7ac41bbb76"
+    },
+    "meaning": "Exact immutable DATA snapshots of actual coordinator stopped-create probe. This worker did not execute Docker; no program/build ran in the probe."
+  },
+  "releasedNetworkBinding": {
+    "createArgument": "Externally root-released full64networkID replaces only originalname network argument",
+    "HostConfigNetworkMode": "Must equal exact releasedID on every owned inspection",
+    "endpoints": "Exactlyone fixed-name key; any nonempty NetworkID must equal releasedID",
+    "createdOnlyMissingID": "Only actual observed created/Runningfalse/Pid0/zero-start-finish/empty endpoint-address fields; config-only, never runtime evidence",
+    "runtimeMissingID": "UNKNOWN_REFUSE",
+    "successfulJob": "Actually exited + zero exit/noOOM/error + nonzero ordered start/finish + full endpointNetworkID + natural attach + existing innerAPKreceipt",
+    "requiredNetworkLabels": {
+      "nbdp.owner": "e02-amethyst-rebuild-20261026",
+      "nbdp.scope": "isolated-build-bootstrap"
+    }
+  },
+  "workingDirectoryCorrection": {
+    "requiredContainerWorkingDir": "/work",
+    "reason": "Prior inherited /work/source created empty source directory before inner source extraction",
+    "actualFailure": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-build-actual-20261027/subject.json",
+      "bytes": 28212,
+      "sha256": "b4499f9f78b40b918f3ba0b4c678e06e2555177b8a348dbfd0edd66b53a35ea2"
+    },
+    "freshWritableRoots": [
+      "/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/user/work",
+      "/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/cache/build",
+      "/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/output/build"
+    ],
+    "rebuiltMetadata": "/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/output/build/rebuilt-apks.json"
+  },
+  "jdkExtraction": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/acquisition/jdk-extraction.json",
+    "bytes": 178456,
+    "sha256": "a2547e5989af52335e1a03d853797e0e1efa57b55d782214620ee56ca80b0db2"
+  },
+  "installedSdkInventory": {
+    "path": "/Data/nbdp-e02-tooling-20261027/sdk-data-preparation-r1/attempt-r1/sdk-inventory.json",
+    "bytes": 4909049,
+    "sha256": "5ed617a850f06d936a602a0b18cab36adb8438b752c36f892e1526eb177dadf2"
+  },
+  "installedSdkMetadata": {
+    "path": "/Data/nbdp-e02-tooling-20261027/sdk-data-preparation-r1/attempt-r1/metadata.json",
+    "bytes": 7867,
+    "sha256": "bcc7f37128e751d7a0e47705de87e8d1e4d1d5dd6e4972ee8667bbd5c79c4744"
+  },
+  "installedSdkConsent": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-install-actual-20261027-r5/sdk-consent.json",
+    "bytes": 2294,
+    "sha256": "afafd5bfb5054aa129458a35ab0352348a4980f1936d41c2f1c624ce093d8342"
+  },
+  "installedSdkAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-installed-data-actual-20261027/acceptance.json",
+    "bytes": 4224,
+    "sha256": "19458f67876206388d808508c5ac9fdd2af86e1b3c00a174386b1b61be6a529a"
+  },
+  "installedSdkAcceptanceDecision": "ACCEPT_WHOLE_INSTALLED_SDK_FOR_ISOLATED_AMETHYST_BUILD_ONLY",
+  "runtimeRoot": "/Data/nbdp-e02-tooling-20261027/amethyst-build-r3",
+  "sourceRoot": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/supervisor-source",
+  "installedSdkRoot": "/Data/nbdp-e02-tooling-20261027/controller-r6/writable-r1/sdk",
+  "wholeSdkInventoryExpectedShape": "Actual accepted DATA must supply destination+complete inventory compatible with unchanged tool_inventory; do not manufacture or silently normalize an incompatible actual report."
+}

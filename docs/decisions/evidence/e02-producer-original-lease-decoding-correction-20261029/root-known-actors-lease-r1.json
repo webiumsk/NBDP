@@ -1,0 +1,59 @@
+{
+  "schema": "e02-root-capture-known-actors-v1",
+  "actor": "/root",
+  "scope": "CURRENT_PRODUCER4_PURE_CONTROL_CAPTURE_AND_ADMISSION",
+  "producerSource": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/subject.json",
+    "bytes": 35901,
+    "sha256": "fe619502879cd18a7c1e5be36891f679497406c56a4a60b36368595f9bfb897e"
+  },
+  "knownActors": [
+    "/root",
+    "/root/android_health_implementer",
+    "/root/completion3_final",
+    "/root/completion_wrapper",
+    "/root/consumer3_preparation",
+    "/root/helper_controller_source6_env",
+    "/root/lease_fix_binding_scope",
+    "/root/ordinary_api35_source",
+    "/root/probe_r7_fresh_qa_8d291e97745f",
+    "/root/probe_r7_fresh_security_8d291e97745f",
+    "/root/producer3_capture",
+    "/root/producer4_nonblocking_source",
+    "/root/r5",
+    "/root/r5_plan_fix",
+    "/root/whole_consumer_fixture"
+  ],
+  "provenance": {
+    "baselineKnownActorAuthority": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-control-capture-preparation-20261028/root-known-actors.json",
+      "bytes": 1338,
+      "sha256": "7d6d9b6046e6ab69e146d8127ef6d22fbc9c97a910d605f513279675cd6c0fe3"
+    },
+    "currentSource": {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/subject.json",
+      "bytes": 35901,
+      "sha256": "fe619502879cd18a7c1e5be36891f679497406c56a4a60b36368595f9bfb897e"
+    },
+    "directSourceContributors": [
+      "/root",
+      "/root/r5_plan_fix",
+      "/root/producer4_nonblocking_source",
+      "/root/completion_wrapper",
+      "/root/helper_controller_source6_env",
+      "/root/probe_r7_fresh_qa_8d291e97745f",
+      "/root/probe_r7_fresh_security_8d291e97745f",
+      "/root/lease_fix_binding_scope"
+    ],
+    "requiredKnownActorsPreserved": 11,
+    "newCurrentActors": [
+      "/root/helper_controller_source6_env",
+      "/root/probe_r7_fresh_qa_8d291e97745f",
+      "/root/probe_r7_fresh_security_8d291e97745f",
+      "/root/lease_fix_binding_scope"
+    ]
+  },
+  "semantics": "Explicit current required actor union must be closed before every source/capture/admission/DATA review pair. Old eleven actors remain required; current implementation and diagnosis/design contributors are added. An identity declaration is not a credential or an execution grant. No current model result or runtime authority is issued by this document.",
+  "sourceAccepted": false,
+  "executionAuthorized": false
+}

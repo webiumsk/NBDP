@@ -1,0 +1,29 @@
+{
+  "schema": "e02-producer4-source3-review-disposition-v1",
+  "transcribedBy": "/root",
+  "sourceSubject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source3/subject.json",
+    "bytes": 28588,
+    "sha256": "48af8c491385285cd67706a0a25bc632e09be7dcbf2650ff6f72a97b8fd22687"
+  },
+  "sourceAccepted": false,
+  "finalDisposition": "HOLD_QA_AND_ADDITIVE_SECURITY",
+  "originalSecurityVerdictPreserved": true,
+  "findings": [
+    {
+      "id": "P4S3-QA-01_SEC-01",
+      "severity": "MEDIUM",
+      "evidence": "fixture389 oversized control data: terminal=true; socket.destroy(); fatal(CONTROL_REQUEST_BOUND). No enclosing production catch; throwing cleanup bypasses original global claim/cancel.",
+      "required": "Create/claim/fence original before cleanup; actual registered oversized service-control data callback with pending guards, throwing destroy, short-write/ENOSPC/exhausted retention; secondary errors contained, cleanup continues, lateOK inert."
+    },
+    {
+      "id": "P4S3-QA-02_SEC-02",
+      "severity": "MEDIUM",
+      "evidence": "test_guard_client174-180 aliases6x3 all call identical retainAfterFailure + GUARD_HELPER_EXIT; labels do not select real STDERR/EOF/exit/close/core/control handlers or assert secondary retention.",
+      "required": "Dispatch actual production callbacks or shared production functions used by those callbacks, with distinct triggers and mutation-sensitive assertions for each actual path."
+    }
+  ],
+  "limits": "Detailed negative records are labelled Root transcriptions of actual mailbox findings, not retroactive rewrites. No target imports/models/helper/role were executed.",
+  "modelsExecuted": 0,
+  "runtimeReleased": false
+}

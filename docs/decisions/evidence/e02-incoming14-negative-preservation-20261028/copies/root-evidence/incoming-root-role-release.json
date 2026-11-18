@@ -1,0 +1,49 @@
+{
+  "schema": "e02-ordinary-minimum-role-release-v2",
+  "executionAuthorized": true,
+  "rootSession": "/root",
+  "executionSession": "/root",
+  "runId": "9d8bad6df86fc113f87e14e2974f9019",
+  "scope": "E02_ORDINARY_MINIMUM_RS_TWO_ROLE_V2_WINDOW_ONLY",
+  "profileId": "e02-ordinary-minimum-rs-two-role-v2",
+  "ordinaryRole": "incoming",
+  "windowId": "incoming-b",
+  "runConfig": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/incoming-run-config.json",
+    "bytes": 5596,
+    "sha256": "cec7ee4aa2701eb8430434345454526bbcdfd35d2fe500e8b766db52939f3023"
+  },
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/source2/subject.json",
+    "bytes": 12116,
+    "sha256": "553d513b4625b8d40e95f475246acc2a4520e1a90b35ee88290c9ddbc617def6"
+  },
+  "issuedAtUtcNs": 1793164125302095145,
+  "notAfterUtcNs": 1793166045302095145,
+  "qaReview": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/source2/source-qa.json",
+    "bytes": 406,
+    "sha256": "ac9c2f0bd675304b5389aeacbf848443f74798b80242aeb27fb54a54d110b48f"
+  },
+  "securityReview": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/source2/source-security.json",
+    "bytes": 413,
+    "sha256": "012b965adf27a8079e4c54d8c1fec0c6d48b889442886cfb69d2d624745896fa"
+  },
+  "guardRegressionEvidence": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/current-controls-r1/control-acceptance.json",
+    "bytes": 1438,
+    "sha256": "a13fea0dff9101554fabdad6d4eebace6a64dd029b29893212e75684b47bc551"
+  },
+  "freshResourceAdmission": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/incoming-fresh-resource-admission.json",
+    "bytes": 2173,
+    "sha256": "b6a244bda7f827dcaa4587ef11b6cebe3b7d7a7e2a3b8b6ab7057f5ac9aeb2a5"
+  },
+  "resourcePrerequisite": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-minimum-runtime-preparation-r1/resource-prerequisite.json",
+    "bytes": 386,
+    "sha256": "de9607a06963507813e2fd8a49c31ad17f0dd6e31b668d0847abea77f44f96c3"
+  },
+  "limits": "ONE fresh incoming-b COLLECTION ONLY; exact original1800s lease includes staging/setup/cleanup, no renewal/retry. Fixed synthetic public accounts/new private app/AVD/relay state and every current isolation/UI/replay/custody/source/end/owned-cleanup assertion retained. All output UNQUALIFIED until both windows/five exports/fullconsume/current completion controls/primary/final independent integration; no archive grant or qualification transfer. Source-only disjoint low-impact concurrency; no extra runtime/heavy work."
+}

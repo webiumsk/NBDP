@@ -1,0 +1,69 @@
+{
+  "schema": "e02-root-helper-atomic-target-admission-source-method-v1",
+  "actor": "/root",
+  "decision": "AUTHORIZE_BOUNDED_VERSIONED_SOURCE7_ATOMIC_ADMISSION_CORRECTION_ONLY",
+  "sourceBaseline": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r6/subject.json",
+    "bytes": 27742,
+    "sha256": "02374157ee8ae56a4375464e43748b757e6e7c07b6d6aece8b63a501820e059e"
+  },
+  "failedRunId": "7c370e3a9fab2ac8049036eccfed4f8f",
+  "failedSubject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-actual/7c370e3a9fab2ac8049036eccfed4f8f/gate--helper-subject.json",
+    "bytes": 3035,
+    "sha256": "2c605e13f4793042cd0b1e80e1d228a4ca7d894338354ddb20f1681f6035c0e8"
+  },
+  "diagnosisContributors": [
+    "/root/probe_r6_fresh_qa_d81b6f3ae5d8",
+    "/root/probe_r6_fresh_security_d81b6f3ae5d8"
+  ],
+  "finding": {
+    "severity": "MEDIUM",
+    "error": "FULL_TARGET55_REQUIRED",
+    "cause": "run() anchors58s at sample A; command() samples B and subtracts3s. Any positive elapsed delta makes nominal duration<55s, so it always refuses before target effects.",
+    "actualTargetStarts": 0,
+    "actualEnvironmentRemovalPassed": true,
+    "actualCleanupConfirmed": true,
+    "leaseCapacityWasSufficient": true
+  },
+  "selectedCorrection": [
+    "Take ONE fresh active-lease-checked sample T at target command admission; apply all existing boot identity, rollback, drift and resumption-gap checks with that same sample.",
+    "At T enforce the existing bootstrap admission fence T<T0+30s. Phase30 is explicitly an ADMISSION fence as implemented; do not claim actual Popen beforephase30 after arbitrary setup delay.",
+    "At that same T derive the sole fixed target envelope E_i=min(T0_i+88s,T_i+58s), require full58s admission capacity and calculate nominal run_ns55s with the SAME3s reserve. No second sample may reduce the admission calculation by construction.",
+    "Consume exactly one target admission before effects. Keep anchored ends fixed through all fresh later callbacks and postvalidation; do not accept an arbitrary caller-supplied stale-now token.",
+    "Keep current finite_child unchanged: fresh checks before selector/Popen/read/reap clamp job_end/reap to original anchored phase and lease. Startup consumes the original allocation; no new55s window after delay.",
+    "No epsilon, rounding, tolerance, slack increase, reserve deletion, original deadline renewal or post-effect rebasing."
+  ],
+  "unchangedLimits": {
+    "bootstrapAdmissionSeconds": 30,
+    "targetNominalSeconds": 55,
+    "guestCleanupInsideTargetSeconds": 2,
+    "metadataAndFiniteChildReserveSeconds": 3,
+    "targetEnvelopeSeconds": 58,
+    "targetGlobalCeilingFromControllerT0Seconds": 88,
+    "cleanupCeilingSeconds": 136,
+    "postreadCeilingSeconds": 156,
+    "controllerSeconds": 180,
+    "outerKillSeconds": 183,
+    "originalLeaseSeconds": 1800,
+    "rootSlotBytes": 65536,
+    "parentMetadataBytes": 8388608,
+    "totalOutputBytes": 16777216
+  },
+  "requiredRegressionCoverage": [
+    "Advancing1ns on every sample reaches exactly one nominal55 target dispatch at valid admission.",
+    "Independent and multistep clock advances, delayed selector/dispatch/capture callbacks consume the original fixed envelope.",
+    "Bootstrap30 and global clamp boundaries below/equal/above; full58 vs58-minus1ns admission capacity.",
+    "Boot swap, rollback, UTC/boot drift>500ms, resumption gap>15s and original lease exhaustion.",
+    "No second target/admission, no late success, absolute-end exhaustion before spawn/during read/reap and exact owned-CID cleanup.",
+    "Preserve all142 prior names/guard coverage and Source6 four-marker/clean CLI SDK/UI semantics; no142 result transfer."
+  ],
+  "runtimeScope": "Version only current core admission/sampling logic and necessary Host self/bootstrap paths. Guest8, finite child, environment correction, source/tool/image/budget/isolation/network/cleanup guards remain unchanged.",
+  "fixtureScope": "Reference actual negative operational files in place by pin; never physically copy their bytes after F. Preserve all Source6/142 evidence and both earlier failures.",
+  "newSourceFreshIndependentReviewRequired": true,
+  "authorsAndDesignContributorsMustBeExcludedFromFutureReviews": true,
+  "modelsExecutedByAdoption": 0,
+  "helperExecutionsAuthorized": 0,
+  "ordinaryRoleExecutionsAuthorized": 0,
+  "executionAuthorized": false
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "nbdp-build-supervisor-source1-review-v1",
+  "reviewer": "/root/producer2_result_security",
+  "subject": {
+    "path": "/tmp/nbdp-amethyst-build-supervisor-20261026/subject.json",
+    "bytes": 4601,
+    "sha256": "49977947bf254a1efb1989b63dc6f9fd410751796c5da3152b49567c69c5903e"
+  },
+  "modelDecision": "ACCEPT_SUPERVISOR_SOURCE_FOR_FIXED28_PURE_MODELS_ONLY",
+  "methodDecision": "HOLD_SUPERVISOR_BUILD_ACTIVATION_SOURCE",
+  "findings": [
+    {
+      "severity": "MEDIUM",
+      "id": "BUILD-NETWORK-ID",
+      "evidence": "run authenticates releasednetworkID once;create selectsname andownedidentity checksHostConfigname withoutendpoint/releasedfullIDjoin; same-name replacement can pass.",
+      "requiredChange": "Bindcreate andeachownedinspectiontofullreleasedID; explicitprestartactualmetadata handling/regressions."
+    }
+  ],
+  "modelsExecuted": 0,
+  "origin": "Coordinator structured transcription of actual mailbox decision; not authenticated provider logs."
+}

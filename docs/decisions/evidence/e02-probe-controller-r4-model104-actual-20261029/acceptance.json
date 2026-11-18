@@ -1,0 +1,54 @@
+{
+  "schema": "e02-root-probe-controller-control-data-acceptance-v1",
+  "actor": "/root",
+  "decision": "ACCEPT_PROBE_CONTROLLER_R4_104_MOCK_CONTROL_DATA_ONLY",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r4-model104-actual-20261029/subject.json",
+    "bytes": 3764,
+    "sha256": "97b8606113ebd0e5a6c44a0d65a4632ac68a1fbc6b8a24a222ef77ca78f0598d"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r4-model104-actual-20261029/qa-review.json",
+      "bytes": 401,
+      "sha256": "0ca6f873046e91540cae18629dee87dbab006d07051511bd9eebc93662813c28"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r4-model104-actual-20261029/security-review.json",
+      "bytes": 413,
+      "sha256": "fe9cd17ae48a8711527b85ff776aec6549724a2a5eb781a95609e762e0835f52"
+    }
+  ],
+  "controllerSource": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r4/subject.json",
+    "bytes": 18686,
+    "sha256": "5b2e78aa6780c0983f5bc1990d8e1490b03a74860c754951826a9120ce782a26"
+  },
+  "controllerSourceAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r4-source-acceptance-20261029/acceptance.json",
+    "bytes": 1231,
+    "sha256": "b10881f06dc0aacae0989cbcf1a9336222f3a51581feefdbc01d59f2efab83c8"
+  },
+  "controlPlan": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r4/control-plan.json",
+    "bytes": 12640,
+    "sha256": "5cd4146e83c8552b644ff4e4b773b5e103d9d8fcf743ff0eb7bf16bbd30259bf"
+  },
+  "countsSeparate": [
+    39,
+    36,
+    10,
+    19
+  ],
+  "modelsDefined": 104,
+  "modelsExecuted": 104,
+  "modelsPassed": 104,
+  "modelsFailed": 0,
+  "skipped": 0,
+  "inputsUnchanged": true,
+  "guardHelperExecutions": 0,
+  "dockerExecutions": 0,
+  "ordinaryRoleExecutions": 0,
+  "scope": "CURRENT_CONTROLLER_R4_104_MOCK_CONTROL_DATA_ONLY",
+  "executionAuthorized": false
+}

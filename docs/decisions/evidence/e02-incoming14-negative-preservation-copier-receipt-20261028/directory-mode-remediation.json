@@ -1,0 +1,23 @@
+{
+  "schema": "e02-negative-preservation-directory-mode-remediation-v1",
+  "actor": "/root",
+  "finding": "Independent security LOW: three intermediate copy directories0775 while declared0700",
+  "changed": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming14-negative-preservation-20261028/copies",
+      "before": "0o775",
+      "after": "0o700"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming14-negative-preservation-20261028/copies/run",
+      "before": "0o775",
+      "after": "0o700"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming14-negative-preservation-20261028/copies/run/session",
+      "before": "0o775",
+      "after": "0o700"
+    }
+  ],
+  "frozenFileBytesChanged": false
+}

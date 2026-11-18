@@ -1,0 +1,22 @@
+--- r1/collector.py
++++ r2/collector.py
+@@ -173,6 +173,11 @@
+  finally:os.close(f)
+  need(identity(p.lstat())==identity(st),'INPUT_PATH_DRIFT');return raw
+ 
++def structural_status(account):
++ # A reopen checks current bytes/membership only. It CANNOT reconstruct a lost
++ # fsync/close/postcheck/acknowledgement failure when persistence was unavailable.
++ return dict(state='CURRENT_STRUCTURAL_CUSTODY_ONLY',historicalIO='UNKNOWN',reservedBytes=SLOT,ledgerPrechargedBytes=LEDGER_RESERVE,payloadUsedBytes=account.used,recordCount=len(account.rows),physicalBytes=sum(os.stat(n,dir_fd=fd,follow_symlinks=False).st_size for fd in account.fds.values() for n in os.listdir(fd)))
++
+ def main(argv):
+  p=argparse.ArgumentParser(allow_abbrev=False,description='One65536 Root custody slot; supplies no API/tool execution')
+  commands=p.add_subparsers(dest='op',required=True)
+@@ -186,6 +191,6 @@
+   with Account(a.run_id) as account:
+    if a.op=='record':result=account.record(a.kind,a.name,supplied_bytes(a.input,PAYLOAD-account.used))
+    elif a.op=='copy':result=account.copy(a.source_index,a.store,a.name)
+-   else:result=dict(reservedBytes=SLOT,ledgerPrechargedBytes=LEDGER_RESERVE,payloadUsedBytes=account.used,recordCount=len(account.rows),physicalBytes=sum(os.stat(n,dir_fd=fd,follow_symlinks=False).st_size for fd in account.fds.values() for n in os.listdir(fd)),failed=False)
++   else:result=structural_status(account)
+  print(json.dumps(result,sort_keys=True))
+ if __name__=='__main__':main(sys.argv[1:])

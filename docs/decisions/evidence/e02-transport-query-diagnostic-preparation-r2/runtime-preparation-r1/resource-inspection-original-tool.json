@@ -1,0 +1,16 @@
+{
+  "toolName": "tools.exec_command",
+  "actualArguments": {
+    "cmd": "python3 - <<'PY'\nimport shutil,json,os\nfrom pathlib import Path\nv={line.split(':')[0]:int(line.split()[1])*1024 for line in Path('/proc/meminfo').read_text().splitlines() if len(line.split())>=2 and line.split()[1].isdigit()};print(json.dumps(dict(scope='READ_ONLY_RESOURCE_INSPECTION_AFTER_PREPARATION_ASSERTION_NOT_EXPERIMENT',freeBytes=shutil.disk_usage('/tmp').free,memAvailableBytes=v['MemAvailable'],affinityCpuCount=len(os.sched_getaffinity(0)),thresholds={'disk8GiB':8*1024**3,'mem12GiB':12*1024**3,'affinity8':8})))\nPY",
+    "sandbox_permissions": "require_escalated",
+    "justification": "Presné read-only rozlíšenie nesplnenej prípravnej resource podmienky; nejde o opakovanie experimentu ani spustenie služieb.",
+    "max_output_tokens": 1000
+  },
+  "unmodifiedResponse": {
+    "chunk_id": "a4d6f4",
+    "wall_time_seconds": 0.000231493,
+    "exit_code": 0,
+    "original_token_count": 63,
+    "output": "{\"scope\": \"READ_ONLY_RESOURCE_INSPECTION_AFTER_PREPARATION_ASSERTION_NOT_EXPERIMENT\", \"freeBytes\": 8904179712, \"memAvailableBytes\": 12607827968, \"affinityCpuCount\": 22, \"thresholds\": {\"disk8GiB\": 8589934592, \"mem12GiB\": 12884901888, \"affinity8\": 8}}\n"
+  }
+}

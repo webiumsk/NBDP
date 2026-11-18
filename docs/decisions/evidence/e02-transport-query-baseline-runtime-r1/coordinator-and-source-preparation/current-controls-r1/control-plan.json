@@ -1,0 +1,195 @@
+{
+  "schema": "e02-transport-source2-fixed-capture-plan-v1",
+  "author": "/root/ordinary_api35_source",
+  "state": "PREPARED_NOT_EXECUTED_PENDING_ACTUAL_CAPTURE_SOURCE_QA_SECURITY_AND_ROOT_RELEASE",
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/subject.json",
+    "bytes": 18185,
+    "sha256": "aece375c76f20d8c738d34e57feb19e50c2ccfc28cb09ffc9347481d2f526b85"
+  },
+  "frozenSourcePlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/control-plan.json",
+    "bytes": 6065,
+    "sha256": "bf227bade861821099eed7f3c664ab8f56259b028000ea5b42024821f3fef1fb"
+  },
+  "runner": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/capture-controls.py",
+    "bytes": 18537,
+    "sha256": "e7107878945b3a0881ce409bbe5dd0318f92070c8f7dd73ebea41971b6e4736d"
+  },
+  "baseCapture": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-completion-preparation-r1/current-controls-r1/capture-controls.py",
+    "bytes": 15226,
+    "sha256": "4fa4173092e9463032f6e446e34cc5bf5326436ffe9376fc022baca2279baa23"
+  },
+  "observerAstProof": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/observer-ast-equivalence.json",
+    "bytes": 1373,
+    "sha256": "a3d72fcfb295383d7ffb53b22ed7406ea67bf0cecff092cd8626eb79efa76eb3"
+  },
+  "frozenInputs": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/frozen-inputs.json",
+    "bytes": 215068,
+    "sha256": "28288e2a220d625c15c8bc3e98a2a2b0c2fe70b8cb9c1195afb372ae460cd9bf"
+  },
+  "frozenInputCount": 920,
+  "separateScopes": [
+    {
+      "name": "source-custody-and-host-inventory",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/test_source_controls.py"
+      ],
+      "count": 18,
+      "partitions": {
+        "unchangedPriorDefinitionBodies": 10,
+        "newInventoryFamilies": 8
+      },
+      "expectedClassCases": {
+        "SourceCustodyControls": [
+          "test_guard_is_exact_original_unchanged_bytes",
+          "test_original_clock_command_identity_cleanup_methods_unchanged",
+          "test_original_owned_child_lifecycle_forwarding_unchanged",
+          "test_only_three_roles_no_adb_snapshot_or_sdk_route",
+          "test_signed_public_input_and_query_exact_frozen_hashes",
+          "test_no_signing_key_or_nonce_input_in_diagnostic_plan",
+          "test_closed_cid_absence_is_not_generic_exit1",
+          "test_exact_owned_cleanup_remove_and_absence_positive",
+          "test_foreign_creation_identity_never_removed",
+          "test_uncertain_absence_remains_failure"
+        ],
+        "ClosedDependencyControls": [
+          "test_unchanged_complete_tree_accepted",
+          "test_extra_regular_and_nested_optional_bufferutil_refused",
+          "test_missing_and_changed_regular_member_refused",
+          "test_new_safe_escape_and_dangling_symlinks_refused",
+          "test_special_fifo_refused_without_read",
+          "test_source_runtime_canonical_mapping_and_unknown_fields_refused",
+          "test_actual_inventory_gate_refuses_before_host_import_or_container",
+          "test_end_boundary_rechecks_current_membership_not_cached_success"
+        ]
+      },
+      "timeoutSeconds": 60
+    },
+    {
+      "name": "fake-socket-and-physical-prefix-model",
+      "argv": [
+        "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+        "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/test_exchange_model.mjs"
+      ],
+      "count": 27,
+      "partitions": {
+        "priorScopeCasesIncludingVersionedLateBehavior": 20,
+        "newFaultFamilies": 7
+      },
+      "expectedCases": [
+        "original10s3s-ack-and-real-send-callback-model",
+        "query-event-and-exact-eose-model",
+        "eose-before-send-callback-does-not-require-packet-order",
+        "no-success-until-actual-model-send-callback",
+        "timeout-retains-partial-send-state-and-rejection",
+        "intent-is-before-send-invoke-not-callback-proof",
+        "raw-backend-callback-precedes-original-guard",
+        "guard-refused-open-sends-nothing",
+        "guard-refused-before-send-sends-nothing",
+        "guard-refused-message-keeps-raw-context-without-success",
+        "guard-refused-send-callback-is-not-completed",
+        "send-error-preserves-error-no-success",
+        "same-buffer-mutation-refuses",
+        "relay-negative-ack-refuses",
+        "wrong-eose-subscription-never-completes",
+        "late-message-after-terminal-has-no-writes-actions",
+        "same-original-query-result-object-key-order-independent",
+        "same-query-result-content-change-refuses",
+        "original-strict-json-duplicate-key-refuses",
+        "unknown-exchange-label-refuses-before-socket",
+        "terminal-phase-and-outcome-failure-success-path-rejects-once",
+        "terminal-retention-failure-preserves-original-protocol-fault",
+        "raw-timer-error-close-callback-write-fault-boundaries",
+        "required-publication-write-failure-prevents-followup-query",
+        "writer-full-write-and-acknowledged-short-prefix-are-distinct",
+        "writer-throw-invalid-count-overflow-poisons-with-no-retry",
+        "poisoned-real-writer-forces-exchange-reject-no-second-send"
+      ],
+      "timeoutSeconds": 60
+    },
+    {
+      "name": "guest-dependency-inventory-data",
+      "argv": [
+        "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+        "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/test_dependency_tree.mjs"
+      ],
+      "count": 6,
+      "expectedCases": [
+        "complete-unchanged-source-runtime-tree",
+        "extra-member-and-nested-bufferutil-rejected-before-import",
+        "missing-and-changed-file-rejected",
+        "safe-added-escape-and-dangling-symlink-rejected",
+        "source-and-runtime-path-mapping-cannot-diverge",
+        "end-boundary-rechecks-added-directory"
+      ],
+      "timeoutSeconds": 60
+    }
+  ],
+  "timeoutSeconds": 60,
+  "retentionBytes": {
+    "stdout": 1048576,
+    "stderr": 262144
+  },
+  "retentionMeaning": "Original communicate in-memory; post-capture file retention/refusal NOT streaming cap.",
+  "onceCommand": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/capture-controls.py",
+    "--execute-once",
+    "--root-ack-sha",
+    "ACTUAL_FUTURE_ROOT_ACK_SHA256"
+  ],
+  "rootAckSchema": "e02-transport-source2-controls-root-ack-v1",
+  "rootAckFields": [
+    "schema",
+    "actor",
+    "sourceSubject",
+    "runnerSubject",
+    "runner",
+    "controlPlan",
+    "sourceQaReview",
+    "sourceSecurityReview",
+    "sourceQaDecision",
+    "sourceSecurityDecision",
+    "captureQaReview",
+    "captureSecurityReview",
+    "captureQaDecision",
+    "captureSecurityDecision",
+    "pureControlsAuthorized",
+    "allowedScopes",
+    "stopFirstFailure",
+    "noRetry",
+    "diagnosticRuntimeAuthorized",
+    "primaryAuthorized",
+    "consumerAuthorized",
+    "androidAuthorized",
+    "servicesAuthorized",
+    "cryptoOrNativeAuthorized",
+    "sdkAuthorized"
+  ],
+  "reviewShape": [
+    "role",
+    "session",
+    "decision",
+    "subject"
+  ],
+  "sourceDecisionsKnownActual": {
+    "qa": "ACCEPT_DIAGNOSTIC_SOURCE_CONFIG_ONLY",
+    "security": "ACCEPT_SOURCE_FOR_SCOPED_DATA_CONTROLS_ONLY"
+  },
+  "captureDecisions": "NOT_MATERIALIZED_ACTUAL_OTHER_AGENT_DECISIONS_REQUIRED",
+  "scopePolicy": "All18/27/6 are new actual current executions if authorized; SOURCE1 hadzero, no executed carry. Named partitions18=10+8,27=20+7,guest6 are checked against exact frozen plan.",
+  "externalApiResponses": "Caller preserves original exact toolName/actualArguments/unmodifiedResponse immediately; never inferred by journal.",
+  "actualControlsExecuted": false,
+  "rootAckMaterializedByAuthor": false,
+  "rootOwnsActualNonoperatorResultReviews": true
+}

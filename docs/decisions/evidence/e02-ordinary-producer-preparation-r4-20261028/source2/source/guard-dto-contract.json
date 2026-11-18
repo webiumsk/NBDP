@@ -1,0 +1,266 @@
+{
+  "schema": "e02-producer4-guard-dto-contract-v1",
+  "actor": "/root/producer4_nonblocking_source",
+  "profileId": "e02-ordinary-minimum-rs-two-role-v3",
+  "globalPhaseSequence": "Unchanged integer1..N; helper-local decimal sequence is guardSequence only",
+  "serviceCaptureStreams": [
+    "phase",
+    "proxy"
+  ],
+  "aggregateServiceCaptureBytes": 8388608,
+  "requestResponse": {
+    "requestKeys": [
+      "schema",
+      "operation",
+      "instance",
+      "runId",
+      "leaseSha256",
+      "sequence",
+      "label",
+      "contextSha256"
+    ],
+    "responseKeys": [
+      "schema",
+      "operation",
+      "instance",
+      "runId",
+      "leaseSha256",
+      "sequence",
+      "label",
+      "contextSha256",
+      "requestSha256",
+      "ok",
+      "clocks"
+    ],
+    "requestMaxBytes": 1024,
+    "responseMaxBytes": 2048,
+    "framing": "StrictUTF8 one newline frame, duplicate/nonfinite/numerictokens refused, all identity/clock/sequence decimal fields strings",
+    "operations": [
+      "CHECK",
+      "CLOSE"
+    ]
+  },
+  "newPhaseNames": [
+    "GUARD_RPC_REQUEST",
+    "GUARD_RPC_REPLY",
+    "GUARD_HELPER_LAUNCH",
+    "GUARD_HELPER_CREATED",
+    "GUARD_HELPER_STDERR",
+    "GUARD_HELPER_STDOUT_EOF",
+    "GUARD_HELPER_STDERR_EOF",
+    "GUARD_HELPER_EXIT",
+    "GUARD_HELPER_CLOSE",
+    "GUARD_HELPER_TERMINATE",
+    "GUARD_HELPER_CLEANUP_DEADLINE_EXHAUSTED",
+    "GUARD_TERMINAL"
+  ],
+  "existingPhaseChanges": {
+    "GUARD_ENTRY": [
+      "helperInstance",
+      "guardSequence",
+      "enqueueMonoNs",
+      "label"
+    ],
+    "GUARD_EXIT": [
+      "helperInstance",
+      "guardSequence",
+      "label",
+      "ok",
+      "error",
+      "consumed",
+      "consumedUtcUpperNs",
+      "consumedMonoNs",
+      "consumedBootUpperNs"
+    ]
+  },
+  "rpcRequestFields": [
+    "helperInstance",
+    "label",
+    "guardSequence",
+    "rawBase64",
+    "enqueueMonoNs",
+    "decisionDeadlineMonoNs",
+    "enqueueUtcLowerNs",
+    "enqueueBootLowerNs",
+    "decisionDeadlineUtcNs",
+    "decisionDeadlineBootNs"
+  ],
+  "rpcReplyFields": [
+    "helperInstance",
+    "guardSequence",
+    "rawBase64"
+  ],
+  "controllerAddedKey": "guardController",
+  "controllerAddedValueKeys": [
+    "schema",
+    "reservationIndex",
+    "instance",
+    "scope",
+    "runId",
+    "leaseSha256",
+    "configurationSha256",
+    "observations"
+  ],
+  "controllerObservationKeys": [
+    "name",
+    "fields"
+  ],
+  "controllerCustody": "ActualNodeChildProcess events; no PythonPopen/reap attestation invented; wholecontrollerstdout remains originalcommand capturebound",
+  "requiredJoins": [
+    "Globalphase contiguous1..N independent helperlocaldecimalcounter",
+    "ENTRY\u2192sameinstance/guardSequence/label\u2192REQUEST exact rawrequesthash\u2192REPLY exact request/response context\u2192consumedEXIT with current clock/context fences",
+    "EveryCHECK one fresh original Lease.check; one-use reply; CLOSE nofutureprotecteduse",
+    "Controller command source/config/run/release exact22workers; distinct helperinstances and original source/lease authority"
+  ],
+  "requiresVersionedConsumerAndCompletion": true,
+  "oldProducer3DataTransfers": false,
+  "runtimeExecutions": 0,
+  "controllerAuditMaxEncodedContributionBytes": 122880,
+  "allocation": {
+    "total": 16777216,
+    "service": 8388608,
+    "serviceHeader": 4096,
+    "serviceDiagnostics": 4096,
+    "controllerSlots": 64,
+    "slot": 131072,
+    "proof": 122880,
+    "ledger": 4096,
+    "diagnostics": 4096,
+    "wrapper": 1024
+  },
+  "observerStateSchema": "e02-minimum-observer-state-v3",
+  "aggregateBudgetSchema": "e02-minimum-aggregate-capture-budget-v3",
+  "fixtureCommandSchema": "e02-minimum-fixture-command-v3",
+  "fixtureCallSchema": "e02-minimum-fixture-call-v2",
+  "fixtureReplyPin": "Exact already-retained verified command.stdout Pin; no second RPCproof copy",
+  "terminalHelperCleanupRows": "Only the closed helper cleanup facts plus the single first-fault PROXY_SOCKET_ERROR_CALLBACK_ENTRY denial fact may follow the local fence, marked terminalRetention:true and charged by the same phase writer/budget. No later protocol/send/GUARD_EXITsuccess row.",
+  "serviceProofScope": "All Node-service put/phase/proxy proof representations charged within service share; startup memory then phase flush conservatively both charged, no refund.",
+  "accountSnapshot": "chargedBytes is admitted intended bytes, not physical attestation; final observer state records BEFORE_THIS_FINAL_RECORD_WRITE.",
+  "aggregateWindowNewRpcCaptureBytes": 16777216,
+  "otherServiceProofLocations": "Existing Node-service proof files and derived accounting metadata use same8MiB share; no separate allowance.",
+  "controllerEmitPath": "createControllerStdoutEmitter consumes exact immutable bound encodings once; Booleanwrite return is backpressure, not bytecount; actual parentEOF/natural/capture remains required.",
+  "parentLedgerRoot": "Host role output/controller-audit-reservations outside every fixture-writable mount",
+  "declarationRevision": "SOURCE2_CURRENT_CLOSED_SCHEMA_AND_22_WORKER_CORRECTION",
+  "runtimeWorkerCount": 22,
+  "runtimeWorkerNames": [
+    "supervisor.py",
+    "lease_guard.py",
+    "android_driver.py",
+    "ui-plan.json",
+    "fixture.mjs",
+    "fixture-plan.json",
+    "minimum-plan.json",
+    "business-rumor.json",
+    "chat-rumor.json",
+    "exchange.mjs",
+    "phase-writer.mjs",
+    "dependency-tree.mjs",
+    "dependency-tree.json",
+    "capture-budget.mjs",
+    "exchange-adapter.mjs",
+    "proxy-observer.mjs",
+    "guard-helper.py",
+    "guard-wire.mjs",
+    "guard-client-core.mjs",
+    "guard-client.mjs",
+    "guard-transport-boundaries.mjs",
+    "capture-allocation.mjs"
+  ],
+  "currentArtifacts": {
+    "amethystApk": {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-r8/output/build/rebuilt-fdroid-debug-0.apk",
+      "bytes": 165860063,
+      "sha256": "368255b938e8fc72bf603a3f08dee29938e6c73e43ca6471a13ee1bc9ee0b4be"
+    },
+    "helperApk": {
+      "path": "/tmp/nbdp-e02-clipboard-helper-rebuild-20261027/build-r2/clipboard-capture.apk",
+      "bytes": 16787,
+      "sha256": "589031766a4be1cbd4e6a93b1b8d8af5db616d8dc51bcc7dd408a7f0a954b73e"
+    }
+  },
+  "fixtureCommandKeys": [
+    "schema",
+    "profileId",
+    "windowId",
+    "operation",
+    "caseId",
+    "ok",
+    "result",
+    "guardController"
+  ],
+  "observerStateKeys": [
+    "schema",
+    "budget",
+    "phase",
+    "allocation",
+    "serviceDiagnostics",
+    "serviceHeaderPrepaidBytes"
+  ],
+  "aggregateBudgetKeys": [
+    "schema",
+    "limit",
+    "intendedTotalBytes",
+    "acknowledgedTotalBytes",
+    "streams",
+    "poisoned",
+    "firstError",
+    "physicalBytes",
+    "physicalMeaning",
+    "lastAttempt",
+    "allocationAccount"
+  ],
+  "accountStateKeys": [
+    "limit",
+    "chargedBytes",
+    "intendedBytes",
+    "poisoned",
+    "firstError"
+  ],
+  "serviceProofLimitBytes": 8380416,
+  "serviceDiagnosticLimitBytes": 4096,
+  "serviceHeaderPrepaidBytes": 4096,
+  "supersedesClosedDeclarations": {
+    "command": "Current retained controllerstdout command-v3 adds mandatory guardController; intermediate service socket response is not a complete retained controller DTO.",
+    "observer": "Current observer-v3 has exactly the named six keys, replacing historical observer-v2 budget/phase-only declarations.",
+    "budget": "Current budget-v3 has exactly the named eleven keys including nonnull allocationAccount and limit8380416. The adopted total remains16777216=8388608+64*131072; no new allowance.",
+    "workers": "Exact22 runtime source/data members supersede16/20 declarations; actual full Pins remain in hash-bound config/source subject."
+  },
+  "serviceAccountJoins": "For actual service: budget.limit==allocationAccount.limit==8380416; serviceDiagnostics.limit==4096; serviceHeaderPrepaidBytes==4096; allocation equals exact CODE constants. Account chargedBytes includes all service proof representations, not only phase/proxy stream acknowledgements.",
+  "finalObserverFileKeys": [
+    "observer",
+    "snapshotTiming",
+    "error",
+    "secondaryErrors"
+  ],
+  "finalObserverSnapshotTiming": "BEFORE_THIS_FINAL_RECORD_WRITE",
+  "fixtureCallReplyJoin": "fixture-call-v2.reply equals the actual retained command.stdout Pin; re-read/hash/raw stdout equality and natural complete command lifecycle remain mandatory. No second reply copy.",
+  "terminalRetention": {
+    "requiredMarker": true,
+    "helperPhaseAllowlist": [
+      "GUARD_TERMINAL",
+      "GUARD_HELPER_STDERR",
+      "GUARD_HELPER_STDOUT_EOF",
+      "GUARD_HELPER_STDERR_EOF",
+      "GUARD_HELPER_EXIT",
+      "GUARD_HELPER_CLOSE",
+      "GUARD_HELPER_TERMINATE",
+      "GUARD_HELPER_CLEANUP_DEADLINE_EXHAUSTED"
+    ],
+    "additionalDenialFactPhase": "PROXY_SOCKET_ERROR_CALLBACK_ENTRY",
+    "additionalDenialFactKeys": [
+      "connection",
+      "origin",
+      "error"
+    ],
+    "connectionDomain": "1..64 or null if no retained connection identity; refusal fact only",
+    "originDomain": [
+      "APP",
+      "RELAY"
+    ],
+    "firstFaultOrder": "Claim original socket failure and cancel/fence outside queue before any fallible retention; denial fact may be attempted once.",
+    "retentionFailure": "Secondary only; exact-owned cleanup still runs after short write, ENOSPC or exhausted budget; no retry/repair.",
+    "commonContext": "profileId/windowId/ordinaryRole present; terminalRetention true; ordinary observedAttempt field is absent on these terminal facts.",
+    "writer": "Same single service phaseWriter with existing budget; no third stream or extra allowance.",
+    "noSuccessAfterFence": true
+  }
+}

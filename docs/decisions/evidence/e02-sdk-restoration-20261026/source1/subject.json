@@ -1,0 +1,99 @@
+{
+  "schema": "nbdp-sdk434-restoration-source-subject-v1",
+  "author": "/root/whole_consumer_fixture",
+  "coordinator": "/root",
+  "preparedAtUtc": "2026-10-26T22:06:39.194995+00:00",
+  "state": "SOURCE_FROZEN_PENDING_INDEPENDENT_QA_SECURITY",
+  "scope": "EXACT_PUBLIC_SDK434_BYTE_DATA_ONLY_NO_ACQUISITION_EXECUTED",
+  "script": {
+    "path": "/tmp/nbdp-sdk-restoration-20261026/restore_sdk.py",
+    "bytes": 24664,
+    "sha256": "489f3c107feb09501e6a3e8744eee892a74b82a63941238dce50477320a76078"
+  },
+  "plan": {
+    "path": "/tmp/nbdp-sdk-restoration-20261026/plan.json",
+    "bytes": 138890,
+    "sha256": "53ca1e32778897b69b85d822253f1324777c51961d77e96d27e295e31bd0f03c"
+  },
+  "readme": {
+    "path": "/tmp/nbdp-sdk-restoration-20261026/README.md",
+    "bytes": 4173,
+    "sha256": "eaa680733c61cc58717ae0adfbcce8c28f0f696393698cf72f1cd12966dc7c50"
+  },
+  "originalInventory": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-api35-fixture-preparation-r2/sdk-tree.json",
+    "bytes": 89738,
+    "sha256": "5c996f67fd8aba0ea618adc7f7f9e6a2c27c641cc95910deb07bdfa8a10562a8"
+  },
+  "preparationFailures": {
+    "path": "/tmp/nbdp-sdk-restoration-20261026/preparation-failures.json",
+    "bytes": 511,
+    "sha256": "97fe2757f8f3f260be08613e9c7c0d37b8ccae394c14d1f449761e553e53dee2"
+  },
+  "staticSource": {
+    "path": "/tmp/nbdp-sdk-restoration-20261026/static-source-checks.json",
+    "bytes": 714,
+    "sha256": "858cbacbd8c767bac16210aaaf800a30e16dae4c355a7a18e34595c1c9c8322d"
+  },
+  "interpreter": {
+    "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "bytes": 32959480,
+    "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+  },
+  "bounds": {
+    "globalSeconds": 1200,
+    "workSeconds": 1170,
+    "failureReceiptMaximumSeconds": 5,
+    "perArchiveNetworkSeconds": 300,
+    "socketTimeoutSeconds": 15,
+    "maximumZipEntries": 4096,
+    "maximumTreeEntries": 4096,
+    "maximumReceiptBytes": 1048576,
+    "retainedReserveBytes": 8589934592,
+    "metadataAndBlockMarginBytes": 67108864,
+    "maximumCentralDirectoryBytes": 4194304
+  },
+  "totals": {
+    "archiveBytes": 1141112381,
+    "selectedBytes": 2703224655,
+    "minimumInitialFreeBytes": 12501380492
+  },
+  "destination": "/tmp/nbdp-e02-api35-fixture-r2/sdk",
+  "sourceStatusOnly": true,
+  "acquisitionAuthorized": false,
+  "downloadsExecuted": 0,
+  "extractionExecuted": 0,
+  "sdkToolsOrEmulatorExecuted": false,
+  "licenseConsent": false,
+  "protocolGateOrBlockerChanges": false,
+  "noExistingOverwrite": true,
+  "plannedInvocation": [
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=5s",
+    "1210s",
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/tmp/nbdp-sdk-restoration-20261026/restore_sdk.py",
+    "--plan",
+    "/tmp/nbdp-sdk-restoration-20261026/plan.json",
+    "--plan-sha",
+    "53ca1e32778897b69b85d822253f1324777c51961d77e96d27e295e31bd0f03c",
+    "--execute-reviewed-data-restoration"
+  ],
+  "requiredNext": [
+    "Independent exact frozen SOURCE QA/security review.",
+    "Separate coordinator acquisition release and supported network escalation.",
+    "One fresh finite acquisition/extraction with actual receipts; preserve failures, no silent retry.",
+    "Independent exact DATA result/tree review before any consideration of a future runtime prerequisite join."
+  ],
+  "limits": [
+    "Official metadata references were provided by coordinator after its primary research; this task did not newly retrieve official XML or archives.",
+    "Emulator/platform-tools archiveSHA256 unpinned; fixed official size/SHA1/TLS and every selected originalfileSHA256 must agree.",
+    "Restoration copies exact public notice/license file bytes but performs no license-consent operation.",
+    "The index does not supply original directory metadata; private restoration directories do not claim exact directory modes.",
+    "Sampled free-space checks do not constrain concurrent unrelated writers or attest measured peak resources.",
+    "This SOURCE packet does not grant SDKmanager/emulator/service/experiment execution or change Android admission thresholds."
+  ]
+}

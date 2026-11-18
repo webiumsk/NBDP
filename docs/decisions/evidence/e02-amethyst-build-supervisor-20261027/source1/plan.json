@@ -1,0 +1,84 @@
+{
+  "schema": "nbdp-fixed-amethyst-build-supervisor-source-plan-v1",
+  "state": "SOURCE_ONLY_NOT_READY_NO_EXECUTION_AUTHORITY",
+  "buildPreparationSubject": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/subject.json",
+    "bytes": 4032,
+    "sha256": "c8c75541ccaa8614831cd9c3acd9f8bc1668462561f227aeca6f3ff209369e52"
+  },
+  "buildPlan": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/build-plan.json",
+    "bytes": 4425,
+    "sha256": "2fe9d72a850e52cf706d85fffb3513518a4fa78812ccf7457fe89dc8f121d455"
+  },
+  "buildInside": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/build_inside.py",
+    "bytes": 8176,
+    "sha256": "2ecf91a0f9959931075d4b8ac3e4f7e2337054fbcb9b9b58f53707cd1375d405"
+  },
+  "sourceInputs": [
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/subject.json",
+      "bytes": 4032,
+      "sha256": "c8c75541ccaa8614831cd9c3acd9f8bc1668462561f227aeca6f3ff209369e52"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/build-plan.json",
+      "bytes": 4425,
+      "sha256": "2fe9d72a850e52cf706d85fffb3513518a4fa78812ccf7457fe89dc8f121d455"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/build_inside.py",
+      "bytes": 8176,
+      "sha256": "2ecf91a0f9959931075d4b8ac3e4f7e2337054fbcb9b9b58f53707cd1375d405"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/source-input-pins.json",
+      "bytes": 2396,
+      "sha256": "0327e6ec448e39cd80b0ea65de14443d08f39095a0358ac35b164ef69c6510e4"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/prepare_source.py",
+      "bytes": 3029,
+      "sha256": "f6cd2084886a4051682ffd0992b9bc69817fe5dbb26a7ff22723bf62bc995e7a"
+    },
+    {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/acquisition-plan.json",
+      "bytes": 3306,
+      "sha256": "82c8b19c869315f34151727469772f4336be0dc4d77b6fd07e4fe0332df48bf1"
+    }
+  ],
+  "image": "sha256:32bb6c4c58ee5fe85f1e7229fb15008accb137990093941d2f8e768efd91cf8c",
+  "fixedContainerName": "nbdp-amethyst-build-20261026",
+  "fixedNetworkName": "nbdp-amethyst-build-20261026",
+  "limits": {
+    "outerSeconds": 2100,
+    "cleanupReserveSeconds": 120,
+    "rootReleaseMaximumSeconds": 2400,
+    "jobSeconds": 1800,
+    "jobKillGraceSeconds": 5,
+    "attachedCliSeconds": 1845,
+    "ordinaryCliSeconds": 30,
+    "stopSeconds": 20,
+    "stopGraceSeconds": 10,
+    "killSeconds": 15,
+    "removeSeconds": 20,
+    "cliCapturePerFileBytes": 67108864,
+    "jobPerFileBytes": 536870912,
+    "memoryBytes": 6442450944,
+    "cpus": 4,
+    "pids": 512,
+    "minimumFreeBuildDiskBytes": 12884901888
+  },
+  "additionalRestrictions": {
+    "cidfile": "Fresh private attempt directory; full64CID agrees with actual create stdout when present",
+    "creationLabel": "nbdp.buildRun=<fresh root runId>",
+    "logging": "Docker log driver none; private CLI captures with64MiB RLIMIT_FSIZE",
+    "jobFileLimit": "Docker ulimit fsize512MiB perfile applies to every job write, not aggregate disk; root explicitly authorized this execution limit",
+    "jobTimeout": "1800s GNU timeout+5s kill grace inserted before original python command; original build_inside unchanged"
+  },
+  "qualification": "Compilation/source-linked rebuilt candidate only; independent final DATA review required, no runtime/client/canonical evidence",
+  "sourceOnly": true,
+  "modelsAuthorized": false,
+  "buildAuthorized": false
+}

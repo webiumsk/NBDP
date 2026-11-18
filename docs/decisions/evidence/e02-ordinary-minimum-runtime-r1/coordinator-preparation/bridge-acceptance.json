@@ -1,0 +1,63 @@
+{
+  "schema": "nbdp-source-control-bridge-acceptance-v1",
+  "actor": "/root",
+  "decision": "ACCEPT_SOURCE_CONTROL_BRIDGE_ONLY",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-minimum-runtime-preparation-r1/readiness-subject.json",
+    "bytes": 3615,
+    "sha256": "9c8803e45131e3fcd45656158e52f62a0dd7fc734d260544ce1c61977aadd825"
+  },
+  "actualIndependentReviews": [
+    {
+      "role": "qa",
+      "sourceReview": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-minimum-runtime-preparation-r1/source-qa-review.json",
+        "bytes": 1553,
+        "sha256": "033c13a1a9e764ec6e9a2072eb7a3f739b43c2b41135af3067f4ce340825c625"
+      },
+      "controlReview": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-minimum-runtime-preparation-r1/control-qa-review.json",
+        "bytes": 1046,
+        "sha256": "cdc5a32dfff0cd8ae47c2cb0e564c65c97889b1faaf8ef444b1328f7b1f09204"
+      },
+      "sessionEvidence": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-minimum-runtime-preparation-r1/bridge-qa-session-evidence.json",
+        "bytes": 2525,
+        "sha256": "a8b8df8a1712fc624896761d5af10847352002e67001a7f2b0076c88a71c0b36"
+      }
+    },
+    {
+      "role": "security",
+      "sourceReview": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-minimum-runtime-preparation-r1/source-security-review.json",
+        "bytes": 1565,
+        "sha256": "fc5a12996d46711b0582c499a9d01cd352f019bcedc1f5243cc5020247761a6f"
+      },
+      "controlReview": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-minimum-runtime-preparation-r1/control-security-review.json",
+        "bytes": 1058,
+        "sha256": "da1858a9a8cb126a534810725ab63e83124f90fae5f651c63e812311891e213b"
+      },
+      "sessionEvidence": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-minimum-runtime-preparation-r1/bridge-security-session-evidence.json",
+        "bytes": 2552,
+        "sha256": "6cbe1d26d455b7ee30b7bb4cf54fa082aa85e03ac9a9029df4a5ef8866bab893"
+      }
+    }
+  ],
+  "knownLowFinding": {
+    "id": "SEC-PUBLICATION-MINIMUM-NSEC-METADATA-001",
+    "severity": "LOW",
+    "classification": "NONOPERATIVE_UNUSED_PLAN_NSEC",
+    "disposition": "ACCEPTED_WITHOUT_RUNTIME_INPUT_CHANGE",
+    "actualDispositionEvidence": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/transport-runtime-current-state-r3/minimum-input-metadata-disposition.json",
+      "bytes": 2618,
+      "sha256": "cf0729ed70f2dab297ceef547d995f164c70e448890f9a84117d48d9a55f215b"
+    }
+  },
+  "actualRoleWindows": 0,
+  "freshAdmission": "NOT_YET_MEASURED",
+  "roleGrants": "NOT_ISSUED",
+  "runtimeAuthorized": false
+}

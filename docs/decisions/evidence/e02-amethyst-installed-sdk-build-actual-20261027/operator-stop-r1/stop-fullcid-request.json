@@ -1,0 +1,21 @@
+{
+  "actor": "/root",
+  "argv": [
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=3s",
+    "25s",
+    "/usr/bin/docker",
+    "stop",
+    "--time",
+    "10",
+    "b54aaa41431940d61be299ff3ac32fd5cfb2bba81850ccf22f5a70b25af11e4e"
+  ],
+  "environment": {
+    "PATH": "/usr/bin:/bin",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "DOCKER_CONFIG": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-actual-20261027/operator-stop-r1/docker-config"
+  },
+  "operatorIntervention": true
+}

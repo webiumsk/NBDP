@@ -1,0 +1,45 @@
+{
+  "schema": "e02-completion2-proposed-controls-v1",
+  "node": {
+    "path": "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+    "bytes": 121613584,
+    "sha256": "ccacb2d6d87ba6d118b2bffc1ae33747a05cc5fc6b1f1ec4fc1d420b687e952d"
+  },
+  "definitions": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-completion-preparation-r2/defined-controls.json",
+    "bytes": 5584,
+    "sha256": "a7d267e1f137df424e35196d282c720f6198c6a4f6626c8fd9fafc8294aa1a35"
+  },
+  "commands": [
+    [
+      "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_completion_v2/test_data.mjs"
+    ],
+    [
+      "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_completion_v2/test_controls_adapter.mjs"
+    ]
+  ],
+  "expectedCountsSeparate": [
+    59,
+    41
+  ],
+  "timeoutSecondsEach": 60,
+  "stdoutRetainedBytes": 1048576,
+  "stderrRetainedBytes": 262144,
+  "allowed": "Owned tempfile/public synthetic DATA and builtin modules only",
+  "prohibited": [
+    "runner evaluation",
+    "consumer",
+    "primary",
+    "native",
+    "cryptography",
+    "relay",
+    "Android",
+    "SDK",
+    "runtime"
+  ],
+  "executionAuthorized": false,
+  "controlsExecuted": 0,
+  "next": "Independent exact SOURCE QA/security then separately reviewed foreground capture/root release"
+}

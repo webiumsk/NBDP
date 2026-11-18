@@ -1,0 +1,122 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/control-plan.json
++++ /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/control-plan.json
+@@ -5,7 +5,7 @@
+     "/home/peterhorvath/.miniforge3/bin/python3.13",
+     "-I",
+     "-B",
+-    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/test_source7.py"
++    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source/test_source7.py"
+   ],
+   "caseNames": [
+     "CollectorControls.test_actual_cli_base64_nonempty_memory_route_and_exact_root_qualifier",
+@@ -73,10 +73,25 @@
+     "PolicyControls.test_raw7_codec_exact_roundtrip_and_policy_mutation_is_not_hidden",
+     "PolicyControls.test_unknown_extra_shell_tty_prefix_rule_and_other_keys_refuse",
+     "PolicyControls.test_utf8_bound_accepts_without_trimming_or_normalizing",
+-    "PolicyControls.test_whole_request_pin_includes_every_policy_byte"
++    "PolicyControls.test_whole_request_pin_includes_every_policy_byte",
++    "HistoryTypedOriginControls.test_finalf_direct_actual_only_aliases_permanently_refuse",
++    "HistoryTypedOriginControls.test_finalf_yielded_actual_only_aliases_permanently_refuse",
++    "HistoryTypedOriginControls.test_pref_alias_failure_permanently_denies_later_corrected_final_proof",
++    "HistoryTypedOriginControls.test_pref_and_finalf_poll_type_guards_reach_same_new_qualifier",
++    "HistoryTypedOriginControls.test_pref_restore_actual_only_type_aliases_refuse",
++    "TypedOriginControls.test_actual_poll_max_tokens_retains_existing_exact_int_guard",
++    "TypedOriginControls.test_actual_poll_optional_yield_requires_exact_int_without_clock_extension",
++    "TypedOriginControls.test_actual_poll_session_float_and_boolean_aliases_refuse",
++    "TypedOriginControls.test_direct_actual_boolean_yield_against_pinned_int1_refuses",
++    "TypedOriginControls.test_direct_actual_login0_against_pinned_false_refuses",
++    "TypedOriginControls.test_direct_actual_yield_float_against_pinned_int_refuses",
++    "TypedOriginControls.test_distinct_valid_actual_values_fail_whole_canonical_equality",
++    "TypedOriginControls.test_terminal_response_session_float_boolean_aliases_refuse",
++    "TypedOriginControls.test_valid_separately_copied_typed7_direct_yielded_preserves_originals",
++    "TypedOriginControls.test_yielded_actual_only_type_aliases_refuse_and_failstop_permanently"
+   ],
+   "collectorCommandsExecuted": 0,
+-  "cwd": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source",
++  "cwd": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source",
+   "groups": [
+     {
+       "caseNames": [
+@@ -120,7 +135,7 @@
+       "defined": 36,
+       "source": {
+         "bytes": 32023,
+-        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/test_collector.py",
++        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source/test_collector.py",
+         "sha256": "4432230c206e8de35ff399901732f4689c5ddcd7dd9a768871cc10442d580659"
+       }
+     },
+@@ -144,7 +159,7 @@
+       "defined": 14,
+       "source": {
+         "bytes": 9541,
+-        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/test_history_prefix.py",
++        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source/test_history_prefix.py",
+         "sha256": "ebb8a2b14d688f49133fcb108264173e97080a9a6758f2a07040bfb5d68ea5b0"
+       }
+     },
+@@ -170,28 +185,55 @@
+       "defined": 16,
+       "source": {
+         "bytes": 10079,
+-        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/test_request_policy.py",
+-        "sha256": "94d6f65df8b698ce687b1134a6a1ce682c64ec0b9f9ec07cea009c3225598884"
++        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source/test_request_policy.py",
++        "sha256": "2107240e74623c1d7ba0a24e0294c8e62630331dc705a3f33cab1f84a8611ce8"
++      }
++    },
++    {
++      "caseNames": [
++        "HistoryTypedOriginControls.test_finalf_direct_actual_only_aliases_permanently_refuse",
++        "HistoryTypedOriginControls.test_finalf_yielded_actual_only_aliases_permanently_refuse",
++        "HistoryTypedOriginControls.test_pref_alias_failure_permanently_denies_later_corrected_final_proof",
++        "HistoryTypedOriginControls.test_pref_and_finalf_poll_type_guards_reach_same_new_qualifier",
++        "HistoryTypedOriginControls.test_pref_restore_actual_only_type_aliases_refuse",
++        "TypedOriginControls.test_actual_poll_max_tokens_retains_existing_exact_int_guard",
++        "TypedOriginControls.test_actual_poll_optional_yield_requires_exact_int_without_clock_extension",
++        "TypedOriginControls.test_actual_poll_session_float_and_boolean_aliases_refuse",
++        "TypedOriginControls.test_direct_actual_boolean_yield_against_pinned_int1_refuses",
++        "TypedOriginControls.test_direct_actual_login0_against_pinned_false_refuses",
++        "TypedOriginControls.test_direct_actual_yield_float_against_pinned_int_refuses",
++        "TypedOriginControls.test_distinct_valid_actual_values_fail_whole_canonical_equality",
++        "TypedOriginControls.test_terminal_response_session_float_boolean_aliases_refuse",
++        "TypedOriginControls.test_valid_separately_copied_typed7_direct_yielded_preserves_originals",
++        "TypedOriginControls.test_yielded_actual_only_type_aliases_refuse_and_failstop_permanently"
++      ],
++      "defined": 15,
++      "source": {
++        "bytes": 8852,
++        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source/test_typed_origin.py",
++        "sha256": "f3b8625a2c3837176d74dbcbf4025230740f748a45b62bc4a3fe6d3030be9180"
+       }
+     }
+   ],
+   "helperExecutions": 0,
+-  "historicalNamedDefinitionsPreserved": 50,
+-  "modelsDefined": 66,
++  "modelsDefined": 81,
+   "modelsExecuted": 0,
++  "newNames": 15,
++  "originalNamesPreserved": 50,
+   "rootRelease": null,
+   "runner": {
+-    "bytes": 693,
+-    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/test_source7.py",
+-    "sha256": "fac49f8b17ec6cbade0f456c23d070f981a8ce70a7ef805149aee7fac2cc8288"
++    "bytes": 765,
++    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source/test_source7.py",
++    "sha256": "a63f7368eacfda3f6be978674f15eb8124d1e862483614c314885910817e2fbd"
+   },
+   "runnerRequires": {
+     "errors": 0,
+     "failures": 0,
+     "skips": 0,
+-    "testsRun": 66
++    "testsRun": 81
+   },
+-  "schema": "e02-collector-request7-unexecuted-control-plan-v1",
++  "schema": "e02-collector-policy-source2-unexecuted-control-plan-v1",
++  "source1NamesPreserved": 66,
+   "sourceApproval": null,
+   "targetControlsExecuted": 0
+ }

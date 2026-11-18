@@ -1,0 +1,549 @@
+{
+  "actor": "/root/guard_recovery_source",
+  "actualConcreteVerdicts": null,
+  "actualCreationNonce": null,
+  "actualExecutionsByPreparation": 0,
+  "actualOriginalLease": null,
+  "actualPayloadFit": null,
+  "actualReservedAccount": null,
+  "actualRootRelease": null,
+  "actualRootRunId": null,
+  "authorities": {
+    "controllerDataAcceptance": {
+      "bytes": 2129,
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r8-model168-actual-20261029/acceptance.json",
+      "sha256": "147b232c1f41e37bb004f79a254c29dbfcd64b4f361d503a84065a439c80c7f3"
+    },
+    "controllerSourceAcceptance": {
+      "bytes": 1217,
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r8-source-acceptance-20261029/acceptance.json",
+      "sha256": "75f976bc5053351b7f3c894c10145899272a2c09436dc18b45e918812979b3c7"
+    },
+    "currentHelperMetadataAcceptance": {
+      "bytes": 1795,
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-probe-current-r6-source-acceptance-20261104/acceptance.json",
+      "sha256": "afff992c6c19f18a0231d603b9db6ec1ccb9c4fea62e19043460936c4a96fbcd"
+    },
+    "freshGenericInputs": {
+      "bytes": 5371,
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-current-inputs-20261104/review-entrypoint.json",
+      "sha256": "966c248314447c54f2b9556cd35e81cf653494d2594d085c9d06c158b6e00bd0"
+    },
+    "guardRecoveryAcceptance": {
+      "bytes": 2320,
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-guard-recovery-review-20261104/r3-recovery-data-acceptance.json",
+      "sha256": "2faa66bd32dd546e10b70c2708ea247f106feb2e93d9bcc0eba383a738dac648"
+    },
+    "producerDataAcceptance": {
+      "bytes": 3766,
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-266-control-actual-20261029/acceptance.json",
+      "sha256": "189a8564f53619210c431fa05ec9d3df90640279362b98c4e082f87b923daa5d"
+    },
+    "producerSourceAcceptance": {
+      "bytes": 1168,
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-lease-r1-source-acceptance-20261029/acceptance.json",
+      "sha256": "494d8ee2aae851fc7210fb7a2a1f8f14fd2910ee5a24faa3bad5ae529b369b62"
+    },
+    "sourceQaReview": {
+      "bytes": 387,
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r8-source-acceptance-20261029/qa-review.json",
+      "sha256": "7faeaa312c94bb8a47739e359472939e6283c8ebb467760d68cab2d0ddab4715"
+    },
+    "sourceSecurityReview": {
+      "bytes": 399,
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r8-source-acceptance-20261029/security-review.json",
+      "sha256": "fd289467f35d4e338b70f548176ba723dcbcfe93c660e2889685aa87480f1962"
+    }
+  },
+  "baselineOnlyReason": "Final ordinary helperAPK/config/runtimePlan joins remain unresolved. Changed producer/controller/consumer tuples require independent new SOURCE/DATA; frozen baseline DATA cannot transfer.",
+  "compactConcreteReceiptTemplate": {
+    "actor": "/root",
+    "decision": null,
+    "reviews": [
+      {
+        "decision": null,
+        "role": "qa",
+        "session": null,
+        "subject": {
+          "scope": "CURRENT_CONCRETE_INPUTS",
+          "sha256": null
+        }
+      },
+      {
+        "decision": null,
+        "role": "security",
+        "session": null,
+        "subject": {
+          "scope": "CURRENT_CONCRETE_INPUTS",
+          "sha256": null
+        }
+      }
+    ],
+    "schema": "e02-root-helper-probe-concrete-inputs-v1",
+    "subject": {
+      "scope": "CURRENT_CONCRETE_INPUTS",
+      "sha256": null
+    }
+  },
+  "compiledControllerBindings": {
+    "acceptedProducerSubject": {
+      "bytes": 35901,
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/subject.json",
+      "sha256": "fe619502879cd18a7c1e5be36891f679497406c56a4a60b36368595f9bfb897e"
+    },
+    "source8": [
+      {
+        "bytes": 3008,
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/probe-guard-helper.mjs",
+        "sha256": "396efe615ec3a099c149da6725d629576176799dda6ef7300fc3df5e9a5e2546"
+      },
+      {
+        "bytes": 9308,
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/guard-client.mjs",
+        "sha256": "50d3dacdc0e3a008ea15bc510004ff2bf805f3de195785eb25a241f678a1dfb0"
+      },
+      {
+        "bytes": 8072,
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/guard-client-core.mjs",
+        "sha256": "14be5abb1ff953d2336e841e1364acdfd8275874ffed3aef88f9a9489fac1083"
+      },
+      {
+        "bytes": 1921,
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/guard-wire.mjs",
+        "sha256": "8cf473b741d631f80ef785c86acf5caa9899d03206696a8f740db08878c02d8e"
+      },
+      {
+        "bytes": 6219,
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/guard-helper.py",
+        "sha256": "743e0ed269445a4d59407336e399d1c7bd46c5337408b157e9ef85773e2157cf"
+      },
+      {
+        "bytes": 14846,
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/lease_guard.py",
+        "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+      },
+      {
+        "bytes": 7437,
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/capture-allocation.mjs",
+        "sha256": "a86180100f6f4fee691bd177f557fbc3a4573ccc9d0f3f15ee66a32c1b8e57a7"
+      },
+      {
+        "bytes": 4978,
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/guard-transport-boundaries.mjs",
+        "sha256": "c4c5cda6107cdead8715da8bdba917a31ebabadc0249d8fba0b343a718f98068"
+      }
+    ],
+    "sourceModes": {
+      "capture-allocation.mjs": 292,
+      "guard-client-core.mjs": 292,
+      "guard-client.mjs": 292,
+      "guard-helper.py": 292,
+      "guard-transport-boundaries.mjs": 292,
+      "guard-wire.mjs": 292,
+      "lease_guard.py": 292,
+      "probe-guard-helper.mjs": 292
+    }
+  },
+  "conservativeReviewerExclusions": [
+    "/root",
+    "/root/android_health_implementer",
+    "/root/collector_r5_fresh_qa_c05985fce1ea",
+    "/root/collector_r5_fresh_security_c05985fce1ea",
+    "/root/completion3_final",
+    "/root/completion_wrapper",
+    "/root/consumer3_preparation",
+    "/root/helper_controller_source6_env",
+    "/root/helper_env_removal_sources",
+    "/root/lease_fix_binding_scope",
+    "/root/ordinary_api35_source",
+    "/root/probe_r6_fresh_qa_d81b6f3ae5d8",
+    "/root/probe_r6_fresh_security_d81b6f3ae5d8",
+    "/root/probe_r7_fresh_qa_8d291e97745f",
+    "/root/probe_r7_fresh_security_8d291e97745f",
+    "/root/producer3_capture",
+    "/root/producer4_nonblocking_source",
+    "/root/producer_lease_fresh_qa_7569bcc497a2",
+    "/root/producer_lease_fresh_security_7569bcc497a2",
+    "/root/r5",
+    "/root/r5_plan_fix",
+    "/root/whole_consumer_fixture",
+    "/root/helper_r6_binding",
+    "/root/guard_recovery_source"
+  ],
+  "controllerRuntimeSources": [
+    {
+      "bytes": 20145,
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r8/controller.py",
+      "sha256": "3922c0d574b30e825881e1d3e1f97ad0dec21a66257f627ebc8d70a332233fd5"
+    },
+    {
+      "bytes": 40737,
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r8/host.py",
+      "sha256": "17b064ded64e4bb4c05250726e2c8fd99538b80d4501749db1f0cad92a5e6728"
+    },
+    {
+      "bytes": 6041,
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/finite_child.py",
+      "sha256": "25f6e87475145cc8eac23d2d1f0885aa7c6ce41fbc9529328d6606bea11b0ee7"
+    }
+  ],
+  "currentConsumer315IsNotHelperPrerequisite": true,
+  "dataSubjectBindings": {
+    "controllerSource": {
+      "bytes": 33998,
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r8/subject.json",
+      "sha256": "40f39255c58784e3c62eefd66dbf539564135b0ad6e721ed707027698d950db9"
+    },
+    "producerSource": {
+      "bytes": 35901,
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/subject.json",
+      "sha256": "fe619502879cd18a7c1e5be36891f679497406c56a4a60b36368595f9bfb897e"
+    }
+  },
+  "executionReadiness": "BASELINE_COMPONENT_ONLY_FINAL_APK_CONFIG_RECONCILIATION_PENDING",
+  "finalAuthorityBundleAcceptance": null,
+  "freshGenericInputObservation": {
+    "bytes": 170763,
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-current-inputs-20261104/current-input-observation.json",
+    "sha256": "3c91c9c50032d5ac2d50bc41cbf5ba602e36cf29d098ecdf31dd7069908b8dbd"
+  },
+  "genericGateTemplates": {
+    "concreteInput": {
+      "actor": "/root",
+      "decision": null,
+      "evidence": null,
+      "kind": "concreteInput",
+      "schema": "e02-one-cid-helper-probe-gate-v1",
+      "scope": "ONE_OWNED_HELPER_PROBE_ONLY",
+      "subject": null
+    },
+    "controlData": {
+      "actor": "/root",
+      "decision": null,
+      "evidence": {
+        "bytes": 2129,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r8-model168-actual-20261029/acceptance.json",
+        "sha256": "147b232c1f41e37bb004f79a254c29dbfcd64b4f361d503a84065a439c80c7f3"
+      },
+      "kind": "controlData",
+      "schema": "e02-one-cid-helper-probe-gate-v1",
+      "scope": "ONE_OWNED_HELPER_PROBE_ONLY",
+      "subject": {
+        "bytes": 33998,
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r8/subject.json",
+        "sha256": "40f39255c58784e3c62eefd66dbf539564135b0ad6e721ed707027698d950db9"
+      }
+    },
+    "producerData": {
+      "actor": "/root",
+      "decision": null,
+      "evidence": {
+        "bytes": 3766,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-266-control-actual-20261029/acceptance.json",
+        "sha256": "189a8564f53619210c431fa05ec9d3df90640279362b98c4e082f87b923daa5d"
+      },
+      "kind": "producerData",
+      "schema": "e02-one-cid-helper-probe-gate-v1",
+      "scope": "ONE_OWNED_HELPER_PROBE_ONLY",
+      "subject": {
+        "bytes": 35901,
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/subject.json",
+        "sha256": "fe619502879cd18a7c1e5be36891f679497406c56a4a60b36368595f9bfb897e"
+      }
+    },
+    "sourceQa": {
+      "actor": "/root/probe_r8_fresh_qa_f07a52b93e7d",
+      "decision": null,
+      "evidence": {
+        "bytes": 387,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r8-source-acceptance-20261029/qa-review.json",
+        "sha256": "7faeaa312c94bb8a47739e359472939e6283c8ebb467760d68cab2d0ddab4715"
+      },
+      "kind": "sourceQa",
+      "schema": "e02-one-cid-helper-probe-gate-v1",
+      "scope": "ONE_OWNED_HELPER_PROBE_ONLY",
+      "subject": {
+        "bytes": 33998,
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r8/subject.json",
+        "sha256": "40f39255c58784e3c62eefd66dbf539564135b0ad6e721ed707027698d950db9"
+      }
+    },
+    "sourceSecurity": {
+      "actor": "/root/probe_r8_fresh_security_f07a52b93e7d",
+      "decision": null,
+      "evidence": {
+        "bytes": 399,
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r8-source-acceptance-20261029/security-review.json",
+        "sha256": "fd289467f35d4e338b70f548176ba723dcbcfe93c660e2889685aa87480f1962"
+      },
+      "kind": "sourceSecurity",
+      "schema": "e02-one-cid-helper-probe-gate-v1",
+      "scope": "ONE_OWNED_HELPER_PROBE_ONLY",
+      "subject": {
+        "bytes": 33998,
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r8/subject.json",
+        "sha256": "40f39255c58784e3c62eefd66dbf539564135b0ad6e721ed707027698d950db9"
+      }
+    }
+  },
+  "genericObservationMeaning": "Point-in-time component observation, not continuous immutability, final artifact readiness or concrete admission.",
+  "genericObservedRows": 538,
+  "helperSubject18Template": {
+    "authors": [
+      "/root/helper_controller_source6_env",
+      "/root/producer4_nonblocking_source",
+      "/root/completion_wrapper",
+      "/root/r5_plan_fix",
+      "/root/collector_r5_fresh_qa_c05985fce1ea",
+      "/root/collector_r5_fresh_security_c05985fce1ea",
+      "/root/helper_env_removal_sources",
+      "/root/probe_r6_fresh_qa_d81b6f3ae5d8",
+      "/root/probe_r6_fresh_security_d81b6f3ae5d8",
+      "/root",
+      "/root/probe_r7_fresh_qa_8d291e97745f",
+      "/root/probe_r7_fresh_security_8d291e97745f",
+      "/root/lease_fix_binding_scope",
+      "/root/helper_r6_binding",
+      "/root/guard_recovery_source"
+    ],
+    "backendCause": "UNKNOWN",
+    "collectorControlDataAcceptance": {
+      "bytes": 2061,
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-root-collector-r5-model50-actual-20261029/acceptance.json",
+      "sha256": "68445f1d9d0c007475c1589872b03d5f2a49209bb998c397511ff99096d22cea"
+    },
+    "collectorSourceAcceptance": {
+      "bytes": 1170,
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-root-collector-r5-source-acceptance-20261029/acceptance.json",
+      "sha256": "a595f6beb430293eee0894376706d53b7dfdf072e948cb6d4cd7d0250b1c1189"
+    },
+    "concretePlan": null,
+    "controllerControlDataAcceptance": {
+      "bytes": 2129,
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r8-model168-actual-20261029/acceptance.json",
+      "sha256": "147b232c1f41e37bb004f79a254c29dbfcd64b4f361d503a84065a439c80c7f3"
+    },
+    "controllerSource": {
+      "bytes": 33998,
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r8/subject.json",
+      "sha256": "40f39255c58784e3c62eefd66dbf539564135b0ad6e721ed707027698d950db9"
+    },
+    "controllerSourceAcceptance": {
+      "bytes": 1217,
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r8-source-acceptance-20261029/acceptance.json",
+      "sha256": "75f976bc5053351b7f3c894c10145899272a2c09436dc18b45e918812979b3c7"
+    },
+    "execution": null,
+    "operators": null,
+    "ordinaryRowsQualified": 0,
+    "originalToolOrigin": null,
+    "producerDataAcceptance": {
+      "bytes": 3766,
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-266-control-actual-20261029/acceptance.json",
+      "sha256": "189a8564f53619210c431fa05ec9d3df90640279362b98c4e082f87b923daa5d"
+    },
+    "producerSource": {
+      "bytes": 35901,
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/subject.json",
+      "sha256": "fe619502879cd18a7c1e5be36891f679497406c56a4a60b36368595f9bfb897e"
+    },
+    "qualified": null,
+    "rawArtifactManifest": null,
+    "rootRelease": null,
+    "schema": "e02-one-cid-helper-probe-data-subject-v1"
+  },
+  "hostSource": {
+    "bytes": 40737,
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r8/host.py",
+    "sha256": "17b064ded64e4bb4c05250726e2c8fd99538b80d4501749db1f0cad92a5e6728"
+  },
+  "immutableOperationalBounds": {
+    "controllerSeconds": 180,
+    "globalTargetCeilingSeconds": 88,
+    "guestCleanupSeconds": 2,
+    "maximumWrites": 64,
+    "metadataOwnerBytes": 8388608,
+    "originalLeaseSeconds": 1800,
+    "outerSeconds": 183,
+    "payloadBytes": 49152,
+    "prepaidLedgerBytes": 16384,
+    "reserveSeconds": 3,
+    "rootSlotBytes": 65536,
+    "targetEnvelopeSeconds": 58,
+    "targetSecondsIncludingCleanup": 55,
+    "wholeOutputBytes": 16777216
+  },
+  "ordinaryRowsQualified": 0,
+  "permanentlyUnavailableRunIds": [
+    "5145a2836e2c1a977b0bf0c067f62690",
+    "774675cbeebc22ae6a87b8b20795f539",
+    "7c370e3a9fab2ac8049036eccfed4f8f",
+    "4e2f739fde840ba222e30d4e06d117a0"
+  ],
+  "planWithoutGates": {
+    "controlRoot": null,
+    "creationNonce": null,
+    "dockerConfig": null,
+    "expectedImageConfigSha256": "801544d5046f163a6f2c8627ecca5d776aa10708c01ea9005b316898c1e01e46",
+    "guardManifest": {
+      "bytes": 332736,
+      "path": "/tmp/nbdp-e02-minimal-rs-v7/records/guard-bundle-manifest.json",
+      "sha256": "9de311222ef78e20fbe05bfef32898976d80737d5d932166d23431a04a73a454"
+    },
+    "guardRoot": "/tmp/nbdp-e02-minimal-rs-v7/guard-python",
+    "inputRoot": null,
+    "lease": null,
+    "name": null,
+    "outputRoot": null,
+    "runId": null,
+    "schema": "e02-one-cid-helper-probe-plan-v1",
+    "scope": "ONE_OWNED_HELPER_PROBE_ONLY",
+    "source8": [
+      {
+        "bytes": 3008,
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/probe-guard-helper.mjs",
+        "sha256": "396efe615ec3a099c149da6725d629576176799dda6ef7300fc3df5e9a5e2546"
+      },
+      {
+        "bytes": 9308,
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/guard-client.mjs",
+        "sha256": "50d3dacdc0e3a008ea15bc510004ff2bf805f3de195785eb25a241f678a1dfb0"
+      },
+      {
+        "bytes": 8072,
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/guard-client-core.mjs",
+        "sha256": "14be5abb1ff953d2336e841e1364acdfd8275874ffed3aef88f9a9489fac1083"
+      },
+      {
+        "bytes": 1921,
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/guard-wire.mjs",
+        "sha256": "8cf473b741d631f80ef785c86acf5caa9899d03206696a8f740db08878c02d8e"
+      },
+      {
+        "bytes": 6219,
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/guard-helper.py",
+        "sha256": "743e0ed269445a4d59407336e399d1c7bd46c5337408b157e9ef85773e2157cf"
+      },
+      {
+        "bytes": 14846,
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/lease_guard.py",
+        "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+      },
+      {
+        "bytes": 7437,
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/capture-allocation.mjs",
+        "sha256": "a86180100f6f4fee691bd177f557fbc3a4573ccc9d0f3f15ee66a32c1b8e57a7"
+      },
+      {
+        "bytes": 4978,
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/guard-transport-boundaries.mjs",
+        "sha256": "c4c5cda6107cdead8715da8bdba917a31ebabadc0249d8fba0b343a718f98068"
+      }
+    ],
+    "tools": {
+      "docker": {
+        "bytes": 47353290,
+        "path": "/usr/bin/docker",
+        "sha256": "adbc67ecdc2cd2d350c01a5964a205bd81470b485aba1fb90c2f559de9e4584f"
+      },
+      "python": {
+        "bytes": 32959480,
+        "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+      }
+    },
+    "uidGid": "1000:1000"
+  },
+  "rawManifest4Template": {
+    "accounting": {
+      "controllerChargedBytes": {
+        "attached": null,
+        "metadata": null
+      },
+      "rootExternalReservationBytes": 65536
+    },
+    "files": [],
+    "originalToolOrigin": null,
+    "schema": "e02-one-cid-helper-probe-raw-manifest-v1"
+  },
+  "rawSourceGates": {
+    "controllerSource": {
+      "bytes": 33998,
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r8/subject.json",
+      "sha256": "40f39255c58784e3c62eefd66dbf539564135b0ad6e721ed707027698d950db9"
+    },
+    "producerSource": {
+      "bytes": 35901,
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/subject.json",
+      "sha256": "fe619502879cd18a7c1e5be36891f679497406c56a4a60b36368595f9bfb897e"
+    }
+  },
+  "rootReleaseTemplate": {
+    "actor": "/root",
+    "authors": [
+      "/root/helper_controller_source6_env",
+      "/root/producer4_nonblocking_source",
+      "/root/completion_wrapper",
+      "/root/r5_plan_fix",
+      "/root/collector_r5_fresh_qa_c05985fce1ea",
+      "/root/collector_r5_fresh_security_c05985fce1ea",
+      "/root/helper_env_removal_sources",
+      "/root/probe_r6_fresh_qa_d81b6f3ae5d8",
+      "/root/probe_r6_fresh_security_d81b6f3ae5d8",
+      "/root",
+      "/root/probe_r7_fresh_qa_8d291e97745f",
+      "/root/probe_r7_fresh_security_8d291e97745f",
+      "/root/lease_fix_binding_scope",
+      "/root/helper_r6_binding",
+      "/root/guard_recovery_source"
+    ],
+    "creationNonce": null,
+    "executionAuthorized": null,
+    "gates": {
+      "concreteInput": null,
+      "controlData": null,
+      "controllerSource": {
+        "bytes": 33998,
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r8/subject.json",
+        "sha256": "40f39255c58784e3c62eefd66dbf539564135b0ad6e721ed707027698d950db9"
+      },
+      "producerData": null,
+      "producerSource": {
+        "bytes": 35901,
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r5-source4-lease-r1/subject.json",
+        "sha256": "fe619502879cd18a7c1e5be36891f679497406c56a4a60b36368595f9bfb897e"
+      },
+      "sourceQa": null,
+      "sourceSecurity": null
+    },
+    "operators": null,
+    "outerCustodyReservationBytes": 65536,
+    "plan": null,
+    "runId": null,
+    "schema": "e02-one-cid-helper-probe-root-release-v1",
+    "subject": {
+      "bytes": 33998,
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r8/subject.json",
+      "sha256": "40f39255c58784e3c62eefd66dbf539564135b0ad6e721ed707027698d950db9"
+    }
+  },
+  "runtimeAuthorized": false,
+  "schema": "e02-helper-current-r8-render-templates-v1",
+  "trueAuthors": [
+    "/root/helper_controller_source6_env",
+    "/root/producer4_nonblocking_source",
+    "/root/completion_wrapper",
+    "/root/r5_plan_fix",
+    "/root/collector_r5_fresh_qa_c05985fce1ea",
+    "/root/collector_r5_fresh_security_c05985fce1ea",
+    "/root/helper_env_removal_sources",
+    "/root/probe_r6_fresh_qa_d81b6f3ae5d8",
+    "/root/probe_r6_fresh_security_d81b6f3ae5d8",
+    "/root",
+    "/root/probe_r7_fresh_qa_8d291e97745f",
+    "/root/probe_r7_fresh_security_8d291e97745f",
+    "/root/lease_fix_binding_scope",
+    "/root/helper_r6_binding",
+    "/root/guard_recovery_source"
+  ]
+}

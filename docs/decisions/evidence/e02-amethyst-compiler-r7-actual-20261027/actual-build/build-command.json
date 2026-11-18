@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "/bin/sh",
+    "/work/source/gradlew",
+    ":amethyst:assembleFdroidDebug",
+    "-PdisableAbiSplits=true",
+    "--no-daemon",
+    "--max-workers=1",
+    "-Dorg.gradle.jvmargs=-Xmx4g -XX:MaxMetaspaceSize=768m -Dfile.encoding=UTF-8 -Duser.home=/work/user",
+    "-Pkotlin.daemon.jvmargs=-Xmx1536m -XX:MaxMetaspaceSize=512m",
+    "-x",
+    "spotlessApply",
+    "-x",
+    ":installGitHook",
+    "-Pkotlin.compiler.execution.strategy=in-process",
+    "--info"
+  ],
+  "sourceCommit": "e6f464a1179def75274512b3c5bab921de3bf3d8",
+  "signing": "Fresh isolated debug identity only; no old APK hash/release signature claim"
+}

@@ -1,0 +1,34 @@
+{
+  "recorder": "/root",
+  "reviewer": "/root/r4_security",
+  "evidenceType": "ACTUAL_INDEPENDENT_READ_ONLY_SOURCE_REVIEW_MAILBOX",
+  "decision": "ACCEPT_PRODUCER3_PRE_APK_REMEDIAL_SOURCE_ONLY",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r3-corrected-r1/source-packet.json",
+    "bytes": 26984,
+    "sha256": "ada8916905994a4b711dc152742bb55601d8c07e30f381f9b84585a3b7eb482e"
+  },
+  "mandatorySupplement": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r3-corrected-r1/review-input-supplement.json",
+    "bytes": 1580,
+    "sha256": "af0a234d12e06abc011b962919b3a4fa617e98799e2ab3bfd026c34e81a395c3"
+  },
+  "verified": {
+    "uniquePinnedPaths": 965,
+    "knownInputs": 829,
+    "exactCopies": 43,
+    "preservedOriginalDraftFiles": 37,
+    "definitionChanges": [
+      "verify_rebuilt_artifacts",
+      "verify_config"
+    ],
+    "allOtherModuleAstUnchanged": true,
+    "priorGuardsUnchanged": true,
+    "baselineConstants": "Both pinned historical producer2configs and currentmetadata hashes"
+  },
+  "remediation": "All3MEDIUMfindings addressed atSOURCElevel; exactartifact/helper acceptance schemas/fixedACCEPTdecisions/qualification isTrue and exactconfiguration artifacts/runtime/metadata joined before loading/walking/import/start.",
+  "modelDefinitions": 3,
+  "modelsExecuted": 0,
+  "limits": "Pre-APK remedial SOURCE only. Four NULLs and16runtimeworker/supplementalDATA distinction remain. No finalproducer/materialization/grant/modelDATA/role orAPK qualification; finalartifact binding/freeze/reviews/currentcontrols required.",
+  "actions": "Read-only; no imports/tests/edits/Git/R8interaction by reviewer."
+}

@@ -1,0 +1,203 @@
+{
+  "schema": "e02-one-cid-helper-probe-controller-controls-v1",
+  "version": "r2",
+  "author": "/root/producer4_nonblocking_source",
+  "contributors": [
+    "/root/producer4_nonblocking_source",
+    "/root/completion_wrapper"
+  ],
+  "scope": "ACTUAL_PRODUCTION_DECISIONS_WITH_MEMORY_FAKE_BOUNDARIES_ONLY",
+  "groups": [
+    {
+      "name": "test_controller",
+      "source": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/test_controller.py",
+        "bytes": 34076,
+        "sha256": "d858419a398340c9996a594a7c4616a6c5649dcad122880629f457a04d0553bf"
+      },
+      "format": "VERBOSE_UNITTEST_NAMED",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/test_controller.py"
+      ],
+      "cwd": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1",
+      "count": 39,
+      "expectedNames": [
+        "ControllerControls.test_exact_success_is_probe_only_with_owned_cleanup",
+        "ControllerControls.test_root_custody65536_is_reserved_inside_metadata8mib_at_construction",
+        "ControllerControls.test_before_target_source_drift_owns_cleanup_but_never_starts",
+        "ControllerControls.test_create_raw_and_lifecycle_retention_fault_preserve_known_cid_under_sticky_revoke",
+        "ControllerControls.test_target_retention_fault_blocks_probe_parser_and_candidate_commit",
+        "ControllerControls.test_each_null_gate_refuses_before_any_cli",
+        "ControllerControls.test_source_admission_fault_prevents_stage_and_create",
+        "ControllerControls.test_stage_fault_prevents_image_create_and_target",
+        "ControllerControls.test_isolation_failures_still_fresh_owned_remove_and_absence",
+        "ControllerControls.test_each_immutable_identity_mismatch_forbids_remove",
+        "ControllerControls.test_identity_becomes_foreign_only_at_cleanup_no_remove",
+        "ControllerControls.test_inspection_capture_sink_fault_keeps_returned_identity_for_cleanup",
+        "ControllerControls.test_cleanup_capture_sink_fault_still_remove_and_absence",
+        "ControllerControls.test_final_result_retention_cannot_acquire_late_success",
+        "ControllerControls.test_unknown_creation_has_no_retry_name_remove_or_start",
+        "ControllerControls.test_phase30_crossed_during_stage_refuses_all_cli",
+        "ControllerControls.test_first_phase_remaining3_or_less_refuses_before_cli",
+        "ControllerControls.test_first_phase8_plus_single3_is_clamped_to_original_end",
+        "ControllerControls.test_phase_expiry_after_create_routes_exact_cleanup_without_target",
+        "ControllerControls.test_target_budget_is_exact55_and_never_extended_by_lease",
+        "ControllerControls.test_target55_includes_last2_not_an_extra_cleanup_extension",
+        "ControllerControls.test_target_cannot_borrow_reap_reserve_or_renew_phase",
+        "ControllerControls.test_target_less_than_full55_refuses_before_cli",
+        "ControllerControls.test_actual_cli_nonzero_or_stderr_disqualifies_and_cleans",
+        "ControllerControls.test_actual_cli_fault_reap_each_eof_and_forced_group_are_distinct_denials",
+        "ControllerControls.test_terminal_nonzero_running_oom_still_owned_remove",
+        "ControllerControls.test_rm_failure_still_independently_attempts_absence",
+        "ControllerControls.test_absence_requires_exact_raw_receipt_and_lifecycle",
+        "ControllerControls.test_cleanup_deadline_has_no_late_rm_and_no_extra_reserve",
+        "ControllerControls.test_cleanup_cap136_preserves_original_controller180",
+        "ControllerControls.test_duplicate_immutable_output_poison_refuses_create_without_repair",
+        "ControllerControls.test_cidfile_verification_fault_keeps_known_cid_for_owned_cleanup",
+        "ControllerControls.test_bootstrap_t0_is_not_reset_after_source_admission_time",
+        "ControllerControls.test_postread20_deadline_is_strict_after_successful_owned_cleanup",
+        "ControllerControls.test_source_postread_drift_disqualifies_after_cleanup",
+        "ControllerControls.test_clock_rollback_boot_swap_utc_drift_and_gap_refuse_before_cli",
+        "ControllerControls.test_byte_ledger_exact16mib_two8mib_owners_and_no_refund",
+        "ControllerControls.test_byte_ledger_each_owner8mib_limit_and_sticky_first_fault",
+        "ControllerControls.test_byte_ledger_sink_short_or_enospc_poison_no_retry_no_refund"
+      ]
+    },
+    {
+      "name": "test_host",
+      "source": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2/test_host.py",
+        "bytes": 35552,
+        "sha256": "778c1d4353108898606035b4e73206ddd2c728839aeed7d912ce603daadeb148"
+      },
+      "format": "VERBOSE_UNITTEST_NAMED",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2/test_host.py"
+      ],
+      "cwd": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2",
+      "count": 36,
+      "expectedNames": [
+        "HostControls.test_main_each_null_gate_refuses_before_reviewed_import_or_docker",
+        "HostControls.test_main_wrong_external_plan_or_release_sha_before_reviewed_import",
+        "HostControls.test_main_false_root_authorization_before_reviewed_import",
+        "HostControls.test_main_each_corrupt_expected_runtime_source_pin_before_any_reviewed_import",
+        "HostControls.test_source8_and_guard522_expected_positive",
+        "HostControls.test_source_expected_hash_and_size_are_not_adopted_from_observed_bytes",
+        "HostControls.test_source_mode_drift_rejected",
+        "HostControls.test_source_or_guard_ancestor_alias_rejected_by_actual_safe",
+        "HostControls.test_guard_manifest_expected_pin_drift_rejected",
+        "HostControls.test_guard_manifest522_semantic_count_not_just_valid_hash",
+        "HostControls.test_guard_member_hash_size_and_mode_drift_rejected",
+        "HostControls.test_guard_missing_extra_and_directory_alias_rejected",
+        "HostControls.test_staged_exact_source_bytes_mode_and_members_positive",
+        "HostControls.test_staged_bytes_mode_extra_and_missing_member_rejected",
+        "HostControls.test_source_checks_propagate_deadline_failure",
+        "HostControls.test_intent_three_labels_exact_environment_and_four_mounts",
+        "HostControls.test_create_args_fixed_flags_labels_mounts_env_no_extra_operand",
+        "HostControls.test_isolation_inherited_cached_env_and_explicit_overrides_positive",
+        "HostControls.test_isolation_cached_env_wrong_extra_duplicate_and_host_bridge_rejected",
+        "HostControls.test_isolation_each_four_mount_substitution_and_added_fifth_rejected",
+        "HostControls.test_probe266_rows_fresh65_explicit_positive_is_synthetic_only",
+        "HostControls.test_probe_closed_top_audit_observation_and_field_keys",
+        "HostControls.test_probe_raw_request_context_sequence_and_operation_substitutions",
+        "HostControls.test_probe_raw_request_bytes_hash_join_not_just_parsed_object",
+        "HostControls.test_probe_reply_requesthash_context_ok_and_extra_flags_rejected",
+        "HostControls.test_probe_request_reply_raw_bounds_newline_and_invalid_base64",
+        "HostControls.test_probe_each_clock5_deadline_and_consumed_boundaries_rejected",
+        "HostControls.test_probe_close65_requires_close_context_and_null_clocks",
+        "HostControls.test_probe_clock_boot_lease_and_consumed_upper_join",
+        "HostControls.test_probe_commit_sequence_consumed_error_and_enqueue_join",
+        "HostControls.test_probe_trace_order_missing_row_and_duplicate_lifecycle_rejected",
+        "HostControls.test_probe_lifecycle_each_eof_exit_seen_code_signal_pid_denials",
+        "HostControls.test_probe_launch_source_pin_argv_and_executable_denials",
+        "HostControls.test_probe_audit_run_lease_config_instance_and_owner_flags_bound",
+        "HostControls.test_probe_durations55_and5_strict_decimal_and_timer_gap_join",
+        "HostControls.test_probe_strict_json_duplicate_and_fraction_refused"
+      ]
+    },
+    {
+      "name": "test_finite_child",
+      "source": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/test_finite_child.py",
+        "bytes": 7445,
+        "sha256": "c0b578cb1f3b4e3c4789956a2823320c17764899fd705586245dd68b2f44d5ff"
+      },
+      "format": "VERBOSE_UNITTEST_NAMED",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/test_finite_child.py"
+      ],
+      "cwd": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1",
+      "count": 10,
+      "expectedNames": [
+        "FiniteControls.test_actual_capture_natural_zero_actual_fake_eof_separate_streams",
+        "FiniteControls.test_selector_failure_precedes_popen",
+        "FiniteControls.test_spawn_failure_does_not_claim_owned_child",
+        "FiniteControls.test_select_fault_signals_retained_unreaped_group_before_wait",
+        "FiniteControls.test_stream_bound_fails_without_truncation_or_fake_eof",
+        "FiniteControls.test_stderr_limit_is_4096_for_target",
+        "FiniteControls.test_phase_expiry_never_sends_late_group_signal",
+        "FiniteControls.test_single_reap_deadline_not_renewed_after_wait_timeout",
+        "FiniteControls.test_owned_session_mismatch_cannot_signal_foreign_group",
+        "FiniteControls.test_forced_pipe_close_never_becomes_eof"
+      ]
+    },
+    {
+      "name": "test_raw_tools",
+      "source": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2/test_raw_tools.py",
+        "bytes": 22286,
+        "sha256": "f003140a2043c3664bd4633454dc67d999449c397fe7379685d11eb1a2378392"
+      },
+      "format": "VERBOSE_UNITTEST_NAMED",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2/test_raw_tools.py"
+      ],
+      "cwd": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2",
+      "count": 19,
+      "expectedNames": [
+        "RawToolControls.test_declared_python_and_docker_above16mib_stream_positive_no_retained_binary",
+        "RawToolControls.test_raw2gib_ceiling_is_separate_from_metadata_and_proof_caps",
+        "RawToolControls.test_foreign_path_closed_pin_and_wrong_tool_slot_rejected_before_open",
+        "RawToolControls.test_declared_size_wrong_before_open",
+        "RawToolControls.test_nonregular_and_hardlink_before_open",
+        "RawToolControls.test_path_and_ancestor_symlink_before_open",
+        "RawToolControls.test_open_failure_has_no_close_of_unowned_descriptor",
+        "RawToolControls.test_opened_identity_each_field_refuses_before_read_and_closes",
+        "RawToolControls.test_final_fd_and_path_identity_each_field_and_close",
+        "RawToolControls.test_wrong_expected_hash_or_stream_bytes_refuses",
+        "RawToolControls.test_premature_eof_and_exact_length_plus_one_growth_refused",
+        "RawToolControls.test_clock_failure_before_open_and_after_first_read",
+        "RawToolControls.test_read_error_and_close_error_preserve_original_first_fault",
+        "RawToolControls.test_successful_stream_close_error_still_refuses",
+        "RawToolControls.test_open_identity_error_not_replaced_by_close_failure",
+        "RawToolControls.test_all_three_actual_host_phases_admit_declared_large_tools",
+        "RawToolControls.test_each_host_phase_refuses_tool_hash_drift_through_real_verifier",
+        "RawToolControls.test_each_host_phase_refuses_tool_deadline_after_read_with_owned_close",
+        "RawToolControls.test_each_phase_reopens_and_remeasures_tools_no_cached_success"
+      ]
+    }
+  ],
+  "groupCount": 4,
+  "modelsDefined": 104,
+  "priorDefinitionCount": 85,
+  "newRawDefinitionCount": 19,
+  "modelsExecuted": 0,
+  "actualControlData": null,
+  "actualCaptureSource": null,
+  "captureRootRelease": null,
+  "allowedNow": "AST_JSON_PREPARATION_ONLY_NO_TARGET_IMPORT_OR_MODEL_EXECUTION",
+  "limits": "No claim of real Popen/EOF/reap/container/helper/guard522 custody or throughput; no historical DATA transfer",
+  "syntheticRawControlScope": "Mock streaming OS/stat/clock/incremental digest through actual verifier and3actual phase calls; neither real executable contents nor real binarySHA evidence"
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer450-model-method-20261106/root_model.py prepare",
+      "workdir": "/home/peterhorvath/apps/bitcoin/NBDP",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2200
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "5585e9",
+      "wall_time_seconds": 0.935566801,
+      "exit_code": 0,
+      "original_token_count": 67,
+      "output": "{\"job\": {\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer450-model-actual-20261106/r1/job.json\", \"bytes\": 434789, \"sha256\": \"78c62c47cc0895884fe1335dc4b7423b770c69295a3784605a15234332926222\"}, \"protectedInputs\": 1601, \"groups\": 13}\n"
+    }
+  },
+  "polls": []
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "e02-consumer3-source-preparation-failures-v1",
+  "actor": "/root/consumer3_preparation",
+  "failures": [
+    {
+      "phase": "Generating source-only hashing/AST packet preparation script",
+      "actualTool": "tools.exec_command",
+      "exitCode": 2,
+      "firstFailure": "Nested triple-quoted Python generation failed with SyntaxError before writing prepare-source-packet.py",
+      "secondaryFailure": "Following source-preparation invocation returned file-not-found because script had not been created",
+      "projectModuleEvaluation": false,
+      "controlsExecuted": 0,
+      "protocolRuntimeExecuted": false,
+      "correction": "Create preparation script directly with apply_patch; preserve this source-tool failure separately from unexecuted project controls"
+    }
+  ],
+  "meaning": "Coordinator-compatible worker transcription of actual preparation-only tool error, not authenticated provider logs"
+}

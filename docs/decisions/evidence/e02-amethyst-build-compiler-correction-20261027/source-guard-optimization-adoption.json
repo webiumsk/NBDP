@@ -1,0 +1,10 @@
+{
+  "actor": "/root",
+  "decision": "ADOPT_SOURCE_EQUIVALENT_OUTPUT_PREFIX_PRECOMPUTATION_FOR_SOURCE_PREPARATION_ONLY",
+  "reason": "The accepted r5 after-inventory contains38242 rows and whole postchecks took145.889s before the app compilation completed. Existing output classification reconstructs the same PurePosixPath prefixes for every new file. A completed larger build increases this repeated work within the finite artifact and postcheck windows.",
+  "change": "Precompute the exact tuple of str(PurePosixPath(module)/folder) once, using the same modules and folders build/.gradle/.kotlin/.cxx. Classify each path with the same p==prefix or p.startswith(prefix+\"/\") condition.",
+  "unchanged": "Every source byte/mode equality assertion, module discovery, folder membership, path representation, output admissibility result, file count bound, snapshot and all other guards. No new accepted root, normalization or waiver.",
+  "requiredEvidence": "Separate targeted differential model invokes extracted old and new actual predicates for valid and invalid boundary paths, root-dot module, sibling-prefix collisions and all17 actual r5 module roots; independent SOURCE algebra/equivalence review. Full AST preservation model may normalize only this exact factoring plus the already adopted compiler/clock changes.",
+  "scope": "Only wrapper classification computation; compiled Amethyst sources remain byte/mode-identical. Old r5 proof/raw inventories remain immutable. This record grants no runtime.",
+  "executionAuthorized": false
+}

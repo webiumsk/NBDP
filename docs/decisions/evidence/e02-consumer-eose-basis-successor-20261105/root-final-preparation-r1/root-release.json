@@ -1,0 +1,55 @@
+{
+  "schema": "e02-root-consumer-final-source-build-one-use-release-v1",
+  "actor": "/root",
+  "decision": "AUTHORIZE_ONE_REVIEWED_FINITE_SOURCE_ONLY_BUILD",
+  "plan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/root-final-preparation-r1/concrete-plan.UNRELEASED.json",
+    "bytes": 3735,
+    "sha256": "66089b71146db9e971d1610a9fbc84a2a2bf9546f9ba72670d13db1735a36215"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/root-final-preparation-r1/concrete-qa.json",
+      "bytes": 429,
+      "sha256": "2b268498b7b4dc232c7ec91cafe3134660b0a9be6eea8d622e1d69129b91c183"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/root-final-preparation-r1/concrete-security.json",
+      "bytes": 441,
+      "sha256": "f68cf41921e9e58ebe8aadbeb649963d7fd8a82a074b00af3b98d96fcfbd587a"
+    }
+  ],
+  "spec": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/root-final-preparation-r1/spec.UNRELEASED.json",
+    "bytes": 410989,
+    "sha256": "89e7f042dd24afe868d3a75f7b550ff54803cf88e9c07c5b0d6733eb04be36d8"
+  },
+  "recipe": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source3/prepare_coupled.py",
+    "bytes": 120684,
+    "sha256": "8cbcc9e0237e5a736902fa0f5b44797e693b26af91fdf1bb794f51de69498e92"
+  },
+  "basisAdmissionCode": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source3/basis_admission.py",
+    "bytes": 24369,
+    "sha256": "21d6af297822b3fe0524b0b17747c1c4f32dd64c48a59c63760417fd2da50918"
+  },
+  "actualRequest": {
+    "cmd": "set -C\numask 077\nexec /usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 TZ=UTC /usr/bin/timeout --signal=TERM --kill-after=2s 120s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source3/prepare_coupled.py --spec /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/root-final-preparation-r1/spec.UNRELEASED.json --spec-bytes 410989 --spec-sha256 89e7f042dd24afe868d3a75f7b550ff54803cf88e9c07c5b0d6733eb04be36d8 --output /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source3/coupled-r1 > /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/root-final-preparation-r1/builder.stdout.json 2> /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/root-final-preparation-r1/builder.stderr.raw",
+    "workdir": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source3",
+    "login": false,
+    "yield_time_ms": 1000,
+    "max_output_tokens": 2000
+  },
+  "issuedAtUtcMillis": 1793922375539,
+  "notAfterUtcMillis": 1793922495539,
+  "maximumInvocations": 1,
+  "noAutomaticRetry": true,
+  "maximumSourcePreparationSeconds": 120,
+  "terminationGraceSeconds": 2,
+  "canonicalModelsAuthorized": false,
+  "operationalHelperBodyReadsAuthorized": false,
+  "helperRuntimeAuthorized": false,
+  "ordinaryRoleRuntimeAuthorized": false,
+  "executionAuthorized": true
+}

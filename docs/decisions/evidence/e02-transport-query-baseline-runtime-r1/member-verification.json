@@ -1,0 +1,356 @@
+{
+  "schema": "e02-transport-baseline-data-member-verification-v1",
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/subject.json",
+    "bytes": 18185,
+    "sha256": "aece375c76f20d8c738d34e57feb19e50c2ccfc28cb09ffc9347481d2f526b85"
+  },
+  "configuration": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/proposed-run-config.json",
+    "bytes": 3618,
+    "sha256": "8b91d376814e192b765aba2549f42d185594b8785ecbfac54589f2fc2422dca5"
+  },
+  "stagedConfiguration": {
+    "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/input/run-config.json",
+    "bytes": 3618,
+    "sha256": "8b91d376814e192b765aba2549f42d185594b8785ecbfac54589f2fc2422dca5"
+  },
+  "actualStagedInputs": [
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/supervisor.py",
+        "bytes": 31814,
+        "sha256": "641ec9941e671512af67520574cb5fea7724d205c2b8aa731879970cad5cb47a"
+      },
+      "staged": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/input/supervisor.py",
+        "bytes": 31814,
+        "sha256": "641ec9941e671512af67520574cb5fea7724d205c2b8aa731879970cad5cb47a"
+      },
+      "sameBytesHash": true
+    },
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/lease_guard.py",
+        "bytes": 14846,
+        "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+      },
+      "staged": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/input/lease_guard.py",
+        "bytes": 14846,
+        "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+      },
+      "sameBytesHash": true
+    },
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/fixture.mjs",
+        "bytes": 8452,
+        "sha256": "28f563e6ba4f7bfd4c82765c918ca8dc81225edd203b9865199ded78a8f83b12"
+      },
+      "staged": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/input/fixture.mjs",
+        "bytes": 8452,
+        "sha256": "28f563e6ba4f7bfd4c82765c918ca8dc81225edd203b9865199ded78a8f83b12"
+      },
+      "sameBytesHash": true
+    },
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/exchange.mjs",
+        "bytes": 5446,
+        "sha256": "1951d91b9d02e3ca2250fd19367748bc42d04ae724f0e8cbf862d2404dfaec80"
+      },
+      "staged": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/input/exchange.mjs",
+        "bytes": 5446,
+        "sha256": "1951d91b9d02e3ca2250fd19367748bc42d04ae724f0e8cbf862d2404dfaec80"
+      },
+      "sameBytesHash": true
+    },
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/strict-json.mjs",
+        "bytes": 1594,
+        "sha256": "9e38530dd23eeb9221a29174b28650ad01a8d5fff5daf3cc005688016542c98a"
+      },
+      "staged": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/input/strict-json.mjs",
+        "bytes": 1594,
+        "sha256": "9e38530dd23eeb9221a29174b28650ad01a8d5fff5daf3cc005688016542c98a"
+      },
+      "sameBytesHash": true
+    },
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/phase-writer.mjs",
+        "bytes": 2085,
+        "sha256": "bcfb3338d1ab8cbb20709f6add09a2e7be01a270f48271112e3aa3a76743cead"
+      },
+      "staged": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/input/phase-writer.mjs",
+        "bytes": 2085,
+        "sha256": "bcfb3338d1ab8cbb20709f6add09a2e7be01a270f48271112e3aa3a76743cead"
+      },
+      "sameBytesHash": true
+    },
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/dependency-tree.mjs",
+        "bytes": 2842,
+        "sha256": "0b574a14e591abc1908f4733908001d8ea1ab5698da8991e618ca26714eeded3"
+      },
+      "staged": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/input/dependency-tree.mjs",
+        "bytes": 2842,
+        "sha256": "0b574a14e591abc1908f4733908001d8ea1ab5698da8991e618ca26714eeded3"
+      },
+      "sameBytesHash": true
+    },
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/dependency-tree.json",
+        "bytes": 35599,
+        "sha256": "0536b9b0f6a127e3e43fd19bf5df0e3110b5c437e1a2c22c76e1a3e8dcc4f07f"
+      },
+      "staged": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/input/dependency-tree.json",
+        "bytes": 35599,
+        "sha256": "0536b9b0f6a127e3e43fd19bf5df0e3110b5c437e1a2c22c76e1a3e8dcc4f07f"
+      },
+      "sameBytesHash": true
+    },
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/fixture-plan.json",
+        "bytes": 248015,
+        "sha256": "417ed89c071769685306ce5991665c69d03fc577b3742522d497187b2dbad27a"
+      },
+      "staged": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/input/fixture-plan.json",
+        "bytes": 248015,
+        "sha256": "417ed89c071769685306ce5991665c69d03fc577b3742522d497187b2dbad27a"
+      },
+      "sameBytesHash": true
+    },
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/publish-frame.json",
+        "bytes": 2907,
+        "sha256": "844e64e2790a9833880aedc3016e9da82130a29d9e415858d0d46fdcb8946494"
+      },
+      "staged": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/input/publish-frame.json",
+        "bytes": 2907,
+        "sha256": "844e64e2790a9833880aedc3016e9da82130a29d9e415858d0d46fdcb8946494"
+      },
+      "sameBytesHash": true
+    },
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/query-frame.json",
+        "bytes": 112,
+        "sha256": "ae042185e892c9a385b7add6442e478834817d8ed310f8967e7dc3d4bd689389"
+      },
+      "staged": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/input/query-frame.json",
+        "bytes": 112,
+        "sha256": "ae042185e892c9a385b7add6442e478834817d8ed310f8967e7dc3d4bd689389"
+      },
+      "sameBytesHash": true
+    }
+  ],
+  "allElevenStagedPinsMatch": true,
+  "commandReceipts": [
+    {
+      "receipt": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/commands/0001.json",
+        "bytes": 3319,
+        "sha256": "b15638361bc20008309bca439a5b43e8d7f3204434451bec9310a8603b2fa241"
+      },
+      "exit": 0,
+      "reaped": true,
+      "forced": false,
+      "timedOut": false,
+      "error": null,
+      "stdoutEOF": true,
+      "stderrEOF": true
+    },
+    {
+      "receipt": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/commands/0002.json",
+        "bytes": 829,
+        "sha256": "7210c8b7ce063a15c2b74e9ab7f54ebec0cbacc88dd51db27d6e0edad8cc9eb4"
+      },
+      "exit": 0,
+      "reaped": true,
+      "forced": false,
+      "timedOut": false,
+      "error": null,
+      "stdoutEOF": true,
+      "stderrEOF": true
+    },
+    {
+      "receipt": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/commands/0003.json",
+        "bytes": 837,
+        "sha256": "228a5ff4d876cae68235bcaa04d0b2391963d4cd48dba633addab5e84797da72"
+      },
+      "exit": 0,
+      "reaped": true,
+      "forced": false,
+      "timedOut": false,
+      "error": null,
+      "stdoutEOF": true,
+      "stderrEOF": true
+    },
+    {
+      "receipt": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/commands/0004.json",
+        "bytes": 3669,
+        "sha256": "d3ec928238bc82f9ff71bdd4991bcc51a88e27a1f567aa8168e514f823070472"
+      },
+      "exit": 0,
+      "reaped": true,
+      "forced": false,
+      "timedOut": false,
+      "error": null,
+      "stdoutEOF": true,
+      "stderrEOF": true
+    },
+    {
+      "receipt": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/commands/0005.json",
+        "bytes": 829,
+        "sha256": "9e997acf50032729cc93abd7a026ff4a501b4dabbc367b1d5204bd980a1db2ac"
+      },
+      "exit": 0,
+      "reaped": true,
+      "forced": false,
+      "timedOut": false,
+      "error": null,
+      "stdoutEOF": true,
+      "stderrEOF": true
+    },
+    {
+      "receipt": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/commands/0006.json",
+        "bytes": 837,
+        "sha256": "22b594225a02ad9c387dc3d5defbfbe9d17895b9e324f307d343cdab2d9bc517"
+      },
+      "exit": 0,
+      "reaped": true,
+      "forced": false,
+      "timedOut": false,
+      "error": null,
+      "stdoutEOF": true,
+      "stderrEOF": true
+    },
+    {
+      "receipt": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/commands/0007.json",
+        "bytes": 3683,
+        "sha256": "2f39cd0afdc9908d2ac0e5d8e1b7176f4a0e74944ab19639f466a41981c54b59"
+      },
+      "exit": 0,
+      "reaped": true,
+      "forced": false,
+      "timedOut": false,
+      "error": null,
+      "stdoutEOF": true,
+      "stderrEOF": true
+    },
+    {
+      "receipt": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/commands/0008.json",
+        "bytes": 829,
+        "sha256": "bf1c07bfa171b0724198d8890baa268d14b570ea3d687d0ec612740bf918317b"
+      },
+      "exit": 0,
+      "reaped": true,
+      "forced": false,
+      "timedOut": false,
+      "error": null,
+      "stdoutEOF": true,
+      "stderrEOF": true
+    },
+    {
+      "receipt": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/commands/0009.json",
+        "bytes": 837,
+        "sha256": "ce97e3e219e969c310d296f711d10e96d191101aa94345e3ea70b3741b52d774"
+      },
+      "exit": 0,
+      "reaped": true,
+      "forced": false,
+      "timedOut": false,
+      "error": null,
+      "stdoutEOF": true,
+      "stderrEOF": true
+    },
+    {
+      "receipt": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/commands/0010.json",
+        "bytes": 837,
+        "sha256": "e3a52ab51b33a9eb04a1fb683ac0e400df0de169cca18eba6add3598ed7f32a2"
+      },
+      "exit": 0,
+      "reaped": true,
+      "forced": false,
+      "timedOut": false,
+      "error": null,
+      "stdoutEOF": true,
+      "stderrEOF": true
+    },
+    {
+      "receipt": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/commands/0011.json",
+        "bytes": 898,
+        "sha256": "aff058f126e755fb771d408605ad73c1c49c7941f0f478bd59818bbacda75ec7"
+      },
+      "exit": 0,
+      "reaped": true,
+      "forced": false,
+      "timedOut": false,
+      "error": null,
+      "stdoutEOF": true,
+      "stderrEOF": true
+    },
+    {
+      "receipt": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/commands/0012.json",
+        "bytes": 837,
+        "sha256": "a00c4c548b6f44ee72fa739ba3d1628e962ed630388e24ffc75c6fb13c9ba669"
+      },
+      "exit": 0,
+      "reaped": true,
+      "forced": false,
+      "timedOut": false,
+      "error": null,
+      "stdoutEOF": true,
+      "stderrEOF": true
+    },
+    {
+      "receipt": {
+        "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/commands/0013.json",
+        "bytes": 898,
+        "sha256": "f9ce4b7489e5dc27bf00212546ec92bc443be88fb0166e7a7296b4f4ed81153f"
+      },
+      "exit": 0,
+      "reaped": true,
+      "forced": false,
+      "timedOut": false,
+      "error": null,
+      "stdoutEOF": true,
+      "stderrEOF": true
+    }
+  ],
+  "actualCommandCount": 13,
+  "phaseRows": 84,
+  "dependencyEndBoundary": {
+    "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/dependency-end-boundary.json",
+    "bytes": 165,
+    "sha256": "5b4ff2d72924397da8e88e783d6748a9551582549ab77c986779828e45edea7e"
+  },
+  "meaning": "DATA byte/member/lifecycle extraction only; no new test suite, runtime or independent acceptance."
+}

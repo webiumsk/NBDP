@@ -1,0 +1,22 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 63s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r8/test_environment_removal.py -v",
+      "workdir": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r8",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 20000
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "fed01c",
+      "wall_time_seconds": 0.191667927,
+      "exit_code": 0,
+      "original_token_count": 710,
+      "output": "test_all_existing_ui_environment_guards_remain (__main__.EnvironmentRemovalControls.test_all_existing_ui_environment_guards_remain) ... ok\ntest_clean_cli_environment_has_no_android_key (__main__.EnvironmentRemovalControls.test_clean_cli_environment_has_no_android_key) ... ok\ntest_create_emits_four_bare_flags_not_empty_values (__main__.EnvironmentRemovalControls.test_create_emits_four_bare_flags_not_empty_values) ... ok\ntest_duplicate_authorized_marker_refuses (__main__.EnvironmentRemovalControls.test_duplicate_authorized_marker_refuses) ... ok\ntest_duplicate_ordinary_value_refuses (__main__.EnvironmentRemovalControls.test_duplicate_ordinary_value_refuses) ... ok\ntest_each_android_value_cannot_replace_a_marker (__main__.EnvironmentRemovalControls.test_each_android_value_cannot_replace_a_marker) ... ok\ntest_each_empty_android_value_is_presence_not_removal (__main__.EnvironmentRemovalControls.test_each_empty_android_value_is_presence_not_removal) ... ok\ntest_each_missing_raw_removal_marker_refuses (__main__.EnvironmentRemovalControls.test_each_missing_raw_removal_marker_refuses) ... ok\ntest_empty_cli_android_key_refuses_before_capture (__main__.EnvironmentRemovalControls.test_empty_cli_android_key_refuses_before_capture) ... ok\ntest_environment_refusal_prevents_start_and_keeps_exact_owned_cleanup (__main__.EnvironmentRemovalControls.test_environment_refusal_prevents_start_and_keeps_exact_owned_cleanup) ... ok\ntest_exact_actual_legacy_image_is_the_preserved_counterexample (__main__.EnvironmentRemovalControls.test_exact_actual_legacy_image_is_the_preserved_counterexample) ... ok\ntest_exact_pinned_image_with_four_synthetic_removal_markers_passes (__main__.EnvironmentRemovalControls.test_exact_pinned_image_with_four_synthetic_removal_markers_passes) ... ok\ntest_explicit_guest_android_override_refuses (__main__.EnvironmentRemovalControls.test_explicit_guest_android_override_refuses) ... ok\ntest_intent_removal_set_is_exact_before_create (__main__.EnvironmentRemovalControls.test_intent_removal_set_is_exact_before_create) ... ok\ntest_marker_and_value_order_does_not_change_identity (__main__.EnvironmentRemovalControls.test_marker_and_value_order_does_not_change_identity) ... ok\ntest_nonempty_cli_android_key_refuses_before_capture (__main__.EnvironmentRemovalControls.test_nonempty_cli_android_key_refuses_before_capture) ... ok\ntest_reintroduced_value_in_addition_to_marker_refuses (__main__.EnvironmentRemovalControls.test_reintroduced_value_in_addition_to_marker_refuses) ... ok\ntest_unknown_bare_marker_refuses (__main__.EnvironmentRemovalControls.test_unknown_bare_marker_refuses) ... ok\ntest_wrong_ordinary_override_refuses (__main__.EnvironmentRemovalControls.test_wrong_ordinary_override_refuses) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 0.013s\n\nOK\n"
+    }
+  },
+  "polls": []
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "nbdp-native-build-image-identity-receipt-v1",
+  "origin": "Exact actual command/result transcribed by operator, not authenticated provider logs.",
+  "actualToolCall": {
+    "cmd": "docker image inspect rust:1.90.0-bookworm --format '{{json .Id}} {{json .RepoDigests}}'",
+    "sandbox_permissions": "require_escalated"
+  },
+  "actualToolResult": {
+    "chunk_id": "bdcd7c",
+    "wall_time_seconds": 7.504e-05,
+    "exit_code": 0,
+    "original_token_count": 39,
+    "output": "\"sha256:cc39c88add68c6e4ed377beccd6a659e59b286954d2c7e5c8e5b1dde2a82a8e8\" [\"rust@sha256:3914072ca0c3b8aad871db9169a651ccfce30cf58303e5d6f2db16d1d8a7e58f\"]\n"
+  }
+}

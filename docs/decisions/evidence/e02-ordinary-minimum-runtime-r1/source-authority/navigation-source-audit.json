@@ -1,0 +1,562 @@
+{
+  "schema": "e02-minimum-pinned-navigation-source-audit-v1",
+  "actor": "/root/ordinary_api35_source",
+  "sourceCommit": "e6f464a1179def75274512b3c5bab921de3bf3d8",
+  "upstreamSourceFiles": 33,
+  "method": "Read/hash/copy and read-only Git diff. Explorer findings reconciled with exact primary source; no module, test, SDK or runtime execution.",
+  "gitDiff": {
+    "argv": [
+      "git",
+      "--no-optional-locks",
+      "-C",
+      "/tmp/nbdp-e02-android-artifact/source",
+      "diff",
+      "--exit-code",
+      "e6f464a1179def75274512b3c5bab921de3bf3d8",
+      "--",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/navigation/drawer/DrawerSections.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/navigation/drawer/DrawerContent.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/chats/rooms/singlepane/MessagesSinglePane.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/chats/rooms/feed/ChatroomListTabs.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/relays/AllRelayListScreen.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/relays/local/LocalRelayListView.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/relays/common/RelayUrlEditField.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/navigation/topbars/ActionTopBar.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/relays/common/BasicRelaySetupInfoDialog.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/relays/common/BasicRelaySetupInfoClickableRow.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/relays/common/RelayNameAndRemoveButton.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/chats/privateDM/ChatroomScreen.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/chats/privateDM/header/RenderRoomTopBar.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/chats/privateDM/send/PrivateMessageEditFieldRow.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/chats/feed/ChatMessageCompose.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/chats/feed/ChatMessageActionSheet.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/note/elements/NoteActionSections.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/navigation/bottombars/AppBottomBar.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/navigation/bottombars/NavBarItem.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/profile/header/ProfileTopBar.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/profile/header/UserProfileDropDownMenu.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/navigation/topbars/TopBarExtensibleWithBackButton.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/note/Icons.kt",
+      "commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/account/ui/login/KeyTextField.kt",
+      "commons/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/model/nip17Dms/DmInboxRelayState.kt",
+      "commons/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/model/localRelays/LocalRelayListState.kt",
+      "quartz/src/commonMain/kotlin/com/vitorpamplona/quartz/nip01Core/relay/normalizer/NormalizedRelayUrl.kt",
+      "quartz/src/commonMain/kotlin/com/vitorpamplona/quartz/nip17Dm/base/BaseDMGroupEvent.kt",
+      "commons/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/model/privateChats/ChatroomList.kt",
+      "commons/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/chats/rooms/dal/ChatroomListKnownFeedFilter.kt",
+      "commons/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/chats/rooms/dal/ChatroomListNewFeedFilter.kt",
+      "commons/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/model/Account.kt",
+      "commonsUI/src/commonMain/composeResources/values/strings.xml"
+    ],
+    "exitCode": 0,
+    "stdout": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/git-diff.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stderr": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/git-diff.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "sourceInputs": [
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/navigation/drawer/DrawerSections.kt",
+        "bytes": 7460,
+        "sha256": "29af2b04167fc493fe63958fe2ebad26b92d776c0d259ac0b5d65f314ddf06ab"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/navigation/drawer/DrawerSections.kt",
+        "bytes": 7460,
+        "sha256": "29af2b04167fc493fe63958fe2ebad26b92d776c0d259ac0b5d65f314ddf06ab"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/navigation/drawer/DrawerContent.kt",
+        "bytes": 44801,
+        "sha256": "943b1a5db8f9430e6f882fd516fbcf7cc8f6b14ef835fa460f53351a1469ecba"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/navigation/drawer/DrawerContent.kt",
+        "bytes": 44801,
+        "sha256": "943b1a5db8f9430e6f882fd516fbcf7cc8f6b14ef835fa460f53351a1469ecba"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/chats/rooms/singlepane/MessagesSinglePane.kt",
+        "bytes": 6224,
+        "sha256": "2fa5422c49662a95a744b4a22e46c93f50fcb1b7d1b840090945a514aae4de3e"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/chats/rooms/singlepane/MessagesSinglePane.kt",
+        "bytes": 6224,
+        "sha256": "2fa5422c49662a95a744b4a22e46c93f50fcb1b7d1b840090945a514aae4de3e"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/chats/rooms/feed/ChatroomListTabs.kt",
+        "bytes": 7469,
+        "sha256": "303194412b7778e0e4f7a631ddf741aef67dfa95e67608fc780969da34b6908a"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/chats/rooms/feed/ChatroomListTabs.kt",
+        "bytes": 7469,
+        "sha256": "303194412b7778e0e4f7a631ddf741aef67dfa95e67608fc780969da34b6908a"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/relays/AllRelayListScreen.kt",
+        "bytes": 30368,
+        "sha256": "c647b845de561182a28db2afa0f2416026f80cd94c966d23198bab89cb0eb420"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/relays/AllRelayListScreen.kt",
+        "bytes": 30368,
+        "sha256": "c647b845de561182a28db2afa0f2416026f80cd94c966d23198bab89cb0eb420"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/relays/local/LocalRelayListView.kt",
+        "bytes": 5612,
+        "sha256": "94a9eb7646d147e23d627e16277e182214ef4000413f4b5a6cf912dcc88f17fd"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/relays/local/LocalRelayListView.kt",
+        "bytes": 5612,
+        "sha256": "94a9eb7646d147e23d627e16277e182214ef4000413f4b5a6cf912dcc88f17fd"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/relays/common/RelayUrlEditField.kt",
+        "bytes": 11216,
+        "sha256": "a9a2196a1f27610089a005b36249518213ef14de5f6e60d04582817593aef085"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/relays/common/RelayUrlEditField.kt",
+        "bytes": 11216,
+        "sha256": "a9a2196a1f27610089a005b36249518213ef14de5f6e60d04582817593aef085"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/navigation/topbars/ActionTopBar.kt",
+        "bytes": 5289,
+        "sha256": "a96f49ed8562486d587e47854bda7bd862ab7bdab76ca2846d3592d034b43cd4"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/navigation/topbars/ActionTopBar.kt",
+        "bytes": 5289,
+        "sha256": "a96f49ed8562486d587e47854bda7bd862ab7bdab76ca2846d3592d034b43cd4"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/relays/common/BasicRelaySetupInfoDialog.kt",
+        "bytes": 2876,
+        "sha256": "12817e65c5491110dababef48e3fa98c915d9a023c70392e6c9c544f42c83544"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/relays/common/BasicRelaySetupInfoDialog.kt",
+        "bytes": 2876,
+        "sha256": "12817e65c5491110dababef48e3fa98c915d9a023c70392e6c9c544f42c83544"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/relays/common/BasicRelaySetupInfoClickableRow.kt",
+        "bytes": 9034,
+        "sha256": "20eecdc0eb3a3b4db8a63e734e0b86116eaae93ab11667e75ef3a2ae3ff54234"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/relays/common/BasicRelaySetupInfoClickableRow.kt",
+        "bytes": 9034,
+        "sha256": "20eecdc0eb3a3b4db8a63e734e0b86116eaae93ab11667e75ef3a2ae3ff54234"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/relays/common/RelayNameAndRemoveButton.kt",
+        "bytes": 5237,
+        "sha256": "26e100e15496bb6eacac2ac22f5b4a2fe81907908d38104ad71ca157ced0038e"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/relays/common/RelayNameAndRemoveButton.kt",
+        "bytes": 5237,
+        "sha256": "26e100e15496bb6eacac2ac22f5b4a2fe81907908d38104ad71ca157ced0038e"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/chats/privateDM/ChatroomScreen.kt",
+        "bytes": 3954,
+        "sha256": "10144226e6217c42b6c79cce3576cdc8df12d5acd7f209e4ff5c63e66c93b87a"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/chats/privateDM/ChatroomScreen.kt",
+        "bytes": 3954,
+        "sha256": "10144226e6217c42b6c79cce3576cdc8df12d5acd7f209e4ff5c63e66c93b87a"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/chats/privateDM/header/RenderRoomTopBar.kt",
+        "bytes": 12068,
+        "sha256": "992d6eef719d4b30b1fa093846f2930921024db6c2d17181bed1f7d62474535a"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/chats/privateDM/header/RenderRoomTopBar.kt",
+        "bytes": 12068,
+        "sha256": "992d6eef719d4b30b1fa093846f2930921024db6c2d17181bed1f7d62474535a"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/chats/privateDM/send/PrivateMessageEditFieldRow.kt",
+        "bytes": 15438,
+        "sha256": "6a01d67c08c170d15f2121abc17c5ba9c3d83e8dd83e38911c5b86cf44cc04e9"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/chats/privateDM/send/PrivateMessageEditFieldRow.kt",
+        "bytes": 15438,
+        "sha256": "6a01d67c08c170d15f2121abc17c5ba9c3d83e8dd83e38911c5b86cf44cc04e9"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/chats/feed/ChatMessageCompose.kt",
+        "bytes": 33055,
+        "sha256": "103a9559b90c7b93b47a562ace474c91a571bc5865a70def971cff2f2f06e538"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/chats/feed/ChatMessageCompose.kt",
+        "bytes": 33055,
+        "sha256": "103a9559b90c7b93b47a562ace474c91a571bc5865a70def971cff2f2f06e538"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/chats/feed/ChatMessageActionSheet.kt",
+        "bytes": 27817,
+        "sha256": "61da022991cd7e76953be392b4d281533e81f7a5c632df201f39a5ede1fa0cea"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/chats/feed/ChatMessageActionSheet.kt",
+        "bytes": 27817,
+        "sha256": "61da022991cd7e76953be392b4d281533e81f7a5c632df201f39a5ede1fa0cea"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/note/elements/NoteActionSections.kt",
+        "bytes": 24237,
+        "sha256": "e12923cfbd58780cb9e63a8e687339a5452d77b9fdd9157cfcb2d415a1d22b96"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/note/elements/NoteActionSections.kt",
+        "bytes": 24237,
+        "sha256": "e12923cfbd58780cb9e63a8e687339a5452d77b9fdd9157cfcb2d415a1d22b96"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/navigation/bottombars/AppBottomBar.kt",
+        "bytes": 14186,
+        "sha256": "d4c83785514233e60985d1fad9d48afab66c56d78be0b1df7f7c96dbe9927021"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/navigation/bottombars/AppBottomBar.kt",
+        "bytes": 14186,
+        "sha256": "d4c83785514233e60985d1fad9d48afab66c56d78be0b1df7f7c96dbe9927021"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/navigation/bottombars/NavBarItem.kt",
+        "bytes": 25902,
+        "sha256": "c141039c6eae1b16bc663953707484aab252fa47958b56477bc9a7ed6a3b92a4"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/navigation/bottombars/NavBarItem.kt",
+        "bytes": 25902,
+        "sha256": "c141039c6eae1b16bc663953707484aab252fa47958b56477bc9a7ed6a3b92a4"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/profile/header/ProfileTopBar.kt",
+        "bytes": 5870,
+        "sha256": "268b4e6ffb4abdedf7e3ee7c76f263dd6b77b1b6ba0e694216f5a642c9cfd35d"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/profile/header/ProfileTopBar.kt",
+        "bytes": 5870,
+        "sha256": "268b4e6ffb4abdedf7e3ee7c76f263dd6b77b1b6ba0e694216f5a642c9cfd35d"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/profile/header/UserProfileDropDownMenu.kt",
+        "bytes": 8036,
+        "sha256": "9a081de5c15352122b416058d726d636d0eb6b699a44ff2b443b7ea9518c4d33"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/screen/loggedIn/profile/header/UserProfileDropDownMenu.kt",
+        "bytes": 8036,
+        "sha256": "9a081de5c15352122b416058d726d636d0eb6b699a44ff2b443b7ea9518c4d33"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/navigation/topbars/TopBarExtensibleWithBackButton.kt",
+        "bytes": 4681,
+        "sha256": "d67e6d58867264e296d977ba32cd82602cd1e092f249f58236ce84d37b7e255a"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/navigation/topbars/TopBarExtensibleWithBackButton.kt",
+        "bytes": 4681,
+        "sha256": "d67e6d58867264e296d977ba32cd82602cd1e092f249f58236ce84d37b7e255a"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/note/Icons.kt",
+        "bytes": 14362,
+        "sha256": "0985e2b768d39fd9c0126f01b49d22d1d0eb6bc3bfd73518efb60cc13f084742"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/ui/note/Icons.kt",
+        "bytes": 14362,
+        "sha256": "0985e2b768d39fd9c0126f01b49d22d1d0eb6bc3bfd73518efb60cc13f084742"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/account/ui/login/KeyTextField.kt",
+        "bytes": 5653,
+        "sha256": "a2b40ef8dbbe401397148e1e05e0557eba3d5a55592603948620363da7795b74"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/account/ui/login/KeyTextField.kt",
+        "bytes": 5653,
+        "sha256": "a2b40ef8dbbe401397148e1e05e0557eba3d5a55592603948620363da7795b74"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commons/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/model/nip17Dms/DmInboxRelayState.kt",
+        "bytes": 2574,
+        "sha256": "36909c88e8b9ce502260bc76451100564b3231cf7adebe45a0141090ed8298b9"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commons/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/model/nip17Dms/DmInboxRelayState.kt",
+        "bytes": 2574,
+        "sha256": "36909c88e8b9ce502260bc76451100564b3231cf7adebe45a0141090ed8298b9"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commons/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/model/localRelays/LocalRelayListState.kt",
+        "bytes": 2639,
+        "sha256": "becce86773c2951edfcd11000e875e50d9a782f01f8ada0c0fae22b445bd9c43"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commons/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/model/localRelays/LocalRelayListState.kt",
+        "bytes": 2639,
+        "sha256": "becce86773c2951edfcd11000e875e50d9a782f01f8ada0c0fae22b445bd9c43"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/quartz/src/commonMain/kotlin/com/vitorpamplona/quartz/nip01Core/relay/normalizer/NormalizedRelayUrl.kt",
+        "bytes": 2274,
+        "sha256": "65ea0890c9e6dfef68595ef36b5c18cafe74cfdbe3c3101fdee83aa7aa7f82bb"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/quartz/src/commonMain/kotlin/com/vitorpamplona/quartz/nip01Core/relay/normalizer/NormalizedRelayUrl.kt",
+        "bytes": 2274,
+        "sha256": "65ea0890c9e6dfef68595ef36b5c18cafe74cfdbe3c3101fdee83aa7aa7f82bb"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/quartz/src/commonMain/kotlin/com/vitorpamplona/quartz/nip17Dm/base/BaseDMGroupEvent.kt",
+        "bytes": 2958,
+        "sha256": "13c46930bf4332287f0aa0f57bda60cd98b810777fe96ce8b1948e7b17ae68d0"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/quartz/src/commonMain/kotlin/com/vitorpamplona/quartz/nip17Dm/base/BaseDMGroupEvent.kt",
+        "bytes": 2958,
+        "sha256": "13c46930bf4332287f0aa0f57bda60cd98b810777fe96ce8b1948e7b17ae68d0"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commons/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/model/privateChats/ChatroomList.kt",
+        "bytes": 6493,
+        "sha256": "4422a277db1d74b8fe23beda6f9d8f35640bee064a7067152a29b5248700163c"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commons/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/model/privateChats/ChatroomList.kt",
+        "bytes": 6493,
+        "sha256": "4422a277db1d74b8fe23beda6f9d8f35640bee064a7067152a29b5248700163c"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commons/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/chats/rooms/dal/ChatroomListKnownFeedFilter.kt",
+        "bytes": 35074,
+        "sha256": "4d9927bcfc751cab4c55421eb5152e8077d160bfd86ce80b5717c4e01ecbd51b"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commons/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/chats/rooms/dal/ChatroomListKnownFeedFilter.kt",
+        "bytes": 35074,
+        "sha256": "4d9927bcfc751cab4c55421eb5152e8077d160bfd86ce80b5717c4e01ecbd51b"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commons/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/chats/rooms/dal/ChatroomListNewFeedFilter.kt",
+        "bytes": 8295,
+        "sha256": "3c87767051d0feb18437c7f55a3d2f5a663da16602de2e84d9121e6cafc32a0a"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commons/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/chats/rooms/dal/ChatroomListNewFeedFilter.kt",
+        "bytes": 8295,
+        "sha256": "3c87767051d0feb18437c7f55a3d2f5a663da16602de2e84d9121e6cafc32a0a"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commons/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/model/Account.kt",
+        "bytes": 214364,
+        "sha256": "40e788f3b1483d5e2131fee23d2df19360e863d21f33a8f1a706a6df3a47608d"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commons/src/commonMain/kotlin/com/vitorpamplona/amethyst/commons/model/Account.kt",
+        "bytes": 214364,
+        "sha256": "40e788f3b1483d5e2131fee23d2df19360e863d21f33a8f1a706a6df3a47608d"
+      }
+    },
+    {
+      "original": {
+        "path": "/tmp/nbdp-e02-android-artifact/source/commonsUI/src/commonMain/composeResources/values/strings.xml",
+        "bytes": 541980,
+        "sha256": "b9a9e1edcfe3fae49d9b4a3ed535d528259c2f3735216daffd37314ebb773469"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/source/commonsUI/src/commonMain/composeResources/values/strings.xml",
+        "bytes": 541980,
+        "sha256": "b9a9e1edcfe3fae49d9b4a3ed535d528259c2f3735216daffd37314ebb773469"
+      }
+    },
+    {
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v3/clipboard-helper/AndroidManifest.xml",
+        "bytes": 519,
+        "sha256": "66d182d3c10b4db2690d8833c8998a0aeb9c29afce54aa1347dc1a82410ad2f1"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/readonly-helper/AndroidManifest.xml",
+        "bytes": 519,
+        "sha256": "66d182d3c10b4db2690d8833c8998a0aeb9c29afce54aa1347dc1a82410ad2f1"
+      }
+    },
+    {
+      "original": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_client_api35_v3/clipboard-helper/src/org/nbdp/clipboard/capture/CaptureActivity.java",
+        "bytes": 6775,
+        "sha256": "e6dec4f53ca582784da1c8b60cb692cb15d0ca0c12ae300e9694b5c6565c1290"
+      },
+      "preservedExactBytes": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r1/navigation-source-audit/readonly-helper/src/org/nbdp/clipboard/capture/CaptureActivity.java",
+        "bytes": 6775,
+        "sha256": "e6dec4f53ca582784da1c8b60cb692cb15d0ca0c12ae300e9694b5c6565c1290"
+      }
+    }
+  ],
+  "labelToSource": [
+    {
+      "label": "Your Profile Picture / Profile / More Options / Share",
+      "source": "ProfileTopBar.kt:121; UserProfileDropDownMenu.kt:101-105; strings:422,5216,4584,5246",
+      "meaning": "Public share chooser preview only; no target selected. Actual nprofile still independently decoded; no declared-account substitute."
+    },
+    {
+      "label": "Feeds -> System -> Relays",
+      "source": "DrawerSections.kt:105-144; DrawerContent.kt:796-802,915-941",
+      "meaning": "One exact known expanded Feeds header collapse, same-section Reads/Pictures; no enclosure by2px-clipped ancestor or invented collapsed attribute."
+    },
+    {
+      "label": "Relay Settings / Local Relays",
+      "source": "AllRelayListScreen.kt:314-315,475-483; LocalRelayListView.kt:85-135; strings:5377,4471",
+      "meaning": "Actual LOCAL field between its heading and footer; no neighbouring section or optional forward-profiles Switch."
+    },
+    {
+      "label": "Add a Relay / Add",
+      "source": "RelayUrlEditField.kt:184-205,224-259; strings:552,3441",
+      "meaning": "Exact typed URL, unique trailing Add inside that field, cleared editor and new LOCAL row. Enabled Add alone is not success."
+    },
+    {
+      "label": "localhost:17777",
+      "source": "RelayNameAndRemoveButton.kt:64-79; NormalizedRelayUrl.kt:32-36",
+      "meaning": "Exact Local row displayURL text; no whole-screen URL or optional icon-description substitute."
+    },
+    {
+      "label": "Save",
+      "source": "ActionTopBar.kt:75-80,110-122; AllRelayListScreen.kt:349-362; strings:5758",
+      "meaning": "Exact capitalized Save commits all viewmodels and pops. Subscription/EOSE/wire still independently mandatory."
+    },
+    {
+      "label": "Local DM inbox semantics",
+      "source": "DmInboxRelayState.kt:43-58; LocalRelayListState.kt:44-59; BasicRelaySetupInfoDialog.kt:36-60",
+      "meaning": "Local relays participate in DM inbox source; row opens RelayInfo. No invented per-row read/write/DM flags."
+    },
+    {
+      "label": "Messages / Known / New Requests",
+      "source": "NavBarItem.kt:110-112; AppBottomBar.kt:295; MessagesSinglePane.kt:74-75; ChatroomListTabs.kt:93-100; strings:5490,4450,4889",
+      "meaning": "Fresh source-backed tab labels/current bounds; neither tab alone establishes actual account or conversation identity."
+    },
+    {
+      "label": "Archive attribution",
+      "source": "Account.kt:3933-3946; ChatroomList.kt:74-83,165-167; BaseDMGroupEvent.kt:54-76",
+      "meaning": "Own-author note creates Known room; original recipients minuslocal A yieldsB. Original innerpB is never rewritten."
+    },
+    {
+      "label": "Back / Message or recipient-inbox warning",
+      "source": "RenderRoomTopBar.kt:87; TopBarExtensibleWithBackButton.kt; Icons.kt:115-118; PrivateMessageEditFieldRow.kt:203-207,218-234,273-304; strings:3609,436,2615",
+      "meaning": "Known navigation/Back + actual expected note + exact one footer branch. Missing-recipient-inbox warning is read only; no send/settings action."
+    },
+    {
+      "label": "Voice call optional",
+      "source": "ChatroomScreen.kt:49-67; RenderRoomTopBar.kt:115-127; strings:1719",
+      "meaning": "Conditional platform/callingActive feature, never a DM gate and never clicked."
+    },
+    {
+      "label": "Long press / More Options / Copy raw JSON",
+      "source": "ChatMessageCompose.kt:324-365; ChatMessageActionSheet.kt:475-500; NoteActionSections.kt:224-231; strings:4584,453",
+      "meaning": "Current selected note bounds; exact sheet actions; only actual note.event.toPrettyJson is copied."
+    },
+    {
+      "label": "Clear clipboard / Capture clipboard / guest Back",
+      "source": "readonly-helper/CaptureActivity.java:29-48; readonly-helper/AndroidManifest.xml",
+      "meaning": "Pinned foreground helper48-char caseId; no expected JSON extra. Default Android Back must return to actual recognized room or fail; no alternate intent/retry."
+    }
+  ],
+  "criticalDomAssumptions": [
+    "Fresh enabled package/unique label/descendant ownership/current bounds must match source-backed selectors; NOT_RUNTIME_VALIDATED.",
+    "Actual new Local text row and cleared field must be visible after Add; absent/ambiguous exposure refuses without another editor/row fallback.",
+    "Actual Add a Relay descendant label/trailing Add ancestry are planned source-based XML assumptions, not screenshot attestations.",
+    "No post-collapse frame, Known-tab frame or successful message/action/export frame is qualified here.",
+    "Header/fullscreen/message placement and visible text-node count remain actual runtime observations; not persistent object identity or global bubble counts.",
+    "No new ANR/dialog/shell capability, fixture clipboard fallback, cgroup/action/capture/lease increase or health gate."
+  ],
+  "runtimeState": "NOT_EXECUTED_NOT_RUNTIME_VALIDATED",
+  "canonicalPromotion": false
+}

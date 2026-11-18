@@ -1,0 +1,328 @@
+{
+  "schema": "e02-wrapper-r4-complete-typed-namespace-delta-map-v1",
+  "authorizedSubstitutions": {
+    "completion-primary-wrapper-preparation-r3": "completion-primary-wrapper-preparation-r4",
+    "e02-completion-primary-wrapper-r3": "e02-completion-primary-wrapper-r4",
+    "nbdp-e02-completion-r3-": "nbdp-e02-completion-r4-",
+    "E02_WRAPPER_R3_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN": "E02_WRAPPER_R4_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN"
+  },
+  "files": [
+    {
+      "file": "CONTRACT.md",
+      "prior": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r3/CONTRACT.md",
+        "bytes": 8644,
+        "sha256": "cf73fde52fad712d46aeaf18dfdca6b3ed071e2020cd5c3d882928a2cea0d336"
+      },
+      "new": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r4/CONTRACT.md",
+        "bytes": 8644,
+        "sha256": "36576b4005f818c97e44b6ac39f4d84c0d244291dd9e5406d38ef04737955f21"
+      },
+      "byteIdentical": false,
+      "allowedSubstitutions": {
+        "completion-primary-wrapper-preparation-r3": "completion-primary-wrapper-preparation-r4",
+        "e02-completion-primary-wrapper-r3": "e02-completion-primary-wrapper-r4",
+        "nbdp-e02-completion-r3-": "nbdp-e02-completion-r4-",
+        "E02_WRAPPER_R3_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN": "E02_WRAPPER_R4_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN"
+      },
+      "classification": "EXACT_ALLOWED_TEXT_NAMESPACE_SCOPE_SUBSTITUTION_OR_BYTE_IDENTICAL",
+      "unifiedDiff": "--- /Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r3/CONTRACT.md\n+++ /Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r4/CONTRACT.md\n@@ -18,7 +18,7 @@\n \n `source_participants` follows explicit descriptor edges and all author/operator declarations. Independent-review envelopes and review/raw-session edges are excluded from participant traversal; a reviewer's actor is not automatically treated as a subject author/operator. The actual QA/security actors must still be distinct real sessions outside the full forbidden set, with exact subject/role/decision/raw-evidence joins. Missing declarations, direct author/operator self-review and nested helper self-review are refused for both model and concrete DATA.\n \n-Review envelope remains closed `e02-wrapper-independent-review-v1`: `schema role actor subject decision findings rawSessionEvidence`. Acceptance remains closed `e02-wrapper-reviewed-acceptance-v1`: `schema decision sourceSubject subject reviews`. New actual model DATA schema is `e02-wrapper-pure-model-result-v2`, exact code subject, scopeVersion `E02_WRAPPER_R3_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN`, modelsExecuted46, exitCode0, plus actual author/operator declarations. Concrete subject schema remains `e02-wrapper-concrete-input-v1`, exact final plan/source/inventory and explicit declarations. No actual DATA or review envelope is created here.\n+Review envelope remains closed `e02-wrapper-independent-review-v1`: `schema role actor subject decision findings rawSessionEvidence`. Acceptance remains closed `e02-wrapper-reviewed-acceptance-v1`: `schema decision sourceSubject subject reviews`. New actual model DATA schema is `e02-wrapper-pure-model-result-v2`, exact code subject, scopeVersion `E02_WRAPPER_R4_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN`, modelsExecuted46, exitCode0, plus actual author/operator declarations. Concrete subject schema remains `e02-wrapper-concrete-input-v1`, exact final plan/source/inventory and explicit declarations. No actual DATA or review envelope is created here.\n \n ## Actual proxy completion\n \n"
+    },
+    {
+      "file": "dispatch.py",
+      "prior": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r3/dispatch.py",
+        "bytes": 5618,
+        "sha256": "ce543a6fdff1d5a1b62aebfbb17d96720e7e3e3536c4175ac97f940753d5bfb7"
+      },
+      "new": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r4/dispatch.py",
+        "bytes": 5618,
+        "sha256": "e2eed0130760892264547047832210949aef45d8e79958b641a7c9765fabb25a"
+      },
+      "byteIdentical": false,
+      "allowedSubstitutions": {
+        "completion-primary-wrapper-preparation-r3": "completion-primary-wrapper-preparation-r4",
+        "e02-completion-primary-wrapper-r3": "e02-completion-primary-wrapper-r4",
+        "nbdp-e02-completion-r3-": "nbdp-e02-completion-r4-",
+        "E02_WRAPPER_R3_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN": "E02_WRAPPER_R4_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN"
+      },
+      "classification": "TYPED_AST_STRING_ONLY_OR_BYTE_IDENTICAL",
+      "typedAstStringDeltas": [
+        {
+          "astField": "Module.body[2].value.args[0].value",
+          "valueType": "str",
+          "before": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r3",
+          "after": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r4"
+        }
+      ],
+      "nonStringAstChanges": 0
+    },
+    {
+      "file": "launch.py",
+      "prior": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r3/launch.py",
+        "bytes": 41039,
+        "sha256": "1c2d7d6455dbc7ee9be4dded1cc178b6fbf27b45da9f4e2f9754d18fea0350da"
+      },
+      "new": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r4/launch.py",
+        "bytes": 41039,
+        "sha256": "8db3d58c6987b1a30b3ac6793c17482527ab1e8588831bfb903268f20aa069d1"
+      },
+      "byteIdentical": false,
+      "allowedSubstitutions": {
+        "completion-primary-wrapper-preparation-r3": "completion-primary-wrapper-preparation-r4",
+        "e02-completion-primary-wrapper-r3": "e02-completion-primary-wrapper-r4",
+        "nbdp-e02-completion-r3-": "nbdp-e02-completion-r4-",
+        "E02_WRAPPER_R3_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN": "E02_WRAPPER_R4_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN"
+      },
+      "classification": "TYPED_AST_STRING_ONLY_OR_BYTE_IDENTICAL",
+      "typedAstStringDeltas": [
+        {
+          "astField": "Module.body[14].value.args[0].value",
+          "valueType": "str",
+          "before": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r3",
+          "after": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r4"
+        },
+        {
+          "astField": "Module.body[17].value.value",
+          "valueType": "str",
+          "before": "e02-completion-primary-wrapper-r3",
+          "after": "e02-completion-primary-wrapper-r4"
+        },
+        {
+          "astField": "Module.body[36].body[0].value.args[0].comparators[0].keywords[0].value.value",
+          "valueType": "str",
+          "before": "E02_WRAPPER_R3_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN",
+          "after": "E02_WRAPPER_R4_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN"
+        },
+        {
+          "astField": "Module.body[43].body[0].body[3].value.left.value",
+          "valueType": "str",
+          "before": "nbdp-e02-completion-r3-",
+          "after": "nbdp-e02-completion-r4-"
+        }
+      ],
+      "nonStringAstChanges": 0
+    },
+    {
+      "file": "model-plan.json",
+      "classification": "EXTERNAL_NON_CODE_METADATA",
+      "prior": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r3/model-plan.json",
+        "bytes": 18613,
+        "sha256": "bd6fd988335e9e55f778b3029b919b40385219e33b8ebf48f3cc8e60d3ce8df7"
+      },
+      "new": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r4/model-plan.json",
+        "bytes": 18659,
+        "sha256": "e9dfab1e36ff4e5d084e4fa860c6ba2446d097ca4bc5d3ee9bb96d5005d14982"
+      },
+      "excludedFromCodeSubject": true
+    },
+    {
+      "file": "plan-draft.json",
+      "classification": "EXTERNAL_NON_CODE_METADATA",
+      "prior": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r3/plan-draft.json",
+        "bytes": 7882,
+        "sha256": "3936a27727e870cd0190512c06918adad39198bdc6a70b79a7527a9e1a7c8302"
+      },
+      "new": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r4/plan-draft.json",
+        "bytes": 7882,
+        "sha256": "8ebe4aea1e853cd71d78aa358ee9602eb4bcace5f944bbbf1e104e2f63cea66a"
+      },
+      "excludedFromCodeSubject": true
+    },
+    {
+      "file": "render_data.py",
+      "prior": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r3/render_data.py",
+        "bytes": 10608,
+        "sha256": "148fa77883e03b7d94109f7acaa7d32b2acd17a185763da84e013cfcdb82b5c6"
+      },
+      "new": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r4/render_data.py",
+        "bytes": 10608,
+        "sha256": "148fa77883e03b7d94109f7acaa7d32b2acd17a185763da84e013cfcdb82b5c6"
+      },
+      "byteIdentical": true,
+      "allowedSubstitutions": {
+        "completion-primary-wrapper-preparation-r3": "completion-primary-wrapper-preparation-r4",
+        "e02-completion-primary-wrapper-r3": "e02-completion-primary-wrapper-r4",
+        "nbdp-e02-completion-r3-": "nbdp-e02-completion-r4-",
+        "E02_WRAPPER_R3_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN": "E02_WRAPPER_R4_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN"
+      },
+      "classification": "TYPED_AST_STRING_ONLY_OR_BYTE_IDENTICAL",
+      "typedAstStringDeltas": [],
+      "nonStringAstChanges": 0
+    },
+    {
+      "file": "runner-origin-adapter.patch",
+      "prior": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r3/runner-origin-adapter.patch",
+        "bytes": 4414,
+        "sha256": "e86c02eb638f7c1205d0d3f6c0c79a79d1b7f6014cc9db9d924127b6a7caf061"
+      },
+      "new": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r4/runner-origin-adapter.patch",
+        "bytes": 4414,
+        "sha256": "e86c02eb638f7c1205d0d3f6c0c79a79d1b7f6014cc9db9d924127b6a7caf061"
+      },
+      "byteIdentical": true,
+      "allowedSubstitutions": {
+        "completion-primary-wrapper-preparation-r3": "completion-primary-wrapper-preparation-r4",
+        "e02-completion-primary-wrapper-r3": "e02-completion-primary-wrapper-r4",
+        "nbdp-e02-completion-r3-": "nbdp-e02-completion-r4-",
+        "E02_WRAPPER_R3_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN": "E02_WRAPPER_R4_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN"
+      },
+      "classification": "EXACT_ALLOWED_TEXT_NAMESPACE_SCOPE_SUBSTITUTION_OR_BYTE_IDENTICAL",
+      "unifiedDiff": ""
+    },
+    {
+      "file": "runner-with-origin-adapter.mjs",
+      "prior": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r3/runner-with-origin-adapter.mjs",
+        "bytes": 16542,
+        "sha256": "c00b9082bdc27c8a270c4137df0382883193f49b75139b6a986e581944c4e7b2"
+      },
+      "new": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r4/runner-with-origin-adapter.mjs",
+        "bytes": 16542,
+        "sha256": "c00b9082bdc27c8a270c4137df0382883193f49b75139b6a986e581944c4e7b2"
+      },
+      "byteIdentical": true,
+      "allowedSubstitutions": {
+        "completion-primary-wrapper-preparation-r3": "completion-primary-wrapper-preparation-r4",
+        "e02-completion-primary-wrapper-r3": "e02-completion-primary-wrapper-r4",
+        "nbdp-e02-completion-r3-": "nbdp-e02-completion-r4-",
+        "E02_WRAPPER_R3_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN": "E02_WRAPPER_R4_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN"
+      },
+      "classification": "EXACT_ALLOWED_TEXT_NAMESPACE_SCOPE_SUBSTITUTION_OR_BYTE_IDENTICAL",
+      "unifiedDiff": ""
+    },
+    {
+      "file": "test_origin_models.mjs",
+      "prior": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r3/test_origin_models.mjs",
+        "bytes": 10378,
+        "sha256": "6d9ddbfed154a61069257a6e33015cf4242a0e3a7cb284a4efd52e3978fe7999"
+      },
+      "new": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r4/test_origin_models.mjs",
+        "bytes": 10378,
+        "sha256": "8bbd802529763d3c969656db6eb3e006ca0990cde12e2f921fbaebcf3c911f39"
+      },
+      "byteIdentical": false,
+      "allowedSubstitutions": {
+        "completion-primary-wrapper-preparation-r3": "completion-primary-wrapper-preparation-r4",
+        "e02-completion-primary-wrapper-r3": "e02-completion-primary-wrapper-r4",
+        "nbdp-e02-completion-r3-": "nbdp-e02-completion-r4-",
+        "E02_WRAPPER_R3_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN": "E02_WRAPPER_R4_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN"
+      },
+      "classification": "EXACT_ALLOWED_TEXT_NAMESPACE_SCOPE_SUBSTITUTION_OR_BYTE_IDENTICAL",
+      "unifiedDiff": "--- /Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r3/test_origin_models.mjs\n+++ /Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r4/test_origin_models.mjs\n@@ -2,7 +2,7 @@\n // DATA I/O primitives use an in-memory descriptor map; no fixture files/processes.\n import assert from 'node:assert/strict';\n import {wrapperPrimaryTool} from './wrapper-origin.mjs';\n-const BASE='/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r3';\n+const BASE='/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r4';\n const RUNS='/Data/nbdp-e02-tooling-20261027/ordinary-completion-r3/runs/';\n const EXP='/home/peterhorvath/apps/bitcoin/NBDP/experiments';\n const AUTH='FIXED_SAME_T0_ENV_CONFIG_AND_PRIMARY_RELEASE_ONLY';\n"
+    },
+    {
+      "file": "test_r3_decision_paths.py",
+      "prior": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r3/test_r3_decision_paths.py",
+        "bytes": 16795,
+        "sha256": "490ceefeda471196e97826b7fb291224dc6c5d8645e1454ea9ed522123fd9f01"
+      },
+      "new": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r4/test_r3_decision_paths.py",
+        "bytes": 16795,
+        "sha256": "490ceefeda471196e97826b7fb291224dc6c5d8645e1454ea9ed522123fd9f01"
+      },
+      "byteIdentical": true,
+      "allowedSubstitutions": {
+        "completion-primary-wrapper-preparation-r3": "completion-primary-wrapper-preparation-r4",
+        "e02-completion-primary-wrapper-r3": "e02-completion-primary-wrapper-r4",
+        "nbdp-e02-completion-r3-": "nbdp-e02-completion-r4-",
+        "E02_WRAPPER_R3_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN": "E02_WRAPPER_R4_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN"
+      },
+      "classification": "TYPED_AST_STRING_ONLY_OR_BYTE_IDENTICAL",
+      "typedAstStringDeltas": [],
+      "nonStringAstChanges": 0
+    },
+    {
+      "file": "test_render_data.py",
+      "prior": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r3/test_render_data.py",
+        "bytes": 4155,
+        "sha256": "c79354d8fbf8c6e171ea5a0289d83a157485f33ce6513130e43ffc35014ed2df"
+      },
+      "new": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r4/test_render_data.py",
+        "bytes": 4155,
+        "sha256": "c79354d8fbf8c6e171ea5a0289d83a157485f33ce6513130e43ffc35014ed2df"
+      },
+      "byteIdentical": true,
+      "allowedSubstitutions": {
+        "completion-primary-wrapper-preparation-r3": "completion-primary-wrapper-preparation-r4",
+        "e02-completion-primary-wrapper-r3": "e02-completion-primary-wrapper-r4",
+        "nbdp-e02-completion-r3-": "nbdp-e02-completion-r4-",
+        "E02_WRAPPER_R3_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN": "E02_WRAPPER_R4_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN"
+      },
+      "classification": "TYPED_AST_STRING_ONLY_OR_BYTE_IDENTICAL",
+      "typedAstStringDeltas": [],
+      "nonStringAstChanges": 0
+    },
+    {
+      "file": "test_wrapper_models.py",
+      "prior": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r3/test_wrapper_models.py",
+        "bytes": 8091,
+        "sha256": "ad19ba59c416c6b6b2ff178529db89f00a68552ad1811ac4668bdb554100df89"
+      },
+      "new": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r4/test_wrapper_models.py",
+        "bytes": 8091,
+        "sha256": "ad19ba59c416c6b6b2ff178529db89f00a68552ad1811ac4668bdb554100df89"
+      },
+      "byteIdentical": true,
+      "allowedSubstitutions": {
+        "completion-primary-wrapper-preparation-r3": "completion-primary-wrapper-preparation-r4",
+        "e02-completion-primary-wrapper-r3": "e02-completion-primary-wrapper-r4",
+        "nbdp-e02-completion-r3-": "nbdp-e02-completion-r4-",
+        "E02_WRAPPER_R3_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN": "E02_WRAPPER_R4_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN"
+      },
+      "classification": "TYPED_AST_STRING_ONLY_OR_BYTE_IDENTICAL",
+      "typedAstStringDeltas": [],
+      "nonStringAstChanges": 0
+    },
+    {
+      "file": "wrapper-origin.mjs",
+      "prior": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r3/wrapper-origin.mjs",
+        "bytes": 12264,
+        "sha256": "7494f84a89ee61d889ecd728882f48e5a9d7e37a051230b022d15b69669923b5"
+      },
+      "new": {
+        "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r4/wrapper-origin.mjs",
+        "bytes": 12264,
+        "sha256": "3ef01bfd5ce6914183d67346bc4955681341ff668b3c30088322e18e2c3daa4e"
+      },
+      "byteIdentical": false,
+      "allowedSubstitutions": {
+        "completion-primary-wrapper-preparation-r3": "completion-primary-wrapper-preparation-r4",
+        "e02-completion-primary-wrapper-r3": "e02-completion-primary-wrapper-r4",
+        "nbdp-e02-completion-r3-": "nbdp-e02-completion-r4-",
+        "E02_WRAPPER_R3_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN": "E02_WRAPPER_R4_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN"
+      },
+      "classification": "EXACT_ALLOWED_TEXT_NAMESPACE_SCOPE_SUBSTITUTION_OR_BYTE_IDENTICAL",
+      "unifiedDiff": "--- /Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r3/wrapper-origin.mjs\n+++ /Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r4/wrapper-origin.mjs\n@@ -1,7 +1,7 @@\n // STAGED completion3 DATA adapter. No process execution or synthetic API receipt.\n // Copy beside final data.mjs only during coordinator-owned final SOURCE rendering.\n import path from 'node:path';\n-const BASE='/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r3';\n+const BASE='/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r4';\n const RUNS='/Data/nbdp-e02-tooling-20261027/ordinary-completion-r3/runs/';\n const LIMIT=4194304;\n const AUTH='FIXED_SAME_T0_ENV_CONFIG_AND_PRIMARY_RELEASE_ONLY';\n"
+    }
+  ],
+  "newCodeDocument": {
+    "path": "/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r4/R4-CODE-CONTRACT.md",
+    "bytes": 2550,
+    "sha256": "49c7de141ebd45740061a6167962d7b88a5cf401c898d3dcf22d0450d25d5f91"
+  },
+  "algorithmAssertionLimitChanges": 0,
+  "actualExecutions": 0
+}

@@ -1,0 +1,111 @@
+{
+  "schema": "e02-consumer6-control-data-shape-contract-v1",
+  "author": "/root/consumer6_source",
+  "scope": "API_ONLY_MOCK_OR_READ_ONLY_MODELS_NO_TARGET_RUNTIME",
+  "dataSubjectSchema": "e02-consumer6-current-control-data-subject-v1",
+  "dataSubjectClosedKeys": [
+    "schema",
+    "authors",
+    "operators",
+    "consumerSource",
+    "consumerSourceAcceptance",
+    "controlPlan",
+    "producerSource",
+    "producerControlAcceptance",
+    "execution",
+    "originalToolOrigin",
+    "rawArtifactManifest",
+    "countsSeparate",
+    "modelsDefined",
+    "modelsExecuted",
+    "modelsPassed",
+    "modelsFailed",
+    "skipped",
+    "truncated",
+    "inputsUnchanged",
+    "helperExecutions",
+    "dockerExecutions",
+    "ordinaryRoleExecutions",
+    "ordinaryRowsQualified"
+  ],
+  "executionSchema": "e02-consumer6-control-execution-v1",
+  "executionClosedKeys": [
+    "schema",
+    "consumerSource",
+    "controlPlan",
+    "groups",
+    "countsSeparate",
+    "modelsExecuted",
+    "modelsPassed",
+    "modelsFailed",
+    "skipped",
+    "truncated",
+    "inputsBefore",
+    "inputsAfter",
+    "inputsUnchanged",
+    "scope",
+    "innerPidReapEofAttested"
+  ],
+  "orderedGroupClosedKeys": [
+    "name",
+    "source",
+    "count",
+    "definitionNames",
+    "request",
+    "originalToolOrigin",
+    "rawOutput",
+    "exitCode",
+    "scope",
+    "innerPidReapEofAttested"
+  ],
+  "apiIndex": {
+    "schema": "e02-consumer6-control-api-index-v1",
+    "closedKeys": [
+      "schema",
+      "origins"
+    ],
+    "originEntryClosedKeys": [
+      "group",
+      "origin"
+    ],
+    "eachOriginSchema": "e02-actual-tool-custody-v1"
+  },
+  "rawManifest": {
+    "schema": "e02-consumer6-control-raw-manifest-v1",
+    "closedKeys": [
+      "schema",
+      "files",
+      "originalToolOrigin"
+    ]
+  },
+  "inputSnapshot": {
+    "schema": "e02-consumer6-current-inputs-v1",
+    "closedKeys": [
+      "schema",
+      "rows"
+    ],
+    "rowClosedKeys": [
+      "pin",
+      "mode",
+      "uid",
+      "gid",
+      "device",
+      "inode",
+      "mtimeNs",
+      "ctimeNs"
+    ],
+    "mode": "integer permissions",
+    "identity": "device/inode/mtimeNs/ctimeNs canonical nonnegative decimal strings"
+  },
+  "request": {
+    "command": "env-i PATH/LANG/LC /usr/bin/timeout --signal=KILL63s Python3.13 -I -B exact current test file -v",
+    "workdir": "exact current SOURCE root",
+    "login": false,
+    "yield_time_ms": 1000,
+    "max_output_tokens": 20000
+  },
+  "countPolicy": "Actual successor CODE/AST/control-plan partition only; full named PASS, zero skip/fail/truncation, unchanged expected inputs.",
+  "innerPidReapEofAttested": false,
+  "modelsExecutedByContract": 0,
+  "executionAuthorized": false
+}

@@ -1,0 +1,3045 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-completion-preparation-r1/current-controls-r1/capture-controls.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/capture-controls.py
+@@ -1,7 +1,7 @@
+ Module(
+   body=[
+     Expr(
+-      value=Constant(value='Fixed once-only54 synthetic DATA capture. Requires a fresh external root ack.\n\nPopen.communicate retains output in memory until completion. Byte limits below\nare post-capture file retention/refusal limits, NOT streaming memory/resource\ncaps. This finite trusted Python suite creates no child services or descendants.\nOnly its exact owned direct Popen child may be killed on a capture failure.\n')),
++      value=Constant(value='Fixed once-only18/27/6 synthetic DATA capture. Requires a fresh external root ack.\n\nPopen.communicate retains output in memory until completion. Byte limits below\nare post-capture file retention/refusal limits, NOT streaming memory/resource\ncaps. These finite trusted Python/Node suites create no child services or descendants.\nOnly its exact owned direct Popen child may be killed on a capture failure.\n')),
+     Import(
+       names=[
+         alias(name='datetime')]),
+@@ -68,7 +68,7 @@
+       value=BinOp(
+         left=Name(id='ROOT', ctx=Load()),
+         op=Div(),
+-        right=Constant(value='experiments/prototypes/e02_completion_v1'))),
++        right=Constant(value='experiments/prototypes/e02_transport_query_diagnostic_v2'))),
+     Assign(
+       targets=[
+         Name(id='NODE', ctx=Store())],
+@@ -89,33 +89,20 @@
+       value=Constant(value='/root/ordinary_api35_source')),
+     Assign(
+       targets=[
++        Name(id='CAPTURE', ctx=Store())],
++      value=Name(id='HERE', ctx=Load())),
++    Assign(
++      targets=[
+         Name(id='SOURCE_SHA', ctx=Store())],
+-      value=Constant(value='b5b230d20f3ff571f6282ee3d529308f75127e9536e13bcf6a38b3b2981afd99')),
++      value=Constant(value='aece375c76f20d8c738d34e57feb19e50c2ccfc28cb09ffc9347481d2f526b85')),
+     Assign(
+       targets=[
+         Name(id='MANIFEST_SHA', ctx=Store())],
+-      value=Constant(value='1abe95a30971e8cef59726a54e1062c32da667539ec41930a327a61acfac1624')),
++      value=Constant(value='99c2e428d87ca19cbbc19c3912e3c7ff548217dba540c517ffab81852dd8bb9c')),
+     Assign(
+       targets=[
+         Name(id='FROZEN_PLAN_SHA', ctx=Store())],
+-      value=Constant(value='df9bc4705affa71551b3ac9ad8066e9ae904e619c702d4184b04c32aabfbf7ca')),
+-    Assign(
+-      targets=[
+-        Name(id='ARGV', ctx=Store())],
+-      value=List(
+-        elts=[
+-          Call(
+-            func=Name(id='str', ctx=Load()),
+-            args=[
+-              Name(id='NODE', ctx=Load())]),
+-          Call(
+-            func=Name(id='str', ctx=Load()),
+-            args=[
+-              BinOp(
+-                left=Name(id='SOURCE', ctx=Load()),
+-                op=Div(),
+-                right=Constant(value='test_data.mjs'))])],
+-        ctx=Load())),
++      value=Constant(value='bf227bade861821099eed7f3c664ab8f56259b028000ea5b42024821f3fef1fb')),
+     Assign(
+       targets=[
+         Name(id='LIMITS', ctx=Store())],
+@@ -564,6 +551,327 @@
+                       attr='fileno',
+                       ctx=Load()))]))])]),
+     FunctionDef(
++      name='installed_membership',
++      args=arguments(),
++      body=[
++        Assign(
++          targets=[
++            Name(id='tree', ctx=Store())],
++          value=Call(
++            func=Name(id='doc', ctx=Load()),
++            args=[
++              BinOp(
++                left=Name(id='SOURCE', ctx=Load()),
++                op=Div(),
++                right=Constant(value='dependency-tree.json'))])),
++        Assign(
++          targets=[
++            Name(id='root', ctx=Store())],
++          value=Call(
++            func=Name(id='Path', ctx=Load()),
++            args=[
++              Subscript(
++                value=Name(id='tree', ctx=Load()),
++                slice=Constant(value='sourceRoot'),
++                ctx=Load())])),
++        Assert(
++          test=BoolOp(
++            op=And(),
++            values=[
++              Compare(
++                left=Name(id='root', ctx=Load()),
++                ops=[
++                  Eq()],
++                comparators=[
++                  BinOp(
++                    left=Name(id='ROOT', ctx=Load()),
++                    op=Div(),
++                    right=Constant(value='experiments/node_modules'))]),
++              Compare(
++                left=Call(
++                  func=Attribute(
++                    value=Name(id='root', ctx=Load()),
++                    attr='resolve',
++                    ctx=Load()),
++                  keywords=[
++                    keyword(
++                      arg='strict',
++                      value=Constant(value=True))]),
++                ops=[
++                  Eq()],
++                comparators=[
++                  Name(id='root', ctx=Load())])])),
++        Assign(
++          targets=[
++            Name(id='actual', ctx=Store())],
++          value=Dict(
++            keys=[
++              Constant(value='directories'),
++              Constant(value='files'),
++              Constant(value='symlinks')],
++            values=[
++              List(ctx=Load()),
++              List(ctx=Load()),
++              List(ctx=Load())])),
++        FunctionDef(
++          name='walk',
++          args=arguments(
++            args=[
++              arg(arg='folder')]),
++          body=[
++            For(
++              target=Name(id='p', ctx=Store()),
++              iter=Call(
++                func=Name(id='sorted', ctx=Load()),
++                args=[
++                  Call(
++                    func=Attribute(
++                      value=Name(id='folder', ctx=Load()),
++                      attr='iterdir',
++                      ctx=Load()))]),
++              body=[
++                Assign(
++                  targets=[
++                    Name(id='rel', ctx=Store())],
++                  value=Call(
++                    func=Attribute(
++                      value=Call(
++                        func=Attribute(
++                          value=Name(id='p', ctx=Load()),
++                          attr='relative_to',
++                          ctx=Load()),
++                        args=[
++                          Name(id='root', ctx=Load())]),
++                      attr='as_posix',
++                      ctx=Load()))),
++                If(
++                  test=Call(
++                    func=Attribute(
++                      value=Name(id='p', ctx=Load()),
++                      attr='is_symlink',
++                      ctx=Load())),
++                  body=[
++                    Assign(
++                      targets=[
++                        Name(id='target', ctx=Store())],
++                      value=Call(
++                        func=Attribute(
++                          value=Name(id='p', ctx=Load()),
++                          attr='resolve',
++                          ctx=Load()),
++                        keywords=[
++                          keyword(
++                            arg='strict',
++                            value=Constant(value=True))])),
++                    Assert(
++                      test=BoolOp(
++                        op=And(),
++                        values=[
++                          Call(
++                            func=Attribute(
++                              value=Name(id='target', ctx=Load()),
++                              attr='is_relative_to',
++                              ctx=Load()),
++                            args=[
++                              Name(id='root', ctx=Load())]),
++                          Compare(
++                            left=Name(id='target', ctx=Load()),
++                            ops=[
++                              NotEq()],
++                            comparators=[
++                              Name(id='root', ctx=Load())])])),
++                    Expr(
++                      value=Call(
++                        func=Attribute(
++                          value=Subscript(
++                            value=Name(id='actual', ctx=Load()),
++                            slice=Constant(value='symlinks'),
++                            ctx=Load()),
++                          attr='append',
++                          ctx=Load()),
++                        args=[
++                          Dict(
++                            keys=[
++                              Constant(value='path'),
++                              Constant(value='link'),
++                              Constant(value='target')],
++                            values=[
++                              Name(id='rel', ctx=Load()),
++                              Call(
++                                func=Name(id='str', ctx=Load()),
++                                args=[
++                                  Call(
++                                    func=Attribute(
++                                      value=Name(id='p', ctx=Load()),
++                                      attr='readlink',
++                                      ctx=Load()))]),
++                              Call(
++                                func=Attribute(
++                                  value=Call(
++                                    func=Attribute(
++                                      value=Name(id='target', ctx=Load()),
++                                      attr='relative_to',
++                                      ctx=Load()),
++                                    args=[
++                                      Name(id='root', ctx=Load())]),
++                                  attr='as_posix',
++                                  ctx=Load()))])]))],
++                  orelse=[
++                    If(
++                      test=Call(
++                        func=Attribute(
++                          value=Name(id='p', ctx=Load()),
++                          attr='is_dir',
++                          ctx=Load())),
++                      body=[
++                        Expr(
++                          value=Call(
++                            func=Attribute(
++                              value=Subscript(
++                                value=Name(id='actual', ctx=Load()),
++                                slice=Constant(value='directories'),
++                                ctx=Load()),
++                              attr='append',
++                              ctx=Load()),
++                            args=[
++                              Name(id='rel', ctx=Load())])),
++                        Expr(
++                          value=Call(
++                            func=Name(id='walk', ctx=Load()),
++                            args=[
++                              Name(id='p', ctx=Load())]))],
++                      orelse=[
++                        If(
++                          test=Call(
++                            func=Attribute(
++                              value=Name(id='p', ctx=Load()),
++                              attr='is_file',
++                              ctx=Load())),
++                          body=[
++                            Expr(
++                              value=Call(
++                                func=Attribute(
++                                  value=Subscript(
++                                    value=Name(id='actual', ctx=Load()),
++                                    slice=Constant(value='files'),
++                                    ctx=Load()),
++                                  attr='append',
++                                  ctx=Load()),
++                                args=[
++                                  Name(id='rel', ctx=Load())]))],
++                          orelse=[
++                            Raise(
++                              exc=Call(
++                                func=Name(id='ValueError', ctx=Load()),
++                                args=[
++                                  Constant(value='Installed special file')]))])])])])]),
++        Expr(
++          value=Call(
++            func=Name(id='walk', ctx=Load()),
++            args=[
++              Name(id='root', ctx=Load())])),
++        For(
++          target=Name(id='k', ctx=Store()),
++          iter=Tuple(
++            elts=[
++              Constant(value='directories'),
++              Constant(value='files')],
++            ctx=Load()),
++          body=[
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=Subscript(
++                    value=Name(id='actual', ctx=Load()),
++                    slice=Name(id='k', ctx=Load()),
++                    ctx=Load()),
++                  attr='sort',
++                  ctx=Load())))]),
++        Expr(
++          value=Call(
++            func=Attribute(
++              value=Subscript(
++                value=Name(id='actual', ctx=Load()),
++                slice=Constant(value='symlinks'),
++                ctx=Load()),
++              attr='sort',
++              ctx=Load()),
++            keywords=[
++              keyword(
++                arg='key',
++                value=Lambda(
++                  args=arguments(
++                    args=[
++                      arg(arg='x')]),
++                  body=Subscript(
++                    value=Name(id='x', ctx=Load()),
++                    slice=Constant(value='path'),
++                    ctx=Load())))])),
++        Assert(
++          test=Compare(
++            left=Name(id='actual', ctx=Load()),
++            ops=[
++              Eq()],
++            comparators=[
++              DictComp(
++                key=Name(id='k', ctx=Load()),
++                value=Subscript(
++                  value=Name(id='tree', ctx=Load()),
++                  slice=Name(id='k', ctx=Load()),
++                  ctx=Load()),
++                generators=[
++                  comprehension(
++                    target=Name(id='k', ctx=Store()),
++                    iter=Tuple(
++                      elts=[
++                        Constant(value='directories'),
++                        Constant(value='files'),
++                        Constant(value='symlinks')],
++                      ctx=Load()),
++                    is_async=0)])])),
++        Assert(
++          test=BoolOp(
++            op=And(),
++            values=[
++              Compare(
++                left=Call(
++                  func=Name(id='len', ctx=Load()),
++                  args=[
++                    Subscript(
++                      value=Name(id='actual', ctx=Load()),
++                      slice=Constant(value='files'),
++                      ctx=Load())]),
++                ops=[
++                  Eq()],
++                comparators=[
++                  Constant(value=816)]),
++              Compare(
++                left=Call(
++                  func=Name(id='len', ctx=Load()),
++                  args=[
++                    Subscript(
++                      value=Name(id='actual', ctx=Load()),
++                      slice=Constant(value='directories'),
++                      ctx=Load())]),
++                ops=[
++                  Eq()],
++                comparators=[
++                  Constant(value=65)]),
++              Compare(
++                left=Call(
++                  func=Name(id='len', ctx=Load()),
++                  args=[
++                    Subscript(
++                      value=Name(id='actual', ctx=Load()),
++                      slice=Constant(value='symlinks'),
++                      ctx=Load())]),
++                ops=[
++                  Eq()],
++                comparators=[
++                  Constant(value=2)])])),
++        Return(
++          value=Name(id='actual', ctx=Load()))]),
++    FunctionDef(
+       name='snapshot',
+       args=arguments(
+         args=[
+@@ -571,7 +879,7 @@
+       body=[
+         Assign(
+           targets=[
+-            Name(id='subject', ctx=Store())],
++            Name(id='source', ctx=Store())],
+           value=Call(
+             func=Name(id='pin', ctx=Load()),
+             args=[
+@@ -582,14 +890,13 @@
+         Assert(
+           test=Compare(
+             left=Subscript(
+-              value=Name(id='subject', ctx=Load()),
++              value=Name(id='source', ctx=Load()),
+               slice=Constant(value='sha256'),
+               ctx=Load()),
+             ops=[
+               Eq()],
+             comparators=[
+-              Name(id='SOURCE_SHA', ctx=Load())]),
+-          msg=Constant(value='Exact completion source required')),
++              Name(id='SOURCE_SHA', ctx=Load())])),
+         Assign(
+           targets=[
+             Name(id='manifest', ctx=Store())],
+@@ -632,7 +939,7 @@
+               Name(id='FROZEN_PLAN_SHA', ctx=Load())])),
+         Assign(
+           targets=[
+-            Name(id='proposed', ctx=Store())],
++            Name(id='plan', ctx=Store())],
+           value=Call(
+             func=Name(id='doc', ctx=Load()),
+             args=[
+@@ -640,188 +947,88 @@
+                 left=Name(id='PREP', ctx=Load()),
+                 op=Div(),
+                 right=Constant(value='control-plan.json'))])),
++        Assign(
++          targets=[
++            Name(id='current_plan', ctx=Store())],
++          value=Call(
++            func=Name(id='doc', ctx=Load()),
++            args=[
++              BinOp(
++                left=Name(id='CAPTURE', ctx=Load()),
++                op=Div(),
++                right=Constant(value='control-plan.json'))])),
++        Assert(
++          test=Compare(
++            left=Subscript(
++              value=Name(id='plan', ctx=Load()),
++              slice=Constant(value='separateScopes'),
++              ctx=Load()),
++            ops=[
++              Eq()],
++            comparators=[
++              Subscript(
++                value=Name(id='current_plan', ctx=Load()),
++                slice=Constant(value='separateScopes'),
++                ctx=Load())])),
+         Assert(
+           test=BoolOp(
+             op=And(),
+             values=[
+               Compare(
+                 left=Subscript(
+-                  value=Name(id='proposed', ctx=Load()),
+-                  slice=Constant(value='argv'),
++                  value=Name(id='plan', ctx=Load()),
++                  slice=Constant(value='rawRetentionBytes'),
+                   ctx=Load()),
+                 ops=[
+                   Eq()],
+                 comparators=[
+-                  Name(id='ARGV', ctx=Load())]),
+-              Compare(
+-                left=Subscript(
+-                  value=Name(id='proposed', ctx=Load()),
+-                  slice=Constant(value='plannedChecks'),
+-                  ctx=Load()),
+-                ops=[
+-                  Eq()],
+-                comparators=[
+-                  Constant(value=54)])])),
+-        Assert(
+-          test=BoolOp(
+-            op=And(),
+-            values=[
+-              Compare(
+-                left=Subscript(
+-                  value=Name(id='proposed', ctx=Load()),
+-                  slice=Constant(value='timeoutSeconds'),
+-                  ctx=Load()),
+-                ops=[
+-                  Eq()],
+-                comparators=[
+-                  Constant(value=60)]),
+-              Compare(
+-                left=Subscript(
+-                  value=Name(id='proposed', ctx=Load()),
+-                  slice=Constant(value='rawRetentionBytes'),
+-                  ctx=Load()),
+-                ops=[
+-                  Eq()],
+-                comparators=[
+-                  Name(id='LIMITS', ctx=Load())])])),
++                  Name(id='LIMITS', ctx=Load())]),
++              Call(
++                func=Name(id='all', ctx=Load()),
++                args=[
++                  GeneratorExp(
++                    elt=Compare(
++                      left=Subscript(
++                        value=Name(id='s', ctx=Load()),
++                        slice=Constant(value='timeoutSeconds'),
++                        ctx=Load()),
++                      ops=[
++                        Eq()],
++                      comparators=[
++                        Constant(value=60)]),
++                    generators=[
++                      comprehension(
++                        target=Name(id='s', ctx=Store()),
++                        iter=Subscript(
++                          value=Name(id='plan', ctx=Load()),
++                          slice=Constant(value='separateScopes'),
++                          ctx=Load()),
++                        is_async=0)])])])),
+         Assign(
+           targets=[
+-            Name(id='control_plan', ctx=Store())],
++            Name(id='inputs', ctx=Store())],
+           value=Call(
+             func=Name(id='doc', ctx=Load()),
+             args=[
+               BinOp(
+-                left=Name(id='HERE', ctx=Load()),
+-                op=Div(),
+-                right=Constant(value='control-plan.json'))])),
+-        Assert(
+-          test=BoolOp(
+-            op=And(),
+-            values=[
+-              Compare(
+-                left=Subscript(
+-                  value=Name(id='control_plan', ctx=Load()),
+-                  slice=Constant(value='argv'),
+-                  ctx=Load()),
+-                ops=[
+-                  Eq()],
+-                comparators=[
+-                  Name(id='ARGV', ctx=Load())]),
+-              Compare(
+-                left=Subscript(
+-                  value=Name(id='control_plan', ctx=Load()),
+-                  slice=Constant(value='plannedChecks'),
+-                  ctx=Load()),
+-                ops=[
+-                  Eq()],
+-                comparators=[
+-                  Constant(value=54)])])),
+-        Assert(
+-          test=BoolOp(
+-            op=And(),
+-            values=[
+-              Compare(
+-                left=Subscript(
+-                  value=Name(id='control_plan', ctx=Load()),
+-                  slice=Constant(value='timeoutSeconds'),
+-                  ctx=Load()),
+-                ops=[
+-                  Eq()],
+-                comparators=[
+-                  Constant(value=60)]),
+-              Compare(
+-                left=Subscript(
+-                  value=Name(id='control_plan', ctx=Load()),
+-                  slice=Constant(value='retentionBytes'),
+-                  ctx=Load()),
+-                ops=[
+-                  Eq()],
+-                comparators=[
+-                  Name(id='LIMITS', ctx=Load())])])),
+-        Assign(
+-          targets=[
+-            Name(id='profile', ctx=Store())],
+-          value=Call(
+-            func=Name(id='doc', ctx=Load()),
+-            args=[
+-              BinOp(
+-                left=Name(id='SOURCE', ctx=Load()),
+-                op=Div(),
+-                right=Constant(value='profile.json'))])),
+-        Assert(
+-          test=Compare(
+-            left=Call(
+-              func=Name(id='len', ctx=Load()),
+-              args=[
+-                Subscript(
+-                  value=Name(id='profile', ctx=Load()),
+-                  slice=Constant(value='dependencies'),
+-                  ctx=Load())]),
+-            ops=[
+-              Eq()],
+-            comparators=[
+-              Constant(value=816)])),
+-        Assign(
+-          targets=[
+-            Name(id='protected', ctx=Store())],
+-          value=Call(
+-            func=Name(id='doc', ctx=Load()),
+-            args=[
+-              BinOp(
+-                left=Name(id='PREP', ctx=Load()),
+-                op=Div(),
+-                right=Constant(value='protected-inputs-after.json'))])),
+-        Assert(
+-          test=Compare(
+-            left=Call(
+-              func=Name(id='len', ctx=Load()),
+-              args=[
+-                Subscript(
+-                  value=Name(id='protected', ctx=Load()),
+-                  slice=Constant(value='files'),
+-                  ctx=Load())]),
+-            ops=[
+-              Eq()],
+-            comparators=[
+-              Constant(value=51)])),
+-        Assert(
+-          test=Compare(
+-            left=Call(
+-              func=Name(id='doc', ctx=Load()),
+-              args=[
+-                BinOp(
+-                  left=Name(id='PREP', ctx=Load()),
+-                  op=Div(),
+-                  right=Constant(value='protected-inputs-before.json'))]),
+-            ops=[
+-              Eq()],
+-            comparators=[
+-              Name(id='protected', ctx=Load())])),
+-        Assign(
+-          targets=[
+-            Name(id='frozen_inputs', ctx=Store())],
+-          value=Call(
+-            func=Name(id='doc', ctx=Load()),
+-            args=[
+-              BinOp(
+-                left=Name(id='HERE', ctx=Load()),
++                left=Name(id='CAPTURE', ctx=Load()),
+                 op=Div(),
+                 right=Constant(value='frozen-inputs.json'))])),
+         Assert(
+           test=Compare(
+             left=Subscript(
+-              value=Name(id='frozen_inputs', ctx=Load()),
++              value=Name(id='inputs', ctx=Load()),
+               slice=Constant(value='schema'),
+               ctx=Load()),
+             ops=[
+               Eq()],
+             comparators=[
+-              Constant(value='e02-completion-control-frozen-inputs-v1')])),
++              Constant(value='e02-transport-source2-control-frozen-inputs-v1')])),
+         Assign(
+           targets=[
+-            Name(id='rows', ctx=Store())],
++            Name(id='expected', ctx=Store())],
+           value=Subscript(
+-            value=Name(id='frozen_inputs', ctx=Load()),
++            value=Name(id='inputs', ctx=Load()),
+             slice=Constant(value='files'),
+             ctx=Load())),
+         Assert(
+@@ -837,7 +1044,7 @@
+                   Call(
+                     func=Name(id='len', ctx=Load()),
+                     args=[
+-                      Name(id='rows', ctx=Load())]),
++                      Name(id='expected', ctx=Load())]),
+                   Constant(value=4096)]),
+               Compare(
+                 left=Call(
+@@ -845,13 +1052,13 @@
+                   args=[
+                     SetComp(
+                       elt=Subscript(
+-                        value=Name(id='row', ctx=Load()),
++                        value=Name(id='d', ctx=Load()),
+                         slice=Constant(value='path'),
+                         ctx=Load()),
+                       generators=[
+                         comprehension(
+-                          target=Name(id='row', ctx=Store()),
+-                          iter=Name(id='rows', ctx=Load()),
++                          target=Name(id='d', ctx=Store()),
++                          iter=Name(id='expected', ctx=Load()),
+                           is_async=0)])]),
+                 ops=[
+                   Eq()],
+@@ -859,7 +1066,7 @@
+                   Call(
+                     func=Name(id='len', ctx=Load()),
+                     args=[
+-                      Name(id='rows', ctx=Load())])])])),
++                      Name(id='expected', ctx=Load())])])])),
+         Assign(
+           targets=[
+             Name(id='actual', ctx=Store())],
+@@ -871,13 +1078,13 @@
+                   func=Name(id='Path', ctx=Load()),
+                   args=[
+                     Subscript(
+-                      value=Name(id='row', ctx=Load()),
++                      value=Name(id='d', ctx=Load()),
+                       slice=Constant(value='path'),
+                       ctx=Load())])]),
+             generators=[
+               comprehension(
+-                target=Name(id='row', ctx=Store()),
+-                iter=Name(id='rows', ctx=Load()),
++                target=Name(id='d', ctx=Store()),
++                iter=Name(id='expected', ctx=Load()),
+                 is_async=0)])),
+         Assert(
+           test=Compare(
+@@ -885,113 +1092,73 @@
+             ops=[
+               Eq()],
+             comparators=[
+-              Name(id='rows', ctx=Load())]),
+-          msg=Constant(value='Full frozen input closure changed')),
++              Name(id='expected', ctx=Load())])),
++        Assert(
++          test=BoolOp(
++            op=And(),
++            values=[
++              Compare(
++                left=Subscript(
++                  value=Name(id='inputs', ctx=Load()),
++                  slice=Constant(value='sourceSubject'),
++                  ctx=Load()),
++                ops=[
++                  Eq()],
++                comparators=[
++                  Name(id='source', ctx=Load())]),
++              Compare(
++                left=Call(
++                  func=Name(id='pin', ctx=Load()),
++                  args=[
++                    BinOp(
++                      left=Name(id='PREP', ctx=Load()),
++                      op=Div(),
++                      right=Constant(value='proposed-run-config.json'))]),
++                ops=[
++                  Eq()],
++                comparators=[
++                  Subscript(
++                    value=Name(id='inputs', ctx=Load()),
++                    slice=Constant(value='configuration'),
++                    ctx=Load())])])),
++        Assert(
++          test=BoolOp(
++            op=And(),
++            values=[
++              Compare(
++                left=Call(
++                  func=Name(id='pin', ctx=Load()),
++                  args=[
++                    Name(id='NODE', ctx=Load())]),
++                ops=[
++                  Eq()],
++                comparators=[
++                  Subscript(
++                    value=Name(id='inputs', ctx=Load()),
++                    slice=Constant(value='node'),
++                    ctx=Load())]),
++              Compare(
++                left=Call(
++                  func=Name(id='pin', ctx=Load()),
++                  args=[
++                    Name(id='PYTHON', ctx=Load())]),
++                ops=[
++                  Eq()],
++                comparators=[
++                  Subscript(
++                    value=Name(id='inputs', ctx=Load()),
++                    slice=Constant(value='python'),
++                    ctx=Load())])])),
+         Assign(
+           targets=[
+-            Name(id='by_path', ctx=Store())],
+-          value=DictComp(
+-            key=Subscript(
+-              value=Name(id='row', ctx=Load()),
+-              slice=Constant(value='path'),
+-              ctx=Load()),
+-            value=Name(id='row', ctx=Load()),
+-            generators=[
+-              comprehension(
+-                target=Name(id='row', ctx=Store()),
+-                iter=Name(id='rows', ctx=Load()),
+-                is_async=0)])),
+-        For(
+-          target=Name(id='expected', ctx=Store()),
+-          iter=List(
+-            elts=[
+-              Starred(
+-                value=Subscript(
+-                  value=Name(id='proposed', ctx=Load()),
+-                  slice=Constant(value='sourceInputs'),
+-                  ctx=Load()),
+-                ctx=Load()),
+-              Starred(
+-                value=Subscript(
+-                  value=Name(id='profile', ctx=Load()),
+-                  slice=Constant(value='dependencies'),
+-                  ctx=Load()),
+-                ctx=Load()),
+-              Starred(
+-                value=Subscript(
+-                  value=Name(id='protected', ctx=Load()),
+-                  slice=Constant(value='files'),
+-                  ctx=Load()),
+-                ctx=Load())],
+-            ctx=Load()),
+-          body=[
+-            Assert(
+-              test=Compare(
+-                left=Subscript(
+-                  value=Name(id='by_path', ctx=Load()),
+-                  slice=Subscript(
+-                    value=Name(id='expected', ctx=Load()),
+-                    slice=Constant(value='path'),
+-                    ctx=Load()),
+-                  ctx=Load()),
+-                ops=[
+-                  Eq()],
+-                comparators=[
+-                  Name(id='expected', ctx=Load())]),
+-              msg=Constant(value='Required source/dependency/protected input omitted'))]),
+-        Assign(
+-          targets=[
+-            Name(id='interpreters', ctx=Store())],
+-          value=Dict(
+-            keys=[
+-              Constant(value='node'),
+-              Constant(value='python')],
+-            values=[
+-              Call(
+-                func=Name(id='pin', ctx=Load()),
+-                args=[
+-                  Name(id='NODE', ctx=Load())]),
+-              Call(
+-                func=Name(id='pin', ctx=Load()),
+-                args=[
+-                  Name(id='PYTHON', ctx=Load())])])),
+-        Assert(
+-          test=Compare(
+-            left=Name(id='interpreters', ctx=Load()),
+-            ops=[
+-              Eq()],
+-            comparators=[
+-              Dict(
+-                keys=[
+-                  Constant(value='node'),
+-                  Constant(value='python')],
+-                values=[
+-                  Subscript(
+-                    value=Name(id='profile', ctx=Load()),
+-                    slice=Constant(value='node'),
+-                    ctx=Load()),
+-                  Subscript(
+-                    value=Name(id='profile', ctx=Load()),
+-                    slice=Constant(value='python'),
+-                    ctx=Load())])])),
+-        Assert(
+-          test=Compare(
+-            left=Subscript(
+-              value=Name(id='interpreters', ctx=Load()),
+-              slice=Constant(value='node'),
+-              ctx=Load()),
+-            ops=[
+-              Eq()],
+-            comparators=[
+-              Subscript(
+-                value=Name(id='proposed', ctx=Load()),
+-                slice=Constant(value='node'),
+-                ctx=Load())])),
++            Name(id='membership', ctx=Store())],
++          value=Call(
++            func=Name(id='installed_membership', ctx=Load()))),
+         Assign(
+           targets=[
+             Name(id='ack_path', ctx=Store())],
+           value=BinOp(
+-            left=Name(id='HERE', ctx=Load()),
++            left=Name(id='CAPTURE', ctx=Load()),
+             op=Div(),
+             right=Constant(value='coordinator-acknowledgement.json'))),
+         Assign(
+@@ -1058,10 +1225,15 @@
+                   Constant(value='sourceSecurityReview'),
+                   Constant(value='sourceQaDecision'),
+                   Constant(value='sourceSecurityDecision'),
++                  Constant(value='captureQaReview'),
++                  Constant(value='captureSecurityReview'),
++                  Constant(value='captureQaDecision'),
++                  Constant(value='captureSecurityDecision'),
+                   Constant(value='pureControlsAuthorized'),
+-                  Constant(value='allowedCount'),
++                  Constant(value='allowedScopes'),
+                   Constant(value='stopFirstFailure'),
+                   Constant(value='noRetry'),
++                  Constant(value='diagnosticRuntimeAuthorized'),
+                   Constant(value='primaryAuthorized'),
+                   Constant(value='consumerAuthorized'),
+                   Constant(value='androidAuthorized'),
+@@ -1080,7 +1252,7 @@
+                 ops=[
+                   Eq()],
+                 comparators=[
+-                  Constant(value='e02-completion-controls-root-ack-v1')]),
++                  Constant(value='e02-transport-source2-controls-root-ack-v1')]),
+               Compare(
+                 left=Subscript(
+                   value=Name(id='ack', ctx=Load()),
+@@ -1102,57 +1274,32 @@
+                 ops=[
+                   Eq()],
+                 comparators=[
+-                  Name(id='subject', ctx=Load())]),
++                  Name(id='source', ctx=Load())]),
+               Compare(
+                 left=Subscript(
+                   value=Name(id='ack', ctx=Load()),
+-                  slice=Constant(value='allowedCount'),
++                  slice=Constant(value='allowedScopes'),
+                   ctx=Load()),
+                 ops=[
+                   Eq()],
+                 comparators=[
+-                  Constant(value=54)])])),
+-        For(
+-          target=Name(id='key', ctx=Store()),
+-          iter=Tuple(
+-            elts=[
+-              Constant(value='pureControlsAuthorized'),
+-              Constant(value='stopFirstFailure'),
+-              Constant(value='noRetry')],
+-            ctx=Load()),
+-          body=[
+-            Assert(
+-              test=Compare(
+-                left=Subscript(
+-                  value=Name(id='ack', ctx=Load()),
+-                  slice=Name(id='key', ctx=Load()),
+-                  ctx=Load()),
+-                ops=[
+-                  Is()],
+-                comparators=[
+-                  Constant(value=True)]))]),
+-        For(
+-          target=Name(id='key', ctx=Store()),
+-          iter=Tuple(
+-            elts=[
+-              Constant(value='primaryAuthorized'),
+-              Constant(value='consumerAuthorized'),
+-              Constant(value='androidAuthorized'),
+-              Constant(value='servicesAuthorized'),
+-              Constant(value='cryptoOrNativeAuthorized'),
+-              Constant(value='sdkAuthorized')],
+-            ctx=Load()),
+-          body=[
+-            Assert(
+-              test=Compare(
+-                left=Subscript(
+-                  value=Name(id='ack', ctx=Load()),
+-                  slice=Name(id='key', ctx=Load()),
+-                  ctx=Load()),
+-                ops=[
+-                  Is()],
+-                comparators=[
+-                  Constant(value=False)]))]),
++                  DictComp(
++                    key=Subscript(
++                      value=Name(id='s', ctx=Load()),
++                      slice=Constant(value='name'),
++                      ctx=Load()),
++                    value=Subscript(
++                      value=Name(id='s', ctx=Load()),
++                      slice=Constant(value='count'),
++                      ctx=Load()),
++                    generators=[
++                      comprehension(
++                        target=Name(id='s', ctx=Store()),
++                        iter=Subscript(
++                          value=Name(id='plan', ctx=Load()),
++                          slice=Constant(value='separateScopes'),
++                          ctx=Load()),
++                        is_async=0)])])])),
+         Assert(
+           test=BoolOp(
+             op=And(),
+@@ -1188,7 +1335,7 @@
+                     func=Name(id='pin', ctx=Load()),
+                     args=[
+                       BinOp(
+-                        left=Name(id='HERE', ctx=Load()),
++                        left=Name(id='CAPTURE', ctx=Load()),
+                         op=Div(),
+                         right=Constant(value='control-plan.json'))])])])),
+         Assert(
+@@ -1204,17 +1351,59 @@
+                 func=Name(id='pin', ctx=Load()),
+                 args=[
+                   BinOp(
+-                    left=Name(id='HERE', ctx=Load()),
++                    left=Name(id='CAPTURE', ctx=Load()),
+                     op=Div(),
+                     right=Constant(value='runner-subject.json'))])])),
++        For(
++          target=Name(id='key', ctx=Store()),
++          iter=Tuple(
++            elts=[
++              Constant(value='pureControlsAuthorized'),
++              Constant(value='stopFirstFailure'),
++              Constant(value='noRetry')],
++            ctx=Load()),
++          body=[
++            Assert(
++              test=Compare(
++                left=Subscript(
++                  value=Name(id='ack', ctx=Load()),
++                  slice=Name(id='key', ctx=Load()),
++                  ctx=Load()),
++                ops=[
++                  Is()],
++                comparators=[
++                  Constant(value=True)]))]),
++        For(
++          target=Name(id='key', ctx=Store()),
++          iter=Tuple(
++            elts=[
++              Constant(value='diagnosticRuntimeAuthorized'),
++              Constant(value='primaryAuthorized'),
++              Constant(value='consumerAuthorized'),
++              Constant(value='androidAuthorized'),
++              Constant(value='servicesAuthorized'),
++              Constant(value='cryptoOrNativeAuthorized'),
++              Constant(value='sdkAuthorized')],
++            ctx=Load()),
++          body=[
++            Assert(
++              test=Compare(
++                left=Subscript(
++                  value=Name(id='ack', ctx=Load()),
++                  slice=Name(id='key', ctx=Load()),
++                  ctx=Load()),
++                ops=[
++                  Is()],
++                comparators=[
++                  Constant(value=False)]))]),
+         Assign(
+           targets=[
+-            Name(id='runner_subject', ctx=Store())],
++            Name(id='rs', ctx=Store())],
+           value=Call(
+             func=Name(id='doc', ctx=Load()),
+             args=[
+               BinOp(
+-                left=Name(id='HERE', ctx=Load()),
++                left=Name(id='CAPTURE', ctx=Load()),
+                 op=Div(),
+                 right=Constant(value='runner-subject.json'))])),
+         Assert(
+@@ -1223,7 +1412,7 @@
+             values=[
+               Compare(
+                 left=Subscript(
+-                  value=Name(id='runner_subject', ctx=Load()),
++                  value=Name(id='rs', ctx=Load()),
+                   slice=Constant(value='runner'),
+                   ctx=Load()),
+                 ops=[
+@@ -1235,7 +1424,7 @@
+                     ctx=Load())]),
+               Compare(
+                 left=Subscript(
+-                  value=Name(id='runner_subject', ctx=Load()),
++                  value=Name(id='rs', ctx=Load()),
+                   slice=Constant(value='controlPlan'),
+                   ctx=Load()),
+                 ops=[
+@@ -1246,9 +1435,9 @@
+                     slice=Constant(value='controlPlan'),
+                     ctx=Load())])])),
+         For(
+-          target=Name(id='row', ctx=Store()),
++          target=Name(id='d', ctx=Store()),
+           iter=Subscript(
+-            value=Name(id='runner_subject', ctx=Load()),
++            value=Name(id='rs', ctx=Load()),
+             slice=Constant(value='preparationArtifacts'),
+             ctx=Load()),
+           body=[
+@@ -1261,392 +1450,889 @@
+                       func=Name(id='Path', ctx=Load()),
+                       args=[
+                         Subscript(
+-                          value=Name(id='row', ctx=Load()),
++                          value=Name(id='d', ctx=Load()),
+                           slice=Constant(value='path'),
+                           ctx=Load())])]),
+                 ops=[
+                   Eq()],
+                 comparators=[
+-                  Name(id='row', ctx=Load())]))]),
++                  Name(id='d', ctx=Load())]))]),
+         Assign(
+           targets=[
+-            Tuple(
+-              elts=[
+-                Name(id='sessions', ctx=Store()),
+-                Name(id='review_pins', ctx=Store())],
+-              ctx=Store())],
+-          value=Tuple(
+-            elts=[
+-              List(ctx=Load()),
+-              List(ctx=Load())],
+-            ctx=Load())),
++            Name(id='reviews', ctx=Store())],
++          value=List(ctx=Load())),
+         For(
+           target=Tuple(
+             elts=[
+-              Name(id='field', ctx=Store()),
+-              Name(id='decision_field', ctx=Store()),
+-              Name(id='role', ctx=Store())],
++              Name(id='prefix', ctx=Store()),
++              Name(id='subject', ctx=Store()),
++              Name(id='parent', ctx=Store())],
+             ctx=Store()),
+           iter=Tuple(
+             elts=[
+               Tuple(
+                 elts=[
+-                  Constant(value='sourceQaReview'),
+-                  Constant(value='sourceQaDecision'),
+-                  Constant(value='qa')],
++                  Constant(value='source'),
++                  Name(id='source', ctx=Load()),
++                  Name(id='PREP', ctx=Load())],
+                 ctx=Load()),
+               Tuple(
+                 elts=[
+-                  Constant(value='sourceSecurityReview'),
+-                  Constant(value='sourceSecurityDecision'),
+-                  Constant(value='security')],
++                  Constant(value='capture'),
++                  Subscript(
++                    value=Name(id='ack', ctx=Load()),
++                    slice=Constant(value='runnerSubject'),
++                    ctx=Load()),
++                  Name(id='CAPTURE', ctx=Load())],
+                 ctx=Load())],
+             ctx=Load()),
+           body=[
+             Assign(
+               targets=[
+-                Name(id='review_pin', ctx=Store())],
+-              value=Subscript(
++                Name(id='sessions', ctx=Store())],
++              value=List(ctx=Load())),
++            For(
++              target=Tuple(
++                elts=[
++                  Name(id='role', ctx=Store()),
++                  Name(id='title', ctx=Store())],
++                ctx=Store()),
++              iter=Tuple(
++                elts=[
++                  Tuple(
++                    elts=[
++                      Constant(value='qa'),
++                      Constant(value='Qa')],
++                    ctx=Load()),
++                  Tuple(
++                    elts=[
++                      Constant(value='security'),
++                      Constant(value='Security')],
++                    ctx=Load())],
++                ctx=Load()),
++              body=[
++                Assign(
++                  targets=[
++                    Name(id='d', ctx=Store())],
++                  value=Subscript(
++                    value=Name(id='ack', ctx=Load()),
++                    slice=BinOp(
++                      left=BinOp(
++                        left=Name(id='prefix', ctx=Load()),
++                        op=Add(),
++                        right=Name(id='title', ctx=Load())),
++                      op=Add(),
++                      right=Constant(value='Review')),
++                    ctx=Load())),
++                Assert(
++                  test=BoolOp(
++                    op=And(),
++                    values=[
++                      Compare(
++                        left=Attribute(
++                          value=Call(
++                            func=Name(id='Path', ctx=Load()),
++                            args=[
++                              Subscript(
++                                value=Name(id='d', ctx=Load()),
++                                slice=Constant(value='path'),
++                                ctx=Load())]),
++                          attr='parent',
++                          ctx=Load()),
++                        ops=[
++                          Eq()],
++                        comparators=[
++                          Name(id='parent', ctx=Load())]),
++                      Compare(
++                        left=Call(
++                          func=Name(id='pin', ctx=Load()),
++                          args=[
++                            Call(
++                              func=Name(id='Path', ctx=Load()),
++                              args=[
++                                Subscript(
++                                  value=Name(id='d', ctx=Load()),
++                                  slice=Constant(value='path'),
++                                  ctx=Load())])]),
++                        ops=[
++                          Eq()],
++                        comparators=[
++                          Name(id='d', ctx=Load())])])),
++                Assign(
++                  targets=[
++                    Name(id='r', ctx=Store())],
++                  value=Call(
++                    func=Name(id='doc', ctx=Load()),
++                    args=[
++                      Call(
++                        func=Name(id='Path', ctx=Load()),
++                        args=[
++                          Subscript(
++                            value=Name(id='d', ctx=Load()),
++                            slice=Constant(value='path'),
++                            ctx=Load())])])),
++                Assert(
++                  test=Compare(
++                    left=Call(
++                      func=Name(id='set', ctx=Load()),
++                      args=[
++                        Name(id='r', ctx=Load())]),
++                    ops=[
++                      Eq()],
++                    comparators=[
++                      Set(
++                        elts=[
++                          Constant(value='role'),
++                          Constant(value='session'),
++                          Constant(value='decision'),
++                          Constant(value='subject')])])),
++                Assert(
++                  test=BoolOp(
++                    op=And(),
++                    values=[
++                      Compare(
++                        left=Subscript(
++                          value=Name(id='r', ctx=Load()),
++                          slice=Constant(value='role'),
++                          ctx=Load()),
++                        ops=[
++                          Eq()],
++                        comparators=[
++                          Name(id='role', ctx=Load())]),
++                      Compare(
++                        left=Subscript(
++                          value=Name(id='r', ctx=Load()),
++                          slice=Constant(value='subject'),
++                          ctx=Load()),
++                        ops=[
++                          Eq()],
++                        comparators=[
++                          Name(id='subject', ctx=Load())]),
++                      Compare(
++                        left=Subscript(
++                          value=Name(id='r', ctx=Load()),
++                          slice=Constant(value='decision'),
++                          ctx=Load()),
++                        ops=[
++                          Eq()],
++                        comparators=[
++                          Subscript(
++                            value=Name(id='ack', ctx=Load()),
++                            slice=BinOp(
++                              left=BinOp(
++                                left=Name(id='prefix', ctx=Load()),
++                                op=Add(),
++                                right=Name(id='title', ctx=Load())),
++                              op=Add(),
++                              right=Constant(value='Decision')),
++                            ctx=Load())])])),
++                Assert(
++                  test=BoolOp(
++                    op=And(),
++                    values=[
++                      Compare(
++                        left=Call(
++                          func=Name(id='type', ctx=Load()),
++                          args=[
++                            Subscript(
++                              value=Name(id='r', ctx=Load()),
++                              slice=Constant(value='session'),
++                              ctx=Load())]),
++                        ops=[
++                          Is()],
++                        comparators=[
++                          Name(id='str', ctx=Load())]),
++                      Call(
++                        func=Attribute(
++                          value=Subscript(
++                            value=Name(id='r', ctx=Load()),
++                            slice=Constant(value='session'),
++                            ctx=Load()),
++                          attr='startswith',
++                          ctx=Load()),
++                        args=[
++                          Constant(value='/root/')]),
++                      Compare(
++                        left=Subscript(
++                          value=Name(id='r', ctx=Load()),
++                          slice=Constant(value='session'),
++                          ctx=Load()),
++                        ops=[
++                          NotIn()],
++                        comparators=[
++                          Tuple(
++                            elts=[
++                              Name(id='ACTOR', ctx=Load()),
++                              Constant(value='/root')],
++                            ctx=Load())])])),
++                If(
++                  test=Compare(
++                    left=Name(id='prefix', ctx=Load()),
++                    ops=[
++                      Eq()],
++                    comparators=[
++                      Constant(value='source')]),
++                  body=[
++                    Assert(
++                      test=Compare(
++                        left=Subscript(
++                          value=Name(id='r', ctx=Load()),
++                          slice=Constant(value='decision'),
++                          ctx=Load()),
++                        ops=[
++                          Eq()],
++                        comparators=[
++                          Subscript(
++                            value=Dict(
++                              keys=[
++                                Constant(value='qa'),
++                                Constant(value='security')],
++                              values=[
++                                Constant(value='ACCEPT_DIAGNOSTIC_SOURCE_CONFIG_ONLY'),
++                                Constant(value='ACCEPT_SOURCE_FOR_SCOPED_DATA_CONTROLS_ONLY')]),
++                            slice=Name(id='role', ctx=Load()),
++                            ctx=Load())]))]),
++                Expr(
++                  value=Call(
++                    func=Attribute(
++                      value=Name(id='sessions', ctx=Load()),
++                      attr='append',
++                      ctx=Load()),
++                    args=[
++                      Subscript(
++                        value=Name(id='r', ctx=Load()),
++                        slice=Constant(value='session'),
++                        ctx=Load())])),
++                Expr(
++                  value=Call(
++                    func=Attribute(
++                      value=Name(id='reviews', ctx=Load()),
++                      attr='append',
++                      ctx=Load()),
++                    args=[
++                      Name(id='d', ctx=Load())]))]),
++            Assert(
++              test=Compare(
++                left=Call(
++                  func=Name(id='len', ctx=Load()),
++                  args=[
++                    Call(
++                      func=Name(id='set', ctx=Load()),
++                      args=[
++                        Name(id='sessions', ctx=Load())])]),
++                ops=[
++                  Eq()],
++                comparators=[
++                  Constant(value=2)]))]),
++        Return(
++          value=Dict(
++            keys=[
++              Constant(value='sourceSubject'),
++              Constant(value='sourceManifest'),
++              Constant(value='frozenSourcePlan'),
++              Constant(value='frozenInputs'),
++              Constant(value='installedMembership'),
++              Constant(value='configuration'),
++              Constant(value='interpreters'),
++              Constant(value='monitor'),
++              Constant(value='runnerSubject'),
++              Constant(value='controlPlan'),
++              Constant(value='sourceAndCaptureReviewRecords'),
++              Constant(value='coordinatorAcknowledgement'),
++              Constant(value='inputManifest')],
++            values=[
++              Name(id='source', ctx=Load()),
++              Name(id='manifest', ctx=Load()),
++              Name(id='frozen_plan', ctx=Load()),
++              Name(id='actual', ctx=Load()),
++              Name(id='membership', ctx=Load()),
++              Subscript(
++                value=Name(id='inputs', ctx=Load()),
++                slice=Constant(value='configuration'),
++                ctx=Load()),
++              Dict(
++                keys=[
++                  Constant(value='python'),
++                  Constant(value='node')],
++                values=[
++                  Subscript(
++                    value=Name(id='inputs', ctx=Load()),
++                    slice=Constant(value='python'),
++                    ctx=Load()),
++                  Subscript(
++                    value=Name(id='inputs', ctx=Load()),
++                    slice=Constant(value='node'),
++                    ctx=Load())]),
++              Call(
++                func=Name(id='pin', ctx=Load()),
++                args=[
++                  Call(
++                    func=Attribute(
++                      value=Call(
++                        func=Name(id='Path', ctx=Load()),
++                        args=[
++                          Name(id='__file__', ctx=Load())]),
++                      attr='resolve',
++                      ctx=Load()))]),
++              Subscript(
+                 value=Name(id='ack', ctx=Load()),
+-                slice=Name(id='field', ctx=Load()),
+-                ctx=Load())),
++                slice=Constant(value='runnerSubject'),
++                ctx=Load()),
++              Subscript(
++                value=Name(id='ack', ctx=Load()),
++                slice=Constant(value='controlPlan'),
++                ctx=Load()),
++              Name(id='reviews', ctx=Load()),
++              Name(id='ack_pin', ctx=Load()),
++              Call(
++                func=Name(id='pin', ctx=Load()),
++                args=[
++                  BinOp(
++                    left=Name(id='CAPTURE', ctx=Load()),
++                    op=Div(),
++                    right=Constant(value='frozen-inputs.json'))])]))]),
++    FunctionDef(
++      name='output_shape',
++      args=arguments(
++        args=[
++          arg(arg='scope'),
++          arg(arg='raw')]),
++      body=[
++        If(
++          test=Compare(
++            left=Subscript(
++              value=Name(id='scope', ctx=Load()),
++              slice=Constant(value='name'),
++              ctx=Load()),
++            ops=[
++              Eq()],
++            comparators=[
++              Constant(value='source-custody-and-host-inventory')]),
++          body=[
++            Assert(
++              test=Compare(
++                left=Subscript(
++                  value=Name(id='raw', ctx=Load()),
++                  slice=Constant(value='stdout'),
++                  ctx=Load()),
++                ops=[
++                  Eq()],
++                comparators=[
++                  Constant(value=b'')])),
++            Assign(
++              targets=[
++                Name(id='match', ctx=Store())],
++              value=Call(
++                func=Attribute(
++                  value=Name(id='re', ctx=Load()),
++                  attr='search',
++                  ctx=Load()),
++                args=[
++                  Constant(value=b'\\nRan ([0-9]+) tests? in [^\\n]+\\n\\nOK\\n\\Z'),
++                  Subscript(
++                    value=Name(id='raw', ctx=Load()),
++                    slice=Constant(value='stderr'),
++                    ctx=Load())])),
+             Assert(
+               test=BoolOp(
+                 op=And(),
+                 values=[
++                  Name(id='match', ctx=Load()),
+                   Compare(
+-                    left=Attribute(
+-                      value=Call(
+-                        func=Name(id='Path', ctx=Load()),
+-                        args=[
+-                          Subscript(
+-                            value=Name(id='review_pin', ctx=Load()),
+-                            slice=Constant(value='path'),
+-                            ctx=Load())]),
+-                      attr='parent',
+-                      ctx=Load()),
++                    left=Call(
++                      func=Name(id='int', ctx=Load()),
++                      args=[
++                        Subscript(
++                          value=Name(id='match', ctx=Load()),
++                          slice=Constant(value=1),
++                          ctx=Load())]),
+                     ops=[
+                       Eq()],
+                     comparators=[
+-                      Name(id='PREP', ctx=Load())]),
+-                  Compare(
+-                    left=Call(
+-                      func=Name(id='pin', ctx=Load()),
+-                      args=[
+-                        Call(
+-                          func=Name(id='Path', ctx=Load()),
+-                          args=[
+-                            Subscript(
+-                              value=Name(id='review_pin', ctx=Load()),
+-                              slice=Constant(value='path'),
+-                              ctx=Load())])]),
++                      Constant(value=18)])])),
++            Assign(
++              targets=[
++                Name(id='pairs', ctx=Store())],
++              value=Call(
++                func=Attribute(
++                  value=Name(id='re', ctx=Load()),
++                  attr='findall',
++                  ctx=Load()),
++                args=[
++                  Constant(value=b'^(test_[a-z0-9_]+) \\(__main__\\.([A-Za-z0-9_]+)\\.(test_[a-z0-9_]+)\\) \\.\\.\\. ok$'),
++                  Subscript(
++                    value=Name(id='raw', ctx=Load()),
++                    slice=Constant(value='stderr'),
++                    ctx=Load()),
++                  Attribute(
++                    value=Name(id='re', ctx=Load()),
++                    attr='M',
++                    ctx=Load())])),
++            Assign(
++              targets=[
++                Name(id='actual', ctx=Store())],
++              value=Dict()),
++            For(
++              target=Tuple(
++                elts=[
++                  Name(id='one', ctx=Store()),
++                  Name(id='klass', ctx=Store()),
++                  Name(id='two', ctx=Store())],
++                ctx=Store()),
++              iter=Name(id='pairs', ctx=Load()),
++              body=[
++                Assert(
++                  test=Compare(
++                    left=Name(id='one', ctx=Load()),
+                     ops=[
+                       Eq()],
+                     comparators=[
+-                      Name(id='review_pin', ctx=Load())])])),
+-            Assign(
+-              targets=[
+-                Name(id='review', ctx=Store())],
+-              value=Call(
+-                func=Name(id='doc', ctx=Load()),
+-                args=[
+-                  Call(
+-                    func=Name(id='Path', ctx=Load()),
++                      Name(id='two', ctx=Load())])),
++                Expr(
++                  value=Call(
++                    func=Attribute(
++                      value=Call(
++                        func=Attribute(
++                          value=Name(id='actual', ctx=Load()),
++                          attr='setdefault',
++                          ctx=Load()),
++                        args=[
++                          Call(
++                            func=Attribute(
++                              value=Name(id='klass', ctx=Load()),
++                              attr='decode',
++                              ctx=Load())),
++                          List(ctx=Load())]),
++                      attr='append',
++                      ctx=Load()),
+                     args=[
+-                      Subscript(
+-                        value=Name(id='review_pin', ctx=Load()),
+-                        slice=Constant(value='path'),
+-                        ctx=Load())])])),
+-            Assert(
+-              test=Compare(
+-                left=Call(
+-                  func=Name(id='set', ctx=Load()),
+-                  args=[
+-                    Name(id='review', ctx=Load())]),
+-                ops=[
+-                  Eq()],
+-                comparators=[
+-                  Set(
+-                    elts=[
+-                      Constant(value='role'),
+-                      Constant(value='session'),
+-                      Constant(value='decision'),
+-                      Constant(value='subject')])]),
+-              msg=Constant(value='Actual closed4 SOURCE record only')),
+-            Assert(
+-              test=BoolOp(
+-                op=And(),
+-                values=[
+-                  Compare(
+-                    left=Subscript(
+-                      value=Name(id='review', ctx=Load()),
+-                      slice=Constant(value='subject'),
+-                      ctx=Load()),
+-                    ops=[
+-                      Eq()],
+-                    comparators=[
+-                      Name(id='subject', ctx=Load())]),
+-                  Compare(
+-                    left=Subscript(
+-                      value=Name(id='review', ctx=Load()),
+-                      slice=Constant(value='role'),
+-                      ctx=Load()),
+-                    ops=[
+-                      Eq()],
+-                    comparators=[
+-                      Name(id='role', ctx=Load())])])),
++                      Call(
++                        func=Attribute(
++                          value=Name(id='one', ctx=Load()),
++                          attr='decode',
++                          ctx=Load()))]))]),
+             Assert(
+               test=BoolOp(
+                 op=And(),
+                 values=[
+                   Compare(
+                     left=Call(
+-                      func=Name(id='type', ctx=Load()),
++                      func=Name(id='sum', ctx=Load()),
+                       args=[
+-                        Subscript(
+-                          value=Name(id='ack', ctx=Load()),
+-                          slice=Name(id='decision_field', ctx=Load()),
+-                          ctx=Load())]),
+-                    ops=[
+-                      Is()],
+-                    comparators=[
+-                      Name(id='str', ctx=Load())]),
+-                  Compare(
+-                    left=Subscript(
+-                      value=Name(id='review', ctx=Load()),
+-                      slice=Constant(value='decision'),
+-                      ctx=Load()),
++                        Call(
++                          func=Name(id='map', ctx=Load()),
++                          args=[
++                            Name(id='len', ctx=Load()),
++                            Call(
++                              func=Attribute(
++                                value=Name(id='actual', ctx=Load()),
++                                attr='values',
++                                ctx=Load()))])]),
+                     ops=[
+                       Eq()],
+                     comparators=[
+-                      Subscript(
+-                        value=Name(id='ack', ctx=Load()),
+-                        slice=Name(id='decision_field', ctx=Load()),
+-                        ctx=Load())])])),
++                      Constant(value=18)]),
++                  Compare(
++                    left=Call(
++                      func=Name(id='len', ctx=Load()),
++                      args=[
++                        Name(id='pairs', ctx=Load())]),
++                    ops=[
++                      Eq()],
++                    comparators=[
++                      Constant(value=18)])])),
+             Assert(
+               test=Compare(
++                left=DictComp(
++                  key=Name(id='k', ctx=Load()),
++                  value=Call(
++                    func=Name(id='sorted', ctx=Load()),
++                    args=[
++                      Name(id='v', ctx=Load())]),
++                  generators=[
++                    comprehension(
++                      target=Tuple(
++                        elts=[
++                          Name(id='k', ctx=Store()),
++                          Name(id='v', ctx=Store())],
++                        ctx=Store()),
++                      iter=Call(
++                        func=Attribute(
++                          value=Name(id='actual', ctx=Load()),
++                          attr='items',
++                          ctx=Load())),
++                      is_async=0)]),
++                ops=[
++                  Eq()],
++                comparators=[
++                  DictComp(
++                    key=Name(id='k', ctx=Load()),
++                    value=Call(
++                      func=Name(id='sorted', ctx=Load()),
++                      args=[
++                        Name(id='v', ctx=Load())]),
++                    generators=[
++                      comprehension(
++                        target=Tuple(
++                          elts=[
++                            Name(id='k', ctx=Store()),
++                            Name(id='v', ctx=Store())],
++                          ctx=Store()),
++                        iter=Call(
++                          func=Attribute(
++                            value=Subscript(
++                              value=Name(id='scope', ctx=Load()),
++                              slice=Constant(value='expectedClassCases'),
++                              ctx=Load()),
++                            attr='items',
++                            ctx=Load())),
++                        is_async=0)])])),
++            Return(
++              value=Tuple(
++                elts=[
++                  Constant(value=18),
++                  Dict(
++                    keys=[
++                      Constant(value='SourceCustodyControls'),
++                      Constant(value='ClosedDependencyControls')],
++                    values=[
++                      Constant(value=10),
++                      Constant(value=8)])],
++                ctx=Load()))]),
++        Assert(
++          test=BoolOp(
++            op=And(),
++            values=[
++              Compare(
+                 left=Subscript(
+-                  value=Name(id='review', ctx=Load()),
+-                  slice=Constant(value='session'),
+-                  ctx=Load()),
+-                ops=[
+-                  NotIn()],
+-                comparators=[
+-                  Tuple(
+-                    elts=[
+-                      Name(id='ACTOR', ctx=Load()),
+-                      Constant(value='/root'),
+-                      Constant(value='/root/android_health_implementer')],
+-                    ctx=Load())])),
+-            Assert(
+-              test=BoolOp(
+-                op=And(),
+-                values=[
+-                  Compare(
+-                    left=Call(
+-                      func=Name(id='type', ctx=Load()),
+-                      args=[
+-                        Subscript(
+-                          value=Name(id='review', ctx=Load()),
+-                          slice=Constant(value='session'),
+-                          ctx=Load())]),
+-                    ops=[
+-                      Is()],
+-                    comparators=[
+-                      Name(id='str', ctx=Load())]),
+-                  Call(
+-                    func=Attribute(
+-                      value=Subscript(
+-                        value=Name(id='review', ctx=Load()),
+-                        slice=Constant(value='session'),
+-                        ctx=Load()),
+-                      attr='startswith',
++                  value=Name(id='raw', ctx=Load()),
++                  slice=Constant(value='stderr'),
++                  ctx=Load()),
++                ops=[
++                  Eq()],
++                comparators=[
++                  Constant(value=b'')]),
++              Call(
++                func=Attribute(
++                  value=Subscript(
++                    value=Name(id='raw', ctx=Load()),
++                    slice=Constant(value='stdout'),
++                    ctx=Load()),
++                  attr='endswith',
++                  ctx=Load()),
++                args=[
++                  Constant(value=b'\n')]),
++              Compare(
++                left=Call(
++                  func=Attribute(
++                    value=Subscript(
++                      value=Name(id='raw', ctx=Load()),
++                      slice=Constant(value='stdout'),
+                       ctx=Load()),
+-                    args=[
+-                      Constant(value='/root/')])])),
+-            Expr(
+-              value=Call(
+-                func=Attribute(
+-                  value=Name(id='sessions', ctx=Load()),
+-                  attr='append',
+-                  ctx=Load()),
+-                args=[
+-                  Subscript(
+-                    value=Name(id='review', ctx=Load()),
+-                    slice=Constant(value='session'),
+-                    ctx=Load())])),
+-            Expr(
+-              value=Call(
+-                func=Attribute(
+-                  value=Name(id='review_pins', ctx=Load()),
+-                  attr='append',
+-                  ctx=Load()),
+-                args=[
+-                  Name(id='review_pin', ctx=Load())]))]),
+-        Assert(
+-          test=Compare(
+-            left=Call(
+-              func=Name(id='len', ctx=Load()),
+-              args=[
+-                Call(
+-                  func=Name(id='set', ctx=Load()),
++                    attr='count',
++                    ctx=Load()),
+                   args=[
+-                    Name(id='sessions', ctx=Load())])]),
+-            ops=[
+-              Eq()],
+-            comparators=[
+-              Constant(value=2)])),
+-        Return(
++                    Constant(value=b'\n')]),
++                ops=[
++                  Eq()],
++                comparators=[
++                  Constant(value=1)])])),
++        Assign(
++          targets=[
++            Name(id='v', ctx=Store())],
+           value=Call(
+-            func=Name(id='dict', ctx=Load()),
+-            keywords=[
+-              keyword(
+-                arg='sourceSubject',
+-                value=Name(id='subject', ctx=Load())),
+-              keyword(
+-                arg='sourceManifest',
+-                value=Name(id='manifest', ctx=Load())),
+-              keyword(
+-                arg='frozenSourcePlan',
+-                value=Name(id='frozen_plan', ctx=Load())),
+-              keyword(
+-                arg='fullFrozenInputs',
+-                value=Name(id='actual', ctx=Load())),
+-              keyword(
+-                arg='interpreters',
+-                value=Name(id='interpreters', ctx=Load())),
+-              keyword(
+-                arg='monitor',
+-                value=Call(
+-                  func=Name(id='pin', ctx=Load()),
+-                  args=[
+-                    Call(
+-                      func=Attribute(
+-                        value=Call(
+-                          func=Name(id='Path', ctx=Load()),
+-                          args=[
+-                            Name(id='__file__', ctx=Load())]),
+-                        attr='resolve',
+-                        ctx=Load()))])),
+-              keyword(
+-                arg='runnerSubject',
+-                value=Subscript(
+-                  value=Name(id='ack', ctx=Load()),
+-                  slice=Constant(value='runnerSubject'),
+-                  ctx=Load())),
+-              keyword(
+-                arg='controlPlan',
+-                value=Subscript(
+-                  value=Name(id='ack', ctx=Load()),
+-                  slice=Constant(value='controlPlan'),
+-                  ctx=Load())),
+-              keyword(
+-                arg='sourceReviewRecords',
+-                value=Name(id='review_pins', ctx=Load())),
+-              keyword(
+-                arg='coordinatorAcknowledgement',
+-                value=Name(id='ack_pin', ctx=Load())),
+-              keyword(
+-                arg='frozenInputManifest',
+-                value=Call(
+-                  func=Name(id='pin', ctx=Load()),
+-                  args=[
+-                    BinOp(
+-                      left=Name(id='HERE', ctx=Load()),
+-                      op=Div(),
+-                      right=Constant(value='frozen-inputs.json'))]))]))]),
+-    FunctionDef(
+-      name='main',
+-      args=arguments(),
+-      body=[
++            func=Name(id='strict', ctx=Load()),
++            args=[
++              Subscript(
++                value=Name(id='raw', ctx=Load()),
++                slice=Constant(value='stdout'),
++                ctx=Load())])),
+         Assert(
+           test=BoolOp(
+             op=And(),
+             values=[
+               Compare(
+                 left=Call(
++                  func=Name(id='type', ctx=Load()),
++                  args=[
++                    Subscript(
++                      value=Name(id='v', ctx=Load()),
++                      slice=Constant(value='checks'),
++                      ctx=Load())]),
++                ops=[
++                  Is()],
++                comparators=[
++                  Name(id='int', ctx=Load())]),
++              Compare(
++                left=Subscript(
++                  value=Name(id='v', ctx=Load()),
++                  slice=Constant(value='checks'),
++                  ctx=Load()),
++                ops=[
++                  Eq()],
++                comparators=[
++                  Subscript(
++                    value=Name(id='scope', ctx=Load()),
++                    slice=Constant(value='count'),
++                    ctx=Load())])])),
++        Assert(
++          test=BoolOp(
++            op=And(),
++            values=[
++              Compare(
++                left=Subscript(
++                  value=Name(id='v', ctx=Load()),
++                  slice=Constant(value='cases'),
++                  ctx=Load()),
++                ops=[
++                  Eq()],
++                comparators=[
++                  Subscript(
++                    value=Name(id='scope', ctx=Load()),
++                    slice=Constant(value='expectedCases'),
++                    ctx=Load())]),
++              Compare(
++                left=Call(
+                   func=Name(id='len', ctx=Load()),
+                   args=[
+-                    Attribute(
+-                      value=Name(id='sys', ctx=Load()),
+-                      attr='argv',
++                    Subscript(
++                      value=Name(id='v', ctx=Load()),
++                      slice=Constant(value='cases'),
+                       ctx=Load())]),
+                 ops=[
+                   Eq()],
+                 comparators=[
+-                  Constant(value=4)]),
++                  Subscript(
++                    value=Name(id='scope', ctx=Load()),
++                    slice=Constant(value='count'),
++                    ctx=Load())]),
+               Compare(
++                left=Call(
++                  func=Name(id='len', ctx=Load()),
++                  args=[
++                    Call(
++                      func=Name(id='set', ctx=Load()),
++                      args=[
++                        Subscript(
++                          value=Name(id='v', ctx=Load()),
++                          slice=Constant(value='cases'),
++                          ctx=Load())])]),
++                ops=[
++                  Eq()],
++                comparators=[
++                  Call(
++                    func=Name(id='len', ctx=Load()),
++                    args=[
++                      Subscript(
++                        value=Name(id='v', ctx=Load()),
++                        slice=Constant(value='cases'),
++                        ctx=Load())])])])),
++        If(
++          test=Compare(
++            left=Subscript(
++              value=Name(id='scope', ctx=Load()),
++              slice=Constant(value='name'),
++              ctx=Load()),
++            ops=[
++              Eq()],
++            comparators=[
++              Constant(value='fake-socket-and-physical-prefix-model')]),
++          body=[
++            Assert(
++              test=Compare(
++                left=Call(
++                  func=Name(id='set', ctx=Load()),
++                  args=[
++                    Name(id='v', ctx=Load())]),
++                ops=[
++                  Eq()],
++                comparators=[
++                  Set(
++                    elts=[
++                      Constant(value='scope'),
++                      Constant(value='checks'),
++                      Constant(value='cases'),
++                      Constant(value='realGuardExecuted'),
++                      Constant(value='networkExecuted'),
++                      Constant(value='cryptoExecuted'),
++                      Constant(value='ordinaryClientQualified')])])),
++            Assert(
++              test=Compare(
+                 left=Subscript(
+-                  value=Attribute(
+-                    value=Name(id='sys', ctx=Load()),
+-                    attr='argv',
+-                    ctx=Load()),
+-                  slice=Slice(
+-                    lower=Constant(value=1),
+-                    upper=Constant(value=3)),
++                  value=Name(id='v', ctx=Load()),
++                  slice=Constant(value='scope'),
+                   ctx=Load()),
+                 ops=[
+                   Eq()],
+                 comparators=[
+-                  List(
+-                    elts=[
+-                      Constant(value='--execute-once'),
+-                      Constant(value='--root-ack-sha')],
+-                    ctx=Load())])]),
+-          msg=Constant(value='Fixed single control invocation required')),
++                  Constant(value='TRANSPORT_QUERY_FAKE_SOCKET_PHASE_MODEL_ONLY')])),
++            For(
++              target=Name(id='k', ctx=Store()),
++              iter=Tuple(
++                elts=[
++                  Constant(value='realGuardExecuted'),
++                  Constant(value='networkExecuted'),
++                  Constant(value='cryptoExecuted'),
++                  Constant(value='ordinaryClientQualified')],
++                ctx=Load()),
++              body=[
++                Assert(
++                  test=Compare(
++                    left=Subscript(
++                      value=Name(id='v', ctx=Load()),
++                      slice=Name(id='k', ctx=Load()),
++                      ctx=Load()),
++                    ops=[
++                      Is()],
++                    comparators=[
++                      Constant(value=False)]))]),
++            Return(
++              value=Tuple(
++                elts=[
++                  Constant(value=27),
++                  Dict(
++                    keys=[
++                      Constant(value='priorScopeCasesIncludingVersionedLateBehavior'),
++                      Constant(value='newFaultFamilies')],
++                    values=[
++                      Constant(value=20),
++                      Constant(value=7)])],
++                ctx=Load()))]),
++        Assert(
++          test=Compare(
++            left=Subscript(
++              value=Name(id='scope', ctx=Load()),
++              slice=Constant(value='name'),
++              ctx=Load()),
++            ops=[
++              Eq()],
++            comparators=[
++              Constant(value='guest-dependency-inventory-data')])),
++        Assert(
++          test=Compare(
++            left=Call(
++              func=Name(id='set', ctx=Load()),
++              args=[
++                Name(id='v', ctx=Load())]),
++            ops=[
++              Eq()],
++            comparators=[
++              Set(
++                elts=[
++                  Constant(value='scope'),
++                  Constant(value='checks'),
++                  Constant(value='cases'),
++                  Constant(value='optionalModuleImported'),
++                  Constant(value='networkExecuted'),
++                  Constant(value='containerExecuted')])])),
++        Assert(
++          test=Compare(
++            left=Subscript(
++              value=Name(id='v', ctx=Load()),
++              slice=Constant(value='scope'),
++              ctx=Load()),
++            ops=[
++              Eq()],
++            comparators=[
++              Constant(value='GUEST_DEPENDENCY_INVENTORY_DATA_ONLY')])),
++        For(
++          target=Name(id='k', ctx=Store()),
++          iter=Tuple(
++            elts=[
++              Constant(value='optionalModuleImported'),
++              Constant(value='networkExecuted'),
++              Constant(value='containerExecuted')],
++            ctx=Load()),
++          body=[
++            Assert(
++              test=Compare(
++                left=Subscript(
++                  value=Name(id='v', ctx=Load()),
++                  slice=Name(id='k', ctx=Load()),
++                  ctx=Load()),
++                ops=[
++                  Is()],
++                comparators=[
++                  Constant(value=False)]))]),
++        Return(
++          value=Tuple(
++            elts=[
++              Constant(value=6),
++              Dict(
++                keys=[
++                  Constant(value='guestInventoryFamilies')],
++                values=[
++                  Constant(value=6)])],
++            ctx=Load()))]),
++    FunctionDef(
++      name='one_scope',
++      args=arguments(
++        args=[
++          arg(arg='scope'),
++          arg(arg='ack_sha')]),
++      body=[
+         Assign(
+           targets=[
+-            Name(id='ack_sha', ctx=Store())],
+-          value=Subscript(
+-            value=Attribute(
+-              value=Name(id='sys', ctx=Load()),
+-              attr='argv',
+-              ctx=Load()),
+-            slice=Constant(value=3),
+-            ctx=Load())),
+-        Assert(
+-          test=Call(
+-            func=Attribute(
+-              value=Name(id='re', ctx=Load()),
+-              attr='fullmatch',
+-              ctx=Load()),
+-            args=[
+-              Constant(value='[0-9a-f]{64}'),
+-              Name(id='ack_sha', ctx=Load())]),
+-          msg=Constant(value='External acknowledgement hash required')),
++            Name(id='HERE', ctx=Store())],
++          value=BinOp(
++            left=BinOp(
++              left=Name(id='CAPTURE', ctx=Load()),
++              op=Div(),
++              right=Constant(value='scopes')),
++            op=Div(),
++            right=Subscript(
++              value=Name(id='scope', ctx=Load()),
++              slice=Constant(value='name'),
++              ctx=Load()))),
+         Expr(
+           value=Call(
+             func=Attribute(
+-              value=Name(id='os', ctx=Load()),
+-              attr='umask',
++              value=Name(id='HERE', ctx=Load()),
++              attr='mkdir',
+               ctx=Load()),
++            keywords=[
++              keyword(
++                arg='parents',
++                value=Constant(value=True)),
++              keyword(
++                arg='mode',
++                value=Constant(value=448))])),
++        Assign(
++          targets=[
++            Name(id='ARGV', ctx=Store())],
++          value=Subscript(
++            value=Name(id='scope', ctx=Load()),
++            slice=Constant(value='argv'),
++            ctx=Load())),
++        FunctionDef(
++          name='save',
++          args=arguments(
+             args=[
+-              Constant(value=63)])),
+-        Expr(
+-          value=Call(
+-            func=Name(id='save', ctx=Load()),
+-            args=[
+-              Constant(value='started.json'),
+-              Call(
+-                func=Name(id='dict', ctx=Load()),
+-                keywords=[
+-                  keyword(
+-                    arg='actor',
+-                    value=Name(id='ACTOR', ctx=Load())),
+-                  keyword(
+-                    arg='utc',
+-                    value=Call(
+-                      func=Name(id='utc', ctx=Load()))),
+-                  keyword(
+-                    arg='pid',
+-                    value=Call(
+-                      func=Attribute(
+-                        value=Name(id='os', ctx=Load()),
+-                        attr='getpid',
+-                        ctx=Load()))),
+-                  keyword(
+-                    arg='scope',
+-                    value=Constant(value='ONCE_54_SYNTHETIC_DATA_ONLY_NO_PRIMARY_CONSUMER_ANDROID_SDK_SERVICES_CRYPTO'))])])),
++              arg(arg='name'),
++              arg(arg='value')]),
++          body=[
++            Return(
++              value=Call(
++                func=Subscript(
++                  value=Call(
++                    func=Name(id='globals', ctx=Load())),
++                  slice=Constant(value='save'),
++                  ctx=Load()),
++                args=[
++                  BinOp(
++                    left=BinOp(
++                      left=BinOp(
++                        left=Constant(value='scopes/'),
++                        op=Add(),
++                        right=Subscript(
++                          value=Name(id='scope', ctx=Load()),
++                          slice=Constant(value='name'),
++                          ctx=Load())),
++                      op=Add(),
++                      right=Constant(value='/')),
++                    op=Add(),
++                    right=Name(id='name', ctx=Load())),
++                  Name(id='value', ctx=Load())]))]),
+         Assign(
+           targets=[
+             Name(id='before', ctx=Store()),
+@@ -1674,7 +2360,7 @@
+             keywords=[
+               keyword(
+                 arg='schema',
+-                value=Constant(value='e02-completion-pure-control-execution-v1')),
++                value=Constant(value='e02-transport-source2-pure-scope-execution-v1')),
+               keyword(
+                 arg='actor',
+                 value=Name(id='ACTOR', ctx=Load())),
+@@ -1692,7 +2378,10 @@
+                     Name(id='ROOT', ctx=Load())])),
+               keyword(
+                 arg='expectedCount',
+-                value=Constant(value=54)),
++                value=Subscript(
++                  value=Name(id='scope', ctx=Load()),
++                  slice=Constant(value='count'),
++                  ctx=Load())),
+               keyword(
+                 arg='startedUtc',
+                 value=Call(
+@@ -2601,219 +3290,32 @@
+                               Name(id='retain_error', ctx=Load())]))])])])]),
+         Try(
+           body=[
+-            Assert(
+-              test=Compare(
+-                left=Subscript(
+-                  value=Name(id='raw', ctx=Load()),
+-                  slice=Constant(value='stderr'),
+-                  ctx=Load()),
+-                ops=[
+-                  Eq()],
+-                comparators=[
+-                  Constant(value=b'')]),
+-              msg=Constant(value='Exact empty Node stderr required')),
+-            Assert(
+-              test=BoolOp(
+-                op=And(),
+-                values=[
+-                  Call(
+-                    func=Attribute(
+-                      value=Subscript(
+-                        value=Name(id='raw', ctx=Load()),
+-                        slice=Constant(value='stdout'),
+-                        ctx=Load()),
+-                      attr='endswith',
+-                      ctx=Load()),
+-                    args=[
+-                      Constant(value=b'\n')]),
+-                  Compare(
+-                    left=Call(
+-                      func=Attribute(
+-                        value=Subscript(
+-                          value=Name(id='raw', ctx=Load()),
+-                          slice=Constant(value='stdout'),
+-                          ctx=Load()),
+-                        attr='count',
+-                        ctx=Load()),
+-                      args=[
+-                        Constant(value=b'\n')]),
+-                    ops=[
+-                      Eq()],
+-                    comparators=[
+-                      Constant(value=1)])])),
+             Assign(
+               targets=[
+-                Name(id='value', ctx=Store())],
++                Tuple(
++                  elts=[
++                    Name(id='count', ctx=Store()),
++                    Name(id='partitions', ctx=Store())],
++                  ctx=Store())],
+               value=Call(
+-                func=Name(id='strict', ctx=Load()),
++                func=Name(id='output_shape', ctx=Load()),
+                 args=[
+-                  Subscript(
+-                    value=Name(id='raw', ctx=Load()),
+-                    slice=Constant(value='stdout'),
+-                    ctx=Load())])),
+-            Assert(
+-              test=Compare(
+-                left=Call(
+-                  func=Name(id='set', ctx=Load()),
+-                  args=[
+-                    Name(id='value', ctx=Load())]),
+-                ops=[
+-                  Eq()],
+-                comparators=[
+-                  Set(
+-                    elts=[
+-                      Constant(value='scope'),
+-                      Constant(value='checks'),
+-                      Constant(value='cases'),
+-                      Constant(value='primaryExecuted'),
+-                      Constant(value='consumerExecuted'),
+-                      Constant(value='cryptoExecuted'),
+-                      Constant(value='completionPassClaimed')])])),
+-            Assert(
+-              test=Compare(
+-                left=Subscript(
+-                  value=Name(id='value', ctx=Load()),
+-                  slice=Constant(value='scope'),
+-                  ctx=Load()),
+-                ops=[
+-                  Eq()],
+-                comparators=[
+-                  Constant(value='E02_COMPLETION_SYNTHETIC_DATA_ONLY')])),
+-            Assert(
+-              test=BoolOp(
+-                op=And(),
+-                values=[
+-                  Compare(
+-                    left=Call(
+-                      func=Name(id='type', ctx=Load()),
+-                      args=[
+-                        Subscript(
+-                          value=Name(id='value', ctx=Load()),
+-                          slice=Constant(value='checks'),
+-                          ctx=Load())]),
+-                    ops=[
+-                      Is()],
+-                    comparators=[
+-                      Name(id='int', ctx=Load())]),
+-                  Compare(
+-                    left=Subscript(
+-                      value=Name(id='value', ctx=Load()),
+-                      slice=Constant(value='checks'),
+-                      ctx=Load()),
+-                    ops=[
+-                      Eq()],
+-                    comparators=[
+-                      Constant(value=54)])])),
+-            Assert(
+-              test=BoolOp(
+-                op=And(),
+-                values=[
+-                  Compare(
+-                    left=Call(
+-                      func=Name(id='type', ctx=Load()),
+-                      args=[
+-                        Subscript(
+-                          value=Name(id='value', ctx=Load()),
+-                          slice=Constant(value='cases'),
+-                          ctx=Load())]),
+-                    ops=[
+-                      Is()],
+-                    comparators=[
+-                      Name(id='list', ctx=Load())]),
+-                  Compare(
+-                    left=Call(
+-                      func=Name(id='len', ctx=Load()),
+-                      args=[
+-                        Subscript(
+-                          value=Name(id='value', ctx=Load()),
+-                          slice=Constant(value='cases'),
+-                          ctx=Load())]),
+-                    ops=[
+-                      Eq()],
+-                    comparators=[
+-                      Constant(value=54)])])),
+-            Assert(
+-              test=Call(
+-                func=Name(id='all', ctx=Load()),
+-                args=[
+-                  GeneratorExp(
+-                    elt=BoolOp(
+-                      op=And(),
+-                      values=[
+-                        Compare(
+-                          left=Call(
+-                            func=Name(id='type', ctx=Load()),
+-                            args=[
+-                              Name(id='name', ctx=Load())]),
+-                          ops=[
+-                            Is()],
+-                          comparators=[
+-                            Name(id='str', ctx=Load())]),
+-                        Compare(
+-                          left=Constant(value=1),
+-                          ops=[
+-                            LtE(),
+-                            LtE()],
+-                          comparators=[
+-                            Call(
+-                              func=Name(id='len', ctx=Load()),
+-                              args=[
+-                                Name(id='name', ctx=Load())]),
+-                            Constant(value=160)])]),
+-                    generators=[
+-                      comprehension(
+-                        target=Name(id='name', ctx=Store()),
+-                        iter=Subscript(
+-                          value=Name(id='value', ctx=Load()),
+-                          slice=Constant(value='cases'),
+-                          ctx=Load()),
+-                        is_async=0)])])),
+-            Assert(
+-              test=Compare(
+-                left=Call(
+-                  func=Name(id='len', ctx=Load()),
+-                  args=[
+-                    Call(
+-                      func=Name(id='set', ctx=Load()),
+-                      args=[
+-                        Subscript(
+-                          value=Name(id='value', ctx=Load()),
+-                          slice=Constant(value='cases'),
+-                          ctx=Load())])]),
+-                ops=[
+-                  Eq()],
+-                comparators=[
+-                  Constant(value=54)])),
+-            For(
+-              target=Name(id='key', ctx=Store()),
+-              iter=Tuple(
+-                elts=[
+-                  Constant(value='primaryExecuted'),
+-                  Constant(value='consumerExecuted'),
+-                  Constant(value='cryptoExecuted'),
+-                  Constant(value='completionPassClaimed')],
+-                ctx=Load()),
+-              body=[
+-                Assert(
+-                  test=Compare(
+-                    left=Subscript(
+-                      value=Name(id='value', ctx=Load()),
+-                      slice=Name(id='key', ctx=Load()),
+-                      ctx=Load()),
+-                    ops=[
+-                      Is()],
+-                    comparators=[
+-                      Constant(value=False)]))]),
++                  Name(id='scope', ctx=Load()),
++                  Name(id='raw', ctx=Load())])),
+             Assign(
+               targets=[
+                 Subscript(
+                   value=Name(id='receipt', ctx=Load()),
+                   slice=Constant(value='observedCount'),
+                   ctx=Store())],
+-              value=Subscript(
+-                value=Name(id='value', ctx=Load()),
+-                slice=Constant(value='checks'),
+-                ctx=Load())),
++              value=Name(id='count', ctx=Load())),
++            Assign(
++              targets=[
++                Subscript(
++                  value=Name(id='receipt', ctx=Load()),
++                  slice=Constant(value='observedPartitions'),
++                  ctx=Store())],
++              value=Name(id='partitions', ctx=Load())),
+             Assign(
+               targets=[
+                 Subscript(
+@@ -3000,45 +3502,403 @@
+             args=[
+               Constant(value='execution.json'),
+               Name(id='receipt', ctx=Load())])),
++        Return(
++          value=Tuple(
++            elts=[
++              Name(id='receipt', ctx=Load()),
++              Call(
++                func=Name(id='pin', ctx=Load()),
++                args=[
++                  BinOp(
++                    left=Name(id='HERE', ctx=Load()),
++                    op=Div(),
++                    right=Constant(value='execution.json'))])],
++            ctx=Load()))]),
++    FunctionDef(
++      name='main',
++      args=arguments(),
++      body=[
++        Assert(
++          test=BoolOp(
++            op=And(),
++            values=[
++              Compare(
++                left=Call(
++                  func=Name(id='len', ctx=Load()),
++                  args=[
++                    Attribute(
++                      value=Name(id='sys', ctx=Load()),
++                      attr='argv',
++                      ctx=Load())]),
++                ops=[
++                  Eq()],
++                comparators=[
++                  Constant(value=4)]),
++              Compare(
++                left=Subscript(
++                  value=Attribute(
++                    value=Name(id='sys', ctx=Load()),
++                    attr='argv',
++                    ctx=Load()),
++                  slice=Slice(
++                    lower=Constant(value=1),
++                    upper=Constant(value=3)),
++                  ctx=Load()),
++                ops=[
++                  Eq()],
++                comparators=[
++                  List(
++                    elts=[
++                      Constant(value='--execute-once'),
++                      Constant(value='--root-ack-sha')],
++                    ctx=Load())])])),
++        Assign(
++          targets=[
++            Name(id='ack_sha', ctx=Store())],
++          value=Subscript(
++            value=Attribute(
++              value=Name(id='sys', ctx=Load()),
++              attr='argv',
++              ctx=Load()),
++            slice=Constant(value=3),
++            ctx=Load())),
++        Assert(
++          test=Call(
++            func=Attribute(
++              value=Name(id='re', ctx=Load()),
++              attr='fullmatch',
++              ctx=Load()),
++            args=[
++              Constant(value='[0-9a-f]{64}'),
++              Name(id='ack_sha', ctx=Load())])),
++        Expr(
++          value=Call(
++            func=Attribute(
++              value=Name(id='os', ctx=Load()),
++              attr='umask',
++              ctx=Load()),
++            args=[
++              Constant(value=63)])),
++        Expr(
++          value=Call(
++            func=Name(id='save', ctx=Load()),
++            args=[
++              Constant(value='started.json'),
++              Dict(
++                keys=[
++                  Constant(value='actor'),
++                  Constant(value='utc'),
++                  Constant(value='pid'),
++                  Constant(value='scope')],
++                values=[
++                  Name(id='ACTOR', ctx=Load()),
++                  Call(
++                    func=Name(id='utc', ctx=Load())),
++                  Call(
++                    func=Attribute(
++                      value=Name(id='os', ctx=Load()),
++                      attr='getpid',
++                      ctx=Load())),
++                  Constant(value='ONCE_FIXED_18_27_6_DATA_ONLY')])])),
++        Assign(
++          targets=[
++            Name(id='before', ctx=Store())],
++          value=Call(
++            func=Name(id='snapshot', ctx=Load()),
++            args=[
++              Name(id='ack_sha', ctx=Load())])),
++        Expr(
++          value=Call(
++            func=Name(id='save', ctx=Load()),
++            args=[
++              Constant(value='sources-before.json'),
++              Name(id='before', ctx=Load())])),
++        Assign(
++          targets=[
++            Name(id='scopes', ctx=Store())],
++          value=Subscript(
++            value=Call(
++              func=Name(id='doc', ctx=Load()),
++              args=[
++                BinOp(
++                  left=Name(id='PREP', ctx=Load()),
++                  op=Div(),
++                  right=Constant(value='control-plan.json'))]),
++            slice=Constant(value='separateScopes'),
++            ctx=Load())),
++        Assert(
++          test=Compare(
++            left=ListComp(
++              elt=Subscript(
++                value=Name(id='s', ctx=Load()),
++                slice=Constant(value='count'),
++                ctx=Load()),
++              generators=[
++                comprehension(
++                  target=Name(id='s', ctx=Store()),
++                  iter=Name(id='scopes', ctx=Load()),
++                  is_async=0)]),
++            ops=[
++              Eq()],
++            comparators=[
++              List(
++                elts=[
++                  Constant(value=18),
++                  Constant(value=27),
++                  Constant(value=6)],
++                ctx=Load())])),
++        Assign(
++          targets=[
++            Name(id='results', ctx=Store())],
++          value=List(ctx=Load())),
++        For(
++          target=Name(id='scope', ctx=Store()),
++          iter=Name(id='scopes', ctx=Load()),
++          body=[
++            Assign(
++              targets=[
++                Tuple(
++                  elts=[
++                    Name(id='result', ctx=Store()),
++                    Name(id='descriptor', ctx=Store())],
++                  ctx=Store())],
++              value=Call(
++                func=Name(id='one_scope', ctx=Load()),
++                args=[
++                  Name(id='scope', ctx=Load()),
++                  Name(id='ack_sha', ctx=Load())])),
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=Name(id='results', ctx=Load()),
++                  attr='append',
++                  ctx=Load()),
++                args=[
++                  Dict(
++                    keys=[
++                      Constant(value='scope'),
++                      Constant(value='expected'),
++                      Constant(value='observed'),
++                      Constant(value='partitions'),
++                      Constant(value='captureMatched'),
++                      Constant(value='execution')],
++                    values=[
++                      Subscript(
++                        value=Name(id='scope', ctx=Load()),
++                        slice=Constant(value='name'),
++                        ctx=Load()),
++                      Subscript(
++                        value=Name(id='scope', ctx=Load()),
++                        slice=Constant(value='count'),
++                        ctx=Load()),
++                      Subscript(
++                        value=Name(id='result', ctx=Load()),
++                        slice=Constant(value='observedCount'),
++                        ctx=Load()),
++                      Call(
++                        func=Attribute(
++                          value=Name(id='result', ctx=Load()),
++                          attr='get',
++                          ctx=Load()),
++                        args=[
++                          Constant(value='observedPartitions')]),
++                      Subscript(
++                        value=Name(id='result', ctx=Load()),
++                        slice=Constant(value='captureMatched'),
++                        ctx=Load()),
++                      Name(id='descriptor', ctx=Load())])])),
++            If(
++              test=UnaryOp(
++                op=Not(),
++                operand=Subscript(
++                  value=Name(id='result', ctx=Load()),
++                  slice=Constant(value='captureMatched'),
++                  ctx=Load())),
++              body=[
++                Break()])]),
++        Assign(
++          targets=[
++            Name(id='after', ctx=Store())],
++          value=Call(
++            func=Name(id='snapshot', ctx=Load()),
++            args=[
++              Name(id='ack_sha', ctx=Load())])),
++        Expr(
++          value=Call(
++            func=Name(id='save', ctx=Load()),
++            args=[
++              Constant(value='sources-after.json'),
++              Name(id='after', ctx=Load())])),
++        Assign(
++          targets=[
++            Name(id='matched', ctx=Store())],
++          value=BoolOp(
++            op=And(),
++            values=[
++              Compare(
++                left=Call(
++                  func=Name(id='len', ctx=Load()),
++                  args=[
++                    Name(id='results', ctx=Load())]),
++                ops=[
++                  Eq()],
++                comparators=[
++                  Constant(value=3)]),
++              Call(
++                func=Name(id='all', ctx=Load()),
++                args=[
++                  GeneratorExp(
++                    elt=Subscript(
++                      value=Name(id='r', ctx=Load()),
++                      slice=Constant(value='captureMatched'),
++                      ctx=Load()),
++                    generators=[
++                      comprehension(
++                        target=Name(id='r', ctx=Store()),
++                        iter=Name(id='results', ctx=Load()),
++                        is_async=0)])]),
++              Compare(
++                left=Name(id='before', ctx=Load()),
++                ops=[
++                  Eq()],
++                comparators=[
++                  Name(id='after', ctx=Load())])])),
++        Expr(
++          value=Call(
++            func=Name(id='save', ctx=Load()),
++            args=[
++              Constant(value='execution.json'),
++              Dict(
++                keys=[
++                  Constant(value='schema'),
++                  Constant(value='actor'),
++                  Constant(value='state'),
++                  Constant(value='result'),
++                  Constant(value='sourceSubject'),
++                  Constant(value='runnerSubject'),
++                  Constant(value='runner'),
++                  Constant(value='controlPlan'),
++                  Constant(value='rootAcknowledgement'),
++                  Constant(value='scopes'),
++                  Constant(value='remainingNotExecuted'),
++                  Constant(value='sourceUnchanged'),
++                  Constant(value='noRetry'),
++                  Constant(value='controlResultAcceptedByAuthor'),
++                  Constant(value='independentResultReview'),
++                  Constant(value='noDiagnosticRuntimePrimaryConsumerGuardNetworkSdkServices')],
++                values=[
++                  Constant(value='e02-transport-source2-current-control-execution-v1'),
++                  Name(id='ACTOR', ctx=Load()),
++                  Constant(value='WRITES_STOPPED'),
++                  IfExp(
++                    test=Name(id='matched', ctx=Load()),
++                    body=Constant(value='ALL_THREE_DATA_SCOPES_MATCHED_PENDING_REVIEW'),
++                    orelse=Constant(value='STOPPED_FIRST_FAILURE_NO_RETRY')),
++                  Call(
++                    func=Name(id='pin', ctx=Load()),
++                    args=[
++                      BinOp(
++                        left=Name(id='PREP', ctx=Load()),
++                        op=Div(),
++                        right=Constant(value='subject.json'))]),
++                  Call(
++                    func=Name(id='pin', ctx=Load()),
++                    args=[
++                      BinOp(
++                        left=Name(id='CAPTURE', ctx=Load()),
++                        op=Div(),
++                        right=Constant(value='runner-subject.json'))]),
++                  Call(
++                    func=Name(id='pin', ctx=Load()),
++                    args=[
++                      Call(
++                        func=Attribute(
++                          value=Call(
++                            func=Name(id='Path', ctx=Load()),
++                            args=[
++                              Name(id='__file__', ctx=Load())]),
++                          attr='resolve',
++                          ctx=Load()))]),
++                  Call(
++                    func=Name(id='pin', ctx=Load()),
++                    args=[
++                      BinOp(
++                        left=Name(id='CAPTURE', ctx=Load()),
++                        op=Div(),
++                        right=Constant(value='control-plan.json'))]),
++                  Call(
++                    func=Name(id='pin', ctx=Load()),
++                    args=[
++                      BinOp(
++                        left=Name(id='CAPTURE', ctx=Load()),
++                        op=Div(),
++                        right=Constant(value='coordinator-acknowledgement.json'))]),
++                  Name(id='results', ctx=Load()),
++                  ListComp(
++                    elt=Subscript(
++                      value=Name(id='s', ctx=Load()),
++                      slice=Constant(value='name'),
++                      ctx=Load()),
++                    generators=[
++                      comprehension(
++                        target=Name(id='s', ctx=Store()),
++                        iter=Subscript(
++                          value=Name(id='scopes', ctx=Load()),
++                          slice=Slice(
++                            lower=Call(
++                              func=Name(id='len', ctx=Load()),
++                              args=[
++                                Name(id='results', ctx=Load())])),
++                          ctx=Load()),
++                        is_async=0)]),
++                  Compare(
++                    left=Name(id='before', ctx=Load()),
++                    ops=[
++                      Eq()],
++                    comparators=[
++                      Name(id='after', ctx=Load())]),
++                  Constant(value=True),
++                  Constant(value=False),
++                  Constant(value='PENDING_ACTUAL_NONAUTHOR_NONOPERATOR_QA_SECURITY'),
++                  Constant(value=True)])])),
+         Expr(
+           value=Call(
+             func=Name(id='save', ctx=Load()),
+             args=[
+               Constant(value='result-artifact-manifest.json'),
+-              Call(
+-                func=Name(id='dict', ctx=Load()),
+-                keywords=[
+-                  keyword(
+-                    arg='schema',
+-                    value=Constant(value='e02-completion-control-result-files-v1')),
+-                  keyword(
+-                    arg='files',
+-                    value=ListComp(
+-                      elt=Call(
+-                        func=Name(id='pin', ctx=Load()),
+-                        args=[
+-                          Name(id='p', ctx=Load())]),
+-                      generators=[
+-                        comprehension(
+-                          target=Name(id='p', ctx=Store()),
+-                          iter=Call(
+-                            func=Name(id='sorted', ctx=Load()),
+-                            args=[
+-                              Call(
+-                                func=Attribute(
+-                                  value=Name(id='HERE', ctx=Load()),
+-                                  attr='iterdir',
+-                                  ctx=Load()))]),
+-                          ifs=[
++              Dict(
++                keys=[
++                  Constant(value='schema'),
++                  Constant(value='files'),
++                  Constant(value='originalApiResponses')],
++                values=[
++                  Constant(value='e02-transport-source2-current-control-artifact-manifest-v1'),
++                  ListComp(
++                    elt=Call(
++                      func=Name(id='pin', ctx=Load()),
++                      args=[
++                        Name(id='p', ctx=Load())]),
++                    generators=[
++                      comprehension(
++                        target=Name(id='p', ctx=Store()),
++                        iter=Call(
++                          func=Name(id='sorted', ctx=Load()),
++                          args=[
+                             Call(
+                               func=Attribute(
+-                                value=Name(id='p', ctx=Load()),
+-                                attr='is_file',
+-                                ctx=Load()))],
+-                          is_async=0)])),
+-                  keyword(
+-                    arg='note',
+-                    value=Constant(value='Original external tool API response objects are preserved immediately by the actual caller, separately from this child journal.'))])])),
++                                value=Name(id='CAPTURE', ctx=Load()),
++                                attr='rglob',
++                                ctx=Load()),
++                              args=[
++                                Constant(value='*')])]),
++                        ifs=[
++                          Call(
++                            func=Attribute(
++                              value=Name(id='p', ctx=Load()),
++                              attr='is_file',
++                              ctx=Load()))],
++                        is_async=0)]),
++                  Constant(value='Actual caller separately persists exact original toolName/arguments/response immediately.')])])),
+         Expr(
+           value=Call(
+             func=Name(id='print', ctx=Load()),
+@@ -3049,36 +3909,26 @@
+                   attr='dumps',
+                   ctx=Load()),
+                 args=[
+-                  Call(
+-                    func=Name(id='dict', ctx=Load()),
+-                    keywords=[
+-                      keyword(
+-                        arg='state',
+-                        value=Constant(value='WRITES_STOPPED')),
+-                      keyword(
+-                        arg='captureMatched',
+-                        value=Subscript(
+-                          value=Name(id='receipt', ctx=Load()),
+-                          slice=Constant(value='captureMatched'),
+-                          ctx=Load())),
+-                      keyword(
+-                        arg='execution',
+-                        value=Call(
+-                          func=Name(id='pin', ctx=Load()),
+-                          args=[
+-                            BinOp(
+-                              left=Name(id='HERE', ctx=Load()),
+-                              op=Div(),
+-                              right=Constant(value='execution.json'))])),
+-                      keyword(
+-                        arg='independentResultReview',
+-                        value=Constant(value='PENDING_ACTUAL_OTHER_AGENTS'))])])])),
++                  Dict(
++                    keys=[
++                      Constant(value='state'),
++                      Constant(value='captureMatched'),
++                      Constant(value='execution'),
++                      Constant(value='scopes')],
++                    values=[
++                      Constant(value='WRITES_STOPPED'),
++                      Name(id='matched', ctx=Load()),
++                      Call(
++                        func=Name(id='pin', ctx=Load()),
++                        args=[
++                          BinOp(
++                            left=Name(id='CAPTURE', ctx=Load()),
++                            op=Div(),
++                            right=Constant(value='execution.json'))]),
++                      Name(id='results', ctx=Load())])])])),
+         Return(
+           value=IfExp(
+-            test=Subscript(
+-              value=Name(id='receipt', ctx=Load()),
+-              slice=Constant(value='captureMatched'),
+-              ctx=Load()),
++            test=Name(id='matched', ctx=Load()),
+             body=Constant(value=0),
+             orelse=Constant(value=2)))]),
+     If(

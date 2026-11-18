@@ -1,0 +1,63 @@
+{
+  "schema": "e02-one-cid-controller-r4-test-oracle-delta-v1",
+  "predecessorSubject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r3/subject.json",
+    "bytes": 18158,
+    "sha256": "e4ef63ef40a888c92baafe271130b2b3c90246ee546adab3399d643f468eea01"
+  },
+  "predecessorSourceAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r3-source-acceptance-20261029/acceptance.json",
+    "bytes": 1231,
+    "sha256": "0722382482b0b91d7d334a9b5723efe7d6e9d9a0f390dedd6bebb29d700c94b8"
+  },
+  "actualNegativeLineage": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r3-model104-actual-20261029/failure-summary.json",
+    "bytes": 1026,
+    "sha256": "81502af998d407af8f968acf05705048d921da791c288922bb70ef5c6b3eb1cd"
+  },
+  "actualIndependentFindings": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r3-model104-actual-20261029/independent-findings-and-disposition.json",
+    "bytes": 1454,
+    "sha256": "3e66e1f99ff7ed09e7d428e75149206cd994086687565e5847838750ce589516"
+  },
+  "changedMethod": "RawToolControls.test_premature_eof_and_exact_length_plus_one_growth_refused",
+  "sourceDiff": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r4/r3-r4-test.diff",
+    "bytes": 1172,
+    "sha256": "573ffe31536c19cf7b8523d6c514679bed7b63cbd45e617f2dd1c97a72fc187b"
+  },
+  "bothMinusAndPlusOneCasesPreserved": true,
+  "subtestsAssertRaisesOwnedClosePreserved": true,
+  "perCaseExactAnchoredDiagnostics": [
+    "\\ARAW_TOOL_EXPECTED_SHA_LENGTH\\Z",
+    "\\ARAW_TOOL_STREAM_LENGTH\\Z"
+  ],
+  "growthAssertion": "Closed owned handle position equals LENGTHS[H.PYTHON]+1; every requested read is1..H.RAW_TOOL_CHUNK",
+  "noTailSizeMinOrChunkCountHardcode": true,
+  "positiveExactEofLastReadOneUnchanged": true,
+  "allOtherASTNodesUnchanged": true,
+  "productionBehaviorChanged": false,
+  "runtime3Guest8TestHostControllerFiniteExact": true,
+  "rootInvocationMismatch": {
+    "issuedRequest": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r3-model104-actual-20261029/02-exact-request.json",
+      "bytes": 432,
+      "sha256": "94a4ef612bdc8ff95b6db63d9f1834a663ede0d22e0081b510bb168b398cc3a8"
+    },
+    "actualApi": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r3-model104-actual-20261029/02-original-tool-origin.json",
+      "bytes": 6781,
+      "sha256": "57bb52800b4d1b69f83a4fb9e7530ffdb9c4d6e03b494ec9934fae103b994ed2"
+    },
+    "issuedWorkdir": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2",
+    "actualWorkdir": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r3",
+    "qualified": false,
+    "bothOriginalsPreserved": true,
+    "futureRootRule": "Load exact prepared five-key request JSON and pass that same dictionary directly to tools.exec_command; no manual workdir reconstruction"
+  },
+  "noPrior103PassTransfer": true,
+  "definitionsUnchanged": 104,
+  "newModelsExecuted": 0,
+  "retryAuthorized": false,
+  "selfApproval": false
+}

@@ -1,0 +1,23 @@
+--- a/runner.mjs
++++ b/runner.mjs
+@@ -5,6 +5,7 @@
+ import {spawnSync} from 'node:child_process';
+ import {ROOT,EXP,PROFILE,ORDINARY_SHA,CONSUMER_SHA,ADOPTION_SHA,RELAYS,need,closed,eq,pin,checked,json,doc,primaryShape,wireFixtures,ordinaryShape,criteria,reviews,nativePrerequisite} from './data.mjs';
+ import {consumerBatchShape,controlToolShape} from './control-data.mjs';
++import {wrapperPrimaryTool} from './wrapper-origin.mjs';
+ const HERE=path.dirname(fileURLToPath(import.meta.url));
+ function put(root,name,value){need(/^[a-zA-Z0-9.-]+$/.test(name),'fixed local filename');const p=path.join(root,name),raw=Buffer.isBuffer(value)?value:Buffer.from(JSON.stringify(value,null,2)+'\n');need(raw.length<=16777216,'output bound');fs.writeFileSync(p,raw,{flag:'wx',mode:0o600});return pin(p);}
+ function fresh(root){need(path.resolve(root)===root&&root.startsWith('/Data/nbdp-e02-tooling-20261027/ordinary-completion-r3/runs/'),'owned output namespace');fs.mkdirSync(path.dirname(root),{recursive:true,mode:0o700});for(let p=path.dirname(root);;p=path.dirname(p)){need(!fs.lstatSync(p).isSymbolicLink(),'output ancestor symlink');if(p==='/')break;}fs.mkdirSync(root,{mode:0o700});}
+@@ -25,11 +26,7 @@
+ }
+ function authorize(configPin,releasePin,phase,p){const c=doc(configPin);closed(c,'schema runId operator createdAtUtcMillis outputRoot environment ordinaryManifest ordinaryOrigin readRoots sourceSubject consumerControls');eq(c.schema,'e02-completion-run-config-v2');need(/^[0-9a-f]{32}$/.test(c.runId)&&typeof c.operator==='string'&&c.operator.startsWith('/root'),'fixed run/operator');eq(c.outputRoot,'/Data/nbdp-e02-tooling-20261027/ordinary-completion-r3/runs/'+c.runId);need(Number.isSafeInteger(c.createdAtUtcMillis)&&c.createdAtUtcMillis>0,'actual config time');const s=doc(c.sourceSubject);eq(s.schema,'e02-completion-source-subject-v2');for(const d of s.sources)checked(d);eq(s.sources.find(d=>d.path===HERE+'/profile.json'),pin(HERE+'/profile.json'));
+  const r=doc(releasePin);closed(r,'schema phase config sourceSubject operator issuedAtUtcMillis notAfterUtcMillis sourceQa sourceSecurity input reviewOrigin primaryTool');eq(r.schema,'e02-completion-root-release-v2');eq(r.phase,phase);eq(r.config,configPin);eq(r.sourceSubject,c.sourceSubject);eq(r.operator,c.operator);need(Number.isSafeInteger(r.issuedAtUtcMillis)&&Number.isSafeInteger(r.notAfterUtcMillis)&&r.notAfterUtcMillis>r.issuedAtUtcMillis&&r.notAfterUtcMillis-r.issuedAtUtcMillis<=1800000&&Date.now()>=r.issuedAtUtcMillis&&Date.now()<r.notAfterUtcMillis,'finite actual root release');checked(r.sourceQa);checked(r.sourceSecurity);return {config:c,release:r};}
+-function primaryTool(descriptor,subject,primary,p){
+- const t=doc(descriptor);closed(t,'schema subject operator argv launchResponse completionResponse transcript');eq(t.schema,'e02-completion-primary-tool-origin-v2');eq(t.subject,subject);eq(t.operator,primary.operator);eq(t.argv,primary.argv);eq(t.argv,[p.node.path,HERE+'/runner.mjs','primary',primary.config.path,primary.config.sha256,primary.release.path,primary.release.sha256,'NONE','NONE',doc(primary.config).outputRoot+'/primary']);
+- const launch=doc(t.launchResponse),completion=doc(t.completionResponse);for(const response of [launch,completion]){closed(response,'toolName actualArguments unmodifiedResponse');need(['tools.exec_command','tools.write_stdin'].includes(response.toolName),'actual execution tool');}
+- eq(launch.toolName,'tools.exec_command');eq(launch.actualArguments.cmd,p.timeout.path+' --signal=TERM --kill-after=3s 1800s '+t.argv.join(' '));eq(launch.actualArguments.workdir,EXP);eq(completion.unmodifiedResponse.exit_code,0);if(launch.unmodifiedResponse.session_id!==undefined)eq(completion.actualArguments.session_id,launch.unmodifiedResponse.session_id);need(checked(t.transcript).length>0,'original actual tool transcript');return t;
+-}
++function primaryTool(descriptor,subject,primary,p){return wrapperPrimaryTool(descriptor,subject,primary,p,{need,closed,eq,pin,checked,doc,json,EXP,primaryShape,wireFixtures});}
+ function consumerControls(descriptor,p){
+  const a=doc(descriptor),source=doc(p.consumerSubject),definitions=doc(p.consumerControlDefinitions),plan=doc(p.consumerControlPlan),result=doc(p.consumerControlResult),acceptance=doc(p.consumerControlAcceptance),release=doc(p.consumerControlRelease);
+  // Every fixed source/input operand is checked now. Successful source-enforced

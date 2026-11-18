@@ -1,0 +1,52 @@
+--- /tmp/nbdp-amethyst-build-supervisor-20261026-r2/test_supervisor_models.py
++++ /tmp/nbdp-amethyst-build-supervisor-20261027-r3/test_supervisor_models.py
+@@ -29,7 +29,7 @@
+         parts=base[i+1].split(',');fields=dict(v.split('=',1) for v in parts if '=' in v)
+         mounts.append(dict(Type='bind',Source=fields['src'],Destination=fields['dst'],RW='readonly' not in parts,Propagation='rprivate'))
+     value=[dict(Id=CID,Image=s.IMAGE,Name='/'+s.NAME,
+-        Config=dict(User='1000:1000',Entrypoint=['/usr/bin/env'],
++        Config=dict(User='1000:1000',WorkingDir='/work',Entrypoint=['/usr/bin/env'],
+             Cmd=command[:-2]+[s.TIMEOUT,'--signal=TERM','--kill-after=5s','1800s',*command[-2:]],
+             Labels={'nbdp.role':'amethyst-source-build','nbdp.owner':'nbdp-amethyst-rebuild-20261026','nbdp.buildRun':RUN}),
+         HostConfig=dict(Privileged=False,ReadonlyRootfs=True,NetworkMode=NETWORK_ID,CapAdd=[],CapDrop=['ALL'],
+@@ -202,5 +202,40 @@
+         state.update(Status='exited',StartedAt='2026-10-27T00:00:00.000000009Z',FinishedAt='2026-10-27T00:00:00.000000001Z')
+         with self.assertRaises(ValueError):s.successful_job_state(state,'ENDPOINT_FULL_NETWORK_ID_OBSERVED')
+ 
++    def test_inherited_source_working_directory_refused(self):
++        self.reject(lambda d:d['Config'].update(WorkingDir='/work/source'))
++
++    def test_missing_working_directory_refused(self):
++        self.reject(lambda d:d['Config'].pop('WorkingDir'))
++
++    def test_foreign_working_directories_refused(self):
++        for cwd in ('', '/', '/tmp', '/work/', '/work/user'):
++            with self.subTest(cwd=cwd):self.reject(lambda d:d['Config'].update(WorkingDir=cwd))
++
++    def test_plan_without_explicit_workdir_refused(self):
++        plan,_=fixture();args=plan['proposedDockerCreateArgv'];i=args.index('--workdir');del args[i:i+2]
++        with self.assertRaisesRegex(ValueError,'EXPLICIT_FIXED_WORKDIR_REQUIRED'):
++            s.create_argv(plan,RUN,Path('/SYNTHETIC/cidfile'),NETWORK_ID)
++
++    def test_plan_wrong_or_duplicate_workdir_refused(self):
++        for wrong in ('/work/source','/tmp','DUPLICATE'):
++            plan,_=fixture();args=plan['proposedDockerCreateArgv'];i=args.index('--workdir')
++            if wrong=='DUPLICATE':args[i:i]=['--workdir','/work']
++            else:args[i+1]=wrong
++            with self.subTest(wrong=wrong),self.assertRaisesRegex(ValueError,'EXPLICIT_FIXED_WORKDIR_REQUIRED'):
++                s.create_argv(plan,RUN,Path('/SYNTHETIC/cidfile'),NETWORK_ID)
++
++    def test_explicit_plan_has_fresh_roots_and_unchanged_readonly_inputs(self):
++        plan,value=fixture();args=plan['proposedDockerCreateArgv']
++        self.assertEqual(args.count('--workdir'),1);self.assertEqual(args[args.index('--workdir')+1],'/work')
++        mounts={m['Destination']:m for m in value[0]['Mounts']}
++        self.assertEqual({dst:mounts[dst]['Source'] for dst in ('/work','/cache','/output')},
++            {'/work':str(s.ROOT/'user/work-r2'),'/cache':str(s.ROOT/'cache/build-r2'),'/output':str(s.ROOT/'output/build-r2')})
++        self.assertEqual(mounts['/prep']['Source'],str(s.PREP))
++        self.assertTrue(all(mounts[d]['RW'] for d in ('/work','/cache','/output')))
++        for dst,src in {'/input/source.tar':s.ROOT/'output/source.tar','/input/source-archive.json':s.ROOT/'output/source-archive.json',
++                '/jdk':s.ROOT/'tools/jdk','/sdk':s.ROOT/'tools/sdk'}.items():
++            self.assertEqual(mounts[dst]['Source'],str(src));self.assertFalse(mounts[dst]['RW'])
++
+ 
+ if __name__=='__main__':unittest.main(verbosity=2)

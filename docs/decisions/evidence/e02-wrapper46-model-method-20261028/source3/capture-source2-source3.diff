@@ -1,0 +1,52 @@
+--- source2/capture46.py
++++ source3/capture46.py
+@@ -2,13 +2,13 @@
+ Selector/Popen/PIPE custody derives from accepted capture-r2.py; never executes on import.
+ """
+ import hashlib,json,os,pathlib,re,selectors,signal,stat,subprocess,sys,time
+-HERE=pathlib.Path('/Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r2')
++HERE=pathlib.Path('/Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r3')
+ R3=pathlib.Path('/Data/nbdp-e02-tooling-20261027/completion-primary-wrapper-preparation-r3')
+ SCOPE='E02_WRAPPER_R3_REVIEW_EXPIRY_IDENTITY_DISPATCH_ORIGIN'
+ ENV={'PATH':'/usr/bin:/bin','LANG':'C.UTF-8','LC_ALL':'C.UTF-8'}
+ PYTHON='/home/peterhorvath/.miniforge3/bin/python3.13'
+ NODE='/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node'
+-OUTPUT=pathlib.Path('/Data/nbdp-e02-tooling-20261027/wrapper46-model-actual-r2/capture')
++OUTPUT=pathlib.Path('/Data/nbdp-e02-tooling-20261027/wrapper46-model-actual-r3/capture')
+ GRANT=OUTPUT.parent/'root-release.json'
+ 
+ def need(v,m):
+@@ -49,13 +49,13 @@
+ def admission():
+     need(sys.flags.isolated and sys.dont_write_bytecode and str(pathlib.Path(sys.executable).resolve())==PYTHON and sys.argv==[str(HERE/'capture46.py')],'EXACT_ISOLATED_HARNESS')
+     plan_pin=descriptor(HERE/'plan.json');plan=load(plan_pin['path']);subject_pin=descriptor(HERE/'method-source.json');subject=load(subject_pin['path']);manifest_pin=descriptor(HERE/'code-manifest.json');manifest=load(manifest_pin['path'])
+-    need(plan['schema']=='e02-wrapper46-pure-model-capture-plan-v2' and plan['scopeVersion']==SCOPE and plan['scopeCounts']==[6,13,16,11] and plan['modelsDefined']==46,'EXACT46_SCOPE')
++    need(plan['schema']=='e02-wrapper46-pure-model-capture-plan-v3' and plan['scopeVersion']==SCOPE and plan['scopeCounts']==[6,13,16,11] and plan['modelsDefined']==46,'EXACT46_SCOPE')
+     need(plan['environment']==ENV and plan['limits']==dict(childSeconds=60,childReapSeconds=3,stdoutBytes=1048576,stderrBytes=262144,outerSeconds=297,outerSignal='KILL'),'EXACT_CAPTURE_LIMITS_ENV')
+     need(set(plan['outerRequest'])=={'cmd','workdir','yield_time_ms','max_output_tokens','login'} and plan['outerRequest']['login'] is False,'COMPLETE_FIVE_KEY_REQUEST_LOGIN_FALSE')
+     need(plan['outerRequestTemplate']==descriptor(HERE/'outer-request-template.json') and plan['outerRequest']==load(HERE/'outer-request-template.json'),'EXACT_FROZEN_ROOT_OUTER_REQUEST')
+     need(plan['rootReleasePath']==str(GRANT) and plan['outputRoot']==str(OUTPUT) and plan['r3Root']==str(R3),'FIXED_OUTPUT_AND_SOURCE')
+     need(plan['tools']['python']['path']==PYTHON and plan['tools']['node']['path']==NODE,'EXACT_TOOLS')
+-    need(subject['schema']=='e02-wrapper46-model-method-source-v2' and subject['plan']==plan_pin and subject['codeManifest']==manifest_pin,'EXACT_METHOD_SOURCE')
++    need(subject['schema']=='e02-wrapper46-model-method-source-v3' and subject['plan']==plan_pin and subject['codeManifest']==manifest_pin,'EXACT_METHOD_SOURCE')
+     for d in subject['sources']:checked(d)
+     need(descriptor(HERE/'capture46.py') in subject['sources'] and descriptor(HERE/'invoke-origin11.mjs') in subject['sources'],'REVIEWED_HARNESS_BOOTSTRAP')
+     need(manifest['schema']=='e02-wrapper46-known-code-inputs-v1' and manifest['scope']=='KNOWN_CODE_ONLY_NOT_RECURSIVE_RUNTIME_SDK_CLIENT_CLOSURE','KNOWN_CODE_CLOSURE')
+@@ -126,10 +126,14 @@
+ def capture_scope(root,scope,index):
+     stem='%02d-'%index+scope['scope'];put(root,stem+'-request.json',dict(argv=scope['argv'],cwd=scope['cwd'],environment=ENV,stdin='DEVNULL',transport='CHILD_PIPES_OUTER_API_SEPARATE',seconds=60,reapSeconds=3))
+     start=time.monotonic_ns();job_deadline_ns=start+60000000000
+-    p=subprocess.Popen(scope['argv'],cwd=scope['cwd'],stdin=subprocess.DEVNULL,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True,env=ENV)
+-    ownership=dict(pid=p.pid,groupId=p.pid,sessionId=p.pid,startNewSession=True,ownedPopenHandle=True,leaderOwnership='RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL')
+-    sel=selectors.DefaultSelector();buffers={'stdout':bytearray(),'stderr':bytearray()};eof={'stdout':False,'stderr':False};fault=None
++    sel=selectors.DefaultSelector() # Failure here occurs before any owned child exists.
++    ownership=dict(pid=None,groupId=None,sessionId=None,startNewSession=True,ownedPopenHandle=True,leaderOwnership='RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL')
++    buffers={'stdout':bytearray(),'stderr':bytearray()};eof={'stdout':False,'stderr':False};fault=None
++    try:p=subprocess.Popen(scope['argv'],cwd=scope['cwd'],stdin=subprocess.DEVNULL,stdout=subprocess.PIPE,stderr=subprocess.PIPE,start_new_session=True,env=ENV)
++    except BaseException:
++        sel.close();raise
+     try:
++        ownership['pid']=ownership['groupId']=ownership['sessionId']=p.pid
+         ownership['observedGroupId']=os.getpgid(p.pid);ownership['observedSessionId']=os.getsid(p.pid)
+         need(ownership['observedGroupId']==ownership['observedSessionId']==p.pid,'ACTUAL_OWNED_SESSION_GROUP_IDENTITY')
+         put(root,stem+'-owned-child.json',ownership)

@@ -1,0 +1,55 @@
+{
+  "schema": "e02-minimum-publish-intent-v2",
+  "profileId": "e02-ordinary-minimum-rs-two-role-v2",
+  "windowId": "incoming-b",
+  "stage": {
+    "id": "incoming-business",
+    "index": 0,
+    "oracle": "business",
+    "dispatch": true,
+    "normalizedRole": "incoming",
+    "identicalReplay": false,
+    "freshWrap": true,
+    "requiresNewAppFrame": true
+  },
+  "attempt": {
+    "epoch": 1,
+    "stageId": "incoming-business"
+  },
+  "intentSequence": 44,
+  "prepared": {
+    "path": "/session/fixtures/prepared.json",
+    "bytes": 8080,
+    "sha256": "466c2783e4c052042275654f26618f8029931ca1dd9a9d22757651eb03bd5ddc"
+  },
+  "gate": {
+    "connection": 1,
+    "subscription": "aLtPam",
+    "requestSequence": 7,
+    "eoseSequence": 16,
+    "filters": [
+      {
+        "kinds": [
+          1059,
+          21059
+        ],
+        "#p": [
+          "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5"
+        ],
+        "since": 1792387094
+      },
+      {
+        "kinds": [
+          1059
+        ],
+        "#p": [
+          "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5"
+        ],
+        "#k": [
+          "3313"
+        ]
+      }
+    ]
+  },
+  "issuedUTC": "2026-10-28T05:18:58.584Z"
+}

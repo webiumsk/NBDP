@@ -1,0 +1,3 @@
+# SOURCE2 materializer fixed-target rebind
+
+NOT READY. Exact prior time-only/2400-second/O_EXCL/one-use/externally pinned template logic is unchanged. Only HERE, WORK, supervisor script/subject/plan exact pins and associated fixed output/dispatch paths are rebound. All prior 14 model bodies remain unchanged; two additional refusals cover previous supervisor and output targets. 16 DEFINED, 0 EXECUTED. No actual template, live release, marker, grant, dispatch or build is created. Future interface: pinned Python3.13 -I -B materialize.py --template-sha EXACT_ROOT_REVIEWED_TEMPLATE_SHA256. Root must separately fill and authorize a concrete template after independent review and model evidence; only its two clock fields can then be freshly materialized.

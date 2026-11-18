@@ -1,0 +1,37 @@
+{
+  "schema": "e02-root-controller-r9-source-negative-disposition-v1",
+  "actor": "/root",
+  "subject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r9/subject.json",
+    "bytes": 53716,
+    "sha256": "54ec422c8174262b5ac1c85571dbdfd770953863b7b6f94056237c7990ddcf9d"
+  },
+  "freeze": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-controller-source-review-20261105/r9/complete-freeze.json",
+    "bytes": 59992,
+    "sha256": "e7c43daa38413fc9937c49c36a7a058617e8a3d85a5fbd028cfd1c68ee670ba1"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-controller-source-review-20261105/r9/qa-review.json",
+      "bytes": 319,
+      "sha256": "0ae6d544672bdfb80f2eaf002d243716aa315c46143def0df2ee7f1cb1957375"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-controller-source-review-20261105/r9/security-review.json",
+      "bytes": 331,
+      "sha256": "d89157ea36ac1d89ec2ba61fb7e7d256b719909fb8d3eaf92a9af25b1f3e50c9"
+    }
+  ],
+  "decision": "HOLD_R9_SOURCE_UNCHANGED_NO_MODEL_EXECUTION",
+  "modelsDefined": 174,
+  "modelsExecuted": 0,
+  "sourceAccepted": false,
+  "runtimeAuthorized": false,
+  "executionAuthorized": false,
+  "adoptedRemediation": "SeparateR10/source2 minimal metadata scalar266 correction and meaningful actualtypedcount regressions; no consumer/producer predicate changes, no174result transfer.",
+  "diagnosticContributors": [
+    "/root/controller_r9_qa_e7c43daa",
+    "/root/controller_r9_security_e7c43daa"
+  ]
+}

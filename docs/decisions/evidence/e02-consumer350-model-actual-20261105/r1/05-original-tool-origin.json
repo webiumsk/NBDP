@@ -1,0 +1,22 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 63s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_source_bindings.py -v",
+      "workdir": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 20000
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "d81a08",
+      "wall_time_seconds": 0.141489281,
+      "exit_code": 0,
+      "original_token_count": 529,
+      "output": "test_actual260_bound_but_future_probe_data_stays_null (__main__.CurrentSourceBindings.test_actual260_bound_but_future_probe_data_stays_null) ... ok\ntest_all22_exact_bytes_declared (__main__.CurrentSourceBindings.test_all22_exact_bytes_declared) ... ok\ntest_both_configs_bind22_workers_and_original1800 (__main__.CurrentSourceBindings.test_both_configs_bind22_workers_and_original1800) ... ok\ntest_current_dto_closed22_worker_list (__main__.CurrentSourceBindings.test_current_dto_closed22_worker_list) ... ok\ntest_current_dto_original16MiB_partition (__main__.CurrentSourceBindings.test_current_dto_original16MiB_partition) ... ok\ntest_current_export_and_guard_dto_are_distinct_operands (__main__.CurrentSourceBindings.test_current_export_and_guard_dto_are_distinct_operands) ... ok\ntest_current_profile_matches_actual_supervisor (__main__.CurrentSourceBindings.test_current_profile_matches_actual_supervisor) ... ok\ntest_current_root_data_contract_is_definition_only (__main__.CurrentSourceBindings.test_current_root_data_contract_is_definition_only) ... ok\ntest_exact22_current_runtime_workers (__main__.CurrentSourceBindings.test_exact22_current_runtime_workers) ... ok\ntest_exact61_source_members_no_legacy31 (__main__.CurrentSourceBindings.test_exact61_source_members_no_legacy31) ... ok\ntest_exact_current_source4_control260_counts (__main__.CurrentSourceBindings.test_exact_current_source4_control260_counts) ... ok\ntest_exact_current_source4_metadata_subject (__main__.CurrentSourceBindings.test_exact_current_source4_metadata_subject) ... ok\ntest_pending_runtime_refuses_before_any_target_read (__main__.CurrentSourceBindings.test_pending_runtime_refuses_before_any_target_read) ... ok\ntest_runtime_leaf_is_unissued_unready_with_null_future_data (__main__.CurrentSourceBindings.test_runtime_leaf_is_unissued_unready_with_null_future_data) ... ok\ntest_unready_external_leaf_refuses_before_prerequisite_reads (__main__.CurrentSourceBindings.test_unready_external_leaf_refuses_before_prerequisite_reads) ... ok\n\n----------------------------------------------------------------------\nRan 15 tests in 0.024s\n\nOK\n"
+    }
+  },
+  "polls": []
+}

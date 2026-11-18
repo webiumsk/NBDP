@@ -1,0 +1,90 @@
+{
+  "schema": "e02-ordinary-api35-current-pure-controls-execution-v1",
+  "actor": "/root/ordinary_api35_source",
+  "session": "/root/ordinary_api35_source",
+  "state": "WRITES_STOPPED",
+  "result": "ALL_FIVE_SEPARATE_PURE_SCOPES_COMPLETED",
+  "scopes": [
+    {
+      "scope": "guard",
+      "expected": 29,
+      "observed": 29,
+      "matched": true,
+      "receipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/current-controls-r1/guard-execution.json",
+        "bytes": 2020,
+        "sha256": "f6c52fd899afc45161cf13bbff88a9f1aca5958e9099ca738e9f9284b2176432"
+      }
+    },
+    {
+      "scope": "cleanup",
+      "expected": 24,
+      "observed": 24,
+      "matched": true,
+      "receipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/current-controls-r1/cleanup-execution.json",
+        "bytes": 2022,
+        "sha256": "6bd08731d78c174679ae24679a8f2512ac5c2aaa96ce12d62eeb9eba5ee181bb"
+      }
+    },
+    {
+      "scope": "ui",
+      "expected": 38,
+      "observed": 38,
+      "matched": true,
+      "receipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/current-controls-r1/ui-execution.json",
+        "bytes": 2015,
+        "sha256": "61d1a6bce7ea6bea0879e2f3cfb16bb38d40e24ce38bb376789c63e3b1057f06"
+      }
+    },
+    {
+      "scope": "fixture",
+      "expected": 27,
+      "observed": 27,
+      "matched": true,
+      "receipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/current-controls-r1/fixture-execution.json",
+        "bytes": 2014,
+        "sha256": "ff2487fcecdbc8311d16449887f50bb9d188063d3e3c3490dd1d5cd41c3fccd1"
+      }
+    },
+    {
+      "scope": "consumer",
+      "expected": 14,
+      "observed": 14,
+      "matched": true,
+      "receipt": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/current-controls-r1/consumer-execution.json",
+        "bytes": 2033,
+        "sha256": "8c687c4aad9b3c301041a0d524f7bdf6b54100bfbb3361b12e5b6f35a73d4f43"
+      }
+    }
+  ],
+  "remainingScopesNotExecuted": [],
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/subject.json",
+    "bytes": 9680,
+    "sha256": "ff877c4c7cbb59551e9a8bf0d13c837c285b3429812516b39091ece9c406d3c7"
+  },
+  "configuration": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/proposed-run-config.json",
+    "bytes": 3236,
+    "sha256": "4756736d5214b23f1b56ca063e124b0924e13d9fdd41656cf69c0eb7de6344b4"
+  },
+  "runner": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/current-controls-r1/capture-controls.py",
+    "bytes": 11537,
+    "sha256": "46b4ae98f9b7bff7cf1db69aac31aca3b2ad995d923833b00856d3cba8f5b22e"
+  },
+  "coordinatorAcknowledgement": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-api35-preparation-r1/current-controls-r1/coordinator-acknowledgement.json",
+    "bytes": 1058,
+    "sha256": "5b506a91ccb44de94f3be5c2f74d8e2ae8326f6afbc0f3bcb31cc927961e28f4"
+  },
+  "newIndependentResultReviews": "PENDING_ACTUAL_OTHER_AGENTS",
+  "noRetry": true,
+  "androidServicesSdkInstallsLeasesGrantsReleases": 0,
+  "canonicalPromotionOrBlockerChange": false,
+  "meaning": "Each scope has its own evidence/count. Synthetic DATA/pure controls do not establish ordinary-client runtime acceptance."
+}

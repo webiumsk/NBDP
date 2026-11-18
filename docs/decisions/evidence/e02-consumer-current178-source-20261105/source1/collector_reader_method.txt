@@ -1,0 +1,99 @@
+
+
+def validate_collector_authority(files, contract_pin, forbidden):
+    """Read accepted Source2/81 prerequisites; no operational collector proof.
+
+    Each historical prerequisite review is checked against that prerequisite's
+    complete creators/operators. Their receipt actors join the returned union
+    before any later helper/consumer review. Later authors cannot retroactively
+    invalidate a genuinely accepted earlier prerequisite review.
+    """
+    import ast
+    import re
+    contract=files.doc(contract_pin)
+    equal(contract['schema'],'e02-current-collector-source2-prerequisite-contract-v1')
+    equal(contract['executionAuthorized'],False)
+    source=files.doc(contract['source']);data=files.doc(contract['data'])
+    local_union=source_actors(source)|data_actors(data)|{'/root'}
+    src=files.doc(contract['sourceAcceptance']);accepted=files.doc(contract['dataAcceptance'])
+    closed(src,' '.join(contract['sourceAcceptanceClosedKeys']))
+    closed(data,' '.join(contract['dataClosedKeys']))
+    closed(accepted,' '.join(contract['dataAcceptanceClosedKeys']))
+    for obj,decision,scope in ((src,contract['sourceDecision'],contract['sourceScope']),
+                               (accepted,contract['dataDecision'],contract['dataScope'])):
+        equal(obj['actor'],'/root');equal(obj['decision'],decision);equal(obj['scope'],scope)
+        equal(obj['executionAuthorized'],False)
+    equal(src['schema'],'e02-root-custody-collector-source-acceptance-v1')
+    equal(src['subject'],contract['source']);equal(src['modelsExecuted'],0)
+    equal(src['actualCollectorCommands'],0);equal(src['actualProbeExecutions'],0)
+    equal(accepted['schema'],'e02-root-custody-collector-control-data-acceptance-v1')
+    equal(accepted['subject'],contract['data'])
+    for key,value in [('collectorSource',contract['source']),('collectorSourceAcceptance',contract['sourceAcceptance']),
+                      ('controlPlan',contract['controlPlan'])]:
+        equal(data[key],value);equal(accepted[key],value)
+    equal(data['schema'],'e02-root-custody-collector-mock-control-data-subject-v1')
+    for key,value in [('modelsFailed',0),('skipped',0),('inputsUnchanged',True),
+                      ('actualReleasedCollectorCommands',0),('actualProbeExecutions',0),
+                      ('ordinaryRoleExecutions',0),('executionAuthorized',False)]:
+        equal(data[key],value);equal(accepted[key],value)
+    equal(data['truncated'],False);equal(data['innerPidReapEofAttested'],False)
+    by_path={p['path']:p for p in source['sources']}
+    equal(len(by_path),len(source['sources']))
+    for p in source['sources']:files.read(p)
+    for key,source_key in [('qualifier','operationalQualifier'),('history','historyPrefixSource'),
+                           ('codec','losslessPerOriginCodec')]:
+        equal(source[source_key],contract[key]);equal(by_path.get(contract[key]['path']),contract[key])
+    equal(source['operationalCollector'],contract['operationalCollector']);files.read(contract['operationalCollector'])
+    equal(by_path.get(contract['controlPlan']['path']),contract['controlPlan'])
+    plan=files.doc(contract['controlPlan']);names=[]
+    for group in plan['groups']:
+        closed(group,'source defined caseNames')
+        equal(by_path.get(group['source']['path']),group['source'])
+        tree=ast.parse(files.read(group['source']),filename=group['source']['path'])
+        actual=[cls.name+'.'+method.name for cls in tree.body if isinstance(cls,ast.ClassDef)
+                for method in cls.body if isinstance(method,ast.FunctionDef) and method.name.startswith('test_')]
+        equal(group['caseNames'],sorted(actual));equal(group['defined'],len(actual));names.extend(sorted(actual))
+    equal(len(names),len(set(names)));equal(plan['caseNames'],names)
+    total=len(names);need(total>0,'CURRENT_COLLECTOR_AST_PARTITION')
+    for obj in (source,src,data,accepted):equal(obj['modelsDefined'],total)
+    equal(source['modelsExecuted'],0);equal(source['executionAuthorized'],False)
+    for obj in (data,accepted):equal(obj['modelsExecuted'],total);equal(obj['modelsPassed'],total)
+    # Both review pairs see the complete actual component union first.
+    c.reviews([files.doc(p) for p in src['reviews']],src['reviews'],contract['source'],contract['sourceReviewDecision'],local_union)
+    c.reviews([files.doc(p) for p in accepted['reviews']],accepted['reviews'],contract['data'],contract['dataReviewDecision'],local_union)
+    manifest=files.doc(contract['rawManifest']);closed(manifest,'schema files modelsExecuted operationalCollectorCommands helperExecutions')
+    equal(manifest['schema'],'e02-current-model-raw-artifact-manifest-v1')
+    equal(manifest['files'],contract['rawFiles']);equal(manifest['modelsExecuted'],total)
+    equal(manifest['operationalCollectorCommands'],0);equal(manifest['helperExecutions'],0)
+    raw_index={p['path']:p for p in manifest['files']};equal(len(raw_index),len(manifest['files']))
+    for p in manifest['files']:files.read(p)
+    for key in ('execution','originalToolOrigin','inputsBefore','inputsAfter','rootRelease'):
+        equal(raw_index.get(data[key]['path']),data[key])
+    equal(data['execution'],contract['execution']);equal(data['rawArtifactManifest'],contract['rawManifest'])
+    # RAW execution remains exactly pinned, including its scientific report
+    # duration. The only API floats decoded below are native wall metadata.
+    files.read(contract['execution'])
+    before=files.doc(data['inputsBefore']);after=files.doc(data['inputsAfter']);equal(before,after)
+    closed(before,'schema rows');equal(before['schema'],'e02-current-model-protected-input-snapshot-v1')
+    rows={r['pin']['path']:r for r in before['rows']};equal(len(rows),len(before['rows']))
+    for row in before['rows']:
+        closed(row,'pin mode owner device inode');pin_shape(row['pin'])
+        need(type(row['mode']) is str and re.fullmatch(r'0o[0-7]{3,4}',row['mode']),'TYPED_COLLECTOR_SNAPSHOT_MODE')
+        need(type(row['owner']) is list and len(row['owner'])==2,'TYPED_COLLECTOR_SNAPSHOT_OWNER')
+        for v in [*row['owner'],row['device'],row['inode']]:integer(v)
+    for p in [*source['sources'],contract['source'],contract['sourceAcceptance']]:
+        need(p['path'] in rows,'ALL_CURRENT_COLLECTOR_CODE_INPUTS');equal(rows[p['path']]['pin'],p)
+    api=c.decode_tool_origin(files.read(data['originalToolOrigin']))
+    equal(c.validate_origin(api,contract['modelRequest'],data['operators'],family='MODEL5'),'')
+    equal(files.read(contract['stdout']),b'')
+    raw=files.read(contract['stderr']);text_value=raw.decode('utf8','strict')
+    trailer=re.search(r'\n\n-{70}\nRan ([0-9]+) tests? in [0-9]+(?:\.[0-9]+)?s\n\nOK\n\Z',text_value)
+    need(trailer is not None and int(trailer[1])==total,'COMPLETE_CURRENT_COLLECTOR_NAMED_TRAILER')
+    observed=[]
+    for line in text_value[:trailer.start()].splitlines():
+        m=re.fullmatch(r'([A-Za-z_][A-Za-z_0-9]*) \(([A-Za-z_][A-Za-z_0-9]*)\.([A-Za-z_][A-Za-z_0-9]*)\.([A-Za-z_][A-Za-z_0-9]*)\) \.\.\. ok',line)
+        need(m is not None and m[1]==m[4],'EVERY_CURRENT_COLLECTOR_NAMED_SUCCESS')
+        observed.append(m[3]+'.'+m[4])
+    equal(observed,names,'ALL_CURRENT_COLLECTOR_AST_NAMES_ONCE')
+    receipt_actors={files.doc(p)['session'] for p in [*src['reviews'],*accepted['reviews']]}
+    return set(forbidden)|local_union|receipt_actors

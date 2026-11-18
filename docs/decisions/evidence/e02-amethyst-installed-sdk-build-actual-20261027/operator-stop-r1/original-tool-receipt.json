@@ -1,0 +1,32 @@
+{
+  "original": {
+    "invocation": {
+      "cmd": "/usr/bin/python3.12 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-actual-20261027/operator-stop-r1/stop.py",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2000
+    },
+    "result": {
+      "chunk_id": "75435e",
+      "wall_time_seconds": 1.003142294,
+      "session_id": 8383,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "terminalObservation": {
+    "invocation": {
+      "session_id": 8383,
+      "chars": "",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2000
+    },
+    "result": {
+      "chunk_id": "aed29f",
+      "wall_time_seconds": 0.000010083,
+      "exit_code": 0,
+      "original_token_count": 65,
+      "output": "{\n  \"actor\": \"/root\",\n  \"state\": \"OPERATOR_STOP_ISSUED_PENDING_ORIGINAL_CONTROLLER_FINAL_RECONCILIATION\",\n  \"cid\": \"b54aaa41431940d61be299ff3ac32fd5cfb2bba81850ccf22f5a70b25af11e4e\",\n  \"stopExitCode\": 0,\n  \"retryAuthorized\": false,\n  \"goalContinues\": true\n}\n"
+    }
+  },
+  "provenance": "Original API invocation/result and terminal observation of same owned session; no retry. Root operator intervention is separately recorded."
+}

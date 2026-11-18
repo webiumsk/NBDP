@@ -1,0 +1,70 @@
+{
+  "schema": "e02-consumer5-control-capture-root-ack-v1",
+  "actor": "/root",
+  "executionAuthorized": true,
+  "purpose": "ONE_FIXED_CONSUMER5_86_36_8_9_DATA_BATCH_ONLY",
+  "consumerSource": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r5/source2/subject.json",
+    "bytes": 13952,
+    "sha256": "bb99b3b11db70a19cd5b6266dbdea381d84bb7f1ccc9ed58a463f01120e20178"
+  },
+  "methodSource": {
+    "path": "/Data/nbdp-e02-tooling-20261027/consumer5-control-capture-preparation-r1/method-source.json",
+    "bytes": 2178,
+    "sha256": "61fa7f0165e790ce5e646cbcb8e7bff75713a45a0937f2e7e761f25999c7d6bb"
+  },
+  "plan": {
+    "path": "/Data/nbdp-e02-tooling-20261027/consumer5-control-capture-preparation-r1/plan.json",
+    "bytes": 15737,
+    "sha256": "0f8bf107412d59d946e4dff9e988ddd69d23844a647d996f8f88bd7b73712b15"
+  },
+  "inputManifest": {
+    "path": "/Data/nbdp-e02-tooling-20261027/consumer5-control-capture-preparation-r1/input-manifest.json",
+    "bytes": 25530,
+    "sha256": "e7ff8c583981d3b76ba86844d2d7bd7a4999f2d2f0ba178ec02d283446d85d0f"
+  },
+  "outerRequest": {
+    "path": "/Data/nbdp-e02-tooling-20261027/consumer5-control-capture-preparation-r1/outer-request-template.json",
+    "bytes": 432,
+    "sha256": "452ac80a82407c50a4684c9cdbfc780eea00d6bf4abe038b70f5d8198ddae214"
+  },
+  "authors": [
+    "/root/r5_plan_fix",
+    "/root/completion_wrapper",
+    "/root",
+    "/root/r5"
+  ],
+  "operators": [
+    "/root"
+  ],
+  "consumerSourceReviews": {
+    "qa": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r5/source2/source-qa.json",
+      "bytes": 381,
+      "sha256": "69895c926cc75a3069efc8e652a69f084d553b9d37dcfe94cfbd8b5fb00eb60b"
+    },
+    "security": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r5/source2/source-security.json",
+      "bytes": 400,
+      "sha256": "cc83115f483c1127530ea89eeb0d5851f28b3ee249ecae67592b9d4b9fdc40ca"
+    }
+  },
+  "captureSourceReviews": {
+    "qa": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer5-control-capture-20261028/source-qa.json",
+      "bytes": 352,
+      "sha256": "5d8579a18e21a13b5770f5b0b86378b886cad1a1a9ff21552b22dec23306ce9f"
+    },
+    "security": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer5-control-capture-20261028/source-security.json",
+      "bytes": 371,
+      "sha256": "8636fbf37e409e3dfa16b168bcdaf7f783c0449fe2d0647f180cfa83a31d7ee2"
+    }
+  },
+  "noRetry": true,
+  "runtimeAuthorized": false,
+  "servicesAuthorized": false,
+  "sdkAuthorized": false,
+  "nativeAuthorized": false,
+  "androidAuthorized": false
+}

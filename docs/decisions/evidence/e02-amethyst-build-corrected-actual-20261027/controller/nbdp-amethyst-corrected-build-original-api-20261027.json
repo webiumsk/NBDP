@@ -1,0 +1,67 @@
+{
+  "schema": "nbdp-corrected-artifact-original-tool-api-v1",
+  "launch": {
+    "args": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /tmp/nbdp-amethyst-build-release-materializer-20261027-r2/materialize.py --template-sha 5016094604820244e51616df211c5f84bcb93829e80ec88f338c47ee6c8aa140",
+      "sandbox_permissions": "require_escalated",
+      "justification": "Môžem spustiť opravené a nezávisle preskúmané zostavenie testovacieho Amethyst APK? Opravuje potvrdený konflikt pracovného adresára, zachováva starý neúspešný pokus a rovnaké limity 6 GiB, 4 CPU a 30 minút.",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2000
+    },
+    "result": {
+      "chunk_id": "26ce87",
+      "wall_time_seconds": 1.001511743,
+      "session_id": 35902,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "polls": [
+    {
+      "args": {
+        "session_id": 35902,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2000
+      },
+      "result": {
+        "chunk_id": "39ce89",
+        "wall_time_seconds": 5.001470799,
+        "session_id": 35902,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "args": {
+        "session_id": 35902,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2200
+      },
+      "result": {
+        "chunk_id": "bbb85d",
+        "wall_time_seconds": 5.000938004,
+        "session_id": 35902,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "args": {
+        "session_id": 35902,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 2200
+      },
+      "result": {
+        "chunk_id": "46e1fb",
+        "wall_time_seconds": 0.000028089,
+        "exit_code": 2,
+        "original_token_count": 292,
+        "output": "{\"schema\": \"nbdp-amethyst-build-supervisor-result-v1\", \"runId\": \"ffc756528a71d1cb8c8c78b8aac166ad\", \"cid\": \"6120bd05c927ccec8cb28ed61c7ddb4d52f5a2f8b34e55072a5ba96384a0d7dc\", \"state\": \"FAILED_OR_UNQUALIFIED_NO_RETRY\", \"firstFault\": \"ValueError:ATTACHED_JOB_FAILED_OR_LOG_CEILING:NONZERO_1\", \"secondaryErrors\": [], \"cleanup\": \"EXACT_CID_ABSENCE_KNOWN\", \"jobState\": {\"Status\": \"exited\", \"Running\": false, \"Paused\": false, \"Restarting\": false, \"OOMKilled\": false, \"Dead\": false, \"Pid\": 0, \"ExitCode\": 1, \"Error\": \"\", \"StartedAt\": \"2026-10-27T12:36:34.517498674Z\", \"FinishedAt\": \"2026-10-27T12:43:01.494038647Z\"}, \"jobStateMeaning\": \"Last successful exact-owned inspect after start attempt, including exit/OOM data when observed; UNKNOWN/null if unavailable.\", \"networkBindingStage\": \"ENDPOINT_FULL_NETWORK_ID_OBSERVED\", \"rebuiltApks\": null, \"cliReceipts\": 11, \"attachedCapturePerFileLimitBytes\": 67108864, \"jobPerFileLimitBytes\": 536870912, \"limitsMeaning\": \"Configured per-file/CPU/memory/PID/time limits; no aggregate diskquota or measured peak claim.\", \"noHostNumericPidSignalsByController\": true, \"hostileAtomicClosureClaimed\": false, \"canonicalE02Changed\": false}\n"
+      }
+    }
+  ],
+  "meaning": "Actual coordinator-retained API argument/result objects; no provider authentication claim."
+}

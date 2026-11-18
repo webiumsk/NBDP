@@ -1,0 +1,11 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source/test_request_policy.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source/test_request_policy.py
+@@ -90,7 +90,7 @@
+   self.assertTrue(h.qualify_with_final_witness(envelope,self.run,self.source,row,origin,q.RootFailstop(self.run))['collectorCommandsQualified']);self.assertEqual(envelope,frozen);self.assertEqual(h.restore_prefix(envelope,self.run,self.source),body)
+   self.assertEqual(set(row['request']),set(q.REQUEST_KEYS));self.assertNotIn(row['expectedProof']['sha256'].encode(),h.encoded(body));self.assertNotIn(q.encoded(row['request']),h.encoded(body))
+  def test_new_composite_path_and_same_exact7_qualifier_required(self):
+-  self.assertIs(h.q,q);self.assertEqual(h.SOURCE_PATH,'/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/source-subject.json')
++  self.assertIs(h.q,q);self.assertEqual(h.SOURCE_PATH,'/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source-subject.json')
+   body,_=self.f.fixture();old=dict(self.source,path='/Data/nbdp-e02-tooling-20261027/probe-root-custody-collector-preparation-r5/source-subject.json');body['collectorSource']=old
+   with self.assertRaises(ValueError):h.freeze_prefix(body,self.run,old,49144)
+   for row,origin in zip(body['expectedCommands'],body['origins']):self.assertEqual(set(row['request']),set(q.REQUEST_KEYS));self.assertEqual(row['request'],origin['launch']['actualArguments'])

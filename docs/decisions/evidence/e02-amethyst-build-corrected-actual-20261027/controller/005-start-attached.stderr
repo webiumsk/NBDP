@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/prep/build_inside.py", line 141, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/prep/build_inside.py", line 116, in main
+    require(code==0 and error is None and not changed and not unplanned,'BUILD_OR_SOURCE_EQUALITY_FAILED')
+  File "/prep/build_inside.py", line 21, in require
+    if not value:raise ValueError(message)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: BUILD_OR_SOURCE_EQUALITY_FAILED

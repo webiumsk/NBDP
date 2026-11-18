@@ -1,0 +1,1 @@
+DRAFT r4 target-path rebind only. Every materializer function AST remains identical to r3, PINNED stays None, authorization false and subject slots null. No clocks/grant/dispatch are created. Negative/post-input DATA and root method adoption precede final subjects and independently reviewed source/model/concrete one-use release.

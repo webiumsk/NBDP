@@ -1,0 +1,86 @@
+{
+  "schema": "e02-root-failed-helper-probe-data-acceptance-v1",
+  "actor": "/root",
+  "decision": "ACCEPT_ONE_FAILED_CURRENT_HELPER_PROBE_DATA_ONLY",
+  "subject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-actual/7c370e3a9fab2ac8049036eccfed4f8f/gate--helper-subject.json",
+    "bytes": 3035,
+    "sha256": "2c605e13f4793042cd0b1e80e1d228a4ca7d894338354ddb20f1681f6035c0e8"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-probe-negative-7c370e3a9fab-20261029/qa-review.json",
+      "bytes": 390,
+      "sha256": "16f3e75232604393dd74a722965ce245949c50e56617d203651253f7cd50afcb"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-probe-negative-7c370e3a9fab-20261029/security-review.json",
+      "bytes": 402,
+      "sha256": "10621fb99024a9e3b2cb177c200aa95a09160d33782eea22fdb23cf737c323ff"
+    }
+  ],
+  "reviewEntrypoint": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-probe-negative-7c370e3a9fab-20261029/review-entrypoint.json",
+    "bytes": 3261,
+    "sha256": "faf57f6e52a3595ced9b90441f7475e4b662c1c5c338fc65ab3633c2576e945b"
+  },
+  "controllerSource": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r6/subject.json",
+    "bytes": 27742,
+    "sha256": "02374157ee8ae56a4375464e43748b757e6e7c07b6d6aece8b63a501820e059e"
+  },
+  "controllerSourceAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r6-source-acceptance-20261029/acceptance.json",
+    "bytes": 1217,
+    "sha256": "f7c433dbc0a5e57d4d912ea9366a1a7028960f7e4e0900bce60845f31b718f16"
+  },
+  "controllerControlDataAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r6-model142-actual-20261029/acceptance.json",
+    "bytes": 2121,
+    "sha256": "993ede7d9b1c3eb3be683d048a641747d98490fb5dfdcd474de63ba6457d95ad"
+  },
+  "execution": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-actual-r1/7c370e3a9fab2ac8049036eccfed4f8f/output/result.json",
+    "bytes": 482,
+    "sha256": "3b59df36c94ba390fe307d40c2f6b3baecd5c3882d29ca82352cd815de45c2a7"
+  },
+  "originalProbeApi": {
+    "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-actual/7c370e3a9fab2ac8049036eccfed4f8f/api-frame--probe-origin.json",
+    "bytes": 1322,
+    "sha256": "6fd22ac4675d15869caeb50d0c309623d67c14298c98e6b9f86ba6d3de0e728d"
+  },
+  "rawArtifactManifest": {
+    "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-actual/7c370e3a9fab2ac8049036eccfed4f8f/gate--raw-manifest.json",
+    "bytes": 8735,
+    "sha256": "4d32e9a228b1454ef941a2fc4a20e14be3a6de6a74ae07a4951a9c9e5595277a"
+  },
+  "finalHistoryPrefix": {
+    "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-actual/7c370e3a9fab2ac8049036eccfed4f8f/diagnostic--history-prefix.bin",
+    "bytes": 20825,
+    "sha256": "9a1ece113cec65685fe816e8a74c12831acaa0fd8ab8077079cc42c4c1f835f0"
+  },
+  "qualified": false,
+  "hostInvocations": 1,
+  "createdContainers": 1,
+  "targetStartsObserved": 0,
+  "cleanup": {
+    "removed": true,
+    "absence": true,
+    "unknownIdentity": false
+  },
+  "error": "FULL_TARGET55_REQUIRED",
+  "environmentRemovalGuardPassed": true,
+  "collectorCustodyQualifiedAtCut": true,
+  "collectorCommands": 14,
+  "registeredWrites": 13,
+  "payloadBytes": 45229,
+  "prepaidSlotUpperBytes": 61613,
+  "slotLimit": 65536,
+  "current538InputsUnchanged": true,
+  "platformOnlyFinalWitness": true,
+  "physicalFinalOriginCopies": 0,
+  "postFinalCollectorCommands": 0,
+  "ordinaryRowsQualified": 0,
+  "scope": "FAILED_HELPER_DATA_ONLY_NO_RUNTIME_OR_CANONICAL_PROMOTION",
+  "executionAuthorized": false
+}

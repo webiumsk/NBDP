@@ -1,0 +1,50 @@
+{
+  "schema": "nbdp-independent-build-input-data-review-v1",
+  "recordedBy": "/root",
+  "reviewer": "/root/status_evidence",
+  "recordType": "Coordinator transcription of actual independent agent mailbox result, not authenticated provider audit log.",
+  "decision": "ACCEPT_FOUR_TOOL_ACQUISITION_DATA_AND_SEPARATE_SOURCE_ARCHIVE_DATA",
+  "acceptedExtractions": {
+    "jdk": {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/acquisition/jdk-extraction.json",
+      "bytes": 178456,
+      "sha256": "a2547e5989af52335e1a03d853797e0e1efa57b55d782214620ee56ca80b0db2"
+    },
+    "platform": {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/acquisition/platform-extraction-r2.json",
+      "bytes": 4965623,
+      "sha256": "70d4aacb82da241411cc91e5cc5a9e3709bf58b1139852e10ba276981f1bc6e7"
+    },
+    "build-tools": {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/acquisition/build-tools-extraction.json",
+      "bytes": 68005,
+      "sha256": "6b49825e7b1c6adc3a784ed64527d02b921fd34f7a9096a988b1b720aaf11df3"
+    },
+    "ndk": {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/acquisition/ndk-extraction.json",
+      "bytes": 4844325,
+      "sha256": "8a50bfaadadb13dc6b7a7bfe2239824ced781e8ecd0471b31bf820f00b38d43d"
+    }
+  },
+  "acceptedSourceArchiveReceipt": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/source-archive.json",
+    "bytes": 664,
+    "sha256": "ee9f42d3b1af79b49d41ae7673fdd1176aadd20e3abcd37fa43dfb4c8a38c6e0"
+  },
+  "verified": [
+    "Complete current inventories541/14250/195/10133 entries exactly match.",
+    "All249/11384/168/9493 regular archive payloads independently hashed against actual files/receipt hashes; ZIPCRC, metadata/modes/targets/member lists match.",
+    "JDK205/NDK39 safe internal symlinks, no special files; roots/dirs0700, archive-masked regular modes; archives/receipts0600.",
+    "Exact published archive lengths/digests plus fetch/extraction SHA256 match.",
+    "JDK21.0.13+9, platform37.0/rev2/version17/ext22/base true/preview0/empty code-beta, BT36.0.0, NDK30.0.16248370/r30.",
+    "Actual commands match releases, successful phases0; original151B platform EXPECTED_PLATFORM_API failure remains1 and preserved.",
+    "Source archive345579520B exact11085 Gitblobs335107378 payloadB, modes/membership/GitIDs match; clean e6f464a/11a907; archive tool natural0."
+  ],
+  "limits": [
+    "No acquired tools/extraction/import/build executed by reviewer.",
+    "Receipts coordinatorretained, not providerattested; beforeafter hash not racefreecustody.",
+    "Initial sampled diskfloor not maintainedreserve; private singlewriter rename not atomicNOREPLACE.",
+    "No compilation/runtime/canonicalgate closure; separate concrete plans/root releases required."
+  ],
+  "findings": []
+}

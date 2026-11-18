@@ -1,0 +1,123 @@
+{
+  "schema": "e02-transport-source2-actual-named-scope-results-v1",
+  "scopes": [
+    {
+      "scope": "source-custody-and-host-inventory",
+      "actualObservedCount": 18,
+      "actualNamedPartitions": {
+        "SourceCustodyControls": 10,
+        "ClosedDependencyControls": 8
+      },
+      "actualNamedCases": {
+        "SourceCustodyControls": [
+          "test_guard_is_exact_original_unchanged_bytes",
+          "test_original_clock_command_identity_cleanup_methods_unchanged",
+          "test_original_owned_child_lifecycle_forwarding_unchanged",
+          "test_only_three_roles_no_adb_snapshot_or_sdk_route",
+          "test_signed_public_input_and_query_exact_frozen_hashes",
+          "test_no_signing_key_or_nonce_input_in_diagnostic_plan",
+          "test_closed_cid_absence_is_not_generic_exit1",
+          "test_exact_owned_cleanup_remove_and_absence_positive",
+          "test_foreign_creation_identity_never_removed",
+          "test_uncertain_absence_remains_failure"
+        ],
+        "ClosedDependencyControls": [
+          "test_unchanged_complete_tree_accepted",
+          "test_extra_regular_and_nested_optional_bufferutil_refused",
+          "test_missing_and_changed_regular_member_refused",
+          "test_new_safe_escape_and_dangling_symlinks_refused",
+          "test_special_fifo_refused_without_read",
+          "test_source_runtime_canonical_mapping_and_unknown_fields_refused",
+          "test_actual_inventory_gate_refuses_before_host_import_or_container",
+          "test_end_boundary_rechecks_current_membership_not_cached_success"
+        ]
+      },
+      "rawStdout": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/scopes/source-custody-and-host-inventory/data.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawStderr": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/scopes/source-custody-and-host-inventory/data.stderr",
+        "bytes": 2719,
+        "sha256": "b8f0d4b1163dd5dcb6128515bd47ed0896dd87e42b2e6647022d43e0a7458842"
+      },
+      "nameEvidenceMeaning": "Python class/case names were exactly matched by the capture against actual verbose stderr; Node names are actual stdout cases. Raw evidence preserved."
+    },
+    {
+      "scope": "fake-socket-and-physical-prefix-model",
+      "actualObservedCount": 27,
+      "actualNamedPartitions": {
+        "priorScopeCasesIncludingVersionedLateBehavior": 20,
+        "newFaultFamilies": 7
+      },
+      "actualNamedCases": [
+        "original10s3s-ack-and-real-send-callback-model",
+        "query-event-and-exact-eose-model",
+        "eose-before-send-callback-does-not-require-packet-order",
+        "no-success-until-actual-model-send-callback",
+        "timeout-retains-partial-send-state-and-rejection",
+        "intent-is-before-send-invoke-not-callback-proof",
+        "raw-backend-callback-precedes-original-guard",
+        "guard-refused-open-sends-nothing",
+        "guard-refused-before-send-sends-nothing",
+        "guard-refused-message-keeps-raw-context-without-success",
+        "guard-refused-send-callback-is-not-completed",
+        "send-error-preserves-error-no-success",
+        "same-buffer-mutation-refuses",
+        "relay-negative-ack-refuses",
+        "wrong-eose-subscription-never-completes",
+        "late-message-after-terminal-has-no-writes-actions",
+        "same-original-query-result-object-key-order-independent",
+        "same-query-result-content-change-refuses",
+        "original-strict-json-duplicate-key-refuses",
+        "unknown-exchange-label-refuses-before-socket",
+        "terminal-phase-and-outcome-failure-success-path-rejects-once",
+        "terminal-retention-failure-preserves-original-protocol-fault",
+        "raw-timer-error-close-callback-write-fault-boundaries",
+        "required-publication-write-failure-prevents-followup-query",
+        "writer-full-write-and-acknowledged-short-prefix-are-distinct",
+        "writer-throw-invalid-count-overflow-poisons-with-no-retry",
+        "poisoned-real-writer-forces-exchange-reject-no-second-send"
+      ],
+      "rawStdout": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/scopes/fake-socket-and-physical-prefix-model/data.stdout",
+        "bytes": 1516,
+        "sha256": "fe8b9fd564aa6bbfcd5082b7198ab8bc514e0854f6753877b306bd1dad225293"
+      },
+      "rawStderr": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/scopes/fake-socket-and-physical-prefix-model/data.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "nameEvidenceMeaning": "Python class/case names were exactly matched by the capture against actual verbose stderr; Node names are actual stdout cases. Raw evidence preserved."
+    },
+    {
+      "scope": "guest-dependency-inventory-data",
+      "actualObservedCount": 6,
+      "actualNamedPartitions": {
+        "guestInventoryFamilies": 6
+      },
+      "actualNamedCases": [
+        "complete-unchanged-source-runtime-tree",
+        "extra-member-and-nested-bufferutil-rejected-before-import",
+        "missing-and-changed-file-rejected",
+        "safe-added-escape-and-dangling-symlink-rejected",
+        "source-and-runtime-path-mapping-cannot-diverge",
+        "end-boundary-rechecks-added-directory"
+      ],
+      "rawStdout": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/scopes/guest-dependency-inventory-data/data.stdout",
+        "bytes": 427,
+        "sha256": "1fd956d62964ae1b57c914bb50e3561f3970a05bb9598bd4e04e85d7d2fd64ac"
+      },
+      "rawStderr": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/scopes/guest-dependency-inventory-data/data.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "nameEvidenceMeaning": "Python class/case names were exactly matched by the capture against actual verbose stderr; Node names are actual stdout cases. Raw evidence preserved."
+    }
+  ],
+  "meaning": "Three distinct current synthetic DATA/model scopes; source1 hadzero runs, no historical pass transfer. Not real guard/network/relay/runtime qualification."
+}

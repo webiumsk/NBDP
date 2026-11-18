@@ -1,0 +1,117 @@
+{
+  "schema": "e02-producer3-final-source-control-plan-v1",
+  "state": "DEFINED_ONLY_REQUIRES_INDEPENDENT_SOURCE_AND_SEPARATE_CAPTURE_SOURCE_REVIEW",
+  "sourceRoot": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3",
+  "python": {
+    "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "bytes": 32959480,
+    "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+  },
+  "node": {
+    "path": "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+    "bytes": 121613584,
+    "sha256": "ccacb2d6d87ba6d118b2bffc1ae33747a05cc5fc6b1f1ec4fc1d420b687e952d"
+  },
+  "scopes": [
+    {
+      "scope": "observation-model",
+      "count": 20,
+      "source": {
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/test_observation_model.mjs",
+        "bytes": 11018,
+        "sha256": "d35a4736d44ebddbf8b733eb82e457ea1d4482078b7316e90938f2612cbb68bb"
+      },
+      "exactDefinedPythonNames": [],
+      "format": "NODE_JSON",
+      "captureGroup": "CURRENT35"
+    },
+    {
+      "scope": "public-identity-metadata",
+      "count": 8,
+      "source": {
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/test_public_identity_metadata.py",
+        "bytes": 4489,
+        "sha256": "d1b070b79b5673c0f05fbe3c75a70c5739de8cdb06e38183fe99c7a872d66ff4"
+      },
+      "exactDefinedPythonNames": [
+        "PublicIdentityMetadata.test_whole_checksum_payload_both_public_scalars",
+        "PublicIdentityMetadata.test_four_metadata_operands_equal_unchanged_driver",
+        "PublicIdentityMetadata.test_historical_65_character_operand_refused_preserved",
+        "PublicIdentityMetadata.test_checksum_corruption_refused",
+        "PublicIdentityMetadata.test_valid_other_payload_refused",
+        "PublicIdentityMetadata.test_whitespace_case_truncation_never_normalized",
+        "PublicIdentityMetadata.test_non_bech32_glyph_refused",
+        "PublicIdentityMetadata.test_new_plan_keeps_scalar_roles_and_whole_value"
+      ],
+      "format": "QUIET_UNITTEST_DOTS",
+      "captureGroup": "CURRENT35"
+    },
+    {
+      "scope": "producer2-source-wiring",
+      "count": 7,
+      "source": {
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/test_producer2_source.py",
+        "bytes": 4999,
+        "sha256": "d5d2aa047e1832d34e991c0ca073ff63abb10930e161972d04e202a9576a0b1e"
+      },
+      "exactDefinedPythonNames": [
+        "Producer2SourceBindings.test_all_three_accepted_modules_byte_identical",
+        "Producer2SourceBindings.test_host_full_inventory_functions_identical",
+        "Producer2SourceBindings.test_preimport_and_end_dependency_boundaries_wired",
+        "Producer2SourceBindings.test_complete_staged_modules_and_tree_pin",
+        "Producer2SourceBindings.test_same_original_guard_invocation_body",
+        "Producer2SourceBindings.test_frozen_oracles_and_exact_query_no_baseline_payload",
+        "Producer2SourceBindings.test_original_android_and_transport_limits"
+      ],
+      "format": "QUIET_UNITTEST_DOTS",
+      "captureGroup": "CURRENT35"
+    },
+    {
+      "scope": "rebuilt-artifact-bindings",
+      "count": 3,
+      "source": {
+        "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/test_producer3_bindings.py",
+        "bytes": 15095,
+        "sha256": "d6747f408d455fa657b435bd5305378a1ea536d17baa125f4dbdc4089421a589"
+      },
+      "exactDefinedPythonNames": [
+        "Producer3RebuiltBindings.test_current_accepted_rebuilt_artifacts_and_exact_e01_native",
+        "Producer3RebuiltBindings.test_missing_apk_wrong_native_e01_and_build_sdk_substitution_refused",
+        "Producer3RebuiltBindings.test_preflight_before_materialize_and_verify_and_original16_worker_files"
+      ],
+      "format": "QUIET_UNITTEST_DOTS",
+      "captureGroup": "SEPARATE_REBUILT3"
+    }
+  ],
+  "current35Counts": [
+    20,
+    8,
+    7
+  ],
+  "rebuiltBindingCount": 3,
+  "twoSeparateOnceOnlyCaptures": true,
+  "controlsExecuted": 0,
+  "historicalResultsTransferred": false,
+  "quietChoice": "New final generation only explicitly uses unittest.main(verbosity=1) for3; exact source definitions remain named/pinned; original verbose pre-APK SOURCE and earlier planned parser requirement remain historical.",
+  "limits": {
+    "commandSeconds": 60,
+    "directChildReapSeconds": 3,
+    "stdoutRetentionBytes": 262144,
+    "stderrRetentionBytes": 1048576
+  },
+  "limitsMeaning": "Capture SOURCE must specify exact effective caps and post-capture retention semantics; no streaming-memory or60s-sufficiency claim.",
+  "requires": [
+    "Independent exact producer SOURCE QA/security",
+    "Separately frozen/reviewed current35 and separate3 capture SOURCE/current input manifest",
+    "Root one-use finite DATA capture releases",
+    "Actual counts/streams/tool custody/full unchanged inputs and independent acceptance"
+  ],
+  "excluded": [
+    "Android/SDK tools",
+    "native binary execution",
+    "services",
+    "real crypto",
+    "runtime role grants",
+    "ordinary-client qualification"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "request": {
+    "schema": "nbdp-amethyst-actual-cli-request-v1",
+    "argv": [
+      "/usr/bin/docker",
+      "rm",
+      "0fa744eb87aadadb12c8e7982b44237e26354ac71b6c0217cd121b89b6ff24ae"
+    ],
+    "wrappedArgv": [
+      "/usr/bin/timeout",
+      "--signal=TERM",
+      "--kill-after=5s",
+      "20s",
+      "/usr/bin/docker",
+      "rm",
+      "0fa744eb87aadadb12c8e7982b44237e26354ac71b6c0217cd121b89b6ff24ae"
+    ],
+    "startedUtcNs": 1793127113545230312,
+    "maximumSeconds": 20,
+    "capturePerFileLimitBytes": 4194304,
+    "limitMeaning": "RLIMIT_FSIZE on CLI/attach capture files only; inner install job file limit is2GiB."
+  },
+  "exitCode": 0,
+  "error": null,
+  "elapsedWallSeconds": 0.23523456399561837,
+  "classification": "NATURAL_ZERO",
+  "stdout": {
+    "path": "/Data/nbdp-e02-tooling-20261027/controller-r3/attempt-248d43a8cd83d0b0e2e1fd75c89aec04/018-remove.stdout",
+    "bytes": 65,
+    "sha256": "63fa7ccea61f597388603c2b68ebbe786991e8c5f6bde66f21b7a26577eff62e"
+  },
+  "stderr": {
+    "path": "/Data/nbdp-e02-tooling-20261027/controller-r3/attempt-248d43a8cd83d0b0e2e1fd75c89aec04/018-remove.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "attachedInstall": false,
+  "resourceClaim": "Configured limits; no measured CPU/RSS/aggregate disk peak or hostile process closure."
+}

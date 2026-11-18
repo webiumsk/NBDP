@@ -1,0 +1,427 @@
+{
+  "schema": "e02-one-cid-helper-probe-controller-source-v1",
+  "author": "/root/producer4_nonblocking_source",
+  "coordinator": "/root",
+  "sourceContributors": [
+    "/root/producer4_nonblocking_source",
+    "/root/completion_wrapper",
+    "/root/r5_plan_fix"
+  ],
+  "operators": [],
+  "state": "FROZEN_R3_TEST_ONLY_ORACLE_CORRECTION_PENDING_INDEPENDENT_REVIEW",
+  "scope": "ONE_OWNED_HELPER_LATENCY_TIMER_PROBE_ONLY",
+  "runtimeSources": [
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/controller.py",
+      "bytes": 17745,
+      "sha256": "737fb063111f196b73340f7dc98049217def32118374c8889a1bb411c5046964"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2/host.py",
+      "bytes": 36235,
+      "sha256": "b6713099c1dba747171c8a1393b728ab878482e3b1d7069c70f71714045a97ac"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/finite_child.py",
+      "bytes": 6041,
+      "sha256": "25f6e87475145cc8eac23d2d1f0885aa7c6ce41fbc9529328d6606bea11b0ee7"
+    }
+  ],
+  "runtimeSourceCount": 3,
+  "guestProbeSources": [
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/probe-guard-helper.mjs",
+      "bytes": 3008,
+      "sha256": "396efe615ec3a099c149da6725d629576176799dda6ef7300fc3df5e9a5e2546"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-client.mjs",
+      "bytes": 9176,
+      "sha256": "1d4e99056ec8c16f9222cfebc060d171ee5e723748ac303d4d525dd7b43b5fc5"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-client-core.mjs",
+      "bytes": 8072,
+      "sha256": "14be5abb1ff953d2336e841e1364acdfd8275874ffed3aef88f9a9489fac1083"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-wire.mjs",
+      "bytes": 1921,
+      "sha256": "8cf473b741d631f80ef785c86acf5caa9899d03206696a8f740db08878c02d8e"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-helper.py",
+      "bytes": 6219,
+      "sha256": "743e0ed269445a4d59407336e399d1c7bd46c5337408b157e9ef85773e2157cf"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/lease_guard.py",
+      "bytes": 14846,
+      "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/capture-allocation.mjs",
+      "bytes": 7437,
+      "sha256": "a86180100f6f4fee691bd177f557fbc3a4573ccc9d0f3f15ee66a32c1b8e57a7"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-transport-boundaries.mjs",
+      "bytes": 4978,
+      "sha256": "c4c5cda6107cdead8715da8bdba917a31ebabadc0249d8fba0b343a718f98068"
+    }
+  ],
+  "guestProbeSourceCount": 8,
+  "upstreamProducerRuntimeWorkerCount": 22,
+  "upstreamProducerModelsDefined": 260,
+  "upstreamProducerSubject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4-metadata-r1/subject.json",
+    "bytes": 30532,
+    "sha256": "34802f702c863e5cd81e865eec5de7736615ceffc683a8a9f9eb4192e857e66e"
+  },
+  "upstreamProducerSourceAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-source4-acceptance-20261028/acceptance.json",
+    "bytes": 1143,
+    "sha256": "b1ab95f20cd608024c7b4dee011063c760d35109aa20a0dca3d1c1aa81098312"
+  },
+  "constants": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/constants.json",
+    "bytes": 3953,
+    "sha256": "6771dc7fa3fd52fc826a5e9932ebf3d958b18f3455d61b6d21d8c36f6f78b11a"
+  },
+  "methodAdoption": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-helper-probe-preparation-20261028/method-r3/root-method-adoption.json",
+    "bytes": 2776,
+    "sha256": "15d7741fea900925894116eea3021cae73be0317ed31e84018434f17883ee635"
+  },
+  "methodPlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-helper-probe-preparation-20261028/method-r3/plan.json",
+    "bytes": 14782,
+    "sha256": "498eb1e0bb17d2a291c0e19b04990b5ab1182b10d0c661df9e8443ed4db33361"
+  },
+  "methodTemplates": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer4-helper-probe-preparation-20261028/method-r3/command-templates.json",
+    "bytes": 7574,
+    "sha256": "62e3dbbfca1e759dc67edc1119e2d7f32ecea78d7482fd848cd37300650efe95"
+  },
+  "controlPlan": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r3/control-plan.json",
+    "bytes": 12640,
+    "sha256": "da939d1dd5a2c1a1b35d43ad3257cc2834b232e5ada34e4d3781507fb7f441c0"
+  },
+  "contract": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2/CONTRACT-R2.md",
+    "bytes": 4288,
+    "sha256": "9dcc80471312b4b678190c871594c527ce8b39e433649f7a0dcdeab0a40b4105"
+  },
+  "effectMap": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/effect-map.json",
+    "bytes": 3534,
+    "sha256": "cd42dc998f15a9b45806df31094aab90ec92c3e0840725ae267532a9ef1358a3"
+  },
+  "preservation": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r3/preservation.json",
+    "bytes": 26947,
+    "sha256": "db1e175e2b5d081539fbed95bdfb522094033babe99c261d07111874fcd72e62"
+  },
+  "staticPreparation": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r3/static-preparation.json",
+    "bytes": 1198,
+    "sha256": "b873e1ace0380f90ebbb94adb4bd64102e7b9eac6bc887c3be8b72d99f467cf4"
+  },
+  "sources": [
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/controller.py",
+      "bytes": 17745,
+      "sha256": "737fb063111f196b73340f7dc98049217def32118374c8889a1bb411c5046964"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/finite_child.py",
+      "bytes": 6041,
+      "sha256": "25f6e87475145cc8eac23d2d1f0885aa7c6ce41fbc9529328d6606bea11b0ee7"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/constants.json",
+      "bytes": 3953,
+      "sha256": "6771dc7fa3fd52fc826a5e9932ebf3d958b18f3455d61b6d21d8c36f6f78b11a"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/test_controller.py",
+      "bytes": 34076,
+      "sha256": "d858419a398340c9996a594a7c4616a6c5649dcad122880629f457a04d0553bf"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/test_finite_child.py",
+      "bytes": 7445,
+      "sha256": "c0b578cb1f3b4e3c4789956a2823320c17764899fd705586245dd68b2f44d5ff"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/plan-skeleton.json",
+      "bytes": 2676,
+      "sha256": "c8f70716e1d72e1ecf3d08cbf64c1eb32c155e649ab75ed82d6add1bcdb52282"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/root-release-skeleton.json",
+      "bytes": 469,
+      "sha256": "9b8597e02d80a703ce983e98e6dbb9c2332bbca10a2f9e77474b757ff0139d7c"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/gate-skeleton.json",
+      "bytes": 185,
+      "sha256": "119012a245be47b0bfc35cd63b4223c088aa1d420d0de442a59c439500782d7b"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/outer-request-skeleton.json",
+      "bytes": 109,
+      "sha256": "f02d1c54bdad288d448638b03daf309deca1f6d9f2eb0d5a77b8554a62e7d3db"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/effect-map.json",
+      "bytes": 3534,
+      "sha256": "cd42dc998f15a9b45806df31094aab90ec92c3e0840725ae267532a9ef1358a3"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/CONTRACT.md",
+      "bytes": 13353,
+      "sha256": "898bc9041a6bea0bd550fe26d76ac7992a6fae1025d04f6e425e298fe4e3677f"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2/CONTRACT-R2.md",
+      "bytes": 4288,
+      "sha256": "9dcc80471312b4b678190c871594c527ce8b39e433649f7a0dcdeab0a40b4105"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r3/control-plan.json",
+      "bytes": 12640,
+      "sha256": "da939d1dd5a2c1a1b35d43ad3257cc2834b232e5ada34e4d3781507fb7f441c0"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r3/delta-proof.json",
+      "bytes": 2140,
+      "sha256": "b2363918f4016af8f3e94d565808fd33aabaec997a6c787d0b10be1f1c950a7e"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2/host.py",
+      "bytes": 36235,
+      "sha256": "b6713099c1dba747171c8a1393b728ab878482e3b1d7069c70f71714045a97ac"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2/outer-tokens-skeleton.json",
+      "bytes": 602,
+      "sha256": "36f6fc36b9cf3eda99344920e38067fd3c54c5ef63742adaf886b5cddaea89ae"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r3/preservation.json",
+      "bytes": 26947,
+      "sha256": "db1e175e2b5d081539fbed95bdfb522094033babe99c261d07111874fcd72e62"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r3/r2-r3-test.diff",
+      "bytes": 1535,
+      "sha256": "10306a0f8206e93ee9818b29113ced369622f6ab6293b42e5fdcb9189d1605af"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r3/static-preparation.json",
+      "bytes": 1198,
+      "sha256": "b873e1ace0380f90ebbb94adb4bd64102e7b9eac6bc887c3be8b72d99f467cf4"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r3/test_host.py",
+      "bytes": 35720,
+      "sha256": "39e6c31027229e965d1a4d23fd9e83de3d9212a9abacf4a2dd09a8f8c82309e6"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2/test_raw_tools.py",
+      "bytes": 22286,
+      "sha256": "f003140a2043c3664bd4633454dc67d999449c397fe7379685d11eb1a2378392"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/probe-guard-helper.mjs",
+      "bytes": 3008,
+      "sha256": "396efe615ec3a099c149da6725d629576176799dda6ef7300fc3df5e9a5e2546"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-client.mjs",
+      "bytes": 9176,
+      "sha256": "1d4e99056ec8c16f9222cfebc060d171ee5e723748ac303d4d525dd7b43b5fc5"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-client-core.mjs",
+      "bytes": 8072,
+      "sha256": "14be5abb1ff953d2336e841e1364acdfd8275874ffed3aef88f9a9489fac1083"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-wire.mjs",
+      "bytes": 1921,
+      "sha256": "8cf473b741d631f80ef785c86acf5caa9899d03206696a8f740db08878c02d8e"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-helper.py",
+      "bytes": 6219,
+      "sha256": "743e0ed269445a4d59407336e399d1c7bd46c5337408b157e9ef85773e2157cf"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/lease_guard.py",
+      "bytes": 14846,
+      "sha256": "d396cde2829a230760d1ecd97c9f37fecedb7734082986181cf1a6c05122d5bf"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/capture-allocation.mjs",
+      "bytes": 7437,
+      "sha256": "a86180100f6f4fee691bd177f557fbc3a4573ccc9d0f3f15ee66a32c1b8e57a7"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/guard-transport-boundaries.mjs",
+      "bytes": 4978,
+      "sha256": "c4c5cda6107cdead8715da8bdba917a31ebabadc0249d8fba0b343a718f98068"
+    }
+  ],
+  "sourceCount": 29,
+  "modelsDefined": 104,
+  "modelGroups": 4,
+  "modelsExecuted": 0,
+  "targetImports": 0,
+  "helperExecutions": 0,
+  "dockerExecutions": 0,
+  "probeExecutions": 0,
+  "containersStarted": 0,
+  "roleExecutions": 0,
+  "currentProducerPureDataAcceptance": null,
+  "currentControllerSourceQa": null,
+  "currentControllerSourceSecurity": null,
+  "currentControllerControlDataAcceptance": null,
+  "currentConcreteInputAcceptance": null,
+  "concreteRootRelease": null,
+  "externalRootCustodyCollectorSource": null,
+  "externalRootCustodyActualData": null,
+  "externalRootPrechargeBeforeControlOriginals": null,
+  "externalRootActualProofBytes": null,
+  "rootCustodyReservationBytes": 65536,
+  "rootCustodyReservationIsInsideMetadata8MiB": true,
+  "finalMethodBindings": {
+    "finalProducerSource": null,
+    "finalProducerConfig": null,
+    "finalProducerControlPlan": null,
+    "finalProducerPureDataAcceptance": null,
+    "probeConfiguration": null,
+    "finalControllerSource": null,
+    "finalExecutionPlan": null,
+    "finalSourceQa": null,
+    "finalSourceSecurity": null,
+    "finalControlDataAcceptance": null,
+    "concreteInputAcceptance": null,
+    "rootRelease": null,
+    "runId": null,
+    "creationNonce": null,
+    "containerName": null,
+    "cid": null,
+    "hostUidGid": null,
+    "privateInputRoot": null,
+    "privateControlRoot": null,
+    "privateOutputRoot": null,
+    "privateDockerConfig": null,
+    "lease": null,
+    "leaseSha256": null,
+    "probeConfigurationSha256": null,
+    "expectedImageConfiguration": null,
+    "actualInitialInspection": null,
+    "actualTerminalInspection": null,
+    "actualCleanup": null,
+    "originalToolOrigin": null
+  },
+  "readiness": false,
+  "runtimeReady": false,
+  "executionAuthorized": false,
+  "rootGrantIssued": false,
+  "selfApproval": false,
+  "ordinaryRowsQualified": 0,
+  "backendCause": "UNKNOWN",
+  "canonicalE02": "PARTIAL22_UNCHANGED",
+  "all14PriorOrdinaryAttemptsRemainUnqualified": true,
+  "architecturalBlockers": [
+    "Q01",
+    "Q08",
+    "Q13",
+    "Q15",
+    "Q27"
+  ],
+  "productionSDKAuthorized": false,
+  "publicationPerformed": false,
+  "remainingGates": [
+    "fresh exact SOURCE QA/security",
+    "actual104 mocked control DATA acceptance",
+    "current producer260 pure DATA acceptance",
+    "reviewed external Rootcollector enforcing65536 including all externalcontrol originals/APIcopies beforewriting",
+    "current expected source8/guard522/image/tools/privatepaths/lease/concreteinput acceptance",
+    "new externally pinned one-use Rootrelease and actualouterAPI custody"
+  ],
+  "version": "r3",
+  "baseContract": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/CONTRACT.md",
+    "bytes": 13353,
+    "sha256": "898bc9041a6bea0bd550fe26d76ac7992a6fae1025d04f6e425e298fe4e3677f"
+  },
+  "deltaProof": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r3/delta-proof.json",
+    "bytes": 2140,
+    "sha256": "b2363918f4016af8f3e94d565808fd33aabaec997a6c787d0b10be1f1c950a7e"
+  },
+  "sourceDiff": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r3/r2-r3-test.diff",
+    "bytes": 1535,
+    "sha256": "10306a0f8206e93ee9818b29113ced369622f6ab6293b42e5fdcb9189d1605af"
+  },
+  "previous85DefinitionBodiesRetainedWithDocumentedBindingOnlyChange": true,
+  "newRawDefinitions": 19,
+  "predecessorSubject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2/subject.json",
+    "bytes": 17382,
+    "sha256": "34017b0aa5e7e85f65e30a454112e2929ee867e3e1abae6e06a64e458a43db4b"
+  },
+  "predecessorSourceAccepted": true,
+  "predecessorDataTransferred": false,
+  "rawToolBoundary": {
+    "inputType": "RAW_FIXED_HOST_EXECUTABLE",
+    "allowedPaths": [
+      "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "/usr/bin/docker"
+    ],
+    "maximumBytes": 2147483648,
+    "maximumChunkBytes": 65536,
+    "productionPhaseCalls": [
+      "Host.admit",
+      "Host.before_target",
+      "Host.postread"
+    ],
+    "binaryContentsCopied": 0,
+    "jsonOrPhysicalProofCapsChanged": false
+  },
+  "outerTokensSkeleton": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r2/outer-tokens-skeleton.json",
+    "bytes": 602,
+    "sha256": "36f6fc36b9cf3eda99344920e38067fd3c54c5ef63742adaf886b5cddaea89ae"
+  },
+  "predecessorSourceAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r2-source-acceptance-20261029/acceptance.json",
+    "bytes": 1213,
+    "sha256": "7e0c8d98e4c84420d140aca3038ef67bda1ee94a6d5c587b82c1667273d0dc7e"
+  },
+  "priorActualModelFailure": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r2-model104-actual-20261029/failure-summary.json",
+    "bytes": 854,
+    "sha256": "0e1cfd67961d06b731cfbe3b3c9052229c96bab0f6c06431aeeccb82768676ce"
+  },
+  "priorActualModelCounts": {
+    "executed": 75,
+    "passed": 74,
+    "failed": 1,
+    "notExecuted": 29
+  },
+  "priorActualModel39PassTransferred": false,
+  "testOnlyCorrection": true,
+  "productionCodeChanged": false,
+  "originalR1SourceDisposition": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r1-fresh-review-freeze-20261029/findings-and-disposition.json",
+    "bytes": 1323,
+    "sha256": "40547788c8e584cea118b5ae89ea2b2a84e57e88c534b40775b917e338db3b90"
+  }
+}

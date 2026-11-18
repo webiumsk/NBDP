@@ -1,0 +1,87 @@
+def reviews(rows,subject,decision,forbidden):
+    need(type(rows) is dict and set(rows)=={'qa','security'},'EXACT_INDEPENDENT_PAIR')
+    sessions=[]
+    for role in ('qa','security'):
+        value=load(checked(rows[role]));need(set(value)=={'role','session','decision','subject'},'CLOSED_ACTUAL_REVIEW')
+        need(value['role']==role and value['subject']==subject and value['decision']==decision,'EXACT_ACTUAL_REVIEW_BINDING')
+        need(type(value['session']) is str and value['session'].startswith('/root/') and value['session'] not in forbidden,'AUTHOR_OPERATOR_CANNOT_REVIEW')
+        sessions.append(value['session'])
+    need(len(set(sessions))==2 and rows['qa']['sha256']!=rows['security']['sha256'],'DISTINCT_QA_SECURITY')
+
+def admission():
+    need(sys.flags.isolated and sys.dont_write_bytecode and sys.argv[:3]==[str(HERE/'capture.py'),'--execute-once','--root-ack-sha'] and len(sys.argv)==4 and re.fullmatch('[0-9a-f]{64}',sys.argv[3]),'EXACT_ISOLATED_ONCE_ENTRY')
+    method_pin=descriptor(HERE/'method-source.json');method=load(method_pin['path'])
+    plan_pin=descriptor(HERE/'plan.json');plan=load(plan_pin['path']);manifest_pin=descriptor(HERE/'input-manifest.json');manifest=load(manifest_pin['path'])
+    need(method['schema']=='e02-consumer5-capture-method-source-v1' and method['plan']==plan_pin and method['inputManifest']==manifest_pin,'EXACT_FROZEN_METHOD')
+    for d in method['sources']:checked(d)
+    need(descriptor(HERE/'capture.py') in method['sources'],'SELF_CODE_PIN_REQUIRED')
+    need(plan['schema']=='e02-consumer5-fixed-control-capture-plan-v1' and plan['consumerSource']==method['consumerSource'] and plan['consumerPacket']==method['consumerPacket'],'CURRENT_CONSUMER_METHOD_JOIN')
+    need(plan['inputManifest']==manifest_pin and plan['environment']==ENV and plan['scopeCounts']==[86,36,8,9],'FIXED_INPUTS_ENV_COUNTS')
+    need(plan['limits']==dict(childSeconds=60,absoluteChildReapSeconds=3,stdoutBytes=1048576,stderrBytes=262144,outerSeconds=297) and plan['stopFirstFailure'] is True and plan['noRetry'] is True,'UNCHANGED_FINITE_BUDGETS')
+    source=load(checked(plan['consumerSource']));packet=load(checked(plan['consumerPacket']));sourceplan=load(checked(plan['consumerControlPlan']))
+    need(source['schema']=='e02-ordinary-minimum-consumer5-source-subject-v1' and source['sourceCount']==14 and len(source['sources'])==14 and packet['subject']==plan['consumerSource'] and packet['sources']==source['sources'],'EXACT_CURRENT14_SOURCE')
+    need(source['controlPlan']==plan['consumerControlPlan'] and method['consumerSource']==plan['consumerSource'],'CURRENT_SOURCE_PLAN_JOIN')
+    need(str(pathlib.Path(sys.executable).resolve())==sourceplan['interpreter']['path'],'PINNED_PYTHON')
+    request=load(HERE/'outer-request-template.json')
+    need(request==plan['outerRequestTemplate']==sourceplan['outerRequestTemplate'] and set(request)=={'cmd','workdir','login','yield_time_ms','max_output_tokens'} and request['login'] is False,'FIVE_KEY_FROZEN_OUTER_REQUEST')
+    need(plan['rootAcknowledgementPath']==str(GRANT) and plan['outputRoot']==str(OUTPUT),'FIXED_ROOT_ACK_OUTPUT')
+    need(len(plan['scopes'])==4,'FOUR_ONLY_SEQUENTIAL_SCOPES')
+    for scope,s in zip(plan['scopes'],sourceplan['scopes']):
+        need(set(scope)=={'scope','argv','cwd','count','expectedNames','source','format'},'CLOSED_SCOPE')
+        need(scope['scope']==s['name'] and scope['source']==s['source'] and scope['argv']==s['argv'] and scope['cwd']==s['cwd'] and scope['count']==s['count'] and scope['expectedNames']==sorted(s['exactDefinedNames']) and scope['format']=='VERBOSE_UNITTEST_NAMED','EXACT_SOURCE_RESOLVED_CASES_ARGV')
+    need(manifest['schema']=='e02-consumer5-capture-known-inputs-v1' and manifest['sdkTreeIncluded'] is False and manifest['fullRuntimeClientClosureClaimed'] is False,'KNOWN_SOURCE_CLOSURE_ONLY')
+    paths=[checked(d) for d in manifest['files']]
+    need(len(paths)==manifest['actualInputCount'] and len(set(paths))==len(paths),'EXACT_UNIQUE_INPUTS')
+    for d in source['sources']:need(checked(d) in paths,'ALL14_CURRENT_MODULES')
+    paths.extend([safe(HERE/name) for name in ('capture.py','plan.json','input-manifest.json','outer-request-template.json','method-source.json')])
+    grant_pin=descriptor(GRANT);need(grant_pin['sha256']==sys.argv[3],'ACTUAL_EXTERNAL_ACK_DIGEST')
+    grant=load(GRANT)
+    need(set(grant)==set('schema actor executionAuthorized purpose consumerSource methodSource plan inputManifest outerRequest authors operators consumerSourceReviews captureSourceReviews noRetry runtimeAuthorized servicesAuthorized sdkAuthorized nativeAuthorized androidAuthorized'.split()),'CLOSED_EXTERNAL_ROOT_ACK')
+    need(grant['schema']=='e02-consumer5-control-capture-root-ack-v1' and grant['actor']=='/root' and grant['executionAuthorized'] is True and grant['purpose']=='ONE_FIXED_CONSUMER5_86_36_8_9_DATA_BATCH_ONLY' and grant['consumerSource']==plan['consumerSource'] and grant['methodSource']==method_pin and grant['plan']==plan_pin and grant['inputManifest']==manifest_pin and grant['outerRequest']==descriptor(HERE/'outer-request-template.json') and grant['noRetry'] is True,'EXACT_FINITE_EXTERNAL_AUTHORITY')
+    need(all(grant[k] is False for k in ('runtimeAuthorized','servicesAuthorized','sdkAuthorized','nativeAuthorized','androidAuthorized')),'NO_RUNTIME_SDK_SERVICES_AUTHORITY')
+    need(type(grant['authors']) is list and type(grant['operators']) is list and grant['authors'] and grant['operators'] and all(type(a) is str and a.startswith('/root') for a in grant['authors']+grant['operators']),'DECLARED_ACTUAL_ACTORS')
+    need(ACTOR in grant['authors'] and all(a in grant['authors'] for a in method['sourceAuthors']),'ALL_CAPTURE_SOURCE_AUTHORS_DECLARED')
+    forbidden=set(grant['authors']+grant['operators']+[ACTOR,'/root',source['author'],source['coordinator'],'/root/producer3_capture','/root/r5','/root/completion_wrapper'])
+    reviews(grant['consumerSourceReviews'],plan['consumerSource'],'ACCEPT_EXACT_SOURCE_CODE_AND_CONTROL_DEFINITIONS_ONLY',forbidden)
+    reviews(grant['captureSourceReviews'],method_pin,'ACCEPT_CONSUMER5_CAPTURE_SOURCE_FOR_FIXED_DATA_CONTROLS_ONLY',forbidden)
+    for pair in (grant['consumerSourceReviews'],grant['captureSourceReviews']):
+        paths.extend(checked(d) for d in pair.values())
+    paths.append(checked(grant_pin));paths=list(dict.fromkeys(paths))
+    need(not OUTPUT.exists() and not OUTPUT.is_symlink(),'ONE_USE_FRESH_OUTPUT_NO_RETRY')
+    return plan,paths,grant,grant_pin,method_pin
+
+def outcome(scope,result,stdout,stderr):
+    need(result['exitCode']==0 and result['reaped'] is True and result['fault'] is None and result['eof']=={'stdout':True,'stderr':True} and result['groupClosure'] is None and result['groupClosureFault'] is None,'NATURAL_ZERO_NO_FORCE_ERROR_FULL_ACTUAL_CHILD_EOF')
+    need(stdout==b'','PYTHON_STDOUT_EMPTY');text=stderr.decode('utf-8','strict');lines=text.splitlines();names=[]
+    for line in lines:
+        m=re.fullmatch(r'(test_\w+) \(__main__\.(\w+)\.(test_\w+)\) \.\.\. ok',line)
+        if m:need(m[1]==m[3],'NAMED_TEST_JOIN');names.append(m[2]+'.'+m[3])
+    need(names==scope['expectedNames'] and len(names)==scope['count'],'EXACT_SORTED_UNITTEST_MEMBERSHIP_NO_SKIPS')
+    prefix=''.join(line+'\n' for line in lines[:len(names)])
+    need(all(re.fullmatch(r'test_\w+ \(__main__\.\w+\.test_\w+\) \.\.\. ok',line) for line in lines[:len(names)]),'NO_EXTRA_PYTHON_PREFIX')
+    need(re.fullmatch(r'\n-{70}\nRan '+str(scope['count'])+r' tests in [0-9]+\.[0-9]+s\n\nOK\n',text[len(prefix):]),'EXACT_VERBOSE_UNITTEST_SUMMARY_NO_SKIP_OR_ERROR')
+    return dict(scope=scope['scope'],count=len(names),names=names,allOk=True)
+
+def main():
+    os.umask(0o077);plan,paths,grant,grant_pin,method_pin=admission();before=[pin(p) for p in paths]
+    safe(OUTPUT).mkdir(mode=0o700)
+    put(OUTPUT,'admission.json',dict(consumerSource=plan['consumerSource'],captureSource=method_pin,controlPlan=descriptor(HERE/'plan.json'),rootAcknowledgement=grant_pin,authors=grant['authors'],operators=grant['operators'],inputsBefore=before,snapshotNotRaceFree=True))
+    started=time.monotonic_ns();captures=[];outcomes=[];fault=None
+    try:
+        for i,scope in enumerate(plan['scopes'],1):
+            need([pin(p) for p in paths]==before,'INPUT_CHANGED_BEFORE_SCOPE')
+            result,stdout,stderr=capture_scope(OUTPUT,scope,i);captures.append(result)
+            outcomes.append(outcome(scope,result,stdout,stderr))
+            need([pin(p) for p in paths]==before,'INPUT_CHANGED_AFTER_SCOPE')
+    except BaseException as error:fault=type(error).__name__+':'+str(error)
+    after=None
+    try:after=[pin(p) for p in paths];need(after==before,'INPUT_CHANGED_OVERALL')
+    except BaseException as error:fault=fault or type(error).__name__+':'+str(error)
+    counts=[row['count'] for row in outcomes];matched=fault is None and counts==[86,36,8,9] and after==before
+    result=dict(schema='e02-consumer5-current-control-capture-result-v1',consumerSource=plan['consumerSource'],consumerPacket=plan['consumerPacket'],captureSource=method_pin,controlPlan=descriptor(HERE/'plan.json'),rootAcknowledgement=grant_pin,authors=grant['authors'],operators=grant['operators'],state='WRITES_STOPPED_PENDING_INDEPENDENT_DATA_QA_SECURITY' if matched else 'FAILED_OR_UNQUALIFIED_NO_RETRY',scopeCounts=counts,expectedCounts=[86,36,8,9],captures=captures,outcomes=outcomes,fault=fault,elapsedNs=time.monotonic_ns()-started,inputsBefore=before,inputsAfter=after,inputsUnchanged=after==before,exitCode=0 if matched else 2,snapshotNotRaceFree=True,scope='PURE_SYNTHETIC_CONSUMER_DATA_ONLY_NO_CLIENT_INTEROPERABILITY',outerApiOrigin='ACTUAL_ROOT_RESPONSES_RECORDED_SEPARATELY_NOT_INNER_API_OR_OUTER_EOF',runtimeAuthorized=False,ordinaryRowsQualified=0,canonicalE02='PARTIAL22_UNCHANGED')
+    put(OUTPUT,'result.json',result)
+    put(OUTPUT,'raw-artifact-manifest.json',dict(schema='e02-consumer5-control-raw-artifact-manifest-v1',files=[descriptor(p) for p in sorted(OUTPUT.iterdir()) if p.is_file()]))
+    print(json.dumps(dict(result=descriptor(OUTPUT/'result.json'),state=result['state'],scopeCounts=counts,fault=fault,inputsUnchanged=after==before)))
+    return 0 if matched else 2
+
+if __name__=='__main__':raise SystemExit(main())

@@ -1,0 +1,40 @@
+{
+  "schema": "e02-producer3-immutable-runtime-input-blueprint-v1",
+  "constant": "REVIEWED_RUNTIME_INPUTS",
+  "descriptors": {
+    "relayConfig": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/experiments/docker/rs-relay.toml",
+      "bytes": 192,
+      "sha256": "6775940c6258e2714a2a60793584ae549a50111154c743045a87d679af9a0b02"
+    },
+    "sdkInventory": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-api35-fixture-preparation-r2/sdk-tree.json",
+      "bytes": 89738,
+      "sha256": "5c996f67fd8aba0ea618adc7f7f9e6a2c27c641cc95910deb07bdfa8a10562a8"
+    },
+    "guardBundleInventory": {
+      "path": "/tmp/nbdp-e02-minimal-rs-v7/records/guard-bundle-manifest.json",
+      "bytes": 332736,
+      "sha256": "9de311222ef78e20fbe05bfef32898976d80737d5d932166d23431a04a73a454"
+    }
+  },
+  "authority": "Exact hardcoded SOURCE literals from both frozen reviewed producer2 role configurations, not pin(current_metadata) as authority",
+  "historicalProducerSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/subject.json",
+    "bytes": 12000,
+    "sha256": "ef91dc64189d7c47a4b4539c4dacd93a4c5c760da8f98bf1b203040bba6eeffd"
+  },
+  "historicalConfigurations": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/proposed-incoming-run-config.json",
+      "bytes": 5817,
+      "sha256": "632302377fa2076ddc5860b71680011a06a50a3e56842be9a1b81021451e9be5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/proposed-archive-run-config.json",
+      "bytes": 5815,
+      "sha256": "0b8c2b3416d07c6db5a910c5b7a7544df4c17f4eb392a2290f0c3118edfe95ed"
+    }
+  ],
+  "existingFullTreeAndMembershipChecksRetained": true
+}

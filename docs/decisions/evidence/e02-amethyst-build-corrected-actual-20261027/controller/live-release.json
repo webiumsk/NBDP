@@ -1,0 +1,91 @@
+{
+  "schema": "nbdp-amethyst-build-only-root-release-v1",
+  "actor": "/root",
+  "executionAuthorized": true,
+  "scope": "FIXED_AMETHYST_BUILD_ONLY",
+  "runId": "ffc756528a71d1cb8c8c78b8aac166ad",
+  "issuedAtUtcNs": 1793104575854249632,
+  "notAfterUtcNs": 1793106975854249632,
+  "supervisorSubject": {
+    "path": "/tmp/nbdp-amethyst-build-supervisor-20261027-r3/subject.json",
+    "bytes": 3926,
+    "sha256": "4acf99f8fddc703719d0d2ff5bcb3777700de1c4f6409142315572475d806ac7"
+  },
+  "buildPreparationSubject": {
+    "path": "/tmp/nbdp-amethyst-build-preparation-20261027-r2/subject.json",
+    "bytes": 2035,
+    "sha256": "6779631c40c643a8aed4e7931dbae94442a7490ebb6937c086c32c13e6b472a1"
+  },
+  "sourceReviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-build-correction-20261027/actual-source-qa-review.json",
+      "bytes": 1219,
+      "sha256": "b6b45b2a41447e61d20e610ce8073331d90f4c68a0064cc04489339397c7886f"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-build-correction-20261027/actual-source-security-review.json",
+      "bytes": 1229,
+      "sha256": "bdfdb21ed1c03351fdd7614ae08d17d41aeeb6d8dcfa7f421880f0afb87da6b6"
+    }
+  ],
+  "prerequisiteAcceptances": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-input-data-20261027/acceptance.json",
+      "bytes": 1369,
+      "sha256": "e33c4fb753622d1195b21db5f5eb45b28216ad10e9d8657da38fcd118957b143"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-build-correction-20261027/supervisor-models/acceptance.json",
+      "bytes": 1134,
+      "sha256": "507041fea85bd0540718286ba795c66cb2765a579670974029d400a6db2e0781"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-build-correction-20261027/materializer-models/acceptance.json",
+      "bytes": 1140,
+      "sha256": "c05c08cdd3e4892a7a3958a74d1cc09c28ae8880394cad8b40f304febf9589ad"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-build-actual-20261027/acceptance.json",
+      "bytes": 1017,
+      "sha256": "df5bbcbc9ca033dc01aa8c3a1b9f1c1f7e64aaa73f51dab098b49a47cb4c5f7e"
+    }
+  ],
+  "sourceArchive": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/source.tar",
+    "bytes": 345579520,
+    "sha256": "a2b4b590456e5fc78dccbcbd5d732127b3f1280812bf4734ee2d741dfcf3cf75"
+  },
+  "sourceArchiveReceipt": {
+    "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/source-archive.json",
+    "bytes": 664,
+    "sha256": "ee9f42d3b1af79b49d41ae7673fdd1176aadd20e3abcd37fa43dfb4c8a38c6e0"
+  },
+  "extractions": {
+    "jdk": {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/acquisition/jdk-extraction.json",
+      "bytes": 178456,
+      "sha256": "a2547e5989af52335e1a03d853797e0e1efa57b55d782214620ee56ca80b0db2"
+    },
+    "platform": {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/acquisition/platform-extraction.json",
+      "bytes": 4965623,
+      "sha256": "70d4aacb82da241411cc91e5cc5a9e3709bf58b1139852e10ba276981f1bc6e7"
+    },
+    "build-tools": {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/acquisition/build-tools-extraction.json",
+      "bytes": 68005,
+      "sha256": "6b49825e7b1c6adc3a784ed64527d02b921fd34f7a9096a988b1b720aaf11df3"
+    },
+    "ndk": {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/output/acquisition/ndk-extraction.json",
+      "bytes": 4844325,
+      "sha256": "8a50bfaadadb13dc6b7a7bfe2239824ced781e8ecd0471b31bf820f00b38d43d"
+    }
+  },
+  "networkId": "acf4c0e2d847dedb7841a18c0713ba9b58ad680d686c2d43d95612f54ff6ff9b",
+  "networkLabels": {
+    "nbdp.owner": "e02-amethyst-rebuild-20261026",
+    "nbdp.scope": "isolated-build-bootstrap"
+  },
+  "meaning": "One correctedartifactattemptafteractualWorkingDirfailure: explicit/work+ownedConfigcheck/newfresh-r2RWroots, inner/resources/budgets unchanged. Actualdispatch externallygated onindependent exacttemplateacceptance andfinalrootadoption. NoAndroid/E02/productionauthority."
+}

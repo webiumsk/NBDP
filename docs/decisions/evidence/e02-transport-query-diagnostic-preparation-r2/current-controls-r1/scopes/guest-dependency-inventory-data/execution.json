@@ -1,0 +1,67 @@
+{
+  "schema": "e02-transport-source2-pure-scope-execution-v1",
+  "actor": "/root/ordinary_api35_source",
+  "parentCoordinator": "/root",
+  "argv": [
+    "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+    "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_transport_query_diagnostic_v2/test_dependency_tree.mjs"
+  ],
+  "cwd": "/home/peterhorvath/apps/bitcoin/NBDP",
+  "expectedCount": 6,
+  "startedUtc": "2026-10-24T06:58:27.503224+00:00",
+  "timeoutSeconds": 60,
+  "retentionBytes": {
+    "stdout": 1048576,
+    "stderr": 262144
+  },
+  "retentionMeaning": "POST_CAPTURE_FILE_PREFIX_LIMIT_NOT_STREAMING_MEMORY_CAP",
+  "pid": 11,
+  "exitCode": 0,
+  "signal": null,
+  "reaped": true,
+  "naturalExit": true,
+  "stdoutEOF": true,
+  "stderrEOF": true,
+  "forceRequested": false,
+  "forceReason": null,
+  "firstError": null,
+  "secondaryErrors": [],
+  "sourceUnchanged": true,
+  "observedCount": 6,
+  "countAndOutputShapeMatched": true,
+  "captureMatched": true,
+  "controlResultAcceptedByAuthor": false,
+  "independentResultReview": "PENDING_ACTUAL_OTHER_AGENTS",
+  "environment": {
+    "PATH": "/usr/bin:/bin",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "TMPDIR": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/scopes/guest-dependency-inventory-data/tmp"
+  },
+  "finishedUtc": "2026-10-24T06:58:28.964565+00:00",
+  "elapsedNanoseconds": 1461327349,
+  "observedStreamBytes": {
+    "stdout": 427,
+    "stderr": 0
+  },
+  "truncated": {
+    "stdout": false,
+    "stderr": false
+  },
+  "stdout": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/scopes/guest-dependency-inventory-data/data.stdout",
+    "bytes": 427,
+    "sha256": "1fd956d62964ae1b57c914bb50e3561f3970a05bb9598bd4e04e85d7d2fd64ac"
+  },
+  "stderr": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/scopes/guest-dependency-inventory-data/data.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "observedPartitions": {
+    "guestInventoryFamilies": 6
+  },
+  "state": "WRITES_STOPPED",
+  "result": "SCOPED_DATA_CAPTURE_MATCHED_PENDING_INDEPENDENT_REVIEW",
+  "meaning": "Synthetic DATA only; no primary/consumer/runtime/crypto/native/client execution or external/canonicalPASS, SDK or experiment authority."
+}

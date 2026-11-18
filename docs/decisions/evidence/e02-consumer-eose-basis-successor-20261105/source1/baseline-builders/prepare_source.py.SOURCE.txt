@@ -1,0 +1,178 @@
+"""SOURCE3 fixture generation only: stdlib metadata/AST, no target imports."""
+import ast
+import hashlib
+import json
+from pathlib import Path
+import shutil
+
+OWNED=Path(__file__).resolve().parent
+SOURCE=OWNED/'source'
+PREVIOUS=OWNED.parent/'source2'
+EVIDENCE=Path('/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence')
+SCOPE_PATH=EVIDENCE/'e02-goal-resume-20261104/consumer-current178-source3-root-scope-20261105.json'
+ACTOR='/root/consumer_current178_source'
+
+
+def pin(path):
+    path=Path(path);raw=path.read_bytes()
+    return dict(path=str(path),bytes=len(raw),sha256=hashlib.sha256(raw).hexdigest())
+
+
+def save(path,value):
+    path.parent.mkdir(parents=True,exist_ok=True)
+    path.write_text(json.dumps(value,indent=2)+'\n');return pin(path)
+
+
+def literals(text):
+    out={}
+    for n in ast.parse(text).body:
+        if isinstance(n,ast.Assign) and len(n.targets)==1 and isinstance(n.targets[0],ast.Name):
+            try:out[n.targets[0].id]=ast.literal_eval(n.value)
+            except (ValueError,TypeError):pass
+    return out
+
+
+def assignments(text,changes):
+    lines=text.splitlines(keepends=True);edits=[]
+    for n in ast.parse(text).body:
+        if isinstance(n,ast.Assign) and len(n.targets)==1 and isinstance(n.targets[0],ast.Name) and n.targets[0].id in changes:
+            name=n.targets[0].id;edits.append((n.lineno-1,n.end_lineno,name+' = '+repr(changes[name])+'\n'))
+    assert len(edits)==len(changes)
+    for start,end,new in reversed(edits):lines[start:end]=[new]
+    return ''.join(lines)
+
+
+def method(text,name,body):
+    node=next(n for n in ast.walk(ast.parse(text)) if isinstance(n,ast.FunctionDef) and n.name==name)
+    lines=text.splitlines(keepends=True);lines[node.lineno-1:node.end_lineno]=[body.rstrip()+'\n'];return ''.join(lines)
+
+
+def main():
+    scope=json.loads(SCOPE_PATH.read_bytes())
+    assert pin(SCOPE_PATH)['sha256']=='d4b653b43273aabf9a17b1970e6a1d039ea643e93c3e5e623053eed746a11c7b'
+    assert scope['owner']==ACTOR and scope['ownedRoot']==str(OWNED) and len(scope['reviewerExclusions'])==47
+    for key in ('negativeSource2','negativeSource2Freeze','source2AcceptedSourceReceipt','failedActualBatch'):
+        assert pin(scope[key]['path'])==scope[key]
+    freeze=json.loads(Path(scope['negativeSource2Freeze']['path']).read_bytes())
+    assert len(freeze['inputs'])==798
+    for p in freeze['inputs']:assert pin(p['path'])==p
+    failed=json.loads(Path(scope['failedActualBatch']['path']).read_bytes())
+    for key in ('job','rootRelease','method','inputsBefore','inputsAfter','rawArtifactManifest','batchObservation'):
+        assert pin(failed[key]['path'])==failed[key]
+    assert failed['modelsPassed']==222 and failed['modelsFailed']==7 and failed['modelErrors']==2 and failed['modelsNotExecuted']==119
+    assert failed['controlDataAccepted'] is False and failed['protectedInputs']==814
+    raw_manifest=json.loads(Path(failed['rawArtifactManifest']['path']).read_bytes())
+    for p in raw_manifest['files']:assert pin(p['path'])==p
+    for key in ('actualNegativeReviews','actualFindings'):
+        for p in scope[key]:assert pin(p['path'])==p
+    for p in (PREVIOUS/'source').iterdir():
+        if p.is_file():shutil.copyfile(p,SOURCE/p.name)
+    for p in (PREVIOUS/'contracts').iterdir():
+        if p.is_file():shutil.copyfile(p,OWNED/'contracts'/p.name)
+    for name in ('current-inputs.json','immutable-validation-reuse.json','collector_reader_method.txt'):
+        shutil.copyfile(PREVIOUS/name,OWNED/name)
+    negatives=json.loads((PREVIOUS/'negative-inputs.json').read_bytes())
+    negatives.update(source2FailedActualBatch=scope['failedActualBatch'],source2Freeze=scope['negativeSource2Freeze'],
+        source2AcceptedSourceReceipt=scope['source2AcceptedSourceReceipt'],source2ActualNegativeReviews=scope['actualNegativeReviews'],
+        source2ActualFindings=scope['actualFindings'],partial222PassTransferred=False)
+    save(OWNED/'negative-inputs.json',negatives)
+    code=(SOURCE/'consumer.py').read_text();constants=literals(code)
+    changes=dict(CURRENT_CONSUMER_ACCEPTANCE_CONTRACT=pin(OWNED/'contracts/current-consumer-acceptance-contract.json'),
+        CURRENT_COLLECTOR_PREREQUISITE_CONTRACT=pin(OWNED/'contracts/current-collector-prerequisite-contract.json'),
+        CURRENT_CONTROL_ACTORS=sorted(set(constants['CURRENT_CONTROL_ACTORS'])|{'/root/consumer_source2_qa_70b36984','/root/consumer_source2_security_70b36984'}))
+    (SOURCE/'consumer.py').write_text(assignments(code,changes))
+    old_baseline=EVIDENCE/'e02-consumer266-source-preparation-20261104/r2/source/consumer.py'
+    historical=literals(old_baseline.read_text())['CURRENT_PRODUCER']
+    save(OWNED/'fixture-authority.json',dict(schema='e02-consumer-source3-immutable-fixture-authority-v1',actor=ACTOR,
+        currentProducer=constants['CURRENT_PRODUCER'],historicalProducer=historical,
+        currentController=literals((SOURCE/'test_current_authority.py').read_text())['CURRENT_R8_FIXTURE'],
+        failedActualBatch=scope['failedActualBatch'],modelsExecuted=0,executionAuthorized=False))
+    text=(SOURCE/'test_whole_window.py').read_text().replace('import copy\n','import copy\nimport hashlib\nimport json\n')
+    text=method(text,'setUpClass', '''    def setUpClass(cls):
+        cls.source=Path(__file__).resolve().parent
+        source=json.loads((cls.source/'subject.json').read_bytes())
+        cls.producer_pin=source['producerSource'];raw=Path(cls.producer_pin['path']).read_bytes()
+        assert len(raw)==cls.producer_pin['bytes'] and hashlib.sha256(raw).hexdigest()==cls.producer_pin['sha256']
+        cls.producer_subject=json.loads(raw)
+        roots={Path(p['path']).parent for p in [*cls.producer_subject['runtimeSources'],*cls.producer_subject['configurations'].values()]}
+        assert len(roots)==1
+        cls.producer=roots.pop();assert cls.producer==Path(cls.producer_pin['path']).parent
+        cls.modules=whole_window.components(cls.source)
+        assert cls.producer_pin==cls.modules['consumer'].CURRENT_PRODUCER''')
+    extra='''    def test_complete_current_producer_configuration_drives_real_two_role_models(self):
+        models=whole_window.build_two_roles(self.root,self.modules,self.producer)
+        for model in models:
+            selected=self.producer_subject['configurations'][model.role]
+            raw=Path(selected['path']).read_bytes()
+            self.assertEqual(len(raw),selected['bytes']);self.assertEqual(hashlib.sha256(raw).hexdigest(),selected['sha256'])
+            self.assertEqual(model.original_config,json.loads(raw))
+            self.assertEqual(model.original_config['sourceAndDependencyPins'],self.producer_subject['runtimeSources'])
+            self.assertEqual(model.original_config['helperApk'],self.modules['consumer'].CURRENT_HELPER_APK)
+            self.assertEqual(model.inspect()['exports'],2 if model.role=='incoming' else 3)
+
+    def test_complete_historical_producer_helper_refused_by_real_window_validator(self):
+        authority=json.loads((self.source.parent/'fixture-authority.json').read_bytes())
+        descriptor=authority['historicalProducer'];raw=Path(descriptor['path']).read_bytes()
+        self.assertEqual(len(raw),descriptor['bytes']);self.assertEqual(hashlib.sha256(raw).hexdigest(),descriptor['sha256'])
+        historical=json.loads(raw);root=Path(descriptor['path']).parent
+        self.assertTrue(all(Path(p['path']).parent==root for p in historical['configurations'].values()))
+        self.assertNotEqual(root,self.producer)
+        model=whole_window.Model(self.root,self.modules,root,'incoming').build()
+        self.assertNotEqual(model.original_config['helperApk'],self.modules['consumer'].CURRENT_HELPER_APK)
+        with self.assertRaisesRegex(self.modules['strict'].Refusal,'^EXACT_CURRENT_ACCEPTED_HELPER_ARTIFACT$'):
+            model.inspect()
+
+'''
+    text=text.replace("\n\nif __name__ == '__main__':",'\n\n'+extra+"if __name__ == '__main__':")
+    (SOURCE/'test_whole_window.py').write_text(text)
+    text=(SOURCE/'test_current_authority.py').read_text()
+    helper='''def current_controller_expectations():
+    """Selected immutable current Source/plan; no revision or count guess."""
+    descriptor=CURRENT_R8_FIXTURE['source'];raw=Path(descriptor['path']).read_bytes()
+    assert len(raw)==descriptor['bytes'] and hashlib.sha256(raw).hexdigest()==descriptor['sha256']
+    source=json.loads(raw);descriptor=source['controlPlan'];raw=Path(descriptor['path']).read_bytes()
+    assert len(raw)==descriptor['bytes'] and hashlib.sha256(raw).hexdigest()==descriptor['sha256']
+    return source,json.loads(raw)
+
+'''
+    text=text.replace('class ReadyAuthorityModel(MemoryFiles):',helper+'class ReadyAuthorityModel(MemoryFiles):')
+    text=method(text,'test_fresh_source5_current_n_external_controller_triple_is_valid','''    def test_fresh_source5_current_n_external_controller_triple_is_valid(self):
+        f=self.model();value=f.leaf();source=f.doc(value['controllerSource'])
+        expected,_=current_controller_expectations()
+        self.assertEqual(source['version'],expected['version']);self.assertNotEqual(value['controllerSource'],consumer.HISTORICAL_HELPER_CONTROLLER_SOURCE)
+        triple={k:value[k] for k in ('controllerSource','controllerSourceAcceptance','controllerControlDataAcceptance')}
+        result=probe_adapter.validate_controller_authority(f,triple,consumer.CURRENT_PRODUCER,consumer.CURRENT_HELPER_CONTROLLER_ACCEPTANCE_CONTRACT,set(consumer.CURRENT_CONTROL_ACTORS))
+        self.assertEqual(result[3],sum(g['count'] for g in result[1]['groups']));consumer.validate_current_consumer_authority(f,value)''')
+    text=method(text,'test_unmodified_source5_mixed_script_roots_and_reviewed_cwds_full_ready','''    def test_unmodified_source5_mixed_script_roots_and_reviewed_cwds_full_ready(self):
+        f=self.model();source=f.doc(f.leaf()['controllerSource']);plan=f.doc(source['controlPlan'])
+        expected_source,expected_plan=current_controller_expectations()
+        roots=[str(Path(g['source']['path']).parent) for g in plan['groups']]
+        cwds=[g['cwd'] for g in plan['groups']]
+        self.assertEqual(source['version'],expected_source['version'])
+        self.assertEqual(roots,[str(Path(g['source']['path']).parent) for g in expected_plan['groups']])
+        self.assertEqual(cwds,[g['cwd'] for g in expected_plan['groups']])
+        self.assertGreater(len(set(roots)),1)
+        self.assertEqual(set(cwds),{str(Path(CURRENT_R8_FIXTURE['source']['path']).parent)})
+        self.assertTrue(any(root!=cwd for root,cwd in zip(roots,cwds)))
+        self.assertTrue(consumer.bind_current_profile(f,f.named['leaf'])['readiness'])''')
+    text=method(text,'test_current_controller_future_revision_cwd_refused','''    def test_current_controller_future_revision_cwd_refused(self):
+        expected,_=current_controller_expectations();revision=int(expected['version'][1:])
+        current=Path(CURRENT_R8_FIXTURE['source']['path']).parent
+        future=current.with_name(current.name.rsplit('-r',1)[0]+'-r'+str(revision+1))
+        f=self.model();f.change('controller-plan',lambda d:d['groups'][1].update(cwd=str(future)))
+        with self.assertRaisesRegex(Refusal,'^SCOPED_CURRENT_OR_PREDECESSOR_CONTROLLER_MODEL_ROOT$'):
+            consumer.validate_current_consumer_authority(f,f.leaf())''')
+    assert text.count("'EXACT_FIVE_KEY_FOREGROUND_REQUEST'")==2
+    text=text.replace("'EXACT_FIVE_KEY_FOREGROUND_REQUEST'","'^WHOLE_ACTUAL_REQUEST_FAMILY$'")
+    text=text.replace("        self.assertEqual(result[2],[39,36,10,19,19,19,26]);self.assertEqual(result[3],168)",
+        "        expected,expected_plan=current_controller_expectations();counts=[g['count'] for g in expected_plan['groups']]\n        self.assertEqual(result[2],counts);self.assertEqual(result[3],sum(counts));self.assertEqual(result[3],expected['modelsDefined'])")
+    (SOURCE/'test_current_authority.py').write_text(text)
+    save(OWNED/'preparation-stage.json',dict(schema='e02-consumer-source3-fixture-preparation-v1',actor=ACTOR,rootScope=pin(SCOPE_PATH),
+        sourceRoot=str(SOURCE),negativeSource2=scope['negativeSource2'],source2AcceptedSourceReceipt=scope['source2AcceptedSourceReceipt'],
+        failedActualBatch=scope['failedActualBatch'],preservedSource2Inputs=798,preservedFailedJobInputs=814,
+        modelsExecuted=0,targetImports=0,partial222PassTransferred=False,executionAuthorized=False,phase='SOURCE3_GENERATION_ONLY'))
+    for p in SOURCE.glob('*.py'):ast.parse(p.read_bytes(),filename=str(p))
+    print(json.dumps(dict(sourceRoot=str(SOURCE),preservedSource2Inputs=798,preservedFailedBatchFiles=len(raw_manifest['files']),modelsExecuted=0,targetImports=0)))
+
+
+if __name__=='__main__':main()

@@ -1,0 +1,1004 @@
+--- original/supervisor.py
++++ producer2/supervisor.py
+@@ -77,7 +77,7 @@
+       value=Call(
+         func=Name(id='Path', ctx=Load()),
+         args=[
+-          Constant(value='/tmp/nbdp-e02-ordinary-minimum-v1')])),
++          Constant(value='/tmp/nbdp-e02-ordinary-minimum-v2')])),
+     Assign(
+       targets=[
+         Name(id='OLD', ctx=Store())],
+@@ -88,11 +88,11 @@
+     Assign(
+       targets=[
+         Name(id='SCOPE', ctx=Store())],
+-      value=Constant(value='E02_ORDINARY_MINIMUM_RS_TWO_ROLE_WINDOW_ONLY')),
++      value=Constant(value='E02_ORDINARY_MINIMUM_RS_TWO_ROLE_V2_WINDOW_ONLY')),
+     Assign(
+       targets=[
+         Name(id='PROFILE', ctx=Store())],
+-      value=Constant(value='e02-ordinary-minimum-rs-two-role-v1')),
++      value=Constant(value='e02-ordinary-minimum-rs-two-role-v2')),
+     Assign(
+       targets=[
+         Name(id='RUNTIME', ctx=Store())],
+@@ -1590,6 +1590,673 @@
+         Return(
+           value=Name(id='module', ctx=Load()))]),
+     FunctionDef(
++      name='dependency_relative',
++      args=arguments(
++        args=[
++          arg(arg='value')]),
++      body=[
++        Expr(
++          value=Call(
++            func=Name(id='need', ctx=Load()),
++            args=[
++              BoolOp(
++                op=And(),
++                values=[
++                  Compare(
++                    left=Call(
++                      func=Name(id='type', ctx=Load()),
++                      args=[
++                        Name(id='value', ctx=Load())]),
++                    ops=[
++                      Is()],
++                    comparators=[
++                      Name(id='str', ctx=Load())]),
++                  Name(id='value', ctx=Load()),
++                  UnaryOp(
++                    op=Not(),
++                    operand=Call(
++                      func=Attribute(
++                        value=Name(id='value', ctx=Load()),
++                        attr='startswith',
++                        ctx=Load()),
++                      args=[
++                        Constant(value='/')])),
++                  Call(
++                    func=Name(id='all', ctx=Load()),
++                    args=[
++                      GeneratorExp(
++                        elt=Compare(
++                          left=Name(id='part', ctx=Load()),
++                          ops=[
++                            NotIn()],
++                          comparators=[
++                            Tuple(
++                              elts=[
++                                Constant(value=''),
++                                Constant(value='.'),
++                                Constant(value='..')],
++                              ctx=Load())]),
++                        generators=[
++                          comprehension(
++                            target=Name(id='part', ctx=Store()),
++                            iter=Call(
++                              func=Attribute(
++                                value=Name(id='value', ctx=Load()),
++                                attr='split',
++                                ctx=Load()),
++                              args=[
++                                Constant(value='/')]),
++                            is_async=0)])])]),
++              Constant(value='Canonical dependency relative path')])),
++        Return(
++          value=Name(id='value', ctx=Load()))]),
++    FunctionDef(
++      name='dependency_snapshot',
++      args=arguments(
++        args=[
++          arg(arg='root')]),
++      body=[
++        Assign(
++          targets=[
++            Name(id='root', ctx=Store())],
++          value=Call(
++            func=Name(id='Path', ctx=Load()),
++            args=[
++              Name(id='root', ctx=Load())])),
++        Expr(
++          value=Call(
++            func=Name(id='need', ctx=Load()),
++            args=[
++              BoolOp(
++                op=And(),
++                values=[
++                  Call(
++                    func=Attribute(
++                      value=Name(id='root', ctx=Load()),
++                      attr='is_absolute',
++                      ctx=Load())),
++                  Compare(
++                    left=Call(
++                      func=Attribute(
++                        value=Name(id='root', ctx=Load()),
++                        attr='resolve',
++                        ctx=Load()),
++                      keywords=[
++                        keyword(
++                          arg='strict',
++                          value=Constant(value=True))]),
++                    ops=[
++                      Eq()],
++                    comparators=[
++                      Name(id='root', ctx=Load())]),
++                  UnaryOp(
++                    op=Not(),
++                    operand=Call(
++                      func=Attribute(
++                        value=Name(id='root', ctx=Load()),
++                        attr='is_symlink',
++                        ctx=Load())))]),
++              Constant(value='Canonical dependency root')])),
++        Assign(
++          targets=[
++            Name(id='actual', ctx=Store())],
++          value=Dict(
++            keys=[
++              Constant(value='directories'),
++              Constant(value='files'),
++              Constant(value='symlinks')],
++            values=[
++              List(ctx=Load()),
++              List(ctx=Load()),
++              List(ctx=Load())])),
++        FunctionDef(
++          name='walk',
++          args=arguments(
++            args=[
++              arg(arg='folder')]),
++          body=[
++            For(
++              target=Name(id='p', ctx=Store()),
++              iter=Call(
++                func=Name(id='sorted', ctx=Load()),
++                args=[
++                  Call(
++                    func=Attribute(
++                      value=Name(id='folder', ctx=Load()),
++                      attr='iterdir',
++                      ctx=Load()))]),
++              body=[
++                Assign(
++                  targets=[
++                    Name(id='rel', ctx=Store())],
++                  value=Call(
++                    func=Name(id='dependency_relative', ctx=Load()),
++                    args=[
++                      Call(
++                        func=Attribute(
++                          value=Call(
++                            func=Attribute(
++                              value=Name(id='p', ctx=Load()),
++                              attr='relative_to',
++                              ctx=Load()),
++                            args=[
++                              Name(id='root', ctx=Load())]),
++                          attr='as_posix',
++                          ctx=Load()))])),
++                If(
++                  test=Call(
++                    func=Attribute(
++                      value=Name(id='p', ctx=Load()),
++                      attr='is_symlink',
++                      ctx=Load())),
++                  body=[
++                    Assign(
++                      targets=[
++                        Name(id='target', ctx=Store())],
++                      value=Call(
++                        func=Attribute(
++                          value=Name(id='p', ctx=Load()),
++                          attr='resolve',
++                          ctx=Load()),
++                        keywords=[
++                          keyword(
++                            arg='strict',
++                            value=Constant(value=True))])),
++                    Expr(
++                      value=Call(
++                        func=Name(id='need', ctx=Load()),
++                        args=[
++                          BoolOp(
++                            op=And(),
++                            values=[
++                              Call(
++                                func=Attribute(
++                                  value=Name(id='target', ctx=Load()),
++                                  attr='is_relative_to',
++                                  ctx=Load()),
++                                args=[
++                                  Name(id='root', ctx=Load())]),
++                              Compare(
++                                left=Name(id='target', ctx=Load()),
++                                ops=[
++                                  NotEq()],
++                                comparators=[
++                                  Name(id='root', ctx=Load())])]),
++                          Constant(value='Dependency symlink escape')])),
++                    Expr(
++                      value=Call(
++                        func=Attribute(
++                          value=Subscript(
++                            value=Name(id='actual', ctx=Load()),
++                            slice=Constant(value='symlinks'),
++                            ctx=Load()),
++                          attr='append',
++                          ctx=Load()),
++                        args=[
++                          Dict(
++                            keys=[
++                              Constant(value='path'),
++                              Constant(value='link'),
++                              Constant(value='target')],
++                            values=[
++                              Name(id='rel', ctx=Load()),
++                              Call(
++                                func=Name(id='str', ctx=Load()),
++                                args=[
++                                  Call(
++                                    func=Attribute(
++                                      value=Name(id='p', ctx=Load()),
++                                      attr='readlink',
++                                      ctx=Load()))]),
++                              Call(
++                                func=Name(id='dependency_relative', ctx=Load()),
++                                args=[
++                                  Call(
++                                    func=Attribute(
++                                      value=Call(
++                                        func=Attribute(
++                                          value=Name(id='target', ctx=Load()),
++                                          attr='relative_to',
++                                          ctx=Load()),
++                                        args=[
++                                          Name(id='root', ctx=Load())]),
++                                      attr='as_posix',
++                                      ctx=Load()))])])]))],
++                  orelse=[
++                    If(
++                      test=Call(
++                        func=Attribute(
++                          value=Name(id='p', ctx=Load()),
++                          attr='is_dir',
++                          ctx=Load())),
++                      body=[
++                        Expr(
++                          value=Call(
++                            func=Attribute(
++                              value=Subscript(
++                                value=Name(id='actual', ctx=Load()),
++                                slice=Constant(value='directories'),
++                                ctx=Load()),
++                              attr='append',
++                              ctx=Load()),
++                            args=[
++                              Name(id='rel', ctx=Load())])),
++                        Expr(
++                          value=Call(
++                            func=Name(id='walk', ctx=Load()),
++                            args=[
++                              Name(id='p', ctx=Load())]))],
++                      orelse=[
++                        If(
++                          test=Call(
++                            func=Attribute(
++                              value=Name(id='p', ctx=Load()),
++                              attr='is_file',
++                              ctx=Load())),
++                          body=[
++                            Expr(
++                              value=Call(
++                                func=Attribute(
++                                  value=Subscript(
++                                    value=Name(id='actual', ctx=Load()),
++                                    slice=Constant(value='files'),
++                                    ctx=Load()),
++                                  attr='append',
++                                  ctx=Load()),
++                                args=[
++                                  Name(id='rel', ctx=Load())]))],
++                          orelse=[
++                            Raise(
++                              exc=Call(
++                                func=Name(id='RuntimeError', ctx=Load()),
++                                args=[
++                                  Constant(value='Dependency special file')]))])])])])]),
++        Expr(
++          value=Call(
++            func=Name(id='walk', ctx=Load()),
++            args=[
++              Name(id='root', ctx=Load())])),
++        For(
++          target=Name(id='name', ctx=Store()),
++          iter=Tuple(
++            elts=[
++              Constant(value='directories'),
++              Constant(value='files')],
++            ctx=Load()),
++          body=[
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=Subscript(
++                    value=Name(id='actual', ctx=Load()),
++                    slice=Name(id='name', ctx=Load()),
++                    ctx=Load()),
++                  attr='sort',
++                  ctx=Load())))]),
++        Expr(
++          value=Call(
++            func=Attribute(
++              value=Subscript(
++                value=Name(id='actual', ctx=Load()),
++                slice=Constant(value='symlinks'),
++                ctx=Load()),
++              attr='sort',
++              ctx=Load()),
++            keywords=[
++              keyword(
++                arg='key',
++                value=Lambda(
++                  args=arguments(
++                    args=[
++                      arg(arg='v')]),
++                  body=Subscript(
++                    value=Name(id='v', ctx=Load()),
++                    slice=Constant(value='path'),
++                    ctx=Load())))])),
++        Return(
++          value=Name(id='actual', ctx=Load()))]),
++    FunctionDef(
++      name='verify_dependency_inventory',
++      args=arguments(
++        args=[
++          arg(arg='fixture'),
++          arg(arg='tree'),
++          arg(arg='root')]),
++      body=[
++        Expr(
++          value=Call(
++            func=Name(id='need', ctx=Load()),
++            args=[
++              BoolOp(
++                op=And(),
++                values=[
++                  Compare(
++                    left=Call(
++                      func=Name(id='type', ctx=Load()),
++                      args=[
++                        Name(id='tree', ctx=Load())]),
++                    ops=[
++                      Is()],
++                    comparators=[
++                      Name(id='dict', ctx=Load())]),
++                  Compare(
++                    left=Call(
++                      func=Name(id='set', ctx=Load()),
++                      args=[
++                        Name(id='tree', ctx=Load())]),
++                    ops=[
++                      Eq()],
++                    comparators=[
++                      Set(
++                        elts=[
++                          Constant(value='schema'),
++                          Constant(value='sourceRoot'),
++                          Constant(value='runtimeRoot'),
++                          Constant(value='directories'),
++                          Constant(value='files'),
++                          Constant(value='symlinks')])])]),
++              Constant(value='Closed dependency tree keys')])),
++        Expr(
++          value=Call(
++            func=Name(id='need', ctx=Load()),
++            args=[
++              BoolOp(
++                op=And(),
++                values=[
++                  Compare(
++                    left=Subscript(
++                      value=Name(id='tree', ctx=Load()),
++                      slice=Constant(value='schema'),
++                      ctx=Load()),
++                    ops=[
++                      Eq()],
++                    comparators=[
++                      Constant(value='e02-transport-dependency-tree-v2')]),
++                  Compare(
++                    left=Subscript(
++                      value=Name(id='tree', ctx=Load()),
++                      slice=Constant(value='runtimeRoot'),
++                      ctx=Load()),
++                    ops=[
++                      Eq()],
++                    comparators=[
++                      Constant(value='/input/node_modules')])]),
++              Constant(value='Closed dependency tree')])),
++        Assign(
++          targets=[
++            Name(id='actual', ctx=Store())],
++          value=Call(
++            func=Name(id='dependency_snapshot', ctx=Load()),
++            args=[
++              Name(id='root', ctx=Load())])),
++        Expr(
++          value=Call(
++            func=Name(id='need', ctx=Load()),
++            args=[
++              Compare(
++                left=Name(id='actual', ctx=Load()),
++                ops=[
++                  Eq()],
++                comparators=[
++                  DictComp(
++                    key=Name(id='k', ctx=Load()),
++                    value=Subscript(
++                      value=Name(id='tree', ctx=Load()),
++                      slice=Name(id='k', ctx=Load()),
++                      ctx=Load()),
++                    generators=[
++                      comprehension(
++                        target=Name(id='k', ctx=Store()),
++                        iter=Tuple(
++                          elts=[
++                            Constant(value='directories'),
++                            Constant(value='files'),
++                            Constant(value='symlinks')],
++                          ctx=Load()),
++                        is_async=0)])]),
++              Constant(value='Dependency exact membership')])),
++        Assign(
++          targets=[
++            Name(id='descriptors', ctx=Store())],
++          value=Subscript(
++            value=Name(id='fixture', ctx=Load()),
++            slice=Constant(value='dependencyFiles'),
++            ctx=Load())),
++        Expr(
++          value=Call(
++            func=Name(id='need', ctx=Load()),
++            args=[
++              BoolOp(
++                op=And(),
++                values=[
++                  Compare(
++                    left=Call(
++                      func=Name(id='type', ctx=Load()),
++                      args=[
++                        Name(id='descriptors', ctx=Load())]),
++                    ops=[
++                      Is()],
++                    comparators=[
++                      Name(id='list', ctx=Load())]),
++                  Compare(
++                    left=Call(
++                      func=Name(id='len', ctx=Load()),
++                      args=[
++                        Name(id='descriptors', ctx=Load())]),
++                    ops=[
++                      Eq()],
++                    comparators=[
++                      Call(
++                        func=Name(id='len', ctx=Load()),
++                        args=[
++                          Subscript(
++                            value=Name(id='actual', ctx=Load()),
++                            slice=Constant(value='files'),
++                            ctx=Load())])]),
++                  Compare(
++                    left=Call(
++                      func=Name(id='len', ctx=Load()),
++                      args=[
++                        SetComp(
++                          elt=Subscript(
++                            value=Name(id='d', ctx=Load()),
++                            slice=Constant(value='path'),
++                            ctx=Load()),
++                          generators=[
++                            comprehension(
++                              target=Name(id='d', ctx=Store()),
++                              iter=Name(id='descriptors', ctx=Load()),
++                              is_async=0)])]),
++                    ops=[
++                      Eq()],
++                    comparators=[
++                      Call(
++                        func=Name(id='len', ctx=Load()),
++                        args=[
++                          Name(id='descriptors', ctx=Load())])])]),
++              Constant(value='Dependency descriptor membership')])),
++        Assign(
++          targets=[
++            Name(id='expected', ctx=Store())],
++          value=List(ctx=Load())),
++        For(
++          target=Name(id='d', ctx=Store()),
++          iter=Name(id='descriptors', ctx=Load()),
++          body=[
++            Expr(
++              value=Call(
++                func=Name(id='need', ctx=Load()),
++                args=[
++                  BoolOp(
++                    op=And(),
++                    values=[
++                      Compare(
++                        left=Call(
++                          func=Name(id='set', ctx=Load()),
++                          args=[
++                            Name(id='d', ctx=Load())]),
++                        ops=[
++                          Eq()],
++                        comparators=[
++                          Set(
++                            elts=[
++                              Constant(value='source'),
++                              Constant(value='path'),
++                              Constant(value='bytes'),
++                              Constant(value='sha256')])]),
++                      Call(
++                        func=Attribute(
++                          value=Subscript(
++                            value=Name(id='d', ctx=Load()),
++                            slice=Constant(value='path'),
++                            ctx=Load()),
++                          attr='startswith',
++                          ctx=Load()),
++                        args=[
++                          BinOp(
++                            left=Subscript(
++                              value=Name(id='tree', ctx=Load()),
++                              slice=Constant(value='runtimeRoot'),
++                              ctx=Load()),
++                            op=Add(),
++                            right=Constant(value='/'))])]),
++                  Constant(value='Closed runtime dependency descriptor')])),
++            Assign(
++              targets=[
++                Name(id='rel', ctx=Store())],
++              value=Call(
++                func=Name(id='dependency_relative', ctx=Load()),
++                args=[
++                  Subscript(
++                    value=Subscript(
++                      value=Name(id='d', ctx=Load()),
++                      slice=Constant(value='path'),
++                      ctx=Load()),
++                    slice=Slice(
++                      lower=BinOp(
++                        left=Call(
++                          func=Name(id='len', ctx=Load()),
++                          args=[
++                            Subscript(
++                              value=Name(id='tree', ctx=Load()),
++                              slice=Constant(value='runtimeRoot'),
++                              ctx=Load())]),
++                        op=Add(),
++                        right=Constant(value=1))),
++                    ctx=Load())])),
++            Expr(
++              value=Call(
++                func=Attribute(
++                  value=Name(id='expected', ctx=Load()),
++                  attr='append',
++                  ctx=Load()),
++                args=[
++                  Name(id='rel', ctx=Load())])),
++            Expr(
++              value=Call(
++                func=Name(id='need', ctx=Load()),
++                args=[
++                  Compare(
++                    left=Subscript(
++                      value=Name(id='d', ctx=Load()),
++                      slice=Constant(value='source'),
++                      ctx=Load()),
++                    ops=[
++                      Eq()],
++                    comparators=[
++                      BinOp(
++                        left=BinOp(
++                          left=Subscript(
++                            value=Name(id='tree', ctx=Load()),
++                            slice=Constant(value='sourceRoot'),
++                            ctx=Load()),
++                          op=Add(),
++                          right=Constant(value='/')),
++                        op=Add(),
++                        right=Name(id='rel', ctx=Load()))]),
++                  Constant(value='Dependency source/runtime mapping')])),
++            Assign(
++              targets=[
++                Name(id='p', ctx=Store())],
++              value=BinOp(
++                left=Call(
++                  func=Name(id='Path', ctx=Load()),
++                  args=[
++                    Name(id='root', ctx=Load())]),
++                op=Div(),
++                right=Name(id='rel', ctx=Load()))),
++            Expr(
++              value=Call(
++                func=Name(id='checked', ctx=Load()),
++                args=[
++                  Dict(
++                    keys=[
++                      Constant(value='path'),
++                      Constant(value='bytes'),
++                      Constant(value='sha256')],
++                    values=[
++                      Call(
++                        func=Name(id='str', ctx=Load()),
++                        args=[
++                          Name(id='p', ctx=Load())]),
++                      Subscript(
++                        value=Name(id='d', ctx=Load()),
++                        slice=Constant(value='bytes'),
++                        ctx=Load()),
++                      Subscript(
++                        value=Name(id='d', ctx=Load()),
++                        slice=Constant(value='sha256'),
++                        ctx=Load())])]))]),
++        Expr(
++          value=Call(
++            func=Name(id='need', ctx=Load()),
++            args=[
++              Compare(
++                left=Call(
++                  func=Name(id='sorted', ctx=Load()),
++                  args=[
++                    Name(id='expected', ctx=Load())]),
++                ops=[
++                  Eq()],
++                comparators=[
++                  Subscript(
++                    value=Name(id='actual', ctx=Load()),
++                    slice=Constant(value='files'),
++                    ctx=Load())]),
++              Constant(value='All regular dependency members')])),
++        Return(
++          value=Dict(
++            keys=[
++              Constant(value='schema'),
++              Constant(value='files'),
++              Constant(value='directories'),
++              Constant(value='symlinks'),
++              Constant(value='exact')],
++            values=[
++              Constant(value='e02-transport-dependency-check-v2'),
++              Call(
++                func=Name(id='len', ctx=Load()),
++                args=[
++                  Subscript(
++                    value=Name(id='actual', ctx=Load()),
++                    slice=Constant(value='files'),
++                    ctx=Load())]),
++              Call(
++                func=Name(id='len', ctx=Load()),
++                args=[
++                  Subscript(
++                    value=Name(id='actual', ctx=Load()),
++                    slice=Constant(value='directories'),
++                    ctx=Load())]),
++              Call(
++                func=Name(id='len', ctx=Load()),
++                args=[
++                  Subscript(
++                    value=Name(id='actual', ctx=Load()),
++                    slice=Constant(value='symlinks'),
++                    ctx=Load())]),
++              Constant(value=True)]))]),
++    FunctionDef(
+       name='source_pins',
+       args=arguments(),
+       body=[
+@@ -1615,7 +2282,14 @@
+                     Constant(value='fixture-plan.json'),
+                     Constant(value='minimum-plan.json'),
+                     Constant(value='business-rumor.json'),
+-                    Constant(value='chat-rumor.json')],
++                    Constant(value='chat-rumor.json'),
++                    Constant(value='exchange.mjs'),
++                    Constant(value='phase-writer.mjs'),
++                    Constant(value='dependency-tree.mjs'),
++                    Constant(value='dependency-tree.json'),
++                    Constant(value='capture-budget.mjs'),
++                    Constant(value='exchange-adapter.mjs'),
++                    Constant(value='proxy-observer.mjs')],
+                   ctx=Load()),
+                 is_async=0)]))]),
+     FunctionDef(
+@@ -1842,7 +2516,7 @@
+                     ops=[
+                       Eq()],
+                     comparators=[
+-                      Constant(value='e02-ordinary-minimum-role-runtime-plan-v1')]),
++                      Constant(value='e02-ordinary-minimum-role-runtime-plan-v2')]),
+                   Compare(
+                     left=Subscript(
+                       value=Name(id='config', ctx=Load()),
+@@ -2461,168 +3135,26 @@
+                             Constant(value='sha256')],
+                           ctx=Load()),
+                         is_async=0)])]))]),
+-        Assign(
+-          targets=[
+-            Name(id='dependencies', ctx=Store())],
+-          value=BinOp(
+-            left=Name(id='REPO', ctx=Load()),
+-            op=Div(),
+-            right=Constant(value='experiments/node_modules'))),
+-        Assign(
+-          targets=[
+-            Name(id='actual', ctx=Store())],
+-          value=Call(
+-            func=Name(id='set', ctx=Load()))),
+-        For(
+-          target=Name(id='path', ctx=Store()),
+-          iter=Call(
+-            func=Attribute(
+-              value=Name(id='dependencies', ctx=Load()),
+-              attr='rglob',
+-              ctx=Load()),
+-            args=[
+-              Constant(value='*')]),
+-          body=[
+-            If(
+-              test=Call(
+-                func=Attribute(
+-                  value=Name(id='path', ctx=Load()),
+-                  attr='is_symlink',
+-                  ctx=Load())),
+-              body=[
+-                Expr(
+-                  value=Call(
+-                    func=Name(id='need', ctx=Load()),
+-                    args=[
+-                      Call(
+-                        func=Attribute(
+-                          value=Call(
+-                            func=Attribute(
+-                              value=Name(id='path', ctx=Load()),
+-                              attr='resolve',
+-                              ctx=Load()),
+-                            keywords=[
+-                              keyword(
+-                                arg='strict',
+-                                value=Constant(value=True))]),
+-                          attr='is_relative_to',
+-                          ctx=Load()),
+-                        args=[
+-                          Name(id='dependencies', ctx=Load())]),
+-                      Constant(value='Dependency symlink escapes')]))],
+-              orelse=[
+-                If(
+-                  test=Call(
++        Expr(
++          value=Call(
++            func=Name(id='verify_dependency_inventory', ctx=Load()),
++            args=[
++              Name(id='fixture', ctx=Load()),
++              Call(
++                func=Name(id='strict', ctx=Load()),
++                args=[
++                  Call(
+                     func=Attribute(
+-                      value=Name(id='path', ctx=Load()),
+-                      attr='is_file',
+-                      ctx=Load())),
+-                  body=[
+-                    Expr(
+-                      value=Call(
+-                        func=Attribute(
+-                          value=Name(id='actual', ctx=Load()),
+-                          attr='add',
+-                          ctx=Load()),
+-                        args=[
+-                          Call(
+-                            func=Name(id='str', ctx=Load()),
+-                            args=[
+-                              BinOp(
+-                                left=Call(
+-                                  func=Name(id='PurePosixPath', ctx=Load()),
+-                                  args=[
+-                                    Constant(value='/input/node_modules')]),
+-                                op=Div(),
+-                                right=Call(
+-                                  func=Attribute(
+-                                    value=Name(id='path', ctx=Load()),
+-                                    attr='relative_to',
+-                                    ctx=Load()),
+-                                  args=[
+-                                    Name(id='dependencies', ctx=Load())]))])]))],
+-                  orelse=[
+-                    Expr(
+-                      value=Call(
+-                        func=Name(id='need', ctx=Load()),
+-                        args=[
+-                          Call(
+-                            func=Attribute(
+-                              value=Name(id='path', ctx=Load()),
+-                              attr='is_dir',
+-                              ctx=Load())),
+-                          Constant(value='Dependency special file')]))])])]),
+-        Expr(
+-          value=Call(
+-            func=Name(id='need', ctx=Load()),
+-            args=[
+-              Compare(
+-                left=Name(id='actual', ctx=Load()),
+-                ops=[
+-                  Eq()],
+-                comparators=[
+-                  SetComp(
+-                    elt=Subscript(
+-                      value=Name(id='d', ctx=Load()),
+-                      slice=Constant(value='path'),
+-                      ctx=Load()),
+-                    generators=[
+-                      comprehension(
+-                        target=Name(id='d', ctx=Store()),
+-                        iter=Subscript(
+-                          value=Name(id='fixture', ctx=Load()),
+-                          slice=Constant(value='dependencyFiles'),
+-                          ctx=Load()),
+-                        is_async=0)])]),
+-              Constant(value='Installed dependency inventory changed')])),
+-        For(
+-          target=Name(id='d', ctx=Store()),
+-          iter=Subscript(
+-            value=Name(id='fixture', ctx=Load()),
+-            slice=Constant(value='dependencyFiles'),
+-            ctx=Load()),
+-          body=[
+-            Assign(
+-              targets=[
+-                Name(id='relative', ctx=Store())],
+-              value=Call(
+-                func=Attribute(
+-                  value=Call(
+-                    func=Name(id='PurePosixPath', ctx=Load()),
+-                    args=[
+-                      Subscript(
+-                        value=Name(id='d', ctx=Load()),
+-                        slice=Constant(value='path'),
+-                        ctx=Load())]),
+-                  attr='relative_to',
+-                  ctx=Load()),
+-                args=[
+-                  Constant(value='/input/node_modules')])),
+-            Expr(
+-              value=Call(
+-                func=Name(id='checked', ctx=Load()),
+-                args=[
+-                  Dict(
+-                    keys=[
+-                      Constant(value='path'),
+-                      Constant(value='bytes'),
+-                      Constant(value='sha256')],
+-                    values=[
+-                      Call(
+-                        func=Name(id='str', ctx=Load()),
+-                        args=[
+-                          BinOp(
+-                            left=Name(id='dependencies', ctx=Load()),
+-                            op=Div(),
+-                            right=Name(id='relative', ctx=Load()))]),
+-                      Subscript(
+-                        value=Name(id='d', ctx=Load()),
+-                        slice=Constant(value='bytes'),
+-                        ctx=Load()),
+-                      Subscript(
+-                        value=Name(id='d', ctx=Load()),
+-                        slice=Constant(value='sha256'),
+-                        ctx=Load())])]))]),
++                      value=BinOp(
++                        left=Name(id='HERE', ctx=Load()),
++                        op=Div(),
++                        right=Constant(value='dependency-tree.json')),
++                      attr='read_bytes',
++                      ctx=Load()))]),
++              BinOp(
++                left=Name(id='REPO', ctx=Load()),
++                op=Div(),
++                right=Constant(value='experiments/node_modules'))])),
+         For(
+           target=Name(id='record', ctx=Store()),
+           iter=Tuple(
+@@ -6882,7 +7414,7 @@
+                     ops=[
+                       Eq()],
+                     comparators=[
+-                      Constant(value='e02-ordinary-minimum-role-release-v1')]),
++                      Constant(value='e02-ordinary-minimum-role-release-v2')]),
+                   Compare(
+                     left=Subscript(
+                       value=Name(id='release', ctx=Load()),
+@@ -7742,6 +8274,73 @@
+                                   args=[
+                                     Name(id='failure', ctx=Load())]))],
+                             ctx=Load())]))])]),
++            Try(
++              body=[
++                Expr(
++                  value=Call(
++                    func=Name(id='verify_dependency_inventory', ctx=Load()),
++                    args=[
++                      Name(id='fixture', ctx=Load()),
++                      Call(
++                        func=Name(id='strict', ctx=Load()),
++                        args=[
++                          Call(
++                            func=Attribute(
++                              value=BinOp(
++                                left=Name(id='HERE', ctx=Load()),
++                                op=Div(),
++                                right=Constant(value='dependency-tree.json')),
++                              attr='read_bytes',
++                              ctx=Load()))]),
++                      BinOp(
++                        left=Name(id='REPO', ctx=Load()),
++                        op=Div(),
++                        right=Constant(value='experiments/node_modules'))]))],
++              handlers=[
++                ExceptHandler(
++                  type=Name(id='BaseException', ctx=Load()),
++                  name='failure',
++                  body=[
++                    If(
++                      test=Compare(
++                        left=Name(id='error', ctx=Load()),
++                        ops=[
++                          Is()],
++                        comparators=[
++                          Constant(value=None)]),
++                      body=[
++                        Assign(
++                          targets=[
++                            Name(id='error', ctx=Store())],
++                          value=BinOp(
++                            left=Constant(value='End dependency closure failed: '),
++                            op=Add(),
++                            right=Call(
++                              func=Name(id='repr', ctx=Load()),
++                              args=[
++                                Name(id='failure', ctx=Load())])))],
++                      orelse=[
++                        Expr(
++                          value=Call(
++                            func=Attribute(
++                              value=Call(
++                                func=Attribute(
++                                  value=Name(id='cleanup', ctx=Load()),
++                                  attr='setdefault',
++                                  ctx=Load()),
++                                args=[
++                                  Constant(value='errors'),
++                                  List(ctx=Load())]),
++                              attr='append',
++                              ctx=Load()),
++                            args=[
++                              BinOp(
++                                left=Constant(value='End dependency closure failed: '),
++                                op=Add(),
++                                right=Call(
++                                  func=Name(id='repr', ctx=Load()),
++                                  args=[
++                                    Name(id='failure', ctx=Load())]))]))])])]),
+             Assign(
+               targets=[
+                 Name(id='final_code', ctx=Store())],
+@@ -7762,7 +8361,7 @@
+                       Constant(value='canonicalE02Changed'),
+                       Constant(value='limits')],
+                     values=[
+-                      Constant(value='e02-ordinary-minimum-role-supervisor-result-v1'),
++                      Constant(value='e02-ordinary-minimum-role-supervisor-result-v2'),
+                       Subscript(
+                         value=Name(id='config', ctx=Load()),
+                         slice=Constant(value='runId'),

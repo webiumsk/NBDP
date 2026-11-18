@@ -1,0 +1,21 @@
+{
+  "schema": "e02-root-collector-r1-review-disposition-v1",
+  "actor": "/root",
+  "subject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-collector-preparation-r1/source-subject.json",
+    "bytes": 2700,
+    "sha256": "b6fbcbc693841857aa29df49264998cc4f88e216558d9908edc9bb6328502ba6"
+  },
+  "decision": "HOLD",
+  "severity": "MEDIUM",
+  "findingIds": [
+    "COLLECTOR-QA-01",
+    "COLLECTOR-R1-SEC-01"
+  ],
+  "evidence": "Complete proof bytes/charge may remain scan-valid after later fsync/close/postcheck failure if failure marker cannot be written. Reopened status failed:false cannot establish failure-free command history. Output acknowledgement may also fail after account closes.",
+  "requiredRemediation": "Status is CURRENT_STRUCTURAL_CUSTODY_ONLY with historicalIO UNKNOWN; no failed:false/historical-success claim. Preserve in-process and durable-marker denial. Root permanently invalidates runID after any nonzero/missing/unknown/truncated actual collector command receipt; all exact genuine collector command terminal0/API custody required before probe release/DATA acceptance. No later structural reopen restores qualification.",
+  "regressions": "Post-fullwrite fsync/close/postcheck errors+unwritablemarker; precharge-open error+unwritablemarker; output acknowledgement failure. Reopened structural observations never establish historical success or reauthorize failed runID.",
+  "collectorCommandsExecuted": 0,
+  "modelsExecuted": 0,
+  "executionAuthorized": false
+}

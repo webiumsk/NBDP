@@ -1,0 +1,27 @@
+{
+  "schema": "e02-actual-fresh-reviewer-birth-v1",
+  "actor": "/root",
+  "freeze": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r1-fresh-review-freeze-20261029/freeze.json",
+    "bytes": 17392,
+    "sha256": "7de15d784b38c6b9e37f05000463469807f64e7d673f7bde991c550c47dd81ec"
+  },
+  "clockBefore": "2026-10-28 23:10:12 UTC",
+  "spawnTool": "collaboration.spawn_agent",
+  "actualSpawnResponses": [
+    {
+      "task_name": "/root/probe_r1_fresh_qa_7de15d784b38"
+    },
+    {
+      "task_name": "/root/probe_r1_fresh_security_7de15d784b38"
+    }
+  ],
+  "authorsAndKnownOperators": [
+    "/root",
+    "/root/producer4_nonblocking_source",
+    "/root/completion_wrapper",
+    "/root/r5_plan_fix"
+  ],
+  "scope": "Actual two new read-only post-freeze SOURCE reviewer sessions; no model or probe execution.",
+  "clockAfter": "2026-10-28 23:10:43 UTC"
+}

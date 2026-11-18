@@ -1,0 +1,21 @@
+{
+  "schema": "e02-producer3-source4-assembly-record-v1",
+  "actor": "/root/producer3_capture",
+  "authority": "Explicit root METADATA/PATH-only SOURCE4 assignment after preserved SOURCE3 invocation-binding HOLD",
+  "commands": [
+    {"command": "PinnedPython -I -B Data/source4/compare-source.py", "exitCode": 0, "meaning": "Static AST comparison only; no target import/evaluation or model execution"},
+    {"command": "PinnedPython -I -B Data/source4/prepare-final-source.py", "exitCode": 0, "meaning": "Source metadata spec written"},
+    {"command": "PinnedPython -I -B Data/source4/assemble-source-only.py --assemble-source-only repo/source4/freeze-input-spec.json", "sessionId": 70010, "exitCode": 0, "actualInputCount": 1889, "meaning": "Actual streaming SOURCE-input hashing and metadata writes only"},
+    {"command": "PinnedPython -I -B Data/source4/finalize-source-packet.py", "exitCode": 0, "meaning": "Source subjects/plans/model method frozen; no actual authorities issued"},
+    {"command": "sha256sum -c preserved-source3-all-files.sha256", "exitCode": 0, "filesUnchanged": 67},
+    {"command": "diff -u metadata scripts SOURCE3 SOURCE4", "exitCode": 1, "meaning": "Expected metadata/path differences preserved"}
+  ],
+  "requestFromPlanExecuted": false,
+  "targetModulesImported": 0,
+  "modelsControlsExecuted": 0,
+  "runtimeSdkNativeServicesGrants": 0,
+  "independentSourceQa": null,
+  "independentSourceSecurity": null,
+  "freshAdmission9Acceptance": null,
+  "freshCaptureRootAcknowledgements": null
+}

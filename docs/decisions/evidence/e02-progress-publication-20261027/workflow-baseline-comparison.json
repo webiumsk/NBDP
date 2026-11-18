@@ -1,0 +1,49 @@
+{
+  "schema": "nbdp-workflow-historical-baseline-comparison-v1",
+  "baseCommit": "5c039abb5ec098e309804f2e44c2a692667b84c1",
+  "checks": [
+    {
+      "path": "docs/research/experimental-validation-summary.md",
+      "mainSha256": "c88e57a682ebda29d50902ea6000bbea5413730f5a474d7b1bb50183fd5eb851",
+      "workspaceSha256": "c29198db49d15e46c7803ed8b76702148bb15afca6b8e9e46577072cdd93508a",
+      "check": "whole-file",
+      "expected": "477bfdc4d1735b9eff66bbb40cde1cd4282295d07b674557a5e74f15ddd48cd5",
+      "mainPass": false,
+      "currentPass": false
+    },
+    {
+      "path": "experiments/README.md",
+      "mainSha256": "0d00ac17929309077f4c74ce9ed836e13150319e01a810d159b5c8e6f566dc28",
+      "workspaceSha256": "0d00ac17929309077f4c74ce9ed836e13150319e01a810d159b5c8e6f566dc28",
+      "check": "whole-file",
+      "expected": "c97f800247936803ff68c38153465c9168775c8fa0405e2ca2d4b2568711bda9",
+      "mainPass": false,
+      "currentPass": false
+    },
+    {
+      "path": "docs/PROJECT_STATE.md",
+      "mainSha256": "73e02a5e3bf4e4b435f151f932b7aa2c4c3c73f7e7f8fecf76092fe1d701aa13",
+      "workspaceSha256": "957c196e6bcfbdac08845843132ef8b4b4b382c648951f42812eebc8caceee22",
+      "check": "prefix",
+      "expected": {
+        "bytes": 1617,
+        "sha256": "74e6f7f5c200ff7f7e74b0ab45f03bdfd363aea06f45005a9f05094a18bcf50d"
+      },
+      "mainPass": false,
+      "currentPass": false
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "mainSha256": "d37dcdbd16a529431b576e6fe4857c334b8764376df6ee1d9c8d7249a120530b",
+      "workspaceSha256": "50adb9eb97aaa6cce9dedcd27adbc7bcb64033f565a8d23daf86513c08e2f49a",
+      "check": "prefix",
+      "expected": {
+        "bytes": 2379,
+        "sha256": "bd5aa7684f3425aaae0f22ca2d4e457bb31b84357f3690631f11d50b3c566fdb"
+      },
+      "mainPass": false,
+      "currentPass": false
+    }
+  ],
+  "meaning": "Read-only exact four failed predicates compared against actual Git HEAD bytes; no baseline/checker/evidence changes."
+}

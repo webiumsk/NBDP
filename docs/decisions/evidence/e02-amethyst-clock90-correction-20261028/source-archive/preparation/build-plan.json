@@ -1,0 +1,189 @@
+{
+  "schema": "nbdp-amethyst-proposed-source-build-v1",
+  "state": "SOURCE_ONLY_PENDING_INDEPENDENT_QA_SECURITY_MODELS_AND_ROOT_RELEASE",
+  "source": {
+    "commit": "e6f464a1179def75274512b3c5bab921de3bf3d8",
+    "tree": "11a90777c85c71912594612f42d9807004834f67",
+    "originalCheckout": "/tmp/nbdp-amethyst-rebuild-20261026/source",
+    "beforeAfterGitCleanRequired": true,
+    "workcopy": "Fresh git archive without .git; original archived files must remain byte/mode-identical after build"
+  },
+  "image": "sha256:32bb6c4c58ee5fe85f1e7229fb15008accb137990093941d2f8e768efd91cf8c",
+  "proposedDockerCreateArgv": [
+    "/usr/bin/docker",
+    "create",
+    "--name",
+    "nbdp-amethyst-build-20261026",
+    "--label",
+    "nbdp.role=amethyst-source-build",
+    "--label",
+    "nbdp.owner=nbdp-amethyst-rebuild-20261026",
+    "--workdir",
+    "/work",
+    "--user",
+    "1000:1000",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--read-only",
+    "--init",
+    "--cpus",
+    "4",
+    "--memory",
+    "6442450944",
+    "--memory-swap",
+    "6442450944",
+    "--pids-limit",
+    "512",
+    "--network",
+    "nbdp-amethyst-build-20261026",
+    "--tmpfs",
+    "/tmp:rw,nosuid,nodev,size=1073741824",
+    "--mount",
+    "type=bind,src=/tmp/nbdp-amethyst-rebuild-20261026/output/source.tar,dst=/input/source.tar,readonly",
+    "--mount",
+    "type=bind,src=/tmp/nbdp-amethyst-rebuild-20261026/output/source-archive.json,dst=/input/source-archive.json,readonly",
+    "--mount",
+    "type=bind,src=/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r8/preparation,dst=/prep,readonly",
+    "--mount",
+    "type=bind,src=/tmp/nbdp-amethyst-rebuild-20261026/tools/jdk,dst=/jdk,readonly",
+    "--mount",
+    "type=bind,src=/Data/nbdp-e02-tooling-20261027/controller-r6/writable-r1/sdk,dst=/sdk,readonly",
+    "--mount",
+    "type=bind,src=/Data/nbdp-e02-tooling-20261027/amethyst-build-r8/user/work,dst=/work",
+    "--mount",
+    "type=bind,src=/Data/nbdp-e02-tooling-20261027/amethyst-build-r8/cache/build,dst=/cache",
+    "--mount",
+    "type=bind,src=/Data/nbdp-e02-tooling-20261027/amethyst-build-r8/output/build,dst=/output",
+    "--entrypoint",
+    "/usr/bin/env",
+    "sha256:32bb6c4c58ee5fe85f1e7229fb15008accb137990093941d2f8e768efd91cf8c",
+    "-i",
+    "PATH=/jdk/bin:/usr/bin:/bin",
+    "JAVA_HOME=/jdk",
+    "JAVA_TOOL_OPTIONS=-Duser.home=/work/user",
+    "GRADLE_USER_HOME=/cache/gradle",
+    "ANDROID_HOME=/sdk",
+    "ANDROID_SDK_ROOT=/sdk",
+    "ANDROID_USER_HOME=/work/user/.android",
+    "LANG=C.UTF-8",
+    "LC_ALL=C.UTF-8",
+    "TMPDIR=/tmp",
+    "/usr/bin/python3",
+    "/prep/build_inside.py"
+  ],
+  "rootPrerequisites": [
+    "Independent exact SOURCE reviews; separately released DATA models",
+    "Accepted unchanged JDK and independently accepted whole official installed SDK inventory, metadata, consent and actual-to-retained provenance.",
+    "Fresh git archive/source receipt with actual tool provenance and original source unchanged",
+    "Fresh owned /Data/nbdp-e02-tooling-20261027/amethyst-build-r8/{user/work,cache/build,output/build} roots; no prior .m2/.android/debug key or Gradle caches",
+    "Dedicated named bridge created separately by root; no host network or published ports",
+    "Root finite exact-CID supervisor with original launch/completion/log/container-removal receipts before any build; this JSON is a proposal, not an executable release",
+    "Whole official installed SDK inventory, package metadata, actual consent/install acceptance independently accepted and exactly bound; NULL means NOT_READY.",
+    "Fresh owned runtime parent skeleton/controller/materializer directories on actual /Data filesystem, then unchanged12GiB admission; no SDKmanager/download/consent step during build."
+  ],
+  "limits": {
+    "memoryBytes": 6442450944,
+    "cpus": 4,
+    "pids": 512,
+    "gradleHeap": "4g",
+    "gradleMetaspace": "768m",
+    "kotlinHeap": "1536m",
+    "kotlinMetaspace": "512m",
+    "gradleMaxWorkers": 1,
+    "buildSeconds": 5400,
+    "outerTotalSeconds": 5700,
+    "stdoutLimitBytes": 67108864,
+    "stderrLimitBytes": 67108864,
+    "minimumFreeBuildDiskBytes": 12884901888,
+    "attachedCliSeconds": 5445,
+    "maximumRootLeaseSeconds": 6000,
+    "outerWrapperSeconds": 5997,
+    "outerWrapperKillGraceSeconds": 3
+  },
+  "failurePolicy": "Stop at first failure/timeout/log ceiling, retain raw data, kill/remove only exact owned CID; no automatic retry or deadline increase",
+  "jdkHomeAndMavenLocal": "-Duser.home=/work/user on every JVM; fresh /work/user/.m2/repository and separate GRADLE_USER_HOME; no host HOME/globalconfig/socket/credentials mounted",
+  "sdkLicensePolicy": "SDK/JDK mounted readonly; no sdkmanager, SDK download/consent/license file operation. Missing package/license is a failed build prerequisite, never auto-accepted.",
+  "signing": "Fresh local debug keystore under isolated Android user directory; private key never exported, public APK/signature/badging/digest metadata retained. New rebuilt APK never inherits old5165 hash.",
+  "qualification": "Source-linked rebuilt candidate only; no reproducibility/client/runtime/canonical PASS claim",
+  "commandRemediation": {
+    "excludedTasks": [
+      "spotlessApply",
+      ":installGitHook"
+    ],
+    "reason": "Upstream autoformat/hook side effects conflict with unchanged immutable-source guard; exact core source is compiled without these build-environment side effects.",
+    "sourceGuardRelaxed": false,
+    "sdkPolicyChanged": false,
+    "negativeAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-actual-20261027/failure-acceptance.json",
+      "bytes": 3705,
+      "sha256": "f56932a850f6e149f0c3a39de3e980f3e3df40b6aadf3e04c59b05b69c73d1a1"
+    },
+    "rootMethodAdoption": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-correction-20261027/method-adoption.json",
+      "bytes": 2611,
+      "sha256": "44335bb21881e36b1116b04c84b7560996ef338a39eeb9302f047659437d0e95"
+    }
+  },
+  "compilerRemediation": {
+    "methodAdoption": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-build-compiler-correction-20261027/method-adoption.json",
+      "bytes": 3679,
+      "sha256": "bce2384388ecd8191c279228be9bbcdbe4185dda9f40e6443891a03d0d35079c"
+    },
+    "priorNegativeAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/failure-acceptance.json",
+      "bytes": 3716,
+      "sha256": "676d6f53db89a64e18d8bcad960c29d4406e738acf0fd868291ab48203d92b54"
+    },
+    "primarySourceFinding": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/kotlin-configuration-source-finding.json",
+      "bytes": 4493,
+      "sha256": "a6353ee4b6b1971a3691d82b3e129e83997b0972a396d8dc7abd2a26e9d2b755"
+    },
+    "projectProperty": "-Pkotlin.daemon.jvmargs=-Xmx1536m -XX:MaxMetaspaceSize=512m",
+    "executionStrategy": "-Pkotlin.compiler.execution.strategy=in-process",
+    "informationLogging": "--info",
+    "timingMeaning": "Job5400+5 includes extraction, Gradle, source-after and APK/signature stages; not a guaranteed5400-second Gradle window. No runtime heap sufficiency or OOM victim attribution.",
+    "ordinaryClientLeaseUnchanged": 1800,
+    "outputPrefixPrecomputation": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-build-compiler-correction-20261027/source-guard-optimization-adoption.json",
+      "bytes": 1543,
+      "sha256": "e6857a28b0b0e72c170e02b60207fdf174878952290da4ca05bd74d67990ba24"
+    }
+  },
+  "clockOnlyRemediation": {
+    "methodAdoption": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/method-adoption.json",
+      "bytes": 2568,
+      "sha256": "47217a4df03e2f109830b1a28dd5507599ff16e3d4799f5bdd0a0563359c1cec"
+    },
+    "priorNegativeAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/failure-acceptance.json",
+      "bytes": 3128,
+      "sha256": "9abc60f8c305bd6f62881a69a3d2d7effbdaa5041d6888e8518123027da8e518"
+    },
+    "priorCompilerObservations": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-compiler-r7-actual-20261027/terminal-compiler-observations.json",
+      "bytes": 1523,
+      "sha256": "9b5dc97108bedbb2673da5c00a2f517f0bfaf15dbeb1a663152df312de008568"
+    },
+    "seedProposalDisposition": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/seed-proposal-disposition.json",
+      "bytes": 1731,
+      "sha256": "7bfc80cd6f15464baa7e3ccd1c20ac10066db003cccef32d56279464d9cd8637"
+    },
+    "artifactOnlySeconds": {
+      "job": 5400,
+      "attachedCli": 5445,
+      "supervisor": 5700,
+      "cleanupReserve": 120,
+      "rootLease": 6000,
+      "outer": 5997,
+      "outerKillGrace": 3,
+      "jobKillGrace": 5
+    },
+    "meaning": "Cold fresh artifact clock-only successor. Entire5400s job includes extraction/Gradle/source/APK checks, not guaranteed5400s of Gradle; ordinary1800 unchanged; no seed/copy/cache-admission/guard change."
+  }
+}

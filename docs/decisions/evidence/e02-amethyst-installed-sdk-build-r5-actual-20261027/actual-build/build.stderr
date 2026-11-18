@@ -1,0 +1,39 @@
+Picked up JAVA_TOOL_OPTIONS: -Duser.home=/work/user
+The message received from the daemon indicates that the daemon has disappeared.
+Build request sent: Build{id=8a3229dc-2e91-4990-8faa-4c98807126e1, currentDir=/work/source}
+Attempting to read last messages from the daemon log...
+Daemon pid: 69
+  log file: /cache/gradle/daemon/9.8.0/daemon-69.out.log
+----- Last 20 lines from daemon log file - daemon-69.out.log -----
+kotlin.internal.incremental.enableUnsafeOptimizationsForMultiplatform
+
+Internal properties are not recommended for production use.
+Stability and future compatibility of the build is not guaranteed.
+Solution: Please consider using the public API instead of internal properties.
+
+Loading local repository...                                                     
+Info: SDK Manager found the following installed packages: build-tools;36.0.0 ndk;30.0.16248370 platforms;android-37.0
+[=========                              ] 25% Loading local repository...       
+Checking the license for package Android SDK Platform-Tools in /sdk/licenses
+License for package Android SDK Platform-Tools accepted.
+Preparing "Install Android SDK Platform-Tools v.37.0.1".
+Warning: Failed to read or create install properties file.
+WARNING: platform-tools package is not installed, and automatic installation failed.
+Add android.sync.suppressAgpWarnings=MISSING_SDK_PACKAGE to the gradle.properties file to suppress this warning.
+w: ⚠️ Compilation in Kotlin daemon has failed
+Failed to compile with Kotlin daemon : Connection to the Kotlin daemon has been unexpectedly lost. This might be caused by the daemon being killed by another process or the operating system, or by JVM crash.
+Using fallback strategy (kotlin.daemon.useFallbackStrategy=true): Compile without Kotlin daemon.
+Solution: Check the Kotlin daemon or compiler error message for details about the failure and possible ways to fix it. If the problem persists, run './gradlew --stop' and try again. If the problem does not seem to be caused by your build configuration, please report it at https://kotl.in/issue and attach the logs.
+----- End of the daemon log -----
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Gradle build daemon disappeared unexpectedly (it may have been killed or may have crashed)
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.

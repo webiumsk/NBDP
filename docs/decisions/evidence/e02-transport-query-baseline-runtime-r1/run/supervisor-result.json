@@ -1,0 +1,78 @@
+{
+  "schema": "e02-transport-query-diagnostic-result-v2",
+  "runId": "f3d0ea386d2b4aac838bc0d46f6c4053",
+  "config": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/proposed-run-config.json",
+    "bytes": 3618,
+    "sha256": "8b91d376814e192b765aba2549f42d185594b8785ecbfac54589f2fc2422dca5"
+  },
+  "release": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/runtime-preparation-r2/root-release.json",
+    "bytes": 1978,
+    "sha256": "3317bff02c0c406bcf48751ce472293e76bdaa29c6a46dff821693f2e6daafda"
+  },
+  "lease": {
+    "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/session/lease.json",
+    "bytes": 368,
+    "sha256": "141dfbd393b814acd158689267eb2366bab51db85f086f2a5bb88c7a803d17e4"
+  },
+  "scope": "E02_TRANSPORT_QUERY_DIAGNOSTIC_V2_ONLY_NO_ANDROID_NO_E02_COMPLETION",
+  "canonicalE02Changed": false,
+  "ordinaryClientQualified": false,
+  "dependencyEndBoundary": {
+    "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/dependency-end-boundary.json",
+    "bytes": 165,
+    "sha256": "5b4ff2d72924397da8e88e783d6748a9551582549ab77c986779828e45edea7e"
+  },
+  "dependencyEndBoundaryError": null,
+  "executionState": "PARTIAL",
+  "error": null,
+  "secondaryErrors": [],
+  "cleanup": {
+    "ok": true,
+    "rows": [
+      {
+        "role": "fixture",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "cd0a0e9d06c95f8ca7b307c0b048e2a5994579d1bf91beab7d1f79c2c8138a6b",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "rs-relay",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "153f43dc45aa809353a9bb752e05e619e6f49357123c44e08979cdaf11c3e5a2",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      },
+      {
+        "role": "anchor",
+        "exactOwnedCleanupOnly": true,
+        "errors": [],
+        "identityVerified": true,
+        "absenceConfirmed": true,
+        "inspectExit": 0,
+        "cid": "98253a63db0df66eb4ed0918a5bddaf23147b6679c8d536fce7a3a87ddef1fe5",
+        "logsExit": 0,
+        "removeExit": 0,
+        "afterInspectExit": 1
+      }
+    ],
+    "errors": [],
+    "evidence": {
+      "path": "/tmp/nbdp-e02-transport-query-diagnostic-v2/runs/f3d0ea386d2b4aac838bc0d46f6c4053/cleanup/result.json",
+      "bytes": 1057,
+      "sha256": "c5962e4c4827b2fd8ca140f1157e5b610d8fb917ae31a184e58580a75b2aaaf2"
+    }
+  }
+}

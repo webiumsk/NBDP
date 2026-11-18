@@ -1,0 +1,16 @@
+{
+  "toolName": "tools.exec_command",
+  "actualArguments": {
+    "cmd": "/home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source2/audit_typed_closure.py",
+    "login": false,
+    "yield_time_ms": 1000,
+    "max_output_tokens": 3500
+  },
+  "unmodifiedResponse": {
+    "chunk_id": "efb623",
+    "wall_time_seconds": 0.052487296,
+    "exit_code": 1,
+    "original_token_count": 360,
+    "output": "Traceback (most recent call last):\n  File \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source2/audit_typed_closure.py\", line 70, in <module>\n    main()\n    ~~~~^^\n  File \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source2/audit_typed_closure.py\", line 41, in main\n    builder.validate_caller_closure(reader, spec['callerClosure'], spec['callerClosureEvidence'],\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                                   spec['actorAuthority'], set(authority['participants']))\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source2/prepare_coupled.py\", line 312, in validate_caller_closure\n    need(row['actors'] == observed and set(observed) <= participants,\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n         'ALL_CALLER_V2_ACTORS_WITHIN_FROZEN_AUTHORITY')\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source2/prepare_coupled.py\", line 94, in need\n    raise ValueError(reason)\nValueError: ALL_CALLER_V2_ACTORS_WITHIN_FROZEN_AUTHORITY\n"
+  }
+}

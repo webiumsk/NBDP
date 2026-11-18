@@ -1,0 +1,63 @@
+{
+  "schema": "e02-transport-source2-controls-root-ack-v1",
+  "actor": "/root",
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/subject.json",
+    "bytes": 18185,
+    "sha256": "aece375c76f20d8c738d34e57feb19e50c2ccfc28cb09ffc9347481d2f526b85"
+  },
+  "runnerSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/runner-subject.json",
+    "bytes": 4032,
+    "sha256": "d9d00b1e10a2715608fdb7fe3ca71a9db11b799a7d6ab66cf4f64bcffc4c1be0"
+  },
+  "runner": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/capture-controls.py",
+    "bytes": 18537,
+    "sha256": "e7107878945b3a0881ce409bbe5dd0318f92070c8f7dd73ebea41971b6e4736d"
+  },
+  "controlPlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/control-plan.json",
+    "bytes": 8441,
+    "sha256": "890cba6c84c8f99f6e58bbffd1f77dead980a673151787eb991d42b728434036"
+  },
+  "sourceQaReview": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/actual-source-qa-review.json",
+    "bytes": 373,
+    "sha256": "cea1b0f6f048ea9df059a23660b5443026919b4d77b10277ee4e3de4be4c1e32"
+  },
+  "sourceSecurityReview": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/actual-source-security-review.json",
+    "bytes": 387,
+    "sha256": "97ef3f03df6ed06ae885dffff4c3b5e77864402caaf35345431aa19c2ed8408b"
+  },
+  "sourceQaDecision": "ACCEPT_DIAGNOSTIC_SOURCE_CONFIG_ONLY",
+  "sourceSecurityDecision": "ACCEPT_SOURCE_FOR_SCOPED_DATA_CONTROLS_ONLY",
+  "captureQaReview": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/capture-qa-review.json",
+    "bytes": 416,
+    "sha256": "779d6d587225cd2649c91a243cec2ad701d788c9f777f4d01d0a6c0be40e40b0"
+  },
+  "captureSecurityReview": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-transport-query-diagnostic-preparation-r2/current-controls-r1/capture-security-review.json",
+    "bytes": 423,
+    "sha256": "49724d08cd05a876ddbe02b881cf048478b5d4b5411d9df8560c77a8b2735768"
+  },
+  "captureQaDecision": "ACCEPT_FIXED_CAPTURE_SOURCE_FOR_51_DATA_CONTROLS_ONLY",
+  "captureSecurityDecision": "ACCEPT_FIXED_CAPTURE_SOURCE_FOR_51_DATA_CONTROLS_ONLY",
+  "pureControlsAuthorized": true,
+  "allowedScopes": {
+    "source-custody-and-host-inventory": 18,
+    "fake-socket-and-physical-prefix-model": 27,
+    "guest-dependency-inventory-data": 6
+  },
+  "stopFirstFailure": true,
+  "noRetry": true,
+  "diagnosticRuntimeAuthorized": false,
+  "primaryAuthorized": false,
+  "consumerAuthorized": false,
+  "androidAuthorized": false,
+  "servicesAuthorized": false,
+  "cryptoOrNativeAuthorized": false,
+  "sdkAuthorized": false
+}

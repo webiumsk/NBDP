@@ -1,0 +1,35 @@
+{
+  "schema": "e02-actual-read-only-postrun-api-origin-v1",
+  "request": {
+    "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 297 /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/postrun-input-custody.py",
+    "workdir": "/home/peterhorvath/apps/bitcoin/NBDP",
+    "login": false,
+    "yield_time_ms": 1000,
+    "max_output_tokens": 3000
+  },
+  "launch": {
+    "chunk_id": "24e52e",
+    "wall_time_seconds": 1.000969259,
+    "session_id": 19115,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "polls": [
+    {
+      "request": {
+        "session_id": 19115,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 3000
+      },
+      "response": {
+        "chunk_id": "3fafe3",
+        "wall_time_seconds": 0.000019808,
+        "exit_code": 1,
+        "original_token_count": 165,
+        "output": "Traceback (most recent call last):\n  File \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/postrun-input-custody.py\", line 43, in <module>\n    if __name__=='__main__':main()\n                            ~~~~^^\n  File \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/postrun-input-custody.py\", line 38, in main\n    observed=h.pin(p);assert observed['bytes']==row['bytes'] and observed['sha256']==row['sha256'];staged.append(observed)\n                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      }
+    }
+  ],
+  "terminalExit": 1
+}

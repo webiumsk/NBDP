@@ -1,0 +1,9 @@
+{
+  "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 1266s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-capture-20261105/source2/capture/capture.py --execute-once --root-ack-sha '<ACTUAL_ROOT_ACK_SHA256>'",
+  "workdir": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-eose-capture-20261105/source2/capture",
+  "login": false,
+  "yield_time_ms": 1000,
+  "max_output_tokens": 2000,
+  "sandbox_permissions": "require_escalated",
+  "justification": "Jednorazov\u00e9 vykonanie prijat\u00fdch 286 syntetick\u00fdch kontrol E02 s v\u00fdsledkami v izolovanom /Data adres\u00e1ri pod\u013ea aktu\u00e1lneho Root ACK; p\u00f4vodn\u00e9 limity a z\u00e1kaz automatick\u00e9ho opakovania zost\u00e1vaj\u00fa platn\u00e9."
+}

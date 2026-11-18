@@ -1,0 +1,111 @@
+{
+  "schema": "e02-consumer-current178-stdlib-static-verification-v1",
+  "actor": "/root/consumer_current178_source",
+  "pythonFilesASTParsed": 30,
+  "copiedFunctions": [
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-controller-current-model-preparation-20261105/source2/controller_model_metadata.py",
+        "bytes": 38348,
+        "sha256": "5e4aeae68d57629fde902eee8d306d1b7ae4cb5d920917f4adc234a1b0d4c0bd"
+      },
+      "target": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source1/source/request_families.py",
+        "bytes": 11620,
+        "sha256": "29d98973b916060d94d98c954aa4a586586fe7f89e7dd557a49eee6a63519b68"
+      },
+      "functionNames": [
+        "closed",
+        "decode_json",
+        "equal",
+        "integer",
+        "need",
+        "preflight_json",
+        "response_metadata",
+        "same",
+        "text",
+        "validate_tree",
+        "wall_path"
+      ],
+      "allASTExact": true
+    },
+    {
+      "source": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source/qualification.py",
+        "bytes": 12061,
+        "sha256": "ec585d26a36cc2ba0e5b5d642e7d2186b695fcaa7a89e37091dca1f4f81b4319"
+      },
+      "target": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source1/source/collector_contracts.py",
+        "bytes": 4201,
+        "sha256": "71027aeb69d409fbdcae19ff47be34c17b95106666e7f0e0459d1e87b6d48989"
+      },
+      "functionNames": [
+        "closed",
+        "command",
+        "command_words",
+        "decode_input",
+        "encoded",
+        "need",
+        "output_object",
+        "pin"
+      ],
+      "allASTExact": true
+    }
+  ],
+  "original315NamesPreserved": true,
+  "newDefinitions": 27,
+  "totalDefinitions": 342,
+  "changedOriginalMethodAST": [
+    "test_current_authority.py:CurrentReadyAuthorityControls.test_current_actual_code_and_ast_partition_are_checked",
+    "test_source_bindings.py:CurrentSourceBindings.test_actual260_bound_but_future_probe_data_stays_null"
+  ],
+  "byteIdenticalBusinessMembers": [
+    "wire.py",
+    "gui.py",
+    "witness.py",
+    "observer.py",
+    "async_guard.py",
+    "parent_allocation.py",
+    "strict.py",
+    "whole_window.py"
+  ],
+  "explicitFamilyCallsites": [
+    {
+      "file": "consumer.py",
+      "line": 224,
+      "explicitFamily": "'MODEL5'"
+    },
+    {
+      "file": "current_controls.py",
+      "line": 103,
+      "explicitFamily": "'PRODUCER_CAPTURE7'"
+    },
+    {
+      "file": "probe_adapter.py",
+      "line": 112,
+      "explicitFamily": "'HOST7'"
+    },
+    {
+      "file": "probe_adapter.py",
+      "line": 242,
+      "explicitFamily": "'COLLECTOR7'"
+    },
+    {
+      "file": "probe_adapter.py",
+      "line": 333,
+      "explicitFamily": "'MODEL5'"
+    },
+    {
+      "file": "probe_adapter.py",
+      "line": 232,
+      "explicitFamily": "'MODEL5'"
+    }
+  ],
+  "targetImports": 0,
+  "modelsExecuted": 0,
+  "helperExecutions": 0,
+  "executionAuthorized": false,
+  "independentApproval": false,
+  "method": "Only stdlib ast/json/hashlib/pathlib; no target import, compile, model or command dispatch."
+}

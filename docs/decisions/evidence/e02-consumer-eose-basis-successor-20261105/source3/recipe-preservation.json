@@ -1,0 +1,37 @@
+{
+  "schema": "e02-consumer-source3-recipe-preservation-v1",
+  "predecessorRecipe": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source2/prepare_coupled.py",
+    "bytes": 116517,
+    "sha256": "e0483e05dfbb6fbf4337c991588662e16fcb1721d1352306f81b53f41b2028b0"
+  },
+  "recipe": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source3/prepare_coupled.py",
+    "bytes": 120684,
+    "sha256": "8cbcc9e0237e5a736902fa0f5b44797e693b26af91fdf1bb794f51de69498e92"
+  },
+  "unchangedRuntimeGeneratorFunctions": [
+    "methods",
+    "assignments",
+    "adapt_request_fixture",
+    "install_clock_source",
+    "add_clock_controls",
+    "install_failed_inventory_source",
+    "add_failed_inventory_controls",
+    "static_import_closure"
+  ],
+  "changedRecipeFunctions": [
+    "Reader",
+    "validate_spec",
+    "fixed_closure",
+    "build"
+  ],
+  "runtime450DerivedAudit": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source3/draft-static-audit.json",
+    "bytes": 3571,
+    "sha256": "83e6b48ad06ab7aea183942c77686bdca338225204eb4e43221c0fa85025cafb"
+  },
+  "source1AndSource2Edited": false,
+  "canonicalModelsExecuted": 0,
+  "actualFinalBuilderInvoked": false
+}

@@ -1,0 +1,19 @@
+{
+  "recordedBy": "/root",
+  "reviewer": "/root/producer2_result_security",
+  "severity": "LOW",
+  "state": "LIVE_OBSERVATION_PENDING_FINAL_DATA",
+  "finding": "AGP in-process SDK handling attempted extra platform-tools37.0.1 preparation, failedread/createinstallproperties, reportednotinstalled/automaticinstallfailed; buildtaskscontinued",
+  "source": "/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/output/build/build.stdout lines26-34",
+  "actualCreatedConfig": {
+    "cid": "b54aaa41431940d61be299ff3ac32fd5cfb2bba81850ccf22f5a70b25af11e4e",
+    "user": "1000:1000",
+    "sdkMountRw": false,
+    "evidence": "/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/controller/attempt-ac42a6574b749180898382ce8cba2afd/004-inspect-cid.stdout"
+  },
+  "decision": "CONTINUE_SAME_BOUNDED_BUILD_PRESERVE_WARNING_NO_SCOPE_EXPANSION",
+  "rationale": "Observation alone doesnotwarrantstop; actualreadonlySDK isboundary; log doesnotprove newSDKmanager subprocess/download/successfulinstall/mutation/answer/exactplatformtoolslicensetext permission",
+  "requiredFinalEvidence": "WholeSDKpostcomparisonmembership/bytes/modes/39links/UIDs+actualRO/lifecycle/source/privatekeychecks; HOLDqualification onSDKdrift/newlicenceprompt oranswer, noautomaticrepair/retry",
+  "qualification": "Availability/provenancefinding retained even ifartifact succeeds; noadditionalSDKpackage/newlegalapproval/clientqualification",
+  "provenance": "Faithful coordinator transcription of actual independent security live assessment; read-onlylog/configevidence, no SDK/Docker/tools byreviewer."
+}

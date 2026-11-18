@@ -1,0 +1,87 @@
+{
+  "schema": "e02-minimum-consumer-fixed-control-capture-plan-v1",
+  "state": "PREPARED_NOT_EXECUTED_NO_ROOT_ACKNOWLEDGEMENT_OR_RELEASE_BY_AUTHOR",
+  "actor": "/root/android_health_implementer",
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r2/subject.json",
+    "bytes": 6892,
+    "sha256": "1c0aa126dd62f96298dada5765a5bb8b8237ba9abd08f5405982787f8863e558"
+  },
+  "sourceManifest": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r2/artifact-manifest.json",
+    "bytes": 7786,
+    "sha256": "9fc8aea6587e75d9f893e176be79c789713460793c9171563ad6477a951c79ec"
+  },
+  "frozenSourcePlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r2/proposed-control-plan.json",
+    "bytes": 1450,
+    "sha256": "8c918b1330a274f985beec09fc916575c63954c8542f648dc8a944e7f3f878db"
+  },
+  "runner": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r2/current-controls-r1/capture-controls.py",
+    "bytes": 13914,
+    "sha256": "5d5161126ef34914812c26bb7d0c560b173bd7fa8287a0d9ed875287b26e47ff"
+  },
+  "frozenInputs": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r2/current-controls-r1/frozen-inputs.json",
+    "bytes": 49638,
+    "sha256": "052568bc7a755792ff7e4caace5a6ecc955dbb3682ea14489c9f07899930701f"
+  },
+  "interpreter": {
+    "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "bytes": 32959480,
+    "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+  },
+  "argv": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_consumer_v2/test_data_controls.py"
+  ],
+  "plannedChecks": 86,
+  "timeoutSeconds": 60,
+  "retentionBytes": {
+    "stdout": 1048576,
+    "stderr": 262144
+  },
+  "retentionMeaning": "POST_CAPTURE_FILE_PREFIX_LIMITS_NOT_STREAMING_MEMORY_OR_CGROUP_CAPS",
+  "onceInvocation": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r2/current-controls-r1/capture-controls.py",
+    "--execute-once",
+    "--root-ack-sha",
+    "ACTUAL_EXTERNAL_ROOT_ACK_SHA256_REQUIRED_NOT_YET_ISSUED"
+  ],
+  "outputStorageDelta": {
+    "proposedTemplate": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r2/actual-controls",
+    "rootAssigned": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r2/current-controls-r1",
+    "meaning": "Explicit root-assigned evidence namespace only; original source plan unchanged."
+  },
+  "coordinatorAcknowledgementSchema": {
+    "schema": "e02-minimum-consumer-controls-root-ack-v1",
+    "actor": "/root",
+    "sourceSubject": "exact sourceSubject Pin",
+    "runnerSubject": "exact runner-subject.json Pin",
+    "runner": "exact capture-controls.py Pin",
+    "controlPlan": "exact control-plan.json Pin",
+    "sourceQaReview": "actual accepted QA report Pin in parent preparation directory",
+    "sourceSecurityReview": "actual accepted security report Pin in parent preparation directory",
+    "pureControlsAuthorized": "true only after actual root instruction",
+    "allowedCount": 86,
+    "stopFirstFailure": true,
+    "noRetry": true,
+    "androidAuthorized": false,
+    "servicesAuthorized": false,
+    "cryptoOrNativeAuthorized": false,
+    "sdkAuthorized": false
+  },
+  "acknowledgementPath": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r2/current-controls-r1/coordinator-acknowledgement.json",
+  "acknowledgementMode": "0600",
+  "externalToolReceipts": "Actual caller preserves original response objects immediately during execution; no invented lifecycle/tool fields.",
+  "fullPositiveWholeConsumeGap": true,
+  "independentResultsPending": true,
+  "noSdkAndroidNodeNativeCryptoNetworkServices": true,
+  "executed": false
+}

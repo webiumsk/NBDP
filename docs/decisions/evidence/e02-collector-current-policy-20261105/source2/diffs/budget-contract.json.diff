@@ -1,0 +1,20 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/budget-contract.json
++++ /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/budget-contract.json
+@@ -29,9 +29,16 @@
+   "noExtraWriteFromShape": true,
+   "noOwnFOrigin": true,
+   "payloadBytes": 49152,
++  "predecessorBudget": {
++    "bytes": 2156,
++    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/budget-contract.json",
++    "sha256": "76e1c94a4730bfbb0a21689ea455c7e9cf913520f58144f7a5220334bbd568da"
++  },
+   "rawHostRule": "Host API origin remains charged plain JSON; no collector gzip substitution.",
+   "reservationMaximumBytes": 1024,
+   "rootSlotBytes": 65536,
+-  "schema": "e02-collector-request7-budget-contract-v1",
++  "schema": "e02-collector-request7-typed-origin-budget-contract-v2",
++  "source2RemediationChangesNumericWaitLimits": false,
++  "source2RemediationChangesStoredRequestShape": false,
+   "sourceDataConcreteApprovals": null
+ }

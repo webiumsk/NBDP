@@ -1,0 +1,228 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/requirements-and-coverage.json
++++ /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/requirements-and-coverage.json
+@@ -1,74 +1,69 @@
+ {
+   "controlsExecuted": 0,
+   "coverage": {
+-    "bounded_raw_value_without_normalization": [
+-      "PolicyControls.test_utf8_bound_accepts_without_trimming_or_normalizing"
+-    ],
+-    "changed_origin_and_whole_pin": [
+-      "PolicyControls.test_changed_actual_policy_only_refuses_and_failstop_is_permanent",
+-      "PolicyControls.test_whole_request_pin_includes_every_policy_byte"
+-    ],
+-    "exact7_direct_yielded": [
+-      "PolicyControls.test_actual7_direct_and_complete_same_session_yielded_accept"
+-    ],
+-    "finalf_policy": [
+-      "HistoryPolicyControls.test_finalf_actual_policy_tamper_permanently_denies_existing_gate",
+-      "HistoryPolicyControls.test_finalf_matching_wrong_policy_historical5_extra_and_stale_pin_refuse",
+-      "HistoryPolicyControls.test_finalf_complete_yielded7_preserves_frozen_prefix_and_platform_only_witness"
+-    ],
+-    "lossless_raw7_codec": [
+-      "PolicyControls.test_raw7_codec_exact_roundtrip_and_policy_mutation_is_not_hidden"
+-    ],
+-    "matching_wrong_policy": [
+-      "PolicyControls.test_matching_wrong_sandbox_expected_and_origin_refuse",
+-      "PolicyControls.test_matching_empty_nonstring_or_overbound_justification_refuse"
+-    ],
+-    "missing_old5": [
+-      "PolicyControls.test_missing_policy_and_historical5_matching_expected_origin_refuse"
+-    ],
+-    "noownf_nopostf": [
+-      "HistoryControls.test_own_final_request_expected_pin_and_origin_forbidden_in_prefix",
+-      "HistoryPolicyControls.test_finite_cut_accepts_no_postf_argument_or_body_sidecar"
+-    ],
+-    "permanent_failstop": [
+-      "HistoryControls.test_final_failure_permanent_even_when_envelope_physically_complete",
+-      "HistoryControls.test_existing_root_quarantine_and_direct_fixture_cannot_authorize_final"
+-    ],
+-    "pref_policy": [
+-      "HistoryPolicyControls.test_pref_actual_policy_tamper_refuses_without_projection",
+-      "HistoryPolicyControls.test_pref_matching_wrong_policy_repin_and_unknown_extra_refuse"
+-    ],
+-    "same_new_source_qualifier": [
+-      "HistoryPolicyControls.test_new_composite_path_and_same_exact7_qualifier_required"
+-    ],
+-    "same_slot": [
+-      "HistoryControls.test_same_existing_remaining_slot_enforced_no_separate_index",
+-      "CollectorControls.test_exact_payload_boundary_fits_with_all_ledger_overhead",
+-      "CollectorControls.test_maximum64_records_includes_zero_byte_controls"
+-    ],
+-    "unknown_extra": [
+-      "PolicyControls.test_unknown_extra_shell_tty_prefix_rule_and_other_keys_refuse"
++    "SEC-01_actual_bool_yield1": [
++      "TypedOriginControls.test_direct_actual_boolean_yield_against_pinned_int1_refuses"
++    ],
++    "SEC-01_actual_login0": [
++      "TypedOriginControls.test_direct_actual_login0_against_pinned_false_refuses"
++    ],
++    "SEC-01_actual_yield_float": [
++      "TypedOriginControls.test_direct_actual_yield_float_against_pinned_int_refuses"
++    ],
++    "SEC-01_yielded_permanentfailstop": [
++      "TypedOriginControls.test_yielded_actual_only_type_aliases_refuse_and_failstop_permanently"
++    ],
++    "existing_poll_cap_types": [
++      "TypedOriginControls.test_actual_poll_max_tokens_retains_existing_exact_int_guard"
++    ],
++    "finalf_direct": [
++      "HistoryTypedOriginControls.test_finalf_direct_actual_only_aliases_permanently_refuse"
++    ],
++    "finalf_yielded": [
++      "HistoryTypedOriginControls.test_finalf_yielded_actual_only_aliases_permanently_refuse"
++    ],
++    "poll_session_types": [
++      "TypedOriginControls.test_actual_poll_session_float_and_boolean_aliases_refuse"
++    ],
++    "poll_yield_types": [
++      "TypedOriginControls.test_actual_poll_optional_yield_requires_exact_int_without_clock_extension"
++    ],
++    "pref_finalf_same_poll_guards": [
++      "HistoryTypedOriginControls.test_pref_and_finalf_poll_type_guards_reach_same_new_qualifier"
++    ],
++    "pref_permanentfailstop": [
++      "HistoryTypedOriginControls.test_pref_alias_failure_permanently_denies_later_corrected_final_proof"
++    ],
++    "pref_restore": [
++      "HistoryTypedOriginControls.test_pref_restore_actual_only_type_aliases_refuse"
++    ],
++    "terminal_response_session_types": [
++      "TypedOriginControls.test_terminal_response_session_float_boolean_aliases_refuse"
++    ],
++    "unchanged_positive_and_raw": [
++      "TypedOriginControls.test_valid_separately_copied_typed7_direct_yielded_preserves_originals"
++    ],
++    "whole_canonical_comparison": [
++      "TypedOriginControls.test_distinct_valid_actual_values_fail_whole_canonical_equality"
+     ]
+   },
+   "executionAuthorized": false,
+-  "limitation": "Definitions only. Supplied JSON cannot authenticate platform origins or detect omitted later genuine commands. Actual full finite cut, current exact Source pin, controls, whole fit and release require independent Root/concrete gates.",
+   "newCaseNames": [
+-    "HistoryPolicyControls.test_finalf_actual_policy_tamper_permanently_denies_existing_gate",
+-    "HistoryPolicyControls.test_finalf_complete_yielded7_preserves_frozen_prefix_and_platform_only_witness",
+-    "HistoryPolicyControls.test_finalf_matching_wrong_policy_historical5_extra_and_stale_pin_refuse",
+-    "HistoryPolicyControls.test_finite_cut_accepts_no_postf_argument_or_body_sidecar",
+-    "HistoryPolicyControls.test_new_composite_path_and_same_exact7_qualifier_required",
+-    "HistoryPolicyControls.test_pref_actual_policy_tamper_refuses_without_projection",
+-    "HistoryPolicyControls.test_pref_matching_wrong_policy_repin_and_unknown_extra_refuse",
+-    "PolicyControls.test_actual7_direct_and_complete_same_session_yielded_accept",
+-    "PolicyControls.test_changed_actual_policy_only_refuses_and_failstop_is_permanent",
+-    "PolicyControls.test_matching_empty_nonstring_or_overbound_justification_refuse",
+-    "PolicyControls.test_matching_wrong_sandbox_expected_and_origin_refuse",
+-    "PolicyControls.test_missing_policy_and_historical5_matching_expected_origin_refuse",
+-    "PolicyControls.test_raw7_codec_exact_roundtrip_and_policy_mutation_is_not_hidden",
+-    "PolicyControls.test_unknown_extra_shell_tty_prefix_rule_and_other_keys_refuse",
+-    "PolicyControls.test_utf8_bound_accepts_without_trimming_or_normalizing",
+-    "PolicyControls.test_whole_request_pin_includes_every_policy_byte"
++    "HistoryTypedOriginControls.test_finalf_direct_actual_only_aliases_permanently_refuse",
++    "HistoryTypedOriginControls.test_finalf_yielded_actual_only_aliases_permanently_refuse",
++    "HistoryTypedOriginControls.test_pref_alias_failure_permanently_denies_later_corrected_final_proof",
++    "HistoryTypedOriginControls.test_pref_and_finalf_poll_type_guards_reach_same_new_qualifier",
++    "HistoryTypedOriginControls.test_pref_restore_actual_only_type_aliases_refuse",
++    "TypedOriginControls.test_actual_poll_max_tokens_retains_existing_exact_int_guard",
++    "TypedOriginControls.test_actual_poll_optional_yield_requires_exact_int_without_clock_extension",
++    "TypedOriginControls.test_actual_poll_session_float_and_boolean_aliases_refuse",
++    "TypedOriginControls.test_direct_actual_boolean_yield_against_pinned_int1_refuses",
++    "TypedOriginControls.test_direct_actual_login0_against_pinned_false_refuses",
++    "TypedOriginControls.test_direct_actual_yield_float_against_pinned_int_refuses",
++    "TypedOriginControls.test_distinct_valid_actual_values_fail_whole_canonical_equality",
++    "TypedOriginControls.test_terminal_response_session_float_boolean_aliases_refuse",
++    "TypedOriginControls.test_valid_separately_copied_typed7_direct_yielded_preserves_originals",
++    "TypedOriginControls.test_yielded_actual_only_type_aliases_refuse_and_failstop_permanently"
+   ],
+   "original50CaseNames": [
+     "CollectorControls.test_actual_cli_base64_nonempty_memory_route_and_exact_root_qualifier",
+@@ -123,9 +118,87 @@
+     "HistoryControls.test_wrong_header_purpose_schema_run_source_and_framing_length"
+   ],
+   "rootScope": {
+-    "bytes": 2419,
+-    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-goal-resume-20261104/collector-policy-root-scope-20261105.json",
+-    "sha256": "a9972eca39b156c8454ede2d290a8f2529143066f592085f1c8b252af8864163"
++    "bytes": 2415,
++    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-goal-resume-20261104/collector-policy-source2-root-scope-20261105.json",
++    "sha256": "e4476fd06db1ddb8433fac2e83a0db1b385fed07718174daeb521d14519d528a"
+   },
+-  "schema": "e02-collector-request7-source-requirements-coverage-v1"
++  "schema": "e02-collector-policy-source2-requirements-coverage-v1",
++  "source1CaseNames": [
++    "CollectorControls.test_actual_cli_base64_nonempty_memory_route_and_exact_root_qualifier",
++    "CollectorControls.test_actual_parser_excludes_staging_plus_base64_and_qualifier_bad_memory",
++    "CollectorControls.test_aggregate_oversize_refuses_before_charge_or_proof_open",
++    "CollectorControls.test_all_three_closed_ack_schemas_missing_extra_substituted_pins_and_counters",
++    "CollectorControls.test_bad_canonical_base64_refuses_before_charge_or_proof",
++    "CollectorControls.test_base64_oversize_remaining_refuses_before_charge_and_write",
++    "CollectorControls.test_changed_registered_proof_or_account_contract_refuse",
++    "CollectorControls.test_codec_deterministic_exact_raw_roundtrip_and_restored_root_qualification",
++    "CollectorControls.test_codec_hash_trailing_concatenation_truncation_and_wrong_purpose",
++    "CollectorControls.test_codec_restore_bomb_and_declared_oversize_refuse_before_json",
++    "CollectorControls.test_copy_cannot_bypass_budget_with_equal_digest_or_second_store",
++    "CollectorControls.test_duplicate_never_overwrites_original_or_refunds",
++    "CollectorControls.test_enospc_sticky_even_when_failure_marker_cannot_persist",
++    "CollectorControls.test_every_data_and_repository_duplicate_charged_exact_bytes",
++    "CollectorControls.test_exact_payload_boundary_fits_with_all_ledger_overhead",
++    "CollectorControls.test_extra_file_between_operations_refuses_before_next_proof",
++    "CollectorControls.test_failed_charge_write_never_opens_control_original",
++    "CollectorControls.test_failure_sticky_in_same_object_and_after_reopen",
++    "CollectorControls.test_file_symlink_and_unaccounted_file_refuse",
++    "CollectorControls.test_full_same8mib_precharge_durable_before_first_original",
++    "CollectorControls.test_full_write_then_close_fault_marker_unavailable_is_history_unknown",
++    "CollectorControls.test_full_write_then_fsync_fault_marker_unavailable_is_history_unknown",
++    "CollectorControls.test_full_write_then_postcheck_fault_marker_unavailable_is_history_unknown",
++    "CollectorControls.test_maximum64_records_includes_zero_byte_controls",
++    "CollectorControls.test_one_use_reservation_never_resets_ledger",
++    "CollectorControls.test_output_acknowledgement_failure_is_root_failstop_even_after_clean_close",
++    "CollectorControls.test_path_traversal_and_unregistered_copy_refuse_without_proof",
++    "CollectorControls.test_precharge_open_and_marker_failure_cannot_be_requalified_by_status",
++    "CollectorControls.test_readonly_status_accounts_all_physical_original_copy_ledger_bytes",
++    "CollectorControls.test_registered_proof_hardlink_alias_refuses",
++    "CollectorControls.test_root_missing_nonzero_truncated_unknown_wrong_request_and_poll_receipts_deny",
++    "CollectorControls.test_root_permissions_and_identity_swap_refuse",
++    "CollectorControls.test_root_pure_predicate_accepts_complete_direct_and_same_session_mock_custody",
++    "CollectorControls.test_short_write_keeps_full_charge_and_never_repairs",
++    "CollectorControls.test_structural_status_cannot_replace_or_erase_unknown_command_custody",
++    "CollectorControls.test_supplied_readonly_file_exact_bytes_and_size_bound",
++    "HistoryControls.test_actual_compression_bomb_refuses_before_body_json",
++    "HistoryControls.test_body_duplicate_noncanonical_unknown_and_own_hash_field_refused",
++    "HistoryControls.test_declared_decoded_bound_refuses_before_decompress_and_json",
++    "HistoryControls.test_duplicate_noncanonical_and_extra_header_fields_refused",
++    "HistoryControls.test_exact_decoded_length_and_sha_required",
++    "HistoryControls.test_existing_root_quarantine_and_direct_fixture_cannot_authorize_final",
++    "HistoryControls.test_final_failure_permanent_even_when_envelope_physically_complete",
++    "HistoryControls.test_final_witness_missing_unknown_nonzero_truncated_and_pin_substitution",
++    "HistoryControls.test_own_final_request_expected_pin_and_origin_forbidden_in_prefix",
++    "HistoryControls.test_roundtrip_canonical_prefix_plus_genuine_shaped_final_root_composition",
++    "HistoryControls.test_same_existing_remaining_slot_enforced_no_separate_index",
++    "HistoryControls.test_single_member_crc_trailing_concatenation_and_truncation",
++    "HistoryControls.test_wrong_body_run_source_order_store_and_request_receipt_join",
++    "HistoryControls.test_wrong_header_purpose_schema_run_source_and_framing_length",
++    "HistoryPolicyControls.test_finalf_actual_policy_tamper_permanently_denies_existing_gate",
++    "HistoryPolicyControls.test_finalf_complete_yielded7_preserves_frozen_prefix_and_platform_only_witness",
++    "HistoryPolicyControls.test_finalf_matching_wrong_policy_historical5_extra_and_stale_pin_refuse",
++    "HistoryPolicyControls.test_finite_cut_accepts_no_postf_argument_or_body_sidecar",
++    "HistoryPolicyControls.test_new_composite_path_and_same_exact7_qualifier_required",
++    "HistoryPolicyControls.test_pref_actual_policy_tamper_refuses_without_projection",
++    "HistoryPolicyControls.test_pref_matching_wrong_policy_repin_and_unknown_extra_refuse",
++    "PolicyControls.test_actual7_direct_and_complete_same_session_yielded_accept",
++    "PolicyControls.test_changed_actual_policy_only_refuses_and_failstop_is_permanent",
++    "PolicyControls.test_matching_empty_nonstring_or_overbound_justification_refuse",
++    "PolicyControls.test_matching_wrong_sandbox_expected_and_origin_refuse",
++    "PolicyControls.test_missing_policy_and_historical5_matching_expected_origin_refuse",
++    "PolicyControls.test_raw7_codec_exact_roundtrip_and_policy_mutation_is_not_hidden",
++    "PolicyControls.test_unknown_extra_shell_tty_prefix_rule_and_other_keys_refuse",
++    "PolicyControls.test_utf8_bound_accepts_without_trimming_or_normalizing",
++    "PolicyControls.test_whole_request_pin_includes_every_policy_byte"
++  ],
++  "source1Coverage": {
++    "bytes": 8925,
++    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source1/requirements-and-coverage.json",
++    "sha256": "bec96b37b129e2efbedeb261a88feba2e33aac0f2245a1b7fd745f2cd374c336"
++  },
++  "sourcePathAssertionAdaptation": [
++    "HistoryPolicyControls.test_new_composite_path_and_same_exact7_qualifier_required"
++  ],
++  "sourcePathAssertionChange": "Only source1 to source2 in absolute expected composite Source subject path; same positive/negative assertions.",
++  "suppliedJSONCannotAuthenticateCustodyOrDetectOmittedPlatformCalls": true
+ }

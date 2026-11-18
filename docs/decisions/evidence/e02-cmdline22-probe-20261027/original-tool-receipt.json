@@ -1,0 +1,24 @@
+{
+  "initial": {
+    "args": {
+      "cmd": "/usr/bin/timeout --signal=TERM --kill-after=3s 95s /usr/bin/python3.12 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-cmdline22-probe-20261027/probe.py",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2000
+    },
+    "result": {
+      "chunk_id": "c0643a",
+      "wall_time_seconds": 1.000885572,
+      "session_id": 14111,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "completion": {
+    "chunk_id": "9fe7d1",
+    "wall_time_seconds": 0.000009455,
+    "exit_code": 0,
+    "original_token_count": 32,
+    "output": "{\"state\": \"PROBES_COMPLETED_PENDING_INDEPENDENT_DATA_REVIEW\", \"licenseResponseSent\": false, \"packageInstallRequested\": false}\n"
+  },
+  "provenance": "Actual coordinator-retained tool arguments/results. Probe process and raw-stream observations are separately recorded."
+}

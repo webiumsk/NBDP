@@ -1,0 +1,62 @@
+{
+  "schema": "nbdp-root-progress-payload-r2-acceptance-v1",
+  "actor": "/root",
+  "decision": "ACCEPT_EXACT_R2_PAYLOAD_FOR_BOUNDED_PROGRESS_PUBLICATION",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-progress-publication-20261027/payload-manifest-r2.json",
+    "bytes": 1476359,
+    "sha256": "85c6452a5d4be5545cdf00881d13897bd2af24d7db7322c2a10c7984ec175fe1"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-progress-publication-20261027/actual-r2-qa-review.json",
+      "bytes": 2299,
+      "sha256": "4f7239c0a0a62e1e47522cb780f762f2df6215d7f8219cb0e95fe945c76fb845"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-progress-publication-20261027/actual-r2-security-review.json",
+      "bytes": 2141,
+      "sha256": "15858866ccb79a142e4a8c6748a29f36550b63a2f46c213762c5595e789f7f03"
+    }
+  ],
+  "r1Preserved": {
+    "manifest": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-progress-publication-20261027/payload-manifest.json",
+      "bytes": 1477282,
+      "sha256": "ea37600780c03cee3db53bc355fc0d69c32c4686f65515415c56ed073c1a8290"
+    },
+    "qaHold": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-progress-publication-20261027/actual-r1-qa-review.json",
+      "bytes": 2303,
+      "sha256": "f50be9f81be1406474a2bc96384a5bb9dc1a63f6a9b70091120df4c3d35fffe7"
+    },
+    "remediation": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-progress-publication-20261027/r1-remediation-applied.json",
+      "bytes": 914,
+      "sha256": "f67528e00382286bf9d6a3b0fc9eb4f4768af57dbe0046ebc0ffde4d3cf6a0f5"
+    }
+  },
+  "validationLimits": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-progress-publication-20261027/workflow-validation-original-tool.json",
+      "bytes": 1059,
+      "sha256": "1ac45e555dfdf8f16724e2b112d87c007d91dce27829df202adb388f1111f7fa"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-progress-publication-20261027/workflow-failure-disposition.json",
+      "bytes": 1396,
+      "sha256": "d5869d2a311720d531f5aadcc0a21bba0c2dff2c3317df0f82343a9333e21610"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-progress-publication-20261027/source-whitespace-check.json",
+      "bytes": 878,
+      "sha256": "33f98f26bdf0d25092802c60a08024095b37a5d8cfd654b4f542a536e0475c8b"
+    }
+  ],
+  "scope": "2505 exact source/evidence/current-document files only. Workflow FAIL4 and frozen-source whitespace FAIL1 are disclosed; no global validation PASS or assertion waiver.",
+  "publicationControlExcluded": true,
+  "gitPublicationReady": false,
+  "requires": "Separate final CONTROL pins/privacy and staged base+payload+CONTROL Git tree comparison before remote publication.",
+  "licenceConsentGranted": false,
+  "runtimeOrSdkOrMergeOrDeploymentAuthorized": false
+}

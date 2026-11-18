@@ -1,0 +1,147 @@
+{
+  "schema": "e02-producer3-source4-static-source-equivalence-v1",
+  "evidenceType": "ACTUAL_SOURCE_AST_PARSE_ONLY_NOT_RUNTIME_MODELS",
+  "scope": "SOURCE3-to-SOURCE4 target capture/model/helper code equality; metadata assembler OUT path differs only",
+  "files": [
+    {
+      "name": "capture-template.py",
+      "before": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-template.py",
+        "bytes": 31022,
+        "sha256": "7344d94c9a692239f88a28ae239f8982b5cd32079ddeb5069327777a3e59d0a3"
+      },
+      "after": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source4/capture-template.py",
+        "bytes": 31022,
+        "sha256": "7344d94c9a692239f88a28ae239f8982b5cd32079ddeb5069327777a3e59d0a3"
+      },
+      "wholeFileByteIdentical": true,
+      "allTopLevelFunctionClassAstsIdentical": true,
+      "definitions": [
+        "utc",
+        "pin",
+        "strict",
+        "doc",
+        "save",
+        "installed_membership",
+        "admit_read_trees",
+        "read_tree",
+        "snapshot",
+        "output_shape",
+        "one_scope",
+        "main"
+      ]
+    },
+    {
+      "name": "test_admission_models.py",
+      "before": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/test_admission_models.py",
+        "bytes": 7341,
+        "sha256": "5f57204e46147976d6137618fd67d19ce8585294905ed5fb94a22f1479e25417"
+      },
+      "after": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source4/test_admission_models.py",
+        "bytes": 7341,
+        "sha256": "5f57204e46147976d6137618fd67d19ce8585294905ed5fb94a22f1479e25417"
+      },
+      "wholeFileByteIdentical": true,
+      "allTopLevelFunctionClassAstsIdentical": true,
+      "definitions": [
+        "helper",
+        "tree_fixture",
+        "Source2AdmissionModels"
+      ]
+    },
+    {
+      "name": "capture-a/capture-controls.py",
+      "before": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-a/capture-controls.py",
+        "bytes": 30966,
+        "sha256": "513374a6fbadb1bcf7d75aafd024c271573a6b9f040a27a39ebceb7a66abdcc5"
+      },
+      "after": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source4/capture-a/capture-controls.py",
+        "bytes": 30966,
+        "sha256": "513374a6fbadb1bcf7d75aafd024c271573a6b9f040a27a39ebceb7a66abdcc5"
+      },
+      "wholeFileByteIdentical": true,
+      "allTopLevelFunctionClassAstsIdentical": true,
+      "definitions": [
+        "utc",
+        "pin",
+        "strict",
+        "doc",
+        "save",
+        "installed_membership",
+        "admit_read_trees",
+        "read_tree",
+        "snapshot",
+        "output_shape",
+        "one_scope",
+        "main"
+      ]
+    },
+    {
+      "name": "capture-b/capture-controls.py",
+      "before": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-b/capture-controls.py",
+        "bytes": 30966,
+        "sha256": "65525b28f0d9806b8b8f1af99c6ebc459bf63ea469d8d44643bb67d17812a37d"
+      },
+      "after": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source4/capture-b/capture-controls.py",
+        "bytes": 30966,
+        "sha256": "65525b28f0d9806b8b8f1af99c6ebc459bf63ea469d8d44643bb67d17812a37d"
+      },
+      "wholeFileByteIdentical": true,
+      "allTopLevelFunctionClassAstsIdentical": true,
+      "definitions": [
+        "utc",
+        "pin",
+        "strict",
+        "doc",
+        "save",
+        "installed_membership",
+        "admit_read_trees",
+        "read_tree",
+        "snapshot",
+        "output_shape",
+        "one_scope",
+        "main"
+      ]
+    },
+    {
+      "name": "assemble-source-only.py",
+      "before": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/assemble-source-only.py",
+        "bytes": 11647,
+        "sha256": "c64fbd0c21b0710423535edc747ff38ae647e368abc103ece124636d4a5700da"
+      },
+      "after": {
+        "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source4/assemble-source-only.py",
+        "bytes": 11647,
+        "sha256": "c2f7024cbf4f8ab8ab87d8da9a295d4e1a52886df329ede2bd92d00ff7928b15"
+      },
+      "wholeFileByteIdentical": false,
+      "allTopLevelFunctionClassAstsIdentical": true,
+      "definitions": [
+        "pin",
+        "load",
+        "checked",
+        "admit_tree_roots",
+        "tree",
+        "save",
+        "main"
+      ]
+    }
+  ],
+  "metadataConstructionChanges": [
+    "New source4 paths",
+    "Explicit supplemental contract leaf",
+    "Fresh source4 metadata root IDs",
+    "Negative invocation disposition custody",
+    "Metadata-only frozen-plan request derivation utility"
+  ],
+  "modelsControlsExecuted": 0,
+  "targetImports": 0
+}

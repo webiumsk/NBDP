@@ -1,0 +1,46 @@
+{
+  "schema": "e02-incoming-negative-lifecycle-cleanup-acceptance-v1",
+  "actor": "/root",
+  "decision": "ACCEPT_NEGATIVE_RUN_LIFECYCLE_AND_EXACT_OWNED_CLEANUP_ONLY",
+  "subject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/supervisor-result.json",
+    "bytes": 3172,
+    "sha256": "32bfa893492b182c2f5b632456a4fdf53d924273ae216268cab77630c3727a71"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/incoming-negative-qa.json",
+      "bytes": 410,
+      "sha256": "9af335c9ef0408b76c8609e2220383a6c26a979315e6a8b0ccb73e75cd483e1b"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/incoming-negative-security.json",
+      "bytes": 422,
+      "sha256": "2ab14eaeb54794888d47e169a35bbe1168a118f0c6fe0aa6b9a55bb3df664348"
+    }
+  ],
+  "actualToolOrigin": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/incoming-original-tool-origin.json",
+    "bytes": 2388,
+    "sha256": "d1cb03adb9f732e3f7216d27289fd4caa17ab170d78449dbd98697452a16854e"
+  },
+  "failedCommand": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/commands/0394.json",
+    "bytes": 911,
+    "sha256": "1ab77c50702a27bd65e1f2340810b063318d05321b0a253276799a800ee5f7fa"
+  },
+  "cleanup": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/cleanup/result.json",
+    "bytes": 1393,
+    "sha256": "7eae2ecb2dd8f21daf39f53b620c882d24594f1b452e3fb7fc0688aa053cc5fc"
+  },
+  "state": "FAILED_UNQUALIFIED",
+  "ownedCleanupVerified": true,
+  "wholeInputPostrunCustodyAccepted": false,
+  "queryBackendRootCause": "UNKNOWN",
+  "observedLocalGuardOccupancy": "Paired synchronous guard intervals20.090694s inside20.173611928s query interval; configured10000ms timer callback delayed. This does not prove relay receipt/response.",
+  "ordinaryRowsQualified": 0,
+  "archiveAuthorized": false,
+  "retryAuthorized": false,
+  "canonicalE02": "PARTIAL22_UNCHANGED"
+}

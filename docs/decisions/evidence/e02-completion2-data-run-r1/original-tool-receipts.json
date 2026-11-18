@@ -1,0 +1,32 @@
+{
+  "origin": "Actual structured foreground tool invocation/responses retained by coordinator; not child command journals.",
+  "launch": {
+    "args": {
+      "cmd": "/home/peterhorvath/.miniforge3/bin/python3.13 -I -B docs/decisions/evidence/e02-completion2-data-run-r1/capture.py 675deb7aeada974a34fa49197371b5c3f96d9b520131bf740aae4d99e004f250",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2000
+    },
+    "result": {
+      "chunk_id": "3b5751",
+      "wall_time_seconds": 1.00120161,
+      "session_id": 5095,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "poll": {
+    "args": {
+      "session_id": 5095,
+      "chars": "",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2000
+    },
+    "result": {
+      "chunk_id": "9b80ac",
+      "wall_time_seconds": 0.000011559,
+      "exit_code": 0,
+      "original_token_count": 61,
+      "output": "{\"execution\": {\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-completion2-data-run-r1/execution.json\", \"bytes\": 2869, \"sha256\": \"635bbe44a1e365754565d05b4d1be13ce95a1ec99f465178fc594120a7f8ef9f\"}, \"failure\": null}\n"
+    }
+  }
+}

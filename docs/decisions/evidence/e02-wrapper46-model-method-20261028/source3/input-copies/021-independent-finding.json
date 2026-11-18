@@ -1,0 +1,20 @@
+{
+  "schema": "e02-capture-source-negative-finding-v1",
+  "actor": "/root",
+  "reviewers": [
+    "/root/r4_qa",
+    "/root/wrapper46_security"
+  ],
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-wrapper46-model-method-20261028/source2/source-packet.json",
+    "bytes": 5497,
+    "sha256": "a4a89e32ebb714eea0d18e2b4e98c0241612fb2826f421bb7f63314264f59635"
+  },
+  "severity": "MEDIUM",
+  "evidence": "capture46.py:129 Popen succeeds, line131 DefaultSelector() precedes try132. Constructor OSError bypasses finish_owned149, pipe closure and child capture persistence.",
+  "impact": "Owned child/group may survive while main returns negative.",
+  "required": "Protect all postspawn operations; add mocked selector-constructor failure, group termination before reap, bounded shared reap time, pipe closure, negative evidence and fail-stop.",
+  "execution": "Read-only static finding; no reproduction or target model executed.",
+  "priorThreeRemediations": "Present in SOURCE2; this finding does not revoke prior R3 target CODE review.",
+  "runtimeAuthorized": false
+}

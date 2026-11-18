@@ -1,0 +1,38 @@
+{
+  "actor": "/root",
+  "executionAuthorized": true,
+  "scope": "TWO_FIXED_JDK21_CMDLINE22_READ_ONLY_PROBES_ONLY",
+  "source": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-cmdline22-probe-20261027/probe.py",
+    "bytes": 4336,
+    "sha256": "ac7a40f5d3fb9872e6c5f29877a069bb481cf190784c7c393c8780d47095c3b4"
+  },
+  "plan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-cmdline22-probe-20261027/plan.json",
+    "bytes": 5362,
+    "sha256": "b837ee443bc883a2b7526841b2387048df868c5fb062868ce6def16d773dea4a"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-cmdline22-probe-20261027/source-qa.json",
+      "bytes": 1443,
+      "sha256": "9ffe05e22c32b74fd20dce49acece008424d0d4d876a29b634f54a6242ddc179"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-cmdline22-probe-20261027/source-security.json",
+      "bytes": 1478,
+      "sha256": "26541ec54580d43ff9cdc83c58c589e59222c6039cf7d139b69071e4cac41752"
+    }
+  ],
+  "outerArgv": [
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=3s",
+    "95s",
+    "/usr/bin/python3.12",
+    "-I",
+    "-B",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-cmdline22-probe-20261027/probe.py"
+  ],
+  "retryAuthorized": false
+}

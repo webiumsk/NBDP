@@ -1,0 +1,29 @@
+{
+  "schema": "nbdp-independent-model-data-acceptance-v1",
+  "recordedBy": "/root",
+  "result": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-primary22-model-actual-20261027/result.json",
+    "bytes": 6772,
+    "sha256": "1b3cf725d6d109ab3821866a334e33014704faca507b1acd5d39c9f0923d790d"
+  },
+  "qa": {
+    "reviewer": "/root/status_evidence",
+    "decision": "ACCEPT_ACTUAL27_PURE_ADMISSION_MODELS_ONLY",
+    "findings": []
+  },
+  "security": {
+    "reviewer": "/root/producer2_result_security",
+    "decision": "ACCEPT_PRIMARY22_ACTUAL27_PURE_MODEL_DATA_ONLY",
+    "findings": []
+  },
+  "actualCount": 27,
+  "failed": 0,
+  "skipped": 0,
+  "scope": "Pure predicates/fake callbacks/owned temporary files only",
+  "limits": [
+    "Snapshot equality is not race-free custody",
+    "EOF/reaping is child/stream observation, not descendant census",
+    "API arguments/result retained separately; not provider-authenticated attestation"
+  ],
+  "runtimeAuthorized": false
+}

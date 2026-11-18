@@ -1,0 +1,19 @@
+--- /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/verify-current-inputs.py
++++ /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/verify-current-inputs-r2.py
+@@ -9,7 +9,7 @@
+ SOURCE = EVIDENCE / 'e02-ordinary-minimum-producer-final-preparation-r3-20261028/source2/subject.json'
+ CONFIG = SOURCE.parent.parent / 'incoming-run-config.json'
+ FROZEN = EVIDENCE / 'e02-producer3-current-controls-preparation-20261028/source4/capture-a/frozen-inputs.json'
+-OUT = HERE / 'input-preflight-r1'
++OUT = HERE / 'input-preflight-r2'
+ 
+ def pin(path):
+     path = Path(path)
+@@ -58,6 +58,7 @@
+             assert not path.is_symlink()
+             if path.is_dir(): directories.append(str(path.relative_to(base))); continue
+             row = pin(path); actual_files.append(dict(row,relativePath=str(path.relative_to(base)),mode=stat.S_IMODE(path.stat().st_mode)))
++        actual_files.sort(key=lambda row: row['path'])  # Frozen tree uses absolute-string order.
+         assert actual_files == tree['files'] and len(actual_files) == tree['count']
+         trees.append(dict(root=str(base),regularFiles=len(actual_files),directories=directories,exactFileModeMembership=True))
+     OUT.mkdir(mode=0o700,exist_ok=False)

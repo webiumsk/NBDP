@@ -1,0 +1,23 @@
+{
+  "recordedBy": "/root",
+  "decision": "HOLD_INNER_INSTALLER_METHOD_PENDING_NARROW_PREFIX_FIX",
+  "subjectSha256": "05c3448b65be950e4eff225d35ce6ccf04e895a9d4347de2c80b17215dae3956",
+  "qa": "/root/status_evidence",
+  "security": "/root/producer2_result_security",
+  "findings": [
+    {
+      "severity": "MEDIUM",
+      "component": "prompt.py Prompt.feed",
+      "issue": "Coalesced unexpected question before valid approved frame is discarded; the same fragmented prefix is refused. Acceptance depends on read chunk boundaries.",
+      "consequence": "Unexpected prompt refusal not guaranteed; future y could be dispatched under wrong transaction context.",
+      "remediation": "Versioned prefix reserved-question/license-material refusal with coalesced/fragmented zero-write regressions and legitimate-progress positive"
+    }
+  ],
+  "modelsDefined": 11,
+  "modelsExecuted": 0,
+  "installExecuted": false,
+  "licenseResponseSent": false,
+  "priorSourcePreserved": true,
+  "remediationTarget": "installation-source-r2 / source3",
+  "scope": "No new legal permission needed; userexactlicenceapproval persists"
+}

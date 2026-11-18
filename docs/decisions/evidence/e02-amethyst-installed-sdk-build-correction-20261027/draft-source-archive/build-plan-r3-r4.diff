@@ -1,0 +1,57 @@
+--- /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/preparation/build-plan.json
++++ /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/preparation/build-plan.json
+@@ -1,6 +1,6 @@
+ {
+   "schema": "nbdp-amethyst-proposed-source-build-v1",
+-  "state": "SOURCE_ONLY_NOT_EXECUTION_AUTHORITY",
++  "state": "DRAFT_COMMAND_REMEDIATION_NOT_READY",
+   "source": {
+     "commit": "e6f464a1179def75274512b3c5bab921de3bf3d8",
+     "tree": "11a90777c85c71912594612f42d9807004834f67",
+@@ -45,17 +45,17 @@
+     "--mount",
+     "type=bind,src=/tmp/nbdp-amethyst-rebuild-20261026/output/source-archive.json,dst=/input/source-archive.json,readonly",
+     "--mount",
+-    "type=bind,src=/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/preparation,dst=/prep,readonly",
++    "type=bind,src=/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/preparation,dst=/prep,readonly",
+     "--mount",
+     "type=bind,src=/tmp/nbdp-amethyst-rebuild-20261026/tools/jdk,dst=/jdk,readonly",
+     "--mount",
+     "type=bind,src=/Data/nbdp-e02-tooling-20261027/controller-r6/writable-r1/sdk,dst=/sdk,readonly",
+     "--mount",
+-    "type=bind,src=/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/user/work,dst=/work",
++    "type=bind,src=/Data/nbdp-e02-tooling-20261027/amethyst-build-r4/user/work,dst=/work",
+     "--mount",
+-    "type=bind,src=/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/cache/build,dst=/cache",
++    "type=bind,src=/Data/nbdp-e02-tooling-20261027/amethyst-build-r4/cache/build,dst=/cache",
+     "--mount",
+-    "type=bind,src=/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/output/build,dst=/output",
++    "type=bind,src=/Data/nbdp-e02-tooling-20261027/amethyst-build-r4/output/build,dst=/output",
+     "--entrypoint",
+     "/usr/bin/env",
+     "sha256:32bb6c4c58ee5fe85f1e7229fb15008accb137990093941d2f8e768efd91cf8c",
+@@ -77,7 +77,7 @@
+     "Independent exact SOURCE reviews; separately released DATA models",
+     "Accepted unchanged JDK and independently accepted whole official installed SDK inventory, metadata, consent and actual-to-retained provenance.",
+     "Fresh git archive/source receipt with actual tool provenance and original source unchanged",
+-    "Fresh owned /Data/nbdp-e02-tooling-20261027/amethyst-build-r3/{user/work,cache/build,output/build} roots; no prior .m2/.android/debug key or Gradle caches",
++    "Fresh owned /Data/nbdp-e02-tooling-20261027/amethyst-build-r4/{user/work,cache/build,output/build} roots; no prior .m2/.android/debug key or Gradle caches",
+     "Dedicated named bridge created separately by root; no host network or published ports",
+     "Root finite exact-CID supervisor with original launch/completion/log/container-removal receipts before any build; this JSON is a proposal, not an executable release",
+     "Whole official installed SDK inventory, package metadata, actual consent/install acceptance independently accepted and exactly bound; NULL means NOT_READY.",
+@@ -102,5 +102,14 @@
+   "jdkHomeAndMavenLocal": "-Duser.home=/work/user on every JVM; fresh /work/user/.m2/repository and separate GRADLE_USER_HOME; no host HOME/globalconfig/socket/credentials mounted",
+   "sdkLicensePolicy": "SDK/JDK mounted readonly; no sdkmanager, SDK download/consent/license file operation. Missing package/license is a failed build prerequisite, never auto-accepted.",
+   "signing": "Fresh local debug keystore under isolated Android user directory; private key never exported, public APK/signature/badging/digest metadata retained. New rebuilt APK never inherits old5165 hash.",
+-  "qualification": "Source-linked rebuilt candidate only; no reproducibility/client/runtime/canonical PASS claim"
++  "qualification": "Source-linked rebuilt candidate only; no reproducibility/client/runtime/canonical PASS claim",
++  "commandRemediation": {
++    "excludedTasks": [
++      "spotlessApply",
++      ":installGitHook"
++    ],
++    "reason": "Upstream autoformat/hook side effects conflict with unchanged immutable-source guard; exact core source is compiled without these build-environment side effects.",
++    "sourceGuardRelaxed": false,
++    "sdkPolicyChanged": false
++  }
+ }

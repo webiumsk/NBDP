@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/prep/build_inside.py", line 141, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/prep/build_inside.py", line 87, in main
+    source_archive();before=snapshot();write('workcopy-before.json',before)
+    ^^^^^^^^^^^^^^^^
+  File "/prep/build_inside.py", line 45, in source_archive
+    require(not SOURCE.exists(),'FRESH_BUILD_WORKCOPY_REQUIRED')
+  File "/prep/build_inside.py", line 21, in require
+    if not value:raise ValueError(message)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: FRESH_BUILD_WORKCOPY_REQUIRED

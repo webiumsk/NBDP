@@ -1,0 +1,28 @@
+{
+  "request": {
+    "argv": [
+      "/usr/bin/timeout",
+      "--signal=TERM",
+      "--kill-after=2s",
+      "15s",
+      "/usr/bin/docker",
+      "network",
+      "inspect",
+      "9b653dde8593525d63c26257525a4bccb4c44248a3cf03c89652a50a70db6fc3"
+    ],
+    "maximumSeconds": 15,
+    "cleanup": false,
+    "startedUtcNs": 1793113213506206554
+  },
+  "exitCode": 0,
+  "stdout": {
+    "path": "/tmp/nbdp-e02-primary-replay-20261027-preparation/attempt-2ea6fa3d1e75ae1b947611e0cd390b9f/008-network-inspect.stdout",
+    "bytes": 1276,
+    "sha256": "79674a909a5f98821cd3daaf45c5610c50787691e668eeabe5aee1fbb8d451d6"
+  },
+  "stderr": {
+    "path": "/tmp/nbdp-e02-primary-replay-20261027-preparation/attempt-2ea6fa3d1e75ae1b947611e0cd390b9f/008-network-inspect.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

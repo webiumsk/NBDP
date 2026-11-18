@@ -1,0 +1,33 @@
+{
+  "launch": {
+    "args": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /tmp/nbdp-amethyst-build-release-materializer-20261027/materialize.py --template-sha be20abd20a73433002e02366fa95bbc93f40d598ca24201bbd0269b5f3946f97",
+      "sandbox_permissions": "require_escalated",
+      "justification": "Môžem spustiť nezávisle preskúmané jednorazové zostavenie testovacieho Amethyst APK v izolovanom Docker kontajneri s limitmi 6 GiB, 4 CPU a 30 minút? Potrebuje prístup k Dockeru a verejným zostavovacím závislostiam.",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2000
+    },
+    "result": {
+      "chunk_id": "94f374",
+      "wall_time_seconds": 1.001381448,
+      "session_id": 76007,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "completion": {
+    "args": {
+      "session_id": 76007,
+      "chars": "",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2000
+    },
+    "result": {
+      "chunk_id": "4fa3a0",
+      "wall_time_seconds": 0.000017915,
+      "exit_code": 2,
+      "original_token_count": 292
+    },
+    "recordType": "Coordinator transcription of actual foreground tool completion; stdout JSON is retained supervisor result, not a provider-authenticated log."
+  }
+}

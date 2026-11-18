@@ -1,0 +1,24 @@
+{
+  "schema": "nbdp-supplementary-data-report-retention-v1",
+  "files": [
+    {
+      "source": "/tmp/nbdp-amethyst-build-inputs-20261027/report.json",
+      "copy": "docs/decisions/evidence/e02-amethyst-input-data-20261027/supplementary-report.json",
+      "bytes": 19764,
+      "sha256": "a09b6f528c5d7e2b1fbef393f0324a0af80ec26e21244133421663910a886cd9"
+    },
+    {
+      "source": "/tmp/nbdp-amethyst-build-inputs-20261027/disposition.json",
+      "copy": "docs/decisions/evidence/e02-amethyst-input-data-20261027/supplementary-disposition.json",
+      "bytes": 2464,
+      "sha256": "b958c3f7818c77d76dbe935217617873ae451e3d4fa5d5b335385c71f04babe8"
+    },
+    {
+      "source": "/tmp/nbdp-amethyst-build-inputs-20261027/collect.py",
+      "copy": "docs/decisions/evidence/e02-amethyst-input-data-20261027/supplementary-collect.py",
+      "bytes": 12113,
+      "sha256": "a42458918a642e1ba3d3dc5588fac92e4f527bd7ec52b86c79bc8bae41290db8"
+    }
+  ],
+  "meaning": "Supplementary report has stale ABSENT expectation after explicit root receiptcopy. Report is not acceptance/release dependency; preserved without rewrite. Collector never executed; metadata report independently subordinate to direct four-tree/sourcearchive reviews."
+}

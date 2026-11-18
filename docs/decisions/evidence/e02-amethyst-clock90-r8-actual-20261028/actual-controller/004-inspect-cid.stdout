@@ -1,0 +1,372 @@
+[
+    {
+        "Id": "2ad658fa7110015b7ae7837129a2fec5f5ba02803a9d81a8e580b0cda54f9591",
+        "Created": "2026-10-27T23:46:12.174699734Z",
+        "Path": "/usr/bin/env",
+        "Args": [
+            "-i",
+            "PATH=/jdk/bin:/usr/bin:/bin",
+            "JAVA_HOME=/jdk",
+            "JAVA_TOOL_OPTIONS=-Duser.home=/work/user",
+            "GRADLE_USER_HOME=/cache/gradle",
+            "ANDROID_HOME=/sdk",
+            "ANDROID_SDK_ROOT=/sdk",
+            "ANDROID_USER_HOME=/work/user/.android",
+            "LANG=C.UTF-8",
+            "LC_ALL=C.UTF-8",
+            "TMPDIR=/tmp",
+            "/usr/bin/timeout",
+            "--signal=TERM",
+            "--kill-after=5s",
+            "5400s",
+            "/usr/bin/python3",
+            "/prep/build_inside.py"
+        ],
+        "State": {
+            "Status": "created",
+            "Running": false,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 0,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "0001-01-01T00:00:00Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:32bb6c4c58ee5fe85f1e7229fb15008accb137990093941d2f8e768efd91cf8c",
+        "ResolvConfPath": "",
+        "HostnamePath": "",
+        "HostsPath": "",
+        "LogPath": "",
+        "Name": "/nbdp-amethyst-build-20261026",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "/Data/nbdp-e02-tooling-20261027/amethyst-build-r8/controller/attempt-978303f73985a2f540bf6367ded5428a/cidfile",
+            "LogConfig": {
+                "Type": "none",
+                "Config": {}
+            },
+            "NetworkMode": "acf4c0e2d847dedb7841a18c0713ba9b58ad680d686c2d43d95612f54ff6ff9b",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": [
+                "ALL"
+            ],
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": true,
+            "SecurityOpt": [
+                "no-new-privileges"
+            ],
+            "Tmpfs": {
+                "/tmp": "rw,nosuid,nodev,size=1073741824"
+            },
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 6442450944,
+            "NanoCpus": 4000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 6442450944,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": 512,
+            "Ulimits": [
+                {
+                    "Name": "fsize",
+                    "Hard": 536870912,
+                    "Soft": 536870912
+                }
+            ],
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "Mounts": [
+                {
+                    "Type": "bind",
+                    "Source": "/tmp/nbdp-amethyst-rebuild-20261026/output/source.tar",
+                    "Target": "/input/source.tar",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/tmp/nbdp-amethyst-rebuild-20261026/output/source-archive.json",
+                    "Target": "/input/source-archive.json",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r8/preparation",
+                    "Target": "/prep",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/tmp/nbdp-amethyst-rebuild-20261026/tools/jdk",
+                    "Target": "/jdk",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/Data/nbdp-e02-tooling-20261027/controller-r6/writable-r1/sdk",
+                    "Target": "/sdk",
+                    "ReadOnly": true
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/Data/nbdp-e02-tooling-20261027/amethyst-build-r8/user/work",
+                    "Target": "/work"
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/Data/nbdp-e02-tooling-20261027/amethyst-build-r8/cache/build",
+                    "Target": "/cache"
+                },
+                {
+                    "Type": "bind",
+                    "Source": "/Data/nbdp-e02-tooling-20261027/amethyst-build-r8/output/build",
+                    "Target": "/output"
+                }
+            ],
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware",
+                "/sys/devices/system/cpu/cpu0/thermal_throttle",
+                "/sys/devices/system/cpu/cpu1/thermal_throttle",
+                "/sys/devices/system/cpu/cpu2/thermal_throttle",
+                "/sys/devices/system/cpu/cpu3/thermal_throttle",
+                "/sys/devices/system/cpu/cpu4/thermal_throttle",
+                "/sys/devices/system/cpu/cpu5/thermal_throttle",
+                "/sys/devices/system/cpu/cpu6/thermal_throttle",
+                "/sys/devices/system/cpu/cpu7/thermal_throttle",
+                "/sys/devices/system/cpu/cpu8/thermal_throttle",
+                "/sys/devices/system/cpu/cpu9/thermal_throttle",
+                "/sys/devices/system/cpu/cpu10/thermal_throttle",
+                "/sys/devices/system/cpu/cpu11/thermal_throttle",
+                "/sys/devices/system/cpu/cpu12/thermal_throttle",
+                "/sys/devices/system/cpu/cpu13/thermal_throttle",
+                "/sys/devices/system/cpu/cpu14/thermal_throttle",
+                "/sys/devices/system/cpu/cpu15/thermal_throttle",
+                "/sys/devices/system/cpu/cpu16/thermal_throttle",
+                "/sys/devices/system/cpu/cpu17/thermal_throttle",
+                "/sys/devices/system/cpu/cpu18/thermal_throttle",
+                "/sys/devices/system/cpu/cpu19/thermal_throttle",
+                "/sys/devices/system/cpu/cpu20/thermal_throttle",
+                "/sys/devices/system/cpu/cpu21/thermal_throttle"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ],
+            "Init": true
+        },
+        "GraphDriver": {
+            "Data": {
+                "ID": "2ad658fa7110015b7ae7837129a2fec5f5ba02803a9d81a8e580b0cda54f9591",
+                "LowerDir": "/var/lib/docker/overlay2/c2ba377c6bfcb2b0200a641c7acef70efdb1b3046144be2e5812cdea73305794-init/diff:/var/lib/docker/overlay2/rnt7uaq77pk3xors8entxyd5x/diff:/var/lib/docker/overlay2/drsfgu4b2zuqnbja8p52o8gmk/diff:/var/lib/docker/overlay2/t6eh1pagtumqlc6x05jdali6z/diff:/var/lib/docker/overlay2/8ae5e3499817e9d8b6578e9958c7f4b5a730aeb75160a2061aa74a6e8aef271b/diff",
+                "MergedDir": "/var/lib/docker/overlay2/c2ba377c6bfcb2b0200a641c7acef70efdb1b3046144be2e5812cdea73305794/merged",
+                "UpperDir": "/var/lib/docker/overlay2/c2ba377c6bfcb2b0200a641c7acef70efdb1b3046144be2e5812cdea73305794/diff",
+                "WorkDir": "/var/lib/docker/overlay2/c2ba377c6bfcb2b0200a641c7acef70efdb1b3046144be2e5812cdea73305794/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/Data/nbdp-e02-tooling-20261027/amethyst-build-r8/cache/build",
+                "Destination": "/cache",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/tmp/nbdp-amethyst-rebuild-20261026/tools/jdk",
+                "Destination": "/jdk",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/Data/nbdp-e02-tooling-20261027/amethyst-build-r8/output/build",
+                "Destination": "/output",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r8/preparation",
+                "Destination": "/prep",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/Data/nbdp-e02-tooling-20261027/controller-r6/writable-r1/sdk",
+                "Destination": "/sdk",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/Data/nbdp-e02-tooling-20261027/amethyst-build-r8/user/work",
+                "Destination": "/work",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/tmp/nbdp-amethyst-rebuild-20261026/output/source-archive.json",
+                "Destination": "/input/source-archive.json",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/tmp/nbdp-amethyst-rebuild-20261026/output/source.tar",
+                "Destination": "/input/source.tar",
+                "Mode": "",
+                "RW": false,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "2ad658fa7110",
+            "Domainname": "",
+            "User": "1000:1000",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "-i",
+                "PATH=/jdk/bin:/usr/bin:/bin",
+                "JAVA_HOME=/jdk",
+                "JAVA_TOOL_OPTIONS=-Duser.home=/work/user",
+                "GRADLE_USER_HOME=/cache/gradle",
+                "ANDROID_HOME=/sdk",
+                "ANDROID_SDK_ROOT=/sdk",
+                "ANDROID_USER_HOME=/work/user/.android",
+                "LANG=C.UTF-8",
+                "LC_ALL=C.UTF-8",
+                "TMPDIR=/tmp",
+                "/usr/bin/timeout",
+                "--signal=TERM",
+                "--kill-after=5s",
+                "5400s",
+                "/usr/bin/python3",
+                "/prep/build_inside.py"
+            ],
+            "Image": "sha256:32bb6c4c58ee5fe85f1e7229fb15008accb137990093941d2f8e768efd91cf8c",
+            "Volumes": null,
+            "WorkingDir": "/work",
+            "Entrypoint": [
+                "/usr/bin/env"
+            ],
+            "Labels": {
+                "nbdp.buildRun": "978303f73985a2f540bf6367ded5428a",
+                "nbdp.owner": "nbdp-amethyst-rebuild-20261026",
+                "nbdp.role": "amethyst-source-build"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "",
+            "SandboxKey": "",
+            "Ports": {},
+            "Networks": {
+                "nbdp-amethyst-build-20261026": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "",
+                    "EndpointID": "",
+                    "Gateway": "",
+                    "IPAddress": "",
+                    "MacAddress": "",
+                    "IPPrefixLen": 0,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": null
+                }
+            }
+        }
+    }
+]

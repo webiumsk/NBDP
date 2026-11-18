@@ -1,0 +1,37 @@
+{
+  "schema": "e02-root-consumer-source-opaque-historical-negative-input-decision-v1",
+  "actor": "/root",
+  "decision": "PRESERVE_TWO_HISTORICAL_NEGATIVE_EXPECTED_ROWS_OPAQUE_DURING_SOURCE_PREPARATION",
+  "baselineManifest": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source1/baseline-metadata/input-manifest.json",
+    "bytes": 234543,
+    "sha256": "7f5ff81d311e80484d5db718316fb9998d5869264ae1c7590bdc62fe5763a491"
+  },
+  "baselineExpectedRows": 847,
+  "opaqueRows": [
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-actual-r1/774675cbeebc22ae6a87b8b20795f539/output/cli-3-stdout.raw",
+      "bytes": 12633,
+      "sha256": "a1dea229914c3b1baeac31a66d963958583c7d3780dfa6822553d355bc0d90f8"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-actual-r1/774675cbeebc22ae6a87b8b20795f539/output/creation-intent.json",
+      "bytes": 1494,
+      "sha256": "255e940d083dfdaf013b30af3f4387adea611d84765c513b34492660bcd87218"
+    }
+  ],
+  "sourceReadmapRole": "HISTORICAL_NEGATIVE_OPERATIONAL_OPAQUE",
+  "sourceRequirements": [
+    "Preserve both exact predecessor expected pins and any declared mode operands, and all847 rows.",
+    "Do not open, rehash, copy or recursively follow either operational negative body during Source preparation; do not claim physical verification of these rows.",
+    "Record explicit opaque/read-status treatment in source readmap and typed input closure; no role-based exemption in future actual model snapshot validation.",
+    "Preserve original negative test purposes and strict validators.",
+    "Canonical current-consumer job must separately receive Root admission for required read-only historical negative inputs and retain actual before/after verification. No current65 helper body admission or account reopening follows."
+  ],
+  "sourceOnly": true,
+  "physicalHistoricalBodyReadsAuthorized": false,
+  "current65BodyReadsAuthorized": false,
+  "helperExecutionsAuthorized": false,
+  "canonicalModelExecutionAuthorized": false,
+  "executionAuthorized": false
+}

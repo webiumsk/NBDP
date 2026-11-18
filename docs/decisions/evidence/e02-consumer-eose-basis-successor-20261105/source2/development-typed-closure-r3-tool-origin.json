@@ -1,0 +1,34 @@
+{
+  "toolName": "tools.exec_command",
+  "actualArguments": {
+    "cmd": "/home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source2/audit_typed_closure.py",
+    "login": false,
+    "yield_time_ms": 1000,
+    "max_output_tokens": 3000
+  },
+  "unmodifiedResponse": {
+    "chunk_id": "64a2b9",
+    "wall_time_seconds": 1.001097385,
+    "session_id": 67923,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "polls": [
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 67923,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 3000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "03eb90",
+        "wall_time_seconds": 0.000025355,
+        "exit_code": 0,
+        "original_token_count": 153,
+        "output": "{\"schema\": \"e02-consumer-source2-typed-closure-development-audit-v1\", \"declaredInputs\": 1310, \"actualObservedInputs\": 1309, \"typedReadSites\": 1909, \"explicitHistoricalInputs\": 847, \"totalDeclaredBytes\": 118293159, \"opaqueHistoricalNegativeInputs\": 2, \"opaqueHistoricalNegativePhysicalReads\": 0, \"sourcePairRows\": 8, \"allFinalInputAuthorityVerified\": false, \"missingInputs\": [\"Genuine completed basis\", \"External completed Source-mapping verification\", \"Final caller closure evidence\"], \"finalFreezeIssued\": false, \"canonicalModelsExecuted\": 0, \"operationalHelperBodiesRead\": 0, \"recursiveDescriptorWalk\": false}\n"
+      }
+    }
+  ]
+}

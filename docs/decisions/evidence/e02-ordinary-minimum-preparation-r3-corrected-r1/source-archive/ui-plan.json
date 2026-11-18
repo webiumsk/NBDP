@@ -1,0 +1,42 @@
+{
+  "schema": "e02-ordinary-minimum-ui-plan-v2",
+  "profileId": "e02-ordinary-minimum-rs-two-role-v2",
+  "clientCommit": "e6f464a1179def75274512b3c5bab921de3bf3d8",
+  "clientPackage": "com.vitorpamplona.amethyst.debug",
+  "localRelay": "ws://localhost:17777",
+  "roles": {
+    "incoming": {
+      "windowId": "incoming-b",
+      "account": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
+      "peer": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+      "scalar": 2,
+      "nsec": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqpqptcfk2",
+      "tab": "New Requests",
+      "stages": [
+        "incoming-business",
+        "incoming-ordinary-chat"
+      ]
+    },
+    "archive": {
+      "windowId": "archive-a",
+      "account": "79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798",
+      "peer": "c6047f9441ed7d6d3045406e95c07cd85c778e4b8cef3ca7abac09b95c709ee5",
+      "scalar": 1,
+      "nsec": "nsec1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqsmhltgl",
+      "tab": "Known",
+      "stages": [
+        "archive-business",
+        "archive-identical-replay",
+        "archive-fresh-wrap-replay"
+      ]
+    }
+  },
+  "businessVisibleToken": "NBDP/experiment",
+  "chatVisibleToken": "NBDP harmless ordinary chat control",
+  "maximumSnapshots": 140,
+  "maximumActions": 120,
+  "rawClipboardBytes": 65536,
+  "plannedSelectorsRuntimeValidated": false,
+  "maximumFeedsCollapses": 1,
+  "executionReleased": false
+}

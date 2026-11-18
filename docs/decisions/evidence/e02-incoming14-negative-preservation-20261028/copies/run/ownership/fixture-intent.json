@@ -1,0 +1,84 @@
+{
+  "name": "nbdp-e02-9d8bad6df86fc113f87e14e2974f9019-fixture",
+  "image": "sha256:07892c65089b8d11c50b50931a09fb9600a13e0909af4a2b3e27029ab16f1e6f",
+  "labels": {
+    "nbdp.run": "9d8bad6df86fc113f87e14e2974f9019",
+    "nbdp.role": "fixture",
+    "nbdp.creation": "f29c7c4a9fb84f179a74aff218436403"
+  },
+  "mounts": [
+    [
+      "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/input",
+      "/input",
+      false
+    ],
+    [
+      "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/session/lease.json",
+      "/session/lease.json",
+      false
+    ],
+    [
+      "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/session/control",
+      "/session/control",
+      true
+    ],
+    [
+      "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019/session/fixtures",
+      "/session/fixtures",
+      true
+    ],
+    [
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/node_modules",
+      "/input/node_modules",
+      false
+    ],
+    [
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/transport.mjs",
+      "/input/transport.mjs",
+      false
+    ],
+    [
+      "/tmp/nbdp-e01-replay-20261026-preparation/lab/native/nbdp-experiment-rust",
+      "/input/nbdp-experiment-rust",
+      false
+    ],
+    [
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/shared/rust/src/main.rs",
+      "/input/rust-source.rs",
+      false
+    ],
+    [
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/package-lock.json",
+      "/input/package-lock.json",
+      false
+    ],
+    [
+      "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e01-native-rebuild-replay-20261026/actual-E01.json",
+      "/input/E01.json",
+      false
+    ],
+    [
+      "/home/peterhorvath/apps/bitcoin/NBDP/experiments/results/E02.json",
+      "/input/E02.json",
+      false
+    ],
+    [
+      "/Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/rebuilt-artifact-bindings.json",
+      "/input/rebuilt-artifact-bindings.json",
+      false
+    ]
+  ],
+  "command": [
+    "--inhibit-cache",
+    "--library-path",
+    "/guard-python/lib",
+    "/guard-python/bin/python3.11",
+    "-B",
+    "-P",
+    "-S",
+    "-s",
+    "/input/supervisor.py",
+    "--guest",
+    "fixture"
+  ]
+}

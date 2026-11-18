@@ -1,0 +1,57 @@
+{
+  "observer": {
+    "schema": "e02-minimum-observer-state-v2",
+    "budget": {
+      "schema": "e02-minimum-aggregate-capture-budget-v2",
+      "limit": 16777216,
+      "intendedTotalBytes": 561656,
+      "acknowledgedTotalBytes": 561656,
+      "streams": {
+        "proxy": {
+          "intended": 29022,
+          "acknowledged": 29022
+        },
+        "phase": {
+          "intended": 532634,
+          "acknowledged": 532634
+        }
+      },
+      "poisoned": false,
+      "firstError": null,
+      "physicalBytes": null,
+      "physicalMeaning": "ACKNOWLEDGED_PREFIX_IS_NOT_INDEPENDENT_PHYSICAL_ATTESTATION",
+      "lastAttempt": {
+        "stream": "phase",
+        "intendedBytes": 403,
+        "writeInvoked": true,
+        "reportedCount": 403,
+        "acknowledgedBytes": 403,
+        "acknowledgedPrefixSha256": "e304a76bbd009bb5869bb1d248aa442d5bc6ed7035844f5bb9694ad19a2c8b3d",
+        "physicalBytes": null,
+        "error": null
+      }
+    },
+    "phase": {
+      "sequence": 1557,
+      "intendedTotalBytes": 532634,
+      "acknowledgedTotalBytes": 532634,
+      "physicalBytes": null,
+      "physicalMeaning": "NOT_INDEPENDENTLY_MEASURED_ACKNOWLEDGED_PREFIX_IS_NOT_PHYSICAL_ATTESTATION",
+      "poisoned": false,
+      "firstError": null,
+      "lastAttempt": {
+        "sequence": 1557,
+        "phase": "GUARD_EXIT",
+        "intendedBytes": 403,
+        "writeInvoked": true,
+        "reportedCount": 403,
+        "acknowledgedBytes": 403,
+        "acknowledgedPrefixBase64": "eyJzY2hlbWEiOiJlMDItdHJhbnNwb3J0LXF1ZXJ5LXBoYXNlLXYyIiwic2VxdWVuY2UiOjE1NTcsInV0YyI6IjIwMjYtMTAtMjhUMDU6MTk6MjcuNTUxWiIsIm1vbm90b25pY05hbm9zZWNvbmRzIjoiMzMzMTA4OTkxMDM5MzQzIiwicGhhc2UiOiJHVUFSRF9FWElUIiwicHJvZmlsZUlkIjoiZTAyLW9yZGluYXJ5LW1pbmltdW0tcnMtdHdvLXJvbGUtdjIiLCJ3aW5kb3dJZCI6ImluY29taW5nLWIiLCJvcmRpbmFyeVJvbGUiOiJpbmNvbWluZyIsIm9ic2VydmVkQXR0ZW1wdCI6eyJlcG9jaCI6MSwic3RhZ2VJZCI6ImluY29taW5nLWJ1c2luZXNzIn0sImxhYmVsIjoicHJveHk6YXBwLWJlZm9yZS11cHN0cmVhbS1zZW5kIiwib2siOmZhbHNlLCJlcnJvciI6IkVycm9yOiBGSU5JVEVfTEVBU0VfREVOSUVEOiJ9Cg==",
+        "physicalBytes": null,
+        "error": null
+      }
+    }
+  },
+  "error": "Error: FINITE_LEASE_DENIED:",
+  "secondaryErrors": []
+}

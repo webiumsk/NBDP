@@ -1,0 +1,32 @@
+{
+  "origin": "Actual structured foreground tool invocation/responses retained by coordinator, not child command journals.",
+  "launch": {
+    "args": {
+      "cmd": "umask 077\nexec /usr/bin/python3.12 /tmp/nbdp-e01-replay-20261026-preparation/launch.py /tmp/nbdp-e01-replay-20261026-preparation/plan.json b468884050d1f7fc0cd6120bf09c3cd2487c7ec635edf197fcdca3ece0c8d11e /tmp/nbdp-e01-replay-20261026-preparation/root-release.json d1c55698d70bffd60651d9d2f8de68539386944d17c5c8ffd46800212709ad95 > /tmp/nbdp-e01-replay-20261026-preparation/actual.stdout 2> /tmp/nbdp-e01-replay-20261026-preparation/actual.stderr",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 2000
+    },
+    "result": {
+      "chunk_id": "5c2a23",
+      "wall_time_seconds": 1.001302252,
+      "session_id": 69671,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "poll": {
+    "args": {
+      "session_id": 69671,
+      "chars": "",
+      "yield_time_ms": 1000,
+      "max_output_tokens": 1500
+    },
+    "result": {
+      "chunk_id": "8fc419",
+      "wall_time_seconds": 0.000026394,
+      "exit_code": 0,
+      "original_token_count": 0,
+      "output": ""
+    }
+  }
+}

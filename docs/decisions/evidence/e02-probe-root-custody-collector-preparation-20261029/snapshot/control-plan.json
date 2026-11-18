@@ -1,0 +1,48 @@
+{
+  "schema": "e02-probe-root-custody-collector-control-plan-v1",
+  "source": {
+    "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-collector-preparation-r1/test_collector.py",
+    "bytes": 10440,
+    "sha256": "c04d9d06e65a4ffa5f2601f79e5ae01e1349e981cd4ca88cfc228f409e20dc75"
+  },
+  "caseNames": [
+    "CollectorControls.test_full_same8mib_precharge_durable_before_first_original",
+    "CollectorControls.test_every_data_and_repository_duplicate_charged_exact_bytes",
+    "CollectorControls.test_exact_payload_boundary_fits_with_all_ledger_overhead",
+    "CollectorControls.test_aggregate_oversize_refuses_before_charge_or_proof_open",
+    "CollectorControls.test_failure_sticky_in_same_object_and_after_reopen",
+    "CollectorControls.test_duplicate_never_overwrites_original_or_refunds",
+    "CollectorControls.test_short_write_keeps_full_charge_and_never_repairs",
+    "CollectorControls.test_enospc_sticky_even_when_failure_marker_cannot_persist",
+    "CollectorControls.test_failed_charge_write_never_opens_control_original",
+    "CollectorControls.test_maximum64_records_includes_zero_byte_controls",
+    "CollectorControls.test_path_traversal_and_unregistered_copy_refuse_without_proof",
+    "CollectorControls.test_file_symlink_and_unaccounted_file_refuse",
+    "CollectorControls.test_root_permissions_and_identity_swap_refuse",
+    "CollectorControls.test_changed_registered_proof_or_account_contract_refuse",
+    "CollectorControls.test_copy_cannot_bypass_budget_with_equal_digest_or_second_store",
+    "CollectorControls.test_supplied_readonly_file_exact_bytes_and_size_bound",
+    "CollectorControls.test_extra_file_between_operations_refuses_before_next_proof",
+    "CollectorControls.test_registered_proof_hardlink_alias_refuses",
+    "CollectorControls.test_one_use_reservation_never_resets_ledger",
+    "CollectorControls.test_readonly_status_accounts_all_physical_original_copy_ledger_bytes"
+  ],
+  "modelsDefined": 20,
+  "modelsExecuted": 0,
+  "targetControlsExecuted": 0,
+  "helperExecutions": 0,
+  "ordinaryRoles": 0,
+  "argv": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/Data/nbdp-e02-tooling-20261027/probe-root-custody-collector-preparation-r1/test_collector.py"
+  ],
+  "cwd": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-collector-preparation-r1",
+  "output": "Original verbosity2 stderr with all20 named definitions and unittest count/no skips/errors; no fake inner API/EOF/reap.",
+  "allowedEffects": "Temporary directories only and unittest mocks; no real run stores/tools/API/helper/SDK/Docker/network.",
+  "futureExecutionRequires": "Independent SOURCE acceptance and separate finite actual control release with current source/tool pins, raw stream retention and genuine original API; then independent DATA review.",
+  "sourceApproval": null,
+  "rootRelease": null,
+  "actualControlData": null
+}

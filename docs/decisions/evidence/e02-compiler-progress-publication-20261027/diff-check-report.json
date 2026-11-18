@@ -1,0 +1,47 @@
+{
+  "actor": "/root",
+  "command": [
+    "git",
+    "-C",
+    "/tmp/nbdp-review-20261027",
+    "diff",
+    "--cached",
+    "--check",
+    "--",
+    "<166 explicit selected paths>"
+  ],
+  "exitCode": 2,
+  "scopeFiles": 166,
+  "diagnostics": 22,
+  "affectedPaths": {
+    "docs/decisions/evidence/e02-amethyst-build-compiler-correction-20261027/source-archive/materializer-source-r5-r6.diff": 6,
+    "docs/decisions/evidence/e02-amethyst-build-compiler-correction-20261027/source-archive/supervisor-source-r5-r6.diff": 3,
+    "docs/decisions/evidence/e02-amethyst-build-compiler-correction-20261027/source2/source-archive/materializer-source-r6-r7.diff": 2,
+    "docs/decisions/evidence/e02-amethyst-build-compiler-correction-20261027/source2/source-archive/supervisor-source-r6-r7.diff": 1,
+    "docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/actual-build/build.stderr": 2,
+    "docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/actual-build/build.stdout": 4,
+    "docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/gradle-daemon-69.out.log": 4
+  },
+  "classCounts": {
+    "frozenDiffContext": 12,
+    "retainedRawStream": 10
+  },
+  "publicationTranscript": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-compiler-progress-publication-20261027/diff-check.stdout.b64",
+    "bytes": 5034,
+    "sha256": "f261f7fb7337c2e2a098f5fe42cc7d07976d6c929e41a630a53237322799935d"
+  },
+  "decodedStdout": {
+    "path": "/tmp/nbdp-compiler-progress-publication-20261027/diff-check.stdout",
+    "bytes": 3724,
+    "sha256": "78ee60de137982e89b79b5ebdf1061e0b1e27486188900d756b2400d45493ff7"
+  },
+  "stderr": {
+    "path": "/tmp/nbdp-compiler-progress-publication-20261027/diff-check.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "encoding": "Reversible base64 of exact diagnostic bytes",
+  "scopeAtRun": "Selected payload+initial README/manifest. This report/transcript is generated after the check, not included in its inputs.",
+  "disposition": "Preserve frozen context/raw evidence exactly; do not change reviewed hashes for whitespace cosmetics. Earlier142/99 and legacyworkflow4/fixture1/archiveddiff3 remain separately disclosed. No all-green claim."
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "nbdp-e01-rebuilt-native-actual-acceptance-v1",
+  "actor": "/root",
+  "decision": "ACCEPT_ACTUAL_E01_REPLAY_FOR_EXACT_REBUILT_NATIVE_CANDIDATE",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e01-native-rebuild-replay-20261026/actual-result-subject.json",
+    "bytes": 2783,
+    "sha256": "742fb4be2df02d37f8747f3936b4f4c65639339d8edce45ec8bbe45f0fbc7960"
+  },
+  "reviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e01-native-rebuild-replay-20261026/actual-result-qa-review.json",
+      "bytes": 1480,
+      "sha256": "26cfd9b03ce0b77494386cd2b6c3f11f52e50bf3bc4456051dcf04996ea068cf"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e01-native-rebuild-replay-20261026/actual-result-security-review.json",
+      "bytes": 1472,
+      "sha256": "b284c6fabf2061ddd01714e174077e5bcdbd213d72a8e98f3d0658fab53324bf"
+    }
+  ],
+  "report": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e01-native-rebuild-replay-20261026/actual-E01.json",
+    "bytes": 33503,
+    "sha256": "85905dd8a9de0285ebec8f04c39a59105c27387cd3b5b0bae18f81ab73dc1b06"
+  },
+  "actualTests": 140,
+  "status": "PASS",
+  "nativeSha256": "4ce385c5b1a713b35d58d787d94fbc298d139aa2e813daec15b2e99289cefd86",
+  "limits": [
+    "Exact isolated E01 replay and rebuilt artifact only; historical result unchanged. No automatic candidate/prerequisite/profile rebinding.",
+    "No atomic process custody/descendant closure/kernel egress/whole-process resource-peak guarantee.",
+    "Rust source equality is enforced by unchanged RustClient.ready successful path; separate raw source reply not retained.",
+    "No ordinary client rows/E02 promotion/SDK/blocker closure. Original vector/Go limitations remain."
+  ],
+  "canonicalRecordsChanged": false,
+  "ordinaryRowsQualified": 0,
+  "next": "Use only under an explicitly versioned reviewed producer/consumer/runtime binding for the rebuilt artifact; complete Android artifact restoration and ordinary-client evidence."
+}

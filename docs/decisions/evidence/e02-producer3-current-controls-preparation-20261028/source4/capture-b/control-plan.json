@@ -1,0 +1,110 @@
+{
+  "schema": "e02-producer3-fixed-control-capture-plan-v1",
+  "captureId": "capture-b",
+  "state": "FROZEN_SOURCE_PENDING_INDEPENDENT_CAPTURE_REVIEW_AND_ROOT_RELEASE",
+  "actor": "/root/producer3_capture",
+  "sourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/source2/subject.json",
+    "bytes": 12116,
+    "sha256": "553d513b4625b8d40e95f475246acc2a4520e1a90b35ee88290c9ddbc617def6"
+  },
+  "sourceManifest": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/source2/source-packet.json",
+    "bytes": 15807,
+    "sha256": "bd2e2e330984fe739045f2259e38b66a64fe6074d222b6dcd1d8d244c9b3fe46"
+  },
+  "frozenSourcePlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/source2/control-plan.json",
+    "bytes": 5183,
+    "sha256": "cf0351831f88dff7685bc53cd8977962526529b65bf13aeb740ef7c7ba0487d6"
+  },
+  "runner": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source4/capture-b/capture-controls.py",
+    "bytes": 30966,
+    "sha256": "65525b28f0d9806b8b8f1af99c6ebc459bf63ea469d8d44643bb67d17812a37d"
+  },
+  "separateScopes": [
+    {
+      "name": "rebuilt-artifact-bindings",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/test_producer3_bindings.py"
+      ],
+      "count": 3,
+      "expectedCases": [
+        "Producer3RebuiltBindings.test_current_accepted_rebuilt_artifacts_and_exact_e01_native",
+        "Producer3RebuiltBindings.test_missing_apk_wrong_native_e01_and_build_sdk_substitution_refused",
+        "Producer3RebuiltBindings.test_preflight_before_materialize_and_verify_and_original16_worker_files"
+      ],
+      "timeoutSeconds": 60
+    }
+  ],
+  "rawRetentionBytes": {
+    "stdout": 1048576,
+    "stderr": 262144
+  },
+  "retentionMeaning": "POST_CAPTURE_FILE_PREFIX_LIMIT_NOT_STREAMING_MEMORY_CAP",
+  "timeoutSeconds": 60,
+  "cleanupReapSeconds": 3,
+  "stopFirstFailure": true,
+  "noRetry": true,
+  "actualInputCount": 1889,
+  "maximumInputCount": 4096,
+  "originalApiResponses": "ACTUAL_DIRECT_TERMINAL_OR_GENUINE_SAME_SESSION_ALL_POLLS_REQUIRED",
+  "actualExecutions": 0,
+  "rootAcknowledgement": null,
+  "captureQaReview": null,
+  "captureSecurityReview": null,
+  "onceCommandPrefix": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source4/capture-b/capture-controls.py",
+    "--execute-once",
+    "--root-ack-sha"
+  ],
+  "sourceGeneration": "SOURCE4",
+  "freshCaptureRootId": "e02-producer3-source4-capture-b-20261028",
+  "requestDerivationSource": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source4/request-from-plan.py",
+    "bytes": 2087,
+    "sha256": "8da1178ad1ca0b6613f56768e72fbfd0b262afe17a444ed1f9d18c31c09d32bc"
+  },
+  "rootAckArgument": {
+    "meaning": "DERIVE_HEX_SHA256_FROM_ACTUAL_EXTERNAL_ACK_FILE",
+    "placeholder": "__ACTUAL_ROOT_ACK_SHA256__"
+  },
+  "outerArgvTemplate": [
+    "/usr/bin/env",
+    "-i",
+    "PATH=/usr/bin:/bin",
+    "LANG=C.UTF-8",
+    "LC_ALL=C.UTF-8",
+    "/usr/bin/timeout",
+    "--signal=KILL",
+    "297",
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source4/capture-b/capture-controls.py",
+    "--execute-once",
+    "--root-ack-sha",
+    "__ACTUAL_ROOT_ACK_SHA256__"
+  ],
+  "outerRequestTemplate": {
+    "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 297 /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source4/capture-b/capture-controls.py --execute-once --root-ack-sha __ACTUAL_ROOT_ACK_SHA256__",
+    "workdir": "/home/peterhorvath/apps/bitcoin/NBDP",
+    "login": false,
+    "yield_time_ms": 1000,
+    "max_output_tokens": 10000
+  },
+  "externalAuthorityEdges": {
+    "captureQaReview": null,
+    "captureSecurityReview": null,
+    "admissionModelAcceptance": null,
+    "rootAcknowledgement": null,
+    "meaning": "Future exact pins are supplied/checked through root ACK v2 and independent acceptance; excluded from pre-model input manifest to avoid cycles"
+  }
+}

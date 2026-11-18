@@ -1,0 +1,431 @@
+--- /tmp/nbdp-e01-replay-20261026-preparation/launch.py
++++ /tmp/nbdp-e02-primary-replay-20261027-preparation/launch.py
+@@ -1,87 +1,360 @@
+-"""SOURCE-only launcher; requires independently reviewed plan and root release."""
++"""Fixed original PRIMARY22 replay proposal. SOURCE preparation grants no execution."""
++import argparse
+ import hashlib
+ import json
+ import os
+ from pathlib import Path
++import re
++import resource
++import socket
+ import stat
++import subprocess
+ import sys
+ import time
+ 
+-HERE = Path(__file__).resolve().parent
+-
+-def need(value, why):
+-    if not value:
+-        raise ValueError(why)
+-
+-def pin(path):
+-    path = Path(path)
+-    need(path.is_absolute() and path.resolve(strict=True)==path and path.is_file() and not path.is_symlink(), 'canonical regular input')
+-    h = hashlib.sha256()
+-    with path.open('rb') as handle:
+-        before=os.fstat(handle.fileno())
+-        for chunk in iter(lambda:handle.read(1048576),b''): h.update(chunk)
+-        after=os.fstat(handle.fileno())
+-    identity=lambda x:(x.st_dev,x.st_ino,x.st_size,x.st_mtime_ns,x.st_ctime_ns)
+-    need(identity(before)==identity(after)==identity(path.stat()),'input changed during hash')
+-    return {'path':str(path),'bytes':after.st_size,'sha256':h.hexdigest()}
++HERE=Path('/tmp/nbdp-e02-primary-replay-20261027-preparation')
++LAB=HERE/'lab';EXP=LAB/'experiments'
++OWNER='e02-primary-replay-20261027'
++NATIVE_SHA='4ce385c5b1a713b35d58d787d94fbc298d139aa2e813daec15b2e99289cefd86'
++E01_SHA='85905dd8a9de0285ebec8f04c39a59105c27387cd3b5b0bae18f81ab73dc1b06'
++RAW_LIMIT=4194304
++SKIP={'scope':'Amethyst ordinary-client rendering','reason':'No isolated Android runtime/client installation; adapter ordinary-chat dispatch was exercised. Canonical ordinary-client rendering control was NOT EXECUTED; no ecosystem UI result claimed.','mandatory':True}
++
++
++def need(ok,why):
++    if not ok:raise ValueError(why)
++
++
++def full(value):
++    need(type(value) is str and re.fullmatch('[0-9a-f]{64}',value),'FULL_ID_REQUIRED');return value
++
++
++def safe(p):
++    p=Path(p);need(p.is_absolute() and '..' not in p.parts,'CANONICAL_PATH')
++    for q in (p,*p.parents):need(not q.is_symlink(),'SYMLINK_COMPONENT')
++    return p
++
++
++def pin(p):
++    p=safe(p)
++    with os.fdopen(os.open(p,os.O_RDONLY|os.O_NOFOLLOW),'rb') as f:
++        before=os.fstat(f.fileno());need(stat.S_ISREG(before.st_mode) and before.st_size<=2147483648,'REGULAR_BOUNDED_INPUT')
++        h=hashlib.sha256();count=0
++        while b:=f.read(1048576):h.update(b);count+=len(b)
++        after=os.fstat(f.fileno())
++    key=lambda x:(x.st_dev,x.st_ino,x.st_size,x.st_mtime_ns,x.st_ctime_ns)
++    need(key(before)==key(after)==key(p.stat()) and count==before.st_size,'PIN_DRIFT')
++    return dict(path=str(p),bytes=count,sha256=h.hexdigest())
++
+ 
+ def checked(d):
+-    need(type(d) is dict and set(d)=={'path','bytes','sha256'} and pin(d['path'])==d,'exact descriptor')
+-    return Path(d['path'])
+-
+-def doc(path):
+-    raw=Path(path).read_bytes()
+-    need(len(raw)<=16777216,'bounded metadata')
++    need(type(d) is dict and set(d)=={'path','bytes','sha256'} and type(d['bytes']) is int
++         and 0<=d['bytes']<=2147483648 and type(d['sha256']) is str and re.fullmatch('[0-9a-f]{64}',d['sha256'])
++         and pin(d['path'])==d,'EXACT_PIN');return Path(d['path'])
++
++
++def load(p):
++    raw=Path(p).read_bytes();need(len(raw)<=16777216,'METADATA_BOUND')
+     def pairs(items):
+         out={}
+-        for k,v in items:
+-            need(k not in out,'duplicate metadata key');out[k]=v
++        for k,v in items:need(k not in out,'DUPLICATE_KEY');out[k]=v
+         return out
+-    return json.loads(raw,object_pairs_hook=pairs,parse_constant=lambda _:need(False,'nonfinite metadata'))
+-
+-def snapshot(root):
++    def reject(_):raise ValueError('NONFINITE_METADATA')
++    return json.loads(raw,object_pairs_hook=pairs,parse_constant=reject)
++
++
++def snapshot(root,after=False):
+     rows=[]
+     for p in sorted(root.rglob('*')):
+-        rel=p.relative_to(root).as_posix();mode=oct(stat.S_IMODE(p.lstat().st_mode))
++        rel=p.relative_to(root).as_posix()
++        if after and mutable(rel):continue
++        mode=oct(stat.S_IMODE(p.lstat().st_mode))
+         if p.is_symlink():
+-            target=p.resolve(strict=True);need(target.is_relative_to(root),'symlink escape')
+-            rows.append({'path':rel,'type':'symlink','mode':mode,'link':str(p.readlink()),'target':target.relative_to(root).as_posix()})
+-        elif p.is_dir():rows.append({'path':rel,'type':'directory','mode':mode})
++            target=p.resolve(strict=True);need(target.is_relative_to(root),'SYMLINK_ESCAPE')
++            rows.append(dict(path=rel,type='symlink',mode=mode,link=str(p.readlink()),target=target.relative_to(root).as_posix()))
++        elif p.is_dir():rows.append(dict(path=rel,type='directory',mode=mode))
+         elif p.is_file():
+-            d=pin(p);rows.append({'path':rel,'type':'file','mode':mode,'bytes':d['bytes'],'sha256':d['sha256']})
+-        else:raise ValueError('special input')
++            d=pin(p);rows.append(dict(path=rel,type='file',mode=mode,bytes=d['bytes'],sha256=d['sha256']))
++        else:raise ValueError('SPECIAL_INPUT')
+     return rows
+ 
+-def main(args):
+-    need(len(args)==4,'PLAN EXTERNAL_PLAN_SHA RELEASE EXTERNAL_RELEASE_SHA')
+-    plan_path,plan_sha,release_path,release_sha=args
+-    plan_pin,release_pin=pin(plan_path),pin(release_path)
+-    need(plan_pin['sha256']==plan_sha and release_pin['sha256']==release_sha,'external root pins')
+-    p,r=doc(plan_path),doc(release_path)
+-    need(p['schema']=='nbdp-e01-isolated-replay-source-plan-v1' and p['state']=='SOURCE_PREPARED_PENDING_INDEPENDENT_REVIEW_AND_ROOT_RELEASE' and not p['missing'],'ready exact SOURCE plan')
+-    need(set(r)==set('schema executionAuthorized plan qaReview securityReview nativeBuildAcceptance issuedAtUtcMillis notAfterUtcMillis maximumTestSeconds'.split()),'closed root release')
+-    need(r['schema']=='nbdp-e01-isolated-replay-root-release-v1' and r['executionAuthorized'] is True and r['plan']==plan_pin,'exact root authorization')
+-    for k in ('qaReview','securityReview','nativeBuildAcceptance'):checked(r[k])
+-    now=time.time_ns()//1000000
+-    need(type(r['issuedAtUtcMillis']) is int and type(r['notAfterUtcMillis']) is int and r['issuedAtUtcMillis']<=now and now+242000<=r['notAfterUtcMillis']<=r['issuedAtUtcMillis']+600000,'fresh bounded root release')
+-    need(r['maximumTestSeconds']==p['maximumTestSeconds']==240 and p['terminationGraceSeconds']==2,'original proposed wall bound')
+-    need(checked(p['launcher'])==Path(__file__).resolve(),'reviewed exact launcher')
+-    for d in p['tools'].values():checked(d)
+-    checked(p['native']);checked(p['nativeSourceDeclaration']['expectedReplyValueEqualsExactFile'])
+-    checked(p['preparationSource']);checked(p['historicalComparison'])
+-    inventory=doc(checked(p['inputInventory']))
+-    root=Path(p['lab']);need(root==HERE/'lab' and root.resolve(strict=True)==root,'fixed fresh lab')
+-    need(inventory['root']==str(root) and snapshot(root)==inventory['rows'],'complete unchanged copied input closure')
+-    comparison=doc(checked(p['historicalComparison']))
+-    need(comparison['allEqual'] is True and comparison['sourceCount']==19,'all historical canonical source pins')
+-    cwd=root/'experiments';need(p['cwd']==str(cwd),'fixed cwd')
+-    need(not any((cwd/'results').iterdir()) and not any((cwd/'fixtures/generated').iterdir()),'fresh untouched output directories')
+-    argv=[p['tools']['timeout']['path'],'--signal=TERM','--kill-after=2s','240s',p['tools']['node']['path'],'shared/run.mjs','E01']
+-    need(p['argv']==argv,'fixed E01 only command')
+-    expected_env={'PATH':'/usr/bin:/bin','HOME':str(root/'home'),'TMPDIR':str(root/'tmp'),'LANG':'C.UTF-8','LC_ALL':'C.UTF-8','TZ':'UTC','NBDP_CHROME':'/usr/bin/false','NBDP_RUST_BIN':p['native']['path']}
+-    need(p['environment']==expected_env,'closed loader-free environment')
+-    os.chdir(cwd)
+-    os.execve(argv[0],argv,expected_env)
+-
+-if __name__=='__main__':
+-    main(sys.argv[1:])
++
++def mutable(path):
++    return path=='experiments/.runtime' or path.startswith(('experiments/.runtime/','home/','tmp/')) or path in {
++        'experiments/results/E02.json','experiments/fixtures/generated/E02-bidirectional-wires.json'}
++
++
++def protected(rows):return [r for r in rows if not mutable(r['path'])]
++
++
++def closure(actual,expected):need(actual==expected,'COMPLETE_PROTECTED_INPUT_CLOSURE')
++
++
++def fresh_paths(paths):
++    need(all(not p.exists() and not p.is_symlink() for p in paths),'FRESH_OUTPUTS_AND_STORES')
++
++
++def fixed_plan(p):
++    need(p['tools']['node']['path']=='/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node'
++         and p['tools']['timeout']['path']=='/usr/bin/timeout' and p['tools']['docker']['path']=='/usr/bin/docker'
++         and p['tools']['python']['path']=='/usr/bin/python3.12','FIXED_TOOL_TARGETS')
++    need(p['native']['path']==str(LAB/'native/nbdp-experiment-rust') and p['e01']['path']==str(EXP/'results/E01.json'),'FIXED_NATIVE_E01_PATHS')
++    need(p['argv']==['/usr/bin/timeout','--signal=TERM','--kill-after=3s','240s',p['tools']['node']['path'],'shared/run.mjs','E02'],'DIRECT_ORIGINAL_E02_ONLY')
++    expected={'PATH':'/usr/bin:/bin','HOME':str(LAB/'home'),'TMPDIR':str(LAB/'tmp'),'LANG':'C.UTF-8','LC_ALL':'C.UTF-8',
++        'TZ':'UTC','NBDP_CHROME':'/usr/bin/false','NBDP_RUST_BIN':p['native']['path']}
++    need(p['environment']==expected,'CLOSED_LOADER_FREE_ENVIRONMENT')
++    need(p['images']=={'strfry':'sha256:d72c7eb4e19562e22c24924ea51bc345ea5d22d03ada1429a46e0bb90ea97d40',
++        'rs-relay':'sha256:fe586a0bc68edefb553a62d21983de469128f7cb785bfcc2ef7c82dbf1cded82'},'FIXED_TWO_RELAY_IMAGES')
++    need(p['labels']=={'nbdp.owner':OWNER,'nbdp.scope':'primary22-only'} and p['user']==str(os.getuid())+':'+str(os.getgid())
++         and os.getuid()!=0,'FIXED_NONROOT_OWNERSHIP')
++    need(p['imageLabels']=={'strfry':{},'rs-relay':{'org.opencontainers.image.source':'https://github.com/rust-lang/docker-rust'}}
++         and p['entrypoints']=={'strfry':['/src/strfry'],'rs-relay':['/src/target/release/nostr-rs-relay']},'EXACT_OBSERVED_IMAGE_METADATA')
++    need(set(p['configs'])=={'strfry','rs-relay'} and p['configs']['strfry']['path']==str(EXP/'docker/strfry.conf')
++         and p['configs']['rs-relay']['path']==str(EXP/'docker/rs-relay.toml'),'FIXED_COPIED_CONFIG_PATHS')
++
++
++def native_binding(e01,native):
++    need(e01['status']=='PASS' and len(e01['tests'])==140 and not e01['skipped']
++         and all(t['ok'] is True for t in e01['tests']) and len(e01['source_sha256'])==19,'EXACT_ACCEPTED_E01_SCOPE')
++    need(native['bytes']==24100272 and native['sha256']==e01['environment']['rust_binary_sha256']==NATIVE_SHA,'CURRENT_NATIVE_E01_EQUALITY')
++
++
++def exact_absence(code,out,err,name,network=False):
++    errors=(('Error response from daemon: network '+name+' not found').encode(),('Error: No such network: '+name).encode()) if network else (
++        ('Error response from daemon: No such container: '+name).encode(),('Error: No such object: '+name).encode())
++    return type(code) is int and code==1 and out.strip() in (b'',b'[]') and err.rstrip(b'\r\n') in errors
++
++
++def remaining(end,seconds):
++    left=end-time.monotonic();need(left>seconds,'FINITE_DEADLINE_RESERVE');return seconds
++
++
++def lease_end(issued,expires,now,started,monotonic_now):
++    need(type(issued) is int and type(expires) is int and type(now) is int and 0<=issued<=now<expires
++         and 0<expires-issued<=600*10**9,'FINITE_600_SECOND_ROOT_LEASE')
++    return min(started+600,monotonic_now+(expires-now)/10**9)
++
++
++def identity(d,cid,role,p,run,network_id,network_name):
++    need(d['Id']==full(cid) and d['Image']==p['images'][role] and d['Name']=='/'+network_name+'-'+role,'OWNED_CID_IMAGE_NAME')
++    c,h=d['Config'],d['HostConfig']
++    need(c['Labels']==dict(p['imageLabels'][role],**p['labels'],**{'nbdp.run':run,'nbdp.role':role}) and c['User']==p['user'],'OWNED_LABELS_USER')
++    need(c['Entrypoint']==p['entrypoints'][role] and c['WorkingDir']=='/src','EXACT_IMAGE_ENTRYPOINT_AND_WORKDIR')
++    need(c['Cmd']==(['relay'] if role=='strfry' else ['--db','/data']),'ORIGINAL_RELAY_COMMAND')
++    need(h['NetworkMode']==full(network_id) and h['ReadonlyRootfs'] is True and h['Privileged'] is False,'OWNED_NETWORK_READONLY')
++    need(h['NanoCpus']==2000000000 and h['Memory']==1073741824 and h['PidsLimit']==128,'ORIGINAL_RELAY_RESOURCE_CAPS')
++    need(h.get('CapDrop')==['ALL'] and any(x in ('no-new-privileges','no-new-privileges:true') for x in h.get('SecurityOpt',[])),
++         'ADOPTED_DROP_ALL_AND_NO_NEW_PRIVILEGES')
++    need(not h.get('CapAdd') and not h.get('PortBindings') and not h.get('Devices') and not h.get('PidMode')
++         and not h.get('UTSMode') and h.get('IpcMode') in ('private','shareable'),'NO_HOST_PRIVILEGES_OR_PORTS')
++    need(h.get('Tmpfs')=={'/tmp':''} and h['LogConfig']['Type']=='none','PRIVATE_TMPFS_NO_DAEMON_LOG')
++    expected={(p['configs'][role]['path'],'/src/strfry.conf' if role=='strfry' else '/src/config.toml',False),
++        (str(EXP/'.runtime'/role),'/data',True)}
++    need(len(d['Mounts'])==2 and {(m['Source'],m['Destination'],m['RW']) for m in d['Mounts']}==expected
++         and all(m['Type']=='bind' and m['Propagation'] in ('private','rprivate') for m in d['Mounts']),'EXACT_RELAY_MOUNTS')
++    nets=d['NetworkSettings']['Networks'];need(set(nets)=={network_name},'ONE_OWNED_NETWORK')
++    endpoint=nets[network_name];state=d['State']
++    need(type(state['Running']) is bool and state['OOMKilled'] is False,'KNOWN_RELAY_STATE')
++    if state['Status']=='created' and state['Running'] is False and state['Pid']==0:
++        need(endpoint['NetworkID'] in ('',network_id) and endpoint['IPAddress']==''
++             and state['StartedAt']==state['FinishedAt']=='0001-01-01T00:00:00Z'
++             and endpoint['EndpointID']=='','CREATED_NETWORK_BINDING')
++    else:need(endpoint['NetworkID']==network_id,'ACTUAL_JOINED_NETWORK_ID')
++    return d
++
++
++def network_identity(d,nid,name,labels,allowed):
++    need(d['Id']==full(nid) and d['Name']==name and d['Labels']==labels and d['Driver']=='bridge'
++         and d['Internal'] is True and not d.get('Ingress') and not d.get('Attachable'),'OWNED_INTERNAL_NETWORK')
++    need(set(d['Containers']).issubset(allowed),'NO_UNOWNED_NETWORK_MEMBER');return d
++
++
++class Replay:
++    def __init__(self,p,r,end,started):
++        self.p,self.r,self.end=p,r,end;self.work_end=end-90;self.run=r['runId']
++        self.name='nbdp-e02-primary-20261027-'+self.run;self.out=HERE/('attempt-'+self.run)
++        self.ids={};self.nid=None;self.proxy=None;self.first=None;self.secondary=[];self.seq=0;self.records=[];self.setup_end=min(started+120,self.work_end)
++
++    def fault(self,why):
++        if self.first is None:self.first=why
++        else:self.secondary.append(why)
++
++    def write(self,name,value):
++        raw=(json.dumps(value,indent=2)+'\n').encode();need(len(raw)<=16777216,'RECEIPT_BOUND')
++        with (self.out/name).open('xb') as f:f.write(raw)
++
++    @staticmethod
++    def limits():
++        resource.setrlimit(resource.RLIMIT_FSIZE,(RAW_LIMIT,RAW_LIMIT));resource.setrlimit(resource.RLIMIT_CORE,(0,0))
++
++    def cli(self,args,label,seconds=15,cleanup=False):
++        need(0<seconds<=30,'CLI_BOUND');end=self.end if cleanup else min(self.work_end,self.setup_end or self.work_end)
++        seconds=min(seconds,int(end-time.monotonic())-3);need(seconds>0,'CLI_LEASE_EXHAUSTED')
++        self.seq+=1;stem='%03d-%s'%(self.seq,label)
++        argv=[self.p['tools']['timeout']['path'],'--signal=TERM','--kill-after=2s',str(seconds)+'s',self.p['tools']['docker']['path'],*args]
++        request=dict(argv=argv,maximumSeconds=seconds,cleanup=cleanup,startedUtcNs=time.time_ns());self.write(stem+'-request.json',request)
++        with (self.out/(stem+'.stdout')).open('xb') as out,(self.out/(stem+'.stderr')).open('xb') as err:
++            result=subprocess.run(argv,stdin=subprocess.DEVNULL,stdout=out,stderr=err,cwd=self.out,
++                env={'PATH':'/usr/bin:/bin','LANG':'C.UTF-8','LC_ALL':'C.UTF-8','DOCKER_CONFIG':str(self.out/'docker-config')},preexec_fn=self.limits,check=False)
++        op,ep=self.out/(stem+'.stdout'),self.out/(stem+'.stderr');record=dict(request=request,exitCode=result.returncode,stdout=pin(op),stderr=pin(ep))
++        self.records.append(record);self.write(stem+'-result.json',record)
++        need(op.stat().st_size<RAW_LIMIT and ep.stat().st_size<RAW_LIMIT,'CAPTURE_LIMIT')
++        return result.returncode,op.read_bytes(),ep.read_bytes()
++
++    def actual(self,args,label,cleanup=False,seconds=15):
++        code,out,err=self.cli(args,label,seconds,cleanup);need(code==0 and not err,'CLI_ZERO_EMPTY_STDERR_REQUIRED:'+label);return json.loads(out)
++
++    def inspect(self,role,cleanup=False):
++        value=self.actual(['container','inspect',full(self.ids[role])],'inspect-'+role,cleanup)
++        need(type(value) is list and len(value)==1,'ONE_INSPECT')
++        return identity(value[0],self.ids[role],role,self.p,self.run,self.nid,self.name)
++
++    def mutate(self,role,args,cleanup=False,seconds=15):
++        self.net(cleanup);self.inspect(role,cleanup);code,_,err=self.cli([*args,full(self.ids[role])],'mutate-'+role,seconds,cleanup)
++        need(code==0 and not err,'OWNED_MUTATION_FAILED')
++
++    def net(self,cleanup=False,empty=False):
++        value=self.actual(['network','inspect',full(self.nid)],'network-inspect',cleanup)
++        need(type(value) is list and len(value)==1,'ONE_NETWORK_INSPECT')
++        d=network_identity(value[0],self.nid,self.name,dict(self.p['labels'],**{'nbdp.run':self.run}),set(self.ids.values()))
++        if empty:need(not d['Containers'],'NETWORK_EMPTY_BEFORE_MUTATION')
++        return d
++
++    def admission(self):
++        remaining(self.setup_end,0)
++        p=self.p;fixed_plan(p);need(p['lab']==str(LAB) and p['cwd']==str(EXP),'FIXED_LAB')
++        for d in [*p['tools'].values(),p['native'],p['e01'],p['e01Acceptance'],p['inputInventory'],p['binding'],*p['configs'].values(),*p['sourceFiles'],*p['sourceData']]:checked(d)
++        inventory=load(checked(p['inputInventory']));need(inventory['root']==str(LAB),'FIXED_INVENTORY_ROOT');closure(snapshot(LAB),inventory['rows'])
++        native_binding(load(checked(p['e01'])),p['native']);need(p['e01']['sha256']==E01_SHA,'ACCEPTED_E01_BYTES')
++        accepted=load(checked(p['e01Acceptance']));need(accepted['decision']=='ACCEPT_ACTUAL_E01_REPLAY_FOR_EXACT_REBUILT_NATIVE_CANDIDATE'
++            and accepted['nativeSha256']==NATIVE_SHA and accepted['report']['sha256']==E01_SHA,'ACCEPTED_CURRENT_E01_JOIN')
++        for rel,sha in load(checked(p['e01']))['source_sha256'].items():need(pin(EXP/rel)['sha256']==sha,'ALL19_CURRENT_E01_SOURCES')
++        fresh_paths([EXP/'.runtime',EXP/'results/E02.json',EXP/'fixtures/generated/E02-bidirectional-wires.json'])
++        for port in (17777,18081):
++            with socket.socket() as sock:sock.bind(('127.0.0.1',port))
++
++    def setup(self):
++        (EXP/'.runtime').mkdir(mode=0o700)
++        for role in ('strfry','rs-relay'):(EXP/'.runtime'/role).mkdir(mode=0o700)
++        for role,image in self.p['images'].items():
++            value=self.actual(['image','inspect',image],'image-'+role);need(len(value)==1 and value[0]['Id']==image,'EXACT_AVAILABLE_RELAY_IMAGE')
++            code,out,err=self.cli(['container','inspect',self.name+'-'+role],'absent-'+role)
++            need(exact_absence(code,out,err,self.name+'-'+role),'OCCUPIED_OR_UNKNOWN_CONTAINER_UNTOUCHED')
++        code,out,err=self.cli(['network','inspect',self.name],'absent-network')
++        need(exact_absence(code,out,err,self.name,True),'OCCUPIED_OR_UNKNOWN_NETWORK_UNTOUCHED')
++        labels=dict(self.p['labels'],**{'nbdp.run':self.run});args=['network','create','--internal','--driver','bridge']
++        for k,v in labels.items():args+=['--label',k+'='+v]
++        try:code,out,err=self.cli([*args,self.name],'network-create')
++        finally:
++            raw=self.out/('%03d-network-create.stdout'%self.seq)
++            if raw.is_file() and raw.stat().st_size<1024:
++                value=raw.read_text().strip()
++                if re.fullmatch('[0-9a-f]{64}',value):self.nid=value
++        need(self.nid is not None and code==0 and not err,'NETWORK_CREATE_FAILED');self.net(empty=True)
++        for role in ('strfry','rs-relay'):
++            self.net();config=self.p['configs'][role]['path'];target='/src/strfry.conf' if role=='strfry' else '/src/config.toml';cidfile=self.out/(role+'.cid')
++            args=['create','--pull','never','--cidfile',str(cidfile),'--name',self.name+'-'+role,'--network',self.nid,'--user',self.p['user'],
++                '--cpus','2','--memory','1073741824','--pids-limit','128','--cap-drop','ALL','--security-opt','no-new-privileges','--read-only','--tmpfs','/tmp','--log-driver','none']
++            for k,v in dict(labels,**{'nbdp.role':role}).items():args+=['--label',k+'='+v]
++            args+=['--mount','type=bind,src='+config+',dst='+target+',readonly','--mount','type=bind,src='+str(EXP/'.runtime'/role)+',dst=/data',
++                self.p['images'][role],*(['relay'] if role=='strfry' else ['--db','/data'])]
++            try:code,out,err=self.cli(args,'create-'+role,30)
++            finally:
++                if cidfile.is_file() and cidfile.stat().st_size<1024:self.ids[role]=full(cidfile.read_text().strip())
++            need(role in self.ids and out.decode().strip()==self.ids[role] and code==0 and not err,'CREATE_IDENTITY_OR_RESULT_FAILED')
++            self.mutate(role,['start'],seconds=30)
++        ips={}
++        for role in ('strfry','rs-relay'):
++            d=self.inspect(role);need(d['State']['Running'] is True,'ACTUALLY_RUNNING_RELAY');ip=d['NetworkSettings']['Networks'][self.name]['IPAddress']
++            need(re.fullmatch(r'172\.\d+\.\d+\.\d+',ip),'ORIGINAL_PROXY_INTERNAL_IP_DOMAIN');ips[role]=ip
++        with (EXP/'.runtime/relay-ips.json').open('x') as f:json.dump(ips,f)
++        argv=[self.p['tools']['node']['path'],'docker/proxy.mjs'];self.write('proxy-launch.json',dict(argv=argv,cwd=str(EXP),environment=self.p['environment'],ips=ips))
++        self.proxy_out=(self.out/'proxy.stdout').open('xb');self.proxy_err=(self.out/'proxy.stderr').open('xb')
++        self.proxy=subprocess.Popen(argv,cwd=EXP,env=self.p['environment'],stdin=subprocess.DEVNULL,stdout=self.proxy_out,stderr=self.proxy_err,preexec_fn=self.limits)
++        deadline=min(time.monotonic()+15,self.setup_end,self.work_end)
++        expected=[dict(name=k,loopback=port,internal_target=ips[k]+':'+str(target)) for k,port,target in [('strfry',17777,7777),('rs-relay',18081,8080)]]
++        while True:
++            need(self.proxy.poll() is None,'PROXY_EXITED_BEFORE_PRIMARY')
++            raw=(self.out/'proxy.stdout').read_bytes();need(len(raw)<RAW_LIMIT and (self.out/'proxy.stderr').stat().st_size==0,'PROXY_RAW_REFUSAL')
++            try:ready=[json.loads(line) for line in raw.splitlines()]
++            except ValueError:ready=[]
++            if sorted(ready,key=lambda x:x['name'])==sorted(expected,key=lambda x:x['name']):break
++            remaining(deadline,0);time.sleep(0.05)
++        remaining(self.setup_end,0);self.setup_end=None
++
++    def primary(self):
++        remaining(self.work_end,243)
++        for role in ('strfry','rs-relay'):need(self.inspect(role)['State']['Running'] is True,'CURRENT_RUNNING_RELAY')
++        self.net();need(self.proxy.poll() is None,'CURRENT_OWNED_PROXY_RUNNING')
++        remaining(self.work_end,243)
++        argv=self.p['argv'];self.write('primary-request.json',dict(argv=argv,cwd=str(EXP),environment=self.p['environment'],startedUtcNs=time.time_ns(),jobSeconds=240,killGraceSeconds=3))
++        with (self.out/'primary.stdout').open('xb') as out,(self.out/'primary.stderr').open('xb') as err:
++            result=subprocess.run(argv,cwd=EXP,env=self.p['environment'],stdin=subprocess.DEVNULL,stdout=out,stderr=err,preexec_fn=self.limits,check=False)
++        self.write('primary-completion.json',dict(exitCode=result.returncode,stdout=pin(self.out/'primary.stdout'),stderr=pin(self.out/'primary.stderr'),finishedUtcNs=time.time_ns()))
++        need(result.returncode==0 and (self.out/'primary.stderr').stat().st_size==0 and (self.out/'primary.stdout').stat().st_size<RAW_LIMIT,'NATURAL_ZERO_PRIMARY_CAPTURE')
++        report=load(EXP/'results/E02.json');need(report['status']=='PARTIAL' and len(report['tests'])==22 and all(t['ok'] is True for t in report['tests'])
++            and [t['name'] for t in report['tests']]==self.p['expectedNames'] and report['skipped']==[SKIP] and report['exit_status']==0,'ORIGINAL22_RAW_PARTIAL_MANDATORY_SKIP')
++        need(report['environment']['rust_binary_sha256']==NATIVE_SHA and report['environment']['rust_binary']==str(LAB/'native/nbdp-experiment-rust')
++            and report['source_sha256']==self.p['expectedE02Sources'],'CURRENT_NATIVE_AND_ALL_E02_SOURCE_BINDINGS')
++        wires=load(EXP/'fixtures/generated/E02-bidirectional-wires.json');need(len(wires)==4,'FOUR_ORIGINAL_WIRES')
++        self.write('raw-result-pins.json',dict(report=pin(EXP/'results/E02.json'),wires=pin(EXP/'fixtures/generated/E02-bidirectional-wires.json'),ordinaryRows=0,canonicalE02Changed=False,completion2DropIn=False))
++
++    def cleanup(self):
++        cleanup_end=min(self.end,time.monotonic()+90);self.end=cleanup_end
++        if self.proxy is not None:
++            try:
++                if self.proxy.poll() is None:self.proxy.terminate()
++                try:self.proxy.wait(timeout=min(5,remaining(cleanup_end,5)))
++                except subprocess.TimeoutExpired:self.proxy.kill();self.proxy.wait(timeout=min(3,remaining(cleanup_end,3)))
++                self.proxy_out.close();self.proxy_err.close();self.write('proxy-completion.json',dict(returnCode=self.proxy.returncode,reaped=True,ownedPopenHandleOnly=True,stdout=pin(self.out/'proxy.stdout'),stderr=pin(self.out/'proxy.stderr')))
++            except BaseException as e:self.fault('PROXY_CLEANUP:'+type(e).__name__+':'+str(e))
++        for role in reversed(tuple(self.ids)):
++            try:
++                d=self.inspect(role,True)
++                if d['State']['Running']:self.mutate(role,['stop','--time','5'],True,15)
++                d=self.inspect(role,True)
++                if d['State']['Running']:self.mutate(role,['kill'],True,15)
++                need(self.inspect(role,True)['State']['Running'] is False,'STOPPED_BEFORE_REMOVE')
++                self.mutate(role,['rm'],True)
++                code,out,err=self.cli(['container','inspect',self.ids[role]],'absent-final-'+role,cleanup=True)
++                need(exact_absence(code,out,err,self.ids[role]),'EXACT_CID_ABSENCE_REQUIRED')
++                self.write('cleanup-'+role+'.json',dict(cid=self.ids[role],exactAbsence=True))
++            except BaseException as e:self.fault('RELAY_CLEANUP:'+role+':'+type(e).__name__+':'+str(e))
++        if self.nid is not None:
++            try:
++                self.net(True,empty=True);code,_,err=self.cli(['network','rm',self.nid],'network-remove',cleanup=True);need(code==0 and not err,'NETWORK_REMOVE_FAILED')
++                code,out,err=self.cli(['network','inspect',self.nid],'network-absence',cleanup=True);need(exact_absence(code,out,err,self.nid,True),'EXACT_NETWORK_ABSENCE_REQUIRED')
++                self.write('cleanup-network.json',dict(networkId=self.nid,exactAbsence=True))
++            except BaseException as e:self.fault('NETWORK_CLEANUP:'+type(e).__name__+':'+str(e))
++
++    def run_all(self):
++        safe(self.out).mkdir(mode=0o700);(self.out/'docker-config').mkdir(mode=0o700)
++        try:self.admission();self.setup();self.primary()
++        except BaseException as e:self.fault(type(e).__name__+':'+str(e))
++        finally:
++            self.cleanup()
++            try:
++                actual=snapshot(LAB,after=True);expected=protected(load(checked(self.p['inputInventory']))['rows']);closure(actual,expected)
++                self.write('source-after.json',dict(inventory=self.p['inputInventory'],allProtectedBytesModesMembershipLinksUnchanged=True,native=pin(LAB/'native/nbdp-experiment-rust'),e01=pin(EXP/'results/E01.json')))
++            except BaseException as e:self.fault('SOURCE_AFTER:'+type(e).__name__+':'+str(e))
++            self.write('result.json',dict(state='RAW_PRIMARY22_PARTIAL_PENDING_INDEPENDENT_DATA_REVIEW' if self.first is None else 'FAILED_OR_UNQUALIFIED_NO_RETRY',firstFault=self.first,secondary=self.secondary,cliReceipts=len(self.records),ordinaryRowsQualified=0,canonicalE02Changed=False,stockE04E06Unlocked=False,completion2DropIn=False,hostileAtomicClosureClaimed=False,hostSignals='Owned trusted proxy Popen handle only; GNU timeout controls original primary/CLI job groups.'))
++        return 0 if self.first is None else 2
++
++
++def main():
++    os.umask(0o077);a=argparse.ArgumentParser();a.add_argument('--plan-sha',required=True);a.add_argument('--release',required=True);a.add_argument('--release-sha',required=True);args=a.parse_args()
++    started=time.monotonic();pp=pin(HERE/'plan.json');rp=pin(args.release);need(pp['sha256']==args.plan_sha and rp['sha256']==args.release_sha,'EXTERNAL_ROOT_PINS')
++    p,r=load(pp['path']),load(rp['path']);need(p['schema']=='nbdp-fixed-e02-primary22-source-plan-v1','FIXED_PLAN_SCHEMA');need(str(Path(sys.executable).resolve())==p['tools']['python']['path'] and sys.flags.isolated and sys.dont_write_bytecode,'PINNED_ISOLATED_INTERPRETER');need(p['state']=='SOURCE_ONLY_NOT_READY_PENDING_INDEPENDENT_REVIEW_AND_RELEASE','EXACT_SOURCE_PLAN_STATE')
++    need(set(r)==set('schema actor executionAuthorized scope runId plan sourceSubject sourceQa sourceSecurity modelAcceptance inputAcceptance issuedAtUtcNs notAfterUtcNs'.split()),'CLOSED_ROOT_RELEASE')
++    need(r['schema']=='nbdp-fixed-e02-primary22-root-release-v1' and r['actor']=='/root' and r['executionAuthorized'] is True
++        and r['scope']=='CURRENT_ORIGINAL_PRIMARY22_ONLY' and r['plan']==pp and re.fullmatch('[0-9a-f]{32}',r['runId']),'ONE_ROOT_AUTHORIZED_FIXED_JOB')
++    end=lease_end(r['issuedAtUtcNs'],r['notAfterUtcNs'],time.time_ns(),started,time.monotonic())
++    need(r['sourceSubject']['path']==str(HERE/'subject.json'),'EXACT_SOURCE_SUBJECT_PATH')
++    subject=load(checked(r['sourceSubject']))
++    for d in subject['sources']:checked(d)
++    for k in ('sourceQa','sourceSecurity','modelAcceptance','inputAcceptance'):checked(r[k])
++    need(p['launcher']==pin(Path(__file__).resolve()),'RUNNING_REVIEWED_LAUNCHER')
++    return Replay(p,r,end,started).run_all()
++
++
++if __name__=='__main__':raise SystemExit(main())

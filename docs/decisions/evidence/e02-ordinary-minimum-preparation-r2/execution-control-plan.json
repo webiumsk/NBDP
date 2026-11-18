@@ -1,0 +1,150 @@
+{
+  "schema": "e02-producer2-changed-data-control-plan-v1",
+  "state": "DEFINITIONS_ONLY_NOT_EXECUTED_NO_EXECUTION_GRANT",
+  "actor": "/root/ordinary_api35_source",
+  "sourceReviewPrerequisite": "Actual same frozen subject independent QA/security decisions; reviewed fixed capture reuse; root explicit once-only release. Author cannot self-approve.",
+  "interpreters": {
+    "node": {
+      "path": "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+      "bytes": 121613584,
+      "sha256": "ccacb2d6d87ba6d118b2bffc1ae33747a05cc5fc6b1f1ec4fc1d420b687e952d"
+    },
+    "python": {
+      "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "bytes": 32959480,
+      "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+    }
+  },
+  "configurations": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/proposed-incoming-run-config.json",
+      "bytes": 5817,
+      "sha256": "632302377fa2076ddc5860b71680011a06a50a3e56842be9a1b81021451e9be5"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/proposed-archive-run-config.json",
+      "bytes": 5815,
+      "sha256": "0b8c2b3416d07c6db5a910c5b7a7544df4c17f4eb392a2290f0c3118edfe95ed"
+    }
+  ],
+  "separateScopes": [
+    {
+      "name": "observation-model",
+      "argv": [
+        "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+        "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/test_observation_model.mjs"
+      ],
+      "plannedChecks": 20,
+      "namedCases": [
+        "one-shared-cap-across-two-streams",
+        "exact-boundary-two-streams-acknowledged-not-physical",
+        "short-prefix-once-poisons-both-streams",
+        "zero-prefix-known-zero-throw-prefix-unknown",
+        "invalid-count-family-poison-no-second-write",
+        "closed-stream-fds-and-original-upper-bound",
+        "accepted-phase-writer-preserves-known-short-prefix",
+        "phase-then-proxy-consumes-same-budget",
+        "guard-once-entry-exit-and-no-action-on-refusal",
+        "guard-refusal-preserved-over-retention-failure",
+        "entry-and-success-retention-failure-prevent-action",
+        "callback-first-fault-and-closed-late-inert",
+        "upstream-send-exact-buffer-callback-and-no-extra-guard",
+        "proxy-send-error-kept-if-observation-sink-fails",
+        "proxy-intent-write-failure-never-sends",
+        "proxy-mutated-buffer-refuses-callback-completion",
+        "adapter-query-preserves-exact112-byte-operands-and-raw-join",
+        "adapter-raw-is-after-original-guard-before-parse",
+        "adapter-denied-backend-guard-context-no-raw-or-parse",
+        "adapter-raw-sink-fault-before-send-or-before-parse-refuses"
+      ],
+      "meaning": "SYNTHETIC_FS_SOCKET_GUARD_ONLY",
+      "timeoutSeconds": 60,
+      "stdoutRetentionBytes": 1048576,
+      "stderrRetentionBytes": 262144,
+      "outputShape": "JSON_SINGLE_LINE_CLOSED_SCHEMA_OK_TRUE_CHECKS_CASES_SCOPE",
+      "executed": false
+    },
+    {
+      "name": "public-identity-metadata",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/test_public_identity_metadata.py"
+      ],
+      "plannedChecks": 8,
+      "namedCases": [
+        "test_whole_checksum_payload_both_public_scalars",
+        "test_four_metadata_operands_equal_unchanged_driver",
+        "test_historical_65_character_operand_refused_preserved",
+        "test_checksum_corruption_refused",
+        "test_valid_other_payload_refused",
+        "test_whitespace_case_truncation_never_normalized",
+        "test_non_bech32_glyph_refused",
+        "test_new_plan_keeps_scalar_roles_and_whole_value"
+      ],
+      "meaning": "PUBLIC_FIXED_FORMAT_DATA_ONLY",
+      "timeoutSeconds": 60,
+      "stdoutRetentionBytes": 1048576,
+      "stderrRetentionBytes": 262144,
+      "outputShape": "UNittest_NATURAL_EXIT0_RAN_EXACT_COUNT_OK_NO_SKIP",
+      "executed": false
+    },
+    {
+      "name": "producer2-source-wiring",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/home/peterhorvath/apps/bitcoin/NBDP/experiments/prototypes/e02_ordinary_minimum_v2/test_producer2_source.py"
+      ],
+      "plannedChecks": 7,
+      "namedCases": [
+        "test_all_three_accepted_modules_byte_identical",
+        "test_host_full_inventory_functions_identical",
+        "test_preimport_and_end_dependency_boundaries_wired",
+        "test_complete_staged_modules_and_tree_pin",
+        "test_same_original_guard_invocation_body",
+        "test_frozen_oracles_and_exact_query_no_baseline_payload",
+        "test_original_android_and_transport_limits"
+      ],
+      "meaning": "SOURCE_AST_AND_PIN_WIRING_ONLY",
+      "timeoutSeconds": 60,
+      "stdoutRetentionBytes": 1048576,
+      "stderrRetentionBytes": 262144,
+      "outputShape": "UNittest_NATURAL_EXIT0_RAN_EXACT_COUNT_OK_NO_SKIP",
+      "executed": false
+    }
+  ],
+  "scopeCountsAreSeparate": true,
+  "totalDefinedChecks": 35,
+  "oldSuitesNotRerun": [
+    "29guard",
+    "29cleanup",
+    "49UI",
+    "21minimumUI",
+    "27fixture",
+    "43minimumfixture",
+    "18diagnostic-host",
+    "27diagnostic-model",
+    "6diagnostic-inventory"
+  ],
+  "requiredCapture": "Reuse existing finite capture actual-source adaptation only. Exact source/closure/config/interpreter/input/review/root-ack before/after; private0600 raw;60s scope; actual natural exit/EOF/reap/error/signal/force; stop firstfailure/no retry/fix. Original outer API objects saved separately with unmodified fields. Retention caps apply after capture, no streaming-memory claim.",
+  "excluded": [
+    "prepared primary/runtime module main",
+    "sign/encrypt/decrypt/curve/native validation",
+    "actual guard/lease/grant",
+    "SDK/Android/Docker/services/network",
+    "consumer3/completion2 implementation or execution"
+  ],
+  "syntaxOnly": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/syntax-only-checks.json",
+    "bytes": 21011,
+    "sha256": "125fa80e9848f3db85c8aa3b255e21c988fbf57fa1be5fc433548c761bf05261"
+  },
+  "componentCarry": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/component-carry-matrix.json",
+    "bytes": 7112,
+    "sha256": "91771fb1326b01289be2049926b28916989ae97e55452e4641631ec3d42e77c4"
+  }
+}

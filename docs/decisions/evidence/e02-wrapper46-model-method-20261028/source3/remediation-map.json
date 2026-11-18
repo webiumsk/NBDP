@@ -1,0 +1,37 @@
+{
+  "schema": "e02-wrapper46-source3-remediation-map-v1",
+  "actualStaticFinding": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-wrapper46-model-method-20261028/source2/independent-finding.json",
+    "bytes": 1110,
+    "sha256": "111233bdf46b28ff64a6ba59ab5e95db5178fea24cb7c44f1808c4fcfd41c6da"
+  },
+  "severity": "MEDIUM",
+  "finding": "Post-Popen selector constructor outside cleanup guard",
+  "change": "Construct selector and capture state BEFORE Popen; constructor failure cannot leave child; Popen failure closes selector; every postspawn OS call/setup is inside fault/owned-group cleanup",
+  "newDefinition": "CaptureLifecycleAdmission.test_actual_selector_constructor_failure_precedes_popen",
+  "newDefinitions": {
+    "path": "/Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r3/capture-admission-definitions.json",
+    "bytes": 1368,
+    "sha256": "61df02c2896d46ed58564276e39ca69c2b330b1d60124f0b34d59bf8b4fc3de1"
+  },
+  "delta": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-wrapper46-model-method-20261028/source3/capture-source2-source3.diff",
+    "bytes": 5116,
+    "sha256": "824ea70d6e8a0db2942bc64f27b70f76394590bff1fbc09e5f05bf102b4fe091"
+  },
+  "priorSingleAbsolute3sAndOwnedFaultGroupClosurePreserved": true,
+  "directAdmissionPlan": {
+    "path": "/Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r3/admission-model-plan.json",
+    "bytes": 4945,
+    "sha256": "1b06a042a4dcaf8aade648304e38095aa2b4405587bc97c5011f372d40e17303"
+  },
+  "directAdmissionRequest": {
+    "path": "/Data/nbdp-e02-tooling-20261027/wrapper46-model-method-preparation-r3/admission-outer-request-template.json",
+    "bytes": 427,
+    "sha256": "961c952ac1aa4bbd6e93b27ed24ebdbcc1178c3b82c7d9fc8b566786050511b5"
+  },
+  "actualModelExecutions": 0,
+  "independentSourceQa": null,
+  "independentSourceSecurity": null,
+  "status": "SOURCE_IMPLEMENTED_PENDING_INDEPENDENT_REVIEW_NOT_SELF_APPROVED"
+}

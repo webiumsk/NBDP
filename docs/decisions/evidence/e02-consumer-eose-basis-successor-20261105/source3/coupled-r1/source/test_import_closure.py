@@ -1,0 +1,220 @@
+"""Unexecuted definitions: actual declared import graph and isolated loads.
+
+Child module loads happen only when Root separately releases this model batch.
+They import local consumer readers only; no helper/producer/runtime dispatch.
+"""
+import ast
+import json
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
+import unittest
+
+HERE=Path(__file__).resolve().parent
+PYTHON='/home/peterhorvath/.miniforge3/bin/python3.13'
+
+# Parsed as a separate virtual source by the complete import-closure reader.
+# Explicit imports avoid unrestricted dynamic module selection.
+ISOLATED_PROGRAM='''
+import json
+from pathlib import Path
+import sys
+import sysconfig
+import types
+root=Path(sys.argv[1]).resolve();target=sys.argv[2];mode=sys.argv[3]
+assert sys.flags.isolated == 1 and sys.dont_write_bytecode is True
+assert str(Path.cwd()) != str(root)
+stdlib=Path(sysconfig.get_path('stdlib')).resolve()
+allowed={stdlib,stdlib/'lib-dynload',stdlib.parent/('python'+str(sys.version_info.major)+str(sys.version_info.minor)+'.zip')}
+sys.path[:]=[str(root),*[p for p in sys.path if p and Path(p).resolve() in allowed]]
+if mode=='poison':
+    for name in ('contracts','explicit_inputs'):
+        value=types.ModuleType(name)
+        def forbidden(*args,**kwargs):raise AssertionError('AMBIENT_ALIAS_USED')
+        value.need=value.closed=value.decode_metadata=forbidden
+        sys.modules[name]=value
+if target=='consumer':
+    import consumer
+    chosen=consumer
+elif target=='current_controls':
+    import current_controls
+    chosen=current_controls
+elif target=='capture_outputs':
+    import capture_outputs
+    chosen=capture_outputs
+elif target=='ordinary_capture_outputs':
+    import ordinary_capture_outputs
+    chosen=ordinary_capture_outputs
+else:raise AssertionError('UNDECLARED_MODULE_SELECTION')
+assert Path(chosen.__file__).resolve()==root/(target+'.py')
+if mode in ('poison','strict'):
+    import capture_outputs
+    import capture_contracts
+    import strict
+    assert capture_outputs.need is capture_contracts.need
+    assert capture_outputs.closed is capture_contracts.closed
+    assert capture_outputs.decode_metadata is strict.loads
+    for raw in (b'{"x":1,"x":2}',b'{"x":0.5}',b'{"x":NaN}',b'{"x":-0}'):
+        try:capture_outputs.decode_metadata(raw)
+        except ValueError:pass
+        else:raise AssertionError('STRICT_DECODER_WEAKENED')
+    import ordinary_capture_outputs
+    import ordinary_capture_contracts
+    assert ordinary_capture_outputs.need is ordinary_capture_contracts.need
+    assert ordinary_capture_outputs.closed is ordinary_capture_contracts.closed
+    assert ordinary_capture_outputs.decode_metadata is strict.loads
+    for raw in (b'{"x":1,"x":2}',b'{"x":0.5}',b'{"x":NaN}',b'{"x":-0}'):
+        try:ordinary_capture_outputs.decode_metadata(raw)
+        except ValueError:pass
+        else:raise AssertionError('ORDINARY_STRICT_DECODER_WEAKENED')
+    scope=dict(scope='test_guard_client.mjs',count=1,definitionNames=['SYNTHETIC'])
+    result=dict(exitCode=0,reaped=True,eof=dict(stdout=True,stderr=True),fault=None,
+        groupClosure=None,groupClosureFault=None,retentionErrors=[])
+    summary=dict(scope='PRODUCER4_MOCK_FRESH_GUARD_SCHEDULER_ONLY',definitions=1,
+        executed=1,realHelperExecuted=False,realClockOrSDKObserved=False,clientRowsQualified=0)
+    raw=(json.dumps(summary)+'\\n').encode()
+    assert capture_outputs.parse_outcome(scope,result,raw,b'')['allOk'] is True
+    summary['realHelperExecuted']=True
+    try:capture_outputs.parse_outcome(scope,result,(json.dumps(summary)+'\\n').encode(),b'')
+    except ValueError:pass
+    else:raise AssertionError('OUTPUT_LIMIT_CHECK_WEAKENED')
+subject=json.loads((root/'subject.json').read_bytes())
+runtime={Path(p['path']).stem for p in subject['runtimeSources']}
+loaded={name:str(Path(value.__file__).resolve()) for name,value in list(sys.modules.items())
+    if name in runtime and getattr(value,'__file__',None)}
+assert all(Path(path)==root/(name+'.py') for name,path in loaded.items())
+if target=='consumer':assert set(loaded)==runtime
+print(json.dumps(dict(selected=target,sourceRoot=str(root),loaded=loaded,isolated=True,bytecodeDisabled=True)))
+'''
+
+
+def source_inputs():
+    subject=json.loads((HERE/'subject.json').read_bytes())
+    bodies={}
+    for descriptor in subject['sources']:
+        path=Path(descriptor['path'])
+        if path.parent!=HERE or path.stem in bodies:raise ValueError('EXACT_LOCAL_CODE_MEMBERSHIP')
+        if path.suffix=='.py':bodies[path.stem]=path.read_bytes()
+    return subject,bodies
+
+
+def import_graph(bodies, virtual_program=ISOLATED_PROGRAM):
+    """Resolve every lexical import and the preserved finite dynamic loader."""
+    trees={name:ast.parse(raw,filename=name+'.py') for name,raw in bodies.items()}
+    trees['<isolated-program>']=ast.parse(virtual_program,filename='<isolated-program>')
+    local=set(bodies);graph={name:set() for name in trees}
+    exports={}
+    for name,tree in trees.items():
+        names=set()
+        for node in tree.body:
+            if isinstance(node,(ast.FunctionDef,ast.ClassDef)):names.add(node.name)
+            elif isinstance(node,ast.Assign):
+                names|={target.id for target in node.targets if isinstance(target,ast.Name)}
+            elif isinstance(node,(ast.Import,ast.ImportFrom)):
+                names|={alias.asname or alias.name.split('.')[0] for alias in node.names}
+        exports[name]=names
+    for name,tree in trees.items():
+        for node in ast.walk(tree):
+            if isinstance(node,ast.Import):
+                requested=[(alias.name,None) for alias in node.names]
+            elif isinstance(node,ast.ImportFrom):
+                if node.level or node.module is None:raise ValueError('RELATIVE_IMPORT_REFUSED')
+                requested=[(node.module,node.names)]
+            else:requested=[]
+            for module,symbols in requested:
+                top=module.split('.')[0]
+                if top in local:
+                    if module!=top:raise ValueError('UNDECLARED_LOCAL_SUBMODULE')
+                    graph[name].add(top)
+                    if symbols is not None:
+                        for alias in symbols:
+                            if alias.name=='*' or alias.name not in exports[top]:raise ValueError('UNDECLARED_LOCAL_IMPORT_SYMBOL')
+                elif top not in sys.stdlib_module_names:raise ValueError('UNDECLARED_IMPORT:'+module)
+            if isinstance(node,ast.Call):
+                if isinstance(node.func,ast.Name) and node.func.id=='__import__':raise ValueError('UNDECLARED_DYNAMIC_IMPORT')
+                if isinstance(node.func,ast.Attribute) and node.func.attr=='import_module':
+                    if name!='whole_window':raise ValueError('UNDECLARED_DYNAMIC_IMPORT')
+                    function=next(x for x in tree.body if isinstance(x,ast.FunctionDef) and x.name=='components')
+                    calls=[x for x in ast.walk(function) if isinstance(x,ast.Call) and isinstance(x.func,ast.Attribute) and x.func.attr=='import_module']
+                    if calls!=[node] or ast.unparse(node)!='importlib.import_module(name)':raise ValueError('UNDECLARED_DYNAMIC_IMPORT')
+                    declared=next(ast.literal_eval(x.value) for x in function.body if isinstance(x,ast.Assign)
+                        and any(isinstance(t,ast.Name) and t.id=='names' for t in x.targets))
+                    if type(declared) is not tuple or not set(declared)<=local:raise ValueError('FINITE_DYNAMIC_LOCAL_MEMBERS_REQUIRED')
+                    graph[name]|=set(declared)
+    return graph
+
+
+def reachable(graph,roots):
+    seen=set();todo=list(roots)
+    while todo:
+        name=todo.pop()
+        if name in seen:continue
+        seen.add(name);todo.extend(graph[name]-seen)
+    return seen
+
+
+class DeclaredImportClosureControls(unittest.TestCase):
+    def isolated(self,root,target,mode='load',success=True):
+        self.assertEqual(Path(sys.executable).resolve(),Path(PYTHON).resolve())
+        with tempfile.TemporaryDirectory(prefix='nbdp-consumer-import-model-') as work:
+            result=subprocess.run([PYTHON,'-I','-B','-c',ISOLATED_PROGRAM,str(root),target,mode],
+                cwd=work,env=dict(PATH='/usr/bin:/bin',LANG='C.UTF-8',LC_ALL='C.UTF-8'),
+                stdin=subprocess.DEVNULL,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=15,check=False)
+        self.assertLessEqual(len(result.stdout)+len(result.stderr),65536)
+        if success:
+            self.assertEqual(result.returncode,0,result.stderr.decode('utf8','replace'))
+            self.assertEqual(result.stderr,b'')
+            value=json.loads(result.stdout);self.assertEqual(value['selected'],target)
+            self.assertTrue(value['isolated']);self.assertTrue(value['bytecodeDisabled'])
+            return value
+        self.assertNotEqual(result.returncode,0)
+        self.assertEqual(result.stdout,b'')
+        return result
+
+    def test_complete_declared_code_and_transitive_runtime_import_closure(self):
+        subject,bodies=source_inputs();graph=import_graph(bodies)
+        runtime={Path(p['path']).stem for p in subject['runtimeSources']}
+        self.assertEqual(reachable(graph,runtime),runtime)
+        self.assertEqual(reachable(graph,['consumer']),runtime)
+        self.assertEqual(graph['capture_outputs'],{'capture_contracts','strict'})
+        self.assertEqual(graph['ordinary_capture_outputs'],{'ordinary_capture_contracts','strict'})
+
+    def test_preserved_source1_capture_outputs_imports_refused_by_actual_closure_reader(self):
+        _,bodies=source_inputs()
+        inputs=json.loads((HERE.parent/'negative-inputs.json').read_bytes())
+        bodies['capture_outputs']=Path(inputs['source1CaptureOutputs']['path']).read_bytes()
+        with self.assertRaisesRegex(ValueError,'UNDECLARED_IMPORT:contracts'):import_graph(bodies)
+
+    def test_actual_isolated_consumer_loads_only_declared_current_runtime_peers(self):
+        value=self.isolated(HERE,'consumer')
+        subject,_=source_inputs()
+        self.assertEqual(set(value['loaded']),{Path(p['path']).stem for p in subject['runtimeSources']})
+
+    def test_actual_isolated_current_controls_and_capture_outputs_load_declared_peers(self):
+        for target in ('current_controls','capture_outputs'):
+            value=self.isolated(HERE,target)
+            self.assertIn(target,value['loaded']);self.assertIn('capture_contracts',value['loaded']);self.assertIn('strict',value['loaded'])
+
+    def test_poisoned_legacy_ambient_aliases_do_not_supply_real_reader_imports(self):
+        for target in ('consumer','current_controls','capture_outputs','ordinary_capture_outputs'):self.isolated(HERE,target,'poison')
+
+    def test_real_capture_outputs_preserves_strict_local_decoder_and_output_checks(self):
+        self.isolated(HERE,'capture_outputs','strict')
+
+    def test_unknown_dynamic_relative_and_local_symbol_imports_refused(self):
+        _,bodies=source_inputs()
+        for extra,reason in [('from .missing import x','RELATIVE_IMPORT_REFUSED'),
+            ('__import__("ambient")','UNDECLARED_DYNAMIC_IMPORT'),
+            ('from strict import absent_symbol','UNDECLARED_LOCAL_IMPORT_SYMBOL')]:
+            candidate=dict(bodies);candidate['capture_outputs']+=('\n'+extra+'\n').encode()
+            with self.assertRaisesRegex(ValueError,reason):import_graph(candidate)
+
+    def test_actual_isolated_preserved_source1_capture_outputs_still_exposes_original_hold(self):
+        inputs=json.loads((HERE.parent/'negative-inputs.json').read_bytes())
+        root=Path(inputs['source1CaptureOutputs']['path']).parent
+        result=self.isolated(root,'capture_outputs',success=False)
+        self.assertIn(b"ModuleNotFoundError: No module named 'contracts'",result.stderr)
+
+
+if __name__=='__main__':unittest.main()

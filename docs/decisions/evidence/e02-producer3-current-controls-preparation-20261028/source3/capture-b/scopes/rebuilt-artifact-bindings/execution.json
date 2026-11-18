@@ -1,0 +1,72 @@
+{
+  "schema": "e02-producer3-pure-scope-execution-v1",
+  "actor": "/root/producer3_capture",
+  "parentCoordinator": "/root",
+  "argv": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/test_producer3_bindings.py"
+  ],
+  "cwd": "/home/peterhorvath/apps/bitcoin/NBDP",
+  "expectedCount": 3,
+  "startedUtc": "2026-10-28T02:25:37.713947+00:00",
+  "startedUtcMeaning": "SCOPE_START_BEFORE_INPUT_SNAPSHOT",
+  "childStartedUtc": "2026-10-28T02:25:52.346942+00:00",
+  "elapsedMeaning": "CHILD_LAUNCH_BRACKET_THROUGH_COMMUNICATE_OR_OWNED_REAP_EXCLUDES_BEFORE_SNAPSHOT",
+  "timeoutSeconds": 60,
+  "retentionBytes": {
+    "stdout": 1048576,
+    "stderr": 262144
+  },
+  "retentionMeaning": "POST_CAPTURE_FILE_PREFIX_LIMIT_NOT_STREAMING_MEMORY_CAP",
+  "pid": 149186,
+  "exitCode": 0,
+  "signal": null,
+  "reaped": true,
+  "naturalExit": true,
+  "stdoutEOF": true,
+  "stderrEOF": true,
+  "forceRequested": false,
+  "forceReason": null,
+  "firstError": null,
+  "secondaryErrors": [],
+  "sourceUnchanged": true,
+  "observedCount": 3,
+  "countAndOutputShapeMatched": true,
+  "captureMatched": true,
+  "controlResultAcceptedByAuthor": false,
+  "independentResultReview": "PENDING_ACTUAL_OTHER_AGENTS",
+  "environment": {
+    "PATH": "/usr/bin:/bin",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8",
+    "TMPDIR": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-b/scopes/rebuilt-artifact-bindings/tmp"
+  },
+  "finishedUtc": "2026-10-28T02:26:38.286187+00:00",
+  "elapsedNanoseconds": 45939243522,
+  "observedStreamBytes": {
+    "stdout": 0,
+    "stderr": 102
+  },
+  "truncated": {
+    "stdout": false,
+    "stderr": false
+  },
+  "stdout": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-b/scopes/rebuilt-artifact-bindings/data.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3/capture-b/scopes/rebuilt-artifact-bindings/data.stderr",
+    "bytes": 102,
+    "sha256": "2ccef6641b30414514d1856c624792876280604a1b2d21d69a1a52e43b1bd0e6"
+  },
+  "observedPartitions": {
+    "rebuilt-artifact-bindings": 3
+  },
+  "state": "WRITES_STOPPED",
+  "result": "SCOPED_DATA_CAPTURE_MATCHED_PENDING_INDEPENDENT_REVIEW",
+  "meaning": "Synthetic DATA/model and fixed-public NIP19 encoding/checksum/hash metadata only; no actual guard/network/primary/consumer/runtime/NIP44/sign/encrypt/decrypt/native/client execution or external/canonicalPASS, SDK or experiment authority."
+}

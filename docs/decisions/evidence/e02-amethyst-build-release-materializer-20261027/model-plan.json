@@ -1,0 +1,39 @@
+{
+  "schema": "nbdp-amethyst-dispatch-materializer-model-plan-v1",
+  "source": {
+    "path": "/tmp/nbdp-amethyst-build-release-materializer-20261027/test_materializer.py",
+    "bytes": 4651,
+    "sha256": "a5fdaa78d299256427506ed3207375ec19ffc9e65f30779c050260ba0641772a"
+  },
+  "definitions": [
+    "DispatchModels.test_template_shape_only_never_authenticates_origin",
+    "DispatchModels.test_only_two_clock_fields_change_exact2400_seconds",
+    "DispatchModels.test_wrong_clock_domains_refused",
+    "DispatchModels.test_wrong_scope_refused",
+    "DispatchModels.test_nonroot_authority_refused",
+    "DispatchModels.test_not_ready_template_refused",
+    "DispatchModels.test_unaccepted_missing_metadata_refused",
+    "DispatchModels.test_arbitrary_exec_field_refused",
+    "DispatchModels.test_foreign_supervisor_target_refused",
+    "DispatchModels.test_foreign_output_or_runid_refused",
+    "DispatchModels.test_existing_clock_or_budget_edit_refused",
+    "DispatchModels.test_duplicate_and_lossy_json_refused",
+    "DispatchModels.test_one_use_writer_refuses_second_without_overwrite",
+    "DispatchModels.test_template_pinned_bytes_then_drift_refused"
+  ],
+  "definedCount": 14,
+  "executed": 0,
+  "command": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/tmp/nbdp-amethyst-build-release-materializer-20261027/test_materializer.py"
+  ],
+  "limits": {
+    "seconds": 30,
+    "stdoutBytes": 65536,
+    "stderrBytes": 262144
+  },
+  "scope": "Synthetic template/time and owned tempfile pin/O_EXCL DATA only, no real grant or supervisor import/exec",
+  "requires": "Actual independent SOURCE review and separate bounded root-released capture"
+}

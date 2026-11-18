@@ -1,0 +1,84 @@
+{
+  "schema": "e02-producer4-source4-terminal-alias-audit-v1",
+  "author": "/root/producer4_nonblocking_source",
+  "scope": "Known terminal fault callback ordering only; unchanged originalcore/clocks/capture/criteria",
+  "aliases": [
+    {
+      "alias": "exchange socket error/close",
+      "files": "exchange.mjs",
+      "order": "finish(error) \u2192 fault.claim before clock/phase/outcome; complete negative cleanup once"
+    },
+    {
+      "alias": "exchange send callback/error/throw",
+      "files": "exchange.mjs",
+      "order": "active(incomingFault) \u2192 finish before callback observation; thrown guarded effects claim owner via core.onFatal first"
+    },
+    {
+      "alias": "exchange timeout",
+      "files": "exchange.mjs",
+      "order": "finish(RELAY_TIMEOUT) claims before TIMER_FIRED/EXCHANGE_REJECTED"
+    },
+    {
+      "alias": "proxy APP/RELAY/pending APP error",
+      "files": "fixture.mjs +proxy-observer.mjs",
+      "order": "shared createProxySocketErrorBoundary claims original and owner.cancel before terminal denial observation"
+    },
+    {
+      "alias": "proxy upstream/app send error",
+      "files": "fixture.mjs +proxy-observer.mjs",
+      "order": "callback incomingFault \u2192 fatal/service bridge before success callback phase"
+    },
+    {
+      "alias": "control CLI error/timeout/parse",
+      "files": "fixture.mjs",
+      "order": "owner.cancel before socket destroy/retention; no known original error observed after capture"
+    },
+    {
+      "alias": "service control-server error",
+      "files": "fixture.mjs",
+      "order": "direct fatal/service bridge before retention"
+    },
+    {
+      "alias": "guard denial/deadline/protocol",
+      "files": "guard-client-core.mjs",
+      "order": "onFatal claims global service owner before GUARD_TERMINAL retention; pending rejected first"
+    },
+    {
+      "alias": "helper child/stdin error",
+      "files": "guard-client.mjs",
+      "order": "direct bad(original) before retention"
+    },
+    {
+      "alias": "helper stderr/unexpected stdout EOF/nonzero exit/invalid close",
+      "files": "guard-client.mjs +guard-transport-boundaries.mjs",
+      "order": "retainAfterFailure bad(original) before diagnostic; retention errors call bad only as secondary; no reset of original"
+    },
+    {
+      "alias": "expected normal EOF/no known original fault",
+      "files": "guard-client.mjs",
+      "order": "fallible observation can be first fault; no retrospective reordering of unknown faults"
+    }
+  ],
+  "newProductionRegressions": {
+    "exchangeAliases4TimesSinks3": 12,
+    "helperGuardControlAliases6TimesSinks3": 18,
+    "existingProxyAPPRelayTimesSinks3": 6,
+    "registeredOversizeControlSinks3": 3
+  },
+  "sourceOnly": true,
+  "modelsExecuted": 0,
+  "helperExecutions": 0,
+  "roleExecutions": 0,
+  "weakSource3LabelOnlyRowsSuperseded": true,
+  "actualRegisteredPaths": {
+    "stderr": "registerHelperTerminalCallbacks \u2192 child.stderr data \u2192 observeStderr",
+    "unexpectedEOF": "registered child.stdout end with endedfalse",
+    "nonzeroExit": "registered child exit(code1,null)",
+    "invalidClose": "registered child close(code1,null) missingnaturalEOF",
+    "coreDENY": "actual createGuardClient.response okfalse",
+    "controlError": "registered service socket error \u2192 actual bridge claim",
+    "controlOversize": "registered service socket data1025bytes \u2192 original CONTROL_REQUEST_BOUND claim before throwingdestroy"
+  },
+  "retentionSecondaries": "Actualcore guard-terminal-retention getter and registeredhelper state.secondaryErrors (eachbounded64 closedrows) are collected in fatal final observer, sameexistingproofbudget. No extra proof allowance.",
+  "coverageLimit": "Source definitions only; registered fakes are not livehelper/clock/SDK/client evidence."
+}

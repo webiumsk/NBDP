@@ -1,0 +1,30 @@
+{
+  "recordedBy": "/root",
+  "reviewer": "/root/r4_security",
+  "decision": "ACCEPT_R5_FAILED_BUILD_SOURCE_INPUT_PRIVACY_AND_EXACT_CID_CLEANUP_ONLY",
+  "controller": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/actual-controller/result.json",
+    "bytes": 1263,
+    "sha256": "92f3c9818349e519f8305219c04f7937002aab01dbdd621b3a0d2ab2c44a9600"
+  },
+  "postcheck": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/post-checks-r2/result.json",
+    "bytes": 1036,
+    "sha256": "e0d081f4da9819b793f13a64233ea1b6e8b334dbda2245e0f62fee27d1fd666f"
+  },
+  "copyManifest": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-r5-actual-20261027/actual-copy-manifest.json",
+    "bytes": 32028,
+    "sha256": "fea20f5006849f2098b0d8aa6d6319120d06d6dc2ed86ea7c473adcd0568d53e"
+  },
+  "findings": [
+    {
+      "severity": "MEDIUM",
+      "category": "AVAILABILITY",
+      "finding": "Artifact build failed with timeout124 and DockerOOMKilledtrue; no accepted APK. Affected process/effective Kotlin heap and OOM causal chain not established."
+    }
+  ],
+  "verified": "51 exact origin/copy pairs;11CLI/exactownedidentity/absence;11085original rows unchanged in38242 after rows with no unplanned outputs; acceptedR2post145.889seconds natural0/fullSDK/JDK/archive/evidence checks;knownprivatekey regularUID1000mode600 descriptoronly/no bytesexport",
+  "limits": "Negative DATA only. Preserve compiler/AGP warnings and namespace SOURCE finding. Gradleheap log proves its own options only; pointstats not peak. No new grant or qualification.",
+  "provenance": "Faithful coordinator transcription of actual independent mailbox DATA decision; reviewer did not rerun experiments or builds"
+}

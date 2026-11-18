@@ -1,0 +1,24 @@
+--- /Data/nbdp-e02-tooling-20261027/producer-controls-preparation-r3-source3/prepare-final-source.py	2026-10-28 02:52:09.517047504 +0100
++++ /Data/nbdp-e02-tooling-20261027/producer-controls-preparation-r3-source4/prepare-final-source.py	2026-10-28 03:40:21.466434262 +0100
+@@ -9,8 +9,8 @@
+ import runpy
+ 
+ ROOT=Path('/home/peterhorvath/apps/bitcoin/NBDP')
+-DATA=Path('/Data/nbdp-e02-tooling-20261027/producer-controls-preparation-r3-source3')
+-OUT=ROOT/'docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source3'
++DATA=Path('/Data/nbdp-e02-tooling-20261027/producer-controls-preparation-r3-source4')
++OUT=ROOT/'docs/decisions/evidence/e02-producer3-current-controls-preparation-20261028/source4'
+ PREP=ROOT/'docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/source2'
+ 
+ 
+@@ -29,6 +29,10 @@
+     old_node_plan=ROOT/'docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/control-plan.json'
+     canonical=load(ROOT/'experiments/results/E01.json')['source_sha256']
+     extras=[producer_acceptance,contract,pin(old_node_plan),pin(subject['sourceDataInputClosure']['path'])]
++    extras.extend([pin(ROOT/'docs/decisions/evidence/e02-producer3-data-contract-20261028/model-subject-contract.json'),
++        pin(OUT/'negative-invocation-disposition.json'),pin(OUT/'preserved-source3-all-files.sha256'),
++        pin(OUT/'source-equivalence.json'),pin(DATA/'compare-source.py'),
++        pin(DATA/'request-from-plan.py'),pin(OUT/'request-from-plan.py')])
+     for base in (DATA,OUT):
+         for name in ('capture-template.py','assemble-source-only.py','test_admission_models.py'):
+             extras.append(pin(base/name))

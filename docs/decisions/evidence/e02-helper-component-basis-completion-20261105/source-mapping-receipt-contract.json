@@ -1,0 +1,168 @@
+{
+  "schema": "e02-root-helper-component-source-mapping-verification-contract-v1",
+  "actor": "/root",
+  "state": "INTERNAL_SOURCE_GOVERNANCE_CONTRACT_NOT_ISSUED_MAPPING_RECEIPT",
+  "receipt": {
+    "exactKeys": [
+      "schema",
+      "actor",
+      "decision",
+      "scope",
+      "subject",
+      "preparationResult",
+      "preparationSpec",
+      "methodSource",
+      "methodSourceAcceptance",
+      "execution",
+      "originalToolOrigin",
+      "reviews",
+      "actualS18M4Verified",
+      "runtimeAuthorized",
+      "executionAuthorized"
+    ],
+    "literals": {
+      "schema": "e02-root-helper-component-source-mapping-verification-v1",
+      "actor": "/root",
+      "decision": "ACCEPT_COMPLETED_HELPER_COMPONENT_SOURCE_MAPPING_ONLY",
+      "scope": "SOURCE_COMPONENT_EQUALITY_ONLY_NO_ACTUAL_HELPER_REVALIDATION_OR_RUNTIME",
+      "actualS18M4Verified": false,
+      "runtimeAuthorized": false,
+      "executionAuthorized": false
+    },
+    "pinKeys": [
+      "subject",
+      "preparationResult",
+      "preparationSpec",
+      "methodSource",
+      "methodSourceAcceptance",
+      "execution",
+      "originalToolOrigin"
+    ],
+    "subject": "Exact genuine completed16 Source-basis pin, external to receipt and prior method Code.",
+    "reviews": "Ordered two exact raw QA/security verdict pins targeting preparationResult, not future basis."
+  },
+  "reviewEnvelope": {
+    "exactKeys": [
+      "role",
+      "session",
+      "decision",
+      "subject"
+    ],
+    "roles": [
+      "qa",
+      "security"
+    ],
+    "decision": "ACCEPT_HELPER_COMPONENT_SOURCE_MAPPING_PREPARATION_ONLY",
+    "subject": "Exact genuine unissued Source preparationResult pin.",
+    "independence": "Distinct actual reviewer sessions outside full authenticated Root75/method author/operator union."
+  },
+  "execution": {
+    "exactKeys": [
+      "schema",
+      "operator",
+      "request",
+      "preparationSpec",
+      "methodSource",
+      "stdout",
+      "stderr",
+      "originalToolOrigin",
+      "exitCode"
+    ],
+    "literals": {
+      "schema": "e02-helper-component-source-preparation-execution-v1",
+      "operator": "/root",
+      "exitCode": 0
+    },
+    "request": "Whole unchanged actual5-field tools.exec_command dictionary; exact reviewed CLI bytes/hash args and output paths.",
+    "stdout": "Exactly receipt.preparationResult; full UTF8 JSON file.",
+    "stderr": "Exact pin of complete zero-byte stderr.",
+    "origin": "Complete unchanged actual launch/all same-session empty polls/natural0; typed duration floats only in native origin parser. No invented inner PID/reap/EOF."
+  },
+  "approvedMethod": {
+    "code": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-component-basis-completion-20261105/source3/code-subject.json",
+      "bytes": 1913,
+      "sha256": "da9a85ff38ecc065a86a84a3cb110e0a7025777111bfb946ed04abf57d1acb5e"
+    },
+    "sourceAcceptance": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-helper-component-basis-completion-20261105/review-source3/acceptance.json",
+      "bytes": 1211,
+      "sha256": "df75fa9d8291137fe9a1167aa8bd8b9efc4ebf708ddb37913334b471d4e48a15"
+    },
+    "sourceAcceptanceSchema": "e02-root-helper-component-basis-preparation-source-acceptance-v1",
+    "sourceAcceptanceDecision": "ACCEPT_HELPER_COMPONENT_BASIS_PREPARATION_SOURCE_ONLY",
+    "sourceAcceptanceExactKeys": [
+      "schema",
+      "actor",
+      "decision",
+      "subject",
+      "reviews",
+      "modelsDefined",
+      "sourceMappingExecutions",
+      "completedBasisIssued",
+      "scope",
+      "executionAuthorized"
+    ],
+    "sourceReviewDecision": "ACCEPT_HELPER_COMPONENT_BASIS_PREPARATION_SOURCE_ONLY"
+  },
+  "preparationResult": {
+    "schema": "e02-helper-component-basis-source-preparation-result-v1",
+    "required": {
+      "state": "UNISSUED_SOURCE_MAPPING_PREPARATION_ONLY",
+      "basisIssued": false,
+      "completedBasis": null,
+      "sourceMappingMetadataVerified": true,
+      "actualS18M4Verified": false,
+      "executionAuthorized": false,
+      "rootIssuanceRequired": true,
+      "prospectiveCompletedStateUsedOnlyInMemory": true
+    },
+    "facts": "sourceVerification must equal draftBasis.sourceVerification and actual freshly recomputed facts."
+  },
+  "completedBasisTransformation": {
+    "changedKeys": [
+      "issued",
+      "readiness",
+      "state"
+    ],
+    "fromValues": {
+      "issued": false,
+      "readiness": false,
+      "state": "UNISSUED_SOURCE_MAPPING_PREPARATION_ONLY"
+    },
+    "toValues": {
+      "issued": true,
+      "readiness": true,
+      "state": "COMPLETED_SOURCE_COMPONENT_BASIS_ONLY"
+    },
+    "allOtherValuesMustRemainExactlyEqual": true,
+    "priorDesignReferences": "sourceReviews/rootDisposition remain exact original design reviews/eeea acceptance; never new receipt or future consumerSource."
+  },
+  "consumerAdmissionRequirements": [
+    "basisVerificationEvidence is exactly [receiptPin], not an arbitrary JSON list.",
+    "Validate all15 receipt keys/literals and exact raw pin joins for actual basis/result/spec/method/Sourceacceptance/execution/origin/reviews.",
+    "Validate exact Source method acceptance10 and independent Code reviews; method Code only6 source members and all expected pins/modes.",
+    "Require actualRoot preparationSpec issuedtrue/executionfalse/current ordinary10/helperRoot85c6/f80/callerv2 and known Source-only scope.",
+    "Parse full original native origin under honest duration-float paths; bind actual5 request/CLI spec and Code descriptors, stdout=result, empty stderr and naturalterminal0.",
+    "Reconstruct completed16 by changing only3 selected values in actualresult.draftBasis; exact equal to admitted actualbasis.",
+    "Load unchanged trusted frozen validate_component_basis through verified finite Source-code loader; call it through Source-only finite reader then recheck. No actual65/old774/F body reads.",
+    "Require eight exact ordered sourcePairs/modes, complete freshly recomputed Source verification/import/environment declarations and exact actor union.",
+    "All Source read entry paths reject7current operational/F identities plus2old774opaque identities before stat/open; keep2original expected rows opaque and outside readcaplist.",
+    "Refuse arbitraryJSON/missing/wrongreview/subject/decision/session, alteredpairs/facts/modes/actorclosure, changedspec/method/origin, nonterminal execution, extra transformation, ownreceipt/basis/consumer cycle."
+  ],
+  "phaseOrder": [
+    "Accepted method Source3 Code",
+    "Concrete Root metadata-only spec/workflow review and one Root preparation dispatch",
+    "Save genuine result/execution/origin",
+    "Independent actual Source-facts QA/security reviews",
+    "Root exact3-value completed16 issuance",
+    "External15-key receipt",
+    "FinalconsumerSource freeze and independentSource/Data gates"
+  ],
+  "limitations": [
+    "Source mapping only, not S18/M4/Host proof verification/live guest/host environment or every522guardmember.",
+    "Original accepted helper d422/266/R10 remains separate from ordinary acbd/286.",
+    "No new NIP/eventkind/wire architecture, SDK/runtime/ordinary/deploy/merge/blocker closure."
+  ],
+  "executionAuthorized": false
+}

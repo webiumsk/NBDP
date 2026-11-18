@@ -1,0 +1,63 @@
+{
+  "schema": "nbdp-sdk-restoration-source2-placement-control-plan-v1",
+  "scope": "PURE_FAKE_OPERATION_STATE_AND_FAILURE_RECEIPT_MODELS_ONLY",
+  "definedCount": 17,
+  "definedNames": [
+    "test_pre_rename_deadline_failure_records_not_attempted",
+    "test_pre_rename_symbol_load_failure_records_not_attempted",
+    "test_known_eexist_refusal_records_no_placement_not_destination_absence",
+    "test_known_permission_refusal_records_no_placement",
+    "test_post_rename_open_failure_preserves_known_placement_in_failure_receipt",
+    "test_post_rename_inode_check_failure_preserves_placement",
+    "test_post_rename_fd_close_failure_preserves_placement",
+    "test_post_rename_fsync_failure_preserves_placement",
+    "test_post_rename_deadline_failure_preserves_placement",
+    "test_post_rename_free_space_failure_preserves_placement",
+    "test_interrupted_call_after_fake_effect_records_unknown_not_false",
+    "test_interrupted_call_without_known_effect_also_records_unknown",
+    "test_ambiguous_eio_return_records_unknown",
+    "test_ambiguous_eintr_return_records_unknown",
+    "test_unrecognized_return_records_unknown",
+    "test_interrupt_after_observed_success_preserves_known_placement",
+    "test_success_state_and_result_receipt_record_placed"
+  ],
+  "executed": 0,
+  "source": {
+    "path": "/tmp/nbdp-sdk-restoration-20261026-r2/test_placement_models.py",
+    "bytes": 9697,
+    "sha256": "d6eee0c529fd29389e8f0c11b39cff1f1ac93761bdc33aa3f5f0ce26b7fcfc05"
+  },
+  "interpreter": {
+    "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "bytes": 32959480,
+    "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+  },
+  "proposedCommand": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/tmp/nbdp-sdk-restoration-20261026-r2/test_placement_models.py"
+  ],
+  "bounds": {
+    "maximumSeconds": 30,
+    "maximumStdoutBytes": 65536,
+    "maximumStderrBytes": 262144
+  },
+  "fakeOperations": [
+    "libc renameat2/load/get_errno",
+    "os.open/fstat/close/fsync",
+    "deadline/free-space check",
+    "signal.setitimer",
+    "initialization/inventory/receipt/hash_file"
+  ],
+  "productionMethodsExercised": [
+    "Restore.publish",
+    "Restore.run",
+    "Restore.placement"
+  ],
+  "limits": [
+    "No real download/extraction/placement/filesystem/tree/hash/modelled SDK result may qualify SDK434 or runtime.",
+    "The run state model uses an empty fake file inventory solely to reach placement/failure-receipt wiring; acquisition main retains exact434 validation.",
+    "Actual independent SOURCE review and separate root release required; author cannot accept own controls."
+  ]
+}

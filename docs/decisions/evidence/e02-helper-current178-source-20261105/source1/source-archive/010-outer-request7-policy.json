@@ -1,0 +1,77 @@
+{
+  "schema": "e02-current-controller-operational-host7-request-policy-v1",
+  "author": "/root/controller_current_source_r9",
+  "requestFamily": "HOST7",
+  "closedRequestKeys": [
+    "cmd",
+    "workdir",
+    "login",
+    "yield_time_ms",
+    "max_output_tokens",
+    "sandbox_permissions",
+    "justification"
+  ],
+  "fieldTypes": {
+    "cmd": "str",
+    "workdir": "str",
+    "login": "bool_false",
+    "yield_time_ms": "positive_plain_int",
+    "max_output_tokens": "positive_plain_int",
+    "sandbox_permissions": "str",
+    "justification": "str"
+  },
+  "exactFields": {
+    "workdir": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r10",
+    "login": false,
+    "yield_time_ms": 1000,
+    "max_output_tokens": 2000,
+    "sandbox_permissions": "require_escalated",
+    "justification": "M\u00f4\u017eem raz vykona\u0165 prijat\u00fd izolovan\u00fd E02 helper probe s aktu\u00e1lnou jednorazovou Root release, p\u00f4vodn\u00fdmi limitmi a \u00faplnou evidenciou? Bez opakovania, SDK a be\u017en\u00fdch klientov."
+  },
+  "cmdRule": "Only canonical full command derived from current outerTokens plus actual plan/release paths/hashes; no reconstruction of a received actual request.",
+  "outerTokens": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r10/outer-tokens-skeleton.json",
+    "bytes": 603,
+    "sha256": "db9380e7f7dca475a526f527ce06ae0f9b51e2fd2b33f2786ec8a63fec1cde6d"
+  },
+  "requestSkeleton": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r10/outer-request7-skeleton.json",
+    "bytes": 482,
+    "sha256": "ccb4283d2be673f10a6e4e85376f802f8fe9be89b7e3fb1cf109213606f5e533"
+  },
+  "historicalHost5": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-controller-preparation-r1/outer-request-skeleton.json",
+    "bytes": 109,
+    "sha256": "f02d1c54bdad288d448638b03daf309deca1f6d9f2eb0d5a77b8554a62e7d3db"
+  },
+  "separateModelFamily": {
+    "name": "MODEL5",
+    "keys": [
+      "cmd",
+      "workdir",
+      "login",
+      "yield_time_ms",
+      "max_output_tokens"
+    ],
+    "policy": "Preserve actual whole default-policy model request; no blanket operational7 extension."
+  },
+  "historicalModel5Original": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-controller-r8-model168-actual-20261029/01-exact-request.json",
+    "bytes": 438,
+    "sha256": "8593cf1d5949bc44dc543f2e43eaa8e4af77cdc3a6b6b1079f07fe50bd62161c"
+  },
+  "separateCollectorFamily": {
+    "name": "COLLECTOR7",
+    "qualifier": {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-collector-current-policy-20261105/source2/source/qualification.py",
+      "bytes": 12061,
+      "sha256": "ec585d26a36cc2ba0e5b5d642e7d2186b695fcaa7a89e37091dca1f4f81b4319"
+    },
+    "policy": "Collector-specific exact current Source2 reader, never a universal Host/model decoder."
+  },
+  "policyMetadataNeverEntersDockerArgvOrEnv": true,
+  "actualRequest": null,
+  "actualPlan": null,
+  "actualRelease": null,
+  "executionAuthorized": false
+}

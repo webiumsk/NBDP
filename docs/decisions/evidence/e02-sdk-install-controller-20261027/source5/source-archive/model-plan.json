@@ -1,0 +1,32 @@
+{
+  "schema": "nbdp-scoped-sdk-install-controller-model-plan-v1",
+  "source": {
+    "path": "/Data/nbdp-e02-tooling-20261027/controller-r5/test_controller_interfaces.py",
+    "bytes": 6753,
+    "sha256": "d5bc5227f4b80973cd1c1b0c5190ec5d24721f15bbf62cc897d4ac165223c6ec"
+  },
+  "definitions": [
+    "test_exact_created_identity_and_scoped_command",
+    "test_readonly_inputs_and_fresh_sdk_mounts_cannot_drift",
+    "test_install_resource_and_large_archive_file_caps_are_exact",
+    "test_foreign_identity_labels_and_device_requests_are_refused",
+    "test_network_full_id_labels_and_foreign_member_refuse",
+    "test_mutation_never_calls_cli_after_unknown_identity",
+    "test_inner_success_requires_exact_packages_and_honest_consent",
+    "test_root_lease_cannot_extend_or_use_boolean_clock"
+  ],
+  "definedCount": 8,
+  "executed": 0,
+  "command": [
+    "/usr/bin/python3.12",
+    "-I",
+    "-B",
+    "/Data/nbdp-e02-tooling-20261027/controller-r5/test_controller_interfaces.py"
+  ],
+  "limits": {
+    "seconds": 15,
+    "stdoutBytes": 65536,
+    "stderrBytes": 262144
+  },
+  "scope": "Pure synthetic plan/inspect/result/clock values and fake callbacks only; no Docker, source filesystem snapshots, JVM, SDKmanager, network, consent or installation"
+}

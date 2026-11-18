@@ -1,0 +1,148 @@
+{
+  "schema": "e02-current-unittest-model-execution-summary-v1",
+  "operator": "/root",
+  "source": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/capture/code-subject.json",
+    "bytes": 8987,
+    "sha256": "1a2bfdc92a68270d0712d7ad0f2107d407847c633d78869cdb0ed09bd343a719"
+  },
+  "sourceAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-review-20261105/acceptance.json",
+    "bytes": 1403,
+    "sha256": "4c162f496912bcd9b8b96ca4f4468306265ca6d51a0d879825693067930ea762"
+  },
+  "controlPlan": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/capture/admission-plan.json",
+    "bytes": 3751,
+    "sha256": "3c954e944200c991c97d9680f9c32477aaf1c4faf6eca4141bf72dc5d0afb388"
+  },
+  "rootRelease": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-capture-admission33-model-20261105/root-release.json",
+    "bytes": 6273,
+    "sha256": "76dc2504027a0240b1377aec3025cd50bb1b8da8afba3382f781282d58c70167"
+  },
+  "argvRequest": {
+    "cmd": "set -C\numask 077\nexec /usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 TZ=UTC /usr/bin/timeout --signal=TERM --kill-after=2s 60s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/capture/test_admission.py > /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-capture-admission33-model-20261105/stdout.log 2> /home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-capture-admission33-model-20261105/stderr.log",
+    "workdir": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-20261105/source1/capture",
+    "login": false,
+    "yield_time_ms": 1000,
+    "max_output_tokens": 2000
+  },
+  "originalToolOrigin": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-capture-admission33-model-20261105/actual-tool-custody.json",
+    "bytes": 1155,
+    "sha256": "b241dfa2eebff797b3f8bd6192e443ad1550cb4f68cd4d2baa3c616728d82981"
+  },
+  "observedPlatformRecord": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-capture-admission33-model-20261105/original-tool-origin.json",
+    "bytes": 1091,
+    "sha256": "f3e5b530bb621b636841a3b7fb5011995195f6ec8f863fba917be6511368e930"
+  },
+  "stdout": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-capture-admission33-model-20261105/stdout.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stderr": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-capture-admission33-model-20261105/stderr.log",
+    "bytes": 5320,
+    "sha256": "e3ef79f477488ab34764e1a9dcedf4845f2f8d5d2a487a8a390d5c13beba22d0"
+  },
+  "modelsDefined": 33,
+  "modelsExecuted": 33,
+  "modelsPassed": 33,
+  "modelsFailed": 0,
+  "skipped": 0,
+  "truncated": false,
+  "outerExitCode": 0,
+  "actualCaseOrder": [
+    "AdmissionDefinitions.test_actual7_direct_and_yielded_argument_types_refuse_python_aliases",
+    "AdmissionDefinitions.test_actual7_direct_and_yielded_keep_both_policy_fields",
+    "AdmissionDefinitions.test_actual7_extra_shell_tty_prefix_and_unknown_fields_refused",
+    "AdmissionDefinitions.test_actual7_missing_or_changed_policy_is_not_projected_to_five",
+    "AdmissionDefinitions.test_actual7_quoted_sha_is_refused_even_when_shell_argv_equal",
+    "AdmissionDefinitions.test_actual_request_from_plan_serializes_full_actual7_dictionary",
+    "AdmissionDefinitions.test_canonical_request_and_origin_checks_leave_original_objects_unchanged",
+    "AdmissionDefinitions.test_each_eleven_known_helpers_rejected_in_each_six_review_slots",
+    "AdmissionDefinitions.test_exact_allocation29_schema_and_mutations",
+    "AdmissionDefinitions.test_exact_controller16_schema_and_mutations",
+    "AdmissionDefinitions.test_exact_decisions_counts_and_source_subject",
+    "AdmissionDefinitions.test_exact_five_key_direct_and_same_session_original_api",
+    "AdmissionDefinitions.test_exact_guard123_schema_and_mutations",
+    "AdmissionDefinitions.test_exact_observation20_schema_and_mutations",
+    "AdmissionDefinitions.test_exact_registered_transport33_schema_and_mutations",
+    "AdmissionDefinitions.test_execute_retention_first_cause_and_post_snapshot_secondary",
+    "AdmissionDefinitions.test_execute_timeout_first_cause_and_post_snapshot_secondary",
+    "AdmissionDefinitions.test_expected_authority_coverage_cannot_dangle_or_reintroduce_removed_read",
+    "AdmissionDefinitions.test_expected_authority_duplicate_path_conflict_and_removed_alias_refused",
+    "AdmissionDefinitions.test_expected_authority_exact2169_projection_and_membership_preserved",
+    "AdmissionDefinitions.test_expected_hash_before_read_result_not_self_certified_baseline",
+    "AdmissionDefinitions.test_full_union_closed_before_first_review_pair",
+    "AdmissionDefinitions.test_missing_required_actor_authority_schema_and_context_refused",
+    "AdmissionDefinitions.test_mock_complete_contract_and_overlay_model_cwd",
+    "AdmissionDefinitions.test_null_unknown_and_predecessor_source_refused",
+    "AdmissionDefinitions.test_one_absolute_reap_deadline_and_fault_signal_before_reap",
+    "AdmissionDefinitions.test_poll_session_yield_token_and_chars_keep_declared_json_types",
+    "AdmissionDefinitions.test_selector_failure_never_spawns_and_shortprefix_never_repairs",
+    "AdmissionDefinitions.test_shared_snapshot480_and_full_child60_plus3_admission",
+    "AdmissionDefinitions.test_source_parser_extra_keys_wrong_count_skip_and_missing_eof",
+    "AdmissionDefinitions.test_swapped_scope_file_count_missing_input_and_wrong_clocks",
+    "AdmissionDefinitions.test_terminal_exit_and_response_session_refuse_bool_float_aliases",
+    "AdmissionDefinitions.test_unbound_entry_refuses_before_any_target_metadata"
+  ],
+  "actualUnittestIds": [
+    "__main__.AdmissionDefinitions.test_actual7_direct_and_yielded_argument_types_refuse_python_aliases",
+    "__main__.AdmissionDefinitions.test_actual7_direct_and_yielded_keep_both_policy_fields",
+    "__main__.AdmissionDefinitions.test_actual7_extra_shell_tty_prefix_and_unknown_fields_refused",
+    "__main__.AdmissionDefinitions.test_actual7_missing_or_changed_policy_is_not_projected_to_five",
+    "__main__.AdmissionDefinitions.test_actual7_quoted_sha_is_refused_even_when_shell_argv_equal",
+    "__main__.AdmissionDefinitions.test_actual_request_from_plan_serializes_full_actual7_dictionary",
+    "__main__.AdmissionDefinitions.test_canonical_request_and_origin_checks_leave_original_objects_unchanged",
+    "__main__.AdmissionDefinitions.test_each_eleven_known_helpers_rejected_in_each_six_review_slots",
+    "__main__.AdmissionDefinitions.test_exact_allocation29_schema_and_mutations",
+    "__main__.AdmissionDefinitions.test_exact_controller16_schema_and_mutations",
+    "__main__.AdmissionDefinitions.test_exact_decisions_counts_and_source_subject",
+    "__main__.AdmissionDefinitions.test_exact_five_key_direct_and_same_session_original_api",
+    "__main__.AdmissionDefinitions.test_exact_guard123_schema_and_mutations",
+    "__main__.AdmissionDefinitions.test_exact_observation20_schema_and_mutations",
+    "__main__.AdmissionDefinitions.test_exact_registered_transport33_schema_and_mutations",
+    "__main__.AdmissionDefinitions.test_execute_retention_first_cause_and_post_snapshot_secondary",
+    "__main__.AdmissionDefinitions.test_execute_timeout_first_cause_and_post_snapshot_secondary",
+    "__main__.AdmissionDefinitions.test_expected_authority_coverage_cannot_dangle_or_reintroduce_removed_read",
+    "__main__.AdmissionDefinitions.test_expected_authority_duplicate_path_conflict_and_removed_alias_refused",
+    "__main__.AdmissionDefinitions.test_expected_authority_exact2169_projection_and_membership_preserved",
+    "__main__.AdmissionDefinitions.test_expected_hash_before_read_result_not_self_certified_baseline",
+    "__main__.AdmissionDefinitions.test_full_union_closed_before_first_review_pair",
+    "__main__.AdmissionDefinitions.test_missing_required_actor_authority_schema_and_context_refused",
+    "__main__.AdmissionDefinitions.test_mock_complete_contract_and_overlay_model_cwd",
+    "__main__.AdmissionDefinitions.test_null_unknown_and_predecessor_source_refused",
+    "__main__.AdmissionDefinitions.test_one_absolute_reap_deadline_and_fault_signal_before_reap",
+    "__main__.AdmissionDefinitions.test_poll_session_yield_token_and_chars_keep_declared_json_types",
+    "__main__.AdmissionDefinitions.test_selector_failure_never_spawns_and_shortprefix_never_repairs",
+    "__main__.AdmissionDefinitions.test_shared_snapshot480_and_full_child60_plus3_admission",
+    "__main__.AdmissionDefinitions.test_source_parser_extra_keys_wrong_count_skip_and_missing_eof",
+    "__main__.AdmissionDefinitions.test_swapped_scope_file_count_missing_input_and_wrong_clocks",
+    "__main__.AdmissionDefinitions.test_terminal_exit_and_response_session_refuse_bool_float_aliases",
+    "__main__.AdmissionDefinitions.test_unbound_entry_refuses_before_any_target_metadata"
+  ],
+  "planNamesMatchExactlyAsSet": true,
+  "runnerReportedSeconds": 0.347,
+  "inputsBefore": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-capture-admission33-model-20261105/before.json",
+    "bytes": 63488,
+    "sha256": "a10a8285204800d57e263eccd1e7e29dee5f43ae1ea94192ec5f61c706df7165"
+  },
+  "inputsAfter": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-current-capture-admission33-model-20261105/after.json",
+    "bytes": 63488,
+    "sha256": "a10a8285204800d57e263eccd1e7e29dee5f43ae1ea94192ec5f61c706df7165"
+  },
+  "protectedInputRows": 146,
+  "inputsUnchanged": true,
+  "actualReleasedCollectorCommands": 0,
+  "targetProducerModelsExecuted": 0,
+  "actualProbeExecutions": 0,
+  "ordinaryRoleExecutions": 0,
+  "innerPidReapEofAttested": false,
+  "limits": "Complete mock/synthetic model batch only. Five-field actual model-run request used permitted repo/tmp writes and Data reads; no policy fields were submitted or stripped. Operational capture/collector/helper request7 remains separate. Report duration is unittest-reported, not whole process-tree/orchestration time."
+}

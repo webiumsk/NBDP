@@ -1,0 +1,36 @@
+{
+  "schema": "e02-root-collector-r2-review-disposition-v1",
+  "actor": "/root",
+  "subject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/probe-root-custody-collector-preparation-r2/source-subject.json",
+    "bytes": 3607,
+    "sha256": "c8290e028a84f22b99c4484fdd384c150b2429d29c9296688051a2e0468d5c38"
+  },
+  "decision": "HOLD",
+  "resolved": [
+    "R1 structural/history overclaim: status honestly UNKNOWN and external allcommand terminal0/permanentfailstop required."
+  ],
+  "findings": [
+    {
+      "severity": "MEDIUM",
+      "ids": [
+        "COLLECTOR-QA-02",
+        "COLLECTOR-R2-SEC-02"
+      ],
+      "evidence": "Qualified directCLI+empty-only API polling cannot supply new nonempty memory payload without uncharged staging.",
+      "remediation": "Strict canonical bounded --input-base64 route and exact qualifier case; no temp file/TTY/nonempty poll; same precharged account."
+    },
+    {
+      "severity": "LOW",
+      "ids": [
+        "COLLECTOR-QA-03",
+        "COLLECTOR-R2-SEC-03"
+      ],
+      "evidence": "Declared fullACK predicate validates markers only, accepts proof:{} or missing reservationpin.",
+      "remediation": "Exact closed reserve/write/status ACK schemas/pins/run/store/path/counter joins and meaningful missing/substitution tests."
+    }
+  ],
+  "modelsExecuted": 0,
+  "collectorCommandsExecuted": 0,
+  "executionAuthorized": false
+}

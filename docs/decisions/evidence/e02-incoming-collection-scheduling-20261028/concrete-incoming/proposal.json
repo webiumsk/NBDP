@@ -1,0 +1,89 @@
+{
+  "schema": "e02-one-incoming-concrete-release-proposal-v1",
+  "actor": "/root",
+  "schedulingMethod": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/decision.json",
+    "bytes": 5676,
+    "sha256": "3cdcffc1426164e9621453aa5d9270cb277c9234deb0751bda9ab37bb8eefa2b"
+  },
+  "schedulingReviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/method-architect.json",
+      "bytes": 391,
+      "sha256": "697123a98f71d8f8cab4a154d3aa4a6831572a8922a9fd7aab7b675e87f78065"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/method-security.json",
+      "bytes": 391,
+      "sha256": "12b0f69d0d4ac65598ba03532ecaab881efbfe3ccad179ba2119866ae01caf9b"
+    }
+  ],
+  "roleReleaseTemplate": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/concrete-incoming/role-release-template.json",
+    "bytes": 2880,
+    "sha256": "f71b4a48c000c5c911ff41e0810bc683fe9638bc63200a48543fcc146d666502"
+  },
+  "outerRequestTemplate": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/concrete-incoming/outer-request-template.json",
+    "bytes": 799,
+    "sha256": "51c519eff6faf84395998536448f84e55d7af3b7ef30ea0b298d0439dac73b64"
+  },
+  "argvTemplate": [
+    "/home/peterhorvath/.miniforge3/bin/python3.13",
+    "-I",
+    "-B",
+    "/Data/nbdp-e02-tooling-20261027/ordinary-producer-final-preparation-r3/supervisor.py",
+    "--config",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-producer-final-preparation-r3-20261028/incoming-run-config.json",
+    "--config-sha",
+    "cec7ee4aa2701eb8430434345454526bbcdfd35d2fe500e8b766db52939f3023",
+    "--release",
+    "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/incoming-root-role-release.json",
+    "--release-sha",
+    "__ACTUAL_ROOT_RELEASE_SHA256__",
+    "--out",
+    "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019"
+  ],
+  "currentInputVerification": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/input-preflight-r2/verification.json",
+    "bytes": 8815,
+    "sha256": "623f09374c243658a2ee45c0fecdceb68ac3456523d5444a55cdca7737843dd6"
+  },
+  "actualInputOrigin": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/preflight-r2-original-tool-origin.json",
+    "bytes": 1930,
+    "sha256": "1662042b5adb97a381fd7940a2ae56ca1e9bb59cca234eae8ec8b427f65e1c93"
+  },
+  "producerA": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-controls-actual-20261028-r2/capture-a/acceptance.json",
+    "bytes": 1128,
+    "sha256": "6116b898c7d99aa92b21f1347959d7a0b688b866db95155e98238e6994d3bfc9"
+  },
+  "producerB": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer3-controls-actual-20261028-r2/capture-b/acceptance.json",
+    "bytes": 1122,
+    "sha256": "4b8319c8764e07a2b715dbefb3068f09faa2371838b8f98055f994d916e6a5bb"
+  },
+  "consumerControls": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer5-controls-actual-20261028/acceptance.json",
+    "bytes": 1341,
+    "sha256": "7157fa52e8895f91ace3db7b3c86920c00b422cc1e80c7772d040635a2b001e0"
+  },
+  "actualGrantPath": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-incoming-collection-scheduling-20261028/incoming-root-role-release.json",
+  "futureOutputRoot": "/Data/nbdp-e02-tooling-20261027/ordinary-minimum-r3/runs/9d8bad6df86fc113f87e14e2974f9019",
+  "mechanicalIssuance": [
+    "After both concrete readies and actual input DATA acceptance, Root makes a separate immediately preceding actual resource measurement for this exact full future output path; KVM opened/closed, actualdisk/MemAvailable/affinity thresholds verified.",
+    "Write actual fresh-resource-admission JSON O_EXCL0600; exact pin replaces template freshResourceAdmission. No inferred or initialized resource facts.",
+    "Set issuedAtUtcNs=time.time_ns() at actual issuance; notAfterUtcNs=issuedAtUtcNs+1920_000_000_000 (original1800 lease plus same120 pre-lease admission allowance; no lease renewal).",
+    "Set executionAuthorized=True and preserve all other19-key values; actual role release O_EXCL0600, no rewrite/reuse.",
+    "Load entire frozen five-key outerRequestTemplate; replace its single __ACTUAL_ROOT_RELEASE_SHA256__ cmd token with actual issued release SHA; preserve other four fields, exact shlex argv after same single substitution.",
+    "Call exact direct Py3.13-I-B controller once; keep complete original actual launch/all polls/terminal frames, no fake timeout/environment wrapper in interpreter argv.",
+    "No archive/other workload/heavy full-graph hashing; all emitted output remains unqualified until original final gates."
+  ],
+  "freshResourceMeasurementStillRequired": true,
+  "actualResourcesReadyForGrant": false,
+  "actualGrantIssued": false,
+  "actualExecutions": 0,
+  "ordinaryRowsQualified": 0,
+  "canonicalE02": "PARTIAL22_UNCHANGED"
+}

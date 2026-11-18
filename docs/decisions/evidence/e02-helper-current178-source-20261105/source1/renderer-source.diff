@@ -1,0 +1,495 @@
+--- preserved-R8-renderer
++++ current178-renderer
+@@ -1,216 +1,303 @@
+-"""Pure helper-R8 metadata rendering SOURCE; no IO, tools, clocks or authority.
+-
+-Root supplies genuine reservation/lease/verdict/registration values after the
+-accepted RESERVE step. Outputs are in-memory values; this module creates no
+-runID, account, lease, grant, file, API origin or runtime execution.
++"""Pure current helper metadata rendering; no IO, clocks or authority issuance.
++
++Root supplies genuine original receipt bytes/registered pins. The source/control
++context validates exact reviewed selections, not platform authenticity. Actual
++account/lease/failstop identity, current-input approval, fit and one-use runtime
++authorization remain external Root obligations. No mutable readiness flag can
++replace the accepted source/control context.
+ """
+-
+ import copy
+ import hashlib
+-import json
+ import re
+ import shlex
+-
+-
+-DATA_PARENT = "/Data/nbdp-e02-tooling-20261027/probe-root-custody-actual"
+-RUNTIME_PARENT = "/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-actual-r1"
+-GENERIC_KINDS = ("producerData", "sourceQa", "sourceSecurity", "controlData", "concreteInput")
+-PLAN_WITHOUT_KEYS = set("schema scope runId creationNonce name uidGid inputRoot controlRoot outputRoot dockerConfig lease source8 guardManifest guardRoot tools expectedImageConfigSha256".split())
+-VERDICT_DECISION = "ACCEPT_CURRENT_CONCRETE_INPUTS_FOR_ONE_HELPER_PROBE_ONLY"
+-
+-
+-def need(value, reason):
+-    if not value:
+-        raise ValueError(reason)
+-
+-
+-def encoded(value):
+-    return (json.dumps(value, sort_keys=True, separators=(",", ":"), allow_nan=False) + "\n").encode()
+-
+-
+-def pin_bytes(path, raw):
+-    need(type(path) is str and path.startswith("/") and "\x00" not in path and type(raw) is bytes,
+-         "EXPLICIT_ABSOLUTE_PIN_BYTES")
+-    return {"path": path, "bytes": len(raw), "sha256": hashlib.sha256(raw).hexdigest()}
+-
+-
+-def descriptor(value):
+-    need(type(value) is dict and set(value) == {"path", "bytes", "sha256"}, "CLOSED_PIN")
+-    need(type(value["path"]) is str and value["path"].startswith("/") and "\x00" not in value["path"]
+-         and type(value["bytes"]) is int and value["bytes"] > 0
+-         and type(value["sha256"]) is str and re.fullmatch("[0-9a-f]{64}", value["sha256"]), "EXACT_PIN")
+-    return value
+-
+-
+-def fixed_contract(fixed, for_execution=False):
+-    need(fixed["schema"] == "e02-helper-current-r8-render-templates-v1", "CURRENT_TEMPLATE")
+-    for pin in fixed["authorities"].values():
+-        descriptor(pin)
+-    need(set(fixed["rawSourceGates"]) == {"producerSource", "controllerSource"}, "TWO_RAW_SOURCE_GATES")
+-    for pin in fixed["rawSourceGates"].values():
+-        descriptor(pin)
+-    need(fixed["dataSubjectBindings"] == fixed["rawSourceGates"], "NO_DATA_TRANSFER_ACROSS_SOURCE_TUPLES")
+-    need(fixed["compiledControllerBindings"]["acceptedProducerSubject"] == fixed["rawSourceGates"]["producerSource"]
+-         and fixed["compiledControllerBindings"]["source8"] == fixed["planWithoutGates"]["source8"],
+-         "EXTERNALLY_ACCEPTED_COMPILED_CONTROLLER_JOINS")
+-    need(descriptor(fixed["hostSource"]) in fixed["controllerRuntimeSources"]
+-         and fixed["hostSource"]["path"].endswith("/host.py"), "ACCEPTED_CONTROLLER_HOST_SOURCE")
+-    need(set(fixed["genericGateTemplates"]) == set(GENERIC_KINDS), "EXACT_FIVE_GENERIC_TEMPLATES")
+-    for kind, gate in fixed["genericGateTemplates"].items():
+-        need(set(gate) == {"schema", "kind", "actor", "decision", "subject", "evidence", "scope"}
+-             and gate["schema"] == "e02-one-cid-helper-probe-gate-v1" and gate["kind"] == kind
+-             and gate["scope"] == "ONE_OWNED_HELPER_PROBE_ONLY" and gate["decision"] is None,
+-             "UNCHANGED_GENERIC_GATE_SCHEMA")
+-        if kind == "concreteInput":
+-            need(gate["subject"] is None and gate["evidence"] is None, "CONCRETE_NOT_PREISSUED")
++from native_metadata import (need, closed, integer, equal, pin_shape, pin_bytes,
++                             encoded, verified_value, decode_original_lease,
++                             canonical_request)
++from current_bindings import (CURRENT, HOST_POLICY, CAPTURE_POLICY,
++                              TRUE_AUTHORS, EXCLUSIONS, TEMPLATES_PATH,
++                              CURRENT_PLAN_BASE, RUNTIME_SOURCES, HOST_SOURCE, SOURCE_MODES)
++
++DATA_PARENT = '/Data/nbdp-e02-tooling-20261027/probe-root-custody-actual'
++RUNTIME_PARENT = '/Data/nbdp-e02-tooling-20261027/producer4-helper-probe-actual-r1'
++GENERIC_KINDS = ('producerData', 'sourceQa', 'sourceSecurity', 'controlData', 'concreteInput')
++PLAN_KEYS = set('schema scope runId creationNonce name uidGid inputRoot controlRoot outputRoot dockerConfig lease source8 guardManifest guardRoot tools expectedImageConfigSha256'.split())
++VERDICT_DECISION = 'ACCEPT_CURRENT_CONCRETE_INPUTS_FOR_ONE_HELPER_PROBE_ONLY'
++SOURCE_DECISION = 'ACCEPT_CURRENT_HELPER_METHOD_RENDER_SOURCE_ONLY'
++CONTROL_DECISION = 'ACCEPT_CURRENT_HELPER_METHOD_RENDER_PURE_CONTROL_DATA_ONLY'
++
++
++def fixed_contract(fixed):
++    equal(fixed['schema'], 'e02-helper-current178-render-templates-v1')
++    equal(fixed['rawSourceGates'], dict(producerSource=CURRENT['producerSource'],
++                                       controllerSource=CURRENT['controllerSource']))
++    equal(fixed['dataSubjectBindings'], fixed['rawSourceGates'])
++    equal(fixed['compiledControllerBindings']['acceptedProducerSubject'], CURRENT['producerSource'])
++    equal(fixed['compiledControllerBindings']['source8'], fixed['planWithoutGates']['source8'])
++    equal(fixed['compiledControllerBindings']['sourceModes'], SOURCE_MODES)
++    equal(fixed['planWithoutGates'], CURRENT_PLAN_BASE)
++    equal(fixed['controllerRuntimeSources'], RUNTIME_SOURCES)
++    equal(fixed['hostSource'], HOST_SOURCE)
++    need(all(type(mode) is int and mode == 0o664 for mode in
++             fixed['compiledControllerBindings']['sourceModes'].values()), 'EXACT_SOURCE0664')
++    equal(fixed['hostPolicy'], HOST_POLICY)
++    equal(fixed['capturePolicy'], CAPTURE_POLICY)
++    for value in fixed['authorities'].values():
++        pin_shape(value)
++    need(fixed['hostSource'] in fixed['controllerRuntimeSources'] and
++         fixed['hostSource']['path'].endswith('/host.py'), 'EXACT_HOST_SOURCE')
++    equal(fixed['trueAuthors'], TRUE_AUTHORS)
++    equal(fixed['conservativeReviewerExclusions'], EXCLUSIONS)
++    equal(fixed['authorities']['producerDataAcceptance'], CURRENT['producerDataAcceptance'])
++    equal(fixed['authorities']['controllerDataAcceptance'], CURRENT['controllerDataAcceptance'])
++    equal(fixed['authorities']['controllerSourceAcceptance'], CURRENT['controllerSourceAcceptance'])
++    equal(fixed['authorities']['collectorSourceAcceptance'], CURRENT['collectorSourceAcceptance'])
++    equal(fixed['authorities']['collectorDataAcceptance'], CURRENT['collectorDataAcceptance'])
++    closed(fixed['genericGateTemplates'], GENERIC_KINDS)
++    for kind, gate in fixed['genericGateTemplates'].items():
++        closed(gate, ('schema', 'kind', 'actor', 'decision', 'subject', 'evidence', 'scope'))
++        equal(gate['schema'], 'e02-one-cid-helper-probe-gate-v1')
++        equal(gate['kind'], kind)
++        equal(gate['decision'], None)
++        equal(gate['scope'], 'ONE_OWNED_HELPER_PROBE_ONLY')
++        if kind == 'concreteInput':
++            equal(gate['subject'], None)
++            equal(gate['evidence'], None)
+         else:
+-            expected = fixed["rawSourceGates"]["producerSource" if kind == "producerData" else "controllerSource"]
+-            need(gate["subject"] == expected, "EXACT_GENERIC_SOURCE_SUBJECT")
+-            authority = {"producerData": "producerDataAcceptance", "controlData": "controllerDataAcceptance",
+-                         "sourceQa": "sourceQaReview", "sourceSecurity": "sourceSecurityReview"}[kind]
+-            need(gate["evidence"] == fixed["authorities"][authority], "EXACT_CURRENT_UNDERLYING_AUTHORITY")
+-    if for_execution:
+-        need(fixed["executionReadiness"] == "FINAL_AUTHORITY_BUNDLE_ACCEPTED_FOR_ROOT_SEQUENCING",
+-             "BASELINE_COMPONENT_NOT_FINAL_EXECUTION_BUNDLE")
++            equal(gate['subject'], fixed['rawSourceGates'][
++                'producerSource' if kind == 'producerData' else 'controllerSource'])
++            authority = dict(producerData='producerDataAcceptance', controlData='controllerDataAcceptance',
++                             sourceQa='sourceQaReview', sourceSecurity='sourceSecurityReview')[kind]
++            equal(gate['evidence'], fixed['authorities'][authority])
++    closed(fixed['planWithoutGates'], PLAN_KEYS)
++    equal(fixed['immutableOperationalBounds']['rootSlotBytes'], 65536)
++    equal(fixed['immutableOperationalBounds']['payloadBytes'], 49152)
++    equal(fixed['immutableOperationalBounds']['prepaidLedgerBytes'], 16384)
++    equal(fixed['immutableOperationalBounds']['maximumWrites'], 64)
++    equal(fixed['actualRootRunId'], None)
++    equal(fixed['actualOriginalLease'], None)
++    equal(fixed['actualReservedAccount'], None)
++    equal(fixed['actualRootRelease'], None)
++    equal(fixed['runtimeAuthorized'], False)
++    return fixed
++
++
++def _review_pair(records, subject, decision, forbidden):
++    need(type(records) is list and len(records) == 2, 'TWO_ACTUAL_REVIEW_RECORDS')
++    sessions, pins = set(), []
++    for role, record in zip(('qa', 'security'), records):
++        value = verified_value(record)
++        closed(value, ('role', 'session', 'decision', 'subject'))
++        equal(value['role'], role)
++        equal(value['decision'], decision)
++        equal(value['subject'], subject)
++        need(type(value['session']) is str and value['session'].startswith('/root/') and
++             value['session'] not in forbidden and value['session'] not in sessions,
++             'ACTUAL_DISTINCT_INDEPENDENT_REVIEWERS')
++        sessions.add(value['session'])
++        pins.append(record['pin'])
++    return pins
++
++
++def source_context(fixed, context):
++    """Original raw/pin pairs bind actual accepted source and pure control DATA.
++
++    Root externally authenticates the genuine mailbox/native provenance. This
++    function issues no acceptance and cannot turn invented bytes into authority.
++    """
++    fixed_contract(fixed)
++    closed(context, ('schema', 'source', 'sourceAcceptance', 'sourceReviews',
++                     'controlData', 'controlAcceptance', 'controlReviews'))
++    equal(context['schema'], 'e02-current-helper-render-context-v1')
++    source, acceptance = verified_value(context['source']), verified_value(context['sourceAcceptance'])
++    equal(source['schema'], 'e02-helper-current178-source-subject-v1')
++    equal(source['templates'], pin_bytes(TEMPLATES_PATH, encoded(fixed)))
++    equal(source['currentTuple'], CURRENT)
++    equal(source['selfApproval'], False)
++    equal(source['executionAuthorized'], False)
++    equal(source['modelsExecuted'], 0)
++    forbidden = set(EXCLUSIONS) | set(source['sourceContributors']) | set(source['operators'])
++    source_pins = _review_pair(context['sourceReviews'], context['source']['pin'], SOURCE_DECISION, forbidden)
++    closed(acceptance, ('schema', 'actor', 'decision', 'subject', 'reviews',
++                        'modelsDefined', 'modelsExecuted', 'scope', 'executionAuthorized'))
++    equal(acceptance['schema'], 'e02-root-helper-current178-source-acceptance-v1')
++    equal(acceptance['actor'], '/root')
++    equal(acceptance['decision'], SOURCE_DECISION)
++    equal(acceptance['subject'], context['source']['pin'])
++    equal(acceptance['reviews'], source_pins)
++    equal(acceptance['modelsDefined'], integer(source['modelsDefined'], 1, 10000))
++    equal(acceptance['modelsExecuted'], 0)
++    equal(acceptance['scope'], 'CURRENT_HELPER_METHOD_RENDER_SOURCE_AND_CONTROL_DEFINITIONS_ONLY')
++    equal(acceptance['executionAuthorized'], False)
++    data, receipt = verified_value(context['controlData']), verified_value(context['controlAcceptance'])
++    equal(data['schema'], 'e02-helper-current178-control-data-subject-v1')
++    equal(data['helperSource'], context['source']['pin'])
++    for key in ('modelsDefined', 'modelsExecuted', 'modelsPassed'):
++        equal(data[key], source['modelsDefined'])
++    equal(data['modelsFailed'], 0)
++    equal(data['skipped'], 0)
++    equal(data['inputsUnchanged'], True)
++    equal(data['executionAuthorized'], False)
++    forbidden |= set(data['authors']) | set(data['operators'])
++    control_pins = _review_pair(context['controlReviews'], context['controlData']['pin'],
++                                CONTROL_DECISION, forbidden)
++    closed(receipt, ('schema', 'actor', 'decision', 'subject', 'helperSource', 'reviews',
++                     'modelsDefined', 'modelsExecuted', 'modelsPassed', 'modelsFailed',
++                     'skipped', 'inputsUnchanged', 'scope', 'executionAuthorized'))
++    equal(receipt['schema'], 'e02-root-helper-current178-control-data-acceptance-v1')
++    equal(receipt['actor'], '/root')
++    equal(receipt['decision'], CONTROL_DECISION)
++    equal(receipt['subject'], context['controlData']['pin'])
++    equal(receipt['helperSource'], context['source']['pin'])
++    equal(receipt['reviews'], control_pins)
++    for key in ('modelsDefined', 'modelsExecuted', 'modelsPassed', 'modelsFailed', 'skipped', 'inputsUnchanged'):
++        equal(receipt[key], data[key])
++    equal(receipt['scope'], 'CURRENT_HELPER_METHOD_RENDER_PURE_CONTROL_DATA_ONLY')
++    equal(receipt['executionAuthorized'], False)
++    return source
+ 
+ 
+ def roster(fixed, actual_operators, additional_authors=()):
+     fixed_contract(fixed)
+-    authors = list(dict.fromkeys([*fixed["trueAuthors"], *additional_authors]))
++    need(type(actual_operators) is list and type(additional_authors) in (tuple, list), 'ACTOR_LISTS')
++    authors = list(dict.fromkeys([*TRUE_AUTHORS, *additional_authors]))
+     operators = list(dict.fromkeys(actual_operators))
+-    need("/root" in operators and all(type(x) is str and (x == "/root" or x.startswith("/root/"))
+-         for x in authors + operators), "DISCLOSED_ACTUAL_ROOT_OPERATORS")
+-    excluded = sorted(set(fixed["conservativeReviewerExclusions"] + authors + operators))
+-    return {"authors": authors, "operators": operators, "concreteReviewerExclusions": excluded}
+-
+-
+-def plan_without_gates(fixed, root_run_id, root_nonce, original_lease, original_lease_raw, reservation_ack):
+-    """Consume Root-supplied values; never issue, sample or relocate a lease."""
+-    fixed_contract(fixed, for_execution=True)
+-    need(type(root_run_id) is str and re.fullmatch("[0-9a-f]{32}", root_run_id)
+-         and root_run_id not in fixed["permanentlyUnavailableRunIds"], "FRESH_ROOT_SELECTED_RUN_ID")
+-    need(type(root_nonce) is str and re.fullmatch("[0-9a-f]{32}", root_nonce), "ROOT_SELECTED_NONCE")
+-    account = DATA_PARENT + "/" + root_run_id
+-    need(set(reservation_ack) == set("reservation reservedInsideMetadataBytes metadataOwnerBytes payloadAvailableBytes grantIssued".split())
+-         and reservation_ack["reservation"]["path"] == account + "/reservation.json"
+-         and reservation_ack["reservedInsideMetadataBytes"] == 65536
+-         and reservation_ack["metadataOwnerBytes"] == 8388608
+-         and reservation_ack["payloadAvailableBytes"] == 49152
+-         and reservation_ack["grantIssued"] is False, "GENUINE_RESERVE_ACK_REQUIRED")
+-    descriptor(reservation_ack["reservation"])
+-    lease_path = account + "/lease--original.json"
+-    need(descriptor(original_lease) == pin_bytes(lease_path, original_lease_raw), "SAME_REGISTERED_ORIGINAL_LEASE")
+-    need(original_lease["bytes"] <= 8192, "BOUNDED_ORIGINAL_LEASE")
+-    def pairs(rows):
+-        out = {}
+-        for k, v in rows:
+-            need(k not in out, "DUPLICATE_LEASE_KEY")
+-            out[k] = v
+-        return out
+-    def reject(_):
+-        raise ValueError("INTEGER_LEASE_JSON")
+-    lease = json.loads(original_lease_raw, object_pairs_hook=pairs, parse_float=reject, parse_constant=reject)
+-    need(set(lease) == set("schema runId bootId issuedUtcNs issuedMonoNs issuedBootNs deadlineUtcNs deadlineMonoNs deadlineBootNs".split())
+-         and lease["schema"] == "e02-single-cell-lease-v1" and lease["runId"] == root_run_id, "EXACT_ORIGINAL_LEASE_SCHEMA")
+-    for clock in ("Utc", "Mono", "Boot"):
+-        start, end = lease["issued" + clock + "Ns"], lease["deadline" + clock + "Ns"]
+-        need(type(start) is int and type(end) is int and end - start == 1800 * 1000000000,
+-             "ORIGINAL_NONRENEWABLE_1800")
+-    plan = copy.deepcopy(fixed["planWithoutGates"])
+-    root = RUNTIME_PARENT + "/" + root_run_id
+-    plan.update(runId=root_run_id, creationNonce=root_nonce,
+-                name="nbdp-helper-probe-" + root_run_id + "-" + root_nonce, lease=copy.deepcopy(original_lease),
+-                inputRoot=root + "/input", controlRoot=root + "/control", outputRoot=root + "/output",
+-                dockerConfig=root + "/docker-config")
+-    need(set(plan) == PLAN_WITHOUT_KEYS, "EXACT_PLAN_WITHOUT_GATES")
++    need('/root' in operators and all(type(x) is str and
++         (x == '/root' or x.startswith('/root/')) for x in authors + operators), 'ACTUAL_ROOT_ROSTER')
++    return dict(authors=authors, operators=operators,
++                concreteReviewerExclusions=sorted(set(EXCLUSIONS) | set(authors) | set(operators)))
++
++
++def plan_without_gates(fixed, context, run, nonce, lease_pin, lease_raw, reservation_ack):
++    source_context(fixed, context)
++    need(type(run) is str and re.fullmatch('[0-9a-f]{32}', run) and
++         run not in fixed['permanentlyUnavailableRunIds'], 'FRESH_ROOT_RUN')
++    need(type(nonce) is str and re.fullmatch('[0-9a-f]{32}', nonce), 'ROOT_NONCE')
++    closed(reservation_ack, ('reservation', 'reservedInsideMetadataBytes', 'metadataOwnerBytes',
++                             'payloadAvailableBytes', 'grantIssued'))
++    pin_shape(reservation_ack['reservation'])
++    equal(reservation_ack['reservation']['path'], DATA_PARENT + '/' + run + '/reservation.json')
++    for key, expected in (('reservedInsideMetadataBytes', 65536), ('metadataOwnerBytes', 8388608),
++                          ('payloadAvailableBytes', 49152), ('grantIssued', False)):
++        equal(reservation_ack[key], expected, 'GENUINE_EXACT_RESERVE_ACK')
++    equal(pin_shape(lease_pin), pin_bytes(DATA_PARENT + '/' + run + '/lease--original.json', lease_raw))
++    decode_original_lease(lease_raw, run)
++    root = RUNTIME_PARENT + '/' + run
++    plan = copy.deepcopy(fixed['planWithoutGates'])
++    plan.update(runId=run, creationNonce=nonce, name='nbdp-helper-probe-' + run + '-' + nonce,
++                inputRoot=root + '/input', controlRoot=root + '/control', outputRoot=root + '/output',
++                dockerConfig=root + '/docker-config', lease=copy.deepcopy(lease_pin))
++    closed(plan, PLAN_KEYS)
+     return plan
+ 
+ 
+-def concrete_subject(plan_without):
+-    need(set(plan_without) == PLAN_WITHOUT_KEYS, "NO_GATE_HASH_CYCLE")
+-    return {"scope": "CURRENT_CONCRETE_INPUTS", "sha256": hashlib.sha256(encoded(plan_without)).hexdigest()}
++def concrete_subject(plan):
++    closed(plan, PLAN_KEYS)
++    return dict(scope='CURRENT_CONCRETE_INPUTS', sha256=hashlib.sha256(encoded(plan)).hexdigest())
+ 
+ 
+ def validate_concrete_receipt(value, subject, actor_roster):
+-    need(set(value) == {"schema", "actor", "decision", "subject", "reviews"}
+-         and value["schema"] == "e02-root-helper-probe-concrete-inputs-v1" and value["actor"] == "/root"
+-         and value["decision"] == VERDICT_DECISION and value["subject"] == subject, "ACTUAL_ROOT_CONCRETE_RECEIPT")
+-    need(type(value["reviews"]) is list and len(value["reviews"]) == 2, "ACTUAL_DISTINCT_REVIEW_PAIR")
+-    sessions = []
+-    for role, review in zip(("qa", "security"), value["reviews"]):
+-        need(set(review) == {"role", "session", "decision", "subject"} and review["role"] == role
+-             and review["decision"] == VERDICT_DECISION and review["subject"] == subject
+-             and type(review["session"]) is str and review["session"].startswith("/root/")
+-             and review["session"] not in actor_roster["concreteReviewerExclusions"], "ACTUAL_INDEPENDENT_FOUR_KEY_VERDICT")
+-        sessions.append(review["session"])
+-    need(len(set(sessions)) == 2, "DISTINCT_ACTUAL_REVIEW_SESSIONS")
+-
+-
+-def generic_gate_values(fixed, plan_without, actor_roster, root_concrete_receipt, registered_concrete_pin):
+-    """Root authenticates original mailbox values and collector ACK externally."""
+-    fixed_contract(fixed, for_execution=True)
++    closed(value, ('schema', 'actor', 'decision', 'subject', 'reviews'))
++    equal(value['schema'], 'e02-root-helper-probe-concrete-inputs-v1')
++    equal(value['actor'], '/root')
++    equal(value['decision'], VERDICT_DECISION)
++    equal(value['subject'], subject)
++    need(type(value['reviews']) is list and len(value['reviews']) == 2, 'TWO_CONCRETE_VERDICTS')
++    sessions = set()
++    for role, verdict in zip(('qa', 'security'), value['reviews']):
++        closed(verdict, ('role', 'session', 'decision', 'subject'))
++        equal(verdict['role'], role)
++        equal(verdict['decision'], VERDICT_DECISION)
++        equal(verdict['subject'], subject)
++        session = verdict['session']
++        need(type(session) is str and session.startswith('/root/') and
++             session not in actor_roster['concreteReviewerExclusions'] and session not in sessions,
++             'ACTUAL_INDEPENDENT_CONCRETE_VERDICTS')
++        sessions.add(session)
++
++
++def generic_gate_values(fixed, context, plan_without, actor_roster, receipt, registered_receipt):
++    source_context(fixed, context)
+     subject = concrete_subject(plan_without)
+-    validate_concrete_receipt(root_concrete_receipt, subject, actor_roster)
+-    path = DATA_PARENT + "/" + plan_without["runId"] + "/gate--concrete-review.json"
+-    need(descriptor(registered_concrete_pin) == pin_bytes(path, encoded(root_concrete_receipt)), "EXACT_REGISTERED_CONCRETE_RECEIPT")
+-    values = copy.deepcopy(fixed["genericGateTemplates"])
+-    need(set(values) == set(GENERIC_KINDS), "FIVE_GENERIC_GATES")
+-    for kind, gate in values.items():
+-        gate["decision"] = "ACCEPT"
+-        if kind == "concreteInput":
+-            gate.update(subject=subject, evidence=copy.deepcopy(registered_concrete_pin))
+-        if kind in ("sourceQa", "sourceSecurity"):
+-            need(gate["actor"] not in actor_roster["authors"] + actor_roster["operators"], "INDEPENDENT_R8_SOURCE_GATE_ACTOR")
+-    return values
+-
+-
+-def bind_registered_gates(fixed, plan_without, gate_values, registered_gate_pins):
+-    fixed_contract(fixed, for_execution=True)
+-    need(set(plan_without) == PLAN_WITHOUT_KEYS, "EXACT_PLAN_WITHOUT_GATES")
+-    need(set(gate_values) == set(registered_gate_pins) == set(GENERIC_KINDS), "EXACT_FIVE_REGISTERED_GATES")
+-    gates = copy.deepcopy(fixed["rawSourceGates"])
++    validate_concrete_receipt(receipt, subject, actor_roster)
++    equal(pin_shape(registered_receipt), pin_bytes(DATA_PARENT + '/' + plan_without['runId'] +
++                                                  '/gate--concrete-review.json', encoded(receipt)))
++    gates = copy.deepcopy(fixed['genericGateTemplates'])
++    for kind, gate in gates.items():
++        gate['decision'] = 'ACCEPT'
++        if kind == 'concreteInput':
++            gate.update(subject=subject, evidence=copy.deepcopy(registered_receipt))
++        if kind in ('sourceQa', 'sourceSecurity'):
++            need(gate['actor'] not in actor_roster['authors'] + actor_roster['operators'],
++                 'INDEPENDENT_CONTROLLER_SOURCE_GATE')
++    return gates
++
++
++def bind_registered_gates(fixed, context, plan_without, gate_values, registered_gate_pins,
++                          actor_roster, concrete_receipt, registered_concrete_receipt):
++    source_context(fixed, context)
++    closed(plan_without, PLAN_KEYS)
++    closed(gate_values, GENERIC_KINDS)
++    closed(registered_gate_pins, GENERIC_KINDS)
++    equal(gate_values, generic_gate_values(fixed, context, plan_without, actor_roster,
++                                         concrete_receipt, registered_concrete_receipt),
++          'REVALIDATE_ACTUAL_CONCRETE_RECEIPT_AND_ALL_GATE_VALUES')
++    gates = copy.deepcopy(fixed['rawSourceGates'])
+     for kind in GENERIC_KINDS:
+-        path = DATA_PARENT + "/" + plan_without["runId"] + "/gate--" + kind + ".json"
+-        need(descriptor(registered_gate_pins[kind]) == pin_bytes(path, encoded(gate_values[kind])), "GENUINE_REGISTERED_GATE_PIN")
++        value = gate_values[kind]
++        closed(value, ('schema', 'kind', 'actor', 'decision', 'subject', 'evidence', 'scope'))
++        equal(value['decision'], 'ACCEPT')
++        equal(value['kind'], kind)
++        expected = dict(fixed['genericGateTemplates'][kind])
++        expected['decision'] = 'ACCEPT'
++        if kind == 'concreteInput':
++            expected.update(subject=concrete_subject(plan_without), evidence=value['evidence'])
++            equal(value['actor'], '/root')
++            pin_shape(value['evidence'])
++        equal(value, expected, 'EXACT_RENDERED_REGISTERED_GATE')
++        equal(pin_shape(registered_gate_pins[kind]), pin_bytes(DATA_PARENT + '/' + plan_without['runId'] +
++                  '/gate--' + kind + '.json', encoded(value)))
+         gates[kind] = copy.deepcopy(registered_gate_pins[kind])
+     plan = copy.deepcopy(plan_without)
+-    plan["gates"] = gates
++    plan['gates'] = gates
+     return plan
+ 
+ 
+-def root_release_template(fixed, plan, registered_plan_pin, actor_roster):
+-    """Leaves executionAuthorized NULL: only Root can make its actual decision."""
+-    fixed_contract(fixed, for_execution=True)
+-    need(set(plan) == PLAN_WITHOUT_KEYS | {"gates"} and set(plan["gates"]) == set(GENERIC_KINDS) | {"producerSource", "controllerSource"}
+-         and all(plan["gates"][k] == v for k, v in fixed["rawSourceGates"].items()), "EXACT_CURRENT_SEVEN_GATE_PLAN")
+-    path = DATA_PARENT + "/" + plan["runId"] + "/plan--concrete.json"
+-    need(descriptor(registered_plan_pin) == pin_bytes(path, encoded(plan)), "EXACT_REGISTERED_PLAN")
+-    value = copy.deepcopy(fixed["rootReleaseTemplate"])
+-    value.update(runId=plan["runId"], creationNonce=plan["creationNonce"], plan=copy.deepcopy(registered_plan_pin),
+-                 gates=copy.deepcopy(plan["gates"]), authors=actor_roster["authors"], operators=actor_roster["operators"])
+-    need(value["executionAuthorized"] is None, "ROOT_DECISION_NOT_AUTOMATIC")
++def root_release_template(fixed, context, plan, registered_plan, actor_roster):
++    source_context(fixed, context)
++    closed(plan, PLAN_KEYS | {'gates'})
++    closed(plan['gates'], set(GENERIC_KINDS) | {'producerSource', 'controllerSource'})
++    for key, value in fixed['rawSourceGates'].items():
++        equal(plan['gates'][key], value)
++    equal(pin_shape(registered_plan), pin_bytes(DATA_PARENT + '/' + plan['runId'] +
++                                                '/plan--concrete.json', encoded(plan)))
++    value = copy.deepcopy(fixed['rootReleaseTemplate'])
++    value.update(runId=plan['runId'], creationNonce=plan['creationNonce'], plan=copy.deepcopy(registered_plan),
++                 gates=copy.deepcopy(plan['gates']), authors=actor_roster['authors'],
++                 operators=actor_roster['operators'])
++    equal(value['executionAuthorized'], None, 'ROOT_RUNTIME_DECISION_REMAINS_UNISSUED')
+     return value
+ 
+ 
+-def host_five_key_request(fixed, plan_pin, actual_root_release, registered_release_pin):
+-    """Render the literal selected request; never strip sandbox-policy fields."""
+-    fixed_contract(fixed, for_execution=True)
+-    need(set(actual_root_release) == set("schema actor executionAuthorized runId creationNonce subject plan gates authors operators outerCustodyReservationBytes".split())
+-         and actual_root_release["schema"] == "e02-one-cid-helper-probe-root-release-v1"
+-         and actual_root_release["actor"] == "/root" and actual_root_release["executionAuthorized"] is True
+-         and actual_root_release["plan"] == descriptor(plan_pin), "EXPLICIT_ACTUAL_ROOT_ONE_USE_RELEASE")
+-    need(plan_pin["path"] == DATA_PARENT + "/" + actual_root_release["runId"] + "/plan--concrete.json"
+-         and actual_root_release["subject"] == fixed["rawSourceGates"]["controllerSource"]
+-         and actual_root_release["gates"]["controllerSource"] == actual_root_release["subject"]
+-         and actual_root_release["gates"]["producerSource"] == fixed["rawSourceGates"]["producerSource"]
+-         and actual_root_release["outerCustodyReservationBytes"] == 65536, "CURRENT_ROOT_RELEASE_ONLY")
+-    path = DATA_PARENT + "/" + actual_root_release["runId"] + "/grant--release.json"
+-    need(descriptor(registered_release_pin) == pin_bytes(path, encoded(actual_root_release)), "REGISTERED_ACTUAL_ROOT_RELEASE")
+-    host = fixed["hostSource"]["path"]
+-    python = fixed["planWithoutGates"]["tools"]["python"]["path"]
+-    tokens = ["/usr/bin/env", "-i", "PATH=/usr/bin:/bin", "LANG=C.UTF-8", "LC_ALL=C.UTF-8",
+-              "/usr/bin/timeout", "--signal=KILL", "183s", python, "-I", "-B", host,
+-              "--plan", plan_pin["path"], "--plan-sha", plan_pin["sha256"],
+-              "--root-release", registered_release_pin["path"], "--root-release-sha", registered_release_pin["sha256"]]
+-    return {"cmd": shlex.join(tokens), "workdir": host.rsplit("/", 1)[0], "login": False,
+-            "yield_time_ms": 1000, "max_output_tokens": 2000}
++def host_seven_key_request(fixed, context, plan_pin, actual_release, release_pin):
++    source_context(fixed, context)
++    closed(actual_release, ('schema', 'actor', 'executionAuthorized', 'runId', 'creationNonce',
++                           'subject', 'plan', 'gates', 'authors', 'operators', 'outerCustodyReservationBytes'))
++    equal(actual_release['schema'], 'e02-one-cid-helper-probe-root-release-v1')
++    equal(actual_release['actor'], '/root')
++    equal(actual_release['executionAuthorized'], True)
++    equal(actual_release['plan'], pin_shape(plan_pin))
++    equal(actual_release['subject'], CURRENT['controllerSource'])
++    equal(actual_release['gates']['controllerSource'], CURRENT['controllerSource'])
++    equal(actual_release['gates']['producerSource'], CURRENT['producerSource'])
++    equal(actual_release['outerCustodyReservationBytes'], 65536)
++    equal(plan_pin['path'], DATA_PARENT + '/' + actual_release['runId'] + '/plan--concrete.json')
++    equal(pin_shape(release_pin), pin_bytes(DATA_PARENT + '/' + actual_release['runId'] +
++                                          '/grant--release.json', encoded(actual_release)))
++    host, python = fixed['hostSource']['path'], fixed['planWithoutGates']['tools']['python']['path']
++    argv = ['/usr/bin/env', '-i', 'PATH=/usr/bin:/bin', 'LANG=C.UTF-8', 'LC_ALL=C.UTF-8',
++            '/usr/bin/timeout', '--signal=KILL', '183s', python, '-I', '-B', host,
++            '--plan', plan_pin['path'], '--plan-sha', plan_pin['sha256'], '--root-release',
++            release_pin['path'], '--root-release-sha', release_pin['sha256']]
++    request = dict(HOST_POLICY, cmd=shlex.join(argv))
++    canonical_request('HOST7', request, HOST_POLICY)
++    return request

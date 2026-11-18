@@ -1,0 +1,38 @@
+{
+  "schema": "e02-consumer4-versioned-source-remediation-v1",
+  "actor": "/root/consumer3_preparation",
+  "authorityOrigin": "Actual parent /root mailbox SOURCE-only assignment; this is worker transcription, not an authenticated provider log or runtime grant",
+  "preservedSourceSubject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r3/subject.json",
+    "bytes": 6669,
+    "sha256": "0d0500322dfdc016bf3465ee722d60c03907a503d4429bd8187344b2c3177aa0"
+  },
+  "priorDecision": "HOLD_ZERO_CONTROLS_EXECUTED",
+  "fixes": [
+    {
+      "finding": "Actual producer token proxy:app-before-upstream-send refused by abbreviated reader vocabulary",
+      "action": "Match all eight exact hash-pinned source literals; reject invented shorter token"
+    },
+    {
+      "finding": "Reader runtime scope omitted _V2_ required by both frozen role configurations and supervisor",
+      "action": "Match exact source scope; never edit producer configs"
+    },
+    {
+      "finding": "QA-C3-003 callback/guard-passed phases lacked invoke/callback ordering",
+      "action": "Require INVOKE_ENTRY < CALLBACK_ENTRY < CALLBACK_GUARD_PASSED and original synchronous guard pair; allow callback before INVOKE_RETURNED"
+    }
+  ],
+  "allowed": "New consumer_v4/evidence-r4 SOURCE and synthetic DATA definitions only; AST parsing permitted",
+  "excluded": [
+    "test execution",
+    "producer imports",
+    "runtime",
+    "leases",
+    "completion2",
+    "old source writes",
+    "shared state",
+    "git publication"
+  ],
+  "wholeWindowFixtures": "Separate worker /root/whole_consumer_fixture owns /tmp prep; integrate only frozen exact files when ready",
+  "wholeConsumePositive": "Fixed immutable producer/adoption/control pins and absent genuine operands remain barriers; no validator mocks/constant patching to manufacture qualification"
+}

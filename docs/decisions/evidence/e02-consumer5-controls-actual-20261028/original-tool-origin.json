@@ -1,0 +1,55 @@
+{
+  "schema": "e02-actual-tool-custody-v1",
+  "operator": "/root",
+  "launch": {
+    "toolName": "tools.exec_command",
+    "actualArguments": {
+      "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 /usr/bin/timeout --signal=KILL 297 /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /Data/nbdp-e02-tooling-20261027/consumer5-control-capture-preparation-r1/capture.py --execute-once --root-ack-sha 9b91bb0178f853b5f863b3b23acf0d3c82635c26da70f5dd9044c0067c009c93",
+      "workdir": "/home/peterhorvath/apps/bitcoin/NBDP",
+      "login": false,
+      "yield_time_ms": 1000,
+      "max_output_tokens": 10000
+    },
+    "unmodifiedResponse": {
+      "chunk_id": "4d860e",
+      "wall_time_seconds": 1.001105605,
+      "session_id": 62628,
+      "original_token_count": 0,
+      "output": ""
+    }
+  },
+  "polls": [
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 62628,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 10000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "3d38c0",
+        "wall_time_seconds": 5.000504566,
+        "session_id": 62628,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "toolName": "tools.write_stdin",
+      "actualArguments": {
+        "session_id": 62628,
+        "chars": "",
+        "yield_time_ms": 1000,
+        "max_output_tokens": 10000
+      },
+      "unmodifiedResponse": {
+        "chunk_id": "1e5b46",
+        "wall_time_seconds": 0.000018767,
+        "exit_code": 0,
+        "original_token_count": 87,
+        "output": "{\"result\": {\"path\": \"/Data/nbdp-e02-tooling-20261027/consumer5-control-capture-preparation-r1/actual/result.json\", \"bytes\": 53466, \"sha256\": \"86af39b257b41e67312ac6f15768692732c55eebcf8dcbc9c9d4555535e1c811\"}, \"state\": \"WRITES_STOPPED_PENDING_INDEPENDENT_DATA_QA_SECURITY\", \"scopeCounts\": [86, 36, 8, 9], \"fault\": null, \"inputsUnchanged\": true}\n"
+      }
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+from strict import same
+"""Pure closed capture contracts. No filesystem, clock, process or target imports."""
+import json, math, re
+from decimal import Decimal
+from pathlib import PurePosixPath
+FILES = ('test_guard_client.mjs', 'test_guard_transport_boundaries.mjs', 'test_capture_allocation.mjs', 'test_controller_emission.mjs', 'test_observation_model.mjs', 'test_guard_helper.py', 'test_capture_parent.py', 'test_public_identity_metadata.py', 'test_producer2_source.py', 'test_producer3_bindings.py')
+MODEL_KEYS = ('asyncGuard', 'transportBoundaries', 'captureAllocation', 'controllerEmission', 'observation', 'helperProtocolPythonMethods', 'parentCapturePythonMethods', 'publicIdentityPythonMethods', 'sourceWiringPythonMethods', 'rebuiltArtifactPythonMethods')
+ENV = {'PATH': '/usr/bin:/bin', 'LANG': 'C.UTF-8', 'LC_ALL': 'C.UTF-8'}
+LIMITS = {'childSeconds': 60, 'childAbsoluteReapSeconds': 3, 'stdoutBytes': 1048576, 'stderrBytes': 262144, 'rawFileBytes': 2147483648, 'parsedMetadataBytes': 16777216, 'hostFiles': 20000, 'controllerSeconds': 1200, 'outerSeconds': 1203, 'snapshotPoolSeconds': 480}
+LEDGER = {'snapshots': 480, 'children': 630, 'metadataCleanup': 30, 'reserve': 60}
+SOURCE_DECISION = 'ACCEPT_PRODUCER4_SOURCE_AND_CONTROL_DEFINITIONS_ONLY'
+CAPTURE_DECISION = 'ACCEPT_PRODUCER4_CAPTURE_SOURCE_AND_ADMISSION_DEFINITIONS_ONLY'
+ADMISSION_DECISION = 'ACCEPT_PRODUCER4_CAPTURE_ADMISSION_DATA_ONLY'
+REQUIRED_KNOWN_ACTORS = ('/root', '/root/android_health_implementer', '/root/collector_policy_security_553c5bfd', '/root/completion3_final', '/root/completion_wrapper', '/root/consumer3_preparation', '/root/helper_apk_binding_scope', '/root/helper_controller_source6_env', '/root/lease_fix_binding_scope', '/root/native_rebuild_prepare', '/root/ordinary_api35_source', '/root/probe_r7_fresh_qa_8d291e97745f', '/root/probe_r7_fresh_security_8d291e97745f', '/root/producer3_capture', '/root/producer4_nonblocking_source', '/root/r5', '/root/r5_plan_fix', '/root/whole_consumer_fixture')
+ROOT_KNOWN_ACTORS_PIN = {'path': '/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-producer-current-capture-root-authority-20261105/root-known-actors.json', 'bytes': 2755, 'sha256': '94fd5716503e40b7472e8432e768e6e381bb71ded02bdae47523affc8fe25673'}
+REQUEST_KEYS = ('cmd', 'workdir', 'login', 'yield_time_ms', 'max_output_tokens', 'sandbox_permissions', 'justification')
+REQUEST_POLICY = {'sandbox_permissions': 'require_escalated', 'justification': 'Môžem raz vykonať prijatých 266 syntetických kontrol E02 s výsledkami v izolovanom /Data adresári? Platí aktuálny Root ACK, pôvodné časové a vstupné limity a zákaz automatického opakovania.'}
+ACK_KEYS = 'schema actor executionAuthorized scope producerSource producerSourceAcceptance producerReviews captureSource captureSourceAcceptance captureReviews admissionPlan admissionData admissionDataAcceptance admissionReviews sourceBirth actorContext inputManifest plan clockSelection requestContract runtimeBindings authors operators noRetry'
+
+def need(v, m):
+    if not v:
+        raise ValueError(m)
+
+def closed(v, keys):
+    need(type(v) is dict and same(set(v), set(keys.split())), 'CLOSED_KEYS')
+
+def pin(d):
+    closed(d, 'path bytes sha256')
+    need(type(d['path']) is str and d['path'].startswith('/') and same(str(PurePosixPath(d['path'])), d['path']) and ('..' not in PurePosixPath(d['path']).parts) and ('\x00' not in d['path']), 'CANONICAL_PIN_PATH')
+    need(type(d['bytes']) is int and 0 <= d['bytes'] <= 2147483648 and (type(d['sha256']) is str) and re.fullmatch('[0-9a-f]{64}', d['sha256']), 'EXACT_PIN')
+    return d
+
+def actors(value):
+    need(type(value) is list and value and all((type(a) is str and (same(a, '/root') or a.startswith('/root/')) for a in value)), 'DECLARED_ACTORS')
+    return set(value)
+
+def counts(source, control):
+    need(same(source['schema'], 'e02-ordinary-producer4-source-subject-v1') and same(source['version'], 'SOURCE4'), 'CURRENT_SOURCE4_ONLY')
+    need(same(source['runtimeSourceCount'], 22) and same(len(source['runtimeSources']), 22), 'EXACT22_RUNTIME_WORKERS')
+    need(all((type(source[k]) is int and same(source[k], 0) for k in ('modelsExecuted', 'helperExecutions', 'roleExecutions', 'ordinaryRowsQualified'))) and source['runtimeReady'] is False, 'SOURCE_DEFINITIONS_NOT_PRIOR_EXECUTION')
+    closed(source['modelsDefined'], ' '.join(MODEL_KEYS))
+    values = [source['modelsDefined'][k] for k in MODEL_KEYS]
+    need(all((type(n) is int and 0 < n <= 10000 for n in values)), 'CURRENT_DECLARED_POSITIVE_COUNTS')
+    js = control['selectedJavaScriptDefinitions']
+    py = control['pythonDefinitions']
+    need(same([r['file'] for r in js], list(FILES[:5])), 'EXACT_FIVE_JS_SELECTION')
+    indexed = {r['file']: r for r in py}
+    need(same(len(indexed), len(py)), 'UNIQUE_PYTHON_DECLARATION')
+    need(same([r['expandedDefinitions'] for r in js] + [indexed[n]['methodDefinitions'] for n in FILES[5:]], values), 'SOURCE_CONTROL_COUNTS_JOIN')
+    return values
+
+def reviews(records, pins, subject, decision, forbidden):
+    need(type(records) is list and type(pins) is list and (len(records) == len(pins) == 2) and (not same(pins[0], pins[1])), 'TWO_ORDERED_REVIEW_PINS')
+    sessions = []
+    for role, r, p in zip(('qa', 'security'), records, pins):
+        pin(p)
+        closed(r, 'role session decision subject')
+        need(same(r['role'], role) and same(r['subject'], subject) and same(r['decision'], decision), 'EXACT_REVIEW_SUBJECT_ROLE_DECISION')
+        need(type(r['session']) is str and r['session'].startswith('/root/') and (r['session'] not in forbidden), 'INDEPENDENT_REVIEWER')
+        sessions.append(r['session'])
+    need(not same(sessions[0], sessions[1]), 'DISTINCT_QA_SECURITY')
+
+def validate_acceptances(ack, source, control, method, admission_plan, records, context):
+    closed(ack, ACK_KEYS)
+    need(same(ack['schema'], 'e02-producer4-control-capture-root-ack-v1') and same(ack['actor'], '/root') and (ack['executionAuthorized'] is True) and same(ack['scope'], 'ONE_CURRENT_SOURCE4_TEN_SELECTED_PURE_CONTROL_GROUPS_ONLY') and (ack['noRetry'] is True), 'ONE_EXTERNAL_ROOT_ACK')
+    for k in ('producerSource', 'producerSourceAcceptance', 'captureSource', 'captureSourceAcceptance', 'admissionPlan', 'admissionData', 'admissionDataAcceptance', 'sourceBirth', 'actorContext', 'inputManifest', 'plan', 'clockSelection', 'requestContract', 'runtimeBindings'):
+        pin(ack[k])
+    values = counts(source, control)
+    total = sum(values)
+    need(same(method['schema'], 'e02-producer4-control-capture-code-subject-v1') and same(method['producerSource'], ack['producerSource']) and (method['codeOnly'] is True), 'EXACT_CAPTURE_CODE_SOURCE4_JOIN')
+    closed(context, 'schema producerSource captureSource sourceBirth participants participantProofs')
+    need(same(context['schema'], 'e02-producer4-capture-current-actor-context-v1') and same(context['producerSource'], ack['producerSource']) and same(context['captureSource'], ack['captureSource']) and same(context['sourceBirth'], ack['sourceBirth']), 'EXACT_EXTERNALLY_PINNED_ACTOR_CONTEXT')
+    known = records['knownActors']
+    closed(known, 'schema actor scope producerSource knownActors provenance semantics sourceAccepted executionAuthorized')
+    need(same(method['knownActors'], ROOT_KNOWN_ACTORS_PIN) and same(known['schema'], 'e02-root-capture-known-actors-v1') and same(known['actor'], '/root') and same(known['scope'], 'CURRENT_PRODUCER4_PURE_CONTROL_CAPTURE_AND_ADMISSION') and same(known['producerSource'], ack['producerSource']), 'EXACT_REQUIRED_ROOT_KNOWN_ACTOR_AUTHORITY')
+    required = actors(known['knownActors'])
+    need(same(required, set(REQUIRED_KNOWN_ACTORS)), 'COMPLETE_REQUIRED_EIGHTEEN_KNOWN_ACTORS')
+    need(required <= actors(context['participants']), 'CONTEXT_INCLUDES_EVERY_ROOT_KNOWN_ACTOR')
+    union = required | {'/root', '/root/r5_plan_fix', '/root/producer4_nonblocking_source', '/root/completion_wrapper'} | actors(context['participants']) | actors(ack['authors']) | actors(ack['operators']) | actors(method['authors']) | actors(records['admissionSubject']['authors']) | actors(records['admissionSubject']['operators'])
+    union |= actors(source['sourceContributors']) | {source['author'], source['coordinator'], source['predecessorAuthor']}
+    need(type(context['participantProofs']) is list and context['participantProofs'], 'ACTUAL_ACTOR_DERIVATION_PROOFS_REQUIRED')
+    s = records['producerAcceptance']
+    closed(s, 'schema actor decision subject reviews modelsDefined runtimeWorkerCount modelsExecuted helperExecutions roleExecutions runtimeReady runtimeReleased scope')
+    need(same(s['schema'], 'e02-root-current-producer4-source-acceptance-v1') and same(s['actor'], '/root') and same(s['decision'], SOURCE_DECISION) and same(s['subject'], ack['producerSource']) and same(s['reviews'], ack['producerReviews']), 'EXACT_ISSUED_PRODUCER_ACCEPTANCE')
+    need(same(s['modelsDefined'], total) and type(s['modelsDefined']) is int and same(s['runtimeWorkerCount'], 22) and all((type(s[k]) is int and same(s[k], 0) for k in ('modelsExecuted', 'helperExecutions', 'roleExecutions'))) and (s['runtimeReady'] is False) and (s['runtimeReleased'] is False) and same(s['scope'], 'EXACT_CURRENT_SOURCE_AND_CONTROL_DEFINITIONS_ONLY'), 'SOURCE_ONLY_NOT_DATA_OR_RUNTIME')
+    reviews(records['producerReviews'], ack['producerReviews'], ack['producerSource'], 'ACCEPT_PRODUCER4_SOURCE4_AND_' + str(total) + '_CONTROL_DEFINITIONS_ONLY', union)
+    c = records['captureAcceptance']
+    closed(c, 'schema actor decision subject reviews admissionModelsDefined admissionModelsExecuted producerSource scope executionAuthorized')
+    n = len(admission_plan['caseNames'])
+    need(type(n) is int and n > 0 and same(len(set(admission_plan['caseNames'])), n) and same(admission_plan['modelsDefined'], n) and same(method['admissionModelsDefined'], n), 'EXACT_FROZEN_ADMISSION_DEFINITIONS')
+    need(same(c['schema'], 'e02-root-producer4-capture-source-acceptance-v1') and same(c['actor'], '/root') and same(c['decision'], CAPTURE_DECISION) and same(c['subject'], ack['captureSource']) and same(c['reviews'], ack['captureReviews']) and same(c['producerSource'], ack['producerSource']) and same(c['admissionModelsDefined'], n) and same(c['admissionModelsExecuted'], 0) and (type(c['admissionModelsExecuted']) is int) and same(c['scope'], 'EXACT_CAPTURE_SOURCE_AND_ADMISSION_DEFINITIONS_ONLY') and (c['executionAuthorized'] is False), 'EXACT_CAPTURE_SOURCE_ACCEPTANCE')
+    reviews(records['captureReviews'], ack['captureReviews'], ack['captureSource'], CAPTURE_DECISION, union)
+    a = records['admissionAcceptance']
+    closed(a, 'schema actor decision subject reviews captureSource producerSource admissionPlan modelsDefined modelsExecuted modelsPassed modelsFailed targetModelsExecuted helperExecutions ordinaryRoleExecutions scope executionAuthorized')
+    need(same(a['schema'], 'e02-root-producer4-capture-admission-data-acceptance-v1') and same(a['actor'], '/root') and same(a['decision'], ADMISSION_DECISION) and same(a['subject'], ack['admissionData']) and same(a['reviews'], ack['admissionReviews']) and same(a['captureSource'], ack['captureSource']) and same(a['producerSource'], ack['producerSource']) and same(a['admissionPlan'], ack['admissionPlan']), 'EXACT_CURRENT_ADMISSION_DATA')
+    need(all((type(a[k]) is int and same(a[k], n) for k in ('modelsDefined', 'modelsExecuted', 'modelsPassed'))) and all((type(a[k]) is int and same(a[k], 0) for k in ('modelsFailed', 'targetModelsExecuted', 'helperExecutions', 'ordinaryRoleExecutions'))) and same(a['scope'], 'MOCKED_CAPTURE_ADMISSION_DATA_ONLY') and (a['executionAuthorized'] is False), 'ALL_ADMISSION_MODELS_PASSED_ONLY')
+    data = records['admissionSubject']
+    closed(data, 'schema authors operators captureSource producerSource admissionPlan execution originalToolOrigin rawArtifactManifest inputsBefore inputsAfter inputsUnchanged modelsDefined modelsExecuted modelsPassed modelsFailed skipped truncated targetModelsExecuted helperExecutions ordinaryRoleExecutions')
+    need(same(data['schema'], 'e02-producer4-capture-admission-data-subject-v1') and same(data['captureSource'], ack['captureSource']) and same(data['producerSource'], ack['producerSource']) and same(data['admissionPlan'], ack['admissionPlan']) and (data['inputsUnchanged'] is True) and all((type(data[k]) is int and same(data[k], n) for k in ('modelsDefined', 'modelsExecuted', 'modelsPassed'))) and all((type(data[k]) is int and same(data[k], 0) for k in ('modelsFailed', 'skipped', 'targetModelsExecuted', 'helperExecutions', 'ordinaryRoleExecutions'))) and (data['truncated'] is False), 'COMPLETE_CURRENT_ADMISSION_SUBJECT')
+    for key in ('execution', 'originalToolOrigin', 'rawArtifactManifest', 'inputsBefore', 'inputsAfter'):
+        pin(data[key])
+    reviews(records['admissionReviews'], ack['admissionReviews'], ack['admissionData'], ADMISSION_DECISION, union)
+    return (values, union)
+
+def validate_plan(plan, ack, source, control, method, manifest, clock):
+    need(same(plan['schema'], 'e02-producer4-control-capture-plan-v1') and plan['readiness'] is True and same(plan['producerSource'], ack['producerSource']) and same(plan['captureSource'], ack['captureSource']) and same(plan['inputManifest'], ack['inputManifest']) and same(plan['limits'], LIMITS) and same(plan['deadlineLedger'], LEDGER), 'EXACT_FINITE_CURRENT_PLAN')
+    need(same(clock['schema'], 'e02-root-control-capture-clock-source-selection-v1') and same(clock['actor'], '/root') and same(clock['controllerSeconds'], 1200) and same(clock['outerKillSeconds'], 1203) and same(clock['sharedInputSnapshotPoolSeconds'], 480) and same(clock['maximumSerialScopes'], 10) and same(clock['eachScopeSeconds'], 60) and same(clock['eachOwnedTerminationReserveSeconds'], 3) and same(clock['sumSeconds'], 1200), 'ROOT_SELECTED_CLOCK_SOURCE')
+    need(same([s['scope'] for s in plan['scopes']], list(FILES)) and same(plan['countsSeparate'], counts(source, control)), 'TEN_CURRENT_SCOPES_NO_PREDECESSOR_TRANSFER')
+    by_name = {PurePosixPath(d['path']).name: d for d in source['sources']}
+    need(same(len(by_name), len(source['sources'])), 'UNIQUE_SOURCE_NAMES')
+    node = plan['tools']['node']
+    python = plan['tools']['python']
+    need(same(node['path'], '/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node') and same(python['path'], '/home/peterhorvath/.miniforge3/bin/python3.13'), 'FIXED_HOST_INTERPRETERS')
+    need(same(set(plan['tools']), {'node', 'python', 'timeout', 'env'}) and same(plan['tools']['timeout']['path'], '/usr/bin/timeout') and same(plan['tools']['env']['path'], '/usr/bin/env'), 'CLOSED_TOOLS_NO_EXTRA_TARGET')
+    roots = {str(PurePosixPath(by_name[name]['path']).parent) for name in FILES}
+    need(same(len(roots), 1), 'ONE_EXPLICIT_SELECTED_MODEL_ROOT')
+    model_root = next(iter(roots))
+    for i, s in enumerate(plan['scopes']):
+        closed(s, 'scope source argv cwd count definitionNames format')
+        need(same(s['source'], by_name[FILES[i]]) and same(s['count'], plan['countsSeparate'][i]) and same(s['cwd'], model_root), 'CURRENT_SELECTED_SOURCE_COUNT_WORKDIR')
+        need(same(s['argv'], [node['path'], s['source']['path']] if i < 5 else [python['path'], '-I', '-B', s['source']['path']]), 'EXACT_CHILD_ARGV')
+    need(same(manifest['schema'], 'e02-producer4-explicit-host-input-manifest-v1') and same(manifest['producerSource'], ack['producerSource']) and same(manifest['closedSourceSubjectKeys'], sorted(source)) and same(manifest['controlPlan'], source['controlPlan']), 'EXACT_CLOSED_SOURCE_INPUT_CONTRACT')
+    index = {x['pin']['path']: x['pin'] for x in manifest['files']}
+    need(len(index) == len(manifest['files']) == manifest['actualInputCount'] and 1 <= len(index) <= 20000, 'EXACT_CURRENT_INPUT_COUNT')
+    for d in source['sources'] + source['runtimeSources'] + list(source['configurations'].values()) + list(plan['tools'].values()) + method['sources']:
+        need(same(index.get(d['path']), d), 'ALL_DECLARED_CODE_WORKERS_CONFIGS_TOOLS_PROTECTED')
+    need(same(set(source['configurations']), {'incoming', 'archive'}), 'BOTH_ROLE_CONFIGURATIONS')
+    need(plan['outputRoot'] is not None and type(plan['outputRoot']) is str and plan['outputRoot'].startswith('/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-'), 'FRESH_OWNED_CAPTURE_OUTPUT_NAMESPACE')
+
+def checked_write(writer, raw):
+    need(type(raw) is bytes, 'RAW_OUTPUT_BYTES')
+    n = writer(raw)
+    need(type(n) is int and same(n, len(raw)), 'SHORT_OR_UNKNOWN_WRITE_REFUSES_NO_REPAIR')
+    return n
+
+def _request(plan, ack_sha, here):
+    import shlex
+    argv = ['/usr/bin/env', '-i', 'PATH=/usr/bin:/bin', 'LANG=C.UTF-8', 'LC_ALL=C.UTF-8', plan['tools']['timeout']['path'], '--signal=KILL', '1203s', plan['tools']['python']['path'], '-I', '-B', here + '/capture.py', '--execute-once', '--root-ack-sha', ack_sha]
+    return dict(cmd=shlex.join(argv), workdir=here, login=False, yield_time_ms=1000, max_output_tokens=2000, **REQUEST_POLICY)
+
+def expected_request(plan, ack_sha, here):
+    need(type(ack_sha) is str and re.fullmatch('[0-9a-f]{64}', ack_sha), 'ACTUAL_ACK_SHA')
+    return _request(plan, ack_sha, here)
+
+def request_template(plan, here):
+    return _request(plan, '<ACTUAL_ROOT_ACK_SHA256>', here)
+
+def decode_tool_origin(raw):
+    from request_families import decode_tool_origin as decode
+    return decode(raw)
+
+def validate_request(value):
+    closed(value, ' '.join(REQUEST_KEYS))
+    need(type(value['cmd']) is str and type(value['workdir']) is str and (type(value['login']) is bool) and (value['login'] is False), 'ACTUAL_REQUEST_STRING_AND_BOOLEAN_TYPES')
+    need(type(value['yield_time_ms']) is int and value['yield_time_ms'] > 0 and (type(value['max_output_tokens']) is int) and (value['max_output_tokens'] > 0), 'ACTUAL_REQUEST_PLAIN_INTEGER_TYPES')
+    need(all((type(value[k]) is str and same(value[k], v) for k, v in REQUEST_POLICY.items())), 'EXACT_ROOT_REQUEST_POLICY_BYTES')
+    return value
+
+def canonical_request(value):
+    validate_request(value)
+    return json.dumps(value, sort_keys=True, separators=(',', ':'), ensure_ascii=True, allow_nan=False).encode('utf8')
+
+def valid_poll_request(value, session):
+    need(type(value) is dict and set(value) <= set('session_id chars yield_time_ms max_output_tokens'.split()), 'DECLARED_POLL_FIELDS_ONLY')
+    need(type(value.get('session_id')) is int and value['session_id'] > 0 and same(value['session_id'], session), 'POLL_SESSION_PLAIN_INTEGER_IDENTITY')
+    need('chars' not in value or (type(value['chars']) is str and same(value['chars'], '')), 'POLL_READ_ONLY_EMPTY_STRING')
+    for key in ('yield_time_ms', 'max_output_tokens'):
+        need(key not in value or (type(value[key]) is int and value[key] > 0), 'POLL_PLAIN_POSITIVE_INTEGER_TYPES')
+    return True
+
+def validate_origin(origin, expected, operators, *, family):
+    from request_families import validate_origin as validate
+    return validate(origin, expected, operators, family=family)

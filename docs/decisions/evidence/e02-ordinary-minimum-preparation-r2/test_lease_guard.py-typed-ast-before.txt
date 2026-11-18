@@ -1,0 +1,4710 @@
+Module(
+  body=[
+    Expr(
+      value=Constant(value='Bounded local controls only: no Docker, ADB, emulator or host clock mutation.\n\nFour original pure controls plus small owned Python child lifecycle regressions.\nExecution remains a separate root-authorized step after exact source review.\n')),
+    Import(
+      names=[
+        alias(name='hashlib')]),
+    Import(
+      names=[
+        alias(name='importlib.util')]),
+    Import(
+      names=[
+        alias(name='json')]),
+    ImportFrom(
+      module='pathlib',
+      names=[
+        alias(name='Path')],
+      level=0),
+    Import(
+      names=[
+        alias(name='tempfile')]),
+    Import(
+      names=[
+        alias(name='unittest')]),
+    ImportFrom(
+      module='unittest.mock',
+      names=[
+        alias(name='patch')],
+      level=0),
+    Import(
+      names=[
+        alias(name='os')]),
+    Import(
+      names=[
+        alias(name='sys')]),
+    Assign(
+      targets=[
+        Name(id='path', ctx=Store())],
+      value=Call(
+        func=Attribute(
+          value=Call(
+            func=Name(id='Path', ctx=Load()),
+            args=[
+              Name(id='__file__', ctx=Load())]),
+          attr='with_name',
+          ctx=Load()),
+        args=[
+          Constant(value='lease_guard.py')])),
+    Assign(
+      targets=[
+        Name(id='spec', ctx=Store())],
+      value=Call(
+        func=Attribute(
+          value=Attribute(
+            value=Name(id='importlib', ctx=Load()),
+            attr='util',
+            ctx=Load()),
+          attr='spec_from_file_location',
+          ctx=Load()),
+        args=[
+          Constant(value='e02_tested_lease_guard'),
+          Name(id='path', ctx=Load())])),
+    Assign(
+      targets=[
+        Name(id='guard', ctx=Store())],
+      value=Call(
+        func=Attribute(
+          value=Attribute(
+            value=Name(id='importlib', ctx=Load()),
+            attr='util',
+            ctx=Load()),
+          attr='module_from_spec',
+          ctx=Load()),
+        args=[
+          Name(id='spec', ctx=Load())])),
+    Expr(
+      value=Call(
+        func=Attribute(
+          value=Attribute(
+            value=Name(id='spec', ctx=Load()),
+            attr='loader',
+            ctx=Load()),
+          attr='exec_module',
+          ctx=Load()),
+        args=[
+          Name(id='guard', ctx=Load())])),
+    ClassDef(
+      name='Clock',
+      body=[
+        FunctionDef(
+          name='__init__',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            Assign(
+              targets=[
+                Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='value',
+                  ctx=Store())],
+              value=Dict(
+                keys=[
+                  Constant(value='Utc'),
+                  Constant(value='Mono'),
+                  Constant(value='Boot'),
+                  Constant(value='bootId')],
+                values=[
+                  BinOp(
+                    left=Constant(value=1800000000),
+                    op=Mult(),
+                    right=Attribute(
+                      value=Name(id='guard', ctx=Load()),
+                      attr='NS',
+                      ctx=Load())),
+                  BinOp(
+                    left=Constant(value=100),
+                    op=Mult(),
+                    right=Attribute(
+                      value=Name(id='guard', ctx=Load()),
+                      attr='NS',
+                      ctx=Load())),
+                  BinOp(
+                    left=Constant(value=100),
+                    op=Mult(),
+                    right=Attribute(
+                      value=Name(id='guard', ctx=Load()),
+                      attr='NS',
+                      ctx=Load())),
+                  Constant(value='synthetic-boot')]))]),
+        FunctionDef(
+          name='__call__',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            Return(
+              value=Call(
+                func=Name(id='dict', ctx=Load()),
+                args=[
+                  Attribute(
+                    value=Name(id='self', ctx=Load()),
+                    attr='value',
+                    ctx=Load())]))]),
+        FunctionDef(
+          name='advance',
+          args=arguments(
+            args=[
+              arg(arg='self'),
+              arg(arg='seconds')]),
+          body=[
+            For(
+              target=Name(id='kind', ctx=Store()),
+              iter=Tuple(
+                elts=[
+                  Constant(value='Utc'),
+                  Constant(value='Mono'),
+                  Constant(value='Boot')],
+                ctx=Load()),
+              body=[
+                AugAssign(
+                  target=Subscript(
+                    value=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='value',
+                      ctx=Load()),
+                    slice=Name(id='kind', ctx=Load()),
+                    ctx=Store()),
+                  op=Add(),
+                  value=BinOp(
+                    left=Name(id='seconds', ctx=Load()),
+                    op=Mult(),
+                    right=Attribute(
+                      value=Name(id='guard', ctx=Load()),
+                      attr='NS',
+                      ctx=Load())))])])]),
+    ClassDef(
+      name='LeaseBoundaryTests',
+      bases=[
+        Attribute(
+          value=Name(id='unittest', ctx=Load()),
+          attr='TestCase',
+          ctx=Load())],
+      body=[
+        FunctionDef(
+          name='test_only_exact_cold_boot_wait_and_pinned_install_have180s_ceiling',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertTrue',
+                  ctx=Load()),
+                args=[
+                  Call(
+                    func=Attribute(
+                      value=Name(id='guard', ctx=Load()),
+                      attr='allowed_adb',
+                      ctx=Load()),
+                    args=[
+                      List(
+                        elts=[
+                          Constant(value='wait-for-device')],
+                        ctx=Load())])])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Call(
+                    func=Attribute(
+                      value=Name(id='guard', ctx=Load()),
+                      attr='adb_timeout',
+                      ctx=Load()),
+                    args=[
+                      List(
+                        elts=[
+                          Constant(value='wait-for-device')],
+                        ctx=Load())]),
+                  Constant(value=180)])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Call(
+                    func=Attribute(
+                      value=Name(id='guard', ctx=Load()),
+                      attr='adb_timeout',
+                      ctx=Load()),
+                    args=[
+                      List(
+                        elts=[
+                          Constant(value='install'),
+                          Constant(value='--no-streaming'),
+                          Constant(value='/artifact.apk')],
+                        ctx=Load())]),
+                  Constant(value=180)])),
+            For(
+              target=Name(id='args', ctx=Store()),
+              iter=Tuple(
+                elts=[
+                  List(
+                    elts=[
+                      Constant(value='shell'),
+                      Constant(value='getprop'),
+                      Constant(value='sys.boot_completed')],
+                    ctx=Load()),
+                  List(
+                    elts=[
+                      Constant(value='install'),
+                      Constant(value='-t'),
+                      Constant(value='--no-streaming'),
+                      Constant(value='/helper.apk')],
+                    ctx=Load()),
+                  List(
+                    elts=[
+                      Constant(value='exec-out'),
+                      Constant(value='screencap'),
+                      Constant(value='-p')],
+                    ctx=Load()),
+                  List(
+                    elts=[
+                      Constant(value='reverse'),
+                      Constant(value='tcp:17777'),
+                      Constant(value='tcp:17777')],
+                    ctx=Load())],
+                ctx=Load()),
+              body=[
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertTrue',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Attribute(
+                          value=Name(id='guard', ctx=Load()),
+                          attr='allowed_adb',
+                          ctx=Load()),
+                        args=[
+                          Name(id='args', ctx=Load())])])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Attribute(
+                          value=Name(id='guard', ctx=Load()),
+                          attr='adb_timeout',
+                          ctx=Load()),
+                        args=[
+                          Name(id='args', ctx=Load())]),
+                      Constant(value=30)]))]),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertFalse',
+                  ctx=Load()),
+                args=[
+                  Call(
+                    func=Attribute(
+                      value=Name(id='guard', ctx=Load()),
+                      attr='allowed_adb',
+                      ctx=Load()),
+                    args=[
+                      List(
+                        elts=[
+                          Constant(value='wait-for-device'),
+                          Constant(value='--unexpected')],
+                        ctx=Load())])])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Call(
+                    func=Attribute(
+                      value=Name(id='guard', ctx=Load()),
+                      attr='adb_timeout',
+                      ctx=Load()),
+                    args=[
+                      List(
+                        elts=[
+                          Constant(value='wait-for-device'),
+                          Constant(value='--unexpected')],
+                        ctx=Load())]),
+                  Constant(value=30)]))]),
+        FunctionDef(
+          name='test_expiry_on_final_coherent_retry_dispatches_zero_payload_and_sticks',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            With(
+              items=[
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='tempfile', ctx=Load()),
+                      attr='TemporaryDirectory',
+                      ctx=Load()),
+                    keywords=[
+                      keyword(
+                        arg='prefix',
+                        value=Constant(value='nbdp-e02-sample-'))]),
+                  optional_vars=Name(id='directory', ctx=Store()))],
+              body=[
+                Assign(
+                  targets=[
+                    Tuple(
+                      elts=[
+                        Name(id='lease', ctx=Store()),
+                        Name(id='clock', ctx=Store())],
+                      ctx=Store())],
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='make',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Name(id='Path', ctx=Load()),
+                        args=[
+                          Name(id='directory', ctx=Load())])])),
+                Assign(
+                  targets=[
+                    Name(id='calls', ctx=Store())],
+                  value=List(ctx=Load())),
+                Assign(
+                  targets=[
+                    Name(id='base', ctx=Store())],
+                  value=Subscript(
+                    value=Attribute(
+                      value=Name(id='clock', ctx=Load()),
+                      attr='value',
+                      ctx=Load()),
+                    slice=Constant(value='Utc'),
+                    ctx=Load())),
+                Assign(
+                  targets=[
+                    Name(id='elapsed', ctx=Store())],
+                  value=BinOp(
+                    left=Constant(value=60),
+                    op=Mult(),
+                    right=Attribute(
+                      value=Name(id='guard', ctx=Load()),
+                      attr='NS',
+                      ctx=Load()))),
+                Assign(
+                  targets=[
+                    Name(id='utc', ctx=Store())],
+                  value=List(
+                    elts=[
+                      BinOp(
+                        left=BinOp(
+                          left=Name(id='base', ctx=Load()),
+                          op=Add(),
+                          right=Name(id='elapsed', ctx=Load())),
+                        op=Sub(),
+                        right=Constant(value=100000000)),
+                      BinOp(
+                        left=BinOp(
+                          left=Name(id='base', ctx=Load()),
+                          op=Add(),
+                          right=Name(id='elapsed', ctx=Load())),
+                        op=Sub(),
+                        right=Constant(value=100000000)),
+                      BinOp(
+                        left=BinOp(
+                          left=Name(id='base', ctx=Load()),
+                          op=Add(),
+                          right=Name(id='elapsed', ctx=Load())),
+                        op=Sub(),
+                        right=Constant(value=40000000)),
+                      BinOp(
+                        left=Name(id='base', ctx=Load()),
+                        op=Add(),
+                        right=Name(id='elapsed', ctx=Load())),
+                      BinOp(
+                        left=Name(id='base', ctx=Load()),
+                        op=Add(),
+                        right=Name(id='elapsed', ctx=Load())),
+                      BinOp(
+                        left=BinOp(
+                          left=Name(id='base', ctx=Load()),
+                          op=Add(),
+                          right=Name(id='elapsed', ctx=Load())),
+                        op=Add(),
+                        right=Constant(value=1000000))],
+                    ctx=Load())),
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='patch', ctx=Load()),
+                          attr='object',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='time',
+                            ctx=Load()),
+                          Constant(value='time_ns')],
+                        keywords=[
+                          keyword(
+                            arg='side_effect',
+                            value=Name(id='utc', ctx=Load()))])),
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='patch', ctx=Load()),
+                          attr='object',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='time',
+                            ctx=Load()),
+                          Constant(value='monotonic_ns')],
+                        keywords=[
+                          keyword(
+                            arg='side_effect',
+                            value=List(
+                              elts=[
+                                BinOp(
+                                  left=BinOp(
+                                    left=Subscript(
+                                      value=Attribute(
+                                        value=Name(id='clock', ctx=Load()),
+                                        attr='value',
+                                        ctx=Load()),
+                                      slice=Constant(value='Mono'),
+                                      ctx=Load()),
+                                    op=Add(),
+                                    right=Name(id='elapsed', ctx=Load())),
+                                  op=Sub(),
+                                  right=Constant(value=100000000)),
+                                BinOp(
+                                  left=BinOp(
+                                    left=Subscript(
+                                      value=Attribute(
+                                        value=Name(id='clock', ctx=Load()),
+                                        attr='value',
+                                        ctx=Load()),
+                                      slice=Constant(value='Mono'),
+                                      ctx=Load()),
+                                    op=Add(),
+                                    right=Name(id='elapsed', ctx=Load())),
+                                  op=Sub(),
+                                  right=Constant(value=100000000)),
+                                BinOp(
+                                  left=BinOp(
+                                    left=Subscript(
+                                      value=Attribute(
+                                        value=Name(id='clock', ctx=Load()),
+                                        attr='value',
+                                        ctx=Load()),
+                                      slice=Constant(value='Mono'),
+                                      ctx=Load()),
+                                    op=Add(),
+                                    right=Name(id='elapsed', ctx=Load())),
+                                  op=Sub(),
+                                  right=Constant(value=40000000)),
+                                BinOp(
+                                  left=Subscript(
+                                    value=Attribute(
+                                      value=Name(id='clock', ctx=Load()),
+                                      attr='value',
+                                      ctx=Load()),
+                                    slice=Constant(value='Mono'),
+                                    ctx=Load()),
+                                  op=Add(),
+                                  right=Name(id='elapsed', ctx=Load())),
+                                BinOp(
+                                  left=Subscript(
+                                    value=Attribute(
+                                      value=Name(id='clock', ctx=Load()),
+                                      attr='value',
+                                      ctx=Load()),
+                                    slice=Constant(value='Mono'),
+                                    ctx=Load()),
+                                  op=Add(),
+                                  right=Name(id='elapsed', ctx=Load())),
+                                BinOp(
+                                  left=BinOp(
+                                    left=Subscript(
+                                      value=Attribute(
+                                        value=Name(id='clock', ctx=Load()),
+                                        attr='value',
+                                        ctx=Load()),
+                                      slice=Constant(value='Mono'),
+                                      ctx=Load()),
+                                    op=Add(),
+                                    right=Name(id='elapsed', ctx=Load())),
+                                  op=Add(),
+                                  right=Constant(value=1000000))],
+                              ctx=Load()))])),
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='patch', ctx=Load()),
+                          attr='object',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='time',
+                            ctx=Load()),
+                          Constant(value='clock_gettime_ns')],
+                        keywords=[
+                          keyword(
+                            arg='side_effect',
+                            value=List(
+                              elts=[
+                                BinOp(
+                                  left=BinOp(
+                                    left=Subscript(
+                                      value=Attribute(
+                                        value=Name(id='clock', ctx=Load()),
+                                        attr='value',
+                                        ctx=Load()),
+                                      slice=Constant(value='Boot'),
+                                      ctx=Load()),
+                                    op=Add(),
+                                    right=Name(id='elapsed', ctx=Load())),
+                                  op=Sub(),
+                                  right=Constant(value=100000000)),
+                                BinOp(
+                                  left=Subscript(
+                                    value=Attribute(
+                                      value=Name(id='clock', ctx=Load()),
+                                      attr='value',
+                                      ctx=Load()),
+                                    slice=Constant(value='Boot'),
+                                    ctx=Load()),
+                                  op=Add(),
+                                  right=Name(id='elapsed', ctx=Load()))],
+                              ctx=Load()))])),
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='patch', ctx=Load()),
+                          attr='object',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='Path',
+                            ctx=Load()),
+                          Constant(value='read_text')],
+                        keywords=[
+                          keyword(
+                            arg='side_effect',
+                            value=List(
+                              elts=[
+                                Constant(value='synthetic-boot'),
+                                Constant(value='monotonic 0 0\nboottime 0 0\n'),
+                                Constant(value='synthetic-boot'),
+                                Constant(value='monotonic 0 0\nboottime 0 0\n')],
+                              ctx=Load()))]))],
+                  body=[
+                    Assign(
+                      targets=[
+                        Attribute(
+                          value=Name(id='lease', ctx=Load()),
+                          attr='clock',
+                          ctx=Store())],
+                      value=Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='sample',
+                        ctx=Load())),
+                    With(
+                      items=[
+                        withitem(
+                          context_expr=Call(
+                            func=Attribute(
+                              value=Name(id='self', ctx=Load()),
+                              attr='assertRaises',
+                              ctx=Load()),
+                            args=[
+                              Attribute(
+                                value=Name(id='guard', ctx=Load()),
+                                attr='LeaseDenied',
+                                ctx=Load())]))],
+                      body=[
+                        Expr(
+                          value=Call(
+                            func=Attribute(
+                              value=Name(id='lease', ctx=Load()),
+                              attr='dispatch',
+                              ctx=Load()),
+                            args=[
+                              Lambda(
+                                args=arguments(),
+                                body=Call(
+                                  func=Attribute(
+                                    value=Name(id='calls', ctx=Load()),
+                                    attr='append',
+                                    ctx=Load()),
+                                  args=[
+                                    Constant(value='forbidden')]))]))])]),
+                Assign(
+                  targets=[
+                    Attribute(
+                      value=Name(id='lease', ctx=Load()),
+                      attr='clock',
+                      ctx=Store())],
+                  value=Name(id='clock', ctx=Load())),
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertRaises',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='LeaseDenied',
+                            ctx=Load())]))],
+                  body=[
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='lease', ctx=Load()),
+                          attr='dispatch',
+                          ctx=Load()),
+                        args=[
+                          Lambda(
+                            args=arguments(),
+                            body=Call(
+                              func=Attribute(
+                                value=Name(id='calls', ctx=Load()),
+                                attr='append',
+                                ctx=Load()),
+                              args=[
+                                Constant(value='later-forbidden')]))]))]),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Name(id='calls', ctx=Load()),
+                      List(ctx=Load())])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertTrue',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Attribute(
+                          value=BinOp(
+                            left=Attribute(
+                              value=Name(id='lease', ctx=Load()),
+                              attr='control',
+                              ctx=Load()),
+                            op=Div(),
+                            right=Constant(value='REVOKED')),
+                          attr='exists',
+                          ctx=Load()))]))])]),
+        FunctionDef(
+          name='test_exhausted_sample_retries_revoke_before_payload_and_stay_revoked',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            With(
+              items=[
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='tempfile', ctx=Load()),
+                      attr='TemporaryDirectory',
+                      ctx=Load()),
+                    keywords=[
+                      keyword(
+                        arg='prefix',
+                        value=Constant(value='nbdp-e02-sample-'))]),
+                  optional_vars=Name(id='directory', ctx=Store()))],
+              body=[
+                Assign(
+                  targets=[
+                    Tuple(
+                      elts=[
+                        Name(id='lease', ctx=Store()),
+                        Name(id='clock', ctx=Store())],
+                      ctx=Store())],
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='make',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Name(id='Path', ctx=Load()),
+                        args=[
+                          Name(id='directory', ctx=Load())])])),
+                Assign(
+                  targets=[
+                    Name(id='calls', ctx=Store())],
+                  value=List(ctx=Load())),
+                Assign(
+                  targets=[
+                    Name(id='base', ctx=Store())],
+                  value=Subscript(
+                    value=Attribute(
+                      value=Name(id='clock', ctx=Load()),
+                      attr='value',
+                      ctx=Load()),
+                    slice=Constant(value='Utc'),
+                    ctx=Load())),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='lease', ctx=Load()),
+                      attr='check',
+                      ctx=Load()))),
+                Assign(
+                  targets=[
+                    Name(id='previous', ctx=Store())],
+                  value=Call(
+                    func=Name(id='dict', ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='lease', ctx=Load()),
+                        attr='previous',
+                        ctx=Load())])),
+                Assign(
+                  targets=[
+                    Name(id='utc', ctx=Store())],
+                  value=List(
+                    elts=[
+                      Name(id='base', ctx=Load()),
+                      BinOp(
+                        left=Name(id='base', ctx=Load()),
+                        op=Add(),
+                        right=Constant(value=1)),
+                      BinOp(
+                        left=Name(id='base', ctx=Load()),
+                        op=Add(),
+                        right=Constant(value=50000001)),
+                      BinOp(
+                        left=Name(id='base', ctx=Load()),
+                        op=Add(),
+                        right=Constant(value=60000000)),
+                      BinOp(
+                        left=Name(id='base', ctx=Load()),
+                        op=Add(),
+                        right=Constant(value=60000001)),
+                      BinOp(
+                        left=Name(id='base', ctx=Load()),
+                        op=Add(),
+                        right=Constant(value=110000001)),
+                      BinOp(
+                        left=Name(id='base', ctx=Load()),
+                        op=Add(),
+                        right=Constant(value=120000000)),
+                      BinOp(
+                        left=Name(id='base', ctx=Load()),
+                        op=Add(),
+                        right=Constant(value=120000001)),
+                      BinOp(
+                        left=Name(id='base', ctx=Load()),
+                        op=Add(),
+                        right=Constant(value=170000001))],
+                    ctx=Load())),
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='patch', ctx=Load()),
+                          attr='object',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='time',
+                            ctx=Load()),
+                          Constant(value='time_ns')],
+                        keywords=[
+                          keyword(
+                            arg='side_effect',
+                            value=Name(id='utc', ctx=Load()))])),
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='patch', ctx=Load()),
+                          attr='object',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='time',
+                            ctx=Load()),
+                          Constant(value='monotonic_ns')],
+                        keywords=[
+                          keyword(
+                            arg='return_value',
+                            value=Subscript(
+                              value=Attribute(
+                                value=Name(id='clock', ctx=Load()),
+                                attr='value',
+                                ctx=Load()),
+                              slice=Constant(value='Mono'),
+                              ctx=Load()))])),
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='patch', ctx=Load()),
+                          attr='object',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='time',
+                            ctx=Load()),
+                          Constant(value='clock_gettime_ns')],
+                        keywords=[
+                          keyword(
+                            arg='return_value',
+                            value=Subscript(
+                              value=Attribute(
+                                value=Name(id='clock', ctx=Load()),
+                                attr='value',
+                                ctx=Load()),
+                              slice=Constant(value='Boot'),
+                              ctx=Load()))])),
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='patch', ctx=Load()),
+                          attr='object',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='Path',
+                            ctx=Load()),
+                          Constant(value='read_text')],
+                        keywords=[
+                          keyword(
+                            arg='side_effect',
+                            value=BinOp(
+                              left=List(
+                                elts=[
+                                  Constant(value='synthetic-boot'),
+                                  Constant(value='monotonic 0 0\nboottime 0 0\n')],
+                                ctx=Load()),
+                              op=Mult(),
+                              right=Constant(value=3)))]))],
+                  body=[
+                    Assign(
+                      targets=[
+                        Attribute(
+                          value=Name(id='lease', ctx=Load()),
+                          attr='clock',
+                          ctx=Store())],
+                      value=Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='sample',
+                        ctx=Load())),
+                    With(
+                      items=[
+                        withitem(
+                          context_expr=Call(
+                            func=Attribute(
+                              value=Name(id='self', ctx=Load()),
+                              attr='assertRaisesRegex',
+                              ctx=Load()),
+                            args=[
+                              Attribute(
+                                value=Name(id='guard', ctx=Load()),
+                                attr='LeaseDenied',
+                                ctx=Load()),
+                              Constant(value='after 3 attempts')]))],
+                      body=[
+                        Expr(
+                          value=Call(
+                            func=Attribute(
+                              value=Name(id='lease', ctx=Load()),
+                              attr='dispatch',
+                              ctx=Load()),
+                            args=[
+                              Lambda(
+                                args=arguments(),
+                                body=Call(
+                                  func=Attribute(
+                                    value=Name(id='calls', ctx=Load()),
+                                    attr='append',
+                                    ctx=Load()),
+                                  args=[
+                                    Constant(value='forbidden')]))]))])]),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='lease', ctx=Load()),
+                        attr='previous',
+                        ctx=Load()),
+                      Name(id='previous', ctx=Load()),
+                      Constant(value='Discarded samples cannot advance accepted clock history')])),
+                Assign(
+                  targets=[
+                    Attribute(
+                      value=Name(id='lease', ctx=Load()),
+                      attr='clock',
+                      ctx=Store())],
+                  value=Name(id='clock', ctx=Load())),
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertRaises',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='LeaseDenied',
+                            ctx=Load())]))],
+                  body=[
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='lease', ctx=Load()),
+                          attr='dispatch',
+                          ctx=Load()),
+                        args=[
+                          Lambda(
+                            args=arguments(),
+                            body=Call(
+                              func=Attribute(
+                                value=Name(id='calls', ctx=Load()),
+                                attr='append',
+                                ctx=Load()),
+                              args=[
+                                Constant(value='later-forbidden')]))]))]),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Name(id='calls', ctx=Load()),
+                      List(ctx=Load())])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertTrue',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Attribute(
+                          value=BinOp(
+                            left=Attribute(
+                              value=Name(id='lease', ctx=Load()),
+                              attr='control',
+                              ctx=Load()),
+                            op=Div(),
+                            right=Constant(value='REVOKED')),
+                          attr='exists',
+                          ctx=Load()))]))])]),
+        FunctionDef(
+          name='assert_final_retry_refused',
+          args=arguments(
+            args=[
+              arg(arg='self'),
+              arg(arg='previous_seconds'),
+              arg(arg='deltas'),
+              arg(arg='reason')]),
+          body=[
+            With(
+              items=[
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='tempfile', ctx=Load()),
+                      attr='TemporaryDirectory',
+                      ctx=Load()),
+                    keywords=[
+                      keyword(
+                        arg='prefix',
+                        value=Constant(value='nbdp-e02-sample-'))]),
+                  optional_vars=Name(id='directory', ctx=Store()))],
+              body=[
+                Assign(
+                  targets=[
+                    Tuple(
+                      elts=[
+                        Name(id='lease', ctx=Store()),
+                        Name(id='clock', ctx=Store())],
+                      ctx=Store())],
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='make',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Name(id='Path', ctx=Load()),
+                        args=[
+                          Name(id='directory', ctx=Load())])])),
+                Assign(
+                  targets=[
+                    Name(id='initial', ctx=Store())],
+                  value=Call(
+                    func=Name(id='dict', ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='clock', ctx=Load()),
+                        attr='value',
+                        ctx=Load())])),
+                Assign(
+                  targets=[
+                    Name(id='calls', ctx=Store())],
+                  value=List(ctx=Load())),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='clock', ctx=Load()),
+                      attr='advance',
+                      ctx=Load()),
+                    args=[
+                      Name(id='previous_seconds', ctx=Load())])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='lease', ctx=Load()),
+                      attr='check',
+                      ctx=Load()))),
+                Assign(
+                  targets=[
+                    Name(id='previous', ctx=Store())],
+                  value=Call(
+                    func=Name(id='dict', ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='lease', ctx=Load()),
+                        attr='previous',
+                        ctx=Load())])),
+                Assign(
+                  targets=[
+                    Name(id='final', ctx=Store())],
+                  value=DictComp(
+                    key=Name(id='kind', ctx=Load()),
+                    value=BinOp(
+                      left=Subscript(
+                        value=Name(id='initial', ctx=Load()),
+                        slice=Name(id='kind', ctx=Load()),
+                        ctx=Load()),
+                      op=Add(),
+                      right=Subscript(
+                        value=Name(id='deltas', ctx=Load()),
+                        slice=Name(id='kind', ctx=Load()),
+                        ctx=Load())),
+                    generators=[
+                      comprehension(
+                        target=Name(id='kind', ctx=Store()),
+                        iter=Tuple(
+                          elts=[
+                            Constant(value='Utc'),
+                            Constant(value='Mono'),
+                            Constant(value='Boot')],
+                          ctx=Load()),
+                        is_async=0)])),
+                Assign(
+                  targets=[
+                    Name(id='utc', ctx=Store())],
+                  value=List(
+                    elts=[
+                      Subscript(
+                        value=Name(id='previous', ctx=Load()),
+                        slice=Constant(value='Utc'),
+                        ctx=Load()),
+                      BinOp(
+                        left=Subscript(
+                          value=Name(id='previous', ctx=Load()),
+                          slice=Constant(value='Utc'),
+                          ctx=Load()),
+                        op=Add(),
+                        right=Constant(value=1)),
+                      BinOp(
+                        left=Subscript(
+                          value=Name(id='previous', ctx=Load()),
+                          slice=Constant(value='Utc'),
+                          ctx=Load()),
+                        op=Add(),
+                        right=Constant(value=50000001)),
+                      Subscript(
+                        value=Name(id='final', ctx=Load()),
+                        slice=Constant(value='Utc'),
+                        ctx=Load()),
+                      Subscript(
+                        value=Name(id='final', ctx=Load()),
+                        slice=Constant(value='Utc'),
+                        ctx=Load()),
+                      BinOp(
+                        left=Subscript(
+                          value=Name(id='final', ctx=Load()),
+                          slice=Constant(value='Utc'),
+                          ctx=Load()),
+                        op=Add(),
+                        right=Constant(value=1))],
+                    ctx=Load())),
+                Assign(
+                  targets=[
+                    Name(id='mono', ctx=Store())],
+                  value=List(
+                    elts=[
+                      Subscript(
+                        value=Name(id='previous', ctx=Load()),
+                        slice=Constant(value='Mono'),
+                        ctx=Load()),
+                      BinOp(
+                        left=Subscript(
+                          value=Name(id='previous', ctx=Load()),
+                          slice=Constant(value='Mono'),
+                          ctx=Load()),
+                        op=Add(),
+                        right=Constant(value=1)),
+                      BinOp(
+                        left=Subscript(
+                          value=Name(id='previous', ctx=Load()),
+                          slice=Constant(value='Mono'),
+                          ctx=Load()),
+                        op=Add(),
+                        right=Constant(value=50000001)),
+                      Subscript(
+                        value=Name(id='final', ctx=Load()),
+                        slice=Constant(value='Mono'),
+                        ctx=Load()),
+                      Subscript(
+                        value=Name(id='final', ctx=Load()),
+                        slice=Constant(value='Mono'),
+                        ctx=Load()),
+                      BinOp(
+                        left=Subscript(
+                          value=Name(id='final', ctx=Load()),
+                          slice=Constant(value='Mono'),
+                          ctx=Load()),
+                        op=Add(),
+                        right=Constant(value=1))],
+                    ctx=Load())),
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='patch', ctx=Load()),
+                          attr='object',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='time',
+                            ctx=Load()),
+                          Constant(value='time_ns')],
+                        keywords=[
+                          keyword(
+                            arg='side_effect',
+                            value=Name(id='utc', ctx=Load()))])),
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='patch', ctx=Load()),
+                          attr='object',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='time',
+                            ctx=Load()),
+                          Constant(value='monotonic_ns')],
+                        keywords=[
+                          keyword(
+                            arg='side_effect',
+                            value=Name(id='mono', ctx=Load()))])),
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='patch', ctx=Load()),
+                          attr='object',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='time',
+                            ctx=Load()),
+                          Constant(value='clock_gettime_ns')],
+                        keywords=[
+                          keyword(
+                            arg='side_effect',
+                            value=List(
+                              elts=[
+                                Subscript(
+                                  value=Name(id='previous', ctx=Load()),
+                                  slice=Constant(value='Boot'),
+                                  ctx=Load()),
+                                Subscript(
+                                  value=Name(id='final', ctx=Load()),
+                                  slice=Constant(value='Boot'),
+                                  ctx=Load())],
+                              ctx=Load()))])),
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='patch', ctx=Load()),
+                          attr='object',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='Path',
+                            ctx=Load()),
+                          Constant(value='read_text')],
+                        keywords=[
+                          keyword(
+                            arg='side_effect',
+                            value=BinOp(
+                              left=List(
+                                elts=[
+                                  Constant(value='synthetic-boot'),
+                                  Constant(value='monotonic 0 0\nboottime 0 0\n')],
+                                ctx=Load()),
+                              op=Mult(),
+                              right=Constant(value=2)))]))],
+                  body=[
+                    Assign(
+                      targets=[
+                        Attribute(
+                          value=Name(id='lease', ctx=Load()),
+                          attr='clock',
+                          ctx=Store())],
+                      value=Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='sample',
+                        ctx=Load())),
+                    With(
+                      items=[
+                        withitem(
+                          context_expr=Call(
+                            func=Attribute(
+                              value=Name(id='self', ctx=Load()),
+                              attr='assertRaisesRegex',
+                              ctx=Load()),
+                            args=[
+                              Attribute(
+                                value=Name(id='guard', ctx=Load()),
+                                attr='LeaseDenied',
+                                ctx=Load()),
+                              Name(id='reason', ctx=Load())]))],
+                      body=[
+                        Expr(
+                          value=Call(
+                            func=Attribute(
+                              value=Name(id='lease', ctx=Load()),
+                              attr='dispatch',
+                              ctx=Load()),
+                            args=[
+                              Lambda(
+                                args=arguments(),
+                                body=Call(
+                                  func=Attribute(
+                                    value=Name(id='calls', ctx=Load()),
+                                    attr='append',
+                                    ctx=Load()),
+                                  args=[
+                                    Constant(value='forbidden')]))]))])]),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='lease', ctx=Load()),
+                        attr='previous',
+                        ctx=Load()),
+                      Name(id='previous', ctx=Load()),
+                      Constant(value='Refused final sample cannot advance accepted history')])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertTrue',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Attribute(
+                          value=BinOp(
+                            left=Attribute(
+                              value=Name(id='lease', ctx=Load()),
+                              attr='control',
+                              ctx=Load()),
+                            op=Div(),
+                            right=Constant(value='REVOKED')),
+                          attr='exists',
+                          ctx=Load()))])),
+                Assign(
+                  targets=[
+                    Attribute(
+                      value=Name(id='lease', ctx=Load()),
+                      attr='clock',
+                      ctx=Store())],
+                  value=Name(id='clock', ctx=Load())),
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertRaises',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='LeaseDenied',
+                            ctx=Load())]))],
+                  body=[
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='lease', ctx=Load()),
+                          attr='dispatch',
+                          ctx=Load()),
+                        args=[
+                          Lambda(
+                            args=arguments(),
+                            body=Call(
+                              func=Attribute(
+                                value=Name(id='calls', ctx=Load()),
+                                attr='append',
+                                ctx=Load()),
+                              args=[
+                                Constant(value='later-forbidden')]))]))]),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Name(id='calls', ctx=Load()),
+                      List(ctx=Load())]))])]),
+        FunctionDef(
+          name='test_interrupted_retry_final_resumption_gap_refuses_zero_payload_sticky',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assert_final_retry_refused',
+                  ctx=Load()),
+                args=[
+                  Constant(value=0),
+                  DictComp(
+                    key=Name(id='kind', ctx=Load()),
+                    value=BinOp(
+                      left=Constant(value=16),
+                      op=Mult(),
+                      right=Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='NS',
+                        ctx=Load())),
+                    generators=[
+                      comprehension(
+                        target=Name(id='kind', ctx=Store()),
+                        iter=Tuple(
+                          elts=[
+                            Constant(value='Utc'),
+                            Constant(value='Mono'),
+                            Constant(value='Boot')],
+                          ctx=Load()),
+                        is_async=0)]),
+                  Constant(value='unobserved resumption gap')]))]),
+        FunctionDef(
+          name='test_interrupted_retry_final_previous_clock_rollback_refuses_zero_payload_sticky',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assert_final_retry_refused',
+                  ctx=Load()),
+                args=[
+                  Constant(value=2),
+                  DictComp(
+                    key=Name(id='kind', ctx=Load()),
+                    value=Attribute(
+                      value=Name(id='guard', ctx=Load()),
+                      attr='NS',
+                      ctx=Load()),
+                    generators=[
+                      comprehension(
+                        target=Name(id='kind', ctx=Store()),
+                        iter=Tuple(
+                          elts=[
+                            Constant(value='Utc'),
+                            Constant(value='Mono'),
+                            Constant(value='Boot')],
+                          ctx=Load()),
+                        is_async=0)]),
+                  Constant(value='clock rollback')]))]),
+        FunctionDef(
+          name='test_interrupted_retry_final_utc_boot_drift_refuses_zero_payload_sticky',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assert_final_retry_refused',
+                  ctx=Load()),
+                args=[
+                  Constant(value=0),
+                  Dict(
+                    keys=[
+                      Constant(value='Utc'),
+                      Constant(value='Mono'),
+                      Constant(value='Boot')],
+                    values=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='NS',
+                        ctx=Load()),
+                      Constant(value=0),
+                      Constant(value=0)]),
+                  Constant(value='UTC/boottime drift')]))]),
+        FunctionDef(
+          name='assert_metadata_delay',
+          args=arguments(
+            args=[
+              arg(arg='self'),
+              arg(arg='seconds'),
+              arg(arg='reason'),
+              arg(arg='changed_boot')],
+            defaults=[
+              Constant(value=None),
+              Constant(value=False)]),
+          body=[
+            With(
+              items=[
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='tempfile', ctx=Load()),
+                      attr='TemporaryDirectory',
+                      ctx=Load()),
+                    keywords=[
+                      keyword(
+                        arg='prefix',
+                        value=Constant(value='nbdp-e02-proc-delay-'))]),
+                  optional_vars=Name(id='directory', ctx=Store()))],
+              body=[
+                Assign(
+                  targets=[
+                    Tuple(
+                      elts=[
+                        Name(id='lease', ctx=Store()),
+                        Name(id='clock', ctx=Store())],
+                      ctx=Store())],
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='make',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Name(id='Path', ctx=Load()),
+                        args=[
+                          Name(id='directory', ctx=Load())])])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='lease', ctx=Load()),
+                      attr='check',
+                      ctx=Load()))),
+                Assign(
+                  targets=[
+                    Name(id='previous', ctx=Store())],
+                  value=Call(
+                    func=Name(id='dict', ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='lease', ctx=Load()),
+                        attr='previous',
+                        ctx=Load())])),
+                Assign(
+                  targets=[
+                    Name(id='original', ctx=Store())],
+                  value=Call(
+                    func=Attribute(
+                      value=Attribute(
+                        value=Name(id='lease', ctx=Load()),
+                        attr='path',
+                        ctx=Load()),
+                      attr='read_bytes',
+                      ctx=Load()))),
+                Assign(
+                  targets=[
+                    Name(id='calls', ctx=Store())],
+                  value=List(ctx=Load())),
+                Assign(
+                  targets=[
+                    Name(id='metadata_count', ctx=Store())],
+                  value=Constant(value=0)),
+                FunctionDef(
+                  name='metadata',
+                  args=arguments(
+                    vararg=arg(arg='args'),
+                    kwarg=arg(arg='kwargs')),
+                  body=[
+                    Nonlocal(
+                      names=[
+                        'metadata_count']),
+                    AugAssign(
+                      target=Name(id='metadata_count', ctx=Store()),
+                      op=Add(),
+                      value=Constant(value=1)),
+                    If(
+                      test=BinOp(
+                        left=Name(id='metadata_count', ctx=Load()),
+                        op=Mod(),
+                        right=Constant(value=2)),
+                      body=[
+                        Expr(
+                          value=Call(
+                            func=Attribute(
+                              value=Name(id='clock', ctx=Load()),
+                              attr='advance',
+                              ctx=Load()),
+                            args=[
+                              Name(id='seconds', ctx=Load())])),
+                        Return(
+                          value=IfExp(
+                            test=Name(id='changed_boot', ctx=Load()),
+                            body=Constant(value='changed-boot'),
+                            orelse=Constant(value='synthetic-boot')))]),
+                    Return(
+                      value=Constant(value='monotonic 0 0\nboottime 0 0\n'))]),
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='patch', ctx=Load()),
+                          attr='object',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='Path',
+                            ctx=Load()),
+                          Constant(value='read_text')],
+                        keywords=[
+                          keyword(
+                            arg='side_effect',
+                            value=Name(id='metadata', ctx=Load()))])),
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='patch', ctx=Load()),
+                          attr='object',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='time',
+                            ctx=Load()),
+                          Constant(value='time_ns')],
+                        keywords=[
+                          keyword(
+                            arg='side_effect',
+                            value=Lambda(
+                              args=arguments(),
+                              body=Subscript(
+                                value=Attribute(
+                                  value=Name(id='clock', ctx=Load()),
+                                  attr='value',
+                                  ctx=Load()),
+                                slice=Constant(value='Utc'),
+                                ctx=Load())))])),
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='patch', ctx=Load()),
+                          attr='object',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='time',
+                            ctx=Load()),
+                          Constant(value='monotonic_ns')],
+                        keywords=[
+                          keyword(
+                            arg='side_effect',
+                            value=Lambda(
+                              args=arguments(),
+                              body=Subscript(
+                                value=Attribute(
+                                  value=Name(id='clock', ctx=Load()),
+                                  attr='value',
+                                  ctx=Load()),
+                                slice=Constant(value='Mono'),
+                                ctx=Load())))])),
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='patch', ctx=Load()),
+                          attr='object',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='time',
+                            ctx=Load()),
+                          Constant(value='clock_gettime_ns')],
+                        keywords=[
+                          keyword(
+                            arg='side_effect',
+                            value=Lambda(
+                              args=arguments(
+                                args=[
+                                  arg(arg='_')]),
+                              body=Subscript(
+                                value=Attribute(
+                                  value=Name(id='clock', ctx=Load()),
+                                  attr='value',
+                                  ctx=Load()),
+                                slice=Constant(value='Boot'),
+                                ctx=Load())))]))],
+                  body=[
+                    Assign(
+                      targets=[
+                        Attribute(
+                          value=Name(id='lease', ctx=Load()),
+                          attr='clock',
+                          ctx=Store())],
+                      value=Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='sample',
+                        ctx=Load())),
+                    If(
+                      test=Name(id='reason', ctx=Load()),
+                      body=[
+                        With(
+                          items=[
+                            withitem(
+                              context_expr=Call(
+                                func=Attribute(
+                                  value=Name(id='self', ctx=Load()),
+                                  attr='assertRaisesRegex',
+                                  ctx=Load()),
+                                args=[
+                                  Attribute(
+                                    value=Name(id='guard', ctx=Load()),
+                                    attr='LeaseDenied',
+                                    ctx=Load()),
+                                  Name(id='reason', ctx=Load())]))],
+                          body=[
+                            Expr(
+                              value=Call(
+                                func=Attribute(
+                                  value=Name(id='lease', ctx=Load()),
+                                  attr='dispatch',
+                                  ctx=Load()),
+                                args=[
+                                  Lambda(
+                                    args=arguments(),
+                                    body=Call(
+                                      func=Attribute(
+                                        value=Name(id='calls', ctx=Load()),
+                                        attr='append',
+                                        ctx=Load()),
+                                      args=[
+                                        Constant(value='forbidden')]))]))])],
+                      orelse=[
+                        Expr(
+                          value=Call(
+                            func=Attribute(
+                              value=Name(id='lease', ctx=Load()),
+                              attr='dispatch',
+                              ctx=Load()),
+                            args=[
+                              Lambda(
+                                args=arguments(),
+                                body=Call(
+                                  func=Attribute(
+                                    value=Name(id='calls', ctx=Load()),
+                                    attr='append',
+                                    ctx=Load()),
+                                  args=[
+                                    Constant(value='accepted')]))]))])]),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Attribute(
+                          value=Attribute(
+                            value=Name(id='lease', ctx=Load()),
+                            attr='path',
+                            ctx=Load()),
+                          attr='read_bytes',
+                          ctx=Load())),
+                      Name(id='original', ctx=Load()),
+                      Constant(value='Metadata delay cannot renew original deadlines')])),
+                If(
+                  test=Name(id='reason', ctx=Load()),
+                  body=[
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertEqual',
+                          ctx=Load()),
+                        args=[
+                          Name(id='metadata_count', ctx=Load()),
+                          Constant(value=2),
+                          Constant(value='Invalid final clocks must refuse before dispatch, no retry')])),
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertEqual',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='lease', ctx=Load()),
+                            attr='previous',
+                            ctx=Load()),
+                          Name(id='previous', ctx=Load())])),
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertTrue',
+                          ctx=Load()),
+                        args=[
+                          Call(
+                            func=Attribute(
+                              value=BinOp(
+                                left=Attribute(
+                                  value=Name(id='lease', ctx=Load()),
+                                  attr='control',
+                                  ctx=Load()),
+                                op=Div(),
+                                right=Constant(value='REVOKED')),
+                              attr='exists',
+                              ctx=Load()))])),
+                    Assign(
+                      targets=[
+                        Attribute(
+                          value=Name(id='lease', ctx=Load()),
+                          attr='clock',
+                          ctx=Store())],
+                      value=Name(id='clock', ctx=Load())),
+                    With(
+                      items=[
+                        withitem(
+                          context_expr=Call(
+                            func=Attribute(
+                              value=Name(id='self', ctx=Load()),
+                              attr='assertRaises',
+                              ctx=Load()),
+                            args=[
+                              Attribute(
+                                value=Name(id='guard', ctx=Load()),
+                                attr='LeaseDenied',
+                                ctx=Load())]))],
+                      body=[
+                        Expr(
+                          value=Call(
+                            func=Attribute(
+                              value=Name(id='lease', ctx=Load()),
+                              attr='dispatch',
+                              ctx=Load()),
+                            args=[
+                              Lambda(
+                                args=arguments(),
+                                body=Call(
+                                  func=Attribute(
+                                    value=Name(id='calls', ctx=Load()),
+                                    attr='append',
+                                    ctx=Load()),
+                                  args=[
+                                    Constant(value='later-forbidden')]))]))]),
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertEqual',
+                          ctx=Load()),
+                        args=[
+                          Name(id='calls', ctx=Load()),
+                          List(ctx=Load())]))],
+                  orelse=[
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertEqual',
+                          ctx=Load()),
+                        args=[
+                          Name(id='metadata_count', ctx=Load()),
+                          Constant(value=4),
+                          Constant(value='Each boundary must reread metadata, no clock retry')])),
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertEqual',
+                          ctx=Load()),
+                        args=[
+                          Name(id='calls', ctx=Load()),
+                          List(
+                            elts=[
+                              Constant(value='accepted')],
+                            ctx=Load())])),
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertEqual',
+                          ctx=Load()),
+                        args=[
+                          Subscript(
+                            value=Attribute(
+                              value=Name(id='lease', ctx=Load()),
+                              attr='previous',
+                              ctx=Load()),
+                            slice=Constant(value='Boot'),
+                            ctx=Load()),
+                          BinOp(
+                            left=Subscript(
+                              value=Name(id='previous', ctx=Load()),
+                              slice=Constant(value='Boot'),
+                              ctx=Load()),
+                            op=Add(),
+                            right=BinOp(
+                              left=BinOp(
+                                left=Constant(value=2),
+                                op=Mult(),
+                                right=Name(id='seconds', ctx=Load())),
+                              op=Mult(),
+                              right=Attribute(
+                                value=Name(id='guard', ctx=Load()),
+                                attr='NS',
+                                ctx=Load())))])),
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertFalse',
+                          ctx=Load()),
+                        args=[
+                          Call(
+                            func=Attribute(
+                              value=BinOp(
+                                left=Attribute(
+                                  value=Name(id='lease', ctx=Load()),
+                                  attr='control',
+                                  ctx=Load()),
+                                op=Div(),
+                                right=Constant(value='REVOKED')),
+                              attr='exists',
+                              ctx=Load()))]))])])]),
+        FunctionDef(
+          name='test_metadata_delay_within_original_budget_is_charged_without_clock_retry',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assert_metadata_delay',
+                  ctx=Load()),
+                args=[
+                  Constant(value=1)]))]),
+        FunctionDef(
+          name='test_metadata_delay_cannot_extend_original_expiry',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assert_metadata_delay',
+                  ctx=Load()),
+                args=[
+                  Constant(value=60),
+                  Constant(value='original deadline/clock refused')]))]),
+        FunctionDef(
+          name='test_metadata_delay_over_resumption_gap_refuses_zero_payload',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assert_metadata_delay',
+                  ctx=Load()),
+                args=[
+                  Constant(value=16),
+                  Constant(value='unobserved resumption gap')]))]),
+        FunctionDef(
+          name='test_changed_boot_after_metadata_delay_refuses_zero_payload',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assert_metadata_delay',
+                  ctx=Load()),
+                args=[
+                  Constant(value=1),
+                  Constant(value='boot identity changed')],
+                keywords=[
+                  keyword(
+                    arg='changed_boot',
+                    value=Constant(value=True))]))]),
+        FunctionDef(
+          name='make',
+          args=arguments(
+            args=[
+              arg(arg='self'),
+              arg(arg='root')]),
+          body=[
+            Assign(
+              targets=[
+                Name(id='clock', ctx=Store())],
+              value=Call(
+                func=Name(id='Clock', ctx=Load()))),
+            Assign(
+              targets=[
+                Name(id='data', ctx=Store())],
+              value=Call(
+                func=Attribute(
+                  value=Name(id='guard', ctx=Load()),
+                  attr='issue',
+                  ctx=Load()),
+                args=[
+                  BinOp(
+                    left=Constant(value='a'),
+                    op=Mult(),
+                    right=Constant(value=32)),
+                  Constant(value=60),
+                  Name(id='clock', ctx=Load())])),
+            Assign(
+              targets=[
+                Name(id='path', ctx=Store())],
+              value=BinOp(
+                left=Name(id='root', ctx=Load()),
+                op=Div(),
+                right=Constant(value='lease.json'))),
+            Assign(
+              targets=[
+                Name(id='raw', ctx=Store())],
+              value=Call(
+                func=Attribute(
+                  value=BinOp(
+                    left=Call(
+                      func=Attribute(
+                        value=Name(id='json', ctx=Load()),
+                        attr='dumps',
+                        ctx=Load()),
+                      args=[
+                        Name(id='data', ctx=Load())]),
+                    op=Add(),
+                    right=Constant(value='\n')),
+                  attr='encode',
+                  ctx=Load()))),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='path', ctx=Load()),
+                  attr='write_bytes',
+                  ctx=Load()),
+                args=[
+                  Name(id='raw', ctx=Load())])),
+            Assign(
+              targets=[
+                Name(id='control', ctx=Store())],
+              value=BinOp(
+                left=Name(id='root', ctx=Load()),
+                op=Div(),
+                right=Constant(value='control'))),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='control', ctx=Load()),
+                  attr='mkdir',
+                  ctx=Load()))),
+            Return(
+              value=Tuple(
+                elts=[
+                  Call(
+                    func=Attribute(
+                      value=Name(id='guard', ctx=Load()),
+                      attr='Lease',
+                      ctx=Load()),
+                    args=[
+                      Name(id='path', ctx=Load()),
+                      Call(
+                        func=Attribute(
+                          value=Call(
+                            func=Attribute(
+                              value=Name(id='hashlib', ctx=Load()),
+                              attr='sha256',
+                              ctx=Load()),
+                            args=[
+                              Name(id='raw', ctx=Load())]),
+                          attr='hexdigest',
+                          ctx=Load())),
+                      Name(id='control', ctx=Load()),
+                      Name(id='clock', ctx=Load())]),
+                  Name(id='clock', ctx=Load())],
+                ctx=Load()))]),
+        FunctionDef(
+          name='test_nominal_original_lease_dispatch',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            With(
+              items=[
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='tempfile', ctx=Load()),
+                      attr='TemporaryDirectory',
+                      ctx=Load()),
+                    keywords=[
+                      keyword(
+                        arg='prefix',
+                        value=Constant(value='nbdp-e02-inert-'))]),
+                  optional_vars=Name(id='directory', ctx=Store()))],
+              body=[
+                Assign(
+                  targets=[
+                    Tuple(
+                      elts=[
+                        Name(id='lease', ctx=Store()),
+                        Name(id='clock', ctx=Store())],
+                      ctx=Store())],
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='make',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Name(id='Path', ctx=Load()),
+                        args=[
+                          Name(id='directory', ctx=Load())])])),
+                Assign(
+                  targets=[
+                    Name(id='calls', ctx=Store())],
+                  value=List(ctx=Load())),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='clock', ctx=Load()),
+                      attr='advance',
+                      ctx=Load()),
+                    args=[
+                      Constant(value=1)])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Attribute(
+                          value=Name(id='lease', ctx=Load()),
+                          attr='dispatch',
+                          ctx=Load()),
+                        args=[
+                          Lambda(
+                            args=arguments(),
+                            body=BoolOp(
+                              op=Or(),
+                              values=[
+                                Call(
+                                  func=Attribute(
+                                    value=Name(id='calls', ctx=Load()),
+                                    attr='append',
+                                    ctx=Load()),
+                                  args=[
+                                    Constant(value='payload')]),
+                                Constant(value='actual-result')]))]),
+                      Constant(value='actual-result')])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Name(id='calls', ctx=Load()),
+                      List(
+                        elts=[
+                          Constant(value='payload')],
+                        ctx=Load())])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertFalse',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Attribute(
+                          value=BinOp(
+                            left=Attribute(
+                              value=Name(id='lease', ctx=Load()),
+                              attr='control',
+                              ctx=Load()),
+                            op=Div(),
+                            right=Constant(value='REVOKED')),
+                          attr='exists',
+                          ctx=Load()))]))])]),
+        FunctionDef(
+          name='test_already_expired_dispatches_no_payload',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            With(
+              items=[
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='tempfile', ctx=Load()),
+                      attr='TemporaryDirectory',
+                      ctx=Load()),
+                    keywords=[
+                      keyword(
+                        arg='prefix',
+                        value=Constant(value='nbdp-e02-inert-'))]),
+                  optional_vars=Name(id='directory', ctx=Store()))],
+              body=[
+                Assign(
+                  targets=[
+                    Tuple(
+                      elts=[
+                        Name(id='lease', ctx=Store()),
+                        Name(id='clock', ctx=Store())],
+                      ctx=Store())],
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='make',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Name(id='Path', ctx=Load()),
+                        args=[
+                          Name(id='directory', ctx=Load())])])),
+                Assign(
+                  targets=[
+                    Name(id='calls', ctx=Store())],
+                  value=List(ctx=Load())),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='clock', ctx=Load()),
+                      attr='advance',
+                      ctx=Load()),
+                    args=[
+                      Constant(value=60)])),
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertRaises',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='LeaseDenied',
+                            ctx=Load())]))],
+                  body=[
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='lease', ctx=Load()),
+                          attr='dispatch',
+                          ctx=Load()),
+                        args=[
+                          Lambda(
+                            args=arguments(),
+                            body=Call(
+                              func=Attribute(
+                                value=Name(id='calls', ctx=Load()),
+                                attr='append',
+                                ctx=Load()),
+                              args=[
+                                Constant(value='forbidden')]))]))]),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Name(id='calls', ctx=Load()),
+                      List(ctx=Load())])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertTrue',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Attribute(
+                          value=BinOp(
+                            left=Attribute(
+                              value=Name(id='lease', ctx=Load()),
+                              attr='control',
+                              ctx=Load()),
+                            op=Div(),
+                            right=Constant(value='REVOKED')),
+                          attr='exists',
+                          ctx=Load()))]))])]),
+        FunctionDef(
+          name='test_expiry_during_wait_never_accepts_or_dispatches_later',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            With(
+              items=[
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='tempfile', ctx=Load()),
+                      attr='TemporaryDirectory',
+                      ctx=Load()),
+                    keywords=[
+                      keyword(
+                        arg='prefix',
+                        value=Constant(value='nbdp-e02-inert-'))]),
+                  optional_vars=Name(id='directory', ctx=Store()))],
+              body=[
+                Assign(
+                  targets=[
+                    Tuple(
+                      elts=[
+                        Name(id='lease', ctx=Store()),
+                        Name(id='clock', ctx=Store())],
+                      ctx=Store())],
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='make',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Name(id='Path', ctx=Load()),
+                        args=[
+                          Name(id='directory', ctx=Load())])])),
+                Assign(
+                  targets=[
+                    Name(id='calls', ctx=Store())],
+                  value=List(ctx=Load())),
+                FunctionDef(
+                  name='in_flight',
+                  args=arguments(),
+                  body=[
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='calls', ctx=Load()),
+                          attr='append',
+                          ctx=Load()),
+                        args=[
+                          Constant(value='already-in-flight')])),
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='clock', ctx=Load()),
+                          attr='advance',
+                          ctx=Load()),
+                        args=[
+                          Constant(value=60)])),
+                    Return(
+                      value=Constant(value='must-not-be-accepted'))]),
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertRaises',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='LeaseDenied',
+                            ctx=Load())]))],
+                  body=[
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='lease', ctx=Load()),
+                          attr='dispatch',
+                          ctx=Load()),
+                        args=[
+                          Name(id='in_flight', ctx=Load())]))]),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='clock', ctx=Load()),
+                      attr='advance',
+                      ctx=Load()),
+                    args=[
+                      UnaryOp(
+                        op=USub(),
+                        operand=Constant(value=60))])),
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertRaises',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='LeaseDenied',
+                            ctx=Load())]))],
+                  body=[
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='lease', ctx=Load()),
+                          attr='dispatch',
+                          ctx=Load()),
+                        args=[
+                          Lambda(
+                            args=arguments(),
+                            body=Call(
+                              func=Attribute(
+                                value=Name(id='calls', ctx=Load()),
+                                attr='append',
+                                ctx=Load()),
+                              args=[
+                                Constant(value='later-forbidden')]))]))]),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Name(id='calls', ctx=Load()),
+                      List(
+                        elts=[
+                          Constant(value='already-in-flight')],
+                        ctx=Load())])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertTrue',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Attribute(
+                          value=BinOp(
+                            left=Attribute(
+                              value=Name(id='lease', ctx=Load()),
+                              attr='control',
+                              ctx=Load()),
+                            op=Div(),
+                            right=Constant(value='REVOKED')),
+                          attr='exists',
+                          ctx=Load()))]))])]),
+        FunctionDef(
+          name='test_explicit_revoke_is_sticky_after_wait',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            With(
+              items=[
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='tempfile', ctx=Load()),
+                      attr='TemporaryDirectory',
+                      ctx=Load()),
+                    keywords=[
+                      keyword(
+                        arg='prefix',
+                        value=Constant(value='nbdp-e02-inert-'))]),
+                  optional_vars=Name(id='directory', ctx=Store()))],
+              body=[
+                Assign(
+                  targets=[
+                    Tuple(
+                      elts=[
+                        Name(id='lease', ctx=Store()),
+                        Name(id='clock', ctx=Store())],
+                      ctx=Store())],
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='make',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Name(id='Path', ctx=Load()),
+                        args=[
+                          Name(id='directory', ctx=Load())])])),
+                Assign(
+                  targets=[
+                    Name(id='calls', ctx=Store())],
+                  value=List(ctx=Load())),
+                FunctionDef(
+                  name='in_flight',
+                  args=arguments(),
+                  body=[
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='calls', ctx=Load()),
+                          attr='append',
+                          ctx=Load()),
+                        args=[
+                          Constant(value='already-in-flight')])),
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=BinOp(
+                            left=Attribute(
+                              value=Name(id='lease', ctx=Load()),
+                              attr='control',
+                              ctx=Load()),
+                            op=Div(),
+                            right=Constant(value='REVOKED')),
+                          attr='write_text',
+                          ctx=Load()),
+                        args=[
+                          Constant(value='inert explicit revoke\n')])),
+                    Return(
+                      value=Constant(value='must-not-be-accepted'))]),
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertRaises',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='LeaseDenied',
+                            ctx=Load())]))],
+                  body=[
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='lease', ctx=Load()),
+                          attr='dispatch',
+                          ctx=Load()),
+                        args=[
+                          Name(id='in_flight', ctx=Load())]))]),
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertRaises',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='LeaseDenied',
+                            ctx=Load())]))],
+                  body=[
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='lease', ctx=Load()),
+                          attr='dispatch',
+                          ctx=Load()),
+                        args=[
+                          Lambda(
+                            args=arguments(),
+                            body=Call(
+                              func=Attribute(
+                                value=Name(id='calls', ctx=Load()),
+                                attr='append',
+                                ctx=Load()),
+                              args=[
+                                Constant(value='later-forbidden')]))]))]),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Name(id='calls', ctx=Load()),
+                      List(
+                        elts=[
+                          Constant(value='already-in-flight')],
+                        ctx=Load())]))])]),
+        FunctionDef(
+          name='test_resumption_gap_inside_total_budget_revokes',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            With(
+              items=[
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='tempfile', ctx=Load()),
+                      attr='TemporaryDirectory',
+                      ctx=Load()),
+                    keywords=[
+                      keyword(
+                        arg='prefix',
+                        value=Constant(value='nbdp-e02-inert-'))]),
+                  optional_vars=Name(id='directory', ctx=Store()))],
+              body=[
+                Assign(
+                  targets=[
+                    Tuple(
+                      elts=[
+                        Name(id='lease', ctx=Store()),
+                        Name(id='clock', ctx=Store())],
+                      ctx=Store())],
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='make',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Name(id='Path', ctx=Load()),
+                        args=[
+                          Name(id='directory', ctx=Load())])])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='lease', ctx=Load()),
+                      attr='check',
+                      ctx=Load()))),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='clock', ctx=Load()),
+                      attr='advance',
+                      ctx=Load()),
+                    args=[
+                      Constant(value=16)])),
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertRaises',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='LeaseDenied',
+                            ctx=Load())]))],
+                  body=[
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='lease', ctx=Load()),
+                          attr='dispatch',
+                          ctx=Load()),
+                        args=[
+                          Lambda(
+                            args=arguments(),
+                            body=Call(
+                              func=Attribute(
+                                value=Name(id='self', ctx=Load()),
+                                attr='fail',
+                                ctx=Load()),
+                              args=[
+                                Constant(value='payload after gap')]))]))])])]),
+        FunctionDef(
+          name='test_clock_rollback_inside_original_window_revokes',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            With(
+              items=[
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='tempfile', ctx=Load()),
+                      attr='TemporaryDirectory',
+                      ctx=Load()),
+                    keywords=[
+                      keyword(
+                        arg='prefix',
+                        value=Constant(value='nbdp-e02-inert-'))]),
+                  optional_vars=Name(id='directory', ctx=Store()))],
+              body=[
+                Assign(
+                  targets=[
+                    Tuple(
+                      elts=[
+                        Name(id='lease', ctx=Store()),
+                        Name(id='clock', ctx=Store())],
+                      ctx=Store())],
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='make',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Name(id='Path', ctx=Load()),
+                        args=[
+                          Name(id='directory', ctx=Load())])])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='clock', ctx=Load()),
+                      attr='advance',
+                      ctx=Load()),
+                    args=[
+                      Constant(value=2)])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='lease', ctx=Load()),
+                      attr='check',
+                      ctx=Load()))),
+                AugAssign(
+                  target=Subscript(
+                    value=Attribute(
+                      value=Name(id='clock', ctx=Load()),
+                      attr='value',
+                      ctx=Load()),
+                    slice=Constant(value='Mono'),
+                    ctx=Store()),
+                  op=Sub(),
+                  value=Attribute(
+                    value=Name(id='guard', ctx=Load()),
+                    attr='NS',
+                    ctx=Load())),
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertRaises',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='LeaseDenied',
+                            ctx=Load())]))],
+                  body=[
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='lease', ctx=Load()),
+                          attr='dispatch',
+                          ctx=Load()),
+                        args=[
+                          Lambda(
+                            args=arguments(),
+                            body=Call(
+                              func=Attribute(
+                                value=Name(id='self', ctx=Load()),
+                                attr='fail',
+                                ctx=Load()),
+                              args=[
+                                Constant(value='payload after rollback')]))]))])])]),
+        FunctionDef(
+          name='test_owned_child_natural_exit_reaped_full_eof',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            With(
+              items=[
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='tempfile', ctx=Load()),
+                      attr='TemporaryDirectory',
+                      ctx=Load()),
+                    keywords=[
+                      keyword(
+                        arg='prefix',
+                        value=Constant(value='nbdp-e02-child-'))]),
+                  optional_vars=Name(id='directory', ctx=Store()))],
+              body=[
+                Assign(
+                  targets=[
+                    Tuple(
+                      elts=[
+                        Name(id='lease', ctx=Store()),
+                        Name(id='_', ctx=Store())],
+                      ctx=Store())],
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='make',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Name(id='Path', ctx=Load()),
+                        args=[
+                          Name(id='directory', ctx=Load())])])),
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='patch', ctx=Load()),
+                          attr='object',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='os',
+                            ctx=Load()),
+                          Constant(value='killpg')],
+                        keywords=[
+                          keyword(
+                            arg='wraps',
+                            value=Attribute(
+                              value=Name(id='os', ctx=Load()),
+                              attr='killpg',
+                              ctx=Load()))]),
+                      optional_vars=Name(id='kill', ctx=Store()))],
+                  body=[
+                    Assign(
+                      targets=[
+                        Name(id='result', ctx=Store())],
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='lease', ctx=Load()),
+                          attr='run_checked',
+                          ctx=Load()),
+                        args=[
+                          List(
+                            elts=[
+                              Attribute(
+                                value=Name(id='sys', ctx=Load()),
+                                attr='executable',
+                                ctx=Load()),
+                              Constant(value='-I'),
+                              Constant(value='-c'),
+                              Constant(value="import sys;sys.stdout.write('actual-out');sys.stderr.write('actual-err')")],
+                            ctx=Load()),
+                          Constant(value=3),
+                          Dict(
+                            keys=[
+                              Constant(value='PATH')],
+                            values=[
+                              Constant(value='/usr/bin:/bin')])]))]),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Subscript(
+                        value=Name(id='result', ctx=Load()),
+                        slice=Constant(value='stdout'),
+                        ctx=Load()),
+                      Constant(value=b'actual-out')])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Subscript(
+                        value=Name(id='result', ctx=Load()),
+                        slice=Constant(value='stderr'),
+                        ctx=Load()),
+                      Constant(value=b'actual-err')])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Subscript(
+                        value=Name(id='result', ctx=Load()),
+                        slice=Constant(value='exit'),
+                        ctx=Load()),
+                      Constant(value=0)])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertTrue',
+                      ctx=Load()),
+                    args=[
+                      Subscript(
+                        value=Name(id='result', ctx=Load()),
+                        slice=Constant(value='reaped'),
+                        ctx=Load())])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertTrue',
+                      ctx=Load()),
+                    args=[
+                      BoolOp(
+                        op=And(),
+                        values=[
+                          Subscript(
+                            value=Name(id='result', ctx=Load()),
+                            slice=Constant(value='stdoutEOF'),
+                            ctx=Load()),
+                          Subscript(
+                            value=Name(id='result', ctx=Load()),
+                            slice=Constant(value='stderrEOF'),
+                            ctx=Load())])])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertFalse',
+                      ctx=Load()),
+                    args=[
+                      Subscript(
+                        value=Name(id='result', ctx=Load()),
+                        slice=Constant(value='forced'),
+                        ctx=Load())])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='kill', ctx=Load()),
+                      attr='assert_not_called',
+                      ctx=Load())))])]),
+        FunctionDef(
+          name='failed_child_is_sticky',
+          args=arguments(
+            args=[
+              arg(arg='self'),
+              arg(arg='code'),
+              arg(arg='timeout')]),
+          body=[
+            With(
+              items=[
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='tempfile', ctx=Load()),
+                      attr='TemporaryDirectory',
+                      ctx=Load()),
+                    keywords=[
+                      keyword(
+                        arg='prefix',
+                        value=Constant(value='nbdp-e02-child-'))]),
+                  optional_vars=Name(id='directory', ctx=Store()))],
+              body=[
+                Assign(
+                  targets=[
+                    Tuple(
+                      elts=[
+                        Name(id='lease', ctx=Store()),
+                        Name(id='_', ctx=Store())],
+                      ctx=Store())],
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='make',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Name(id='Path', ctx=Load()),
+                        args=[
+                          Name(id='directory', ctx=Load())])])),
+                Assign(
+                  targets=[
+                    Name(id='sentinel', ctx=Store())],
+                  value=List(ctx=Load())),
+                Assign(
+                  targets=[
+                    Name(id='original_kill', ctx=Store())],
+                  value=Attribute(
+                    value=Name(id='os', ctx=Load()),
+                    attr='killpg',
+                    ctx=Load())),
+                FunctionDef(
+                  name='owned_signal',
+                  args=arguments(
+                    args=[
+                      arg(arg='pid'),
+                      arg(arg='sig')]),
+                  body=[
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertTrue',
+                          ctx=Load()),
+                        args=[
+                          Call(
+                            func=Attribute(
+                              value=BinOp(
+                                left=Attribute(
+                                  value=Name(id='lease', ctx=Load()),
+                                  attr='control',
+                                  ctx=Load()),
+                                op=Div(),
+                                right=Constant(value='REVOKED')),
+                              attr='exists',
+                              ctx=Load())),
+                          Constant(value='Sticky refusal must precede cancellation')])),
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='os', ctx=Load()),
+                          attr='waitid',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='os', ctx=Load()),
+                            attr='P_PID',
+                            ctx=Load()),
+                          Name(id='pid', ctx=Load()),
+                          BinOp(
+                            left=BinOp(
+                              left=Attribute(
+                                value=Name(id='os', ctx=Load()),
+                                attr='WEXITED',
+                                ctx=Load()),
+                              op=BitOr(),
+                              right=Attribute(
+                                value=Name(id='os', ctx=Load()),
+                                attr='WNOHANG',
+                                ctx=Load())),
+                            op=BitOr(),
+                            right=Attribute(
+                              value=Name(id='os', ctx=Load()),
+                              attr='WNOWAIT',
+                              ctx=Load()))])),
+                    Return(
+                      value=Call(
+                        func=Name(id='original_kill', ctx=Load()),
+                        args=[
+                          Name(id='pid', ctx=Load()),
+                          Name(id='sig', ctx=Load())]))]),
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='patch', ctx=Load()),
+                          attr='object',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='os',
+                            ctx=Load()),
+                          Constant(value='killpg')],
+                        keywords=[
+                          keyword(
+                            arg='side_effect',
+                            value=Name(id='owned_signal', ctx=Load()))]))],
+                  body=[
+                    With(
+                      items=[
+                        withitem(
+                          context_expr=Call(
+                            func=Attribute(
+                              value=Name(id='self', ctx=Load()),
+                              attr='assertRaises',
+                              ctx=Load()),
+                            args=[
+                              Attribute(
+                                value=Name(id='guard', ctx=Load()),
+                                attr='LeaseDenied',
+                                ctx=Load())]))],
+                      body=[
+                        Expr(
+                          value=Call(
+                            func=Attribute(
+                              value=Name(id='lease', ctx=Load()),
+                              attr='run_checked',
+                              ctx=Load()),
+                            args=[
+                              List(
+                                elts=[
+                                  Attribute(
+                                    value=Name(id='sys', ctx=Load()),
+                                    attr='executable',
+                                    ctx=Load()),
+                                  Constant(value='-I'),
+                                  Constant(value='-c'),
+                                  Name(id='code', ctx=Load())],
+                                ctx=Load()),
+                              Name(id='timeout', ctx=Load()),
+                              Dict(
+                                keys=[
+                                  Constant(value='PATH')],
+                                values=[
+                                  Constant(value='/usr/bin:/bin')])]))])]),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertTrue',
+                      ctx=Load()),
+                    args=[
+                      Subscript(
+                        value=Attribute(
+                          value=Name(id='lease', ctx=Load()),
+                          attr='last_result',
+                          ctx=Load()),
+                        slice=Constant(value='reaped'),
+                        ctx=Load())])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertTrue',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Attribute(
+                          value=BinOp(
+                            left=Attribute(
+                              value=Name(id='lease', ctx=Load()),
+                              attr='control',
+                              ctx=Load()),
+                            op=Div(),
+                            right=Constant(value='REVOKED')),
+                          attr='exists',
+                          ctx=Load()))])),
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertRaises',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='LeaseDenied',
+                            ctx=Load())]))],
+                  body=[
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='lease', ctx=Load()),
+                          attr='dispatch',
+                          ctx=Load()),
+                        args=[
+                          Lambda(
+                            args=arguments(),
+                            body=Call(
+                              func=Attribute(
+                                value=Name(id='sentinel', ctx=Load()),
+                                attr='append',
+                                ctx=Load()),
+                              args=[
+                                Constant(value='forbidden')]))]))]),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Name(id='sentinel', ctx=Load()),
+                      List(ctx=Load())])),
+                Return(
+                  value=Attribute(
+                    value=Name(id='lease', ctx=Load()),
+                    attr='last_result',
+                    ctx=Load()))])]),
+        FunctionDef(
+          name='test_owned_child_timeout_sticky_before_later_payload',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            Assign(
+              targets=[
+                Name(id='result', ctx=Store())],
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='failed_child_is_sticky',
+                  ctx=Load()),
+                args=[
+                  Constant(value='import time;time.sleep(10)'),
+                  Constant(value=0.15)])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertTrue',
+                  ctx=Load()),
+                args=[
+                  Subscript(
+                    value=Name(id='result', ctx=Load()),
+                    slice=Constant(value='timedOut'),
+                    ctx=Load())])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertTrue',
+                  ctx=Load()),
+                args=[
+                  Subscript(
+                    value=Name(id='result', ctx=Load()),
+                    slice=Constant(value='forced'),
+                    ctx=Load())]))]),
+        FunctionDef(
+          name='test_owned_child_capture_failure_sticky_before_later_payload',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            Assign(
+              targets=[
+                Name(id='result', ctx=Store())],
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='failed_child_is_sticky',
+                  ctx=Load()),
+                args=[
+                  Constant(value="import sys;sys.stderr.buffer.write(b'x'*300000);sys.stderr.flush()"),
+                  Constant(value=3)])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertIn',
+                  ctx=Load()),
+                args=[
+                  Constant(value='capture exceeded'),
+                  Subscript(
+                    value=Name(id='result', ctx=Load()),
+                    slice=Constant(value='error'),
+                    ctx=Load())])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertLessEqual',
+                  ctx=Load()),
+                args=[
+                  Call(
+                    func=Name(id='len', ctx=Load()),
+                    args=[
+                      Subscript(
+                        value=Name(id='result', ctx=Load()),
+                        slice=Constant(value='stderr'),
+                        ctx=Load())]),
+                  Constant(value=262144)]))]),
+        FunctionDef(
+          name='test_owned_child_nonzero_exit_sticky',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            Assign(
+              targets=[
+                Name(id='result', ctx=Store())],
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='failed_child_is_sticky',
+                  ctx=Load()),
+                args=[
+                  Constant(value='raise SystemExit(7)'),
+                  Constant(value=3)])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Subscript(
+                    value=Name(id='result', ctx=Load()),
+                    slice=Constant(value='exit'),
+                    ctx=Load()),
+                  Constant(value=7)]))]),
+        FunctionDef(
+          name='test_post_reap_expiry_never_signals_reaped_numeric_pid',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            With(
+              items=[
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='tempfile', ctx=Load()),
+                      attr='TemporaryDirectory',
+                      ctx=Load()),
+                    keywords=[
+                      keyword(
+                        arg='prefix',
+                        value=Constant(value='nbdp-e02-child-'))]),
+                  optional_vars=Name(id='directory', ctx=Store()))],
+              body=[
+                Assign(
+                  targets=[
+                    Tuple(
+                      elts=[
+                        Name(id='lease', ctx=Store()),
+                        Name(id='clock', ctx=Store())],
+                      ctx=Store())],
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='make',
+                      ctx=Load()),
+                    args=[
+                      Call(
+                        func=Name(id='Path', ctx=Load()),
+                        args=[
+                          Name(id='directory', ctx=Load())])])),
+                Assign(
+                  targets=[
+                    Name(id='original', ctx=Store())],
+                  value=Attribute(
+                    value=Attribute(
+                      value=Name(id='guard', ctx=Load()),
+                      attr='subprocess',
+                      ctx=Load()),
+                    attr='Popen',
+                    ctx=Load())),
+                ClassDef(
+                  name='ReapThenExpire',
+                  bases=[
+                    Name(id='original', ctx=Load())],
+                  body=[
+                    FunctionDef(
+                      name='wait',
+                      args=arguments(
+                        args=[
+                          arg(arg='self')],
+                        vararg=arg(arg='args'),
+                        kwarg=arg(arg='kwargs')),
+                      body=[
+                        Assign(
+                          targets=[
+                            Name(id='value', ctx=Store())],
+                          value=Call(
+                            func=Attribute(
+                              value=Call(
+                                func=Name(id='super', ctx=Load())),
+                              attr='wait',
+                              ctx=Load()),
+                            args=[
+                              Starred(
+                                value=Name(id='args', ctx=Load()),
+                                ctx=Load())],
+                            keywords=[
+                              keyword(
+                                value=Name(id='kwargs', ctx=Load()))])),
+                        Expr(
+                          value=Call(
+                            func=Attribute(
+                              value=Name(id='clock', ctx=Load()),
+                              attr='advance',
+                              ctx=Load()),
+                            args=[
+                              Constant(value=60)])),
+                        Return(
+                          value=Name(id='value', ctx=Load()))])]),
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='patch', ctx=Load()),
+                          attr='object',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='subprocess',
+                            ctx=Load()),
+                          Constant(value='Popen'),
+                          Name(id='ReapThenExpire', ctx=Load())])),
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='patch', ctx=Load()),
+                          attr='object',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='os',
+                            ctx=Load()),
+                          Constant(value='killpg')]),
+                      optional_vars=Name(id='kill', ctx=Store()))],
+                  body=[
+                    With(
+                      items=[
+                        withitem(
+                          context_expr=Call(
+                            func=Attribute(
+                              value=Name(id='self', ctx=Load()),
+                              attr='assertRaises',
+                              ctx=Load()),
+                            args=[
+                              Attribute(
+                                value=Name(id='guard', ctx=Load()),
+                                attr='LeaseDenied',
+                                ctx=Load())]))],
+                      body=[
+                        Expr(
+                          value=Call(
+                            func=Attribute(
+                              value=Name(id='lease', ctx=Load()),
+                              attr='run_checked',
+                              ctx=Load()),
+                            args=[
+                              List(
+                                elts=[
+                                  Attribute(
+                                    value=Name(id='sys', ctx=Load()),
+                                    attr='executable',
+                                    ctx=Load()),
+                                  Constant(value='-I'),
+                                  Constant(value='-c'),
+                                  Constant(value='pass')],
+                                ctx=Load()),
+                              Constant(value=3),
+                              Dict(
+                                keys=[
+                                  Constant(value='PATH')],
+                                values=[
+                                  Constant(value='/usr/bin:/bin')])]))])]),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertTrue',
+                      ctx=Load()),
+                    args=[
+                      Subscript(
+                        value=Attribute(
+                          value=Name(id='lease', ctx=Load()),
+                          attr='last_result',
+                          ctx=Load()),
+                        slice=Constant(value='reaped'),
+                        ctx=Load())])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Subscript(
+                        value=Attribute(
+                          value=Name(id='lease', ctx=Load()),
+                          attr='last_result',
+                          ctx=Load()),
+                        slice=Constant(value='exit'),
+                        ctx=Load()),
+                      Constant(value=0)])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='kill', ctx=Load()),
+                      attr='assert_not_called',
+                      ctx=Load()))),
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertRaises',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='LeaseDenied',
+                            ctx=Load())]))],
+                  body=[
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='lease', ctx=Load()),
+                          attr='dispatch',
+                          ctx=Load()),
+                        args=[
+                          Lambda(
+                            args=arguments(),
+                            body=Call(
+                              func=Attribute(
+                                value=Name(id='self', ctx=Load()),
+                                attr='fail',
+                                ctx=Load()),
+                              args=[
+                                Constant(value='later payload')]))]))])])])]),
+    ClassDef(
+      name='ClockSamplingTests',
+      bases=[
+        Attribute(
+          value=Name(id='unittest', ctx=Load()),
+          attr='TestCase',
+          ctx=Load())],
+      body=[
+        Assign(
+          targets=[
+            Name(id='OFFSETS', ctx=Store())],
+          value=Constant(value='monotonic 0 0\nboottime 0 0\n')),
+        FunctionDef(
+          name='test_proc_checks_precede_outermost_monotonic_clock_only_bracket',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            Assign(
+              targets=[
+                Name(id='order', ctx=Store())],
+              value=List(ctx=Load())),
+            Assign(
+              targets=[
+                Name(id='metadata_count', ctx=Store())],
+              value=Constant(value=0)),
+            FunctionDef(
+              name='mono',
+              args=arguments(),
+              body=[
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='order', ctx=Load()),
+                      attr='append',
+                      ctx=Load()),
+                    args=[
+                      Constant(value='mono')])),
+                Return(
+                  value=Constant(value=100))]),
+            FunctionDef(
+              name='utc',
+              args=arguments(),
+              body=[
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='order', ctx=Load()),
+                      attr='append',
+                      ctx=Load()),
+                    args=[
+                      Constant(value='utc')])),
+                Return(
+                  value=Constant(value=200))]),
+            FunctionDef(
+              name='boot',
+              args=arguments(
+                args=[
+                  arg(arg='clock_id')]),
+              body=[
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Name(id='clock_id', ctx=Load()),
+                      Attribute(
+                        value=Attribute(
+                          value=Name(id='guard', ctx=Load()),
+                          attr='time',
+                          ctx=Load()),
+                        attr='CLOCK_BOOTTIME',
+                        ctx=Load())])),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='order', ctx=Load()),
+                      attr='append',
+                      ctx=Load()),
+                    args=[
+                      Constant(value='boot')])),
+                Return(
+                  value=Constant(value=300))]),
+            FunctionDef(
+              name='metadata',
+              args=arguments(
+                vararg=arg(arg='args'),
+                kwarg=arg(arg='kwargs')),
+              body=[
+                Nonlocal(
+                  names=[
+                    'metadata_count']),
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='order', ctx=Load()),
+                      attr='append',
+                      ctx=Load()),
+                    args=[
+                      Constant(value='proc')])),
+                AugAssign(
+                  target=Name(id='metadata_count', ctx=Store()),
+                  op=Add(),
+                  value=Constant(value=1)),
+                Return(
+                  value=IfExp(
+                    test=Compare(
+                      left=Name(id='metadata_count', ctx=Load()),
+                      ops=[
+                        Eq()],
+                      comparators=[
+                        Constant(value=1)]),
+                    body=Constant(value='synthetic-boot'),
+                    orelse=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='OFFSETS',
+                      ctx=Load())))]),
+            With(
+              items=[
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='monotonic_ns')],
+                    keywords=[
+                      keyword(
+                        arg='side_effect',
+                        value=Name(id='mono', ctx=Load()))])),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='time_ns')],
+                    keywords=[
+                      keyword(
+                        arg='side_effect',
+                        value=Name(id='utc', ctx=Load()))])),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='clock_gettime_ns')],
+                    keywords=[
+                      keyword(
+                        arg='side_effect',
+                        value=Name(id='boot', ctx=Load()))])),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='Path',
+                        ctx=Load()),
+                      Constant(value='read_text')],
+                    keywords=[
+                      keyword(
+                        arg='side_effect',
+                        value=Name(id='metadata', ctx=Load()))]))],
+              body=[
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='guard', ctx=Load()),
+                      attr='sample',
+                      ctx=Load())))]),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Name(id='order', ctx=Load()),
+                  List(
+                    elts=[
+                      Constant(value='proc'),
+                      Constant(value='proc'),
+                      Constant(value='mono'),
+                      Constant(value='utc'),
+                      Constant(value='utc'),
+                      Constant(value='mono'),
+                      Constant(value='boot'),
+                      Constant(value='utc'),
+                      Constant(value='mono')],
+                    ctx=Load())]))]),
+        FunctionDef(
+          name='test_overlong_attempt_is_discarded_and_full_fresh_retry_returned',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            With(
+              items=[
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='time_ns')],
+                    keywords=[
+                      keyword(
+                        arg='side_effect',
+                        value=List(
+                          elts=[
+                            Constant(value=100),
+                            Constant(value=101),
+                            Constant(value=50000101),
+                            Constant(value=60000000),
+                            Constant(value=60000001),
+                            Constant(value=60000002)],
+                          ctx=Load()))]),
+                  optional_vars=Name(id='utc', ctx=Store())),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='monotonic_ns')],
+                    keywords=[
+                      keyword(
+                        arg='side_effect',
+                        value=List(
+                          elts=[
+                            Constant(value=110),
+                            Constant(value=111),
+                            Constant(value=50000111),
+                            Constant(value=221),
+                            Constant(value=222),
+                            Constant(value=223)],
+                          ctx=Load()))]),
+                  optional_vars=Name(id='mono', ctx=Store())),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='clock_gettime_ns')],
+                    keywords=[
+                      keyword(
+                        arg='side_effect',
+                        value=List(
+                          elts=[
+                            Constant(value=333),
+                            Constant(value=444)],
+                          ctx=Load()))]),
+                  optional_vars=Name(id='boot', ctx=Store())),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='Path',
+                        ctx=Load()),
+                      Constant(value='read_text')],
+                    keywords=[
+                      keyword(
+                        arg='side_effect',
+                        value=List(
+                          elts=[
+                            Constant(value='first-boot'),
+                            Attribute(
+                              value=Name(id='self', ctx=Load()),
+                              attr='OFFSETS',
+                              ctx=Load()),
+                            Constant(value='fresh-boot'),
+                            Attribute(
+                              value=Name(id='self', ctx=Load()),
+                              attr='OFFSETS',
+                              ctx=Load())],
+                          ctx=Load()))]),
+                  optional_vars=Name(id='metadata', ctx=Store()))],
+              body=[
+                Assign(
+                  targets=[
+                    Name(id='result', ctx=Store())],
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='guard', ctx=Load()),
+                      attr='sample',
+                      ctx=Load())))]),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Name(id='result', ctx=Load()),
+                  Dict(
+                    keys=[
+                      Constant(value='Utc'),
+                      Constant(value='Mono'),
+                      Constant(value='Boot'),
+                      Constant(value='bootId')],
+                    values=[
+                      Constant(value=60000001),
+                      Constant(value=222),
+                      Constant(value=444),
+                      Constant(value='fresh-boot')])])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Tuple(
+                    elts=[
+                      Attribute(
+                        value=Name(id='utc', ctx=Load()),
+                        attr='call_count',
+                        ctx=Load()),
+                      Attribute(
+                        value=Name(id='mono', ctx=Load()),
+                        attr='call_count',
+                        ctx=Load()),
+                      Attribute(
+                        value=Name(id='boot', ctx=Load()),
+                        attr='call_count',
+                        ctx=Load()),
+                      Attribute(
+                        value=Name(id='metadata', ctx=Load()),
+                        attr='call_count',
+                        ctx=Load())],
+                    ctx=Load()),
+                  Tuple(
+                    elts=[
+                      Constant(value=6),
+                      Constant(value=6),
+                      Constant(value=2),
+                      Constant(value=4)],
+                    ctx=Load())]))]),
+        FunctionDef(
+          name='test_long_monotonic_bracket_cannot_be_hidden_by_short_wall_bracket',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            With(
+              items=[
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='time_ns')],
+                    keywords=[
+                      keyword(
+                        arg='side_effect',
+                        value=List(
+                          elts=[
+                            Constant(value=100),
+                            Constant(value=101),
+                            Constant(value=102),
+                            Constant(value=200),
+                            Constant(value=201),
+                            Constant(value=202)],
+                          ctx=Load()))]),
+                  optional_vars=Name(id='utc', ctx=Store())),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='monotonic_ns')],
+                    keywords=[
+                      keyword(
+                        arg='side_effect',
+                        value=List(
+                          elts=[
+                            Constant(value=100),
+                            Constant(value=101),
+                            Constant(value=50000101),
+                            Constant(value=60000000),
+                            Constant(value=60000001),
+                            Constant(value=60000002)],
+                          ctx=Load()))])),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='clock_gettime_ns')],
+                    keywords=[
+                      keyword(
+                        arg='side_effect',
+                        value=List(
+                          elts=[
+                            Constant(value=300),
+                            Constant(value=400)],
+                          ctx=Load()))])),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='Path',
+                        ctx=Load()),
+                      Constant(value='read_text')],
+                    keywords=[
+                      keyword(
+                        arg='side_effect',
+                        value=List(
+                          elts=[
+                            Constant(value='discarded'),
+                            Attribute(
+                              value=Name(id='self', ctx=Load()),
+                              attr='OFFSETS',
+                              ctx=Load()),
+                            Constant(value='fresh'),
+                            Attribute(
+                              value=Name(id='self', ctx=Load()),
+                              attr='OFFSETS',
+                              ctx=Load())],
+                          ctx=Load()))]))],
+              body=[
+                Assign(
+                  targets=[
+                    Name(id='result', ctx=Store())],
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='guard', ctx=Load()),
+                      attr='sample',
+                      ctx=Load())))]),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Subscript(
+                    value=Name(id='result', ctx=Load()),
+                    slice=Constant(value='Utc'),
+                    ctx=Load()),
+                  Constant(value=201)])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Subscript(
+                    value=Name(id='result', ctx=Load()),
+                    slice=Constant(value='bootId'),
+                    ctx=Load()),
+                  Constant(value='fresh')])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Attribute(
+                    value=Name(id='utc', ctx=Load()),
+                    attr='call_count',
+                    ctx=Load()),
+                  Constant(value=6)]))]),
+        FunctionDef(
+          name='test_three_overlong_attempts_fail_closed_without_fourth',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            Assign(
+              targets=[
+                Name(id='utc_values', ctx=Store())],
+              value=List(
+                elts=[
+                  Constant(value=0),
+                  Constant(value=1),
+                  Constant(value=50000001),
+                  Constant(value=60000000),
+                  Constant(value=60000001),
+                  Constant(value=110000001),
+                  Constant(value=120000000),
+                  Constant(value=120000001),
+                  Constant(value=170000001)],
+                ctx=Load())),
+            With(
+              items=[
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='time_ns')],
+                    keywords=[
+                      keyword(
+                        arg='side_effect',
+                        value=Name(id='utc_values', ctx=Load()))]),
+                  optional_vars=Name(id='utc', ctx=Store())),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='monotonic_ns')],
+                    keywords=[
+                      keyword(
+                        arg='return_value',
+                        value=Constant(value=100))])),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='clock_gettime_ns')],
+                    keywords=[
+                      keyword(
+                        arg='return_value',
+                        value=Constant(value=100))])),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='Path',
+                        ctx=Load()),
+                      Constant(value='read_text')],
+                    keywords=[
+                      keyword(
+                        arg='side_effect',
+                        value=BinOp(
+                          left=List(
+                            elts=[
+                              Constant(value='same-boot'),
+                              Attribute(
+                                value=Name(id='self', ctx=Load()),
+                                attr='OFFSETS',
+                                ctx=Load())],
+                            ctx=Load()),
+                          op=Mult(),
+                          right=Constant(value=3)))]),
+                  optional_vars=Name(id='metadata', ctx=Store()))],
+              body=[
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertRaisesRegex',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='LeaseDenied',
+                            ctx=Load()),
+                          Constant(value='after 3 attempts')]))],
+                  body=[
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='guard', ctx=Load()),
+                          attr='sample',
+                          ctx=Load())))])]),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Attribute(
+                    value=Name(id='utc', ctx=Load()),
+                    attr='call_count',
+                    ctx=Load()),
+                  Constant(value=9)])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Attribute(
+                    value=Name(id='metadata', ctx=Load()),
+                    attr='call_count',
+                    ctx=Load()),
+                  Constant(value=6)]))]),
+        FunctionDef(
+          name='test_exact50ms_bracket_remains_accepted',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            With(
+              items=[
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='time_ns')],
+                    keywords=[
+                      keyword(
+                        arg='side_effect',
+                        value=List(
+                          elts=[
+                            Constant(value=100),
+                            Constant(value=101),
+                            Constant(value=50000100)],
+                          ctx=Load()))]),
+                  optional_vars=Name(id='utc', ctx=Store())),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='monotonic_ns')],
+                    keywords=[
+                      keyword(
+                        arg='return_value',
+                        value=Constant(value=200))])),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='clock_gettime_ns')],
+                    keywords=[
+                      keyword(
+                        arg='return_value',
+                        value=Constant(value=300))])),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='Path',
+                        ctx=Load()),
+                      Constant(value='read_text')],
+                    keywords=[
+                      keyword(
+                        arg='side_effect',
+                        value=List(
+                          elts=[
+                            Constant(value='same-boot'),
+                            Attribute(
+                              value=Name(id='self', ctx=Load()),
+                              attr='OFFSETS',
+                              ctx=Load())],
+                          ctx=Load()))]))],
+              body=[
+                Expr(
+                  value=Call(
+                    func=Attribute(
+                      value=Name(id='self', ctx=Load()),
+                      attr='assertEqual',
+                      ctx=Load()),
+                    args=[
+                      Subscript(
+                        value=Call(
+                          func=Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='sample',
+                            ctx=Load())),
+                        slice=Constant(value='Utc'),
+                        ctx=Load()),
+                      Constant(value=101)]))]),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Attribute(
+                    value=Name(id='utc', ctx=Load()),
+                    attr='call_count',
+                    ctx=Load()),
+                  Constant(value=3)]))]),
+        FunctionDef(
+          name='test_negative_bracket_is_immediate_failure_without_retry',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            With(
+              items=[
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='time_ns')],
+                    keywords=[
+                      keyword(
+                        arg='side_effect',
+                        value=List(
+                          elts=[
+                            Constant(value=100),
+                            Constant(value=101),
+                            Constant(value=99)],
+                          ctx=Load()))]),
+                  optional_vars=Name(id='utc', ctx=Store())),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='monotonic_ns')],
+                    keywords=[
+                      keyword(
+                        arg='return_value',
+                        value=Constant(value=200))])),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='clock_gettime_ns')],
+                    keywords=[
+                      keyword(
+                        arg='return_value',
+                        value=Constant(value=300))])),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='Path',
+                        ctx=Load()),
+                      Constant(value='read_text')],
+                    keywords=[
+                      keyword(
+                        arg='side_effect',
+                        value=List(
+                          elts=[
+                            Constant(value='same-boot'),
+                            Attribute(
+                              value=Name(id='self', ctx=Load()),
+                              attr='OFFSETS',
+                              ctx=Load())],
+                          ctx=Load()))]),
+                  optional_vars=Name(id='metadata', ctx=Store()))],
+              body=[
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertRaisesRegex',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='LeaseDenied',
+                            ctx=Load()),
+                          Constant(value='bracket rollback')]))],
+                  body=[
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='guard', ctx=Load()),
+                          attr='sample',
+                          ctx=Load())))])]),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Attribute(
+                    value=Name(id='utc', ctx=Load()),
+                    attr='call_count',
+                    ctx=Load()),
+                  Constant(value=3)])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Attribute(
+                    value=Name(id='metadata', ctx=Load()),
+                    attr='call_count',
+                    ctx=Load()),
+                  Constant(value=2)]))]),
+        FunctionDef(
+          name='test_invalid_namespace_is_not_retried',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            With(
+              items=[
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='time_ns')],
+                    keywords=[
+                      keyword(
+                        arg='side_effect',
+                        value=List(
+                          elts=[
+                            Constant(value=100),
+                            Constant(value=101)],
+                          ctx=Load()))]),
+                  optional_vars=Name(id='utc', ctx=Store())),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='monotonic_ns')],
+                    keywords=[
+                      keyword(
+                        arg='return_value',
+                        value=Constant(value=200))])),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='clock_gettime_ns')],
+                    keywords=[
+                      keyword(
+                        arg='return_value',
+                        value=Constant(value=300))])),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='Path',
+                        ctx=Load()),
+                      Constant(value='read_text')],
+                    keywords=[
+                      keyword(
+                        arg='side_effect',
+                        value=List(
+                          elts=[
+                            Constant(value='same-boot'),
+                            Constant(value='monotonic 1 0\nboottime 0 0\n')],
+                          ctx=Load()))]),
+                  optional_vars=Name(id='metadata', ctx=Store()))],
+              body=[
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertRaisesRegex',
+                          ctx=Load()),
+                        args=[
+                          Attribute(
+                            value=Name(id='guard', ctx=Load()),
+                            attr='LeaseDenied',
+                            ctx=Load()),
+                          Constant(value='namespace')]))],
+                  body=[
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='guard', ctx=Load()),
+                          attr='sample',
+                          ctx=Load())))])]),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Attribute(
+                    value=Name(id='utc', ctx=Load()),
+                    attr='call_count',
+                    ctx=Load()),
+                  Constant(value=0)])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Attribute(
+                    value=Name(id='metadata', ctx=Load()),
+                    attr='call_count',
+                    ctx=Load()),
+                  Constant(value=2)]))]),
+        FunctionDef(
+          name='test_metadata_read_failure_is_not_retried',
+          args=arguments(
+            args=[
+              arg(arg='self')]),
+          body=[
+            With(
+              items=[
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='time_ns')],
+                    keywords=[
+                      keyword(
+                        arg='side_effect',
+                        value=List(
+                          elts=[
+                            Constant(value=100),
+                            Constant(value=101)],
+                          ctx=Load()))]),
+                  optional_vars=Name(id='utc', ctx=Store())),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='monotonic_ns')],
+                    keywords=[
+                      keyword(
+                        arg='return_value',
+                        value=Constant(value=200))])),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='time',
+                        ctx=Load()),
+                      Constant(value='clock_gettime_ns')],
+                    keywords=[
+                      keyword(
+                        arg='return_value',
+                        value=Constant(value=300))])),
+                withitem(
+                  context_expr=Call(
+                    func=Attribute(
+                      value=Name(id='patch', ctx=Load()),
+                      attr='object',
+                      ctx=Load()),
+                    args=[
+                      Attribute(
+                        value=Name(id='guard', ctx=Load()),
+                        attr='Path',
+                        ctx=Load()),
+                      Constant(value='read_text')],
+                    keywords=[
+                      keyword(
+                        arg='side_effect',
+                        value=Call(
+                          func=Name(id='OSError', ctx=Load()),
+                          args=[
+                            Constant(value='injected boot read failure')]))]),
+                  optional_vars=Name(id='metadata', ctx=Store()))],
+              body=[
+                With(
+                  items=[
+                    withitem(
+                      context_expr=Call(
+                        func=Attribute(
+                          value=Name(id='self', ctx=Load()),
+                          attr='assertRaisesRegex',
+                          ctx=Load()),
+                        args=[
+                          Name(id='OSError', ctx=Load()),
+                          Constant(value='boot read failure')]))],
+                  body=[
+                    Expr(
+                      value=Call(
+                        func=Attribute(
+                          value=Name(id='guard', ctx=Load()),
+                          attr='sample',
+                          ctx=Load())))])]),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Attribute(
+                    value=Name(id='utc', ctx=Load()),
+                    attr='call_count',
+                    ctx=Load()),
+                  Constant(value=0)])),
+            Expr(
+              value=Call(
+                func=Attribute(
+                  value=Name(id='self', ctx=Load()),
+                  attr='assertEqual',
+                  ctx=Load()),
+                args=[
+                  Attribute(
+                    value=Name(id='metadata', ctx=Load()),
+                    attr='call_count',
+                    ctx=Load()),
+                  Constant(value=1)]))])]),
+    If(
+      test=Compare(
+        left=Name(id='__name__', ctx=Load()),
+        ops=[
+          Eq()],
+        comparators=[
+          Constant(value='__main__')]),
+      body=[
+        Expr(
+          value=Call(
+            func=Attribute(
+              value=Name(id='unittest', ctx=Load()),
+              attr='main',
+              ctx=Load())))])])

@@ -1,0 +1,39 @@
+{
+  "schema": "e02-root-coupled-consumer-source-security-findings-v1",
+  "actor": "/root",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-eose-basis-successor-20261105/source3/coupled-r1/source/subject.json",
+    "bytes": 21493,
+    "sha256": "4de06eb9dac6f17633d662593ae6030d67606b7717e4aa33ab4b8a27baef9ae4"
+  },
+  "reviewer": "/root/consumer_source2_recipe_security",
+  "findings": [],
+  "nativeAudits": [
+    "aceb8c/session58134→eff640/0",
+    "0d8595/session33192→f314c6/0",
+    "d3905e/0"
+  ],
+  "verified": {
+    "physicalInputs": 1577,
+    "packetFiles": 57,
+    "archiveMembers": 55,
+    "readMapRows": 1518,
+    "opaqueExpectedOnly": 2,
+    "modelsDefined": 450,
+    "sourceCount": 37,
+    "runtimeCount": 16,
+    "requiredFailurePositiveRows": 15,
+    "negativeFailureMutationsRejected": 76,
+    "originalPurposes": 352,
+    "predecessorNames": 440,
+    "probePrefixAstNodes": 18,
+    "legacyParsersByteIdentical": 3
+  },
+  "reviewInspectionNegatives": [
+    "6914b1→6ddea9/1: audit confused18 AST nodes with18functions; corrected",
+    "ab0219/1: audit used root24 alias instead ofactualhelperDataAcceptance; corrected"
+  ],
+  "canonicalModelsExecuted": 0,
+  "operationalProofBodyReads": 0,
+  "executionAuthorized": false
+}

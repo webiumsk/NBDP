@@ -1,0 +1,37 @@
+{
+  "request": {
+    "argv": [
+      "/usr/bin/timeout",
+      "--signal=TERM",
+      "--kill-after=2s",
+      "15s",
+      "/usr/bin/docker",
+      "network",
+      "create",
+      "--internal",
+      "--driver",
+      "bridge",
+      "--label",
+      "nbdp.owner=e02-primary-replay-20261027",
+      "--label",
+      "nbdp.scope=primary22-only",
+      "--label",
+      "nbdp.run=2ea6fa3d1e75ae1b947611e0cd390b9f",
+      "nbdp-e02-primary-20261027-2ea6fa3d1e75ae1b947611e0cd390b9f"
+    ],
+    "maximumSeconds": 15,
+    "cleanup": false,
+    "startedUtcNs": 1793113213239565013
+  },
+  "exitCode": 0,
+  "stdout": {
+    "path": "/tmp/nbdp-e02-primary-replay-20261027-preparation/attempt-2ea6fa3d1e75ae1b947611e0cd390b9f/006-network-create.stdout",
+    "bytes": 65,
+    "sha256": "e260e98bb6b8c4fa197ab99a1e461809f4c37446fcf46293aa7cdab9b6173cfb"
+  },
+  "stderr": {
+    "path": "/tmp/nbdp-e02-primary-replay-20261027-preparation/attempt-2ea6fa3d1e75ae1b947611e0cd390b9f/006-network-create.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

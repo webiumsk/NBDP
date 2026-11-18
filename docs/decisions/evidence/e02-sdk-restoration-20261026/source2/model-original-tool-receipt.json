@@ -1,0 +1,15 @@
+{
+  "origin": "Actual structured coordinator foreground invocation/response; model runner is not an authenticated provider log.",
+  "args": {
+    "cmd": "python3 - <<'PY'\nfrom pathlib import Path\nimport subprocess,json,hashlib,time,os\nr=Path.cwd();e=r/'docs/decisions/evidence/e02-sdk-restoration-20261026/source2';src=Path('/tmp/nbdp-sdk-restoration-20261026-r2')\ndef pin(p):\n b=p.read_bytes();return dict(path=str(p),bytes=len(b),sha256=hashlib.sha256(b).hexdigest())\ndef write(name,raw):\n fd=os.open(e/name,os.O_WRONLY|os.O_CREAT|os.O_EXCL,0o600)\n with os.fdopen(fd,'wb') as f: assert f.write(raw)==len(raw)\n return pin(e/name)\nrelease=pin(e/'root-model-release.json');assert release['sha256']=='5bc7bfbef80597797607f1eb845d981d3d679ddd3f9991221d05b2f477a96d0a';d=json.loads((e/'root-model-release.json').read_bytes());p=json.loads((src/'control-plan.json').read_bytes());inputs=[d['subject'],d['script'],d['controlPlan'],p['source'],p['interpreter']]\nfor x in inputs:assert pin(Path(x['path']))==x\nwrite('model-started.json',json.dumps({'release':release,'utcNs':time.time_ns()}).encode()+b'\\n')\nstarted=time.monotonic_ns()\ntry:\n child=subprocess.run(d['command'],input=b'',capture_output=True,timeout=30,env={'PATH':'/usr/bin:/bin','LANG':'C.UTF-8','PYTHONDONTWRITEBYTECODE':'1'})\n row={'schema':'nbdp-sdk-source2-actual-placement-model-result-v1','release':release,'command':d['command'],'elapsedWallNs':time.monotonic_ns()-started,'exitCode':child.returncode,'naturalExit':child.returncode>=0,'reaped':True,'stdoutEOF':True,'stderrEOF':True,'stdout':write('model.stdout',child.stdout[:65536]),'stderr':write('model.stderr',child.stderr[:262144]),'truncated':len(child.stdout)>65536 or len(child.stderr)>262144,'timeout':False,'allCheckedInputsUnchanged':all(pin(Path(x['path']))==x for x in inputs),'scope':'PURE_FAKE_OPERATION_MODELS_ONLY','acquisitionAuthorized':False,'acceptance':'PENDING_INDEPENDENT_QA_SECURITY','retentionMeaning':'communicate memory capture followed by retained byte limits, not streaming memory cap'}\n code=0 if row['exitCode']==0 and not row['truncated'] and row['allCheckedInputsUnchanged'] else 2\nexcept subprocess.TimeoutExpired:\n row={'schema':'nbdp-sdk-source2-actual-placement-model-result-v1','release':release,'timeout':True,'exitCode':None,'stdoutEOF':None,'stderrEOF':None,'scope':'FAILED_UNQUALIFIED','acquisitionAuthorized':False};code=2\nq=write('model-execution.json',(json.dumps(row,indent=2)+'\\n').encode());print(json.dumps({'result':q,'exit':code}));raise SystemExit(code)\nPY",
+    "yield_time_ms": 1000,
+    "max_output_tokens": 1800
+  },
+  "result": {
+    "chunk_id": "29f7d0",
+    "wall_time_seconds": 0.741299976,
+    "exit_code": 0,
+    "original_token_count": 62,
+    "output": "{\"result\": {\"path\": \"/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-restoration-20261026/source2/model-execution.json\", \"bytes\": 1425, \"sha256\": \"91678428dba28c9181853bef19464ea81da86c1320e6b3e34736e763ec08f225\"}, \"exit\": 0}\n"
+  }
+}

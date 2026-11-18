@@ -1,0 +1,18 @@
+--- /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/materializer-source/materialize.py
++++ /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/materializer-source/materialize.py
+@@ -9,11 +9,11 @@
+ import sys
+ import time
+ 
+-HERE=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/materializer')
+-SOURCE=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/supervisor-source')
+-WORK=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/controller')
++HERE=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r4/materializer')
++SOURCE=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/supervisor-source')
++WORK=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r4/controller')
+ PYTHON='/home/peterhorvath/.miniforge3/bin/python3.13'
+-PINNED=[{'path': '/home/peterhorvath/.miniforge3/bin/python3.13', 'bytes': 32959480, 'sha256': '5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1'}, {'path': '/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/supervisor-source/supervise_build.py', 'bytes': 31753, 'sha256': '41d8951bae82784fcd90716bdbcbc84956072186eb3e1bd9ff280d437768572c'}, {'path': '/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/supervisor-source/subject.json', 'bytes': 2547, 'sha256': 'e820646bdf28b6180d6e84a95332674441eae12fad41aa5d749671c86f3524c9'}, {'path': '/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/supervisor-source/plan.json', 'bytes': 8387, 'sha256': 'e8af73c1d8dd146a964a3cdcb4f1fbb3af76f19d5cb0aef6edfe4f16593190b4'}]
++PINNED=None  # DRAFT: prior-negative/post-input DATA and explicit method adoption required.
+ 
+ CLOCKS={'issuedAtUtcNs','notAfterUtcNs'}
+ RELEASE_KEYS=set('schema actor executionAuthorized scope runId issuedAtUtcNs notAfterUtcNs supervisorSubject buildPreparationSubject sourceReviews prerequisiteAcceptances sourceArchive sourceArchiveReceipt jdkExtraction installedSdkInventory installedSdkMetadata installedSdkConsent installedSdkAcceptance networkId networkLabels meaning'.split())

@@ -1,0 +1,50 @@
+{
+  "schema": "e02-independent-consumer350-failure-findings-v1",
+  "role": "security",
+  "session": "/root/consumer_source2_security_70b36984",
+  "subject": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer350-model-actual-20261105/r1/failed-batch-subject.json",
+    "bytes": 8382,
+    "sha256": "34b5126aca5b3e9389ab0516bbd6fd33a851841a5e3a95e05dbf9aa662e652e4"
+  },
+  "provenance": "Genuine independent final mailbox response; Root serialization only.",
+  "verified": {
+    "origins": 8,
+    "nativeFrames": 11,
+    "passedNames": 222,
+    "failedNames": 7,
+    "errorNames": 2,
+    "notExecutedNames": 119,
+    "protectedInputsUnchanged": 814,
+    "negativeManifestMembers": 32,
+    "stopWithoutRetry": true
+  },
+  "findings": [
+    {
+      "id": "C350-FIXTURE-01",
+      "severity": "MEDIUM",
+      "kind": "OBSERVED",
+      "evidence": "test_whole_window.py selects historical producer root; whole_window.Model copies its old helperAPK589031; productionconsumer.py605 correctly requires currentab6e.",
+      "remediation": "Select complete immutable current producer root/configuration, not an isolated substituted helper field. Preserve strict production check and synthetic labeling."
+    },
+    {
+      "id": "C350-FIXTURE-02",
+      "severity": "MEDIUM",
+      "kind": "STATIC_UNEXECUTED_GROUP9",
+      "evidence": [
+        "test_current_authority.py256 versionr8 versus actual selectedr10",
+        "lines265-266 expect mixed cwd and-r8; actualR10 all7cwdR10, mixedR10/R1 scripts",
+        "line348 old168partition versus current178 [39,42,10,19,23,19,26]",
+        "line285 future-r9 is now within current-r10 and declared",
+        "lines292/295 old EXACT_FIVE_KEY_FOREGROUND_REQUEST versus current WHOLE_ACTUAL_REQUEST_FAMILY"
+      ],
+      "remediation": "Derive current positive expectations/future revision from selected immutable Source+plan. Explicitly update exact negative reason only where same changed-whole-request boundary remains tested; no widened regex or unrelated refusal. Preserve historical260/R5 negatives and all350names."
+    }
+  ],
+  "remaining": [
+    "Separate Source3 correction/fresh review/full new control release and independent DATA",
+    "No222partial pass transfer; groups9-11 remain unexecuted in preserved Source2 batch"
+  ],
+  "targetImports": 0,
+  "modelsExecutedByReview": 0
+}

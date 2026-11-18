@@ -1,0 +1,36 @@
+{
+  "schema": "nbdp-coordinator-review-transcription-fidelity-correction-v1",
+  "actor": "/root",
+  "reportedBy": "/root/status_evidence",
+  "finding": "The scalar1/2 verification belongs to the security review; earlier shared QA metadata phrasing exceeded the actual QA mailbox statement.",
+  "changes": [
+    {
+      "path": "docs/decisions/evidence/e02-progress-publication-20261027/actual-r1-qa-review.json",
+      "beforeSha256": "9d4283ffc759788c2c1479a60e65a931fdb5bbf2e1a46c3021f6773c0eb4cbae",
+      "beforeSnapshot": "docs/decisions/evidence/e02-progress-publication-20261027/before-qa-attribution-remediation/actual-r1-qa-review.json",
+      "afterSha256": "f50be9f81be1406474a2bc96384a5bb9dc1a63f6a9b70091120df4c3d35fffe7"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-progress-publication-20261027/actual-r2-qa-review.json",
+      "beforeSha256": "c11b74176e6bd5479c280c23680be7a4a39f1c24f19d0400d3e000e5a2a9915a",
+      "beforeSnapshot": "docs/decisions/evidence/e02-progress-publication-20261027/before-qa-attribution-remediation/actual-r2-qa-review.json",
+      "afterSha256": "4f7239c0a0a62e1e47522cb780f762f2df6215d7f8219cb0e95fe945c76fb845"
+    }
+  ],
+  "payloadChanged": false,
+  "meaning": "Only review attribution clarified; original metadata retained. No new test, runtime, licence or publication authority is inferred.",
+  "dependentControlPinUpdates": [
+    {
+      "path": "docs/decisions/evidence/e02-progress-publication-20261027/payload-acceptance-r2.json",
+      "beforeSnapshot": "docs/decisions/evidence/e02-progress-publication-20261027/before-qa-attribution-remediation/payload-acceptance-r2.json",
+      "beforeSha256": "7b569853e346b1ba7ba0bf5b4960bc1e29dd562d30fc03e8f80c7c441d2af37d",
+      "afterSha256": "1552878d5ac8aa09133494f9e53b38d1380e011d70e4b0493663f60df26c4618"
+    },
+    {
+      "path": "docs/decisions/evidence/e02-progress-publication-20261027/publication-record.json",
+      "beforeSnapshot": "docs/decisions/evidence/e02-progress-publication-20261027/before-qa-attribution-remediation/publication-record.json",
+      "beforeSha256": "a4e33a5ad9a0644242bcf5ed271b0073b45a25ed8e26681e222b761f3e60c725",
+      "afterSha256": "777ce584ce135ad6a544d74eb7db73fb05745bb6bc71298c72073368111c41f9"
+    }
+  ]
+}

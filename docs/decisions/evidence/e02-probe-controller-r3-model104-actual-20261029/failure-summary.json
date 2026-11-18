@@ -1,0 +1,43 @@
+{
+  "schema": "e02-controller-r3-mock-controls-failure-v1",
+  "actor": "/root",
+  "status": "FAILED_STOPPED_NO_RETRY",
+  "groupsExecuted": 4,
+  "modelsExecuted": 104,
+  "modelsPassed": 103,
+  "modelsFailed": 1,
+  "remainingModelsNotExecuted": 0,
+  "groupResults": [
+    {
+      "name": "test_controller",
+      "count": 39,
+      "exitCode": 0
+    },
+    {
+      "name": "test_host",
+      "count": 36,
+      "exitCode": 0
+    },
+    {
+      "name": "test_finite_child",
+      "count": 10,
+      "exitCode": 0
+    },
+    {
+      "name": "test_raw_tools",
+      "count": 19,
+      "exitCode": 1,
+      "failedMethod": "RawToolControls.test_premature_eof_and_exact_length_plus_one_growth_refused",
+      "subtestDelta": 1,
+      "actualLastRequestedReadBytes": 60409,
+      "expectedLastRequestedReadBytes": 1
+    }
+  ],
+  "inputsUnchanged": true,
+  "protectedInputs": 33,
+  "guardHelperExecutions": 0,
+  "dockerExecutions": 0,
+  "ordinaryRoleExecutions": 0,
+  "innerPidReapEofAttested": false,
+  "executionAuthorized": false
+}

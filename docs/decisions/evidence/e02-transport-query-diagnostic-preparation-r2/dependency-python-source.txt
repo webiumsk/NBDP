@@ -1,0 +1,43 @@
+def dependency_relative(value):
+    need(type(value) is str and value and not value.startswith('/')
+         and all(part not in ('','.','..') for part in value.split('/')), 'Canonical dependency relative path')
+    return value
+
+
+def dependency_snapshot(root):
+    root=Path(root)
+    need(root.is_absolute() and root.resolve(strict=True)==root and not root.is_symlink(),'Canonical dependency root')
+    actual={'directories':[],'files':[],'symlinks':[]}
+    def walk(folder):
+        for p in sorted(folder.iterdir()):
+            rel=dependency_relative(p.relative_to(root).as_posix())
+            if p.is_symlink():
+                target=p.resolve(strict=True)
+                need(target.is_relative_to(root) and target!=root,'Dependency symlink escape')
+                actual['symlinks'].append({'path':rel,'link':str(p.readlink()),'target':dependency_relative(target.relative_to(root).as_posix())})
+            elif p.is_dir():actual['directories'].append(rel);walk(p)
+            elif p.is_file():actual['files'].append(rel)
+            else:raise RuntimeError('Dependency special file')
+    walk(root)
+    for name in ('directories','files'):actual[name].sort()
+    actual['symlinks'].sort(key=lambda v:v['path'])
+    return actual
+
+
+def verify_dependency_inventory(fixture,tree,root):
+    need(tree['schema']=='e02-transport-dependency-tree-v2' and tree['runtimeRoot']=='/input/node_modules','Closed dependency tree')
+    actual=dependency_snapshot(root)
+    need(actual=={k:tree[k] for k in ('directories','files','symlinks')},'Dependency exact membership')
+    descriptors=fixture['dependencyFiles']
+    need(type(descriptors) is list and len(descriptors)==len(actual['files'])
+         and len({d['path'] for d in descriptors})==len(descriptors),'Dependency descriptor membership')
+    expected=[]
+    for d in descriptors:
+        need(set(d)=={'source','path','bytes','sha256'} and d['path'].startswith(tree['runtimeRoot']+'/'),'Closed runtime dependency descriptor')
+        rel=dependency_relative(d['path'][len(tree['runtimeRoot'])+1:]);expected.append(rel)
+        need(d['source']==tree['sourceRoot']+'/'+rel,'Dependency source/runtime mapping')
+        p=Path(root)/rel
+        checked({'path':str(p),'bytes':d['bytes'],'sha256':d['sha256']})
+    need(sorted(expected)==actual['files'],'All regular dependency members')
+    return {'schema':'e02-transport-dependency-check-v2','files':len(actual['files']),
+            'directories':len(actual['directories']),'symlinks':len(actual['symlinks']),'exact':True}

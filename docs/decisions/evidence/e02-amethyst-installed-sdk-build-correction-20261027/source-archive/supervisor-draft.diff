@@ -1,0 +1,152 @@
+--- /tmp/nbdp-amethyst-build-supervisor-20261027-r3/supervise_build.py
++++ /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/supervisor-source/supervise_build.py
+@@ -18,9 +18,12 @@
+ import subprocess
+ import time
+ 
+-WORK=Path('/tmp/nbdp-amethyst-build-supervisor-20261027-r3')
+-ROOT=Path('/tmp/nbdp-amethyst-rebuild-20261026')
+-PREP=Path('/tmp/nbdp-amethyst-build-preparation-20261027-r2')
++SOURCE=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/supervisor-source')
++WORK=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r3/controller')
++ROOT=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-r3')
++INPUT=Path('/tmp/nbdp-amethyst-rebuild-20261026')
++SDK=Path('/Data/nbdp-e02-tooling-20261027/controller-r6/writable-r1/sdk')
++PREP=Path('/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/preparation')
+ DOCKER='/usr/bin/docker';TIMEOUT='/usr/bin/timeout'
+ IMAGE='sha256:32bb6c4c58ee5fe85f1e7229fb15008accb137990093941d2f8e768efd91cf8c'
+ NAME='nbdp-amethyst-build-20261026'
+@@ -31,6 +34,9 @@
+ TREE='11a90777c85c71912594612f42d9807004834f67'
+ CREATED_ENDPOINT_SCHEMA='SINGLE_FIXED_NAME_KEY_EMPTY_NETWORK_AND_ENDPOINT_IDS'
+ ZERO_DOCKER_TIME='0001-01-01T00:00:00Z'
++SDK_PACKAGES={'platforms;android-37.0':'platforms/android-37.0',
++    'build-tools;36.0.0':'build-tools/36.0.0','ndk;30.0.16248370':'ndk/30.0.16248370'}
++SDK_DECISION='ACCEPT_WHOLE_INSTALLED_SDK_FOR_ISOLATED_AMETHYST_BUILD_ONLY'
+ 
+ 
+ def need(value,message):
+@@ -202,6 +208,47 @@
+     need(actual==expected,'COMPLETE_CURRENT_ACQUIRED_TOOL_TREE_MISMATCH')
+ 
+ 
++def installed_sdk_binding(reference,release,accepted,inventory,metadata,consent):
++    """Pure exact acceptance/root/metadata joins; filesystem checks remain separate."""
++    fields=('installedSdkInventory','installedSdkMetadata','installedSdkConsent','installedSdkAcceptance')
++    need(all(reference.get(key) is not None and release.get(key)==reference[key] for key in fields),
++         'EXACT_ACCEPTED_INSTALLED_SDK_BINDINGS')
++    need(reference.get('installedSdkAcceptanceDecision')==SDK_DECISION and
++         accepted.get('schema')=='nbdp-installed-sdk-data-acceptance-v1' and
++         accepted.get('decision')==SDK_DECISION,'EXACT_WHOLE_INSTALLED_SDK_ACCEPTANCE_SCOPE')
++    need(accepted.get('sdkRoot')==inventory.get('destination')==metadata.get('sdkRoot')==consent.get('sdkRoot')==str(SDK),
++         'ONE_EXACT_OFFICIAL_INSTALLED_SDK_ROOT')
++    for field,key in (('inventory','installedSdkInventory'),('metadata','installedSdkMetadata'),('consent','installedSdkConsent')):
++        need(accepted.get(field)==release[key],'INSTALLED_SDK_ACCEPTANCE_DESCRIPTOR_JOIN:'+field)
++    need(release['installedSdkAcceptance'] in release['prerequisiteAcceptances'],'INSTALLED_SDK_ACCEPTANCE_IS_MANDATORY')
++    links=[r['path'] for r in inventory['inventory'] if r['kind']=='symlink']
++    modes=inventory.get('symlinkModes')
++    need(type(modes) is list and len(modes)==len(links) and len({r['path'] for r in modes})==len(modes) and
++         {r['path'] for r in modes}==set(links),'WHOLE_INSTALLED_SDK_SYMLINK_MODE_MEMBERSHIP')
++    rows=metadata.get('packages')
++    need(type(rows) is list and len(rows)==3 and {r.get('package') for r in rows}==set(SDK_PACKAGES),
++         'EXACT_THREE_INSTALLED_SDK_PACKAGES')
++    for row in rows:
++        root=SDK/SDK_PACKAGES[row['package']]
++        need(row['packageXml']['path']==str(root/'package.xml') and
++             row['sourceProperties']['path']==str(root/'source.properties'),'EXACT_GENERATED_PACKAGE_METADATA_PATHS')
++    need(metadata['actualGeneratedLicenseFile']['path']==str(SDK/'licenses/android-sdk-license'),
++         'ACTUAL_GENERATED_SDK_LICENSE_PATH')
++    need(accepted['installationOrigin']==metadata['installationResult'] and
++         accepted['retainedInstallation']==consent['installation'] and
++         accepted['installationLifecycle']==consent['lifecycleAcceptance'],'EXPLICIT_ACTUAL_RETAINED_INSTALLATION_MAPPING')
++    need(all(accepted['installationOrigin'][key]==accepted['retainedInstallation'][key]
++         for key in ('bytes','sha256')),'ACTUAL_RETAINED_INSTALLATION_BYTES_EQUAL')
++    need(consent.get('schema')=='nbdp-installed-sdk-consent-observation-v1' and consent.get('consumption')=='UNKNOWN',
++         'OBSERVED_CONSENT_SCOPE_NOT_INVENTED_CONSUMPTION')
++    observed=consent.get('consent',{})
++    need(all(observed.get(key) is True for key in ('affirmativeAttempted','attemptJournalCommitted',
++         'stdinWriteInvoked','flushReturned','sent','sentJournalCommitted','flushAndSentRecorded')) and
++         type(observed.get('writeReturnedBytes')) is int and observed['writeReturnedBytes']==2 and
++         observed.get('consumption')=='UNKNOWN','EXACT_APPROVED_ANSWER_WRITE_AND_JOURNAL_FACTS')
++    return rows
++
++
+ class Supervisor:
+     def __init__(self,release,plan):
+         self.release,self.plan=release,plan;self.run_id=release['runId']
+@@ -328,30 +375,44 @@
+         for descriptor in self.release['sourceReviews']+self.release['prerequisiteAcceptances']:checked(descriptor)
+         need(len(self.release['sourceReviews'])==2 and len(self.release['prerequisiteAcceptances'])>=3,'REQUIRED_INDEPENDENT_SOURCE_AND_DATA_ACCEPTANCES')
+         supervisor_subject=doc(self.release['supervisorSubject'])
+-        need(self.release['supervisorSubject']['path']==str(WORK/'subject.json'),'EXACT_SUPERVISOR_SUBJECT_PATH')
++        need(self.release['supervisorSubject']['path']==str(SOURCE/'subject.json'),'EXACT_SUPERVISOR_SUBJECT_PATH')
+         for descriptor in supervisor_subject['sources']:checked(descriptor)
+         actual_sources={p['path']:p for p in supervisor_subject['sources']}
+         need(actual_sources.get(str(Path(__file__).resolve()))==pin(Path(__file__).resolve()) and
+-             actual_sources.get(str(WORK/'plan.json'))==pin(WORK/'plan.json'),'RUNNING_SUPERVISOR_AND_PLAN_SOURCE_JOIN')
++             actual_sources.get(str(SOURCE/'plan.json'))==pin(SOURCE/'plan.json'),'RUNNING_SUPERVISOR_AND_PLAN_SOURCE_JOIN')
+         probe=doc(self.plan_reference['networkProbe']['raw'])
+         checked(self.plan_reference['networkProbe']['originalToolReceipts'])
+         need(probe['Image']==IMAGE and probe['State']['Status']=='created','STOPPED_CREATE_NETWORK_PROBE_SOURCE_CONTEXT')
+         probe_shape={'HostConfig':{'NetworkMode':probe['NetworkMode']},'NetworkSettings':{'Networks':probe['Networks']},'State':probe['State']}
+         need(network_binding(probe_shape,probe['NetworkMode'])=='CREATED_FULL_CONFIG_ID_ONLY_NO_RUNTIME_ENDPOINT_CLAIM',
+              'PINNED_ACTUAL_CREATED_NETWORK_SCHEMA')
+-        for key,path in (('sourceArchive',ROOT/'output/source.tar'),('sourceArchiveReceipt',ROOT/'output/source-archive.json')):
++        for key,path in (('sourceArchive',INPUT/'output/source.tar'),('sourceArchiveReceipt',INPUT/'output/source-archive.json')):
+             need(self.release[key]['path']==str(path),'EXACT_SOURCE_ARCHIVE_PATH');checked(self.release[key],2147483648)
+         archive=doc(self.release['sourceArchiveReceipt'])
+         need(archive['archive']==self.release['sourceArchive'] and archive['before']==archive['after']==dict(commit=COMMIT,tree=TREE,status=''),'EXACT_SOURCE_ARCHIVE_COMMIT_TREE')
+-        need(set(self.release['extractions'])=={'jdk','platform','build-tools','ndk'},'ALL_FOUR_ACQUIRED_INPUTS')
+-        for name,descriptor in self.release['extractions'].items():
+-            need(descriptor['path']==str(ROOT/'output/acquisition'/(name+'-extraction.json')),'EXACT_ACQUISITION_RECEIPT_PATH')
+-            extraction=doc(descriptor);need(extraction['toolsExecuted'] is False,'DATA_ONLY_TOOL_ACQUISITION')
+-            destinations={'jdk':ROOT/'tools/jdk','platform':ROOT/'tools/sdk/platforms/android-37.0',
+-                'build-tools':ROOT/'tools/sdk/build-tools/36.0.0','ndk':ROOT/'tools/sdk/ndk/30.0.16248370'}
+-            need(extraction['destination']==str(destinations[name]),'EXACT_ACQUIRED_BUILD_TOOL_PATH')
+-            tool_inventory(extraction)
+-        for value in (ROOT/'user/work-r2',ROOT/'cache/build-r2',ROOT/'output/build-r2'):
++        need(self.release['jdkExtraction']==self.plan_reference['jdkExtraction'], 'EXACT_UNCHANGED_JDK_RECEIPT')
++        jdk=doc(self.release['jdkExtraction'])
++        need(jdk['destination']==str(INPUT/'tools/jdk') and jdk['toolsExecuted'] is False,'UNCHANGED_ACCEPTED_JDK_INPUT')
++        tool_inventory(jdk)
++        for key in ('installedSdkInventory','installedSdkMetadata','installedSdkConsent','installedSdkAcceptance'):
++            need(self.plan_reference[key] is not None and self.release[key]==self.plan_reference[key], 'EXACT_ACCEPTED_INSTALLED_SDK_BINDING:'+key)
++            checked(self.release[key])
++        accepted=doc(self.release['installedSdkAcceptance'])
++        installed=doc(self.release['installedSdkInventory'])
++        metadata=doc(self.release['installedSdkMetadata']);consent=doc(self.release['installedSdkConsent'])
++        packages=installed_sdk_binding(self.plan_reference,self.release,accepted,installed,metadata,consent)
++        for key in ('archiveComparison','collectorResult','installationLifecycle'):checked(accepted[key])
++        for row in packages:
++            checked(row['packageXml']);checked(row['sourceProperties'])
++        checked(metadata['actualGeneratedLicenseFile']);checked(metadata['installationResult'])
++        for key in ('attempt','sent','installation','lifecycleAcceptance','licenseDecision','origin'):checked(consent[key])
++        lifecycle=doc(consent['lifecycleAcceptance'])
++        need(lifecycle['inner']==accepted['retainedInstallation'],'LIFECYCLE_EXACT_RETAINED_INNER_RESULT')
++        tool_inventory(installed)
++        for row in installed['symlinkModes']:
++            st=(SDK/row['path']).lstat()
++            need(stat.S_ISLNK(st.st_mode) and oct(stat.S_IMODE(st.st_mode))==row['mode'],'ACTUAL_INSTALLED_SDK_SYMLINK_MODE')
++        for value in (ROOT/'user/work',ROOT/'cache/build',ROOT/'output/build'):
+             safe(value);need(not value.exists(),'FRESH_OWNED_BUILD_ROOT_REQUIRED');value.mkdir(mode=0o700)
+         need(os.statvfs(ROOT).f_bavail*os.statvfs(ROOT).f_frsize>=12884901888,'TWELVE_GIB_BUILD_ADMISSION')
+         need(self.work_end-time.monotonic()>1845,'ENOUGH_ORIGINAL_BUDGET_FOR_JOB_AND_CLI')
+@@ -383,7 +444,7 @@
+             current,_=self.inspect();self.job_state=current['State']
+             need(attached['classification']=='NATURAL_ZERO','ATTACHED_JOB_FAILED_OR_LOG_CEILING:'+attached['classification'])
+             successful_job_state(current['State'],self.network_binding_stage)
+-            result=ROOT/'output/build-r2/rebuilt-apks.json';need(result.is_file(),'ACTUAL_REBUILT_APK_METADATA_REQUIRED')
++            result=ROOT/'output/build/rebuilt-apks.json';need(result.is_file(),'ACTUAL_REBUILT_APK_METADATA_REQUIRED')
+             self.output_pin=pin(result)
+         except BaseException as exc:self.fault(type(exc).__name__+':'+str(exc)[:2048])
+         finally:
+@@ -408,7 +469,8 @@
+     args=parser.parse_args()
+     release_pin=pin(args.release,4194304);need(release_pin['sha256']==args.release_sha,'EXTERNALLY_PINNED_ROOT_RELEASE')
+     release=doc(release_pin,4194304)
+-    plan_reference=json.loads((WORK/'plan.json').read_bytes())
++    plan_reference=json.loads((SOURCE/'plan.json').read_bytes())
++    need(plan_reference['state']=='SOURCE_ONLY_REQUIRES_INDEPENDENT_REVIEW_AND_ROOT_RELEASE','INSTALLED_SDK_BINDING_NOT_READY')
+     need(pin(PREP/'build-plan.json')==plan_reference['buildPlan'],'FROZEN_BUILD_METHOD_PLAN')
+     supervisor=Supervisor(release,doc(plan_reference['buildPlan']));supervisor.plan_reference=plan_reference
+     result=supervisor.run();print(json.dumps(result),flush=True)

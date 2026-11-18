@@ -1,0 +1,96 @@
+{
+  "schema": "nbdp-amethyst-command-remediation-draft-v1",
+  "author": "/root/sdk_install_controller",
+  "state": "FROZEN_SOURCE_ONLY_PENDING_INDEPENDENT_SOURCE_MODEL_AND_CONCRETE_ROOT_RELEASE",
+  "preparedAtUtc": "2026-10-27T20:55:16.460402+00:00",
+  "functionalDelta": {
+    "argvAppend": [
+      "-x",
+      "spotlessApply",
+      "-x",
+      ":installGitHook"
+    ],
+    "everythingElseInBuildInsideAstIdentical": true
+  },
+  "newPrep": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4",
+  "newRuntime": "/Data/nbdp-e02-tooling-20261027/amethyst-build-r4",
+  "priorSourceSubject": {
+    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/subject.json",
+    "bytes": 8770,
+    "sha256": "9b5843c7032e1873848449c88b6274efc0e3329951d3b8f0f0de6b47edc66d80"
+  },
+  "priorInside": {
+    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/preparation/build_inside.py",
+    "bytes": 8176,
+    "sha256": "2ecf91a0f9959931075d4b8ac3e4f7e2337054fbcb9b9b58f53707cd1375d405"
+  },
+  "draftInside": {
+    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/preparation/build_inside.py",
+    "bytes": 8229,
+    "sha256": "38e1678435fb4ed5912f032e1b25e486cc44e4075a4d2cb2bd59fa540a751705"
+  },
+  "priorSdkSevenModelSource": {
+    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r3/supervisor-source/test_installed_sdk_bindings.py",
+    "bytes": 4917,
+    "sha256": "ae8416b4b6b8a26433ce5d62d1b8ed3b40951a1a455f99dc7e576c7b2525ea7e"
+  },
+  "unchangedSdkHelperAndLifecycleFunctionAst": true,
+  "unchangedSdkSevenModelBytes": true,
+  "sdkAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-sdk-installed-data-actual-20261027/acceptance.json",
+    "bytes": 4224,
+    "sha256": "19458f67876206388d808508c5ac9fdd2af86e1b3c00a174386b1b61be6a529a"
+  },
+  "priorNegativeDataAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-actual-20261027/failure-acceptance.json",
+    "bytes": 3705,
+    "sha256": "f56932a850f6e149f0c3a39de3e980f3e3df40b6aadf3e04c59b05b69c73d1a1"
+  },
+  "postSdkJdkArchiveSourceAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-actual-20261027/failure-acceptance.json",
+    "bytes": 3705,
+    "sha256": "f56932a850f6e149f0c3a39de3e980f3e3df40b6aadf3e04c59b05b69c73d1a1"
+  },
+  "rootMethodAdoption": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-installed-sdk-build-correction-20261027/method-adoption.json",
+    "bytes": 2611,
+    "sha256": "44335bb21881e36b1116b04c84b7560996ef338a39eeb9302f047659437d0e95"
+  },
+  "materializerPinnedOperands": [
+    {
+      "path": "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "bytes": 32959480,
+      "sha256": "5e2f62ca6ab9c6992460493de8a8867e84f8e6078f0e5c197b5232b79e4b35f1"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/supervisor-source/supervise_build.py",
+      "bytes": 31753,
+      "sha256": "65cc14b76eeb3585371e239b9e5985f56a149d1b33d69987a2499271e39fc094"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/supervisor-source/subject.json",
+      "bytes": 3157,
+      "sha256": "88e70f471849a612e66306ca9b0d9b3dd091a9b408ddbda605f0cd5dde265730"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r4/supervisor-source/plan.json",
+      "bytes": 8902,
+      "sha256": "1f8da03c67408154979b017b208caf9547804bf5a6940c44b1d43cfb94c3dd70"
+    }
+  ],
+  "newModelsDefined": 3,
+  "newModelsExecuted": 0,
+  "priorSdkSevenRerun": false,
+  "prior52And16Rerun": false,
+  "actualRuntimeGrantCreated": false,
+  "actualBuildExecuted": false,
+  "actualDockerExecuted": false,
+  "runtimeParentsCreated": false,
+  "scope": "Two exact upstream-task exclusions plus source/runtime path/pin cascades only; full byte/mode/new-file guards remain unchanged. Platform-tools failure stays preserved LOW; no SDK write/install or Gradle flag change is included.",
+  "requires": [
+    "Independent exact SOURCE QA/security review",
+    "Separate bounded three-model DATA release/capture/independent acceptance; prior7/52/16 not rerun",
+    "Concrete caller/current prerequisite review and fresh exact one-use root grant; no automatic retry",
+    "Actual future build and unchanged-source/APK/owned cleanup DATA review; no qualification inherited"
+  ]
+}

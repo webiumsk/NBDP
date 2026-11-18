@@ -1,0 +1,49 @@
+{
+  "schema": "nbdp-root-bounded-draft-progress-publication-release-v1",
+  "actor": "/root",
+  "decision": "AUTHORIZE_EXACT_REVIEWED_PROGRESS_DRAFT_PR_PUBLICATION",
+  "repository": "webiumsk/NBDP",
+  "baseCommit": "5c039abb5ec098e309804f2e44c2a692667b84c1",
+  "branch": "evidence/e02-rebuild-20261027",
+  "payload": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-progress-publication-20261027/payload-manifest-r2.json",
+    "bytes": 1476359,
+    "sha256": "85c6452a5d4be5545cdf00881d13897bd2af24d7db7322c2a10c7984ec175fe1"
+  },
+  "payloadAcceptance": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-progress-publication-20261027/payload-acceptance-r2.json",
+    "bytes": 3059,
+    "sha256": "1552878d5ac8aa09133494f9e53b38d1380e011d70e4b0493663f60df26c4618"
+  },
+  "observedControl": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-progress-publication-20261027/observed-control-inventory-r2.json",
+    "bytes": 10143,
+    "sha256": "4f0a72ceb48cf32b82e0fe930d1c5b7233fd72586efefa61c3db2535fd52c3db"
+  },
+  "controlReviews": [
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-progress-publication-20261027/actual-final-control-qa-review.json",
+      "bytes": 1533,
+      "sha256": "26a60c346deded89a29e133d077a18f466f48763fc4999d2ca2257b3bf94594b"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-progress-publication-20261027/actual-final-control-security-review.json",
+      "bytes": 1491,
+      "sha256": "1e3c831ac4ddc8bc618bcc1e48de1e473bc91cb8054dbd0a8e5958aae79dc0b2"
+    }
+  ],
+  "allowedControlAdditions": [
+    "This bounded root publication release and faithful actual review records; no unknown runtime content.",
+    "Actual Git/PR publication observations and only independently observed checkpoint/tree/PR status fields, with explicit new pins and final tree comparison."
+  ],
+  "operations": [
+    "Verify actual staged tree equals merged base plus exact2505-file R2 payload and declared CONTROL additions; no deletion or unrelated changes.",
+    "Create Git data objects, dedicated branch/checkpoint and draft PR through connected GitHub tools.",
+    "Record actual checkpoint/PR observations; preserve reviewed payload and original failures."
+  ],
+  "qualityStatus": "WorkflowFAIL4 and frozen-source whitespaceFAIL1 retained and disclosed; no global all-green claim.",
+  "requiresExternalFinalTreePin": true,
+  "automaticMerge": false,
+  "licenceConsentGranted": false,
+  "sdkmanagerOrRuntimeOrProductionDeploymentAuthorized": false
+}

@@ -1,0 +1,75 @@
+{
+  "recordedBy": "/root",
+  "researcher": "/root/kotlin_build_sources",
+  "evidenceType": "PINNED_PRIMARY_SOURCE_RESEARCH_NOT_RUNTIME_DIAGNOSIS",
+  "severity": "MEDIUM",
+  "code": "KOTLIN_DAEMON_PROJECT_PROPERTY_NAMESPACE",
+  "amethystCommit": "e6f464a1179def75274512b3c5bab921de3bf3d8",
+  "versions": {
+    "kotlin": "2.4.20",
+    "agp": "9.4.1",
+    "gradle": "9.8.0"
+  },
+  "actualArgvIntent": "-Dkotlin.daemon.jvmargs=-Xmx1536m -XX:MaxMetaspaceSize=512m",
+  "projectProperty": "kotlin.daemon.jvmargs=-Xmx8g -XX:MaxMetaspaceSize=2g",
+  "finding": "Checked resolution chain reads Gradle project properties; plain -Dkotlin.daemon.jvmargs does not establish the intended override. Project8g/2g remains SOURCE-expected absent later DSL/task override; none found in pinned Amethyst scripts. Actual daemon command/effective heap not observed.",
+  "sources": [
+    {
+      "url": "https://github.com/JetBrains/kotlin/blob/890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/PropertiesProvider.kt#L406",
+      "claim": "Daemon args/strategy/fallback projectproperties"
+    },
+    {
+      "url": "https://github.com/JetBrains/kotlin/blob/890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/internal/properties/PropertiesBuildService.kt#L24",
+      "claim": "Extra then providers.gradleProperty then local.properties resolver"
+    },
+    {
+      "url": "https://github.com/JetBrains/kotlin/blob/890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/tasks/configuration/AbstractKotlinCompileConfig.kt#L56",
+      "claim": "Resolved daemonargs transferredinto tasks"
+    },
+    {
+      "url": "https://github.com/gradle/gradle/blob/a927be5e08efe79e0b87ada06c762dde6bb9f8b8/subprojects/core/src/main/java/org/gradle/initialization/properties/DefaultGradlePropertiesLoader.java#L63",
+      "claim": "Systemprojectproperty requires org.gradle.project. prefix"
+    },
+    {
+      "url": "https://github.com/JetBrains/kotlin/blob/890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/compilerRunner/GradleKotlinCompilerRunner.kt#L287",
+      "claim": "Legacy runner consumes resolved args"
+    },
+    {
+      "url": "https://github.com/JetBrains/kotlin/blob/890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/compilerRunner/btapi/BtaCompilerRunner.kt#L38",
+      "claim": "BTA consumes resolved args andfallback switchesinprocess"
+    },
+    {
+      "url": "https://github.com/JetBrains/kotlin/blob/890ac1d94fdb80eb85f0eeb5be5e4352df987b2f/libraries/tools/kotlin-gradle-plugin-api/src/common/kotlin/org/jetbrains/kotlin/gradle/tasks/CompileUsingKotlinDaemon.kt#L19",
+      "claim": "Supported daemon/in-process; out-of-process removed2.4.0"
+    }
+  ],
+  "localSourceDescriptors": [
+    {
+      "relativePath": "gradle/libs.versions.toml",
+      "bytes": 21993,
+      "sha256": "f7f6e78fb3531f187e2294b5a7e3778a460073e663289bf0222faafe641908da"
+    },
+    {
+      "relativePath": "gradle.properties",
+      "bytes": 3027,
+      "sha256": "15ebeb015e7b14b2821c2899235665e6c46918a50f80e62a12465c215296f05e"
+    },
+    {
+      "relativePath": "gradle/wrapper/gradle-wrapper.properties",
+      "bytes": 319,
+      "sha256": "b1e97e79e3e264dc0cf90ef1e6132784b618fb3e6b2a4fdca7be746e79d372ef"
+    },
+    {
+      "relativePath": "amethyst/build.gradle.kts",
+      "bytes": 37206,
+      "sha256": "edbb4cefa4aaae0204796659f31bae29109f1818ca6bcd03c9008b58d002c208"
+    }
+  ],
+  "possibleLaterOptions": [
+    "Correct to -Pkotlin.daemon.jvmargs withsameintended1536m/512m; sufficiency unproven",
+    "-Pkotlin.compiler.execution.strategy=in-process with --max-workers=1 shares existingGradleheap, reducesconcurrentwork butmayincreaseduration"
+  ],
+  "runtimeLimits": "Docker6GiB hardcap/fixedCPU/PID/time/readonlySDK/sourceguards unchanged. ExistingKotlinwarning isactual but causeUNKNOWN; noOOM/processattribution inferred.",
+  "disposition": "Preserve current run andobtainterminalDATA beforeanyfreshreviewedmethod. No currentintervention/newgrant orheap/strategy success claim.",
+  "provenance": "Faithful coordinator transcription of actual independent research mailbox finalresult; no fileschanged/experiments/builds/livekeys/runtimeintervention byresearcher"
+}

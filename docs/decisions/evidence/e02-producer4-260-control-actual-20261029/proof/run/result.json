@@ -1,0 +1,669 @@
+{
+  "schema": "e02-producer4-current-control-execution-v1",
+  "authors": [
+    "/root/r5_plan_fix"
+  ],
+  "operators": [
+    "/root"
+  ],
+  "producerSource": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4-metadata-r1/subject.json",
+    "bytes": 30532,
+    "sha256": "34802f702c863e5cd81e865eec5de7736615ceffc683a8a9f9eb4192e857e66e"
+  },
+  "captureSource": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-preparation-r1/source4/code-subject.json",
+    "bytes": 4759,
+    "sha256": "eff0594e20268670588e03948dd6bc7f9b14a6b91b55e7eb11e9ad11fe61e822"
+  },
+  "rootAcknowledgement": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-preparation-r1/source4/coordinator-acknowledgement.json",
+    "bytes": 5516,
+    "sha256": "59896c68718e0c341c8c8e7034ff7e8f6870748368deabe197c672375b76dedc"
+  },
+  "plan": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-final-bindings-preparation-r1/execution-plan.json",
+    "bytes": 118982,
+    "sha256": "a996b7fb56fe501359af8a585de815523e3aef1f615374a0e5b601a1c2282251"
+  },
+  "inputManifest": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-final-bindings-preparation-r1/input-manifest.json",
+    "bytes": 1109695,
+    "sha256": "b64de51fbbe960f399526431b7c5fd543a83087b79515862675aa218c175acd5"
+  },
+  "countsSeparate": [
+    123,
+    33,
+    29,
+    16,
+    20,
+    10,
+    11,
+    8,
+    7,
+    3
+  ],
+  "scopes": [
+    {
+      "scope": "test_guard_client.mjs",
+      "argv": [
+        "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+        "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/test_guard_client.mjs"
+      ],
+      "eof": {
+        "stdout": true,
+        "stderr": true
+      },
+      "elapsedNs": 320610198,
+      "stdout": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/01-test_guard_client.mjs.stdout.raw",
+        "bytes": 169,
+        "sha256": "6a26c4f242e70a7c33f3c5329e0cf885fd5b272f24b59abd16ff978c8c32cd03",
+        "mode": "0o600"
+      },
+      "stderr": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/01-test_guard_client.mjs.stderr.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mode": "0o600"
+      },
+      "pipeEofScope": "ACTUAL_OWNED_CHILD_PIPES_ONLY_NOT_OUTER_API",
+      "ownership": {
+        "pid": 1122175,
+        "groupId": 1122175,
+        "sessionId": 1122175,
+        "startNewSession": true,
+        "ownedPopenHandle": true,
+        "leaderOwnership": "RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL",
+        "observedGroupId": 1122175,
+        "observedSessionId": 1122175
+      },
+      "retentionErrors": [],
+      "exitCode": 0,
+      "reaped": true,
+      "fault": null,
+      "reapDeadlineMonotonicNs": 397599452322977,
+      "groupClosure": null,
+      "groupClosureFault": null
+    },
+    {
+      "scope": "test_guard_transport_boundaries.mjs",
+      "argv": [
+        "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+        "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/test_guard_transport_boundaries.mjs"
+      ],
+      "eof": {
+        "stdout": true,
+        "stderr": true
+      },
+      "elapsedNs": 196625978,
+      "stdout": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/02-test_guard_transport_boundaries.mjs.stdout.raw",
+        "bytes": 221,
+        "sha256": "973078e4f8b231f39327cb9cf320d22a92d685979b1a3904fb552ee7b35d44f1",
+        "mode": "0o600"
+      },
+      "stderr": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/02-test_guard_transport_boundaries.mjs.stderr.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mode": "0o600"
+      },
+      "pipeEofScope": "ACTUAL_OWNED_CHILD_PIPES_ONLY_NOT_OUTER_API",
+      "ownership": {
+        "pid": 1122414,
+        "groupId": 1122414,
+        "sessionId": 1122414,
+        "startNewSession": true,
+        "ownedPopenHandle": true,
+        "leaderOwnership": "RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL",
+        "observedGroupId": 1122414,
+        "observedSessionId": 1122414
+      },
+      "retentionErrors": [],
+      "exitCode": 0,
+      "reaped": true,
+      "fault": null,
+      "reapDeadlineMonotonicNs": 397614881372304,
+      "groupClosure": null,
+      "groupClosureFault": null
+    },
+    {
+      "scope": "test_capture_allocation.mjs",
+      "argv": [
+        "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+        "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/test_capture_allocation.mjs"
+      ],
+      "eof": {
+        "stdout": true,
+        "stderr": true
+      },
+      "elapsedNs": 422815556,
+      "stdout": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/03-test_capture_allocation.mjs.stdout.raw",
+        "bytes": 207,
+        "sha256": "41a4ea3fb5ad5541bcdf7073646bf5aee99b6d6e747f20287140f70f5ad82252",
+        "mode": "0o600"
+      },
+      "stderr": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/03-test_capture_allocation.mjs.stderr.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mode": "0o600"
+      },
+      "pipeEofScope": "ACTUAL_OWNED_CHILD_PIPES_ONLY_NOT_OUTER_API",
+      "ownership": {
+        "pid": 1122886,
+        "groupId": 1122886,
+        "sessionId": 1122886,
+        "startNewSession": true,
+        "ownedPopenHandle": true,
+        "leaderOwnership": "RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL",
+        "observedGroupId": 1122886,
+        "observedSessionId": 1122886
+      },
+      "retentionErrors": [],
+      "exitCode": 0,
+      "reaped": true,
+      "fault": null,
+      "reapDeadlineMonotonicNs": 397636511483674,
+      "groupClosure": null,
+      "groupClosureFault": null
+    },
+    {
+      "scope": "test_controller_emission.mjs",
+      "argv": [
+        "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+        "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/test_controller_emission.mjs"
+      ],
+      "eof": {
+        "stdout": true,
+        "stderr": true
+      },
+      "elapsedNs": 66129070,
+      "stdout": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/04-test_controller_emission.mjs.stdout.raw",
+        "bytes": 160,
+        "sha256": "2b0243810b8eb4b24c118b23919a2951faef42f6685adc08115c72a02470e137",
+        "mode": "0o600"
+      },
+      "stderr": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/04-test_controller_emission.mjs.stderr.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mode": "0o600"
+      },
+      "pipeEofScope": "ACTUAL_OWNED_CHILD_PIPES_ONLY_NOT_OUTER_API",
+      "ownership": {
+        "pid": 1123209,
+        "groupId": 1123209,
+        "sessionId": 1123209,
+        "startNewSession": true,
+        "ownedPopenHandle": true,
+        "leaderOwnership": "RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL",
+        "observedGroupId": 1123209,
+        "observedSessionId": 1123209
+      },
+      "retentionErrors": [],
+      "exitCode": 0,
+      "reaped": true,
+      "fault": null,
+      "reapDeadlineMonotonicNs": 397654922853257,
+      "groupClosure": null,
+      "groupClosureFault": null
+    },
+    {
+      "scope": "test_observation_model.mjs",
+      "argv": [
+        "/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node",
+        "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/test_observation_model.mjs"
+      ],
+      "eof": {
+        "stdout": true,
+        "stderr": true
+      },
+      "elapsedNs": 155575212,
+      "stdout": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/05-test_observation_model.mjs.stdout.raw",
+        "bytes": 1132,
+        "sha256": "a3e8eab001178090d5fd75265e0ae12ed2a245aa174b1ee2c0252d5594cd9175",
+        "mode": "0o600"
+      },
+      "stderr": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/05-test_observation_model.mjs.stderr.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mode": "0o600"
+      },
+      "pipeEofScope": "ACTUAL_OWNED_CHILD_PIPES_ONLY_NOT_OUTER_API",
+      "ownership": {
+        "pid": 1123470,
+        "groupId": 1123470,
+        "sessionId": 1123470,
+        "startNewSession": true,
+        "ownedPopenHandle": true,
+        "leaderOwnership": "RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL",
+        "observedGroupId": 1123470,
+        "observedSessionId": 1123470
+      },
+      "retentionErrors": [],
+      "exitCode": 0,
+      "reaped": true,
+      "fault": null,
+      "reapDeadlineMonotonicNs": 397673116167533,
+      "groupClosure": null,
+      "groupClosureFault": null
+    },
+    {
+      "scope": "test_guard_helper.py",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/test_guard_helper.py"
+      ],
+      "eof": {
+        "stdout": true,
+        "stderr": true
+      },
+      "elapsedNs": 195908077,
+      "stdout": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/06-test_guard_helper.py.stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mode": "0o600"
+      },
+      "stderr": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/06-test_guard_helper.py.stderr.raw",
+        "bytes": 109,
+        "sha256": "38eeff1237d74275801617a271eced659e08b1cad8069897d18e659ae40641d8",
+        "mode": "0o600"
+      },
+      "pipeEofScope": "ACTUAL_OWNED_CHILD_PIPES_ONLY_NOT_OUTER_API",
+      "ownership": {
+        "pid": 1123833,
+        "groupId": 1123833,
+        "sessionId": 1123833,
+        "startNewSession": true,
+        "ownedPopenHandle": true,
+        "leaderOwnership": "RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL",
+        "observedGroupId": 1123833,
+        "observedSessionId": 1123833
+      },
+      "retentionErrors": [],
+      "exitCode": 0,
+      "reaped": true,
+      "fault": null,
+      "reapDeadlineMonotonicNs": 397693882406735,
+      "groupClosure": null,
+      "groupClosureFault": null
+    },
+    {
+      "scope": "test_capture_parent.py",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/test_capture_parent.py"
+      ],
+      "eof": {
+        "stdout": true,
+        "stderr": true
+      },
+      "elapsedNs": 464782989,
+      "stdout": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/07-test_capture_parent.py.stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mode": "0o600"
+      },
+      "stderr": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/07-test_capture_parent.py.stderr.raw",
+        "bytes": 110,
+        "sha256": "52b0c474aef5332b55839b62d368eba3506792a83565d514b7659406bc2b6718",
+        "mode": "0o600"
+      },
+      "pipeEofScope": "ACTUAL_OWNED_CHILD_PIPES_ONLY_NOT_OUTER_API",
+      "ownership": {
+        "pid": 1124119,
+        "groupId": 1124119,
+        "sessionId": 1124119,
+        "startNewSession": true,
+        "ownedPopenHandle": true,
+        "leaderOwnership": "RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL",
+        "observedGroupId": 1124119,
+        "observedSessionId": 1124119
+      },
+      "retentionErrors": [],
+      "exitCode": 0,
+      "reaped": true,
+      "fault": null,
+      "reapDeadlineMonotonicNs": 397713149104395,
+      "groupClosure": null,
+      "groupClosureFault": null
+    },
+    {
+      "scope": "test_public_identity_metadata.py",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/test_public_identity_metadata.py"
+      ],
+      "eof": {
+        "stdout": true,
+        "stderr": true
+      },
+      "elapsedNs": 562840837,
+      "stdout": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/08-test_public_identity_metadata.py.stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mode": "0o600"
+      },
+      "stderr": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/08-test_public_identity_metadata.py.stderr.raw",
+        "bytes": 106,
+        "sha256": "17984547857a4e03b0240b06b45be5d925a363d15b6643f7d10794b6329be915",
+        "mode": "0o600"
+      },
+      "pipeEofScope": "ACTUAL_OWNED_CHILD_PIPES_ONLY_NOT_OUTER_API",
+      "ownership": {
+        "pid": 1124431,
+        "groupId": 1124431,
+        "sessionId": 1124431,
+        "startNewSession": true,
+        "ownedPopenHandle": true,
+        "leaderOwnership": "RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL",
+        "observedGroupId": 1124431,
+        "observedSessionId": 1124431
+      },
+      "retentionErrors": [],
+      "exitCode": 0,
+      "reaped": true,
+      "fault": null,
+      "reapDeadlineMonotonicNs": 397733681504860,
+      "groupClosure": null,
+      "groupClosureFault": null
+    },
+    {
+      "scope": "test_producer2_source.py",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/test_producer2_source.py"
+      ],
+      "eof": {
+        "stdout": true,
+        "stderr": true
+      },
+      "elapsedNs": 1356423449,
+      "stdout": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/09-test_producer2_source.py.stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mode": "0o600"
+      },
+      "stderr": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/09-test_producer2_source.py.stderr.raw",
+        "bytes": 105,
+        "sha256": "49ca89663e14b10ff0c213637107d71298f31e00ef1b306c7c33e8f42fdb7be0",
+        "mode": "0o600"
+      },
+      "pipeEofScope": "ACTUAL_OWNED_CHILD_PIPES_ONLY_NOT_OUTER_API",
+      "ownership": {
+        "pid": 1124873,
+        "groupId": 1124873,
+        "sessionId": 1124873,
+        "startNewSession": true,
+        "ownedPopenHandle": true,
+        "leaderOwnership": "RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL",
+        "observedGroupId": 1124873,
+        "observedSessionId": 1124873
+      },
+      "retentionErrors": [],
+      "exitCode": 0,
+      "reaped": true,
+      "fault": null,
+      "reapDeadlineMonotonicNs": 397754851426480,
+      "groupClosure": null,
+      "groupClosureFault": null
+    },
+    {
+      "scope": "test_producer3_bindings.py",
+      "argv": [
+        "/home/peterhorvath/.miniforge3/bin/python3.13",
+        "-I",
+        "-B",
+        "/Data/nbdp-e02-tooling-20261027/ordinary-producer-preparation-r4-source4/test_producer3_bindings.py"
+      ],
+      "eof": {
+        "stdout": true,
+        "stderr": true
+      },
+      "elapsedNs": 53375197130,
+      "stdout": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/10-test_producer3_bindings.py.stdout.raw",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "mode": "0o600"
+      },
+      "stderr": {
+        "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/10-test_producer3_bindings.py.stderr.raw",
+        "bytes": 102,
+        "sha256": "11a02a0420a3576f8bda2020ef1b3296cad0c8808905b2546cd68470ee16b3df",
+        "mode": "0o600"
+      },
+      "pipeEofScope": "ACTUAL_OWNED_CHILD_PIPES_ONLY_NOT_OUTER_API",
+      "ownership": {
+        "pid": 1125266,
+        "groupId": 1125266,
+        "sessionId": 1125266,
+        "startNewSession": true,
+        "ownedPopenHandle": true,
+        "leaderOwnership": "RETAINED_UNPOLLED_UNREAPED_POPEN_UNTIL_GROUP_FAULT_SIGNAL",
+        "observedGroupId": 1125266,
+        "observedSessionId": 1125266
+      },
+      "retentionErrors": [],
+      "exitCode": 0,
+      "reaped": true,
+      "fault": null,
+      "reapDeadlineMonotonicNs": 397828499938899,
+      "groupClosure": null,
+      "groupClosureFault": null
+    }
+  ],
+  "outcomes": [
+    {
+      "scope": "test_guard_client.mjs",
+      "count": 123,
+      "membershipMeaning": "FROZEN_SCRIPT_ALL_BODIES_SUCCESS_LOOP_PLUS_EXACT_STDOUT_NOT_INDEPENDENT_PER_BODY_ATTESTATION",
+      "actualNodeSummary": {
+        "scope": "PRODUCER4_MOCK_FRESH_GUARD_SCHEDULER_ONLY",
+        "definitions": 123,
+        "executed": 123,
+        "realHelperExecuted": false,
+        "realClockOrSDKObserved": false,
+        "clientRowsQualified": 0
+      },
+      "allOk": true
+    },
+    {
+      "scope": "test_guard_transport_boundaries.mjs",
+      "count": 33,
+      "membershipMeaning": "FROZEN_SCRIPT_ALL_BODIES_SUCCESS_LOOP_PLUS_EXACT_STDOUT_NOT_INDEPENDENT_PER_BODY_ATTESTATION",
+      "actualNodeSummary": {
+        "scope": "PRODUCER4_ACTUAL_REGISTERED_HELPER_CALLBACKS_AND_OWNED_SIGNAL_MOCKS_ONLY",
+        "definitions": 33,
+        "executed": 33,
+        "realHelperExecuted": false,
+        "realTimerObserved": false,
+        "processReapAttested": false,
+        "clientRowsQualified": 0
+      },
+      "allOk": true
+    },
+    {
+      "scope": "test_capture_allocation.mjs",
+      "count": 29,
+      "membershipMeaning": "FROZEN_SCRIPT_ALL_BODIES_SUCCESS_LOOP_PLUS_EXACT_STDOUT_NOT_INDEPENDENT_PER_BODY_ATTESTATION",
+      "actualNodeSummary": {
+        "scope": "PRODUCER4_PURE_CAPTURE_ALLOCATION_MODELS_ONLY",
+        "definitions": 29,
+        "executed": 29,
+        "realWritesObserved": false,
+        "realHelperExecuted": false,
+        "wholeConsumerQualified": false,
+        "atomicGlobalFenceClaimed": false
+      },
+      "allOk": true
+    },
+    {
+      "scope": "test_controller_emission.mjs",
+      "count": 16,
+      "membershipMeaning": "FROZEN_SCRIPT_ALL_BODIES_SUCCESS_LOOP_PLUS_EXACT_STDOUT_NOT_INDEPENDENT_PER_BODY_ATTESTATION",
+      "actualNodeSummary": {
+        "scope": "ACTUAL_PRODUCTION_CONTROLLER_EMITTER_WITH_FAKE_WRITER_ONLY",
+        "checks": 16,
+        "realHelperExecuted": false,
+        "realStdoutWritten": false,
+        "clientRowsQualified": 0
+      },
+      "allOk": true
+    },
+    {
+      "scope": "test_observation_model.mjs",
+      "count": 20,
+      "membershipMeaning": "FROZEN_SCRIPT_ALL_BODIES_SUCCESS_LOOP_PLUS_EXACT_STDOUT_NOT_INDEPENDENT_PER_BODY_ATTESTATION",
+      "actualNodeSummary": {
+        "schema": "e02-producer4-observation-model-controls-v1",
+        "ok": true,
+        "checks": 20,
+        "cases": [
+          "one-shared-cap-across-two-streams",
+          "exact-boundary-two-streams-acknowledged-not-physical",
+          "short-prefix-once-poisons-both-streams",
+          "zero-prefix-known-zero-throw-prefix-unknown",
+          "invalid-count-family-poison-no-second-write",
+          "closed-stream-fds-and-original-upper-bound",
+          "accepted-phase-writer-preserves-known-short-prefix",
+          "phase-then-proxy-consumes-same-budget",
+          "guard-once-entry-exit-and-no-action-on-refusal",
+          "guard-refusal-preserved-over-retention-failure",
+          "entry-and-success-retention-failure-prevent-action",
+          "callback-first-fault-and-closed-late-inert",
+          "upstream-send-exact-buffer-callback-and-no-extra-guard",
+          "proxy-send-error-kept-if-observation-sink-fails",
+          "proxy-intent-write-failure-never-sends",
+          "proxy-mutated-buffer-refuses-callback-completion",
+          "adapter-query-preserves-exact112-byte-operands-and-raw-join",
+          "adapter-raw-is-after-original-guard-before-parse",
+          "adapter-denied-backend-guard-context-no-raw-or-parse",
+          "adapter-raw-sink-fault-before-send-or-before-parse-refuses"
+        ],
+        "scope": "SYNTHETIC_FS_SOCKET_GUARD_DATA_ONLY_NO_RUNTIME"
+      },
+      "allOk": true
+    },
+    {
+      "scope": "test_guard_helper.py",
+      "count": 10,
+      "membershipMeaning": "QUIET_DOTS_COUNT_WITH_FROZEN_SOURCE_METHOD_NAMES_NOT_RAW_NAME_PRINTING",
+      "sourceNames": [
+        "HelperProtocol.test_exact_check_and_close_domains",
+        "HelperProtocol.test_foreign_context_identity_schema_and_operation",
+        "HelperProtocol.test_extra_missing_typed_fields",
+        "HelperProtocol.test_sequence_never_duplicate_decrease_wrap_or_skip",
+        "HelperProtocol.test_complete_bounded_utf8_line",
+        "HelperProtocol.test_duplicate_negative_zero_nonfinite_fraction_refused",
+        "HelperProtocol.test_one_fresh_call_per_check_same_lease_instance",
+        "HelperProtocol.test_source_drift_prevents_core_and_reply",
+        "HelperProtocol.test_core_denial_produces_no_ok_reply_or_reused_success",
+        "HelperProtocol.test_close_is_not_an_authorization_check"
+      ],
+      "allOk": true
+    },
+    {
+      "scope": "test_capture_parent.py",
+      "count": 11,
+      "membershipMeaning": "QUIET_DOTS_COUNT_WITH_FROZEN_SOURCE_METHOD_NAMES_NOT_RAW_NAME_PRINTING",
+      "sourceNames": [
+        "ParentCaptureAllocation.test_all_sixty_four_attempts_consumed_and_sixty_fifth_before_inspect",
+        "ParentCaptureAllocation.test_actual_fixture_reserves_before_inspect_and_failed_launch_keeps_slot",
+        "ParentCaptureAllocation.test_partial_or_failed_ledger_poison_before_any_child_or_retry",
+        "ParentCaptureAllocation.test_missing_parent_initialization_refuses_before_new_proof",
+        "ParentCaptureAllocation.test_ledger_status_combined_four_kib_bound_and_no_refund",
+        "ParentCaptureAllocation.test_parent_header_footer_exact_precharge_before_write",
+        "ParentCaptureAllocation.test_header_write_failure_sticky_and_not_repaired",
+        "ParentCaptureAllocation.test_global_math_and_nonatomic_owner_failure_truthful",
+        "ParentCaptureAllocation.test_actual_parent_exclusive_writer_short_write_not_repaired",
+        "ParentCaptureAllocation.test_actual_driver_reuses_verified_command_stdout_pin_no_copy",
+        "ParentCaptureAllocation.test_actual_driver_corrupt_retained_stdout_refuses_before_call_success"
+      ],
+      "allOk": true
+    },
+    {
+      "scope": "test_public_identity_metadata.py",
+      "count": 8,
+      "membershipMeaning": "QUIET_DOTS_COUNT_WITH_FROZEN_SOURCE_METHOD_NAMES_NOT_RAW_NAME_PRINTING",
+      "sourceNames": [
+        "PublicIdentityMetadata.test_whole_checksum_payload_both_public_scalars",
+        "PublicIdentityMetadata.test_four_metadata_operands_equal_unchanged_driver",
+        "PublicIdentityMetadata.test_historical_65_character_operand_refused_preserved",
+        "PublicIdentityMetadata.test_checksum_corruption_refused",
+        "PublicIdentityMetadata.test_valid_other_payload_refused",
+        "PublicIdentityMetadata.test_whitespace_case_truncation_never_normalized",
+        "PublicIdentityMetadata.test_non_bech32_glyph_refused",
+        "PublicIdentityMetadata.test_new_plan_keeps_scalar_roles_and_whole_value"
+      ],
+      "allOk": true
+    },
+    {
+      "scope": "test_producer2_source.py",
+      "count": 7,
+      "membershipMeaning": "QUIET_DOTS_COUNT_WITH_FROZEN_SOURCE_METHOD_NAMES_NOT_RAW_NAME_PRINTING",
+      "sourceNames": [
+        "Producer4SourceBindings.test_original_guard_and_dependency_boundaries_unchanged",
+        "Producer4SourceBindings.test_original_isolation_and_transport_limits",
+        "Producer4SourceBindings.test_fresh_source_closure_twenty_two_not_old_sixteen",
+        "Producer4SourceBindings.test_oracles_and_original_role_replay_criteria_preserved",
+        "Producer4SourceBindings.test_no_sync_python_spawn_or_cached_authorization_in_fixture",
+        "Producer4SourceBindings.test_flow_checkpoints_preserve_all_fifteen_original_internal_guards",
+        "Producer4SourceBindings.test_phase_and_controller_semantic_version_explicit"
+      ],
+      "allOk": true
+    },
+    {
+      "scope": "test_producer3_bindings.py",
+      "count": 3,
+      "membershipMeaning": "QUIET_DOTS_COUNT_WITH_FROZEN_SOURCE_METHOD_NAMES_NOT_RAW_NAME_PRINTING",
+      "sourceNames": [
+        "Producer3RebuiltBindings.test_current_accepted_rebuilt_artifacts_and_exact_e01_native",
+        "Producer3RebuiltBindings.test_missing_apk_wrong_native_e01_and_build_sdk_substitution_refused",
+        "Producer3RebuiltBindings.test_preflight_before_materialize_verify_and_exact22_worker_membership"
+      ],
+      "allOk": true
+    }
+  ],
+  "remainingNotExecuted": [],
+  "firstFault": null,
+  "secondaryFaults": [],
+  "sourceUnchanged": true,
+  "overallBefore": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/overall-before.json",
+    "bytes": 1146475,
+    "sha256": "7adabc2b61825ab8dcc116b9bd1709ae5ed004521ee5ce33853618e3fd844aa4"
+  },
+  "overallAfter": {
+    "path": "/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-95487249f27a7187a4cbced6c9d4aa0e/run/overall-after.json",
+    "bytes": 1146475,
+    "sha256": "7adabc2b61825ab8dcc116b9bd1709ae5ed004521ee5ce33853618e3fd844aa4"
+  },
+  "elapsedNs": 266264669315,
+  "exitCode": 0,
+  "outerApiOrigin": "ACTUAL_ROOT_RESPONSES_MUST_BE_RETAINED_EXTERNALLY_NOT_INNER_PID_REAP_OR_EOF",
+  "ordinaryRowsQualified": 0,
+  "canonicalE02": "PARTIAL22_UNCHANGED"
+}

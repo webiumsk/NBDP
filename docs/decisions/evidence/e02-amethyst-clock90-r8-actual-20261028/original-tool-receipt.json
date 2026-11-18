@@ -1,0 +1,16 @@
+{
+  "tool": "functions.exec / tools.exec_command",
+  "args": {
+    "cmd": "/usr/bin/env -i PATH=/usr/bin:/bin LANG=C.UTF-8 LC_ALL=C.UTF-8 TZ=UTC /usr/bin/timeout --signal=TERM --kill-after=3s 5997s /home/peterhorvath/.miniforge3/bin/python3.13 -I -B /Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r8/materializer-source/materialize.py --template-sha e60aaa9fc1f4a57196f6036d071bc76159cce4a019d76057aae1875858f3b181",
+    "yield_time_ms": 1000,
+    "max_output_tokens": 3000
+  },
+  "result": {
+    "chunk_id": "99c52a",
+    "wall_time_seconds": 1.00082628,
+    "session_id": 91356,
+    "original_token_count": 0,
+    "output": ""
+  },
+  "provenance": "Exact structured original launch arguments/result for one r8 attempt; same-session monitoring follows, no rerun."
+}

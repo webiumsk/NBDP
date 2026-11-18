@@ -1,0 +1,64 @@
+{
+  "schema": "e02-consumer5-source2-current-binding-stage-v1",
+  "state": "ACTUAL_A_B_BOUND_WITHOUT_DATA_ACCEPTANCE_PENDING_EXACT_CONTRACT_DISPOSITION",
+  "entrypoint": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r5/source2/draft-pointer.json",
+    "bytes": 13600,
+    "sha256": "896fd1c2409aa9b91e6a55f998b2a1aaddd7e80e2f9f5a1efc749cb22081009c"
+  },
+  "consumer": {
+    "path": "/Data/nbdp-e02-tooling-20261027/ordinary-consumer-preparation-r5-source2/consumer.py",
+    "bytes": 94423,
+    "sha256": "7e71766d1aa98fc84b4a9243d933b1af3fe74480833e10cce99387570fcecf04"
+  },
+  "actorExclusions": [
+    "/root",
+    "/root/producer3_capture",
+    "/root/r5",
+    "/root/r5_plan_fix"
+  ],
+  "remainingNullByCapture": {
+    "capture-a": [
+      "acceptance",
+      "qaReview",
+      "securityReview"
+    ],
+    "capture-b": [
+      "acceptance",
+      "qaReview",
+      "securityReview"
+    ]
+  },
+  "currentContractObservation": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r5/source2/current-data-join-observations.json",
+    "bytes": 5432,
+    "sha256": "00554049647060ece3dd98a70ecc6c29be3a563838c6fca86c032f8052a0288a"
+  },
+  "preservedPreviousCheckpoint": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r5/source2/checkpoint-before-current-capture-bindings/copies.json",
+    "bytes": 14795,
+    "sha256": "950435c2806aaf8dbd8d3de37175afbab2dc346e01ee1586c80ecc1d20201074"
+  },
+  "sourcePreparationCommand": {
+    "argv": [
+      "/home/peterhorvath/.miniforge3/bin/python3.13",
+      "-I",
+      "-B",
+      "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-consumer-preparation-r5/source2/prepare-source2.py",
+      "--refresh-draft"
+    ],
+    "chunkId": "767a56",
+    "exitCode": 0,
+    "wallTimeSeconds": "1.221556182"
+  },
+  "modelsExecuted": 0,
+  "currentConsumerControlDefinitions": [
+    86,
+    36,
+    8,
+    9
+  ],
+  "finalSubjectCreated": false,
+  "sourceReadiness": false,
+  "sourceGuardsNormalized": false
+}

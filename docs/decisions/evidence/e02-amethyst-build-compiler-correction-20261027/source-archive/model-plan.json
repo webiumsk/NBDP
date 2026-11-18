@@ -1,0 +1,93 @@
+{
+  "schema": "nbdp-amethyst-compiler-clock-model-plan-v1",
+  "state": "DEFINED_NOT_EXECUTED_REQUIRES_SEPARATE_ROOT_MODEL_RELEASE",
+  "source": {
+    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r6/test_compiler_budget.py",
+    "bytes": 11408,
+    "sha256": "a9966f49e1c618c5f4c93d2972113166b977f976cfb42df59410504a2c61bbed"
+  },
+  "definitions": [
+    "test_exact_compiler_command_property_delta_and_inner_clock",
+    "test_entire_non_clock_supervisor_and_materializer_guards_unchanged",
+    "test_actual_budget_graph_and_exact_owned_timeout_command",
+    "test_actual_lease_predicate_rejects_expired_insufficient_old_mismatch",
+    "test_materializer_null_clocks_fresh_only_two_fields_and_overflow"
+  ],
+  "definedCount": 5,
+  "executed": 0,
+  "command": [
+    "/usr/bin/python3.12",
+    "-I",
+    "-B",
+    "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r6/test_compiler_budget.py"
+  ],
+  "limits": {
+    "seconds": 15,
+    "stdoutBytes": 65536,
+    "stderrBytes": 262144
+  },
+  "directFileOperands": [
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r5/preparation/build_inside.py",
+      "bytes": 8229,
+      "sha256": "38e1678435fb4ed5912f032e1b25e486cc44e4075a4d2cb2bd59fa540a751705"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r5/supervisor-source/supervise_build.py",
+      "bytes": 31753,
+      "sha256": "673cf4d3514b412f3c229997bbd64e99b936753759f978a206ccc624264da181"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r5/materializer-source/materialize.py",
+      "bytes": 8071,
+      "sha256": "191c075e13b6170f0fac326e29a8a8921fffd0a36c68b9a6bb6667db79bb6395"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r5/supervisor-source/test_installed_sdk_bindings.py",
+      "bytes": 4917,
+      "sha256": "ae8416b4b6b8a26433ce5d62d1b8ed3b40951a1a455f99dc7e576c7b2525ea7e"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r6/preparation/build_inside.py",
+      "bytes": 8297,
+      "sha256": "f81fe7a31ef6e17509753236a9f799bc9caaadd9044756764181466ef8169642"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r6/supervisor-source/supervise_build.py",
+      "bytes": 31753,
+      "sha256": "671f2f77c9ec99f525ca7107ffeca2864c7f5cd45479360de714cc85c6959cc5"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r6/materializer-source/materialize.py",
+      "bytes": 8072,
+      "sha256": "cb81926a1fd3276078427409f90d75815b48cf3937c34da8be4197d53ee0dd32"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r6/supervisor-source/test_installed_sdk_bindings.py",
+      "bytes": 4917,
+      "sha256": "ae8416b4b6b8a26433ce5d62d1b8ed3b40951a1a455f99dc7e576c7b2525ea7e"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r6/preparation/build-plan.json",
+      "bytes": 7459,
+      "sha256": "bdb6681e705f07b9ef778cd6903ba4dca0dbf888f869ec9ca3bb31a3d457e16b"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r6/supervisor-source/plan.json",
+      "bytes": 10356,
+      "sha256": "87556254883aa01158eba3d5f5a5b00507eec9bc40434b695a619412ec888817"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r6/materializer-source/root-authorized-template.example.json",
+      "bytes": 2887,
+      "sha256": "145de25bd89f13ca9c54706d4aed7cb3683a828c3e95724b53186d4836d5efe2"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-build-compiler-correction-20261027/method-adoption.json",
+      "bytes": 3679,
+      "sha256": "bce2384388ecd8191c279228be9bbcdbe4185dda9f40e6443891a03d0d35079c"
+    }
+  ],
+  "allowedEvaluation": "Standard library source/JSON reads, ast.parse, exact selected pure definitions and synthetic predicate evaluation only. Never import executable build modules or run subprocess/SDK/Docker/native/Gradle, keys or clocks.",
+  "scope": "Five new source-specific pure models only. Prior3/1/7/52/16 are not rerun. Whole artifact duration3600 includes extraction/post/APK stages; no real compiler strategy/heap/OOM sufficiency or interoperability claim."
+}

@@ -1,0 +1,66 @@
+"""Exact finite CLI/ACK primitives from accepted typed Collector Source2. No IO."""
+import base64,binascii,hashlib,json,math,re,shlex
+
+SCRIPT_PIN={'path': '/Data/nbdp-e02-tooling-20261027/probe-root-custody-collector-preparation-r4/collector.py', 'bytes': 14974, 'sha256': '27ded9b13436412ed0bfc3309669f3524dff43a8930f053388d8e782df806de7'}
+
+PYTHON='/home/peterhorvath/.miniforge3/bin/python3.13'
+
+DATA_PARENT='/Data/nbdp-e02-tooling-20261027/probe-root-custody-actual'
+
+REPO_PARENT='/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-probe-root-custody-actual-20261029'
+
+PREFIX=('/usr/bin/env','-i','PATH=/usr/bin:/bin','LANG=C.UTF-8','LC_ALL=C.UTF-8','/usr/bin/timeout','--signal=KILL','10s')
+
+KINDS=('lease','plan','gate','grant','api-request','api-frame','diagnostic')
+
+REQUEST_KEYS=('cmd','workdir','login','yield_time_ms','max_output_tokens','sandbox_permissions','justification')
+
+JUSTIFICATION_MAX_UTF8_BYTES=1024
+
+def need(v,m):
+ if not v:raise ValueError(m)
+
+def closed(v,keys):need(type(v) is dict and set(v)==set(keys.split()),'CLOSED_CUSTODY_KEYS')
+
+def encoded(v):return (json.dumps(v,sort_keys=True,separators=(',',':'),allow_nan=False)+'\n').encode()
+
+def pin(d,maximum=65536):
+ closed(d,'path bytes sha256');need(type(d['path']) is str and d['path'].startswith('/') and type(d['bytes']) is int and 0<=d['bytes']<=maximum and type(d['sha256']) is str and re.fullmatch('[0-9a-f]{64}',d['sha256']),'BOUNDED_DESCRIPTOR')
+
+def command_words(request):
+ words=shlex.split(request['cmd']);need(shlex.join(words)==request['cmd'],'CANONICAL_EXACT_COMMAND')
+ if words and words[0]=='/usr/bin/env':
+  need(words[:len(PREFIX)]==list(PREFIX),'EXACT_CLEANENV_KILL10S_PREFIX');return words[len(PREFIX):],'ROOT_CLEANENV_KILL10S'
+ return words,'DIRECT_FIXTURE_ONLY'
+
+def command(request,run):
+ closed(request,' '.join(REQUEST_KEYS))
+ need(request['sandbox_permissions']=='require_escalated','EXACT_REQUIRE_ESCALATED_POLICY')
+ justification=request['justification'];need(type(justification) is str and bool(justification.strip()) and 1<=len(justification.encode('utf8','strict'))<=JUSTIFICATION_MAX_UTF8_BYTES,'NONBLANK_BOUNDED_EXACT_JUSTIFICATION')
+ need(request['login'] is False and request['workdir']==SCRIPT_PIN['path'].rsplit('/',1)[0] and type(request['yield_time_ms']) is int and 1<=request['yield_time_ms']<=10000 and type(request['max_output_tokens']) is int and 1<=request['max_output_tokens']<=20000,'EXACT_SEVEN_KEY_COLLECTOR_REQUEST')
+ words,_route=command_words(request);need(words[:4]==[PYTHON,'-I','-B',SCRIPT_PIN['path']] and len(words)>=7 and words[5:7]==['--run-id',run],'EXACT_DIRECT_PINNED_COLLECTOR_CLI')
+ op=words[4];tail=words[7:]
+ if op in ('reserve','status'):need(tail==[],'CLOSED_RESERVE_STATUS')
+ elif op=='record':
+  need(len(tail) in (4,6) and tail[0]=='--kind' and tail[1] in KINDS and tail[2]=='--name' and re.fullmatch('[a-zA-Z0-9][a-zA-Z0-9._-]{0,47}',tail[3]),'CLOSED_RECORD')
+  if len(tail)==6:
+   need(tail[4] in ('--input','--input-base64'),'EXACT_INPUT_ROUTE')
+   if tail[4]=='--input':need(tail[5].startswith('/') and '\x00' not in tail[5],'READONLY_INPUT_ARGUMENT')
+   else:decode_input(tail[5],49152)
+ elif op=='copy':need(len(tail)==6 and tail[0]=='--source-index' and re.fullmatch('[1-9][0-9]?',tail[1]) and tail[2]=='--store' and tail[3] in ('data','repo') and tail[4]=='--name' and re.fullmatch('[a-zA-Z0-9][a-zA-Z0-9._-]{0,47}',tail[5]),'CLOSED_COPY')
+ else:raise ValueError('UNKNOWN_COLLECTOR_OPERATION')
+ return op
+
+def output_object(raw):
+ def pairs(rows):
+  out={}
+  for k,v in rows:need(k not in out,'DUPLICATE_ACK_KEY');out[k]=v
+  return out
+ def reject(_):raise ValueError('INTEGER_COLLECTOR_ACK_ONLY')
+ value=json.loads(raw,object_pairs_hook=pairs,parse_float=reject,parse_constant=reject);need(type(value) is dict,'COMPLETE_JSON_ACKNOWLEDGEMENT');return value
+
+def decode_input(text,remaining):
+ need(type(text) is str and text.isascii() and len(text)<=4*((remaining+2)//3),'BOUNDED_MEMORY_INPUT')
+ try:raw=base64.b64decode(text,validate=True)
+ except (ValueError,binascii.Error):raise ValueError('STRICT_MEMORY_INPUT')
+ need(len(raw)<=remaining and base64.b64encode(raw).decode('ascii')==text,'CANONICAL_MEMORY_INPUT');return raw

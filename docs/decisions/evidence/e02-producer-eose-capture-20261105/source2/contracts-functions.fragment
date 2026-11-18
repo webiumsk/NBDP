@@ -1,0 +1,52 @@
+def counts(source,control):
+    need(source['schema']=='e02-ordinary-producer4-source-subject-v1' and source['version']=='SOURCE4' and source['runtimeSourceCount']==22,'EXACT_CURRENT_SOURCE4_HEADER')
+    need(all(type(source[k]) is int and source[k]==0 for k in ('modelsExecuted','helperExecutions','roleExecutions','ordinaryRowsQualified')) and source['runtimeReady'] is False,'SOURCE_DEFINITIONS_NOT_PRIOR_EXECUTION')
+    closed(source['modelsDefined'],' '.join(MODEL_KEYS));values=[source['modelsDefined'][k] for k in MODEL_KEYS]
+    need(all(type(n) is int and 0<n<=10000 for n in values),'CURRENT_DECLARED_POSITIVE_COUNTS')
+    js=control['selectedJavaScriptDefinitions'];py=control['pythonDefinitions']
+    need([r['file'] for r in js]==list(FILES[:5])+[EXTERNAL_SOURCE['path']],'EXACT_SIX_JS_SELECTION_WITH_EXTERNAL_SOURCE')
+    indexed={r['file']:r for r in py};need(len(indexed)==len(py),'UNIQUE_PYTHON_DECLARATION')
+    derived=[r['expandedDefinitions'] for r in js[:5]]+[indexed[n]['methodDefinitions'] for n in FILES[5:10]]+[js[5]['expandedDefinitions']]
+    need(derived==values and values[-1]==20,'SOURCE_CONTROL_ELEVEN_COUNTS_JOIN')
+    need(source['externalCallerRegressionFamily']==EXTERNAL_FAMILY_PIN and control['externalCallerRegressionFamily']==EXTERNAL_FAMILY_PIN,'EXACT_EXTERNAL_CALLER_FAMILY_AUTHORITY')
+    need(source['externalControlSources']==list(EXTERNAL_CODE) and source['externalControlSourceCount']==17,'EXACT_EXTERNAL_CODE_MEMBERSHIP')
+    return values
+
+def validate_plan(plan,ack,source,control,method,manifest,clock):
+    need(plan['schema']=='e02-producer4-control-capture-plan-v1' and plan['readiness'] is True and plan['producerSource']==ack['producerSource'] and plan['captureSource']==ack['captureSource'] and plan['inputManifest']==ack['inputManifest'] and plan['limits']==LIMITS and plan['deadlineLedger']==LEDGER,'EXACT_FINITE_CURRENT_PLAN')
+    need(clock['schema']=='e02-root-control-capture-clock-source-selection-v2' and clock['actor']=='/root' and clock['controllerSeconds']==1263 and clock['outerKillSeconds']==1266 and clock['sharedInputSnapshotPoolSeconds']==480 and clock['maximumSerialScopes']==11 and clock['eachScopeSeconds']==60 and clock['eachOwnedTerminationReserveSeconds']==3 and clock['metadataAndCleanupSeconds']==30 and clock['otherReserveSeconds']==60 and clock['sumSeconds']==1263,'ROOT_SELECTED_ELEVEN_CLOCK_SOURCE')
+    need([s['scope'] for s in plan['scopes']]==list(FILES) and plan['countsSeparate']==counts(source,control),'ELEVEN_CURRENT_SCOPES_NO_PREDECESSOR_TRANSFER')
+    by_name={PurePosixPath(d['path']).name:d for d in source['sources']};need(len(by_name)==len(source['sources']),'UNIQUE_SOURCE_NAMES')
+    node=plan['tools']['node'];python=plan['tools']['python']
+    need(node['path']=='/home/peterhorvath/.nvm/versions/node/v22.18.0/bin/node' and python['path']=='/home/peterhorvath/.miniforge3/bin/python3.13','FIXED_HOST_INTERPRETERS')
+    need(set(plan['tools'])=={'node','python','timeout','env'} and plan['tools']['timeout']['path']=='/usr/bin/timeout' and plan['tools']['env']['path']=='/usr/bin/env','CLOSED_TOOLS_NO_EXTRA_TARGET')
+    roots={str(PurePosixPath(by_name[name]['path']).parent) for name in FILES[:10]};need(len(roots)==1,'ONE_EXPLICIT_BASE_MODEL_ROOT')
+    model_root=next(iter(roots));groups=control['selectedGroups']
+    need(type(groups) is list and len(groups)==11 and [g['scope'] for g in groups]==list(FILES),'EXACT_REVIEWED_ELEVEN_GROUP_VECTOR')
+    for i,s in enumerate(plan['scopes']):
+        closed(s,'scope source argv cwd count definitionNames format')
+        external=i==10;expected=EXTERNAL_SOURCE if external else by_name[FILES[i]]
+        cwd=EXTERNAL_CWD if external else model_root
+        argv=[node['path'],expected['path']] if i<5 or external else [python['path'],'-I','-B',expected['path']]
+        need(s['source']==expected and s['count']==plan['countsSeparate'][i] and s['cwd']==cwd and s['argv']==argv,'EXACT_TYPED_SOURCE_COUNT_CWD_AND_INTERPRETER')
+        g=groups[i];need(g['source']==expected and g['cwd']==cwd and g['count']==s['count'] and g['definitionNames']==s['definitionNames'],'SOURCE_PLAN_DEFINITION_VECTOR_JOIN')
+        need(type(s['definitionNames']) is list and len(s['definitionNames'])==s['count'] and len(set(s['definitionNames']))==s['count'],'UNIQUE_ORDERED_DEFINITION_NAMES')
+        if external:need(g['externalSourceFamily']==EXTERNAL_FAMILY_PIN and s['definitionNames']==list(EXTERNAL_NAMES) and s['format']=='EXACT_EXTERNAL_EOSE20_NODE_JSON','EXACT_EXTERNAL_NAMED_NODE_FAMILY')
+    need(manifest['schema']=='e02-producer4-explicit-host-input-manifest-v1' and manifest['producerSource']==ack['producerSource'] and manifest['closedSourceSubjectKeys']==sorted(source) and manifest['controlPlan']==source['controlPlan'],'EXACT_CLOSED_SOURCE_INPUT_CONTRACT')
+    index={x['pin']['path']:x for x in manifest['files']};need(len(index)==len(manifest['files'])==manifest['actualInputCount'] and 1<=len(index)<=20000,'EXACT_CURRENT_INPUT_COUNT')
+    protected=source['sources']+source['runtimeSources']+source['externalControlSources']+list(source['configurations'].values())+list(plan['tools'].values())+method['sources']+[EXTERNAL_FAMILY_PIN]
+    for d in protected:need(index.get(d['path'],{}).get('pin')==d,'ALL_DECLARED_CODE_EXTERNAL_WORKERS_CONFIGS_TOOLS_PROTECTED')
+    need(set(source['configurations'])=={'incoming','archive'},'BOTH_ROLE_CONFIGURATIONS')
+    fixture=by_name['fixture.mjs'];tested=EXTERNAL_TESTED_FIXTURE
+    need(fixture['bytes']==tested['bytes'] and fixture['sha256']==tested['sha256'],'EXACT_TESTED_FIXTURE_BYTES_BIND_CURRENT_PRODUCER')
+    need(index[fixture['path']]['mode']==index[tested['path']]['mode']==EXTERNAL_FIXTURE_MODE,'EXACT_TESTED_AND_CURRENT_FIXTURE_MODES')
+    for d in EXTERNAL_CODE:need(index[d['path']]['mode']==EXTERNAL_MODES[d['path']],'EXACT_EXTERNAL_SOURCE_MODES')
+    need(plan['outputRoot'] is not None and type(plan['outputRoot']) is str and plan['outputRoot'].startswith('/Data/nbdp-e02-tooling-20261027/producer4-control-capture-actual-'),'FRESH_OWNED_CAPTURE_OUTPUT_NAMESPACE')
+
+def validate_external_source_names(raw,scope):
+    """Frozen literal declarations, no target import or source evaluation."""
+    need(type(raw) is bytes and scope['source']==EXTERNAL_SOURCE and scope['definitionNames']==list(EXTERNAL_NAMES),'EXACT_EXTERNAL_SOURCE_AND_NAMES')
+    need(len(raw)==EXTERNAL_SOURCE['bytes'] and __import__('hashlib').sha256(raw).hexdigest()==EXTERNAL_SOURCE['sha256'],'EXACT_EXTERNAL_SOURCE_BYTES')
+    # This exact script was independently inspected and SOURCE accepted; hash
+    # binds its closed literal expansion to the frozen twenty-name vector.
+    return list(EXTERNAL_NAMES)

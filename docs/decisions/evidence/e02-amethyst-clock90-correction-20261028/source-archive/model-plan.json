@@ -1,0 +1,86 @@
+{
+  "schema": "nbdp-amethyst-clock90-model-plan-v1",
+  "state": "DEFINED_NOT_EXECUTED_REQUIRES_SEPARATE_ROOT_MODEL_RELEASE",
+  "source": {
+    "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r8/test_clock90.py",
+    "bytes": 10475,
+    "sha256": "0f378225f327bacf558a45c14c611960aeb8c949db760e3656e67164612f4f71"
+  },
+  "definitions": [
+    "test_full_nonclock_module_ast_and_exact_verified_pinned_cascade",
+    "test_actual_clock_graph_owned_argv_and_expired_short_old_mismatch_refusal",
+    "test_materializer_null_clocks_only_two_fresh_fields_and_exact_overflow"
+  ],
+  "definedCount": 3,
+  "executed": 0,
+  "command": [
+    "/usr/bin/python3.12",
+    "-I",
+    "-B",
+    "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r8/test_clock90.py"
+  ],
+  "limits": {
+    "seconds": 15,
+    "stdoutBytes": 65536,
+    "stderrBytes": 262144
+  },
+  "directFileOperands": [
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r7/preparation/build_inside.py",
+      "bytes": 8341,
+      "sha256": "2b7d6b95197185c681c1226054542a4412af4bbbda97a15ffbd1b50db30fe5a2"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r7/supervisor-source/supervise_build.py",
+      "bytes": 31753,
+      "sha256": "79dee6482e31a97040013f7ffa8f260f5dc5055c64cfbc17ad1ed4268b54d587"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r7/materializer-source/materialize.py",
+      "bytes": 8072,
+      "sha256": "df2a6db3016c5e8a945cc90c36765d1f2b251b9585b2d6ebdce4cd96fc379d15"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r8/preparation/build_inside.py",
+      "bytes": 8341,
+      "sha256": "dd730ca18cbaad94b26ab3733c2c699cb0ea01f56f3aa88a8a6cdbee40ac27c6"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r8/supervisor-source/supervise_build.py",
+      "bytes": 31753,
+      "sha256": "4664055e9563fe4cc1c3c50579990dfbdb5362bd7158a94ef487e21c80ad5677"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r8/materializer-source/materialize.py",
+      "bytes": 8072,
+      "sha256": "21f9efd506c99edb128a2d614ee61eea966de2ed817e235ae694959a558652d8"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r8/supervisor-source/subject.json",
+      "bytes": 5376,
+      "sha256": "b8ebc5f3f0cce4297c738b2b9b0ab0f1b966b3b1dc7edcab62f1550321261ded"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r8/supervisor-source/plan.json",
+      "bytes": 12314,
+      "sha256": "8ddc9312f7a642a9838b1b7bb5ee426d843415b260e2939e0ded9f8ab5d11360"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r8/preparation/build-plan.json",
+      "bytes": 9415,
+      "sha256": "e2c405a7262a7428fdd9c1586025f2d8fb665d16a1b296bb93650d8291a0b9fe"
+    },
+    {
+      "path": "/Data/nbdp-e02-tooling-20261027/amethyst-build-preparation-r8/materializer-source/root-authorized-template.example.json",
+      "bytes": 2887,
+      "sha256": "40842f8e5ef567c9894184b36a906e36ea063f93318e5b3c9fb3af2c3d0d23c2"
+    },
+    {
+      "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-amethyst-clock90-correction-20261028/method-adoption.json",
+      "bytes": 2568,
+      "sha256": "47217a4df03e2f109830b1a28dd5507599ff16e3d4799f5bdd0a0563359c1cec"
+    }
+  ],
+  "allowedEvaluation": "Standard-library explicit source/JSON reads, AST parsing, exact selected pure definitions and synthetic predicates only. No executable build-module imports, tools, actual clock reads, runtime mutations, keys, SDK/Gradle/Docker/native execution.",
+  "scope": "Three new clock-only pure models. Full non-clock module AST preservation after exact clock/path and verified PINNED cascade normalization; actual budget/owned command/lease refusal; pure null-clock/fresh/overflow checks. R7 six-model DATA considered only for exact unchanged non-clock/command/prefix components, never rerun/relabelled."
+}

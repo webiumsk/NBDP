@@ -1,0 +1,145 @@
+test_complete_graph_failed_driver_has_no_export_contribution (__main__.WholeWindowDataControls.test_complete_graph_failed_driver_has_no_export_contribution) ... FAIL
+test_complete_graph_late_unlisted_proof_file_refused (__main__.WholeWindowDataControls.test_complete_graph_late_unlisted_proof_file_refused) ... FAIL
+test_complete_graph_nonzero_supervisor_error_cannot_donate_early_rows (__main__.WholeWindowDataControls.test_complete_graph_nonzero_supervisor_error_cannot_donate_early_rows) ... FAIL
+test_complete_graph_omitted_final_phase_member_refused (__main__.WholeWindowDataControls.test_complete_graph_omitted_final_phase_member_refused) ... FAIL
+test_complete_graph_operator_cannot_be_window_reviewer (__main__.WholeWindowDataControls.test_complete_graph_operator_cannot_be_window_reviewer) ... FAIL
+test_complete_graph_sticky_revoke_refused (__main__.WholeWindowDataControls.test_complete_graph_sticky_revoke_refused) ... FAIL
+test_complete_graph_unknown_source_policy_effect_claim_refused (__main__.WholeWindowDataControls.test_complete_graph_unknown_source_policy_effect_claim_refused) ... FAIL
+test_complete_two_role_windows_with_five_exports (__main__.WholeWindowDataControls.test_complete_two_role_windows_with_five_exports) ... ERROR
+test_whole_graph_preserves_actual_frozen_scope_and_source_guard_vocabulary (__main__.WholeWindowDataControls.test_whole_graph_preserves_actual_frozen_scope_and_source_guard_vocabulary) ... ERROR
+
+======================================================================
+ERROR: test_complete_two_role_windows_with_five_exports (__main__.WholeWindowDataControls.test_complete_two_role_windows_with_five_exports)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_whole_window.py", line 59, in test_complete_two_role_windows_with_five_exports
+    results = [model.inspect() for model in models]
+               ~~~~~~~~~~~~~^^
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/whole_window.py", line 741, in inspect
+    return self.m['consumer']._window_data(self.files,self.subject_pin,self.candidate,self.origin,self.producer)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/consumer.py", line 605, in _window_data
+    equal(config['helperApk'], CURRENT_HELPER_APK, 'EXACT_CURRENT_ACCEPTED_HELPER_ARTIFACT')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/strict.py", line 55, in equal
+    need(same(a, b), reason)
+    ~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/strict.py", line 21, in need
+    raise Refusal(reason)
+strict.Refusal: EXACT_CURRENT_ACCEPTED_HELPER_ARTIFACT
+
+======================================================================
+ERROR: test_whole_graph_preserves_actual_frozen_scope_and_source_guard_vocabulary (__main__.WholeWindowDataControls.test_whole_graph_preserves_actual_frozen_scope_and_source_guard_vocabulary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_whole_window.py", line 72, in test_whole_graph_preserves_actual_frozen_scope_and_source_guard_vocabulary
+    self.assertEqual(model.inspect()['exports'], 2)
+                     ~~~~~~~~~~~~~^^
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/whole_window.py", line 741, in inspect
+    return self.m['consumer']._window_data(self.files,self.subject_pin,self.candidate,self.origin,self.producer)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/consumer.py", line 605, in _window_data
+    equal(config['helperApk'], CURRENT_HELPER_APK, 'EXACT_CURRENT_ACCEPTED_HELPER_ARTIFACT')
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/strict.py", line 55, in equal
+    need(same(a, b), reason)
+    ~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/strict.py", line 21, in need
+    raise Refusal(reason)
+strict.Refusal: EXACT_CURRENT_ACCEPTED_HELPER_ARTIFACT
+
+======================================================================
+FAIL: test_complete_graph_failed_driver_has_no_export_contribution (__main__.WholeWindowDataControls.test_complete_graph_failed_driver_has_no_export_contribution)
+----------------------------------------------------------------------
+strict.Refusal: EXACT_CURRENT_ACCEPTED_HELPER_ARTIFACT
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_whole_window.py", line 77, in test_complete_graph_failed_driver_has_no_export_contribution
+    with self.assertRaisesRegex(self.modules['strict'].Refusal, 'VALUE_MISMATCH'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "VALUE_MISMATCH" does not match "EXACT_CURRENT_ACCEPTED_HELPER_ARTIFACT"
+
+======================================================================
+FAIL: test_complete_graph_late_unlisted_proof_file_refused (__main__.WholeWindowDataControls.test_complete_graph_late_unlisted_proof_file_refused)
+----------------------------------------------------------------------
+strict.Refusal: EXACT_CURRENT_ACCEPTED_HELPER_ARTIFACT
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_whole_window.py", line 101, in test_complete_graph_late_unlisted_proof_file_refused
+    with self.assertRaisesRegex(self.modules['strict'].Refusal, 'OMITTED_WHOLE_WINDOW_PROOF'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "OMITTED_WHOLE_WINDOW_PROOF" does not match "EXACT_CURRENT_ACCEPTED_HELPER_ARTIFACT"
+
+======================================================================
+FAIL: test_complete_graph_nonzero_supervisor_error_cannot_donate_early_rows (__main__.WholeWindowDataControls.test_complete_graph_nonzero_supervisor_error_cannot_donate_early_rows)
+----------------------------------------------------------------------
+strict.Refusal: EXACT_CURRENT_ACCEPTED_HELPER_ARTIFACT
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_whole_window.py", line 83, in test_complete_graph_nonzero_supervisor_error_cannot_donate_early_rows
+    with self.assertRaisesRegex(self.modules['strict'].Refusal, 'VALUE_MISMATCH'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "VALUE_MISMATCH" does not match "EXACT_CURRENT_ACCEPTED_HELPER_ARTIFACT"
+
+======================================================================
+FAIL: test_complete_graph_omitted_final_phase_member_refused (__main__.WholeWindowDataControls.test_complete_graph_omitted_final_phase_member_refused)
+----------------------------------------------------------------------
+strict.Refusal: EXACT_CURRENT_ACCEPTED_HELPER_ARTIFACT
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_whole_window.py", line 89, in test_complete_graph_omitted_final_phase_member_refused
+    with self.assertRaisesRegex(self.modules['strict'].Refusal, 'FINAL_PHASE_MEMBER_REQUIRED'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "FINAL_PHASE_MEMBER_REQUIRED" does not match "EXACT_CURRENT_ACCEPTED_HELPER_ARTIFACT"
+
+======================================================================
+FAIL: test_complete_graph_operator_cannot_be_window_reviewer (__main__.WholeWindowDataControls.test_complete_graph_operator_cannot_be_window_reviewer)
+----------------------------------------------------------------------
+strict.Refusal: EXACT_CURRENT_ACCEPTED_HELPER_ARTIFACT
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_whole_window.py", line 117, in test_complete_graph_operator_cannot_be_window_reviewer
+    with self.assertRaisesRegex(self.modules['strict'].Refusal, 'AUTHOR_OPERATOR_REVIEW_LAUNDERING'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "AUTHOR_OPERATOR_REVIEW_LAUNDERING" does not match "EXACT_CURRENT_ACCEPTED_HELPER_ARTIFACT"
+
+======================================================================
+FAIL: test_complete_graph_sticky_revoke_refused (__main__.WholeWindowDataControls.test_complete_graph_sticky_revoke_refused)
+----------------------------------------------------------------------
+strict.Refusal: EXACT_CURRENT_ACCEPTED_HELPER_ARTIFACT
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_whole_window.py", line 110, in test_complete_graph_sticky_revoke_refused
+    with self.assertRaisesRegex(self.modules['strict'].Refusal, 'STICKY_REVOKED_WINDOW'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "STICKY_REVOKED_WINDOW" does not match "EXACT_CURRENT_ACCEPTED_HELPER_ARTIFACT"
+
+======================================================================
+FAIL: test_complete_graph_unknown_source_policy_effect_claim_refused (__main__.WholeWindowDataControls.test_complete_graph_unknown_source_policy_effect_claim_refused)
+----------------------------------------------------------------------
+strict.Refusal: EXACT_CURRENT_ACCEPTED_HELPER_ARTIFACT
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-consumer-current178-source-20261105/source2/source/test_whole_window.py", line 95, in test_complete_graph_unknown_source_policy_effect_claim_refused
+    with self.assertRaisesRegex(self.modules['strict'].Refusal, 'VALUE_MISMATCH'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "VALUE_MISMATCH" does not match "EXACT_CURRENT_ACCEPTED_HELPER_ARTIFACT"
+
+----------------------------------------------------------------------
+Ran 9 tests in 8.343s
+
+FAILED (failures=7, errors=2)

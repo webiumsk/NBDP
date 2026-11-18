@@ -1,0 +1,35 @@
+{
+  "schema": "nbdp-amethyst-one-build-dispatch-template-v1",
+  "actor": "/root",
+  "decision": "NOT_READY_NO_EXECUTION_AUTHORITY",
+  "expectedOutput": null,
+  "release": {
+    "schema": "nbdp-amethyst-build-only-root-release-v1",
+    "actor": "/root",
+    "executionAuthorized": false,
+    "scope": "FIXED_AMETHYST_BUILD_ONLY",
+    "runId": null,
+    "issuedAtUtcNs": null,
+    "notAfterUtcNs": null,
+    "supervisorSubject": null,
+    "buildPreparationSubject": {
+      "path": "/tmp/nbdp-amethyst-rebuild-20261026/preparation/subject.json",
+      "bytes": 4032,
+      "sha256": "c8c75541ccaa8614831cd9c3acd9f8bc1668462561f227aeca6f3ff209369e52"
+    },
+    "sourceReviews": [],
+    "prerequisiteAcceptances": [],
+    "sourceArchive": null,
+    "sourceArchiveReceipt": null,
+    "extractions": {
+      "jdk": null,
+      "platform": null,
+      "build-tools": null,
+      "ndk": null
+    },
+    "networkId": null,
+    "networkLabels": null,
+    "meaning": "SOURCE2 NON_EXECUTABLE TEMPLATE; full networkID plus exact actual owner/scope labels and accepted input/source pins required."
+  },
+  "metadata": []
+}

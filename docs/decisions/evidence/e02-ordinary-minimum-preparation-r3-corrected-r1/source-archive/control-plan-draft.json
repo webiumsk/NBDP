@@ -1,0 +1,47 @@
+{
+  "schema": "e02-producer3-rebind-controls-draft-v1",
+  "state": "NOT_READY_FOUR_REAL_APK_PINS_NULL_NO_MODELS_RELEASED",
+  "source": null,
+  "priorActual35": {
+    "path": "/home/peterhorvath/apps/bitcoin/NBDP/docs/decisions/evidence/e02-ordinary-minimum-preparation-r2/current-controls-r1/results-r1/acceptance.json",
+    "bytes": 2395,
+    "sha256": "3da2a6e79d67804196fc3fb17279161eae2ab41a9590e015eb576b9d5c1cd17a"
+  },
+  "scopes": [
+    {
+      "scope": "observation-model",
+      "count": 20,
+      "module": "test_observation_model.mjs"
+    },
+    {
+      "scope": "public-identity-metadata",
+      "count": 8,
+      "module": "test_public_identity_metadata.py"
+    },
+    {
+      "scope": "producer2-source-wiring",
+      "count": 7,
+      "module": "test_producer2_source.py"
+    },
+    {
+      "scope": "rebuilt-artifact-bindings",
+      "count": 3,
+      "module": "test_producer3_bindings.py"
+    }
+  ],
+  "captureOnlyAfter": [
+    "Accepted actual new APK/provenance",
+    "Final SOURCE/closure freeze",
+    "Independent SOURCE QA/security",
+    "Separately hash-bound finite model caller/root release"
+  ],
+  "limits": {
+    "seconds": 60,
+    "stdoutBytes": 262144,
+    "stderrBytes": 1048576
+  },
+  "testsExecuted": 0,
+  "nativeExecuted": false,
+  "androidToolsExecuted": false,
+  "ordinaryRowsQualified": 0
+}
